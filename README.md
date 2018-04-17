@@ -22,7 +22,7 @@ An application that allows customers to make food orders and helps the food vend
 ## Getting Started
 
 ### Pivotal Tracker
-Project is built with the Project Management Tool, Pivotal Tracker. You can find the template[https://www.pivotaltracker.com/n/projects/2165637](https://www.pivotaltracker.com/n/projects/2165637)
+Project is built with the Project Management Tool, Pivotal Tracker. You can find the template at [https://www.pivotaltracker.com/n/projects/2165637](https://www.pivotaltracker.com/n/projects/2165637)
 
 ### Template
 Template is still in development and will be hosted on github pages
