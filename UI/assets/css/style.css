@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,600i");
+/**BUTTON**/
+.btn {
+  border-radius: 5px;
+  border-style: none;
+  padding: 10px 50px;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  outline: none; }
+  .btn:hover, .btn.focus, .btn.active {
+    outline: none;
+    cursor: pointer; }
+  .btn:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    -webkit-transform: scale(1, 1) translate(-50%);
+            transform: scale(1, 1) translate(-50%);
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%; }
+
+@-webkit-keyframes ripple {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+    opacity: 1; }
+  20% {
+    -webkit-transform: scale(25, 25);
+            transform: scale(25, 25);
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(40, 40);
+            transform: scale(40, 40); } }
+
+@keyframes ripple {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+    opacity: 1; }
+  20% {
+    -webkit-transform: scale(25, 25);
+            transform: scale(25, 25);
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(40, 40);
+            transform: scale(40, 40); } }
+  .btn:focus:not(:active)::after {
+    -webkit-animation: ripple 1s ease-out;
+            animation: ripple 1s ease-out; }
+  .btn-pri {
+    border: 2px solid #458905;
+    background-color: #458905;
+    color: #FFFFFF; }
+    .btn-pri:hover, .btn-pri.focus, .btn-pri.active {
+      transition: background-color 0.5s, border-color 0.5s;
+      background-color: #397004;
+      border-color: #397004;
+      color: #FFFFFF; }
+  .btn-sec {
+    border: 2px solid #458905;
+    background-color: #FFFFFF;
+    color: #458905;
+    border-color: #458905; }
+    .btn-sec:hover, .btn-sec.focus, .btn-sec.active {
+      transition: background-color 0.5s, color 0.5s, border-color 0.5s;
+      background-color: #397004;
+      border-color: #397004;
+      color: white; }
+  .btn-pri-danger {
+    border: 2px solid #d50000;
+    background-color: #d50000;
+    color: #FFFFFF; }
+    .btn-pri-danger:hover, .btn-pri-danger.focus, .btn-pri-danger.active {
+      transition: background-color 0.5s, border-color 0.5s;
+      background-color: #bc0000;
+      border-color: #bc0000;
+      color: #FFFFFF; }
+  .btn-sec-danger {
+    border: 2px solid #d50000;
+    background-color: #FFFFFF;
+    color: #d50000;
+    border-color: #d50000; }
+    .btn-sec-danger:hover, .btn-sec-danger.focus, .btn-sec-danger.active {
+      transition: background-color 0.5s, color 0.5s, border-color 0.5s;
+      background-color: #bc0000;
+      border-color: #bc0000;
+      color: white; }
+
+.card, .modal-content {
+  min-width: 200px;
+  min-height: 200px;
+  border-radius: 8px;
+  color: #333;
+  background-color: #FFFFFF;
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column; }
+
+.card, .modal-content {
+  min-width: 200px;
+  min-height: 200px;
+  border-radius: 8px;
+  color: #333;
+  background-color: #FFFFFF;
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column; }
+
+.modal:before {
+  content: "";
+  display: none;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.modal:target:before {
+  display: block; }
+
+.modal:target .modal-content {
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0); }
+
+.modal-content {
+  z-index: 11;
+  min-height: 300px;
+  min-width: 500px;
+  -webkit-transform: translate(0, -500%);
+          transform: translate(0, -500%);
+  transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out; }
+  .modal-content .modal-header {
+    display: flex;
+    justify-content: space-between; }
+    .modal-content .modal-header .modal-title {
+      flex-grow: 11;
+      font-size: 1.5em;
+      font-weight: bold;
+      display: flex;
+      justify-content: center; }
+      .modal-content .modal-header .modal-title p {
+        margin: 0.7em 0; }
+    .modal-content .modal-header .close {
+      flex-grow: 1;
+      font-size: 1.5em;
+      font-weight: bold;
+      text-align: right;
+      color: #989ea2; }
+      .modal-content .modal-header .close a {
+        display: block;
+        margin: 0.7em 0.7em 0.7em 0; }
+  .modal-content .modal-body {
+    padding: 20px; }
+
+.dropdown-menu {
+  width: 140px;
+  border-radius: 3px;
+  border: 1px solid #989ea2;
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.05); }
+  .dropdown-menu > div {
+    margin: 7px; }
+
+.sidenav:before {
+  content: "";
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.sidenav:target:before {
+  display: block; }
+
+.sidenav:target .sidenav-content {
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0); }
+
+.sidenav-content {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 11;
+  top: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+  padding-top: 60px;
+  box-shadow: 3px 0 rgba(0, 0, 0, 0.05);
+  -webkit-transform: translate(-100%, 0);
+          transform: translate(-100%, 0);
+  transition: -webkit-transform 0.5s ease-out;
+  transition: transform 0.5s ease-out;
+  transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out; }
+  .sidenav-content .sidenav-header {
+    display: flex;
+    justify-content: space-between; }
+    .sidenav-content .sidenav-header .sidenav-title {
+      flex-grow: 11;
+      font-size: 1.5em;
+      font-weight: bold;
+      display: flex;
+      justify-content: center; }
+      .sidenav-content .sidenav-header .sidenav-title p {
+        margin: 0.7em 0; }
+    .sidenav-content .sidenav-header .close {
+      flex-grow: 1;
+      font-size: 1.5em;
+      font-weight: bold;
+      text-align: right;
+      color: #989ea2; }
+      .sidenav-content .sidenav-header .close a {
+        display: block;
+        margin: 0.7em 0.7em 0.7em 0; }
+  .sidenav-content .menu-item {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 1.5em;
+    display: block; }
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px; }
+    .sidenav a {
+      font-size: 18px; } }
+
+html {
+  margin: 0;
+  height: 100%;
+  font-weight: 400;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px; }
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #333;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/chicken-fajitas.jpg") white no-repeat fixed;
+  background-size: cover;
+  align-items: center;
+  justify-content: center; }
+  body.overlay {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/chicken-fajitas.jpg") white no-repeat fixed; }
+
+a {
+  color: #333;
+  text-decoration: none;
+  cursor: pointer; }
+  a:hover, a:focus, a.active {
+    transition: color 0.5s;
+    color: #458905; }
+
+.test {
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  padding: 20vh; }
+
+hr {
+  color: #c2c3c4;
+  box-sizing: content-box;
+  height: 0;
+  width: 99.9%;
+  overflow: hidden;
+  margin: 0;
+  border-style: solid;
+  border-width: 0.5px; }

@@ -1,0 +1,12 @@
+@import '../_variables.scss';
+
+.dropdown-menu {
+  width: 140px;
+  border-radius: 3px;
+  border: 1px solid $grey;
+  box-shadow: $card-shadow;
+
+  &>div {
+    margin: 7px;
+  }
+}

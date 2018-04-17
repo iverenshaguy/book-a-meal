@@ -1,0 +1,12 @@
+@import '../_variables.scss';
+
+.card {
+  min-width: 200px;
+  min-height: 200px;
+  border-radius: 8px;
+  color: $dark;
+  background-color: $white;
+  box-shadow: $card-shadow;
+  display: flex;
+  flex-direction: column;
+}

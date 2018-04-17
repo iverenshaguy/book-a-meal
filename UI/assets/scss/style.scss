@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,600i");
+@import './_variables.scss';
+@import 'modules/buttons';
+@import 'modules/cards';
+@import 'modules/modals';
+@import 'modules/dropdowns';
+@import 'modules/sidenav';
+
+html {
+	margin: 0;
+  height: 100%;
+  font-weight: 400;
+  font-family: $font-stack;
+  font-size: $body-font-size;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+	color: $dark;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../img/chicken-fajitas.jpg")	white no-repeat fixed;
+	background-size: cover;
+	align-items: center;
+  justify-content: center;
+  
+  &.overlay {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("../img/chicken-fajitas.jpg")	white no-repeat fixed;
+  }
+}
+
+a {
+  color: $dark;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &.active {
+    transition: color 0.5s;
+    color: $primary-color;
+  }
+}
+
+.test {
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  padding: 20vh;
+}
+
+hr {
+  color: #c2c3c4;
+  box-sizing: content-box;
+  height: 0;
+  width: 99.9%;
+  overflow: hidden;
+  margin: 0;
+  border-style: solid;
+  border-width: 0.5px;
+}
