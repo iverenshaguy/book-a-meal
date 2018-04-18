@@ -7,6 +7,10 @@
 @import 'modules/dropdowns';
 @import 'modules/sidenav';
 @import 'modules/form_elements';
+@import 'modules/username_circle';
+@import 'modules/header';
+@import 'modules/dashboard';
+@import 'modules/tables';
 @import './_mixins.scss';
 
 html {
@@ -18,6 +22,7 @@ html {
 }
 
 body {
+  margin: 0;
   display: flex;
   min-height: 100%;
   flex-direction: column;
@@ -34,7 +39,56 @@ body {
   }
 }
 
-// HEADING
+// MISC
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-md {
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+.d-flex-md {
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.d-lg {
+  @media (min-width: 992px) {
+    display: block;
+  }
+}
+
+.d-flex-lg {
+  @media (min-width: 992px) {
+    display: flex;
+  }
+}
+
+.d-none-md {
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.d-none-lg {
+  @media (min-width: 992px) {
+    display: none;
+  }
+}
+
+// HEADINGS
 h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font-stack;
 }
@@ -64,56 +118,13 @@ a {
 }
 
 hr {
-  color: #989EA2;
+  color: $line-color;
   box-sizing: content-box;
   height: 0;
   width: 99.9%;
   overflow: hidden;
   border-style: solid;
   border-width: 0.5px;
-}
-
-// HEADER
-.header {
-  margin-top: 0px;
-  height: 70px;
-  color: $white;
-  padding: 0 10px;
-  display: flex;
-  flex-direction: row;
-  font-family: $heading-font-stack;
-  justify-content: space-between;
-  align-content: center;
-
-  .page-title {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
-    a {
-      font-family: $heading-font-stack;
-      color: $white;
-      display: block;
-      font-size: 1.2em;
-      margin: 1em 0;
-      font-weight: bold;
-    }
-  }
-  
-
-  .navlinks {
-    height: 100%;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    
-    .link {
-      color: $white;
-    }
-  }
 }
 
 // WIDTHS
@@ -123,10 +134,12 @@ hr {
 
 // FOOTER
 .footer {
+  display: flex;
   height: 70px;
   color: $white;
   padding: 0 10px;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
 
   p {
     font-size: 12px;
@@ -170,6 +183,7 @@ hr {
 .auth {
   @extend .card;
 
+  border-radius: 0px;
   padding: 10px 30px;
   width: 100%;
 
@@ -182,8 +196,57 @@ hr {
   }
 }
 
-@media (min-width: 451px) and (max-width: 575.98px) {
+// ADMIN
+.admin {
+  display: block;
+  background: $lightgrey;
+  color: $dark;
 
+  .navbar {
+    box-shadow: $navbar-shadow;
+  }
+
+  .header .navbar .page-title a, .navlinks, .header .navbar .navlinks .link {
+    color: $dark;
+  }
+
+  .footer {
+    background-color: $white;
+
+    p {
+      color: $dark;
+    }
+  }
+
+
+  @media (min-width: 767.98px) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    .content {
+      flex-grow: 10;
+      display: flex;
+      flex-direction: row;
+      min-height: 100%;
+
+      .sidenav {
+        // flex-grow: 1;
+      }
+
+      .dashboard {
+        flex-grow: 1;
+      }
+    }
+    
+  }
+
+  // .wrapper {
+  //   flex-grow: 2;
+  // }
+}
+
+@media (min-width: 451px) and (max-width: 575.98px) {
   .auth {
     width: 75%;
     padding: 10px 35px;
@@ -191,12 +254,6 @@ hr {
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
-  .header {
-    .page-title {
-      flex-grow: 2;
-    }
-  }
-
   .auth {
     width: 60%;
     padding: 10px 35px;
@@ -204,12 +261,6 @@ hr {
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-  .header {
-    .page-title {
-      flex-grow: 3;
-    }
-  }
-
   .auth {
     width: 60%;
     padding: 20px 50px;
@@ -217,12 +268,6 @@ hr {
 }
 
 @media (min-width: 992px) {
-  .header {
-    .page-title {
-      flex-grow: 4;
-    }
-  }
-
   .auth {
     width: 40%;
     padding: 10px 50px;

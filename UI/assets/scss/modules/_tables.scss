@@ -1,0 +1,61 @@
+@import '../_variables.scss';
+@import './cards';
+
+.table-wrapper {
+  overflow-x:auto;
+}
+
+table {
+  @extend .card;
+  display: table;
+  border-radius: 3px;
+  border-collapse: collapse;
+  width: 100%;
+
+  tr, thead {
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  thead {
+    border-top: 0;
+    tr {
+      border-top: 0;
+
+      th {
+        border-top: 0;
+      }
+    }
+  }
+
+  tr:last-child() {
+    border-bottom: 0;
+    td {
+      border-bottom: 0;
+    }
+  }
+
+  td:first-child(), th:first-child() {
+    border-left: 0;
+  }
+
+  td:last-child(), th:last-child() {
+    border-right: 0;
+    
+  }
+
+  tr:nth-child(even){
+    background-color: $light;
+  }
+
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: $dark;
+  }
+}

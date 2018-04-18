@@ -28,3 +28,10 @@
     color: white;
   }
 }
+
+@mixin center-align($type) {
+  display: flex;
+  flex-direction: $type;
+  justify-content: center;
+  align-items: center;
+}

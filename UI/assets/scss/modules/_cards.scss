@@ -9,8 +9,5 @@
   box-shadow: $card-shadow;
   display: flex;
   flex-direction: column;
-
-  // @media (min-width: 576px) {
-  //   border-radius: 8px;
-  // }
+  border-radius: 8px;
 }
