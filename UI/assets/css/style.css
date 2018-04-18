@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,600i");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
 /**BUTTON**/
 .btn {
   border-radius: 5px;
   border-style: none;
   padding: 10px 50px;
+  font-family: "Nunito", sans-serif;
   font-size: 18px;
   font-weight: bold;
   position: relative;
@@ -12,51 +14,8 @@
   .btn:hover, .btn.focus, .btn.active {
     outline: none;
     cursor: pointer; }
-  .btn:after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 5px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.5);
-    opacity: 0;
-    border-radius: 100%;
-    -webkit-transform: scale(1, 1) translate(-50%);
-            transform: scale(1, 1) translate(-50%);
-    -webkit-transform-origin: 50% 50%;
-            transform-origin: 50% 50%; }
-
-@-webkit-keyframes ripple {
-  0% {
-    -webkit-transform: scale(0, 0);
-            transform: scale(0, 0);
-    opacity: 1; }
-  20% {
-    -webkit-transform: scale(25, 25);
-            transform: scale(25, 25);
-    opacity: 1; }
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(40, 40);
-            transform: scale(40, 40); } }
-
-@keyframes ripple {
-  0% {
-    -webkit-transform: scale(0, 0);
-            transform: scale(0, 0);
-    opacity: 1; }
-  20% {
-    -webkit-transform: scale(25, 25);
-            transform: scale(25, 25);
-    opacity: 1; }
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(40, 40);
-            transform: scale(40, 40); } }
-  .btn:focus:not(:active)::after {
-    -webkit-animation: ripple 1s ease-out;
-            animation: ripple 1s ease-out; }
+  .btn-block {
+    width: 100%; }
   .btn-pri {
     border: 2px solid #458905;
     background-color: #458905;
@@ -96,20 +55,20 @@
       border-color: #bc0000;
       color: white; }
 
-.card, .modal-content {
+.card, .modal-content, .auth {
   min-width: 200px;
   min-height: 200px;
-  border-radius: 8px;
+  box-sizing: border-box;
   color: #333;
   background-color: #FFFFFF;
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column; }
 
-.card, .modal-content {
+.card, .modal-content, .auth {
   min-width: 200px;
   min-height: 200px;
-  border-radius: 8px;
+  box-sizing: border-box;
   color: #333;
   background-color: #FFFFFF;
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.05);
@@ -239,24 +198,73 @@
     .sidenav a {
       font-size: 18px; } }
 
+form {
+  padding: 30px 0 0; }
+  form label {
+    color: #5e5a5a;
+    font-weight: 300;
+    font-size: 1.15em; }
+
+.form-input-checkbox {
+  margin-bottom: 30px; }
+
+.form-input {
+  color: #5e5a5a;
+  display: flex;
+  margin-bottom: 30px;
+  flex-direction: column; }
+  .form-input input:not([type="checkbox"]) {
+    border: 0;
+    color: #5e5a5a;
+    border-bottom: 1px solid #5e5a5a;
+    height: 30px;
+    outline: none; }
+    .form-input input:not([type="checkbox"])[value=""] {
+      height: 10px;
+      transition: height 0.3s; }
+    .form-input input:not([type="checkbox"]):focus, .form-input input:not([type="checkbox"]):active, .form-input input:not([type="checkbox"]):not([value=""]) {
+      height: 30px;
+      outline: none;
+      transition: height 0.3s; }
+    .form-input input:not([type="checkbox"]).invalid {
+      border-color: red; }
+
+.input-info {
+  font-size: 0.75em;
+  color: #989ea2; }
+
+.form-extra-info a {
+  color: #458905; }
+  .form-extra-info a:hover, .form-extra-info a:focus, .form-extra-info a:active {
+    color: #397004;
+    transition: color 0.5s; }
+
 html {
   margin: 0;
   height: 100%;
   font-weight: 400;
-  font-family: "Nunito", sans-serif;
+  font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px; }
 
 body {
-  min-height: 100%;
   display: flex;
+  min-height: 100%;
   flex-direction: column;
   color: #333;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/chicken-fajitas.jpg") white no-repeat fixed;
   background-size: cover;
-  align-items: center;
-  justify-content: center; }
+  justify-content: space-between; }
   body.overlay {
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/chicken-fajitas.jpg") white no-repeat fixed; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Nunito", sans-serif; }
+
+.danger {
+  color: #d50000; }
+
+.text-center {
+  text-align: center; }
 
 a {
   color: #333;
@@ -266,18 +274,62 @@ a {
     transition: color 0.5s;
     color: #458905; }
 
-.test {
-  width: 50%;
-  height: 50%;
-  background-color: white;
-  padding: 20vh; }
-
 hr {
-  color: #c2c3c4;
+  color: #989EA2;
   box-sizing: content-box;
   height: 0;
   width: 99.9%;
   overflow: hidden;
-  margin: 0;
   border-style: solid;
   border-width: 0.5px; }
+
+.header {
+  margin-top: 0px;
+  height: 70px;
+  color: #FFFFFF;
+  padding: 0 10px; }
+
+.w-90 {
+  width: 90%; }
+
+.footer {
+  height: 70px;
+  color: #FFFFFF;
+  padding: 0 10px;
+  text-align: center; }
+  .footer p {
+    font-size: 12px; }
+
+.main-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.auth {
+  padding: 10px 30px;
+  width: 100%; }
+  .auth .title {
+    text-align: center; }
+  @media (min-width: 451px) {
+    .auth {
+      border-radius: 8px; } }
+
+@media (min-width: 451px) and (max-width: 575.98px) {
+  .auth {
+    width: 75%;
+    padding: 10px 35px; } }
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .auth {
+    width: 60%;
+    padding: 10px 35px; } }
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .auth {
+    width: 60%;
+    padding: 20px 50px; } }
+
+@media (min-width: 992px) {
+  .auth {
+    width: 40%;
+    padding: 10px 50px; } }

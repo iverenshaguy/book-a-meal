@@ -1,0 +1,65 @@
+@import '../_variables.scss';
+
+form {
+  padding: 30px 0 0;
+
+  label {
+    color: $input;
+    font-weight: 300;
+    font-size: 1.15em;
+  }
+}
+
+.form-input-checkbox {
+  margin-bottom: 30px;
+}
+
+.form-input {
+  color: $input;
+  display: flex;
+  margin-bottom: 30px;
+  flex-direction: column;
+
+  input:not([type="checkbox"]) {
+    border: 0;
+    color: $input;
+    border-bottom: 1px solid $input;
+    height: 30px;
+    outline: none;
+
+    &[value=""] {
+      height: 10px;
+      transition: height 0.3s;
+    }
+
+    &:focus,
+    &:active,
+    &:not([value=""]) {
+      height: 30px;
+      outline: none;
+      transition: height 0.3s;
+    }
+
+    &.invalid {
+      border-color: red;
+    }
+  }
+}
+
+.input-info {
+  font-size: 0.75em;
+  color: $grey;
+}
+
+.form-extra-info {
+  a {
+    color: $primary-color;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: darken($primary-color, 5%);
+      transition: color 0.5s;
+    }
+  }
+}

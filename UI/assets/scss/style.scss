@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,600i");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
 @import './_variables.scss';
 @import 'modules/buttons';
 @import 'modules/cards';
 @import 'modules/modals';
 @import 'modules/dropdowns';
 @import 'modules/sidenav';
+@import 'modules/form_elements';
 
 html {
 	margin: 0;
@@ -15,15 +17,15 @@ html {
 }
 
 body {
-  min-height: 100%;
   display: flex;
+  min-height: 100%;
   flex-direction: column;
 	color: $dark;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../img/chicken-fajitas.jpg")	white no-repeat fixed;
 	background-size: cover;
-	align-items: center;
-  justify-content: center;
+	// align-items: center;
+  justify-content: space-between;
   
   &.overlay {
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
@@ -31,6 +33,22 @@ body {
   }
 }
 
+// HEADING
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font-stack;
+}
+
+// COLORS
+.danger {
+  color: $danger;
+}
+
+// POSITION
+.text-center {
+  text-align: center;
+}
+
+// LINKS
 a {
   color: $dark;
   text-decoration: none;
@@ -44,20 +62,94 @@ a {
   }
 }
 
-.test {
-  width: 50%;
-  height: 50%;
-  background-color: white;
-  padding: 20vh;
-}
-
 hr {
-  color: #c2c3c4;
+  color: #989EA2;
   box-sizing: content-box;
   height: 0;
   width: 99.9%;
   overflow: hidden;
-  margin: 0;
   border-style: solid;
   border-width: 0.5px;
 }
+
+// HEADER
+.header {
+  margin-top: 0px;
+  // position: fixed;
+  // top: 0%;
+  // left: 0%;
+  height: 70px;
+  color: $white;
+  // flex-grow: 1;
+  padding: 0 10px;
+}
+
+// WIDTHS
+.w-90 {
+  width: 90%;
+}
+
+// FOOTER
+.footer {
+  height: 70px;
+  color: $white;
+  padding: 0 10px;
+  text-align: center;
+
+  p {
+    font-size: 12px;
+  }
+}
+
+// MAIN WRAPPER
+.main-wrapper {
+  // height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// AUTH WRAPPER
+.auth {
+  @extend .card;
+
+  padding: 10px 30px;
+  width: 100%;
+
+  .title {
+    text-align: center;
+  }
+
+  @media (min-width: 451px) {
+    border-radius: 8px;
+  }
+}
+
+@media (min-width: 451px) and (max-width: 575.98px) {
+  .auth {
+    width: 75%;
+    padding: 10px 35px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .auth {
+    width: 60%;
+    padding: 10px 35px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .auth {
+    width: 60%;
+    padding: 20px 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .auth {
+    width: 40%;
+    padding: 10px 50px;
+  }
+}
+
