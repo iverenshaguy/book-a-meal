@@ -1,0 +1,8 @@
+@import '../_variables.scss';
+@import '../_meals.scss';
+
+.menu {
+  @extend .meals;
+
+  
+}

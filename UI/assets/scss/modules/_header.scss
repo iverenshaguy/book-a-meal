@@ -3,7 +3,7 @@
 .header {
   margin-top: 0px;
   height: 70px;
-
+  
 
   .navbar {
     height: 100%;
@@ -69,19 +69,19 @@
       }
 
       img {
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
       }
 
       @media (max-width: 767.98px) {
         img {
-          width: 25px;
-          height: 25px;
+          width: 20px;
+          height: 20px;
         }
       }
     }
 
-    &.admin-navbar {
+    &.white-navbar {
       background-color: white;
 
       .navlinks {
@@ -91,16 +91,16 @@
           justify-content: space-between;
           align-items: center;
 
-          .circle {
+          .dropdown, .circle {
             padding-right: 0px;
           }
 
           @media (min-width: 992px) {
-            a {
+            &>a {
               margin: 10px;
             }
 
-            .circle {
+            .dropdown, .circle {
               padding-right: 10px;
             }
           }

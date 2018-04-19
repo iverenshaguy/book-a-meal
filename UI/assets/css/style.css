@@ -260,6 +260,17 @@
         color: #4CAF50;
         background-color: #F1F2F2;
         transition: color 0.5s, background-color 0.5s; }
+    .dropdown .dropdown-content.profile {
+      margin: 0px; }
+  .dropdown.notification .dropdown-content {
+    width: 250px;
+    margin-top: 30px;
+    margin-right: -16vw;
+    z-index: 25; }
+    .dropdown.notification .dropdown-content a {
+      padding: 20px 15px; }
+      .dropdown.notification .dropdown-content a.read {
+        background-color: #F1F2F2; }
 
 .sidenav {
   box-shadow: 3px 0 10px 1px rgba(0, 0, 0, 0.05); }
@@ -484,25 +495,25 @@ form {
       .header .navbar .navlinks .link {
         color: #FFFFFF; }
       .header .navbar .navlinks img {
-        width: 30px;
-        height: 30px; }
+        width: 25px;
+        height: 25px; }
       @media (max-width: 767.98px) {
         .header .navbar .navlinks img {
-          width: 25px;
-          height: 25px; } }
-    .header .navbar.admin-navbar {
+          width: 20px;
+          height: 20px; } }
+    .header .navbar.white-navbar {
       background-color: white; }
-      .header .navbar.admin-navbar .navlinks .user-info {
+      .header .navbar.white-navbar .navlinks .user-info {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center; }
-        .header .navbar.admin-navbar .navlinks .user-info .circle {
+        .header .navbar.white-navbar .navlinks .user-info .dropdown, .header .navbar.white-navbar .navlinks .user-info .circle {
           padding-right: 0px; }
         @media (min-width: 992px) {
-          .header .navbar.admin-navbar .navlinks .user-info a {
+          .header .navbar.white-navbar .navlinks .user-info > a {
             margin: 10px; }
-          .header .navbar.admin-navbar .navlinks .user-info .circle {
+          .header .navbar.white-navbar .navlinks .user-info .dropdown, .header .navbar.white-navbar .navlinks .user-info .circle {
             padding-right: 10px; } }
   @media (max-width: 767.98px) {
     .header > p {
@@ -677,6 +688,11 @@ table {
       .meals .meal-card .meal-card-body ul {
         padding-left: 0;
         list-style-type: none; }
+    .meals .meal-card .meal-card-action {
+      margin-bottom: 30px; }
+      .meals .meal-card .meal-card-action .btn {
+        padding: 7px 20px;
+        border-radius: 2px; }
 
 html {
   margin: 0;
@@ -875,6 +891,9 @@ hr {
       color: transparent;
       background: transparent;
       opacity: 1; }
+
+.user {
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("../img/chicken-fajitas.jpg") white no-repeat fixed; }
 
 @media (min-width: 451px) and (max-width: 575.98px) {
   .auth {

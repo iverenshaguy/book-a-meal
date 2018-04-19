@@ -4,9 +4,9 @@ const modal = document.getElementsByClassName('modal')[0];
 const mealModal = document.getElementById('meal-modal');
 const modalTitle = document.getElementById('modal-title-h3');
 const modalBody = document.getElementsByClassName('modal-body')[0];
-const dropdowns = document.getElementsByClassName('dropdown-content');
 const menuModalBtn = document.getElementById('menu-modal-btn');
 const menuModal = document.getElementById('menu-modal');
+const dropdowns = document.getElementsByClassName('dropdown');
 
 // javscript closest polyfill
 if (!Element.prototype.matches)
@@ -24,8 +24,38 @@ if (!Element.prototype.closest)
     return null;
   };
 
-if (addMealModalBtn) addMealModalBtn.onclick = e => showModal(e, mealModal);;
-if (menuModalBtn) menuModalBtn.onclick = e => showModal(e, menuModal);;
+if (addMealModalBtn) addMealModalBtn.onclick = e => showModal(e, mealModal);
+if (menuModalBtn) menuModalBtn.onclick = e => showModal(e, menuModal);
+
+if (dropdowns.length) for (let i = 0; i < dropdowns.length; i++) {
+  dropdowns[i].addEventListener('click', function (e) {
+    e.preventDefault();
+
+    if (e.target !== e.currentTarget && e.target.id === 'dropdown-toggler') {
+      const target = e.target;
+      const wrapper = target.nextSibling.nextSibling;
+
+      toggleDropdown(target, wrapper);
+    }
+
+    if (e.target !== e.currentTarget && e.target.id === 'dropdown-img') {
+      const target = e.target;
+      const wrapper = target.parentNode.nextSibling.nextSibling;
+
+      toggleDropdown(target, wrapper);
+    }
+
+    if (e.target !== e.currentTarget && e.target.id === 'logout') {
+      window.location.href = './login.html'
+    }
+
+    if (e.target !== e.currentTarget && e.target.id === 'order-history') {
+      window.location.href = './order-history.html'
+    }
+
+    e.stopPropagation();
+  }, false);
+}
 
 if (modal) modal.addEventListener('click', function (e) {
   if (e.target !== e.currentTarget && e.target.id === 'modal-close-icon') {
@@ -44,13 +74,6 @@ if (modal) modal.addEventListener('click', function (e) {
 if (cardGroup) cardGroup.addEventListener('click', function (e) {
   e.preventDefault();
 
-  if (e.target !== e.currentTarget && e.target.id === 'dropdown-toggler') {
-    const target = e.target;
-    target.style.color = 'white';
-    target.nextSibling.nextSibling.classList.toggle('show');
-    target.style.color = '';
-  }
-
   if (e.target !== e.currentTarget && (e.target.id === 'edit-meal' || e.target.id === 'delete-meal')) {
     showModal(e, mealModal);
   }
@@ -61,6 +84,12 @@ if (cardGroup) cardGroup.addEventListener('click', function (e) {
 function pickDate() {
   datePicker.click();
 };
+
+function toggleDropdown(target, wrapper) {
+  target.style.color = 'white';
+  wrapper.classList.toggle('show');
+  target.style.color = '';
+}
 
 function showModal(e, type) {
   type.classList.toggle('show');

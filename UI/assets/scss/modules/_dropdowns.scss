@@ -42,5 +42,26 @@
         transition: color 0.5s, background-color 0.5s;
       }
     }
+
+    &.profile {
+      margin: 0px;
+    }
+  }
+
+  &.notification {
+    .dropdown-content {
+      width: 250px;
+      margin-top: 30px;
+      margin-right: -16vw;
+      z-index: 25;
+
+      a {
+        padding: 20px 15px;
+
+        &.read {
+          background-color: $lightgrey;
+        }
+      }
+    }
   }
 }

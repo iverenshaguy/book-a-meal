@@ -11,7 +11,7 @@
 
 <body class="admin">
   <div class="header">
-    <div class="navbar admin-navbar">
+    <div class="navbar white-navbar">
       <div class="menu-control d-none-md">
         <a href="#sidenav" class="d-none-md">
           <img src="./assets/img/toggler.png" alt="toggler">
@@ -23,15 +23,33 @@
         </h3>
       </div>
       <div class="navlinks">
-        <a href="#" class="link dropdown">
-          <img src="./assets/img/notif.png" alt="toggler">
-        </a>
-        <div class="user-info">
-          <a href="#" class="link circle">
-            <div class="username-circle">
-              <p>I</p>
-            </div>
+        <div class="dropdown notification">
+          <a href="#" id="dropdown-toggler" class="link">
+            <img src="./assets/img/notif.png" alt="notification bell" id="dropdown-img">
           </a>
+          <div class="dropdown-content" id="dropdown-content">
+            <a href="#" class="read">Jollof Rice Meal was just added to the menu</a>
+            <a href="#">Jollof Rice Meal was just added to the menu</a>
+            <a href="#" class="read">Jollof Rice Meal was just added to the menu</a>
+            <a href="#">Jollof Rice Meal was just added to the menu</a>
+            <a href="#">Jollof Rice Meal was just added to the menu</a>
+            <a href="#">Jollof Rice Meal was just added to the menu</a>
+            <a href="#" class="read">Jollof Rice Meal was just added to the menu</a>
+          </div>
+        </div>
+        <div class="user-info">
+          <div class="dropdown">
+            <a href="#" id="dropdown-toggler" class="link circle">
+              <div class="username-circle" id="dropdown-img">
+                <p>I</p>
+              </div>
+            </a>
+            <div class="dropdown-content profile" id="dropdown-content">
+              <a href="./order-history.html" id="order-history">Order History</a>
+              <a href="./login.html" id="logout">Logout</a>
+            </div>
+          </div>
+
           <p class="hide d-lg">Iveren</p>
         </div>
       </div>
@@ -71,7 +89,7 @@
       </div>
       <div class="admin-headings">
         <h2>Meal Items on Today's Menu</h2>
-        <hr class="w-75">
+        <hr>
       </div>
       <div class="card-group meals-wrapper" id="card-group">
         <div class="meal-card" id="meal-card">
