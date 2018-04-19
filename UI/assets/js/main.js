@@ -2,11 +2,13 @@ const cardGroup = document.getElementById('card-group');
 const addMealModalBtn = document.getElementById('add-meal-btn');
 const modal = document.getElementsByClassName('modal')[0];
 const mealModal = document.getElementById('meal-modal');
+const notifModal = document.getElementById('notif-modal');
 const modalTitle = document.getElementById('modal-title-h3');
 const modalBody = document.getElementsByClassName('modal-body')[0];
 const menuModalBtn = document.getElementById('menu-modal-btn');
 const menuModal = document.getElementById('menu-modal');
 const dropdowns = document.getElementsByClassName('dropdown');
+const checkoutBtn = document.getElementById('checkout');
 
 // javscript closest polyfill
 if (!Element.prototype.matches)
@@ -26,6 +28,7 @@ if (!Element.prototype.closest)
 
 if (addMealModalBtn) addMealModalBtn.onclick = e => showModal(e, mealModal);
 if (menuModalBtn) menuModalBtn.onclick = e => showModal(e, menuModal);
+if (checkoutBtn) checkoutBtn.onclick = e => showModal(e, notifModal);
 
 if (dropdowns.length) for (let i = 0; i < dropdowns.length; i++) {
   dropdowns[i].addEventListener('click', function (e) {
@@ -36,6 +39,10 @@ if (dropdowns.length) for (let i = 0; i < dropdowns.length; i++) {
       const wrapper = target.nextSibling.nextSibling;
 
       toggleDropdown(target, wrapper);
+    }
+
+    if (e.target !== e.currentTarget && (e.target.id === 'edit-meal' || e.target.id === 'delete-meal')) {
+      showModal(e, mealModal);
     }
 
     if (e.target !== e.currentTarget && e.target.id === 'dropdown-img') {
@@ -57,6 +64,14 @@ if (dropdowns.length) for (let i = 0; i < dropdowns.length; i++) {
   }, false);
 }
 
+// if (cardGroup) cardGroup.addEventListener('click', function (e) {
+//   if (e.target !== e.currentTarget && (e.target.id === 'edit-meal' || e.target.id === 'delete-meal')) {
+//     showModal(e, mealModal);
+//   }
+
+//   e.stopPropagation();
+// }, false);
+
 if (modal) modal.addEventListener('click', function (e) {
   if (e.target !== e.currentTarget && e.target.id === 'modal-close-icon') {
     e.preventDefault();
@@ -70,20 +85,6 @@ if (modal) modal.addEventListener('click', function (e) {
 
   e.stopPropagation();
 }, false);
-
-if (cardGroup) cardGroup.addEventListener('click', function (e) {
-  e.preventDefault();
-
-  if (e.target !== e.currentTarget && (e.target.id === 'edit-meal' || e.target.id === 'delete-meal')) {
-    showModal(e, mealModal);
-  }
-
-  e.stopPropagation();
-});
-
-function pickDate() {
-  datePicker.click();
-};
 
 function toggleDropdown(target, wrapper) {
   target.style.color = 'white';
@@ -105,6 +106,12 @@ function showModal(e, type) {
   if (e.target.id === 'delete-meal') {
     confirmDeleteModal();
   }
+
+  if (e.target.id === 'checkout') {
+    setTimeout(() => {
+      window.location.href = './user-menu.html';
+    }, 3000);
+  }
 }
 
 function closeModal(e) {
@@ -119,6 +126,8 @@ function closeModal(e) {
 
 function mealForm(type) {
   const mealDesc = type === 'add' ? '' : 'Meal Combination of Jollof Rice, Salad, Plantain and Chicken, with a bottle of pet coke';
+  const addBtn = `<button class="btn btn-pri btn-block" type="button" onclick="addMeal(this)">Add</button>`;
+  const editBtn = `<button class="btn btn-pri btn-block" type="button" onclick="redirect('./meals.html')">Save</button>`;
   const form = `
     <form id="meal-form">
       <div class="form-input">
@@ -153,12 +162,7 @@ function mealForm(type) {
         <input type="checkbox" id="checkbox" name="checkbox">
         <label for="#checkbox">Suitable for Vegetarians</label>
       </div>
-  
-      <button
-        class="btn btn-pri btn-block"
-        type="button"
-        onclick="redirect('./meals.html')"
-      >${type === 'add' ? 'Add' : 'Save'}</button>
+        ${type === 'add' ? addBtn : editBtn}
     </form>`;
 
   modalTitle.innerText = type === 'add' ? 'Add a Meal' : 'Edit Meal';
@@ -187,6 +191,39 @@ function changeImage(e) {
   }, false);
 
   reader.readAsDataURL(file);
+}
+
+function addMeal(elem) {
+  const mealCard = `
+  <div class="meal-card" id="meal-card">
+    <div class="meal-card-header">
+      <img src="./assets/img/meal-image.JPG" alt="meal">
+      <div class="dropdown card-dropdown">
+        <a href="#" id="dropdown-toggler" class="dropdown-menu">More</a>
+        <div class="dropdown-content" data-dropdown="" id="dropdown-content">
+          <a href="#add-edit-modal" id="edit-meal">Edit</a>
+          <a href="#add-edit-modal" id="delete-meal">Delete</a>
+        </div>
+      </div>
+      <div class="menu-card-title">
+        Jollof Rice Meal
+      </div>
+    </div>
+    <div class="meal-card-body">
+      <div>
+        <ul>
+          <li>Jollof Rice</li>
+          <li>Vegetable Salad</li>
+          <li>Chicken</li>
+        </ul>
+      </div>
+      <div>
+        <h3>&#8358; 1500</h3>
+      </div>
+    </div>
+  </div>`;
+  cardGroup.innerHTML += mealCard;
+  elem.parentElement.parentElement.parentElement.parentElement.classList.remove('show');
 }
 
 function redirect(where) {
