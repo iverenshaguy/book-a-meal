@@ -40,7 +40,6 @@
     width: 250px;
     background-color: $white;
     overflow-x: hidden;
-    // padding-top: 60px;
 
     .sidenav-header {
       display: flex;
@@ -48,6 +47,7 @@
       justify-content: center;
       background-color: $darkgrey;
       height: 200px;
+      padding-bottom: 20px;
 
       .sidenav-title {
         color: $white;
@@ -62,6 +62,13 @@
 
         p {
           margin: $modal-header-title-margin-before 0;
+        }
+
+        span {
+          a {
+            color: $white;
+            font-size: 0.7em;
+          }
         }
       }
 
@@ -103,14 +110,19 @@
   }
 }
 
-@media (min-height: 768px) {
+@media (min-width: 768px) {
   .sidenav{
     .menu-item {
       padding: 10px 10px 10px 32px;
       text-decoration: none;
       font-size: 1.1em;
       display: block;
-      
+    }
+
+    &-content {
+      .sidenav-header {
+        padding-bottom: 0;
+      }
     }
   }
 }

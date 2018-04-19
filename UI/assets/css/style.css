@@ -55,7 +55,7 @@
       border-color: #bc0000;
       color: white; }
 
-.card, .modal-content, table, .meals .meal-card, .auth {
+.card, .modal-content, table, .meals .meal-card, .auth, .order-confirmation {
   min-width: 200px;
   min-height: 200px;
   box-sizing: border-box;
@@ -71,23 +71,23 @@
   flex-direction: column;
   flex-wrap: wrap;
   padding: 40px;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-content: space-around;
   align-items: center; }
-  .card-group .card, .card-group .modal-content, .card-group table, .card-group .meals .meal-card, .meals .card-group .meal-card, .card-group .auth {
+  .card-group .card, .card-group .modal-content, .card-group table, .card-group .meals .meal-card, .meals .card-group .meal-card, .card-group .auth, .card-group .order-confirmation {
     font-family: "Nunito", sans-serif;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 50px; }
-    .card-group .card:last-child, .card-group .modal-content:last-child, .card-group table:last-child, .card-group .meals .meal-card:last-child, .meals .card-group .meal-card:last-child, .card-group .auth:last-child {
+    .card-group .card:last-child, .card-group .modal-content:last-child, .card-group table:last-child, .card-group .meals .meal-card:last-child, .meals .card-group .meal-card:last-child, .card-group .auth:last-child, .card-group .order-confirmation:last-child {
       margin-bottom: 0; }
 
 @media (min-width: 992px) {
   .card-group {
     flex-direction: row !important; }
-    .card-group .card, .card-group .modal-content, .card-group table, .card-group .meals .meal-card, .meals .card-group .meal-card, .card-group .auth {
+    .card-group .card, .card-group .modal-content, .card-group table, .card-group .meals .meal-card, .meals .card-group .meal-card, .card-group .auth, .card-group .order-confirmation {
       font-family: "Nunito", sans-serif;
       width: 300px !important;
       display: flex;
@@ -95,7 +95,7 @@
       align-items: center !important;
       margin-bottom: 0; } }
 
-.card, .modal-content, table, .meals .meal-card, .auth {
+.card, .modal-content, table, .meals .meal-card, .auth, .order-confirmation {
   min-width: 200px;
   min-height: 200px;
   box-sizing: border-box;
@@ -111,23 +111,23 @@
   flex-direction: column;
   flex-wrap: wrap;
   padding: 40px;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-content: space-around;
   align-items: center; }
-  .card-group .card, .card-group .modal-content, .card-group table, .card-group .meals .meal-card, .meals .card-group .meal-card, .card-group .auth {
+  .card-group .card, .card-group .modal-content, .card-group table, .card-group .meals .meal-card, .meals .card-group .meal-card, .card-group .auth, .card-group .order-confirmation {
     font-family: "Nunito", sans-serif;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 50px; }
-    .card-group .card:last-child, .card-group .modal-content:last-child, .card-group table:last-child, .card-group .meals .meal-card:last-child, .meals .card-group .meal-card:last-child, .card-group .auth:last-child {
+    .card-group .card:last-child, .card-group .modal-content:last-child, .card-group table:last-child, .card-group .meals .meal-card:last-child, .meals .card-group .meal-card:last-child, .card-group .auth:last-child, .card-group .order-confirmation:last-child {
       margin-bottom: 0; }
 
 @media (min-width: 992px) {
   .card-group {
     flex-direction: row !important; }
-    .card-group .card, .card-group .modal-content, .card-group table, .card-group .meals .meal-card, .meals .card-group .meal-card, .card-group .auth {
+    .card-group .card, .card-group .modal-content, .card-group table, .card-group .meals .meal-card, .meals .card-group .meal-card, .card-group .auth, .card-group .order-confirmation {
       font-family: "Nunito", sans-serif;
       width: 300px !important;
       display: flex;
@@ -310,7 +310,8 @@
       flex-direction: column;
       justify-content: center;
       background-color: #343A40;
-      height: 200px; }
+      height: 200px;
+      padding-bottom: 20px; }
       .sidenav-content .sidenav-header .sidenav-title {
         color: #FFFFFF;
         flex-grow: 11;
@@ -323,6 +324,9 @@
         align-items: center; }
         .sidenav-content .sidenav-header .sidenav-title p {
           margin: 0.7em 0; }
+        .sidenav-content .sidenav-header .sidenav-title span a {
+          color: #FFFFFF;
+          font-size: 0.7em; }
       .sidenav-content .sidenav-header .close {
         flex-grow: 1;
         text-align: right; }
@@ -345,12 +349,14 @@
   .sidenav a {
     font-size: 18px; } }
 
-@media (min-height: 768px) {
+@media (min-width: 768px) {
   .sidenav .menu-item {
     padding: 10px 10px 10px 32px;
     text-decoration: none;
     font-size: 1.1em;
-    display: block; } }
+    display: block; }
+  .sidenav-content .sidenav-header {
+    padding-bottom: 0; } }
 
 form {
   padding: 30px 0 10px; }
@@ -553,7 +559,7 @@ form {
 .dashboard .order-details {
   padding: 0px 40px; }
 
-.card, .modal-content, table, .meals .meal-card, .auth {
+.card, .modal-content, table, .meals .meal-card, .auth, .order-confirmation {
   min-width: 200px;
   min-height: 200px;
   box-sizing: border-box;
@@ -569,23 +575,23 @@ form {
   flex-direction: column;
   flex-wrap: wrap;
   padding: 40px;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-content: space-around;
   align-items: center; }
-  .card-group .card, .card-group .modal-content, .card-group table, .card-group .meals .meal-card, .meals .card-group .meal-card, .card-group .auth {
+  .card-group .card, .card-group .modal-content, .card-group table, .card-group .meals .meal-card, .meals .card-group .meal-card, .card-group .auth, .card-group .order-confirmation {
     font-family: "Nunito", sans-serif;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 50px; }
-    .card-group .card:last-child, .card-group .modal-content:last-child, .card-group table:last-child, .card-group .meals .meal-card:last-child, .meals .card-group .meal-card:last-child, .card-group .auth:last-child {
+    .card-group .card:last-child, .card-group .modal-content:last-child, .card-group table:last-child, .card-group .meals .meal-card:last-child, .meals .card-group .meal-card:last-child, .card-group .auth:last-child, .card-group .order-confirmation:last-child {
       margin-bottom: 0; }
 
 @media (min-width: 992px) {
   .card-group {
     flex-direction: row !important; }
-    .card-group .card, .card-group .modal-content, .card-group table, .card-group .meals .meal-card, .meals .card-group .meal-card, .card-group .auth {
+    .card-group .card, .card-group .modal-content, .card-group table, .card-group .meals .meal-card, .meals .card-group .meal-card, .card-group .auth, .card-group .order-confirmation {
       font-family: "Nunito", sans-serif;
       width: 300px !important;
       display: flex;
@@ -746,6 +752,9 @@ body {
   .d-none-lg {
     display: none; } }
 
+.text-right {
+  text-align: right; }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Nunito", sans-serif; }
 
@@ -814,14 +823,14 @@ hr {
         border-color: #154a19;
         color: #FFFFFF; }
 
-.auth {
+.auth, .order-confirmation {
   border-radius: 0px;
   padding: 10px 30px;
   width: 100%; }
-  .auth .title {
+  .auth .title, .order-confirmation .title {
     text-align: center; }
   @media (min-width: 451px) {
-    .auth {
+    .auth, .order-confirmation {
       border-radius: 8px; } }
 
 .admin {
@@ -830,6 +839,10 @@ hr {
   color: #333; }
   .admin .navbar {
     box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1); }
+    .admin .navbar .admin-nav {
+      flex-grow: 0; }
+      .admin .navbar .admin-nav .dropdown.notification .dropdown-content {
+        margin-right: 0; }
   .admin .header .navbar .page-title a, .admin .navlinks, .admin .header .navbar .navlinks .link {
     color: #333; }
   .admin .footer {
@@ -894,23 +907,49 @@ hr {
 
 .user {
   background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("../img/chicken-fajitas.jpg") white no-repeat fixed; }
+  .user .header .navbar .page-title a, .user .navlinks, .user .header .navbar .navlinks .link, .user .footer p {
+    color: #333; }
+
+.order-confirmation {
+  border-radius: 5px;
+  margin-top: 50px;
+  padding-bottom: 40px !important; }
+  .order-confirmation h2 {
+    text-align: center; }
+  .order-confirmation .order-summary {
+    border-bottom: 1px solid #ddd; }
+  .order-confirmation .order-summary > div {
+    display: flex; }
+    .order-confirmation .order-summary > div p:nth-child(1), .order-confirmation .order-summary > div p:nth-child(3) {
+      flex-grow: 1; }
+    .order-confirmation .order-summary > div p:nth-child(2) {
+      flex-grow: 10; }
+    .order-confirmation .order-summary > div p:nth-child(3) {
+      text-align: right; }
+  .order-confirmation .order-amount > div {
+    display: flex;
+    justify-content: space-between; }
+  .order-confirmation .order-amount > div:last-child {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ddd; }
 
 @media (min-width: 451px) and (max-width: 575.98px) {
-  .auth {
+  .auth, .order-confirmation {
     width: 75%;
     padding: 10px 35px; } }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
-  .auth {
+  .auth, .order-confirmation {
     width: 60%;
     padding: 10px 35px; } }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-  .auth {
+  .auth, .order-confirmation {
     width: 60%;
     padding: 20px 50px; } }
 
 @media (min-width: 992px) {
-  .auth {
+  .auth, .order-confirmation {
     width: 40%;
     padding: 10px 50px; } }

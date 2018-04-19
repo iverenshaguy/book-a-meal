@@ -89,6 +89,10 @@ body {
   }
 }
 
+.text-right {
+  text-align: right;
+}
+
 // HEADINGS
 h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font-stack;
@@ -205,6 +209,14 @@ hr {
 
   .navbar {
     box-shadow: $navbar-shadow;
+
+    .admin-nav {
+      flex-grow: 0;
+
+      .dropdown.notification .dropdown-content {
+        margin-right: 0;
+      }
+    }
   }
 
   .header .navbar .page-title a, .navlinks, .header .navbar .navlinks .link {
@@ -275,6 +287,7 @@ hr {
   }
 }
 
+// DATEPICKER
 .datepicker-div {
   position: relative;
 
@@ -301,9 +314,61 @@ hr {
   }
 }
 
+// USER PAGES
 .user {
   background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
   url("../img/chicken-fajitas.jpg")	white no-repeat fixed;
+
+  .header .navbar .page-title a, .navlinks, .header .navbar .navlinks .link, .footer p {
+    color: $dark;
+  }
+}
+
+// ORDER CONFIRMATION
+.order-confirmation {
+  @extend .auth;
+  border-radius: 5px;
+  margin-top: 50px;
+  padding-bottom: 40px !important;
+
+  h2 {
+    text-align: center;
+  }
+
+  .order-summary {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .order-summary {
+    &>div {
+      display: flex;
+    
+      p:nth-child(1), p:nth-child(3)  {
+        flex-grow: 1;
+      }
+
+      p:nth-child(2) {
+        flex-grow: 10;
+      }
+
+      p:nth-child(3)  {
+        text-align: right
+      }
+    }
+  }
+
+  .order-amount {
+    &>div {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &>div:last-child() {
+      display: flex;
+      align-items: center;
+      border-top: 1px solid #ddd;
+    }
+  }
 }
 
 @media (min-width: 451px) and (max-width: 575.98px) {
