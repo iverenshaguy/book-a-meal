@@ -201,7 +201,8 @@
         display: flex;
         justify-content: center; }
         .modal-content .modal-header .modal-title p, .modal-content .modal-header .modal-title h3 {
-          margin: 0.5em 0; }
+          margin: 0.5em 0;
+          margin-left: 1.5em; }
       .modal-content .modal-header .close {
         flex-grow: 1;
         font-size: 1.5em;
@@ -213,6 +214,15 @@
           margin: 0.7em 0.7em 0.7em 0; }
     .modal-content .modal-body {
       padding: 20px; }
+      .modal-content .modal-body .delete-meal {
+        text-align: center; }
+        .modal-content .modal-body .delete-meal p {
+          margin-top: 0;
+          font-size: 1.25em; }
+        .modal-content .modal-body .delete-meal .confirm-delete-btns {
+          display: flex;
+          justify-content: space-around;
+          align-items: center; }
 
 .dropdown {
   position: relative;
@@ -819,6 +829,10 @@ hr {
         min-height: 100%; }
         .admin .content .content-wrapper {
           flex-grow: 1; } }
+  .admin .date {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
 
 @media (min-width: 451px) and (max-width: 575.98px) {
   .auth {
