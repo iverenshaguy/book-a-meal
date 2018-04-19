@@ -1,9 +1,12 @@
 const cardGroup = document.getElementById('card-group');
-const addModalBtn = document.getElementById('add-meal-btn');
+const addMealModalBtn = document.getElementById('add-meal-btn');
+const modal = document.getElementsByClassName('modal')[0];
 const mealModal = document.getElementById('meal-modal');
 const modalTitle = document.getElementById('modal-title-h3');
 const modalBody = document.getElementsByClassName('modal-body')[0];
 const dropdowns = document.getElementsByClassName('dropdown-content');
+const menuModalBtn = document.getElementById('menu-modal-btn');
+const menuModal = document.getElementById('menu-modal');
 
 // javscript closest polyfill
 if (!Element.prototype.matches)
@@ -21,10 +24,10 @@ if (!Element.prototype.closest)
     return null;
   };
 
-addModalBtn.onclick = showModal;
-// mealModal.addEventListener('click', closeModal);
+if (addMealModalBtn) addMealModalBtn.onclick = e => showModal(e, mealModal);;
+if (menuModalBtn) menuModalBtn.onclick = e => showModal(e, menuModal);;
 
-mealModal.addEventListener('click', function (e) {
+if (modal) modal.addEventListener('click', function (e) {
   if (e.target !== e.currentTarget && e.target.id === 'modal-close-icon') {
     e.preventDefault();
     this.closest('.modal').classList.remove('show');
@@ -38,7 +41,7 @@ mealModal.addEventListener('click', function (e) {
   e.stopPropagation();
 }, false);
 
-cardGroup.addEventListener('click', function (e) {
+if (cardGroup) cardGroup.addEventListener('click', function (e) {
   e.preventDefault();
 
   if (e.target !== e.currentTarget && e.target.id === 'dropdown-toggler') {
@@ -49,14 +52,18 @@ cardGroup.addEventListener('click', function (e) {
   }
 
   if (e.target !== e.currentTarget && (e.target.id === 'edit-meal' || e.target.id === 'delete-meal')) {
-    showModal(e);
+    showModal(e, mealModal);
   }
 
   e.stopPropagation();
 });
 
-function showModal(e) {
-  mealModal.classList.toggle('show');
+function pickDate() {
+  datePicker.click();
+};
+
+function showModal(e, type) {
+  type.classList.toggle('show');
 
   if (e.target.id === 'add-meal-btn') {
     mealForm('add');
@@ -114,7 +121,7 @@ function mealForm(type) {
       </div>
   
       <div class="form-input-checkbox">
-        <input type="checkbox" id="checkbox" name="checkbox/>
+        <input type="checkbox" id="checkbox" name="checkbox">
         <label for="#checkbox">Suitable for Vegetarians</label>
       </div>
   

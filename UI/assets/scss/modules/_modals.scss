@@ -119,4 +119,19 @@
       }
     }
   }
+
+  &#menu-modal {
+    form {
+      padding: 0 40px;
+
+      .meal-options-list {
+        max-height: 60vh;
+        overflow-y: auto;
+
+        label {
+          font-weight: 500;
+        }
+      }
+    }
+  }
 }
