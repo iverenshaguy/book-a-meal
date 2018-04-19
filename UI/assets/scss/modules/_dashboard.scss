@@ -2,32 +2,7 @@
 @import '../_mixins.scss';
 
 .dashboard {
-  display: flex;
-  flex-direction: column;
-  align-content:  space-around;
-
-  .summary, .todays-menu {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 40px;
-    justify-content: space-between;
-    align-content: space-around;
-    align-items:  center;
-
-    .card {
-      font-family: $heading-font-stack;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 50px;
-  
-      &:last-child() {
-        margin-bottom: 0;
-      }
-    }
-
+  .summary {
     .total-sum, .highest-five {
       @include center-align(column);
     }
@@ -56,24 +31,4 @@
   .order-details {
     padding: 0px 40px;
   }
-
-  .todays-menu {
-
-  }
-}
-
-@media (min-width: 992px) {
-  .summary {
-    flex-direction: row !important;
-
-    .card {
-      font-family: $heading-font-stack;
-      width: 300px !important;
-      display: flex;
-      justify-content: center !important;
-      align-items: center !important;
-      margin-bottom: 0 !important;
-    }
-  }
-  
 }

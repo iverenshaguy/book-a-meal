@@ -11,6 +11,7 @@
 @import 'modules/header';
 @import 'modules/dashboard';
 @import 'modules/tables';
+@import 'modules/meals';
 @import './_mixins.scss';
 
 html {
@@ -218,6 +219,14 @@ hr {
     }
   }
 
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-content:  space-around;
+
+
+  }
+
 
   @media (min-width: 767.98px) {
     display: flex;
@@ -230,11 +239,7 @@ hr {
       flex-direction: row;
       min-height: 100%;
 
-      .sidenav {
-        // flex-grow: 1;
-      }
-
-      .dashboard {
+      .content-wrapper {
         flex-grow: 1;
       }
     }
@@ -273,4 +278,3 @@ hr {
     padding: 10px 50px;
   }
 }
-

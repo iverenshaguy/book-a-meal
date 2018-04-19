@@ -4,7 +4,7 @@ form {
   padding: 30px 0 0;
 
   label {
-    color: $input;
+    color: #5e5a5a;
     font-weight: 300;
     font-size: 1.15em;
   }
@@ -22,7 +22,8 @@ form {
 
   input:not([type="checkbox"]) {
     border: 0;
-    color: $input;
+    color: $dark;
+    font-size: 1em;
     border-bottom: 1px solid $input;
     height: 30px;
     outline: none;
@@ -42,6 +43,69 @@ form {
 
     &.invalid {
       border-color: red;
+    }
+  }
+
+  &.form-img-input {
+    width: 100%;
+    height: 250px;
+    cursor: pointer;
+    position: relative;
+
+    .img-overlay {
+      opacity: 0;
+      top: -1px;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      cursor: pointer;
+      position: absolute;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-decoration: none;
+      background-color: $transparent-dark;
+
+      p {
+        color: $white;
+        font-size: 1.5em;
+
+        &.danger {
+          color: $danger;
+        }
+      }
+    }
+
+
+    input[type=file] {
+      display: none;
+      border-bottom: 0px solid $input;
+    }
+
+    img {
+      width: 100%;
+      height: 250px;
+    }
+
+    &:hover,
+    &:focus {
+      .img-overlay {
+        opacity: 1;
+        transition: opacity 0.5s;
+      }
+    }
+  }
+
+  textarea {
+    font-size: 1em;
+    border-radius: 3px;
+    font-family: $font-stack;
+    border: 1px solid $input;
+    outline: none;
+
+    &:focus {
+      outline: none;
     }
   }
 }
