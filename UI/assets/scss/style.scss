@@ -301,6 +301,11 @@ hr {
   }
 }
 
+.user {
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+  url("../img/chicken-fajitas.jpg")	white no-repeat fixed;
+}
+
 @media (min-width: 451px) and (max-width: 575.98px) {
   .auth {
     width: 75%;
