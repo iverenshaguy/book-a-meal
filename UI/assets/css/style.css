@@ -829,6 +829,10 @@ hr {
         min-height: 100%; }
         .admin .content .content-wrapper {
           flex-grow: 1; } }
+  .admin .date {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
 
 @media (min-width: 451px) and (max-width: 575.98px) {
   .auth {

@@ -246,9 +246,13 @@ hr {
     
   }
 
-  // .wrapper {
-  //   flex-grow: 2;
-  // }
+  .date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+  }
 }
 
 @media (min-width: 451px) and (max-width: 575.98px) {
