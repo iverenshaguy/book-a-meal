@@ -1,0 +1,92 @@
+@import '../_variables.scss';
+@import '../_mixins.scss';
+
+.meals {
+  display: flex;
+  flex-direction: column;
+  align-content:  space-around;
+
+  .top {
+    text-align: center;
+    padding: 40px;
+
+    .btn {
+      cursor: pointer;
+    }
+  }
+
+  .meal-card {
+    @extend .card;
+
+    margin-bottom: 50px !important;
+
+    .meal-card-header, img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .menu-card-title {
+      width: 100%;
+      height: 97%;
+    }
+
+    .meal-card-header {
+      position: relative;
+
+      img, .menu-card-title {
+        border-top-left-radius: $card-border-radius;
+        border-top-right-radius: $card-border-radius;
+      }
+
+      .card-dropdown, .menu-card-title {
+        position: absolute;
+        font-family: $heading-font-stack;
+        color: $white;
+        font-size: 1.5em;
+        top: 0;
+        right: 0;
+      }
+
+      .menu-card-title {
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 8;
+      }
+
+      .card-dropdown {
+        z-index: 9;
+        font-size: 1em;
+        top: 5%;
+        right: 5%;
+
+        &>a {
+          color: $white;
+          cursor: pointer;
+
+          &:hover,
+          &:focus {
+            transition: color 0.5s;
+            color: $primary-color;
+          }
+        }
+      }
+
+      .menu-card-title {
+        @include center-align(column);
+      }
+    }
+
+    .meal-card-body {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0 20px;
+
+      ul {
+        padding-left: 0;
+        list-style-type: none;
+      }
+    }
+  }
+}

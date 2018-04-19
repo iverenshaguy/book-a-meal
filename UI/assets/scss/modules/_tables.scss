@@ -2,7 +2,7 @@
 @import './cards';
 
 .table-wrapper {
-  overflow-x:auto;
+  overflow-x: auto;
 }
 
 table {
@@ -21,17 +21,6 @@ table {
     padding: 8px;
   }
 
-  thead {
-    border-top: 0;
-    tr {
-      border-top: 0;
-
-      th {
-        border-top: 0;
-      }
-    }
-  }
-
   tr:last-child() {
     border-bottom: 0;
     td {
@@ -48,7 +37,7 @@ table {
     
   }
 
-  tr:nth-child(even){
+  tr:nth-child(odd){
     background-color: $light;
   }
 
@@ -57,5 +46,19 @@ table {
     padding-bottom: 12px;
     text-align: left;
     color: $dark;
+  }
+
+  thead {
+    border-top: 0;
+    background-color: $white !important;
+
+    tr {
+      border-top: 0;
+      background-color: $white !important;
+
+      th {
+        border-top: 0;
+      }
+    }
   }
 }

@@ -2,6 +2,14 @@
 @import './cards';
 
 .modal {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  z-index: 15;
+
   &:before{
     content: ""; 
     display: none;
@@ -11,12 +19,16 @@
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 10;
   }
 
-  &:target{
-    &:before{
+  &.show {
+    display: block;
+
+    &:before {
       display: block;
-    }  
+    }
+  
     .modal-content {
       transform: translate(0, 0);
     }
@@ -24,11 +36,38 @@
 
   &-content {
     @extend .card;
-    z-index: 11;
-    min-height: 300px;
-    min-width: 500px;
+    z-index: 20;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    // min-height: 300px;
+    width: 90vw;
     transform: translate(0, -500%);
     transition: transform 0.3s ease-out;
+
+    @media (min-width: 542.98px) {
+      top: 10%;
+      left: 10%;
+      width: 80vw;
+    }
+
+    @media (min-width: 767.98px) {
+      top: 10%;
+      left: 20%;
+      width: 60vw;
+    }
+
+    @media (min-width: 991.98px) {
+      top: 10%;
+      left: 25%;
+      width: 50vw;
+    }
+
+    @media (min-width: 1199.98px) {
+      top: 10%;
+      left: 30%;
+      width: 40vw;
+    }
 
     .modal-header {
       display: flex;
@@ -41,8 +80,8 @@
         display: flex;
         justify-content: center;
 
-        p {
-          margin: $modal-header-title-margin-before 0;
+        p, h3 {
+          margin: 0.5em 0;
         }
       }
 

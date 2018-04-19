@@ -1,6 +1,8 @@
 @import '../_variables.scss';
 
 .sidenav {
+  box-shadow: $sidenav-shadow;
+
   @media (max-width: 767.98px) {
     &:before {
       content: ""; 
@@ -11,6 +13,7 @@
       left: 0;
       right: 0;
       bottom: 0;
+      z-index: 10;
     }
   
     &:target {
@@ -27,7 +30,6 @@
       position: fixed;
       top: 0;
       left: 0;
-      box-shadow: 3px 0 rgba(0, 0, 0, 0.05);
       transform: translate(-100%, 0);
       transition: transform 0.5s ease-out;
     }
@@ -45,13 +47,14 @@
       flex-direction: column;
       justify-content: center;
       background-color: $darkgrey;
-      height: 30%;
+      height: 200px;
 
       .sidenav-title {
         color: $white;
         flex-grow: 11;
-        font-size: 1.5em;
+        font-size: 1.3em;
         font-weight: bold;
+        font-family: $heading-font-stack;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -79,7 +82,7 @@
     .menu-item {
       padding: 15px 15px 15px 32px;
       text-decoration: none;
-      font-size: 1.5em;
+      font-size: 1.1em;
       display: block;
 
       &:hover,
@@ -105,7 +108,7 @@
     .menu-item {
       padding: 10px 10px 10px 32px;
       text-decoration: none;
-      font-size: 1.5em;
+      font-size: 1.1em;
       display: block;
       
     }
