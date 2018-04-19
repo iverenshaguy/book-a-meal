@@ -3,6 +3,7 @@ const addModalBtn = document.getElementById('add-meal-btn');
 const mealModal = document.getElementById('meal-modal');
 const modalTitle = document.getElementById('modal-title-h3');
 const modalBody = document.getElementsByClassName('modal-body')[0];
+const dropdowns = document.getElementsByClassName('dropdown-content');
 
 // javscript closest polyfill
 if (!Element.prototype.matches)
@@ -47,7 +48,7 @@ cardGroup.addEventListener('click', function (e) {
     target.style.color = '';
   }
 
-  if (e.target !== e.currentTarget && e.target.id === 'edit-meal') {
+  if (e.target !== e.currentTarget && (e.target.id === 'edit-meal' || e.target.id === 'delete-meal')) {
     showModal(e);
   }
 
@@ -55,15 +56,18 @@ cardGroup.addEventListener('click', function (e) {
 });
 
 function showModal(e) {
+  mealModal.classList.toggle('show');
+
   if (e.target.id === 'add-meal-btn') {
-    mealModal.classList.toggle('show');
     mealForm('add');
   }
 
   if (e.target.id === 'edit-meal') {
-    // fill form fields then show modal
-    mealModal.classList.toggle('show');
     mealForm('edit');
+  }
+
+  if (e.target.id === 'delete-meal') {
+    confirmDeleteModal();
   }
 }
 
@@ -80,7 +84,7 @@ function closeModal(e) {
 function mealForm(type) {
   const mealDesc = type === 'add' ? '' : 'Meal Combination of Jollof Rice, Salad, Plantain and Chicken, with a bottle of pet coke';
   const form = `
-    <form>
+    <form id="meal-form">
       <div class="form-input">
         <label for="#name">Meal Name</label>
         <input type="text" id="name" name="name" value="${type === 'add' ? '' : 'Jollof Rice Meal'}" onkeyup="this.setAttribute('value', this.value);" />
@@ -114,13 +118,16 @@ function mealForm(type) {
         <label for="#checkbox">Suitable for Vegetarians</label>
       </div>
   
-      <button class="btn btn-pri btn-block" type="submit">${type === 'add' ? 'Add' : 'Save'}</button>
+      <button
+        class="btn btn-pri btn-block"
+        type="button"
+        onclick="redirect('./meals.html')"
+      >${type === 'add' ? 'Add' : 'Save'}</button>
     </form>`;
 
   modalTitle.innerText = type === 'add' ? 'Add a Meal' : 'Edit Meal';
   modalBody.innerHTML = form;
 }
-
 
 function changeImage(e) {
   const error = e.target.previousSibling.previousSibling;
@@ -146,17 +153,19 @@ function changeImage(e) {
   reader.readAsDataURL(file);
 }
 
-function loadPhoto(e) {
-  mealFormImage.setAttribute('src', e.target.result);
+function redirect(where) {
+  window.location.href = where;
 }
 
-
-
-
-
-// dropdownToggler.onclick = function (e) {
-
-//   this.style.color = 'white';
-//   dropdown.classList.toggle('show');
-//   this.style.color = '';
-// }
+function confirmDeleteModal() {
+  const content = `<div class="delete-meal">
+    <p>Are You Sure?</p>
+    <div class="confirm-delete-btns">
+      <button class="btn btn-sec" onclick="redirect('./meals.html')">No</button>
+      <button class="btn btn-sec-danger" onclick="redirect('./meals.html')">Yes</button>
+    </div>
+  </div>
+  `;
+  modalTitle.innerText = 'Delete Meal';
+  modalBody.innerHTML = content;
+}

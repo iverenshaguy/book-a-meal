@@ -82,6 +82,7 @@
 
         p, h3 {
           margin: 0.5em 0;
+          margin-left: 1.5em;
         }
       }
 
@@ -101,6 +102,21 @@
 
     .modal-body {
       padding: 20px;
+
+      .delete-meal {
+        text-align: center;
+
+        p {
+          margin-top: 0;
+          font-size: 1.25em;
+        }
+
+        .confirm-delete-btns {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+        }
+      }
     }
   }
 }
