@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Book a Meal</title>
+</head>
+
+<body class="admin">
+  <div class="header">
+    <div class="navbar white-navbar">
+      <div class="menu-control d-none-md">
+        <a href="#sidenav" class="d-none-md">
+          <img src="./assets/img/toggler.png" alt="toggler">
+        </a>
+      </div>
+      <div class="page-title">
+        <h3>
+          <a href="./index.html">BOOK-A-MEAL</a>
+        </h3>
+      </div>
+      <div class="navlinks admin-nav">
+        <div class="dropdown notification">
+          <a href="#" id="dropdown-toggler" class="link">
+            <img src="./assets/img/notif.png" alt="notification bell" id="dropdown-img">
+          </a>
+          <div class="dropdown-content" id="dropdown-content">
+            <a href="#" class="read">User just ordered your menu</a>
+            <a href="#">User just ordered your menu</a>
+            <a href="#" class="read">User just ordered your menu</a>
+            <a href="#">User just ordered your menu</a>
+            <a href="#">User just ordered your menu</a>
+            <a href="#">User just ordered your menu</a>
+            <a href="#" class="read">User just ordered your menu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="sidenav" id="sidenav">
+      <div class="sidenav-content">
+        <div class="sidenav-header">
+          <div class="close d-none-md">
+            <a href="#" aria-hidden="true">&times;</a>
+          </div>
+          <div class="sidenav-title">
+            <div class="username-circle">
+              <p>I</p>
+            </div>
+            <p>Iveren</p>
+            <span>
+              <a href="./login.html">Logout</a>
+            </span>
+          </div>
+        </div>
+        <div class="sidenav-body">
+          <a href="./dashboard.html" class="menu-item">Dashboard</a>
+          <a href="#" class="menu-item">Order History</a>
+          <a href="./meals.html" class="menu-item">Meals</a>
+          <a href="#" class="menu-item active">Menu</a>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper meals">
+      <div class="date">
+        <h1>Thursday, 19th April 2018</h1>
+        <div class="datepicker-div">
+          <button class="btn btn-sec">Change Date</button>
+          <input type="date" id="datepicker">
+        </div>
+      </div>
+      <div class="admin-headings">
+        <button class="btn btn-pri" id="menu-modal-btn">Select Today's Menu</button>
+      </div>
+      <div class="admin-headings">
+        <h2>Meal Items on Today's Menu</h2>
+        <hr>
+      </div>
+      <div class="card-group meals-wrapper" id="card-group">
+        <div class="meal-card" id="meal-card">
+          <div class="meal-card-header">
+            <img src="./assets/img/meal-image.JPG" alt="meal">
+            <div class="menu-card-title">
+              Jollof Rice Meal
+            </div>
+          </div>
+          <div class="meal-card-body">
+            <div>
+              <ul>
+                <li>Jollof Rice</li>
+                <li>Vegetable Salad</li>
+                <li>Chicken</li>
+              </ul>
+            </div>
+            <div>
+              <h3>&#8358; 1500</h3>
+            </div>
+          </div>
+        </div>
+        <div class="meal-card" id="meal-card">
+          <div class="meal-card-header">
+            <img src="./assets/img/meal-image.JPG" alt="meal">
+            <div class="menu-card-title">
+              Jollof Rice Meal
+            </div>
+          </div>
+          <div class="meal-card-body">
+            <div>
+              <ul>
+                <li>Jollof Rice</li>
+                <li>Vegetable Salad</li>
+                <li>Chicken</li>
+              </ul>
+            </div>
+            <div>
+              <h3>&#8358; 1500</h3>
+            </div>
+          </div>
+        </div>
+        <div class="meal-card" id="meal-card">
+          <div class="meal-card-header">
+            <img src="./assets/img/meal-image.JPG" alt="meal">
+            <div class="menu-card-title">
+              Jollof Rice Meal
+            </div>
+          </div>
+          <div class="meal-card-body">
+            <div>
+              <ul>
+                <li>Jollof Rice</li>
+                <li>Vegetable Salad</li>
+                <li>Chicken</li>
+              </ul>
+            </div>
+            <div>
+              <h3>&#8358; 1500</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <p>&copy; 2018. Iveren Shaguy</p>
+  </div>
+  <div class="modal" id="menu-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">
+          <h3 id="modal-title-h3">Select Meal Options for Today</h3>
+        </div>
+        <div class="close">
+          <a href="#" aria-hidden="true" id="modal-close-icon">&times;</a>
+        </div>
+      </div>
+      <hr>
+      <div class="modal-body">
+        <form>
+          <div class="meal-options-list">
+            <div class="form-input-checkbox">
+              <input type="checkbox" id="checkbox" name="checkbox">
+              <label for="checkbox">Owambe Pack (Jollof Rice Meal)</label>
+            </div>
+            <div class="form-input-checkbox ">
+              <input type="checkbox" id="checkbox" name="checkbox">
+              <label for="checkbox">I love Beans Pack (Beans Porridge and Plantain Pack)</label>
+            </div>
+            <div class="form-input-checkbox">
+              <input type="checkbox" id="checkbox" name="checkbox">
+              <label for="checkbox">Man dey Hungry Pack (Semo, Egusi and Bush Meat)</label>
+            </div>
+            <div class="form-input-checkbox ">
+              <input type="checkbox" id="checkbox" name="checkbox">
+              <label for="checkbox">Revenge Body Pack (Vegetable Sharwama and Banana Smoothie)</label>
+            </div>
+            <div class="form-input-checkbox">
+              <input type="checkbox" id="checkbox" name="checkbox">
+              <label for="checkbox">Kids Are It Pack (Spaghetti, Suace, Meat Balls and Pineapple Juice)</label>
+            </div>
+            <div class="form-input-checkbox ">
+              <input type="checkbox" id="checkbox" name="checkbox">
+              <label for="checkbox">Revenge Body Pack (Vegetable Sharwama and Banana Smoothie)</label>
+            </div>
+            <div class="form-input-checkbox">
+              <input type="checkbox" id="checkbox" name="checkbox">
+              <label for="checkbox">Kids Are It Pack (Spaghetti, Suace, Meat Balls and Pineapple Juice)</label>
+            </div>
+          </div>
+          <button class="btn btn-pri btn-block">Add Meal Options</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

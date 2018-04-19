@@ -1,0 +1,42 @@
+@import '../_variables.scss';
+@import '../_mixins.scss';
+
+/**BUTTON**/
+.btn {
+  border-radius: 5px;
+  border-style: none;
+  padding: 10px 50px;
+  font-family: $heading-font-stack;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+
+  &:hover,
+  &.focus,
+  &.active {
+    outline: none;
+    cursor: pointer;
+  }
+
+  &-block {
+    width: 100%;
+  }
+
+  &-pri {
+    @include pri-button($primary-color);
+  }
+
+  &-sec {
+    @include sec-button($primary-color);
+  }
+
+  &-pri-danger {
+    @include pri-button($danger);
+  }
+
+  &-sec-danger {
+    @include sec-button($danger);
+  }
+}

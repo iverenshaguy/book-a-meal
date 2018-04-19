@@ -1,0 +1,52 @@
+@import '../_variables.scss';
+
+.card {
+  min-width: 200px;
+  min-height: 200px;
+  box-sizing: border-box;
+  color: $dark;
+  background-color: $white;
+  box-shadow: $card-shadow;
+  display: flex;
+  flex-direction: column;
+  border-radius: $card-border-radius;
+}
+
+// CARD CONTAINER 
+.card-group {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 40px;
+  justify-content: space-evenly;
+  align-content: space-around;
+  align-items:  center;
+
+  .card {
+    font-family: $heading-font-stack;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+
+    &:last-child() {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .card-group {
+    flex-direction: row !important;
+
+    .card {
+      font-family: $heading-font-stack;
+      width: 300px !important;
+      display: flex;
+      justify-content: center !important;
+      align-items: center !important;
+      margin-bottom: 0;
+    }
+  }
+}
