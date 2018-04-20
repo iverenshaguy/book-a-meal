@@ -9,6 +9,7 @@ window.onload = function () {
   const modalTitle = document.getElementById('modal-title-h3');
   const modalBody = document.getElementsByClassName('modal-body')[0];
   const menuModalBtn = document.getElementById('menu-modal-btn');
+  const backBtn = document.getElementById('back-btn');
   const menuModal = document.getElementById('menu-modal');
   const dropdowns = document.getElementsByClassName('dropdown');
   const checkoutBtn = document.getElementById('checkout');
@@ -33,6 +34,7 @@ window.onload = function () {
   if (addMealModalBtn) addMealModalBtn.onclick = e => showModal(e, mealModal);
   if (menuModalBtn) menuModalBtn.onclick = e => showModal(e, menuModal);
   if (checkoutBtn) checkoutBtn.onclick = e => showModal(e, notifModal);
+  if (backBtn) backBtn.onclick = () => redirect('./user-menu.html');
 
   if (mealCardBtns.length) for (let i = 0; i < mealCardBtns.length; i++) {
     mealCardBtns[i].addEventListener('click', function (e) {
@@ -96,7 +98,18 @@ window.onload = function () {
       this.closest('.modal').classList.remove('show');
     }
 
-    if (e.target !== e.currentTarget && e.target.id === 'img-overlay') {
+    if (e.target !== e.currentTarget && (e.target.id === 'confirm-delete-yes' ||
+      e.target.id === 'confirm-delete-no')) {
+      redirect('./meals.html')
+    }
+
+    if (e.target !== e.currentTarget && e.target.id === 'input-image') {
+      e.target.onchange = changeImage;
+    }
+
+    if (e.target !== e.currentTarget && (e.target.id === 'img-overlay'
+      || e.target.id === 'form-image-preview'
+      || e.target.id === 'overlay-p')) {
       // trigger input file click
       e.target.nextSibling.nextSibling.click();
     }
@@ -153,9 +166,9 @@ window.onload = function () {
         <input type="text" required id="name" name="name" value="${type === 'add' ? '' : 'Jollof Rice Meal'}" onkeyup="this.setAttribute('value', this.value);" />
       </div>
 
-      <div class="form-input form-img-input">
-        <div class="img-overlay" id="img-overlay"><p>Please Select an Image</p></div>
-        <input type="file" id="input-image" accept="image/*" name="image" onchange="return changeImage(event)" />
+      <div class="form-input form-img-input" id="form-image-preview">
+        <div class="img-overlay" id="img-overlay"><p id="overlay-p">Please Select an Image</p></div>
+        <input type="file" id="input-image" accept="image/*" name="image" />
         <img
           src="${type === 'add' ?
         './assets/img/placeholder-image.jpg' :
@@ -218,8 +231,8 @@ window.onload = function () {
     const content = `<div class="delete-meal">
     <p>Are You Sure?</p>
     <div class="confirm-delete-btns">
-      <button class="btn btn-sec" onclick="redirect('./meals.html')">No</button>
-      <button class="btn btn-sec-danger" onclick="redirect('./meals.html')">Yes</button>
+      <button class="btn btn-sec" id="confirm-delete-no">No</button>
+      <button class="btn btn-sec-danger" id="confirm-delete-yes">Yes</button>
     </div>
   </div>
   `;

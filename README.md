@@ -26,4 +26,4 @@ Project is currently being built with the Project Management Tool, Pivotal Track
 You can find the template at [https://www.pivotaltracker.com/n/projects/2165637](https://www.pivotaltracker.com/n/projects/2165637)
 
 ### Template
-Template is hosted at [https://iverenshaguy.github.io](https://iverenshaguy.github.io)
+Template is hosted at [https://iverenshaguy.github.io/UI/index.html](https://iverenshaguy.github.io/UI/index.html)

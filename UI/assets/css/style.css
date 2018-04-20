@@ -908,7 +908,7 @@ hr {
       border: 2px solid #1b5e20;
       background-color: #1b5e20;
       color: #FFFFFF;
-      padding: 15px 50px;
+      padding: 12px 50px;
       font-size: 1.3em; }
       .main-wrapper .landing button:hover, .main-wrapper .landing button.focus, .main-wrapper .landing button.active {
         transition: background-color 0.5s, border-color 0.5s;
