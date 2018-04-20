@@ -775,11 +775,11 @@ body {
   min-height: 100%;
   flex-direction: column;
   color: #333;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/chicken-fajitas.jpg") white no-repeat fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/chicken-fajitas.jpg") white no-repeat center center;
   background-size: cover;
   justify-content: space-between; }
   body.overlay {
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/chicken-fajitas.jpg") white no-repeat fixed; }
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/chicken-fajitas.jpg") white no-repeat center center; }
 
 .hide {
   display: none; }

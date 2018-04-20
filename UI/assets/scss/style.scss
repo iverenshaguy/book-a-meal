@@ -30,14 +30,14 @@ body {
   flex-direction: column;
 	color: $dark;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("../img/chicken-fajitas.jpg")	white no-repeat fixed;
+    url("../img/chicken-fajitas.jpg")	white no-repeat center center;
 	background-size: cover;
 	// align-items: center;
   justify-content: space-between;
   
   &.overlay {
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url("../img/chicken-fajitas.jpg")	white no-repeat fixed;
+    url("../img/chicken-fajitas.jpg")	white no-repeat center center;
   }
 }
 
