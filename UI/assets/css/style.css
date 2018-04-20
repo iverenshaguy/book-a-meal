@@ -213,7 +213,10 @@
           display: block;
           margin: 0.7em 0.7em 0.7em 0; }
     .modal-content .modal-body {
-      padding: 20px; }
+      padding: 20px 30px; }
+      .modal-content .modal-body.order-confirmation {
+        margin-top: 0;
+        width: 100%; }
       .modal-content .modal-body .delete-meal {
         text-align: center; }
         .modal-content .modal-body .delete-meal p {
@@ -946,6 +949,11 @@ hr {
     display: flex;
     flex-direction: column;
     align-content: space-around; }
+  .admin .main-wrapper {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%; }
   @media (min-width: 767.98px) {
     .admin {
       display: flex;

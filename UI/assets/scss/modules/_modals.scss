@@ -100,7 +100,12 @@
     }
 
     .modal-body {
-      padding: 20px;
+      padding: 20px 30px;
+
+      &.order-confirmation {
+        margin-top: 0;
+        width: 100%;
+      }
 
       .delete-meal {
         text-align: center;
