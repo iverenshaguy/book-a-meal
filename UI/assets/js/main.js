@@ -5,12 +5,14 @@ window.onload = function () {
   const mealCardBtns = document.getElementsByClassName('meal-card-btn');
   const mealModal = document.getElementById('meal-modal');
   const notifModal = document.getElementById('notif-modal');
+  const orderDetailsModal = document.getElementById('order-details-modal');
   const modalTitle = document.getElementById('modal-title-h3');
   const modalBody = document.getElementsByClassName('modal-body')[0];
   const menuModalBtn = document.getElementById('menu-modal-btn');
   const menuModal = document.getElementById('menu-modal');
   const dropdowns = document.getElementsByClassName('dropdown');
   const checkoutBtn = document.getElementById('checkout');
+  const adminOrderHistoryPill = document.getElementsByClassName('admin-order-history-pill');
 
   // javscript closest polyfill
   if (!Element.prototype.matches)
@@ -37,6 +39,12 @@ window.onload = function () {
       if (e.target === e.currentTarget) {
         redirect('./order-confirmation.html');
       }
+    });
+  }
+
+  if (adminOrderHistoryPill) for (let i = 0; i < adminOrderHistoryPill.length; i++) {
+    adminOrderHistoryPill[i].addEventListener('click', function (e) {
+      orderDetailsModal.classList.add('show');
     });
   }
 

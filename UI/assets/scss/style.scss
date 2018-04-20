@@ -285,6 +285,13 @@ hr {
     align-content:  space-around;
   }
 
+  .main-wrapper {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+
 
   @media (min-width: 767.98px) {
     display: flex;
