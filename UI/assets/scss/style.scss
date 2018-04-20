@@ -50,6 +50,21 @@ body {
   display: block;
 }
 
+.d-flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.d-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-small {
+  font-size: 0.83em;
+}
+
 .d-flex {
   display: flex;
 }
@@ -406,6 +421,17 @@ hr {
 
   .pills {
     padding: 20px;
+  }
+}
+
+// ORDER DETAILS
+.order-details {
+  &.order-details-btn:first-child() {
+    padding: 10px 57px;
+  }
+
+  .order-date {
+    margin: 0;
   }
 }
 
