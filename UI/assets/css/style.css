@@ -784,6 +784,18 @@ body {
 .show {
   display: block; }
 
+.d-flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+.d-flex-col {
+  display: flex;
+  flex-direction: column; }
+
+.text-small {
+  font-size: 0.83em; }
+
 .d-flex {
   display: flex; }
 
@@ -1020,6 +1032,12 @@ hr {
   width: 100%; }
   .order-history .pills {
     padding: 20px; }
+
+.order-details.order-details-btn:first-child {
+  padding: 10px 57px; }
+
+.order-details .order-date {
+  margin: 0; }
 
 @media (min-width: 451px) and (max-width: 575.98px) {
   .auth, .order-confirmation {

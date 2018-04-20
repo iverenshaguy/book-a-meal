@@ -31,18 +31,19 @@
         <hr class="w-75">
       </div>
       <div class="content">
-        <form>
+        <form action="./user-menu.html" method="post">
           <div class="form-input">
-            <label for="#email">Email Address</label>
-            <input type="email" id="email" name="email" value="" onkeyup="this.setAttribute('value', this.value);" />
+            <label for="#login-email">Email Address</label>
+            <input type="email" required id="login-email" name="email" value="" onkeyup="this.setAttribute('value', this.value);" />
           </div>
 
           <div class="form-input">
-            <label for="#password">Password</label>
-            <input type="password" id="password" name="password" value="" onkeyup="this.setAttribute('value', this.value);" />
+            <label for="#login-password">Password</label>
+            <input type="password" required id="login-password" name="password" value="" onkeyup="this.setAttribute('value', this.value);"
+            />
           </div>
 
-          <button class="btn btn-pri btn-block" type="button" onclick="redirect('./user-menu.html')">SIGN IN</button>
+          <button class="btn btn-pri btn-block" type="submit">SIGN IN</button>
         </form>
 
         <p class="form-extra-info text-center">Don't have an account, signup

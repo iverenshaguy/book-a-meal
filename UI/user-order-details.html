@@ -43,7 +43,7 @@
               </div>
             </a>
             <div class="dropdown-content profile" id="dropdown-content">
-              <a href="./order-history.html" id="user-order-history">Order History</a>
+              <a href="./user-order-history.html" id="user-order-history">Order History</a>
               <a href="./login.html" id="logout">Logout</a>
             </div>
           </div>
@@ -54,57 +54,45 @@
     </div>
   </div>
   <div class="main-wrapper">
-    <div class="order-history">
-      <div class="page-heading">
-        <h2>Order History</h2>
-        <hr>
+    <div class="order-confirmation order-details">
+      <h2>Order #12345678 -
+        <span class="warning text-small">Pending</span>
+      </h2>
+      <p class="order-date text-center">15/12/2017 07:45pm</p>
+      <hr>
+      <div class="order-summary">
+        <div>
+          <p>2x</p>
+          <p>Jollof Rice</p>
+          <p>&#8358;300.00</p>
+        </div>
+        <div>
+          <p>1x</p>
+          <p>Basmati Rice</p>
+          <p>&#8358;800.00</p>
+        </div>
       </div>
-      <div class="pills">
-        <div class="order-history-pill">
-          <a href="./user-order-details.html">
-            <div class="order-history-header">
-              <h3>#1234567</h3>
-              <h3>13/12/17 12:38pm</h3>
-            </div>
-            <hr>
-            <div class="order-history-footer">
-              <h4>Status:
-                <span class="warning">Pending</span>
-              </h4>
-              <h2>&#8358;1200.00</h2>
-            </div>
-          </a>
+      <div class="order-amount">
+        <div>
+          <p>Subtotal</p>
+          <p>&#8358;1100.00</p>
         </div>
-        <div class="order-history-pill">
-          <a href="./user-order-details.html">
-            <div class="order-history-header">
-              <h3>#1234567</h3>
-              <h3>13/12/17 12:38pm</h3>
-            </div>
-            <hr>
-            <div class="order-history-footer">
-              <h4>Status:
-                <span class="danger">Canceled</span>
-              </h4>
-              <h2>&#8358;1200.00</h2>
-            </div>
-          </a>
+        <div>
+          <p>Delivery Fee</p>
+          <p>&#8358;600.00</p>
         </div>
-        <div class="order-history-pill">
-          <a href="./user-order-details.html">
-            <div class="order-history-header">
-              <h3>#1234567</h3>
-              <h3>13/12/17 12:38pm</h3>
-            </div>
-            <hr>
-            <div class="order-history-footer">
-              <h4>Status:
-                <span class="success">Delivered</span>
-              </h4>
-              <h2>&#8358;1200.00</h2>
-            </div>
-          </a>
+        <div>
+          <p>Including VAT</p>
+          <p>&#8358;13.29</p>
         </div>
+        <div>
+          <p>Total</p>
+          <h1>&#8358;1700.00</h1>
+        </div>
+      </div>
+      <div class="d-flex-row">
+        <button class="btn btn-sec order-details-btn">Edit</button>
+        <button class="btn btn-sec-danger order-details-btn">Cancel</button>
       </div>
     </div>
   </div>
