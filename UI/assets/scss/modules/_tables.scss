@@ -1,15 +1,15 @@
 @import '../_variables.scss';
-@import './cards';
 
 .table-wrapper {
   overflow-x: auto;
 }
 
 table {
-  @extend .card;
   display: table;
   border-radius: 3px;
   border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 50px/1200px * 100%;
   width: 100%;
 
   tr, thead {

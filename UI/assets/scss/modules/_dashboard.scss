@@ -5,6 +5,8 @@
   .summary {
     .total-sum, .highest-five {
       @include center-align(column);
+
+      background-color: rgba(255, 255, 255, 0.9);
     }
 
     .total-sum {
@@ -24,7 +26,7 @@
 
     .total-cash {
       color: $primary-color;
-      // font-size: 1.5em;
+      background-color: rgba(255, 255, 255, 0.9);
     }
   }
 

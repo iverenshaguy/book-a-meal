@@ -12,6 +12,7 @@
 @import 'modules/dashboard';
 @import 'modules/tables';
 @import 'modules/meals';
+@import 'modules/order-history-pills';
 @import './_mixins.scss';
 
 html {
@@ -98,9 +99,36 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font-stack;
 }
 
+.page-heading {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 40px;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 10px;
+  }
+
+  hr {
+    color: #a1a1a1;
+    width: 55%;
+  }
+  
+}
+
 // COLORS
 .danger {
   color: $danger;
+}
+
+.warning {
+  color: $warning;
+}
+
+.success {
+  color: $success;
 }
 
 // POSITION
@@ -191,13 +219,18 @@ hr {
   border-radius: 0px;
   padding: 10px 30px;
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+
+  hr {
+    color: $input;
+  }
 
   .title {
     text-align: center;
   }
 
   @media (min-width: 451px) {
-    border-radius: 8px;
+    border-radius: 3px;
   }
 }
 
@@ -235,8 +268,6 @@ hr {
     display: flex;
     flex-direction: column;
     align-content:  space-around;
-
-
   }
 
 
@@ -255,10 +286,9 @@ hr {
         flex-grow: 1;
       }
     }
-    
   }
 
-  .date, .admin-headings {
+  .date, .page-heading {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -279,11 +309,6 @@ hr {
     @media (max-width: 767.98px) {
       flex-direction: column;
     }
-  }
-
-  .admin-headings {
-    flex-direction: column;
-    margin-top: 40px;
   }
 }
 
@@ -316,7 +341,7 @@ hr {
 
 // USER PAGES
 .user {
-  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
   url("../img/chicken-fajitas.jpg")	white no-repeat fixed;
 
   .header .navbar .page-title a, .navlinks, .header .navbar .navlinks .link, .footer p {
@@ -330,6 +355,7 @@ hr {
   border-radius: 5px;
   margin-top: 50px;
   padding-bottom: 40px !important;
+  background-color: rgba(255, 255, 255, 0.8);
 
   h2 {
     text-align: center;
@@ -371,10 +397,27 @@ hr {
   }
 }
 
+// ORDER HISTORY
+.order-history {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  width: 100%;
+
+  .pills {
+    padding: 20px;
+  }
+}
+
 @media (min-width: 451px) and (max-width: 575.98px) {
   .auth {
     width: 75%;
     padding: 10px 35px;
+  }
+
+  .order-history {
+    margin: 30px;
+    width: 100%
   }
 }
 
@@ -383,6 +426,11 @@ hr {
     width: 60%;
     padding: 10px 35px;
   }
+
+  .order-history {
+    margin: 40px;
+    width: 80%
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -390,11 +438,21 @@ hr {
     width: 60%;
     padding: 20px 50px;
   }
+
+  .order-history {
+    margin: 50px;
+    width: 60%
+  }
 }
 
 @media (min-width: 992px) {
   .auth {
     width: 40%;
     padding: 10px 50px;
+  }
+
+  .order-history {
+    margin: 50px;
+    width: 60%
   }
 }

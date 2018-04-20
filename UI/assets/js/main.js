@@ -56,8 +56,8 @@ if (dropdowns.length) for (let i = 0; i < dropdowns.length; i++) {
       window.location.href = './login.html'
     }
 
-    if (e.target !== e.currentTarget && e.target.id === 'order-history') {
-      window.location.href = './order-history.html'
+    if (e.target !== e.currentTarget && e.target.id === 'user-order-history') {
+      window.location.href = './user-order-history.html'
     }
 
     e.stopPropagation();
