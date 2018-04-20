@@ -147,7 +147,7 @@ window.onload = function () {
     const addBtn = `<button class="btn btn-pri btn-block" type="submit">Add</button>`;
     const editBtn = `<button class="btn btn-pri btn-block" type="submit">Save</button>`;
     const form = `
-    <form action="./meals.html" method="post" id="meal-form">
+    <form action="./meals.html" id="meal-form">
       <div class="form-input">
         <label for="#name">Meal Name</label>
         <input type="text" required id="name" name="name" value="${type === 'add' ? '' : 'Jollof Rice Meal'}" onkeyup="this.setAttribute('value', this.value);" />
