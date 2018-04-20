@@ -775,7 +775,7 @@ body {
   min-height: 100%;
   flex-direction: column;
   color: #333;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/chicken-fajitas.jpg") white no-repeat fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/chicken-fajitas.jpg") white no-repeat fixed;
   background-size: cover;
   justify-content: space-between; }
   body.overlay {
@@ -901,7 +901,7 @@ hr {
     .main-wrapper .landing h1 {
       font-size: 3.0em;
       padding: 0 1em;
-      margin-bottom: 100px; }
+      margin-bottom: 8.33333%; }
     .main-wrapper .landing p {
       font-size: 1.5em; }
     .main-wrapper .landing button {

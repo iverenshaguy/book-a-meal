@@ -29,7 +29,7 @@ body {
   min-height: 100%;
   flex-direction: column;
 	color: $dark;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url("../img/chicken-fajitas.jpg")	white no-repeat fixed;
 	background-size: cover;
 	// align-items: center;
@@ -212,7 +212,7 @@ hr {
     h1 {
       font-size: 3.0em;
       padding: 0 1em;
-      margin-bottom: 100px;
+      margin-bottom: 100px/1200px * 100%;
     }
 
     p {
