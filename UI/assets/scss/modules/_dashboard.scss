@@ -1,0 +1,41 @@
+@import '../_variables.scss';
+@import '../_mixins.scss';
+
+.dashboard {
+  .summary {
+    .total-sum, .highest-five {
+      @include center-align(column);
+
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .total-sum {
+      color: $primary-color;
+      font-size: 1.5em;
+
+      .count {
+        font-size: 2em;
+      }
+    }
+
+    .highest {
+      font-size: 1.3em;
+      color: $secondary-color;
+      justify-content: space-around;
+    }
+
+    .total-cash {
+      color: $primary-color;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+  }
+
+  .order-details {
+    margin-top: -30px;
+    padding: 0 40px;
+  }
+
+  .order-history {
+    margin-top: 0;
+  }
+}

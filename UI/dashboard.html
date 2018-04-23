@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Book a Meal</title>
+</head>
+
+<body class="admin">
+  <div class="header">
+    <div class="navbar white-navbar">
+      <div class="menu-control d-none-md">
+        <a href="#sidenav" class="d-none-md">
+          <img src="./assets/img/toggler.png" alt="toggler">
+        </a>
+      </div>
+      <div class="page-title">
+        <h3>
+          <a href="./index.html">BOOK-A-MEAL</a>
+        </h3>
+      </div>
+      <div class="navlinks admin-nav">
+        <div class="dropdown notification">
+          <a href="#" id="dropdown-toggler" class="link">
+            <img src="./assets/img/notif.png" alt="notification bell" id="dropdown-img">
+          </a>
+          <div class="dropdown-content" id="dropdown-content">
+            <a href="#" class="read">User just ordered your menu</a>
+            <a href="#">User just ordered your menu</a>
+            <a href="#" class="read">User just ordered your menu</a>
+            <a href="#">User just ordered your menu</a>
+            <a href="#">User just ordered your menu</a>
+            <a href="#">User just ordered your menu</a>
+            <a href="#" class="read">User just ordered your menu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="sidenav" id="sidenav">
+      <div class="sidenav-content">
+        <div class="sidenav-header">
+          <div class="close d-none-md">
+            <a href="#" aria-hidden="true">&times;</a>
+          </div>
+          <div class="sidenav-title">
+            <div class="username-circle">
+              <p>I</p>
+            </div>
+            <p>Iveren</p>
+            <span>
+              <a href="./login.html">Logout</a>
+            </span>
+          </div>
+        </div>
+        <div class="sidenav-body">
+          <a href="#" class="menu-item active">Dashboard</a>
+          <a href="./admin-order-history.html" class="menu-item">Order History</a>
+          <a href="./meals.html" class="menu-item">Meals</a>
+          <a href="./admin-menu.html" class="menu-item">Menu</a>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper dashboard">
+      <div class="date">
+        <h2>Thursday, 19th April 2018 &nbsp; &nbsp; 18:00</h2>
+      </div>
+      <div class="card-group summary">
+        <div class="card total-sum">
+          <div class="count">345</div>
+          <div>Orders</div>
+        </div>
+        <div class="card highest">
+          <div>59 Banana Souffle</div>
+          <div>42 Asun Deals</div>
+          <div>30 Jollof Rice Packs </div>
+          <div>17 Kebab meals</div>
+        </div>
+        <div class="card total-cash">
+          <h1>&#8358; 365, 780.00</h1>
+        </div>
+      </div>
+      <div class="order-details">
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <th>Order Id</th>
+              <th>Menu Item(s)</th>
+              <th>Customer</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Status</th>
+            </thead>
+            <tr>
+              <td>11234</td>
+              <td>Rice Meal</td>
+              <td>Mrs. Tola</td>
+              <td>&#8358;2100</td>
+              <td>21/04/17 8:50pm</td>
+              <td>
+                <span class="success">Delivered</span>
+              </td>
+            </tr>
+            <tr>
+              <td>31234</td>
+              <td>Kids'r It Pack</td>
+              <td>Rita Opara</td>
+              <td>&#8358;2100</td>
+              <td>21/04/17 8:50pm</td>
+              <td>
+                <span class="danger">Canceled</span>
+              </td>
+            </tr>
+            <tr>
+              <td>11534</td>
+              <td>Revenge Body Meal</td>
+              <td>Uche Emodi</td>
+              <td>&#8358;2100</td>
+              <td>21/04/17 8:50pm</td>
+              <td>
+                <span class="success">Delivered</span>
+              </td>
+            </tr>
+            <tr>
+              <td>41284</td>
+              <td>Meat Loaf</td>
+              <td>Mrs. Tola</td>
+              <td>&#8358;2100</td>
+              <td>21/04/17 8:50pm</td>
+              <td>
+                <span class="warning">Pending</span>
+              </td>
+            </tr>
+            <tr>
+              <td>14934</td>
+              <td>Hungary Man Pack</td>
+              <td>Tunde Agoro</td>
+              <td>&#8358;3000</td>
+              <td>13/04/18 8:59am</td>
+              <td>
+                <span class="success">Delivered</span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <p>&copy; 2018. Iveren Shaguy</p>
+  </div>
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

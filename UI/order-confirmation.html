@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Book a Meal</title>
+</head>
+
+<body class="user">
+  <div class="header">
+    <div class="navbar white-navbar">
+      <div class="page-title">
+        <h3>
+          <a href="./index.html">BOOK-A-MEAL</a>
+        </h3>
+      </div>
+      <div class="navlinks">
+        <div class="dropdown notification">
+          <a href="#" id="dropdown-toggler" class="link">
+            <img src="./assets/img/notif.png" alt="notification bell" id="dropdown-img">
+          </a>
+          <div class="dropdown-content" id="dropdown-content">
+            <a href="#" class="read">Jollof Rice Meal was just added to the menu</a>
+            <a href="#">Jollof Rice Meal was just added to the menu</a>
+            <a href="#" class="read">Jollof Rice Meal was just added to the menu</a>
+            <a href="#">Jollof Rice Meal was just added to the menu</a>
+            <a href="#">Jollof Rice Meal was just added to the menu</a>
+            <a href="#">Jollof Rice Meal was just added to the menu</a>
+            <a href="#" class="read">Jollof Rice Meal was just added to the menu</a>
+          </div>
+        </div>
+        <a href="#" class="link">
+          <img src="./assets/img/cart.png" alt="cart">
+        </a>
+        <div class="user-info">
+          <div class="dropdown">
+            <a href="#" id="dropdown-toggler" class="link circle">
+              <div class="username-circle" id="dropdown-img">
+                <p>I</p>
+              </div>
+            </a>
+            <div class="dropdown-content profile" id="dropdown-content">
+              <a href="./user-order-history.html" id="user-order-history">Order History</a>
+              <a href="./login.html" id="logout">Logout</a>
+            </div>
+          </div>
+
+          <p class="hide d-lg">Iveren</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-wrapper">
+    <div class="order-confirmation">
+      <div id="one">
+        <h2>Order Details</h2>
+        <hr>
+        <div class="order-summary">
+          <div>
+            <p>2x</p>
+            <p>Jollof Rice</p>
+            <p>&#8358;300.00</p>
+          </div>
+          <div>
+            <p>1x</p>
+            <p>Basmati Rice</p>
+            <p>&#8358;800.00</p>
+          </div>
+        </div>
+        <div class="order-amount">
+          <div>
+            <p>Subtotal</p>
+            <p>&#8358;1100.00</p>
+          </div>
+          <div>
+            <p>Delivery Fee</p>
+            <p>&#8358;600.00</p>
+          </div>
+          <div>
+            <p>Including VAT</p>
+            <p>&#8358;13.29</p>
+          </div>
+          <div>
+            <p>Total</p>
+            <h1>&#8358;1700.00</h1>
+          </div>
+        </div>
+        <div class="control-btns">
+          <a href="./user-menu.html">
+            <button class="btn btn-sec">More Food</button>
+          </a>
+          <a href="./order-confirmation.html?num=two">
+            <button class="btn btn-sec">Checkout</button>
+          </a>
+        </div>
+      </div>
+      <div class="hide" id="two">
+        <h2>Delivery Details</h2>
+        <hr>
+        <form action="./order-confirmation.html?num=three">
+          <input type="hidden" name="num" value="three" />
+          <div class="form-input">
+            <label for="number">Phone Number</label>
+            <input type="number" required id="number" name="number" value="" onkeyup="this.setAttribute('value', this.value);" />
+          </div>
+
+          <div class="form-input">
+            <label for="address">Delivery Address</label>
+            <textarea required id="address" name="address" rows="3"></textarea>
+          </div>
+          <div class="control-btns">
+            <button class="btn btn-sec" type="button">Back</button>
+            <button class="btn btn-sec" type="submit">Next</button>
+          </div>
+        </form>
+      </div>
+      <div class="hide" id="three">
+        <h2>Please Confirm Your Order Details</h2>
+        <hr>
+        <div class="order-summary">
+          <div>
+            <p>2x</p>
+            <p>Jollof Rice</p>
+            <p>&#8358;300.00</p>
+          </div>
+          <div>
+            <p>1x</p>
+            <p>Basmati Rice</p>
+            <p>&#8358;800.00</p>
+          </div>
+        </div>
+        <div class="order-amount">
+          <div>
+            <p>Subtotal</p>
+            <p>&#8358;1100.00</p>
+          </div>
+          <div>
+            <p>Delivery Fee</p>
+            <p>&#8358;600.00</p>
+          </div>
+          <div>
+            <p>Including VAT</p>
+            <p>&#8358;13.29</p>
+          </div>
+          <div>
+            <p>Total</p>
+            <h1>&#8358;1700.00</h1>
+          </div>
+        </div>
+        <div class="customer-details">
+          <p>Wednesday, 18th April 2018 &nbsp; &nbsp;2:00pm</p>
+          <p>Mrs. Tola Olanipekun</p>
+          <p>08134567890</p>
+          <p>4, Church Street, Yaba</p>
+        </div>
+        <a href="./order-confirmation.html?num=two">
+          <button class="btn btn-sec btn-block">Get More Food</button>
+        </a>
+        <br>
+        <br>
+        <button class="btn btn-pri btn-block" id="checkout">Checkout</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="footer">
+    <p>&copy; 2018. Iveren Shaguy</p>
+  </div>
+  <div class="modal" id="notif-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="close">
+          <a href="#" aria-hidden="true" id="modal-close-icon">&times;</a>
+        </div>
+      </div>
+      <hr>
+      <div class="modal-body">
+        <p class="text-center">Thank you for your order. Your belly will be filled up shortly</p>
+      </div>
+    </div>
+  </div>
+  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/orders.js"></script>
+</body>
+
+</html>

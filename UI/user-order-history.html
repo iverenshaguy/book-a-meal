@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Book a Meal</title>
+</head>
+
+<body class="user">
+  <div class="header">
+    <div class="navbar white-navbar">
+      <div class="page-title">
+        <h3>
+          <a href="./index.html">BOOK-A-MEAL</a>
+        </h3>
+      </div>
+      <div class="navlinks">
+        <div class="dropdown notification">
+          <a href="#" id="dropdown-toggler" class="link">
+            <img src="./assets/img/notif.png" alt="notification bell" id="dropdown-img">
+          </a>
+          <div class="dropdown-content" id="dropdown-content">
+            <a href="#" class="read">Jollof Rice Meal was just added to the menu</a>
+            <a href="#">Jollof Rice Meal was just added to the menu</a>
+            <a href="#" class="read">Jollof Rice Meal was just added to the menu</a>
+            <a href="#">Jollof Rice Meal was just added to the menu</a>
+            <a href="#">Jollof Rice Meal was just added to the menu</a>
+            <a href="#">Jollof Rice Meal was just added to the menu</a>
+            <a href="#" class="read">Jollof Rice Meal was just added to the menu</a>
+          </div>
+        </div>
+        <a href="#" class="link">
+          <img src="./assets/img/cart.png" alt="cart">
+        </a>
+        <div class="user-info">
+          <div class="dropdown">
+            <a href="#" id="dropdown-toggler" class="link circle">
+              <div class="username-circle" id="dropdown-img">
+                <p>I</p>
+              </div>
+            </a>
+            <div class="dropdown-content profile" id="dropdown-content">
+              <a href="./order-history.html" id="user-order-history">Order History</a>
+              <a href="./login.html" id="logout">Logout</a>
+            </div>
+          </div>
+
+          <p class="hide d-lg">Iveren</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-wrapper">
+    <div class="order-history">
+      <div class="page-heading">
+        <h2>Order History</h2>
+        <hr>
+      </div>
+      <div class="pills">
+        <div class="order-history-pill">
+          <a href="./user-order-details.html">
+            <div class="order-history-header">
+              <h3>#1234567</h3>
+              <h3>13/12/17 12:38pm</h3>
+            </div>
+            <hr>
+            <div>
+              <p>2X &nbsp;Revenge Body Pack ...</p>
+            </div>
+            <div class="order-history-footer">
+              <h4>Status:
+                <span class="warning">Pending</span>
+              </h4>
+              <h2>&#8358;1200.00</h2>
+            </div>
+          </a>
+        </div>
+        <div class="order-history-pill">
+          <a href="./user-order-details.html">
+            <div class="order-history-header">
+              <h3>#1234567</h3>
+              <h3>13/12/17 12:38pm</h3>
+            </div>
+            <hr>
+            <div>
+              <p>2X &nbsp;Revenge Body Pack ...</p>
+            </div>
+            <div class="order-history-footer">
+              <h4>Status:
+                <span class="danger">Canceled</span>
+              </h4>
+              <h2>&#8358;1200.00</h2>
+            </div>
+          </a>
+        </div>
+        <div class="order-history-pill">
+          <a href="./user-order-details.html">
+            <div class="order-history-header">
+              <h3>#1234567</h3>
+              <h3>13/12/17 12:38pm</h3>
+            </div>
+            <hr>
+            <div>
+              <p>2X &nbsp;Revenge Body Pack ...</p>
+            </div>
+            <div class="order-history-footer">
+              <h4>Status:
+                <span class="success">Delivered</span>
+              </h4>
+              <h2>&#8358;1200.00</h2>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="footer">
+    <p>&copy; 2018. Iveren Shaguy</p>
+  </div>
+  <div class="modal" id="notif-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="close">
+          <a href="#" aria-hidden="true" id="modal-close-icon">&times;</a>
+        </div>
+      </div>
+      <hr>
+      <div class="modal-body">
+        <p>Thank you for your order. Your belly will be filled up shortly</p>
+      </div>
+    </div>
+  </div>
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
