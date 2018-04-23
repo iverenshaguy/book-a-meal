@@ -12,7 +12,7 @@ app.use(logger('dev'));
 
 // Parse incoming requests data
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
