@@ -29,15 +29,20 @@ body {
   min-height: 100%;
   flex-direction: column;
 	color: $dark;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("../img/chicken-fajitas.jpg")	white no-repeat center center;
-	background-size: cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("../img/chicken-fajitas.jpg")	no-repeat center center;
+  background-color: white;
+  background-size: cover;
+  background-attachment: fixed;
 	// align-items: center;
   justify-content: space-between;
   
   &.overlay {
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url("../img/chicken-fajitas.jpg")	white no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../img/chicken-fajitas.jpg")	no-repeat center center;
+    background-color: white;
+    background-size: cover;
+    background-attachment: fixed;
   }
 }
 
@@ -200,31 +205,7 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  .landing {
-    color: $white;
-    text-align: center;
-    font-family: $heading-font-stack;
-    display: flex;
-    flex-direction: column;
-    align-content: space-between;
-
-    h1 {
-      font-size: 3.0em;
-      padding: 0 1em;
-      margin-bottom: 100px/1200px * 100%;
-    }
-
-    p {
-      font-size: 1.5em;
-    }
-
-    button {
-      @include pri-button($dark-green);
-      padding: 12px 50px;
-      font-size: 1.3em;
-    }
-  }
+  margin-top: 70px;
 }
 
 // AUTH WRAPPER
@@ -252,8 +233,14 @@ hr {
 // ADMIN
 .admin {
   display: block;
-  background: $lightgrey;
+  // background: $lightgrey;
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+    url("../img/chicken-fajitas.jpg")	no-repeat center center;
+  background-color: white;
+  background-size: cover;
+  background-attachment: fixed;
   color: $dark;
+  margin-left: 0;
 
   .navbar {
     box-shadow: $navbar-shadow;
@@ -272,11 +259,13 @@ hr {
   }
 
   .footer {
-    background-color: $white;
-
     p {
       color: $dark;
     }
+  }
+
+  .content {
+    margin-top: 70px;
   }
 
   .content-wrapper {
@@ -290,19 +279,25 @@ hr {
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    margin-top: 0;
   }
-
 
   @media (min-width: 767.98px) {
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    margin-left: 250px;
+
+    &.user {
+      margin-left: 0;
+    }
 
     .content {
       flex-grow: 10;
       display: flex;
       flex-direction: row;
       min-height: 100%;
+      margin-top: 70px;
 
       .content-wrapper {
         flex-grow: 1;
@@ -312,9 +307,8 @@ hr {
 
   .date, .page-heading {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    text-align: center;
     margin: 0 40px;
 
     hr {
@@ -326,7 +320,7 @@ hr {
 
   .date {
     flex-direction: row;
-    justify-content: space-around;
+    // justify-content: space-around;
 
     @media (max-width: 767.98px) {
       flex-direction: column;
@@ -337,6 +331,10 @@ hr {
 // DATEPICKER
 .datepicker-div {
   position: relative;
+  
+  .btn-sec {
+    border: 0;
+  }
 
   #datepicker {
     position: absolute;
@@ -357,14 +355,18 @@ hr {
       color: transparent;
       background: transparent;
       opacity: 1;
+      cursor: pointer;
     }
   }
 }
 
 // USER PAGES
 .user {
-  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
-  url("../img/chicken-fajitas.jpg")	white no-repeat fixed;
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+    url("../img/chicken-fajitas.jpg")	no-repeat center center;
+  background-color: white;
+  background-size: cover;
+  background-attachment: fixed;
 
   .header .navbar .page-title a, .navlinks, .header .navbar .navlinks .link, .footer p {
     color: $dark;
@@ -383,7 +385,7 @@ hr {
     text-align: center;
   }
 
-  .order-summary {
+  .order-summary, .order-amount:not(.admin-order-total), .customer-details, .order-misc {
     border-bottom: 1px solid #ddd;
   }
 
@@ -442,6 +444,51 @@ hr {
   }
 }
 
+// HOMEPAGE 
+.home {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+
+  .landing {
+    color: $white;
+    text-align: center;
+    font-family: $heading-font-stack;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 100%;
+
+    h1 {
+      margin: 0 0 10%;
+      // margin-top: -10%;
+      font-size: 2.0em;
+      padding: 0 1em;
+      margin-bottom: 100px/1200px * 100%;
+    }
+
+    p {
+      font-size: 1.5em;
+    }
+
+    button {
+      @include pri-button($dark-green);
+      padding: 12px 50px;
+      font-size: 1.3em;
+    }
+  }
+
+  .meals {
+    background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+      url("../img/chicken-fajitas.jpg")	no-repeat center center;
+    background-color: white;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}
+
 @media (min-width: 451px) and (max-width: 575.98px) {
   .auth {
     width: 75%;
@@ -464,6 +511,16 @@ hr {
     margin: 40px;
     width: 80%
   }
+
+  .home {
+    .landing {
+      height: 50vh;
+
+      h1 {
+        font-size: 2.2em;
+      }
+    }
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -476,6 +533,16 @@ hr {
     margin: 50px;
     width: 60%
   }
+
+  .home {
+    .landing {
+      height: 50vh;
+
+      h1 {
+        font-size: 2.2em;
+      }
+    }
+  }
 }
 
 @media (min-width: 992px) {
@@ -487,5 +554,16 @@ hr {
   .order-history {
     margin: 50px;
     width: 60%
+  }
+
+  .home {
+    .landing {
+      height: 90vh;
+
+      h1 {
+        // margin-top: -10%;
+        font-size: 3em;
+      }
+    }
   }
 }

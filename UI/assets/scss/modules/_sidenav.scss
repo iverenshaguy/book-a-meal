@@ -2,8 +2,17 @@
 
 .sidenav {
   box-shadow: $sidenav-shadow;
+  position: fixed;
+  top: 0;
+  left: 0;
+  // right: 0;
+  bottom: 0;
+  z-index: 11;
+  margin-top:70px;
 
   @media (max-width: 767.98px) {
+    position: relative;
+
     &:before {
       content: ""; 
       display: none;
@@ -13,7 +22,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      z-index: 10;
+      z-index: 11;
     }
   
     &:target {
@@ -26,7 +35,7 @@
     }
 
     .sidenav-content {
-      z-index: 11;
+      z-index: 12;
       position: fixed;
       top: 0;
       left: 0;

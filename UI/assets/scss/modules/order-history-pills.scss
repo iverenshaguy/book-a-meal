@@ -20,6 +20,9 @@
     align-items: center;
     text-align: center;
   }
+    p {
+      margin-bottom: 0;
+    }
 
   .order-history-header {
     h3 {
@@ -34,7 +37,8 @@
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     @keyframes jump {
        0% { transform: translateY(-0.25em); }
        35% { transform: translateY(-0.5em); }

@@ -20,49 +20,92 @@
       <div class="navlinks">
         <a href="./login.html" class="link">Log In</a>
         <a href="#" class="link">Sign Up</a>
-        <a href="./dashboard.html" class="link">Caterer</a>
+        <a href="./dashboard.html" class="link">Caterers</a>
       </div>
     </div>
   </div>
   <div class="main-wrapper">
     <div class="auth">
       <div class="title">
-        <h2>Register For a New Account</h2>
+        <h2>Start Filling Your Belly</h2>
         <hr class="w-75">
       </div>
-      <div class="content">
+      <div class="content" id="one">
         <form action="./user-menu.html">
           <div class="form-input">
-            <label for="#name">Full Name</label>
+            <label for="name">Full Name</label>
             <input type="text" required id="name" name="name" value="" onkeyup="this.setAttribute('value', this.value);" />
           </div>
 
           <div class="form-input">
-            <label for="#email">Email Address</label>
+            <label for="email">Email Address</label>
             <input type="email" required id="email" name="email" value="" onkeyup="this.setAttribute('value', this.value);" />
           </div>
 
           <div class="form-input">
-            <label for="#password">Password</label>
+            <label for="password">Password</label>
             <input type="password" required id="password" name="password" value="" onkeyup="this.setAttribute('value', this.value);"
             />
           </div>
 
           <div class="form-input">
-            <label for="#confirm-password">Confirm Password</label>
+            <label for="confirm-password">Confirm Password</label>
             <input type="password" required id="confirm-password" name="confirm-password" value="" onkeyup="this.setAttribute('value', this.value);"
             />
-          </div>
-
-          <div class="form-input-checkbox">
-            <input type="checkbox" id="checkbox" name="checkbox" value="" onkeyup="this.setAttribute('value', this.value);" />
-            <label for="#checkbox">Caterer</label>
           </div>
 
           <button class="btn btn-pri btn-block" type="submit">SIGN UP</button>
         </form>
         <p class="form-extra-info text-center">Already have an account, login
-          <a href="./login.html">here</a>
+          <a href="./login.html?role=user">here</a>
+        </p>
+        <p class="text-center">Or</p>
+        <p class="form-extra-info text-center">
+          <a href="./signup.html?role=caterer">Signup as a Caterer</a>
+        </p>
+      </div>
+      <div class="content hide" id="two">
+        <form action="./dashboard.html">
+          <div class="form-input">
+            <label for="name">Business Name</label>
+            <input type="text" required id="name" name="name" value="" onkeyup="this.setAttribute('value', this.value);" />
+          </div>
+
+          <div class="form-input">
+            <label for="email">Email Address</label>
+            <input type="email" required id="email" name="email" value="" onkeyup="this.setAttribute('value', this.value);" />
+          </div>
+
+          <div class="form-input">
+            <label for="password">Password</label>
+            <input type="password" required id="password" name="password" value="" onkeyup="this.setAttribute('value', this.value);"
+            />
+          </div>
+
+          <div class="form-input">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" required id="confirm-password" name="confirm-password" value="" onkeyup="this.setAttribute('value', this.value);"
+            />
+          </div>
+
+          <div class="form-input">
+            <label for="phone">Business Phone No</label>
+            <input type="number" required id="phone" name="phone" value="" onkeyup="this.setAttribute('value', this.value);" />
+          </div>
+
+          <div class="form-input">
+            <label for="address">Business Name</label>
+            <textarea required id="address" name="address" value=""></textarea>
+          </div>
+
+          <button class="btn btn-pri btn-block" type="submit">SIGN UP</button>
+        </form>
+        <p class="form-extra-info text-center">Already have an account, login
+          <a href="./login.html?role=caterer">here</a>
+        </p>
+        <p class="text-center">Or</p>
+        <p class="form-extra-info text-center">
+          <a href="./signup.html?role=user">Signup as a User</a>
         </p>
       </div>
     </div>
@@ -71,6 +114,7 @@
     <p>Made with love by Iveren Shaguy</p>
   </div>
   <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/signup.js"></script>
 </body>
 
 </html>

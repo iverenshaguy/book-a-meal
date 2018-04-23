@@ -55,41 +55,114 @@
   </div>
   <div class="main-wrapper">
     <div class="order-confirmation">
-      <h2>Your Order</h2>
-      <hr>
-      <div class="order-summary">
-        <div>
-          <p>2x</p>
-          <p>Jollof Rice</p>
-          <p>&#8358;300.00</p>
+      <div id="one">
+        <h2>Order Details</h2>
+        <hr>
+        <div class="order-summary">
+          <div>
+            <p>2x</p>
+            <p>Jollof Rice</p>
+            <p>&#8358;300.00</p>
+          </div>
+          <div>
+            <p>1x</p>
+            <p>Basmati Rice</p>
+            <p>&#8358;800.00</p>
+          </div>
         </div>
-        <div>
-          <p>1x</p>
-          <p>Basmati Rice</p>
-          <p>&#8358;800.00</p>
+        <div class="order-amount">
+          <div>
+            <p>Subtotal</p>
+            <p>&#8358;1100.00</p>
+          </div>
+          <div>
+            <p>Delivery Fee</p>
+            <p>&#8358;600.00</p>
+          </div>
+          <div>
+            <p>Including VAT</p>
+            <p>&#8358;13.29</p>
+          </div>
+          <div>
+            <p>Total</p>
+            <h1>&#8358;1700.00</h1>
+          </div>
+        </div>
+        <div class="control-btns">
+          <a href="./user-menu.html">
+            <button class="btn btn-sec">More Food</button>
+          </a>
+          <a href="./order-confirmation.html?num=two">
+            <button class="btn btn-sec">Checkout</button>
+          </a>
         </div>
       </div>
-      <div class="order-amount">
-        <div>
-          <p>Subtotal</p>
-          <p>&#8358;1100.00</p>
-        </div>
-        <div>
-          <p>Delivery Fee</p>
-          <p>&#8358;600.00</p>
-        </div>
-        <div>
-          <p>Including VAT</p>
-          <p>&#8358;13.29</p>
-        </div>
-        <div>
-          <p>Total</p>
-          <h1>&#8358;1700.00</h1>
-        </div>
+      <div class="hide" id="two">
+        <h2>Delivery Details</h2>
+        <hr>
+        <form action="./order-confirmation.html?num=three">
+          <input type="hidden" name="num" value="three" />
+          <div class="form-input">
+            <label for="number">Phone Number</label>
+            <input type="number" required id="number" name="number" value="" onkeyup="this.setAttribute('value', this.value);" />
+          </div>
+
+          <div class="form-input">
+            <label for="address">Delivery Address</label>
+            <textarea required id="address" name="address" rows="3"></textarea>
+          </div>
+          <div class="control-btns">
+            <button class="btn btn-sec" type="button">Back</button>
+            <button class="btn btn-sec" type="submit">Next</button>
+          </div>
+        </form>
       </div>
-      <button class="btn btn-sec btn-block" id="back-btn">Go Back</button>
-      <br>
-      <button class="btn btn-pri btn-block" id="checkout">Checkout</button>
+      <div class="hide" id="three">
+        <h2>Please Confirm Your Order Details</h2>
+        <hr>
+        <div class="order-summary">
+          <div>
+            <p>2x</p>
+            <p>Jollof Rice</p>
+            <p>&#8358;300.00</p>
+          </div>
+          <div>
+            <p>1x</p>
+            <p>Basmati Rice</p>
+            <p>&#8358;800.00</p>
+          </div>
+        </div>
+        <div class="order-amount">
+          <div>
+            <p>Subtotal</p>
+            <p>&#8358;1100.00</p>
+          </div>
+          <div>
+            <p>Delivery Fee</p>
+            <p>&#8358;600.00</p>
+          </div>
+          <div>
+            <p>Including VAT</p>
+            <p>&#8358;13.29</p>
+          </div>
+          <div>
+            <p>Total</p>
+            <h1>&#8358;1700.00</h1>
+          </div>
+        </div>
+        <div class="customer-details">
+          <p>Wednesday, 18th April 2018 &nbsp; &nbsp;2:00pm</p>
+          <p>Mrs. Tola Olanipekun</p>
+          <p>08134567890</p>
+          <p>4, Church Street, Yaba</p>
+        </div>
+        <a href="./order-confirmation.html?num=two">
+          <button class="btn btn-sec btn-block">Get More Food</button>
+        </a>
+        <br>
+        <br>
+        <button class="btn btn-pri btn-block" id="checkout">Checkout</button>
+      </div>
     </div>
   </div>
   </div>
@@ -105,11 +178,12 @@
       </div>
       <hr>
       <div class="modal-body">
-        <p>Thank you for your order. Your belly will be filled up shortly</p>
+        <p class="text-center">Thank you for your order. Your belly will be filled up shortly</p>
       </div>
     </div>
   </div>
   <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/orders.js"></script>
 </body>
 
 </html>

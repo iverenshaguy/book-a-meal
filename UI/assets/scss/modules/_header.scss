@@ -1,9 +1,17 @@
 @import '../_variables.scss';
 
 .header {
-  margin-top: 0px;
+  margin-top: 0;
   height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 13;
   
+  &.homepage {
+    position: relative;
+  }
 
   .navbar {
     height: 100%;
@@ -110,6 +118,8 @@
   }
 
   @media (max-width: 767.98px) {
+    z-index: 10;
+
     &>p {
       display: none;
     }

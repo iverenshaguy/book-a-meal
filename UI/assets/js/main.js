@@ -33,8 +33,11 @@ window.onload = function () {
 
   if (addMealModalBtn) addMealModalBtn.onclick = e => showModal(e, mealModal);
   if (menuModalBtn) menuModalBtn.onclick = e => showModal(e, menuModal);
-  if (checkoutBtn) checkoutBtn.onclick = e => showModal(e, notifModal);
   if (backBtn) backBtn.onclick = () => redirect('./user-menu.html');
+
+  if (checkoutBtn) checkoutBtn.onclick = e => {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth'}); showModal(e, notifModal)
+  };
 
   if (mealCardBtns.length) for (let i = 0; i < mealCardBtns.length; i++) {
     mealCardBtns[i].addEventListener('click', function (e) {
@@ -162,7 +165,7 @@ window.onload = function () {
     const form = `
     <form action="./meals.html" id="meal-form">
       <div class="form-input">
-        <label for="#name">Meal Name</label>
+        <label for="name">Meal Name</label>
         <input type="text" required id="name" name="name" value="${type === 'add' ? '' : 'Jollof Rice Meal'}" onkeyup="this.setAttribute('value', this.value);" />
       </div>
 
@@ -179,19 +182,19 @@ window.onload = function () {
       </div>
 
       <div class="form-input">
-        <label for="#price">Price</label>
+        <label for="price">Price</label>
         <input type="text" required id="price" name="price" value="${type === 'add' ? '' : 2100}" onkeyup="this.setAttribute('value', this.value);" />
       </div>
   
       <div class="form-input">
-        <label for="#description">Description</label>
+        <label for="description">Description</label>
         <br/>
         <textarea rows="5" required id="description" name="description">${mealDesc}</textarea>
       </div>
   
       <div class="form-input-checkbox">
         <input type="checkbox" id="checkbox" name="checkbox">
-        <label for="#checkbox">Suitable for Vegetarians</label>
+        <label for="checkbox">Suitable for Vegetarians</label>
       </div>
         ${type === 'add' ? addBtn : editBtn}
     </form>`;

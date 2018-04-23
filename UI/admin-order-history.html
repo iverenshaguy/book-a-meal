@@ -58,8 +58,8 @@
           </div>
         </div>
         <div class="sidenav-body">
-          <a href="./dashboard.html" class="menu-item active">Dashboard</a>
-          <a href="#" class="menu-item">Order History</a>
+          <a href="./dashboard.html" class="menu-item">Dashboard</a>
+          <a href="#" class="menu-item active">Order History</a>
           <a href="./meals.html" class="menu-item">Meals</a>
           <a href="./admin-menu.html" class="menu-item">Menu</a>
         </div>
@@ -79,6 +79,9 @@
                 <h3>13/12/17 12:38pm</h3>
               </div>
               <hr>
+              <div>
+                <p>Mrs. Tola Olanipekun&nbsp; - &nbsp;4, Church Street, Yaba</p>
+              </div>
               <div class="order-history-footer">
                 <h4>Status:
                   <span class="warning">Pending</span>
@@ -94,6 +97,9 @@
                 <h3>13/12/17 12:38pm</h3>
               </div>
               <hr>
+              <div>
+                <p>Mrs. Tola Olanipekun&nbsp; - &nbsp;4, Church Street, Yaba</p>
+              </div>
               <div class="order-history-footer">
                 <h4>Status:
                   <span class="danger">Canceled</span>
@@ -109,6 +115,9 @@
                 <h3>13/12/17 12:38pm</h3>
               </div>
               <hr>
+              <div>
+                <p>Mrs. Tola Olanipekun&nbsp; - &nbsp;4, Church Street, Yaba</p>
+              </div>
               <div class="order-history-footer">
                 <h4>Status:
                   <span class="success">Delivered</span>
@@ -125,9 +134,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <div class="modal-title">
-          <h4 id="modal-title-h3">Order #12345678 -
-            <span class="warning text-small">Pending</span>
-          </h4>
+          <h4 id="modal-title-h3">Order #12345678</h4>
         </div>
         <div class="close">
           <a href="#" aria-hidden="true" id="modal-close-icon">&times;</a>
@@ -135,12 +142,16 @@
       </div>
       <hr>
       <div class="modal-body order-confirmation order-details">
-        <p class="order-date text-center">15/12/2017 07:45pm</p>
+        <div class="order-misc">
+          <p class="order-date">15/12/2017 07:45pm</p>
+          <p>Status:
+            <span class="warning">Pending</span>
+          </p>
+          <p>Mrs. Tola Olanipekun</p>
+          <p>Address Provided: 4, Church Street, Yaba</p>
+          <p>Number Provided: +2348134567890</p>
+        </div>
         <div class="order-summary">
-          <div>
-            <p>Mrs. Tola Olanipekun</p>
-            <p>4, Church Street, Yaba</p>
-          </div>
           <div>
             <p>2x</p>
             <p>Jollof Rice</p>
@@ -152,7 +163,7 @@
             <p>&#8358;800.00</p>
           </div>
         </div>
-        <div class="order-amount">
+        <div class="order-amount admin-order-total">
           <div>
             <p>Subtotal</p>
             <p>&#8358;1100.00</p>
@@ -169,10 +180,6 @@
             <p>Total</p>
             <h1>&#8358;1700.00</h1>
           </div>
-        </div>
-        <div class="d-flex-row">
-          <button class="btn btn-sec order-details-btn">Update</button>
-          <button class="btn btn-sec-danger order-details-btn">Cancel</button>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@
 
 /**BUTTON**/
 .btn {
-  border-radius: 5px;
+  border-radius: 3px;
   border-style: none;
   padding: 10px 50px;
   font-family: $heading-font-stack;
@@ -38,5 +38,27 @@
 
   &-sec-danger {
     @include sec-button($danger);
+  }
+}
+
+.control-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .btn {
+    @media (max-width: 768px) {
+      border: 0;
+      padding: 20px 0 0 0;
+      font-size: 1.5em;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: transparent;
+        border: 0;
+        color: darken($primary-color, 5%);
+      }
+    }
   }
 }

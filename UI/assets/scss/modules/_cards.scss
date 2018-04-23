@@ -30,13 +30,13 @@
     align-items: center;
     margin-bottom: 50px;
 
-    &:last-child() {
-      margin-bottom: 0;
-    }
+    // &:last-child() {
+    //   margin-bottom: 0;
+    // }
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 576px) {
   .card-group {
     flex-direction: row !important;
 
@@ -46,7 +46,7 @@
       display: flex;
       justify-content: center !important;
       align-items: center !important;
-      margin-bottom: 0;
+      // margin-bottom: 0;
     }
   }
 }
