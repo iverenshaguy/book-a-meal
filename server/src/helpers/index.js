@@ -1,4 +1,4 @@
-import isEmpty from './isEmpty';
+import notEmpty from './notEmpty';
 import PasswordHash from './PasswordHash';
 
-export default { isEmpty, PasswordHash };
+export default { notEmpty, PasswordHash };
