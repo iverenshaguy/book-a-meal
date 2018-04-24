@@ -1,5 +1,10 @@
 # Book A Meal
 
+[![Build Status](https://travis-ci.org/iverenshaguy/book-a-meal.svg?branch=develop)](https://travis-ci.org/iverenshaguy/book-a-meal)
+[![Coverage Status](https://coveralls.io/repos/github/iverenshaguy/book-a-meal/badge.svg?branch=ft-user-signup-dummy-api-157007955)](https://coveralls.io/github/iverenshaguy/book-a-meal?branch=ft-user-signup-dummy-api-157007955)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ee9e3f3a2697b184de58/maintainability)](https://codeclimate.com/github/iverenshaguy/book-a-meal/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/ee9e3f3a2697b184de58/test_coverage)](https://codeclimate.com/github/iverenshaguy/book-a-meal/test_coverage)
+
 An application that allows customers to make food orders and helps the food vendor to know what the customers want to eat.
 
 ## Built With
