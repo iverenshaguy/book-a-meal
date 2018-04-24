@@ -25,7 +25,9 @@ before_script:
   - ./cc-test-reporter before-build
 
 after_script:
+  - cd server
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - cd ..
   
 after_success:
   - npm run coverage

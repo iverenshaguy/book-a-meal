@@ -14,7 +14,7 @@
     "build": "cross-env NODE_ENV=development babel ./server/src -d ./server/dist",
     "pretest": "",
     "lint": "eslint **/*.js --fix",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "coverage": "cat ./server/coverage/lcov.info | coveralls",
     "test": "cross-env NODE_ENV=test nyc mocha ./server/tests/test.js --recursive --timeout 3000 --exit",
     "test:watch": "npm test --watch"
   },
