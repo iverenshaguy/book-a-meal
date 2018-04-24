@@ -1,6 +1,5 @@
 .vscode
 node_modules
 gulpfile.js
-.coveralls
 .gitattributes
 server/dist
