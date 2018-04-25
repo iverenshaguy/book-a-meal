@@ -26,7 +26,8 @@
     "express": "^4.16.3",
     "express-validator": "^5.1.2",
     "morgan": "^1.9.0",
-    "npm-run-all": "^4.1.2"
+    "npm-run-all": "^4.1.2",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

@@ -1,3 +1,3 @@
-import './routes';
-import './middlewares';
 import './helpers';
+import './middlewares';
+import './routes';

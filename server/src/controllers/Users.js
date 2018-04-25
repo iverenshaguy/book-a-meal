@@ -1,3 +1,4 @@
+import uuidv4 from 'uuid/v4';
 import PasswordHash from '../helpers/PasswordHash';
 import usersDB from '../dummyData/users';
 
@@ -23,6 +24,7 @@ class Users {
     const newUser = Object.assign(data);
     newUser.passwordHash = hash;
     newUser.email = req.body.email.toLowerCase();
+    newUser.userId = uuidv4();
     delete newUser.password;
     delete newUser.passwordConfirm;
 
