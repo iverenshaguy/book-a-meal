@@ -1,8 +1,6 @@
 import mealsDB from '../dummyData/meals';
 import GetItems from '../middlewares/GetItems';
 
-// const token = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
-
 /**
  * @exports
  * @class Meals
@@ -17,7 +15,7 @@ class Meals {
    * @returns {(function|object)} Function next() or JSON object
    */
   static list(req, res) {
-    return GetItems(req, res, mealsDB, 'meals');
+    return GetItems.items(req, res, mealsDB, 'meals');
   }
 }
 

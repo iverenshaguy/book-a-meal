@@ -3,6 +3,6 @@ import Meals from '../controllers/Meals';
 
 const mealsRoutes = express.Router();
 
-mealsRoutes.get('/', (req, res, next) => Meals.list(req, res, next));
+mealsRoutes.get('/', (req, res) => Meals.list(req, res));
 
 export default mealsRoutes;
