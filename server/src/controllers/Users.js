@@ -3,7 +3,6 @@ import usersDB from '../dummyData/users';
 
 const token = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
 
-
 /**
  * @exports
  * @class Users
@@ -12,7 +11,7 @@ class Users {
   /**
    * Registers a new user
    * @method register
-   * @memberof Home
+   * @memberof Users
    * @param {object} req
    * @param {object} res
    * @param {object} data
@@ -40,7 +39,7 @@ class Users {
   /**
    * Logs in a user
    * @method login
-   * @memberof Home
+   * @memberof Users
    * @param {object} req
    * @param {object} res
    * @param {object} data

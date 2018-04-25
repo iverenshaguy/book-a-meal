@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/dummyData/users.js</title>
+    <title>Code coverage report for src/middlewares/GetItems.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="..\..\prettify.css" />
     <link rel="stylesheet" href="..\..\base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\..\index.html">All files</a> / <a href="index.html">src/dummyData</a> users.js
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/middlewares</a> GetItems.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>5/5</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>5/5</span>
       </div>
     </div>
     <p class="quiet">
@@ -74,7 +74,10 @@
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
 <a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -93,43 +96,49 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const users = [
-  {
-    id: 1,
-    firstname: 'Iveren',
-    lastname: 'Shaguy',
-    email: 'iveren@shaguy.com',
-    password: 'iverenshaguy',
-    passwordHash: '23456789dtfgyuhio567890'
-  },
-  {
-    id: 2,
-    firstname: 'Olisa',
-    lastname: 'Emodi',
-    email: 'olisa@emodi.com',
-    password: 'olisaemodi',
-    passwordHash: '23456789dtfgyuhio567890'
-  },
-  {
-    id: 3,
-    firstname: 'Emiola',
-    lastname: 'Olasanmi',
-    email: 'emiola@olasanmi.com',
-    password: 'emiolaolasanmi',
-    passwordHash: '23456789dtfgyuhio567890'
-  },
-];
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Pagination from './Pagination';
 &nbsp;
-export default users;
+&nbsp;
+/**
+ * @exports
+ * @class GetItems
+ * @classdesc Constructs a List of Items
+ */
+class GetItems {
+  /**
+   * @method items
+   * @memberof GetItems
+   * @param {object} req
+   * @param {object} res
+   * @param {array} items
+   * @param {string} type
+   * @returns {json} Returns JSON object
+   */
+  static items(req, res, items, type) {
+    const { limit, page } = req.query;
+    const pagination = new Pagination(type, items, limit, page);
+&nbsp;
+    if (items.length === 0) {
+      return res.status(200).send({ [type]: [] });
+    }
+&nbsp;
+    return pagination.paginateItems(res);
+  }
+}
+&nbsp;
+export default GetItems;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->

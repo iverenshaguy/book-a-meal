@@ -6,7 +6,7 @@ class ErrorHandler {
   /**
    * Handlers uncaught erros in the app
    * @method sendError
-   * @memberof Home
+   * @memberof ErrorHandler
    * @param {object} err
    * @param {object} req
    * @param {object} res
