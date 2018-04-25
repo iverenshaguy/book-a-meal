@@ -15,7 +15,7 @@ describe('Meal Routes: Delete a meal option', () => {
       .set('authorization', adminMockToken)
       .end((err, res) => {
         expect(res.statusCode).to.equal(204);
-        expect(res.body).to.be.empty();
+        expect(res.body).to.deep.equal({});
 
         if (err) return done(err);
         done();
