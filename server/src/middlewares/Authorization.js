@@ -19,7 +19,7 @@ class Authorization {
   static authorizeCaterer(req, res, next) {
     // token could provided via body, as a query string or in the header
     const bearerToken = req.headers.authorization;
-    const token = bearerToken.replace('Bearer ', '');
+    const token = bearerToken && bearerToken.replace('Bearer ', '');
 
     // check to be sure there's a token
     if (!bearerToken || !token) {
