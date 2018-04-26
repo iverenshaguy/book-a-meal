@@ -59,7 +59,7 @@ describe('Signup Routes', () => {
   it('returns error for already taken email address', (done) => {
     request.agent(app)
       .post('/api/v1/auth/signup')
-      .send(Object.assign(rightData, { email: 'iveren@shaguy.com' }))
+      .send(Object.assign({}, rightData, { email: 'iveren@shaguy.com' }))
       .end((err, res) => {
         // userToken = res.body.token;
         expect(res.statusCode).to.equal(422);
