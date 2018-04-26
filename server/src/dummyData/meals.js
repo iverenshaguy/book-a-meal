@@ -5,7 +5,9 @@ const meals = [
     description: 'Jollof Rice, Beef and Plantain. 2 pieces of beef per plate',
     price: 1500,
     imageURL: 'images.com/imgurl.jpeg',
-    forVegetarians: false
+    forVegetarians: false,
+    created: '2018-05-06T14:34:90.000',
+    updated: '2018-05-06T14:34:90.000',
   },
   {
     mealId: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
@@ -21,7 +23,9 @@ const meals = [
     description: 'Meal contains 2 pieces of beef and other assorted meat and fish products',
     price: 2000,
     imageURL: 'images.com/imgurl2.jpeg',
-    forVegetarians: false
+    forVegetarians: false,
+    created: '2018-05-06T14:34:90.000',
+    updated: '2018-05-06T14:34:90.000',
   },
   {
     mealId: 'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
@@ -29,7 +33,9 @@ const meals = [
     description: '',
     price: 1200,
     imageURL: 'images.com/imgurl1.jpeg',
-    forVegetarians: false
+    forVegetarians: false,
+    created: '2018-05-06T14:34:90.000',
+    updated: '2018-05-06T14:34:90.000',
   },
   {
     mealId: '46ced7aa-eed5-4462-b2c0-153f31589bdd',
@@ -37,7 +43,9 @@ const meals = [
     description: 'Local Food that contains Beans Corn and Fish',
     price: 2000,
     imageURL: 'images.com/imgurl2.jpeg',
-    forVegetarians: false
+    forVegetarians: false,
+    created: '2018-05-06T14:34:90.000',
+    updated: '2018-05-06T14:34:90.000',
   },
   {
     mealId: '8a65538d-f862-420e-bcdc-80743df06578',
@@ -45,7 +53,9 @@ const meals = [
     description: '',
     price: 1200,
     imageURL: 'images.com/imgurl1.jpeg',
-    forVegetarians: false
+    forVegetarians: false,
+    created: '2018-05-06T14:34:90.000',
+    updated: '2018-05-06T14:34:90.000',
   },
   {
     mealId: 'a3c35e8f-da7a-4113-aa01-a9c0fc088539',
@@ -53,7 +63,9 @@ const meals = [
     description: 'Meal contains 2 pieces of beef and other assorted meat and fish products',
     price: 2000,
     imageURL: 'images.com/imgurl2.jpeg',
-    forVegetarians: false
+    forVegetarians: false,
+    created: '2018-05-06T14:34:90.000',
+    updated: '2018-05-06T14:34:90.000',
   },
   {
     mealId: '3ec802c6-0a32-4d29-b27b-42e0f4b532dd',
@@ -61,7 +73,9 @@ const meals = [
     description: 'Meal come with Fish',
     price: 1200,
     imageURL: 'images.com/imgurl1.jpeg',
-    forVegetarians: false
+    forVegetarians: false,
+    created: '2018-05-06T14:34:90.000',
+    updated: '2018-05-06T14:34:90.000',
   },
   {
     mealId: '72a3417e-45c8-4559-8b74-8b5a61be8614',
@@ -69,7 +83,9 @@ const meals = [
     description: 'Meal contains 2 pieces of beef and other assorted meat and fish products',
     price: 2000,
     imageURL: 'images.com/imgurl2.jpeg',
-    forVegetarians: false
+    forVegetarians: false,
+    created: '2018-05-06T14:34:90.000',
+    updated: '2018-05-06T14:34:90.000',
   },
   {
     mealId: '91b6e41c-0972-4ac5-86da-4ac1f5226e83',
@@ -77,7 +93,9 @@ const meals = [
     description: '',
     price: 1200,
     imageURL: 'images.com/imgurl1.jpeg',
-    forVegetarians: false
+    forVegetarians: false,
+    created: '2018-05-06T14:34:90.000',
+    updated: '2018-05-06T14:34:90.000',
   },
 ];
 

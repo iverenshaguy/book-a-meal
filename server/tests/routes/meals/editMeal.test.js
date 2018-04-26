@@ -33,6 +33,8 @@ describe('Meal Routes: Edit a meal option', () => {
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.deep.equal({
+          created: '2018-05-06T14:34:90.000',
+          updated: '2018-05-06T14:34:90.000',
           mealId: '91b6e41c-0972-4ac5-86da-4ac1f5226e83',
           title: 'Jollof Spaghetti, Plantain and Chicken',
           description: 'Contains Sea Food',

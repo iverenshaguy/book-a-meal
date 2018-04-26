@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/routes/meals.js</title>
+    <title>Code coverage report for src/validations/orders.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="..\..\prettify.css" />
     <link rel="stylesheet" href="..\..\base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\..\index.html">All files</a> / <a href="index.html">src/routes</a> meals.js
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/validations</a> orders.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/11</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>10/10</span>
+        <span class='fraction'>2/2</span>
       </div>
     </div>
     <p class="quiet">
@@ -72,58 +72,76 @@
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import express from 'express';
-import Meals from '../controllers/Meals';
-import mealsDB from '../dummyData/meals';
-import mealsValidation from '../validations/meals';
-import Authorization from '../middlewares/Authorization';
-import ValidationHandler from '../middlewares/ValidationHandler';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { check } from 'express-validator/check';
+import notEmpty from '../helpers/notEmpty';
 &nbsp;
-const mealsRoutes = express.Router();
-const mealsController = new Meals(mealsDB, 'meal');
-const authorization = new Authorization('caterer');
+export default {
+  create: [
+    check('menuId')
+      .isUUID(4)
+      .withMessage('Invalid ID'),
+    check('deliveryAddress')
+      .trim()
+      .exists().withMessage('Delivery Address must be specified')
+      .custom(value =&gt; notEmpty(value, 'Delivery Address cannot be empty'))
+      .isLength({ min: 5, max: 255 })
+      .withMessage('Text must be between 5 and 255 characters')
+      .matches(/^[a-z 0-9 (),.'-]+$/i)
+      .withMessage('Text can only contain letters and the characters (,.\'-)'),
+    check('deliveryPhoneNo')
+      .trim()
+      .exists().withMessage('Delivery Phone Number must be specified')
+      .custom(value =&gt; notEmpty(value, 'Delivery Phone Number cannot be empty'))
+      .matches(/^\+?(234)([0-9]{10})$/)
+      .withMessage('Delivery Phone Number must be in the format +2348134567890')
+      .isLength({ min: 10, max: 15 })
+      .withMessage('Price must be between 5 and 15 characters'),
+    check('quantity')
+      .trim()
+      .optional({ checkFalsy: true })
+      .isInt()
+      .withMessage('Quantity must be a number'),
+  ],
+};
 &nbsp;
-mealsRoutes.get('/', authorization.authorize, (req, res) =&gt; mealsController.list(req, res));
-mealsRoutes.post(
-  '/', authorization.authorize, mealsValidation.create,
-  (req, res) =&gt; ValidationHandler.validate(req, res, mealsController.create)
-);
-mealsRoutes.put(
-  '/:mealId', authorization.authorize, mealsValidation.update,
-  (req, res) =&gt; ValidationHandler.validate(req, res, mealsController.update)
-);
-mealsRoutes.delete(
-  '/:mealId', authorization.authorize, mealsValidation.delete,
-  (req, res) =&gt; ValidationHandler.validate(req, res, mealsController.delete)
-);
-&nbsp;
-export default mealsRoutes;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->

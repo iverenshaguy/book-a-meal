@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/dummyData/users.js</title>
+    <title>Code coverage report for src/dummyData/orders.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="..\..\prettify.css" />
     <link rel="stylesheet" href="..\..\base.css" />
@@ -16,7 +16,7 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\..\index.html">All files</a> / <a href="index.html">src/dummyData</a> users.js
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/dummyData</a> orders.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
@@ -80,7 +80,27 @@
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -114,40 +134,80 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const users = [
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const orders = [
   {
-    userId: '61bb8f8d-3b59-4294-acbc-16623818c391',
-    firstname: 'Iveren',
-    lastname: 'Shaguy',
-    email: 'iveren@shaguy.com',
-    password: 'iverenshaguy',
-    passwordHash: '23456789dtfgyuhio567890',
+    orderId: 'fb097bde-5959-45ff-8e21-51184fa60c25',
     created: '2018-05-06T14:34:90.000',
     updated: '2018-05-06T14:34:90.000',
-  },
-  {
-    userId: 'e42c7ce0-958e-4368-adcb-e5d97dbbe5b7',
-    firstname: 'Olisa',
-    lastname: 'Emodi',
-    email: 'olisa@emodi.com',
-    password: 'olisaemodi',
-    passwordHash: '23456789dtfgyuhio567890',
-    created: '2018-05-06T14:34:90.000',
-    updated: '2018-05-06T14:34:90.000',
-  },
-  {
+    menuId: 'a9fa6cb3-9f5e-46fa-b641-388f898ca824',
     userId: 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac',
-    firstname: 'Emiola',
-    lastname: 'Olasanmi',
-    email: 'emiola@olasanmi.com',
-    password: 'emiolaolasanmi',
-    passwordHash: '23456789dtfgyuhio567890',
+    deliveryAddress: '4, Church Street, Yaba',
+    deliveryPhoneNo: '+2348134567890',
+    quantity: 2
+  },
+  {
+    orderId: 'ce228787-f939-40a0-bfd3-6607ca8d2e53',
     created: '2018-05-06T14:34:90.000',
     updated: '2018-05-06T14:34:90.000',
+    menuId: '1adfcfe7-c66d-42d2-82fd-39c1decd290a',
+    userId: 'e42c7ce0-958e-4368-adcb-e5d97dbbe5b7',
+    deliveryAddress: '4, Church Street, Yaba',
+    deliveryPhoneNo: '+2348134567890',
+    quantity: 2
   },
+  {
+    orderId: 'e544248c-145c-4145-b165-239658857637',
+    created: '2018-05-06T14:34:90.000',
+    updated: '2018-05-06T14:34:90.000',
+    menuId: '3a4fb034-6e52-4bde-9abc-91119a39478d',
+    userId: 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac',
+    deliveryAddress: '4, Church Street, Yaba',
+    deliveryPhoneNo: '+2348134567890',
+    quantity: 2
+  },
+  {
+    orderId: 'e5508b87-7975-493d-a900-3d47a69dad03',
+    created: '2018-05-06T14:34:90.000',
+    updated: '2018-05-06T14:34:90.000',
+    menuId: 'f43f3d49-a6c9-476d-b65a-1af772ff0f36',
+    userId: 'e42c7ce0-958e-4368-adcb-e5d97dbbe5b7',
+    deliveryAddress: '4, Church Street, Yaba',
+    deliveryPhoneNo: '+2348134567890',
+    quantity: 2
+  },
+  {
+    orderId: '6ed0963f-9663-4fe2-8ad4-2f06c6294482',
+    created: '2018-05-06T14:34:90.000',
+    updated: '2018-05-06T14:34:90.000',
+    menuId: '15421f7a-0f82-4802-b215-e0e8efb6bfb3',
+    userId: '61bb8f8d-3b59-4294-acbc-16623818c391',
+    deliveryAddress: '4, Church Street, Yaba',
+    deliveryPhoneNo: '+2348134567890',
+    quantity: 2
+  }
 ];
 &nbsp;
-export default users;
+export default orders;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->

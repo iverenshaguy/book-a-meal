@@ -67,7 +67,7 @@ export default {
       .trim()
       .optional()
       .custom(value => notEmpty(value, 'Price cannot be empty'))
-      .isInt()
+      .isNumeric()
       .withMessage('Price must be a number')
       .isLength({ max: 5 })
       .withMessage('Price must not be more than 5 characters'),
