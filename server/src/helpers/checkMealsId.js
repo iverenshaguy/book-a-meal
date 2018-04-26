@@ -7,11 +7,11 @@ import isArrayOfUUID from './isArrayOfUUID';
  * @return {(bool)} returns true or false
  */
 function checkMealsId(value) {
-  if (Array.isArray(value) && value.length === 0) {
-    return false;
-  }
+  if (Array.isArray(value)) {
+    if (value.length === 0) {
+      return false;
+    }
 
-  if (Array.isArray(value) && value.length !== 0) {
     return isArrayOfUUID(value);
   }
 
