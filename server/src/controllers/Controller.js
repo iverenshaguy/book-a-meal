@@ -72,6 +72,9 @@ class Controller {
 
     const oldItem = this.database[itemIndex];
 
+    // delete id from data
+    delete data[`${this.type}Id`];
+
     // update old meal with trimmed new meal and assign it to it's position in the array
     this.database[itemIndex] = Object.assign(oldItem, trimValues(data));
 

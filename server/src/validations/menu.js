@@ -23,4 +23,14 @@ export default {
       .custom(value => checkMealsId(value))
       .withMessage('Meals must be an array of mealIds'),
   ],
+  update: [
+    check('menuId')
+      .isUUID(4)
+      .withMessage('Invalid ID'),
+    check('meals')
+      .optional()
+      .custom(value => notEmpty(value, 'Meals cannot be empty'))
+      .custom(value => checkMealsId(value))
+      .withMessage('Meals must be an array of mealIds'),
+  ],
 };

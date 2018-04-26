@@ -1,7 +1,7 @@
 const menu = [
   {
-    menuId: 'ioopp56292309sjkdskl',
-    date: '',
+    menuId: 'a9fa6cb3-9f5e-46fa-b641-388f898ca824',
+    date: '2018-05-06',
     meals: [
       'oepoepope043934340',
       'oepoepope043934345',
@@ -12,16 +12,16 @@ const menu = [
     ]
   },
   {
-    menuId: 'iooyueui743809sjkdskl',
-    date: '',
+    menuId: '1adfcfe7-c66d-42d2-82fd-39c1decd290a',
+    date: '2017-05-06',
     meals: [
       'oepoepope043934345',
       'oepoepope043934346',
     ]
   },
   {
-    menuId: 'ioojhj6723pp562jdskl',
-    date: '',
+    menuId: '3a4fb034-6e52-4bde-9abc-91119a39478d',
+    date: '2017-05-06',
     meals: [
       'oepoepope043934345',
       'oepoepope043934346',
@@ -30,8 +30,8 @@ const menu = [
     ]
   },
   {
-    menuId: 'ioopp56292weyubdskl',
-    date: '',
+    menuId: 'f43f3d49-a6c9-476d-b65a-1af772ff0f36',
+    date: '2017-05-06',
     meals: [
       'oepoepope043934341',
       'oepoepope043934348',
@@ -40,8 +40,8 @@ const menu = [
     ]
   },
   {
-    menuId: 'ioop74hsd309sjkdskl',
-    date: '',
+    menuId: '15421f7a-0f82-4802-b215-e0e8efb6bfb3',
+    date: '2017-05-06',
     meals: [
       'oepoepope043934349',
       'oepoepope043934342',
