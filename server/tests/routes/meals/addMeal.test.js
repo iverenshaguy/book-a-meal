@@ -12,7 +12,7 @@ describe('Meal Routes: Add a meal option', () => {
     title: 'Oriental Fried Rice and Turkey',
     description: 'Contains Sea Food',
     price: 2200,
-    image: 'images.com/imgurl1.jpeg',
+    imageURL: 'images.com/imgurl1.jpeg',
     forVegetarians: false
   };
 
@@ -20,7 +20,7 @@ describe('Meal Routes: Add a meal option', () => {
     title: 'Jollof Spaghetti, Plantain and Turkey',
     description: 'Contains %%% Sea Food',
     price: '',
-    image: 'images.com/imgurl1.jpeg',
+    imageURL: 'images.com/imgurl1.jpeg',
     forVegetarians: 'no'
   };
 

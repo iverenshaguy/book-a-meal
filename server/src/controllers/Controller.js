@@ -23,7 +23,7 @@ class Controller {
   }
 
   /**
-   * Registers a new meal
+   * Returns a list of Items
    * @method list
    * @memberof Controller
    * @param {object} req
@@ -35,7 +35,7 @@ class Controller {
   }
 
   /**
-   * Creates a new meal
+   * Creates a new item
    * @method create
    * @memberof Controller
    * @param {object} req
@@ -53,7 +53,7 @@ class Controller {
   }
 
   /**
-   * Updates an existing meal
+   * Updates an existing item
    * @method update
    * @memberof Controller
    * @param {object} req
@@ -79,7 +79,7 @@ class Controller {
   }
 
   /**
-   * Deleted an existing meal
+   * Deletes an existing item
    * @method delete
    * @memberof Controller
    * @param {object} req

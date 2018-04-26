@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import app from '../../../src/app';
 import notAdmin from '../../utils/notAdmin';
 import notFound from '../../utils/notFound';
+import invalidID from '../../utils/invalidID';
 import unAuthorized from '../../utils/unAuthorized';
 
 const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
@@ -12,31 +13,31 @@ describe('Meal Routes: Edit a meal option', () => {
     title: 'Jollof Spaghetti, Plantain and Chicken',
     description: 'Contains Sea Food',
     price: 2400,
-    image: 'images.com/imgurl4.jpeg',
+    imageURL: 'images.com/imgurl4.jpeg',
   };
 
   const badMeal = {
     title: '',
     description: 'Contains %%% Sea Food',
     price: '23yu50',
-    image: 'images.com/imgurl1.jpeg',
+    imageURL: 'images.com/imgurl1.jpeg',
     forVegetarians: 'no'
   };
 
   it('should edit a meal for authenticated user', (done) => {
     request(app)
-      .put('/api/v1/meals/oepoepope043934342')
+      .put('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')
       .set('Accept', 'application/json')
       .set('authorization', adminMockToken)
       .send(newMeal)
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.deep.equal({
-          mealId: 'oepoepope043934342',
+          mealId: '91b6e41c-0972-4ac5-86da-4ac1f5226e83',
           title: 'Jollof Spaghetti, Plantain and Chicken',
           description: 'Contains Sea Food',
           price: 2400,
-          image: 'images.com/imgurl4.jpeg',
+          imageURL: 'images.com/imgurl4.jpeg',
           forVegetarians: false
         });
 
@@ -47,7 +48,7 @@ describe('Meal Routes: Edit a meal option', () => {
 
   it('should return errors for invalid input', (done) => {
     request(app)
-      .put('/api/v1/meals/oepoepope043934342')
+      .put('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')
       .set('Accept', 'application/json')
       .set('authorization', adminMockToken)
       .send(badMeal)
@@ -64,18 +65,23 @@ describe('Meal Routes: Edit a meal option', () => {
       });
   });
 
+  invalidID(
+    'should return 422 error for invalid meal id', 'mealId',
+    request(app), 'put', newMeal, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478'
+  );
+
   notFound(
-    'should return 404 error for invalid meal id',
-    request(app), 'put', newMeal, '/api/v1/meals/oepoepope043934342782389'
+    'should return 404 error for non-existent meal id',
+    request(app), 'put', newMeal, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed539'
   );
 
   notAdmin(
     'should return 403 error for authorized user ie non admin or caterer',
-    request(app), 'put', '/api/v1/meals/oepoepope043934342'
+    request(app), 'put', '/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83'
   );
 
   unAuthorized(
     'should return 401 error for user without token',
-    request(app), 'put', '/api/v1/meals/oepoepope043934342'
+    request(app), 'put', '/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83'
   );
 });

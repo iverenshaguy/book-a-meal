@@ -7,7 +7,6 @@ function trimValues(reqBody) {
   const keysArr = Object.keys(reqBody);
 
   return keysArr.reduce((obj, key) => {
-    // only trim vaalue if it's a string
     obj[key] = typeof reqBody[key] === 'string' ?
       reqBody[key].trim() :
       reqBody[key];
