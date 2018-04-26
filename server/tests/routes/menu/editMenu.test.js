@@ -36,6 +36,8 @@ describe('Menu Routes: Edit menu', () => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.include.keys('menuId');
         expect(res.body).to.include.keys('date');
+        expect(res.body).to.include.keys('created');
+        expect(res.body).to.include.keys('updated');
         expect(res.body.meals[0].mealId).to.equal('72a3417e-45c8-4559-8b74-8b5a61be8614');
 
         if (err) return done(err);

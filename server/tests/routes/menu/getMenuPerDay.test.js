@@ -37,6 +37,8 @@ describe('Menu Routes: Get the menu specific day', () => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.include.keys('menuId');
         expect(res.body).to.include.keys('date');
+        expect(res.body).to.include.keys('created');
+        expect(res.body).to.include.keys('updated');
         expect(res.body.date).to.equal(currentDay);
         expect(res.body.meals[0].mealId).to.equal('72a3417e-45c8-4559-8b74-8b5a61be8614');
 
@@ -53,6 +55,8 @@ describe('Menu Routes: Get the menu specific day', () => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.include.keys('menuId');
         expect(res.body).to.include.keys('date');
+        expect(res.body).to.include.keys('created');
+        expect(res.body).to.include.keys('updated');
         expect(res.body.date).to.equal('2018-05-06');
 
         if (err) return done(err);

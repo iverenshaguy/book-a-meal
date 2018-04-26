@@ -1,4 +1,5 @@
 import uuidv4 from 'uuid/v4';
+import moment from 'moment';
 import GetItems from '../middlewares/GetItems';
 import errors from '../helpers/errors.json';
 import trimValues from '../helpers/trimValues';
@@ -45,8 +46,11 @@ class Controller {
    */
   create(req, res, data) {
     const trimmedData = trimValues(data);
-    // generate random id
+    // generate random id and created/updated date
     trimmedData[`${this.type}Id`] = uuidv4();
+    trimmedData.created = moment().format();
+    trimmedData.updated = moment().format();
+
     this.database.push(trimmedData);
 
     return res.status(201).send(trimmedData);
@@ -75,8 +79,11 @@ class Controller {
     // delete id from data
     delete data[`${this.type}Id`];
 
+    const trimmedData = trimValues(data);
+    trimmedData.updated = moment().format();
+
     // update old meal with trimmed new meal and assign it to it's position in the array
-    this.database[itemIndex] = Object.assign({}, oldItem, trimValues(data));
+    this.database[itemIndex] = Object.assign({}, oldItem, trimmedData);
 
     return res.status(200).send(this.database[itemIndex]);
   }
