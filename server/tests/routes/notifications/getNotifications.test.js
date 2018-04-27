@@ -14,13 +14,11 @@ describe('Order Routes: Get All Notifications', () => {
         .set('authorization', userMockToken)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
-          expect(res.body.notifications.length).to.equal(2);
-          expect(res.body.notifications[0].notifId).to.equal('87a311b7-898b-4a6b-81c2-619417c96432');
-          expect(res.body.notifications[1].notifId).to.equal('d886ce22-9b41-4cf6-9dd6-7bdd5476d6c0');
+          expect(res.body.notifications.length).to.equal(5);
           expect(res.body.metadata).to.deep.equal({
             pages: [1],
-            totalCount: 2,
-            itemsPerPage: 2,
+            totalCount: 5,
+            itemsPerPage: 5,
             page: 1,
             lastPage: 1,
             firstPage: 1

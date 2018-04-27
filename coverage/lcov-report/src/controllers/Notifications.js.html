@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/routes/orders.js</title>
+    <title>Code coverage report for src/controllers/Notifications.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="..\..\prettify.css" />
     <link rel="stylesheet" href="..\..\base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\..\index.html">All files</a> / <a href="index.html">src/routes</a> orders.js
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/controllers</a> Notifications.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>12/12</span>
+        <span class='fraction'>5/5</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>11/11</span>
+        <span class='fraction'>5/5</span>
       </div>
     </div>
     <p class="quiet">
@@ -74,9 +74,18 @@
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
 <a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -88,54 +97,39 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import express from 'express';
-import Orders from '../controllers/Orders';
-import ordersDB from '../data/orders.json';
-import ordersValidation from '../validations/orders';
-import Authorization from '../middlewares/Authorization';
-import ValidationHandler from '../middlewares/ValidationHandler';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import uuidv4 from 'uuid/v4';
+import moment from 'moment';
+import Controller from './Controller';
+import notificationsDB from '../data/notifications.json';
 &nbsp;
-const ordersRoutes = express.Router();
-const ordersController = new Orders(ordersDB, 'order');
-const authorization = new Authorization('user');
-const catAuthorization = new Authorization('caterer');
+/**
+ * @exports
+ * @class Notifications
+ * @extends Controller
+ */
+class Notifications extends Controller {
+  /**
+   * @method create
+   * @memberof Notifications
+   * @param {object} notif
+   * @return {nothing} Nothing
+   */
+  static create(notif) {
+    notif.notifId = uuidv4();
+    notif.created = moment().format();
+    notif.updated = moment().format();
+    notif.isRead = false;
 &nbsp;
-ordersRoutes.get('/', catAuthorization.authorize, (req, res) =&gt; ordersController.list(req, res));
+    notificationsDB.push(notif);
+  }
+}
 &nbsp;
-ordersRoutes.post(
-  '/', authorization.authorize, ordersValidation.create,
-  (req, res) =&gt; ValidationHandler.validate(req, res, ordersController.create)
-);
-&nbsp;
-ordersRoutes.put(
-  '/:orderId', authorization.authorize, ordersValidation.update,
-  (req, res) =&gt; ValidationHandler.validate(req, res, ordersController.update)
-);
-&nbsp;
-ordersRoutes.delete(
-  '/:orderId', authorization.authorize, ordersValidation.delete,
-  (req, res) =&gt; ValidationHandler.validate(req, res, ordersController.delete)
-);
-&nbsp;
-export default ordersRoutes;
+export default Notifications;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->

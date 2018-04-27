@@ -96,9 +96,10 @@ class Users {
    */
   static getNotifications(req, res) {
     // return orders pertaining to user when user query is passed
-    const { userId } = req.params;
-    const list = notificationsDB.filter(item => item.userId === userId);
-    return GetItems.items(req, res, list, 'notifications');
+    // subscriptiton feature can be added to make notif specific to user
+    // const { userId } = req.params;
+    // const list = notificationsDB.filter(item => item.userId === userId);
+    return GetItems.items(req, res, notificationsDB, 'notifications');
   }
 }
 
