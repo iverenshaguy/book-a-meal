@@ -1,10 +1,7 @@
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
 import usersDB from '../data/users.json';
-import ordersDB from '../data/orders.json';
-import GetItems from '../middlewares/GetItems';
 import PasswordHash from '../helpers/PasswordHash';
-import notificationsDB from '../data/notifications.json';
 
 const token = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
 
@@ -69,37 +66,6 @@ class Users {
     delete user.passwordHash;
 
     return res.status(200).send({ user, token });
-  }
-
-  /**
-   * lists User's Orders
-   * @method getOrders
-   * @memberof Users
-   * @param {object} req
-   * @param {object} res
-   * @returns {object} JSON object
-   */
-  static getOrders(req, res) {
-    // return orders pertaining to user when user query is passed
-    const { userId } = req.params;
-    const list = ordersDB.filter(item => item.userId === userId);
-    return GetItems.items(req, res, list, 'orders');
-  }
-
-  /**
-   * lists User's Notifications
-   * @method getNotifications
-   * @memberof Users
-   * @param {object} req
-   * @param {object} res
-   * @returns {object} JSON object
-   */
-  static getNotifications(req, res) {
-    // return orders pertaining to user when user query is passed
-    // subscriptiton feature can be added to make notif specific to user
-    // const { userId } = req.params;
-    // const list = notificationsDB.filter(item => item.userId === userId);
-    return GetItems.items(req, res, notificationsDB, 'notifications');
   }
 }
 

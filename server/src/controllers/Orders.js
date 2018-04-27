@@ -21,19 +21,40 @@ class Orders extends Controller {
    * @memberof Controller
    * @param {object} req
    * @param {object} res
+   * @param {string} role
    * @returns {(function|object)} Function next() or JSON object
    */
-  list(req, res) {
-    if (req.query.date) {
+  list(req, res, role) {
+    let list;
+
+    if ((Object.keys(req.query).length === 0 || req.query.date) && role !== 'caterer') {
+      return res.status(403).send({
+        error: errors['403']
+      });
+    }
+
+    if (req.query.user && role !== 'user') {
+      return res.status(403).send({
+        error: errors['403']
+      });
+    }
+
+    if (req.query.date && role === 'caterer') {
       // if date query was added, get all orders whose created at include the date
       // includes is used instead of equality because created at is a full date string
       const { date } = req.query;
       const dateToFind = date === 'today' ? moment().format('YYYY-MM-DD') : date;
-      const list = this.database.filter(item => item.created.includes(dateToFind));
-      return GetItems.items(req, res, list, `${this.type}s`);
+      list = this.database.filter(item => item.created.includes(dateToFind));
     }
 
-    return GetItems.items(req, res, this.database, `${this.type}s`);
+    if (Object.keys(req.query).length === 0 && role === 'caterer') list = this.database;
+
+    if (req.query.user && role === 'user') {
+      const { user } = req.query;
+      list = this.database.filter(item => item.userId === user);
+    }
+
+    return GetItems.items(req, res, list, `${this.type}s`);
   }
 
   /**

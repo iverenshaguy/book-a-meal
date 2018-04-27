@@ -7,19 +7,18 @@ import ValidationHandler from '../middlewares/ValidationHandler';
 
 const mealsRoutes = express.Router();
 const mealsController = new Meals(mealsDB, 'meal');
-const authorization = new Authorization('caterer');
 
-mealsRoutes.get('/', authorization.authorize, (req, res) => mealsController.list(req, res));
+mealsRoutes.get('/', Authorization.authorizeCaterer, (req, res) => mealsController.list(req, res));
 mealsRoutes.post(
-  '/', authorization.authorize, mealsValidation.create,
+  '/', Authorization.authorizeCaterer, mealsValidation.create,
   (req, res) => ValidationHandler.validate(req, res, mealsController.create)
 );
 mealsRoutes.put(
-  '/:mealId', authorization.authorize, mealsValidation.update,
+  '/:mealId', Authorization.authorizeCaterer, mealsValidation.update,
   (req, res) => ValidationHandler.validate(req, res, mealsController.update)
 );
 mealsRoutes.delete(
-  '/:mealId', authorization.authorize, mealsValidation.delete,
+  '/:mealId', Authorization.authorizeCaterer, mealsValidation.delete,
   (req, res) => ValidationHandler.validate(req, res, mealsController.delete)
 );
 

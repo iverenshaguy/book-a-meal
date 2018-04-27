@@ -13,7 +13,6 @@ class ValidationHandler {
    * @param {object} req
    * @param {object} res
    * @param {method} controllerMethod
-   * @param {function} next
    * @returns {(function|object)} Function next() or JSON object
    */
   static validate(req, res, controllerMethod) {

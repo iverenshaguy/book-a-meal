@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for middlewares/GetItems.js</title>
+    <title>Code coverage report for helpers/stringToArray.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="..\prettify.css" />
     <link rel="stylesheet" href="..\base.css" />
@@ -16,18 +16,18 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\index.html">All files</a> / <a href="index.html">middlewares</a> GetItems.js
+      <a href="..\index.html">All files</a> / <a href="index.html">helpers</a> stringToArray.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/5</span>
+        <span class='fraction'>0/9</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/5</span>
+        <span class='fraction'>0/9</span>
       </div>
     </div>
     <p class="quiet">
@@ -72,29 +72,17 @@
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -106,39 +94,36 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Pagination from './Pagination';
-&nbsp;
-&nbsp;
-/**
- * @exports
- * @class GetItems
- * @classdesc Constructs a List of Items
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * Function to change an array like string to array or return array if already array
+ * @param {(array|string)} value
+ * @return {array} returns a new array
  */
-class GetItems {
-  /**
-   * @method items
-   * @memberof GetItems
-   * @param {object} req
-   * @param {object} res
-   * @param {array} items
-   * @param {string} type
-   * @returns {json} Returns JSON object
-   */
-<span class="fstat-no" title="function not covered" >  st</span>atic items(req, res, items, type) {
-    const { limit, page } = <span class="cstat-no" title="statement not covered" >req.query;</span>
-    const pagination = <span class="cstat-no" title="statement not covered" >new Pagination(type, items, limit, page);</span>
+function <span class="fstat-no" title="function not covered" >stringToArray(</span>value) {
+<span class="cstat-no" title="statement not covered" >  if (!Array.isArray(value)) {</span>
+    let newValue;
+    const formedArray = <span class="cstat-no" title="statement not covered" >[];</span>
+    // remove square brackets and spaces and convert to an array
+    const newString = <span class="cstat-no" title="statement not covered" >value.replace(/[\[\]\s/n']+/g, '');</span> // eslint-disable-line
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (items.length === 0) {</span>
-<span class="cstat-no" title="statement not covered" >      return res.status(200).send({ [type]: [] });</span>
+<span class="cstat-no" title="statement not covered" >    if (newString.includes(',')) {</span>
+<span class="cstat-no" title="statement not covered" >      newValue = newString.split(',');</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      formedArray.push(newString);</span>
+<span class="cstat-no" title="statement not covered" >      newValue = Array.from(formedArray);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return pagination.paginateItems(res);</span>
+<span class="cstat-no" title="statement not covered" >    return newValue;</span>
   }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return value;</span>
 }
 &nbsp;
-export default GetItems;
+export default stringToArray;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->

@@ -7,17 +7,16 @@ import ValidationHandler from '../middlewares/ValidationHandler';
 
 const menuRoutes = express.Router();
 const menuController = new Menu(menuDB, 'menu');
-const authorization = new Authorization('caterer');
 
 menuRoutes.post(
-  '/', authorization.authorize, menuValidation.create,
+  '/', Authorization.authorizeCaterer, menuValidation.create,
   (req, res) => ValidationHandler.validate(req, res, menuController.create)
 );
 
 menuRoutes.get('/', (req, res) => menuController.getMenuForDay(req, res));
 
 menuRoutes.put(
-  '/:menuId', authorization.authorize, menuValidation.update,
+  '/:menuId', Authorization.authorizeCaterer, menuValidation.update,
   (req, res) => ValidationHandler.validate(req, res, menuController.update)
 );
 
