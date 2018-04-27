@@ -1,9 +1,9 @@
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
 import Controller from './Controller';
-import errors from '../helpers/errors.json';
+import errors from '../data/errors.json';
 import stringToArray from '../helpers/stringToArray';
-import mealsDB from '../dummyData/meals';
+import mealsDB from '../data/meals.json';
 
 /**
  * @exports

@@ -1,6 +1,6 @@
 import express from 'express';
 import Meals from '../controllers/Meals';
-import mealsDB from '../dummyData/meals';
+import mealsDB from '../data/meals.json';
 import mealsValidation from '../validations/meals';
 import Authorization from '../middlewares/Authorization';
 import ValidationHandler from '../middlewares/ValidationHandler';

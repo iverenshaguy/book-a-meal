@@ -1,7 +1,7 @@
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
 import GetItems from '../middlewares/GetItems';
-import errors from '../helpers/errors.json';
+import errors from '../data/errors.json';
 import trimValues from '../helpers/trimValues';
 
 /**

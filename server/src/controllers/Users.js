@@ -1,7 +1,7 @@
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
-import usersDB from '../dummyData/users';
-import ordersDB from '../dummyData/orders';
+import usersDB from '../data/users.json';
+import ordersDB from '../data/orders.json';
 import GetItems from '../middlewares/GetItems';
 import PasswordHash from '../helpers/PasswordHash';
 

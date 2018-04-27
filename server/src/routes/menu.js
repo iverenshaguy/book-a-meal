@@ -1,6 +1,6 @@
 import express from 'express';
 import Menu from '../controllers/Menu';
-import menuDB from '../dummyData/menu';
+import menuDB from '../data/menu.json';
 import menuValidation from '../validations/menu';
 import Authorization from '../middlewares/Authorization';
 import ValidationHandler from '../middlewares/ValidationHandler';
