@@ -24,7 +24,7 @@ const menu = [
   },
   {
     menuId: '3a4fb034-6e52-4bde-9abc-91119a39478d',
-    date: '2017-05-06',
+    date: '2018-05-06',
     meals: [
       'a3c35e8f-da7a-4113-aa01-a9c0fc088539',
       '46ced7aa-eed5-4462-b2c0-153f31589bdd',
@@ -48,7 +48,7 @@ const menu = [
   },
   {
     menuId: '15421f7a-0f82-4802-b215-e0e8efb6bfb3',
-    date: '2017-05-06',
+    date: '2018-04-27',
     meals: [
       '91b6e41c-0972-4ac5-86da-4ac1f5226e83',
       'f9eb7652-125a-4bcb-ad81-02f84901cdc3',

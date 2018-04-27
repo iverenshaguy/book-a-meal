@@ -14,4 +14,9 @@ ordersRoutes.post(
   (req, res) => ValidationHandler.validate(req, res, ordersController.create)
 );
 
+ordersRoutes.put(
+  '/:orderId', authorization.authorize, ordersValidation.update,
+  (req, res) => ValidationHandler.validate(req, res, ordersController.update)
+);
+
 export default ordersRoutes;

@@ -1,7 +1,5 @@
 import { expect } from 'chai'; // eslint-disable-line
 
-const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
-
 /**
  * @function invalidID
  * @desc Funtion to test forbidden routes
@@ -11,15 +9,16 @@ const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsd
  * @param {string} method
  * @param {string} data
  * @param {string} url
+ * @param {string} token
  * @returns {function} Returns Mocha Test Function
  */
 
-const invalidID = (message, type, request, method, data, url) => {
+const invalidID = (message, type, request, method, data, url, token) => {
   describe('invalidID', () => {
     it(message, (done) => {
       request[method](url)
         .set('Accept', 'application/json')
-        .set('authorization', adminMockToken)
+        .set('authorization', token)
         .send(data)
         .end((err, res) => {
           expect(res.statusCode).to.equal(422);
