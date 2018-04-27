@@ -11,4 +11,9 @@ usersRoutes.get(
   authorization.authorize, (req, res) => UsersController.getOrders(req, res)
 );
 
+usersRoutes.get(
+  '/:userId/notifications',
+  authorization.authorize, (req, res) => UsersController.getNotifications(req, res)
+);
+
 export default usersRoutes;

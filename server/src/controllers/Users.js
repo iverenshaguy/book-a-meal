@@ -4,6 +4,7 @@ import usersDB from '../data/users.json';
 import ordersDB from '../data/orders.json';
 import GetItems from '../middlewares/GetItems';
 import PasswordHash from '../helpers/PasswordHash';
+import notificationsDB from '../data/notifications.json';
 
 const token = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
 
@@ -62,8 +63,6 @@ class Users {
       });
     }
 
-    authUser.updated = moment().format();
-
     const user = Object.assign({}, authUser);
 
     delete user.password;
@@ -85,6 +84,21 @@ class Users {
     const { userId } = req.params;
     const list = ordersDB.filter(item => item.userId === userId);
     return GetItems.items(req, res, list, 'orders');
+  }
+
+  /**
+   * lists User's Notifications
+   * @method getNotifications
+   * @memberof Users
+   * @param {object} req
+   * @param {object} res
+   * @returns {object} JSON object
+   */
+  static getNotifications(req, res) {
+    // return orders pertaining to user when user query is passed
+    const { userId } = req.params;
+    const list = notificationsDB.filter(item => item.userId === userId);
+    return GetItems.items(req, res, list, 'notifications');
   }
 }
 
