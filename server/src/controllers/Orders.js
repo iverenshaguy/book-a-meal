@@ -1,11 +1,11 @@
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
-import GetItems from '../middlewares/GetItems';
-import Controller from './Controller';
 import Menu from './Menu';
-import errors from '../helpers/errors.json';
+import Controller from './Controller';
 import menuDB from '../dummyData/menu';
+import errors from '../helpers/errors.json';
 import trimValues from '../helpers/trimValues';
+import GetItems from '../middlewares/GetItems';
 import isMenuAvailable from '../helpers/isMenuAvailable';
 import orderIsExpired from '../helpers/orderIsExpired';
 
