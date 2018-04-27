@@ -4,3 +4,4 @@ gulpfile.js
 .gitattributes
 server/dist
 .nyc_output
+coverage
