@@ -32,6 +32,34 @@ describe('Order Routes: Get All Orders', () => {
         });
     });
 
+    it('should get all orders for day, 2018-05-06, in the app for caterer', (done) => {
+      request(app)
+        .get('/api/v1/orders?date=2018-05-06')
+        .set('Accept', 'application/json')
+        .set('authorization', adminMockToken)
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(200);
+          expect(res.body.orders.length).to.equal(5);
+
+          if (err) return done(err);
+          done();
+        });
+    });
+
+    it('should get all orders for today in the app for caterer', (done) => {
+      request(app)
+        .get('/api/v1/orders?date=today')
+        .set('Accept', 'application/json')
+        .set('authorization', adminMockToken)
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(200);
+          expect(res.body.orders.length).to.equal(0);
+
+          if (err) return done(err);
+          done();
+        });
+    });
+
     notAdmin(
       'should return 403 error for authorized user ie non admin or caterer',
       request(app), 'get', '/api/v1/orders'
