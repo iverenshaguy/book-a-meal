@@ -10,7 +10,7 @@ const ordersController = new Orders(ordersDB, 'order');
 
 ordersRoutes.get(
   '/',
-  (req, res, next) => Authorization.authorizeAny(req, res, next, ordersController.list)
+  (req, res, next) => Authorization.authorizeAny(req, res, next, Orders.list)
 );
 
 ordersRoutes.post(

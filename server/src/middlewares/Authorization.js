@@ -9,25 +9,6 @@ const adminToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuy
  */
 class Authorization {
   /**
-   * Authorize
-   * @method authorize
-   * @memberof Authorization
-   * @param {object} res
-   * @param {string} token
-   * @returns {(bool|object)} Boolean or JSON object
-   */
-  static authorize(res, token) {
-    // check to be sure there's a token
-    if (!token) {
-      return res.status(401).send({
-        error: errors['401']
-      });
-    }
-
-    return true;
-  }
-
-  /**
    * @method getToken
    * @memberof Authorization
    * @param {object} req
@@ -53,18 +34,23 @@ class Authorization {
    */
   static authorizeAny(req, res, next, method) {
     const token = Authorization.getToken(req);
+    const role = token === adminToken ? 'caterer' : 'user';
+
+    if (!token) {
+      return res.status(401).send({
+        error: errors['401']
+      });
+    }
 
     // we'll use the role from user token to know what type of user
     // we need to get data for
-    if (Authorization.authorize(res, token) && (token === adminToken || token === userToken)) {
-      const role = token === adminToken ? 'caterer' : 'user';
-
-      return method(req, res, role);
+    if (token !== adminToken && token !== userToken) {
+      return res.status(403).send({
+        error: errors['403']
+      });
     }
 
-    return res.status(403).send({
-      error: errors['403']
-    });
+    return method(req, res, role);
   }
 
 
@@ -79,10 +65,17 @@ class Authorization {
    */
   static authorizeCaterer(req, res, next) {
     const token = Authorization.getToken(req);
+
+    if (!token) {
+      return res.status(401).send({
+        error: errors['401']
+      });
+    }
+
     // return 403 forbidden error if user is not admin/caterer
     // role will be added in real JWT token implementation
     // if role in decoded token is not admin, action will not be allowed
-    if (Authorization.authorize(res, token) && token !== adminToken) {
+    if (token !== adminToken) {
       return res.status(403).send({
         error: errors['403']
       });
@@ -103,7 +96,7 @@ class Authorization {
   static authorizeUser(req, res, next) {
     const token = Authorization.getToken(req);
 
-    if (Authorization.authorize(res, token) && token !== userToken) {
+    if (token !== userToken) {
       return res.status(401).send({
         error: errors['401']
       });
