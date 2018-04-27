@@ -4,6 +4,7 @@ import authRoutes from './auth';
 import mealsRoutes from './meals';
 import usersRoutes from './users';
 import ordersRoutes from './orders';
+import notificationsRoutes from './notifications';
 
 const apiRoutes = express.Router();
 
@@ -20,5 +21,6 @@ apiRoutes.use('/v1/auth', authRoutes);
 apiRoutes.use('/v1/meals', mealsRoutes);
 apiRoutes.use('/v1/users', usersRoutes);
 apiRoutes.use('/v1/orders', ordersRoutes);
+apiRoutes.use('/v1/notifications', notificationsRoutes);
 
 export default apiRoutes;
