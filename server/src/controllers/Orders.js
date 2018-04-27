@@ -3,6 +3,7 @@ import moment from 'moment';
 import Menu from './Menu';
 import Controller from './Controller';
 import menuDB from '../data/menu.json';
+import ordersDB from '../data/orders.json';
 import errors from '../data/errors.json';
 import Notifications from './Notifications';
 import trimValues from '../helpers/trimValues';
@@ -19,43 +20,69 @@ class Orders extends Controller {
   /**
    * Returns a list of Items
    * @method list
-   * @memberof Controller
+   * @memberof Orders
    * @param {object} req
    * @param {object} res
    * @param {string} role
    * @returns {(function|object)} Function next() or JSON object
    */
-  list(req, res, role) {
-    let list;
+  static list(req, res, role) {
+    if (role === 'caterer') {
+      Orders.getCaterersOrders(req, res);
+    }
 
-    if ((Object.keys(req.query).length === 0 || req.query.date) && role !== 'caterer') {
+    Orders.getUsersOrders(req, res);
+  }
+
+  /**
+   * Returns Users' Orders
+   * @method getUsersOrders
+   * @memberof Orders
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  static getUsersOrders(req, res) {
+    // send error forbidden if user tries to get all orders in app
+    if (!req.query || req.query.date) {
       return res.status(403).send({
         error: errors['403']
       });
     }
 
-    if (req.query.user && role !== 'user') {
+    const { user } = req.query;
+    const list = ordersDB.filter(item => item.userId === user);
+
+    return GetItems.items(req, res, list, 'orders');
+  }
+
+  /**
+   * Returns Users' Orders
+   * @method getCaterersOrders
+   * @memberof Orders
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  static getCaterersOrders(req, res) {
+    let list = ordersDB;
+
+    // if caterer tries to get all user's orders send 403 error
+    if (req.query.user) {
       return res.status(403).send({
         error: errors['403']
       });
     }
 
-    if (req.query.date && role === 'caterer') {
+    if (req.query.date) {
       // if date query was added, get all orders whose created at include the date
       // includes is used instead of equality because created at is a full date string
       const { date } = req.query;
       const dateToFind = date === 'today' ? moment().format('YYYY-MM-DD') : date;
-      list = this.database.filter(item => item.created.includes(dateToFind));
+      list = ordersDB.filter(item => item.created.includes(dateToFind));
     }
 
-    if (Object.keys(req.query).length === 0 && role === 'caterer') list = this.database;
-
-    if (req.query.user && role === 'user') {
-      const { user } = req.query;
-      list = this.database.filter(item => item.userId === user);
-    }
-
-    return GetItems.items(req, res, list, `${this.type}s`);
+    return GetItems.items(req, res, list, 'orders');
   }
 
   /**
@@ -142,7 +169,7 @@ class Orders extends Controller {
   /**
    * Deletes an existing item
    * @method delete
-   * @memberof Controller
+   * @memberof Orders
    * @param {object} req
    * @param {object} res
    * @param {object} data
