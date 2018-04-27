@@ -9,7 +9,7 @@ import unAuthorized from '../../utils/unAuthorized';
 const userMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
 const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
 const currentDay = moment().format('YYYY-MM-DD');
-let newMenuId;
+let newMenuId, newOrderId;
 
 
 describe('Order Routes: Modify an Order', () => {
@@ -60,9 +60,29 @@ describe('Order Routes: Modify an Order', () => {
       });
   });
 
+  it('should add an order for authenticated user', (done) => {
+    request(app)
+      .post('/api/v1/orders')
+      .set('Accept', 'application/json')
+      .set('authorization', userMockToken)
+      .send({ ...newOrder, menuId: newMenuId })
+      .end((err, res) => {
+        newOrderId = res.body.orderId;
+        expect(res.statusCode).to.equal(201);
+        expect(res.body).to.include.keys('orderId');
+        expect(res.body).to.include.keys('userId');
+        expect(res.body).to.include.keys('created');
+        expect(res.body).to.include.keys('updated');
+        expect(res.body.menu).to.include.keys('meals');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
   it('should modify an order for authenticated user', (done) => {
     request(app)
-      .put('/api/v1/orders/e544248c-145c-4145-b165-239658857637')
+      .put(`/api/v1/orders/${newOrderId}`)
       .set('Accept', 'application/json')
       .set('authorization', userMockToken)
       .send({ ...newOrder, menuId: newMenuId })

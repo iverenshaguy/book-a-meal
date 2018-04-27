@@ -6,6 +6,7 @@ import errors from '../helpers/errors.json';
 import menuDB from '../dummyData/menu';
 import trimValues from '../helpers/trimValues';
 import isMenuAvailable from '../helpers/isMenuAvailable';
+import orderIsExpired from '../helpers/orderIsExpired';
 
 /**
  * @exports
@@ -68,14 +69,8 @@ class Orders extends Controller {
       res.status(422).send({ error: 'Menu is Unavailable' });
     }
 
-    // get menu from menu db and check to ensure that order is not expired
-    // order is expired when the day passes
-    const menu = menuDB.find(item => item.menuId === this.database[itemIndex].menuId);
-    const currentDate = moment().format('YYYY-MM-DD');
-
-    if (moment(currentDate).isAfter(menu.date)) {
-      return res.status(422).send({ error: 'Order is Expired' });
-    }
+    // check if order is expired and return response
+    orderIsExpired(res, this.database[itemIndex].menuId);
 
     const trimmedData = trimValues(data);
     // update date
@@ -89,6 +84,32 @@ class Orders extends Controller {
     this.database[itemIndex] = Object.assign({}, oldOrder, trimmedData);
 
     return Orders.getOrderObject(res, this.database[itemIndex], 200);
+  }
+
+  /**
+   * Deletes an existing item
+   * @method delete
+   * @memberof Controller
+   * @param {object} req
+   * @param {object} res
+   * @param {object} data
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  delete(req, res) {
+    const itemIndex = this.database
+      .findIndex(item => item.orderId === req.params.orderId);
+
+    // return 404 error if index isn't found ie meal option doesnt exist
+    if (itemIndex === -1) {
+      return res.status(404).send({ error: errors[404] });
+    }
+
+    // check if order is expired and return response
+    orderIsExpired(res, this.database[itemIndex].menuId);
+
+    this.database.splice(itemIndex, 1);
+
+    return res.status(204).send();
   }
 
   /**
