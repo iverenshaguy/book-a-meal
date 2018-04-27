@@ -1,6 +1,7 @@
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
 import Controller from './Controller';
+import Notifications from './Notifications';
 import errors from '../data/errors.json';
 import stringToArray from '../helpers/stringToArray';
 import mealsDB from '../data/meals.json';
@@ -55,6 +56,15 @@ class Menu extends Controller {
     data.updated = moment().format();
 
     this.database.push(data);
+
+    // push to notifications table
+    // userId is null for all user's
+    Notifications.create({
+      userId: null,
+      orderId: null,
+      menuId: '15421f7a-0f82-4802-b215-e0e8efb6bfb3',
+      message: 'Rice and Stew with Beef was just added to the menu'
+    });
 
     // get full meals object from mealsDB
     const fullData = Object.assign({}, data);

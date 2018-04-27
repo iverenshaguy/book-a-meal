@@ -4,6 +4,7 @@ import Menu from './Menu';
 import Controller from './Controller';
 import menuDB from '../data/menu.json';
 import errors from '../data/errors.json';
+import Notifications from './Notifications';
 import trimValues from '../helpers/trimValues';
 import GetItems from '../middlewares/GetItems';
 import isMenuAvailable from '../helpers/isMenuAvailable';
@@ -87,6 +88,15 @@ class Orders extends Controller {
 
     // update DB
     this.database.push(trimmedData);
+
+    // push to notifications table
+    // Caterer's for when an order is made
+    Notifications.create({
+      menuId: null,
+      userId: '8356954a-9a42-4616-8079-887a73455a7f', // caterer id to notify caterer
+      orderId: '6ed0963f-9663-4fe2-8ad4-2f06c6294482',
+      message: 'An user just ordered your meal'
+    });
 
     return Orders.getOrderObject(res, trimmedData, 201);
   }

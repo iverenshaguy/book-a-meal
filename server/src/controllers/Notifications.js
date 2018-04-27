@@ -19,10 +19,8 @@ class Notifications extends Controller {
    * @param {string} role
    * @returns {object} JSON object
    */
-  static list(req, res, role) {
-    // return orders pertaining to user when user query is passed
-    // subscriptiton feature can be added to make notif specific to user
-    const list = notificationsDB.filter(item => item.type === role);
+  static list(req, res) {
+    const list = notificationsDB.filter(item => item.userId === null); // ie. no particular user
     return GetItems.items(req, res, list, 'notifications');
   }
 
@@ -36,7 +34,6 @@ class Notifications extends Controller {
     notif.notifId = uuidv4();
     notif.created = moment().format();
     notif.updated = moment().format();
-    notif.isRead = false;
 
     notificationsDB.push(notif);
   }
