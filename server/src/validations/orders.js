@@ -21,7 +21,7 @@ export default {
       .matches(/^\+?(234)([0-9]{10})$/)
       .withMessage('Delivery Phone Number must be in the format +2348134567890')
       .isLength({ min: 10, max: 15 })
-      .withMessage('Price must be between 5 and 15 characters'),
+      .withMessage('Delivery Phone Number must be between 10 and 15 characters'),
     check('quantity')
       .trim()
       .optional({ checkFalsy: true })
