@@ -8,18 +8,11 @@ import ordersRoutes from './orders';
 const apiRoutes = express.Router();
 
 apiRoutes.get('/', (req, res) => res.status(200).send({
-  message: 'Welcome to the Book A Meal API',
-  links: {
-    v1: '/api/v1/'
-  }
+  message: 'Welcome to the Book A Meal API'
 }));
 
 apiRoutes.get('/v1', (req, res) => res.status(200).send({
-  message: 'Welcome to version 1 of the Book A Meal API',
-  links: {
-    meals: '/api/v1/meals',
-    menu: '/api/v1/menu'
-  }
+  message: 'Welcome to version 1 of the Book A Meal API'
 }));
 
 apiRoutes.use('/v1/menu', menuRoutes);
