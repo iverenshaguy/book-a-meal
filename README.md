@@ -72,8 +72,10 @@ An application that allows customers to make food orders and helps the food vend
   [http://localhost:8000/api/v1/menu](http://localhost:8000/api/v1/menu)
 * Modify an Existing Menu - PUT
   [http://localhost:8000/api/v1/menu/:menuId](http://localhost:8000/api/v1/menu/:menuId)
-* Get All Orders - GET
+* Get All Caterer Orders - GET
   [http://localhost:8000/api/v1/orders](http://localhost:8000/api/v1/orders)
+* Get All User Orders - GET
+  [http://localhost:8000/api/v1/orders](http://localhost:8000/api/v1/orders?user={userId})
 * Order a Menu - POST
   [http://localhost:8000/api/v1/orders](http://localhost:8000/api/v1/orders)
 * Modify an Open Order  - PUT
