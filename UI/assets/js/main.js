@@ -128,7 +128,7 @@ window.onload = function () {
 
   function showModal(e, type) {
     type.classList.toggle('show');
-    contentWithModal.style.position= 'fixed';
+    if (contentWithModal) contentWithModal.style.position= 'fixed';
     window.scroll({ top: 0, left: 0, behavior: 'smooth'});
 
     if (e.target.id === 'add-meal-btn') {

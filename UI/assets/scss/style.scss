@@ -391,6 +391,10 @@ hr {
     border-bottom: 1px solid #ddd;
   }
 
+  // &.order-details {
+    
+  // }
+
   .order-summary {
     &>div {
       display: flex;
@@ -552,7 +556,7 @@ hr {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 992px) and (max-width: 1199.98px) {
   .auth {
     width: 50%;
     padding: 10px 50px;
@@ -572,5 +576,11 @@ hr {
         font-size: 3em;
       }
     }
+  }
+}
+
+@media (min-width: 1200px) {
+  .auth {
+    width: 40%;
   }
 }
