@@ -25,6 +25,18 @@ app.get('/api/*', (req, res) =>
     message: errors['404']
   }));
 
+app.get('/', (req, res) =>
+  res.status(200).json({
+    message: 'Welcome to the Book-A-Meal App',
+    api: '/api'
+  }));
+
+// Default catch-all route that sends back a not found warning for wrong routes.
+app.get('/*', (req, res) =>
+  res.status(404).send({
+    message: errors['404']
+  }));
+
 // Handle App Errors
 app.use(ErrorHandler.sendError);
 

@@ -8,7 +8,8 @@ import notificationsRoutes from './notifications';
 const apiRoutes = express.Router();
 
 apiRoutes.get('/', (req, res) => res.status(200).send({
-  message: 'Welcome to the Book A Meal API'
+  message: 'Welcome to the Book A Meal API',
+  v1: '/api/v1'
 }));
 
 apiRoutes.get('/v1', (req, res) => res.status(200).send({
