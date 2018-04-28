@@ -1,6 +1,6 @@
 import express from 'express';
 import Orders from '../controllers/Orders';
-import ordersDB from '../data/orders.json';
+import ordersDB from '../../data/orders.json';
 import ordersValidation from '../validations/orders';
 import Authorization from '../middlewares/Authorization';
 import ValidationHandler from '../middlewares/ValidationHandler';

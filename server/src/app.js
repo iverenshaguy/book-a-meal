@@ -3,7 +3,7 @@ import logger from 'morgan';
 import bodyParser from 'body-parser';
 import 'babel-polyfill';
 import apiRoutes from './routes';
-import errors from './data/errors.json';
+import errors from '../data/errors.json';
 import ErrorHandler from './middlewares/ErrorHandler';
 
 // Set up the express app

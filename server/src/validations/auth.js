@@ -1,6 +1,6 @@
 import validator from 'validator';
 import { check } from 'express-validator/check';
-import usersDB from '../data/users.json';
+import usersDB from '../../data/users.json';
 import notEmpty from '../helpers/notEmpty';
 
 export default {

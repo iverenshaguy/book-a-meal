@@ -1,6 +1,6 @@
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
-import usersDB from '../data/users.json';
+import usersDB from '../../data/users.json';
 import PasswordHash from '../helpers/PasswordHash';
 
 const token = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
