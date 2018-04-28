@@ -10,21 +10,16 @@
 </head>
 
 <body>
-  <div class="header">
-    <div class="navbar unauth-navbar">
+  <div class="header unauth">
+    <div class="navbar">
       <div class="page-title">
         <h3>
           <a href="./index.html">BOOK-A-MEAL</a>
         </h3>
       </div>
-      <div class="navlinks">
-        <a href="./login.html" class="link">Log In</a>
-        <a href="#" class="link">Sign Up</a>
-        <a href="./dashboard.html" class="link">Caterers</a>
-      </div>
     </div>
   </div>
-  <div class="main-wrapper">
+  <div class="main-wrapper auth-wrapper">
     <div class="auth">
       <div class="title">
         <h2>Start Filling Your Belly</h2>
@@ -33,7 +28,7 @@
       <div class="content" id="one">
         <form action="./user-menu.html">
           <div class="form-input">
-            <label for="name">Full Name</label>
+            <label for="name">First Name</label>
             <input type="text" required id="name" name="name" value="" onkeyup="this.setAttribute('value', this.value);" />
           </div>
 
@@ -89,12 +84,12 @@
           </div>
 
           <div class="form-input">
-            <label for="phone">Business Phone No</label>
+            <label for="phone">Business Phone Number</label>
             <input type="number" required id="phone" name="phone" value="" onkeyup="this.setAttribute('value', this.value);" />
           </div>
 
           <div class="form-input">
-            <label for="address">Business Name</label>
+            <label for="address">Business Address</label>
             <textarea required id="address" name="address" value=""></textarea>
           </div>
 

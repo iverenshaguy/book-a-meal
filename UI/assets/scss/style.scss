@@ -190,6 +190,7 @@ hr {
   display: flex;
   height: 70px;
   color: $white;
+  background-color: transparent;
   padding: 0 10px;
   justify-content: center;
   align-items: center;
@@ -488,6 +489,11 @@ hr {
     background-size: cover;
     background-attachment: fixed;
   }
+}
+
+// AUTH WRAPPER
+.auth-wrapper {
+  margin-top: 0;
 }
 
 @media (min-width: 451px) and (max-width: 575.98px) {

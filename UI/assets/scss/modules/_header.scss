@@ -117,6 +117,10 @@
     }
   }
 
+  &.unauth {
+    position: relative;
+  }
+
   @media (max-width: 767.98px) {
     z-index: 10;
 

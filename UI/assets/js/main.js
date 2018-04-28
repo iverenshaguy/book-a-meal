@@ -50,7 +50,7 @@ window.onload = function () {
 
   if (adminOrderHistoryPill) for (let i = 0; i < adminOrderHistoryPill.length; i++) {
     adminOrderHistoryPill[i].addEventListener('click', function (e) {
-      orderDetailsModal.classList.add('show');
+      showModal(e, orderDetailsModal);
     });
   }
 
@@ -236,7 +236,7 @@ window.onload = function () {
   function confirmDeleteModal() {
     const content = `<div class="delete-meal">
     <p>Are You Sure?</p>
-    <div class="confirm-delete-btns">
+    <div class="confirm-delete-btns control-btns">
       <button class="btn btn-sec" id="confirm-delete-no">No</button>
       <button class="btn btn-sec-danger" id="confirm-delete-yes">Yes</button>
     </div>
