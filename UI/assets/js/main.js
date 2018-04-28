@@ -13,6 +13,7 @@ window.onload = function () {
   const menuModal = document.getElementById('menu-modal');
   const dropdowns = document.getElementsByClassName('dropdown');
   const checkoutBtn = document.getElementById('checkout');
+  const contentWithModal = document.getElementById('has-modal');
   const adminOrderHistoryPill = document.getElementsByClassName('admin-order-history-pill');
 
   // javscript closest polyfill
@@ -36,7 +37,7 @@ window.onload = function () {
   if (backBtn) backBtn.onclick = () => redirect('./user-menu.html');
 
   if (checkoutBtn) checkoutBtn.onclick = e => {
-    window.scroll({ top: 0, left: 0, behavior: 'smooth'}); showModal(e, notifModal)
+    showModal(e, notifModal)
   };
 
   if (mealCardBtns.length) for (let i = 0; i < mealCardBtns.length; i++) {
@@ -97,8 +98,7 @@ window.onload = function () {
 
   if (modal) modal.addEventListener('click', function (e) {
     if (e.target !== e.currentTarget && e.target.id === 'modal-close-icon') {
-      e.preventDefault();
-      this.closest('.modal').classList.remove('show');
+      closeModal(e);
     }
 
     if (e.target !== e.currentTarget && (e.target.id === 'confirm-delete-yes' ||
@@ -128,6 +128,8 @@ window.onload = function () {
 
   function showModal(e, type) {
     type.classList.toggle('show');
+    contentWithModal.style.position= 'fixed';
+    window.scroll({ top: 0, left: 0, behavior: 'smooth'});
 
     if (e.target.id === 'add-meal-btn') {
       mealForm('add');
@@ -150,9 +152,10 @@ window.onload = function () {
 
   function closeModal(e) {
     e.preventDefault();
+    contentWithModal.style.position = 'relative';
 
     if (e.target !== e.currentTarget && e.target.id === 'modal-close-icon') {
-      this.closest('.modal').classList.remove('show');
+      e.target.closest('.modal').classList.remove('show');
     }
 
     e.stopPropagation();
