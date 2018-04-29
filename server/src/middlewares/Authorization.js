@@ -42,18 +42,20 @@ class Authorization {
    */
   static authorize(req, res, next) {
     const token = Authorization.getToken(req);
+    const isInvalidToken = token !== userToken && token !== adminToken; // replace with jwt
     let role;
-    if (token === adminToken) role = 'caterer';
-    if (token === userToken) role = 'user';
 
     // we'll use the role from user token to know what type of user
     // we need to get data for. If there's no role, it means token is invalid
     // invalid/expired token or no token
-    if (!token || (token !== userToken && token !== adminToken)) {
+    if (!token || isInvalidToken) {
       return res.status(401).send({
         error: errors['401']
       });
     }
+
+    if (token === adminToken) role = 'caterer';
+    if (token === userToken) role = 'user';
 
     // if token is valid, jwt decode and change request body to reflect role and userId
     req.body.role = role;
