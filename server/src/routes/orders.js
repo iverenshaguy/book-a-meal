@@ -10,12 +10,12 @@ const ordersController = new Orders(ordersDB, 'order');
 const authorization = new Authorization('user');
 const catAuthorization = new Authorization('caterer');
 
+ordersRoutes.get('/', catAuthorization.authorize, (req, res) => ordersController.list(req, res));
+
 ordersRoutes.post(
   '/', authorization.authorize, ordersValidation.create,
   (req, res) => ValidationHandler.validate(req, res, ordersController.create)
 );
-
-ordersRoutes.get('/', catAuthorization.authorize, (req, res) => ordersController.list(req, res));
 
 ordersRoutes.put(
   '/:orderId', authorization.authorize, ordersValidation.update,
