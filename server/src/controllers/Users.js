@@ -1,4 +1,5 @@
 import uuidv4 from 'uuid/v4';
+import moment from 'moment';
 import PasswordHash from '../helpers/PasswordHash';
 import usersDB from '../dummyData/users';
 
@@ -27,6 +28,8 @@ class Users {
     newUser.userId = uuidv4();
     delete newUser.password;
     delete newUser.passwordConfirm;
+    newUser.created = moment().format();
+    newUser.updated = moment().format();
 
     usersDB.push(newUser);
 
@@ -57,13 +60,14 @@ class Users {
       });
     }
 
-    delete authUser.password;
-    delete authUser.passwordHash;
+    authUser.updated = moment().format();
 
-    return res.status(200).send({
-      user: authUser,
-      token
-    });
+    const user = Object.assign({}, authUser);
+
+    delete user.password;
+    delete user.passwordHash;
+
+    return res.status(200).send({ user, token });
   }
 }
 

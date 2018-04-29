@@ -50,8 +50,11 @@ class Menu extends Controller {
     // convert meals array string to array
     data.meals = stringToArray(data.meals);
 
+    // add dates
+    data.created = moment().format();
+    data.updated = moment().format();
+
     this.database.push(data);
-    // console.log(this.database);
 
     // get full meals object from mealsDB
     const fullData = Object.assign({}, data);
@@ -87,9 +90,10 @@ class Menu extends Controller {
     // convert meals array string to array
     data.meals = stringToArray(data.meals);
 
-    // delete id and replace date from data
+    // delete id and replace date and updated from data
     delete data.menuId;
     data.date = oldItem.date;
+    data.updated = moment().format();
 
     // update old meal with new meal and assign it to it's position in the array
     this.database[itemIndex] = Object.assign({}, oldItem, data);
