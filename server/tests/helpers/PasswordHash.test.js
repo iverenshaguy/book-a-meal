@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import chai, { expect } from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import PasswordHash from '../../src/helpers/PasswordHash';
