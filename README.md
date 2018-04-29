@@ -27,7 +27,7 @@ You can find the template at [https://www.pivotaltracker.com/n/projects/2165637]
 Template is hosted at [https://iverenshaguy.github.io/UI/index.html](https://iverenshaguy.github.io/UI/index.html)
 
 ### API Deployment (Non-Persistent)
-API is hosted at [https://book-a-meal-sivy.herokuapp.com](https://book-a-meal-sivy.herokuapp.com)
+API is deployed at [https://book-a-meal-sivy.herokuapp.com](https://book-a-meal-sivy.herokuapp.com)
 
 ## Technologies
 
