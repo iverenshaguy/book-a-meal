@@ -13,4 +13,9 @@ menuRoutes.post(
   (req, res) => ValidationHandler.validate(req, res, menuController.create)
 );
 
+menuRoutes.put(
+  '/:menuId', Authorization.authorizeCaterer, menuValidation.update,
+  (req, res) => ValidationHandler.validate(req, res, menuController.update)
+);
+
 export default menuRoutes;

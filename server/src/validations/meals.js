@@ -50,6 +50,7 @@ export default {
       .withMessage('Invalid ID'),
     check('title')
       .trim()
+      .optional()
       .custom(value => notEmpty(value, 'Title cannot be empty'))
       .isLength({ max: 50 })
       .withMessage('Title must not be more than 50 characters')
@@ -64,6 +65,7 @@ export default {
       .withMessage('Text can only contain letters and the characters (,.\'-)'),
     check('price')
       .trim()
+      .optional()
       .custom(value => notEmpty(value, 'Price cannot be empty'))
       .isInt()
       .withMessage('Price must be a number')
