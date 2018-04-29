@@ -3,7 +3,6 @@ import moment from 'moment';
 import mealsDB from '../../data/meals.json';
 import GetItems from '../middlewares/GetItems';
 import errors from '../../data/errors.json';
-import trimValues from '../helpers/trimValues';
 
 /**
  * @exports
@@ -32,15 +31,15 @@ class Meals {
    * @returns {(function|object)} Function next() or JSON object
    */
   static create(req, res) {
-    const trimmedData = trimValues(req.body);
+    const newMeal = { ...req.body };
     // generate random id and created/updated date
-    trimmedData.mealId = uuidv4();
-    trimmedData.created = moment().format();
-    trimmedData.updated = moment().format();
+    newMeal.mealId = uuidv4();
+    newMeal.created = moment().format();
+    newMeal.updated = moment().format();
 
-    mealsDB.push(trimmedData);
+    mealsDB.push(newMeal);
 
-    return res.status(201).send(trimmedData);
+    return res.status(201).send(newMeal);
   }
 
   /**
@@ -53,6 +52,7 @@ class Meals {
    * @returns {(function|object)} Function next() or JSON object
    */
   static update(req, res) {
+    const data = { ...req.body };
     const itemIndex = mealsDB
       .findIndex(item => item.mealId === req.params.mealId &&
         item.userId === req.body.userId);
@@ -67,11 +67,10 @@ class Meals {
     // delete id from data
     delete req.body.mealId;
 
-    const trimmedData = trimValues(req.body);
-    trimmedData.updated = moment().format();
+    data.updated = moment().format();
 
     // update old meal with trimmed new meal and assign it to it's position in the array
-    mealsDB[itemIndex] = Object.assign({}, oldItem, trimmedData);
+    mealsDB[itemIndex] = { ...oldItem, ...data };
 
     return res.status(200).send(mealsDB[itemIndex]);
   }

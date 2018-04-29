@@ -28,7 +28,7 @@ class Menu {
     }
 
     // get meal object for each meal ID
-    const menu = Object.assign({}, menuForTheDay);
+    const menu = { ...menuForTheDay };
     menu.meals = Menu.getMealObject(menu.meals);
 
     return res.status(200).send(menu);

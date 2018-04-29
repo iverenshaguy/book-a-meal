@@ -1,5 +1,6 @@
 import { validationResult } from 'express-validator/check';
 import { matchedData } from 'express-validator/filter';
+import TrimValues from './TrimValues';
 
 /**
  * @exports
@@ -17,13 +18,13 @@ class ValidationHandler {
    */
   static validate(req, res, next) {
     const errors = validationResult(req);
-    req.body = { ...req.body, ...matchedData(req) };
+    req = { ...req, ...matchedData(req) };
 
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.mapped() });
     }
 
-    next();
+    return TrimValues.trim(req, res, next);
   }
 }
 
