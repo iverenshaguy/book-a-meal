@@ -62,8 +62,26 @@ An application that allows customers to make food orders and helps the food vend
   [http://localhost:8000/api/v1/meals](http://localhost:8000/api/v1/meals)
 * Modify an Existing Meal Option  - PUT
   [http://localhost:8000/api/v1/meals/:mealId](http://localhost:8000/api/v1/meals/:mealId)
-* Delete - DELETE
+* Delete an Existing meal Option - DELETE
   [http://localhost:8000/api/v1/meals/:mealId](http://localhost:8000/api/v1/meals/:mealId)
+* Get Menu for Today - GET
+  [http://localhost:8000/api/v1/menu](http://localhost:8000/api/v1/menu)
+* Get Menu for a Specific Day - GET
+  [http://localhost:8000/api/v1/menu?date={YYYY-MM-DD}](http://localhost:8000/api/v1/menu?date={YYYY-MM-DD})
+* Add Meal Options to Menu for a Specific Day - POST
+  [http://localhost:8000/api/v1/menu](http://localhost:8000/api/v1/menu)
+* Modify an Existing Menu - PUT
+  [http://localhost:8000/api/v1/menu/:menuId](http://localhost:8000/api/v1/menu/:menuId)
+* Get All Orders - GET
+  [http://localhost:8000/api/v1/orders](http://localhost:8000/api/v1/orders)
+* Order a Menu - POST
+  [http://localhost:8000/api/v1/orders](http://localhost:8000/api/v1/orders)
+* Modify an Open Order  - PUT
+  [http://localhost:8000/api/v1/orders/:orderId](http://localhost:8000/api/v1/orders/:orderId)
+* Delete an Order - DELETE
+  [http://localhost:8000/api/v1/orders/:orderId](http://localhost:8000/api/v1/orders/:orderId)
+* Get All Notifications - GET
+  [http://localhost:8000/api/v1/notifications](http://localhost:8000/api/v1/notifications)
 
 ## Getting Started
 
