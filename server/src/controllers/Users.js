@@ -4,6 +4,18 @@ import usersDB from '../data/users.json';
 import PasswordHash from '../helpers/PasswordHash';
 
 const token = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
+const defaultUserObject = {
+  firstname: null,
+  businessName: null,
+  email: null,
+  password: null, // for testing reference, won't be in real database
+  passwordHash: null,
+  businessPhoneNo: null,
+  businessAddress: null,
+  created: null,
+  updated: null,
+  role: null
+};
 
 /**
  * @exports
@@ -22,9 +34,10 @@ class Users {
   static async register(req, res, data) {
     // encrypt password
     const hash = await PasswordHash.hashPassword(req.body.password);
-    const newUser = Object.assign({}, data);
+    const newUser = Object.assign({}, defaultUserObject, data);
     newUser.passwordHash = hash;
     newUser.email = req.body.email.toLowerCase();
+    newUser.role = req.body.role.toLowerCase();
     newUser.userId = uuidv4();
     delete newUser.password;
     delete newUser.passwordConfirm;
