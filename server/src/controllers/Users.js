@@ -36,6 +36,34 @@ class Users {
       token
     });
   }
+
+  /**
+   * Logs in a user
+   * @method login
+   * @memberof Home
+   * @param {object} req
+   * @param {object} res
+   * @param {object} data
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  static login(req, res, data) {
+    const authUser = usersDB
+      .find(user => user.email === data.email && user.password === data.password);
+
+    if (!authUser) {
+      return res.status(401).send({
+        error: 'Invalid Credentials'
+      });
+    }
+
+    delete authUser.password;
+    delete authUser.passwordHash;
+
+    return res.status(200).send({
+      user: authUser,
+      token
+    });
+  }
 }
 
 export default Users;

@@ -1,4 +1,4 @@
 node_modules
 UI
 server/dist
-server/coverage
+coverage

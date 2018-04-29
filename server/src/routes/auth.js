@@ -9,5 +9,7 @@ const authRoutes = express.Router();
 authRoutes.post('/signup', authValidation.register, (req, res) =>
   ValidationHandler.validate(req, res, UsersController.register));
 
+authRoutes.post('/signin', authValidation.login, (req, res) =>
+  ValidationHandler.validate(req, res, UsersController.login));
 
 export default authRoutes;

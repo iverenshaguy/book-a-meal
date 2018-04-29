@@ -46,4 +46,17 @@ export default {
       .custom(value => notEmpty(value, 'Password Confirm field cannot be empty'))
       .custom((value, { req }) => value === req.body.password),
   ],
+  login: [
+    check('email')
+      .trim()
+      .normalizeEmail()
+      .exists()
+      .withMessage('Email must be specified')
+      .custom(value => notEmpty(value, 'Email cannot be empty'))
+      .isEmail()
+      .withMessage('Email is invalid'),
+    check('password')
+      .exists().withMessage('Password must be specified')
+      .custom(value => notEmpty(value, 'Password cannot be empty'))
+  ]
 };
