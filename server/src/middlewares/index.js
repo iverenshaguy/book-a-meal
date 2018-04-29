@@ -1,2 +1,7 @@
-import './ErrorHandler';
-import './ValidationHandler';
+import ErrorHandler from './ErrorHandler';
+import ValidationHandler from './ValidationHandler';
+
+export default {
+  ErrorHandler,
+  ValidationHandler
+};

@@ -6,7 +6,7 @@ class ErrorHandler {
   /**
    * Handlers uncaught erros in the app
    * @method sendError
-   * @memberof Home
+   * @memberof ErrorHandler
    * @param {object} err
    * @param {object} req
    * @param {object} res
@@ -18,7 +18,7 @@ class ErrorHandler {
       return next(err);
     }
 
-    res.status(err.status || 500).send(err.message);
+    res.status(err.status || 500).send({ error: err.message });
   }
 }
 

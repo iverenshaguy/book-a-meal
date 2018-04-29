@@ -9,7 +9,7 @@ class ValidationHandler {
   /**
    * Sends validation errors if existent, passes it on to the next middleware if not
    * @method validate
-   * @memberof Home
+   * @memberof ValidationHandler
    * @param {object} req
    * @param {object} res
    * @param {method} controllerMethod
