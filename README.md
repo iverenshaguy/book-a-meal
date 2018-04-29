@@ -54,6 +54,16 @@ An application that allows customers to make food orders and helps the food vend
 
 * Signup - POST
   [http://localhost:8000/api/v1/auth/signup](http://localhost:8000/api/v1/auth/signup)
+* Signin - POST
+  [http://localhost:8000/api/v1/auth/signin](http://localhost:8000/api/v1/users/signin)
+* Get All Meal Options - GET
+  [http://localhost:8000/api/v1/meals](http://localhost:8000/api/v1/meals)
+* Add a Meal Option - POST
+  [http://localhost:8000/api/v1/meals](http://localhost:8000/api/v1/meals)
+* Modify an Existing Meal Option  - PUT
+  [http://localhost:8000/api/v1/meals/:mealId](http://localhost:8000/api/v1/meals/:mealId)
+* Delete - DELETE
+  [http://localhost:8000/api/v1/meals/:mealId](http://localhost:8000/api/v1/meals/:mealId)
 
 ## Getting Started
 

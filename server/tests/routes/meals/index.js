@@ -1,3 +1,4 @@
-import './getAllMeals.test';
-import './addAMeal.test';
-import './editAMeal.test';
+import './getMeals.test';
+import './addMeal.test';
+import './editMeal.test';
+import './deleteMeal.test';
