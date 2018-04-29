@@ -11,7 +11,7 @@
   "scripts": {
     "start": "node ./server/dist/app.js",
     "start:dev": "cross-env NODE_ENV=development nodemon --exec babel-node -- ./server/src/app.js",
-    "build": "cross-env NODE_ENV=development babel ./server/src -d ./server/dist",
+    "build": "cross-env NODE_ENV=production babel ./server/src -d ./server/dist",
     "heroku-postbuild": "npm build",
     "pretest": "npm run lint",
     "lint": "eslint **/*.js --fix",
