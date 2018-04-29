@@ -19,4 +19,9 @@ ordersRoutes.put(
   (req, res) => ValidationHandler.validate(req, res, ordersController.update)
 );
 
+ordersRoutes.delete(
+  '/:orderId', authorization.authorize, ordersValidation.delete,
+  (req, res) => ValidationHandler.validate(req, res, ordersController.delete)
+);
+
 export default ordersRoutes;

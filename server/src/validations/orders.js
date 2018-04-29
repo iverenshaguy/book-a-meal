@@ -57,5 +57,10 @@ export default {
       .isInt()
       .withMessage('Quantity must be a number'),
   ],
+  delete: [
+    check('orderId')
+      .isUUID(4)
+      .withMessage('Invalid ID')
+  ]
 };
 

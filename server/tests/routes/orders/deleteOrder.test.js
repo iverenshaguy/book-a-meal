@@ -2,14 +2,17 @@ import request from 'supertest';
 import { expect } from 'chai';
 import moment from 'moment';
 import app from '../../../src/app';
+import notFound from '../../utils/notFound';
+import invalidID from '../../utils/invalidID';
 import unAuthorized from '../../utils/unAuthorized';
 
 const userMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
 const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
 const currentDay = moment().format('YYYY-MM-DD');
-let newMenuId;
+let newMenuId, newOrderId;
 
-describe('Order Routes: Add an Order', () => {
+
+describe('Order Routes: Delete an Order', () => {
   const menu = {
     date: currentDay,
     meals: [
@@ -19,26 +22,7 @@ describe('Order Routes: Add an Order', () => {
     ]
   };
 
-  const newOrder = {
-    deliveryAddress: '4, Church Street, Yaba',
-    deliveryPhoneNo: '+2348134567890',
-    quantity: 2
-  };
-
-  const orderwithoutQuantity = {
-    deliveryAddress: '4, Church Street, Yaba',
-    deliveryPhoneNo: '+2348134567890',
-  };
-
-  const badOrder = {
-    menuId: '15421f7a-0f82-4802-b215-e0e8efb6bfb38932',
-    deliveryAddress: '',
-    deliveryPhoneNo: 'disdod',
-    quantity: '2'
-  };
-
-  const orderWithExpiredMenu = {
-    menuId: 'f43f3d49-a6c9-476d-b65a-1af772ff0f36',
+  const order = {
     deliveryAddress: '4, Church Street, Yaba',
     deliveryPhoneNo: '+2348134567890',
     quantity: 2
@@ -68,8 +52,9 @@ describe('Order Routes: Add an Order', () => {
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
       .set('authorization', userMockToken)
-      .send({ ...newOrder, menuId: newMenuId })
+      .send({ ...order, menuId: newMenuId })
       .end((err, res) => {
+        newOrderId = res.body.orderId;
         expect(res.statusCode).to.equal(201);
         expect(res.body).to.include.keys('orderId');
         expect(res.body).to.include.keys('userId');
@@ -82,57 +67,46 @@ describe('Order Routes: Add an Order', () => {
       });
   });
 
-  it('should add an order using default quantity 1', (done) => {
+  it('should delete a current order for an authenticated user', (done) => {
     request(app)
-      .post('/api/v1/orders')
+      .delete(`/api/v1/orders/${newOrderId}`)
       .set('Accept', 'application/json')
       .set('authorization', userMockToken)
-      .send({ ...orderwithoutQuantity, menuId: newMenuId })
       .end((err, res) => {
-        expect(res.statusCode).to.equal(201);
-        expect(res.body.quantity).to.equal(1);
+        expect(res.statusCode).to.equal(204);
+        expect(res.body).to.deep.equal({});
 
         if (err) return done(err);
         done();
       });
   });
 
-  it('should not add expired menu/future menu', (done) => {
+  it('should not delete an expired order i.e. past date', (done) => {
     request(app)
-      .post('/api/v1/orders')
+      .delete('/api/v1/orders/e5508b87-7975-493d-a900-3d47a69dad03')
       .set('Accept', 'application/json')
       .set('authorization', userMockToken)
-      .send(orderWithExpiredMenu)
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
-        expect(res.body).to.be.an('object');
-        expect(res.body.error).to.equal('Menu is Unavailable');
+        expect(res.body.error).to.equal('Order is Expired');
 
         if (err) return done(err);
         done();
       });
   });
 
-  it('should return errors for invalid input', (done) => {
-    request(app)
-      .post('/api/v1/orders')
-      .set('Accept', 'application/json')
-      .set('authorization', userMockToken)
-      .send(badOrder)
-      .end((err, res) => {
-        expect(res.statusCode).to.equal(422);
-        expect(res.body).to.be.an('object');
-        // expect(res.body.errors.menuId.msg).to.equal('Invalid ID');
-        expect(res.body.errors.deliveryAddress.msg).to.equal('Delivery Address cannot be empty');
-        expect(res.body.errors.deliveryPhoneNo.msg).to.equal('Delivery Phone Number must be in the format +2348134567890');
+  invalidID(
+    'should return 422 error for invalid menu id', 'orderId',
+    request(app), 'delete', undefined, '/api/v1/orders/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', userMockToken
+  );
 
-        if (err) return done(err);
-        done();
-      });
-  });
+  notFound(
+    'should return 404 error for non-existent menu id',
+    request(app), 'delete', undefined, '/api/v1/orders/9ce447be-ee46-424e-82b8-ae4160e795b4', userMockToken
+  );
 
   unAuthorized(
     'should return 401 error for user without token',
-    request(app), 'post', '/api/v1/orders'
+    request(app), 'delete', '/api/v1/orders/e544248c-145c-4145-b165-239658857637'
   );
 });
