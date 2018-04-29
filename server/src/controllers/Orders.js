@@ -122,7 +122,7 @@ class Orders extends Controller {
       menuId: null,
       userId: '8356954a-9a42-4616-8079-887a73455a7f', // caterer id to notify caterer
       orderId: '6ed0963f-9663-4fe2-8ad4-2f06c6294482',
-      message: 'An user just ordered your meal'
+      message: 'Your menu was just ordered'
     });
 
     return Orders.getOrderObject(res, trimmedData, 201);

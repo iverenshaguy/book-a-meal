@@ -19,8 +19,10 @@ class Notifications extends Controller {
    * @param {string} role
    * @returns {object} JSON object
    */
-  static list(req, res) {
-    const list = notificationsDB.filter(item => item.userId === null); // ie. no particular user
+  static list(req, res, role) {
+    const list = role === 'caterer' ?
+      notificationsDB.filter(item => item.userId === '8356954a-9a42-4616-8079-887a73455a7f') : // caterer id in real data with jwt
+      notificationsDB.filter(item => item.userId === null); // ie. no particular user
     return GetItems.items(req, res, list, 'notifications');
   }
 
