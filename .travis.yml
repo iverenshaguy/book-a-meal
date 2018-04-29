@@ -1,0 +1,32 @@
+language: node_js
+
+node_js:
+  - '9.11.1'
+
+env:
+  global:
+    - CC_TEST_REPORTER_ID=1d64771979b17b23c6604237e6fa9e47f4ea993a33a4b938e04f3924925679bc
+
+script:
+  - npm run test
+
+cache: 
+  yarn: true
+  directories:
+    - 'node_modules'
+
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.5.1
+  - export PATH="$HOME/.yarn/bin:$PATH"
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  
+after_success:
+  - npm run coverage
+  
