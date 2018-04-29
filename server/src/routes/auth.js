@@ -6,10 +6,7 @@ import ValidationHandler from '../middlewares/ValidationHandler';
 const authRoutes = express.Router();
 
 
-authRoutes.post('/signup', authValidation.register, (req, res) =>
-  ValidationHandler.validate(req, res, UsersController.register));
-
-authRoutes.post('/signin', authValidation.login, (req, res) =>
-  ValidationHandler.validate(req, res, UsersController.login));
+authRoutes.post('/signup', authValidation.register, ValidationHandler.validate, UsersController.register);
+authRoutes.post('/signin', authValidation.login, ValidationHandler.validate, UsersController.login);
 
 export default authRoutes;

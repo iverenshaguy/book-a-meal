@@ -10,18 +10,18 @@ const authorization = new Authorization('user');
 ordersRoutes.get('/', Authorization.authorize, Orders.list);
 
 ordersRoutes.post(
-  '/', Authorization.authorize, authorization.authorizeRole, ordersValidation.create,
-  (req, res) => ValidationHandler.validate(req, res, Orders.create)
+  '/', Authorization.authorize, authorization.authorizeRole,
+  ordersValidation.create, ValidationHandler.validate, Orders.create
 );
 
 ordersRoutes.put(
-  '/:orderId', Authorization.authorize, authorization.authorizeRole, ordersValidation.update,
-  (req, res) => ValidationHandler.validate(req, res, Orders.update)
+  '/:orderId', Authorization.authorize, authorization.authorizeRole,
+  ordersValidation.update, ValidationHandler.validate, Orders.update
 );
 
 ordersRoutes.delete(
-  '/:orderId', Authorization.authorize, authorization.authorizeRole, ordersValidation.delete,
-  (req, res) => ValidationHandler.validate(req, res, Orders.delete)
+  '/:orderId', Authorization.authorize, authorization.authorizeRole,
+  ordersValidation.delete, ValidationHandler.validate, Orders.delete
 );
 
 export default ordersRoutes;

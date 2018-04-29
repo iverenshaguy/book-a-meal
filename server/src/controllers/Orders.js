@@ -89,13 +89,12 @@ class Orders {
    * @memberof Orders
    * @param {object} req
    * @param {object} res
-   * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  static create(req, res, data) {
-    if (!isMealAvailable(data.mealId)) res.status(422).send({ error: 'Meal is unavailable' });
+  static create(req, res) {
+    if (!isMealAvailable(req.body.mealId)) res.status(422).send({ error: 'Meal is unavailable' });
 
-    const trimmedData = trimValues(data);
+    const trimmedData = trimValues(req.body);
     // generate random id
     trimmedData.orderId = uuidv4();
 
@@ -132,10 +131,9 @@ class Orders {
    * @memberof Orders
    * @param {object} req
    * @param {object} res
-   * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  static update(req, res, data) {
+  static update(req, res) {
     const { orderId } = req.params;
     const itemIndex =
       ordersDB.findIndex(item => item.orderId === orderId && item.userId === req.body.userId);
@@ -147,9 +145,9 @@ class Orders {
     if (isExpired('order', ordersDB, orderId)) return res.status(422).send({ error: 'Order is expired' });
 
     // check if meal is in the menu for the day
-    if (!isMealAvailable(data.mealId)) return res.status(422).send({ error: 'Meal is unavailable' });
+    if (!isMealAvailable(req.body.mealId)) return res.status(422).send({ error: 'Meal is unavailable' });
 
-    const trimmedData = trimValues(data);
+    const trimmedData = trimValues(req.body);
     // update date
     trimmedData.updated = moment().format();
     // real userId to be gotten from decoded token
@@ -171,7 +169,6 @@ class Orders {
    * @memberof Orders
    * @param {object} req
    * @param {object} res
-   * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
   static delete(req, res) {

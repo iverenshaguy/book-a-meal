@@ -20,7 +20,6 @@ describe('Order Routes: Get All Orders', () => {
           expect(res.body.orders[1].orderId).to.equal('e5508b87-7975-493d-a900-3d47a69dad03');
           expect(res.body.orders[2].orderId).to.equal('6ed0963f-9663-4fe2-8ad4-2f06c6294482');
           expect(res.body.metadata).to.deep.equal({
-            pages: [1],
             totalCount: 3,
             itemsPerPage: 3,
             page: 1,
@@ -97,7 +96,6 @@ describe('Order Routes: Get All Orders', () => {
           expect(res.body.orders[2].orderId).to.equal('e544248c-145c-4145-b165-239658857637');
           expect(res.body.orders[3].orderId).to.equal('e5508b87-7975-493d-a900-3d47a69dad03');
           expect(res.body.metadata).to.deep.equal({
-            pages: [1],
             totalCount: 4,
             itemsPerPage: 4,
             page: 1,

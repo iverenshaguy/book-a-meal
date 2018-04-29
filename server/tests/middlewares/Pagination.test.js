@@ -19,13 +19,6 @@ describe('Pagination Handler', () => {
     expect(pagination.type).to.equal('meals');
   });
 
-  it('creates an array of pages', () => {
-    const pagesArray = pagination.listPages();
-
-    expect(pagesArray).to.be.an('array');
-    expect(pagesArray).to.deep.equal([1, 2]);
-  });
-
   it('gets items per page when limit and page are set', () => {
     const pagesObj = pagination.getItemsForPage();
 
@@ -34,7 +27,6 @@ describe('Pagination Handler', () => {
     expect(pagesObj).to.include.keys('metadata');
     expect(pagesObj.itemsByPage.length).to.equal(5);
     expect(pagesObj.metadata).to.deep.equal({
-      pages: [1, 2],
       totalCount: 10,
       itemsPerPage: 5,
       page: 2,
@@ -52,7 +44,6 @@ describe('Pagination Handler', () => {
     expect(pagesObj).to.include.keys('metadata');
     expect(pagesObj.itemsByPage.length).to.equal(5);
     expect(pagesObj.metadata).to.deep.equal({
-      pages: [1, 2],
       totalCount: 10,
       itemsPerPage: 5,
       page: 1,

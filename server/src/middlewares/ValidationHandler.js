@@ -12,18 +12,18 @@ class ValidationHandler {
    * @memberof ValidationHandler
    * @param {object} req
    * @param {object} res
-   * @param {method} controllerMethod
+   * @param {function} next
    * @returns {(function|object)} Function next() or JSON object
    */
-  static validate(req, res, controllerMethod) {
+  static validate(req, res, next) {
     const errors = validationResult(req);
-    const data = matchedData(req);
+    req.body = { ...req.body, ...matchedData(req) };
 
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.mapped() });
     }
 
-    return controllerMethod(req, res, data);
+    next();
   }
 }
 

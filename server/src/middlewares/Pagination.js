@@ -18,25 +18,8 @@ class Pagination {
     this.limit = parseInt(limit, 10);
     this.currentPage = parseInt(page, 10);
     this.totalPages = Math.ceil(this.totalItems / this.limit);
-    this.listPages = this.listPages.bind(this);
     this.getItemsForPage = this.getItemsForPage.bind(this);
     this.paginateItems = this.paginateItems.bind(this);
-  }
-
-  /**
-   * Turns the TotalItems into list of Pages
-   * @method listPages
-   * @memberof Pagination
-   * @return {array} - an array of pages
-   */
-  listPages() {
-    const pages = [];
-
-    for (let i = 1; i <= this.totalPages; i += 1) {
-      pages.push(i);
-    }
-
-    return pages;
   }
 
   /**
@@ -64,7 +47,6 @@ class Pagination {
     return {
       itemsByPage: paginatedItems,
       metadata: {
-        pages: this.listPages(),
         totalCount: this.totalItems,
         itemsPerPage: paginatedItems.length,
         page: this.currentPage,
