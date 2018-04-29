@@ -4,6 +4,11 @@ import notEmpty from '../helpers/notEmpty';
 export default {
   create: [
     check('menuId')
+      .exists().withMessage('MenuId is required')
+      .isUUID(4)
+      .withMessage('Invalid ID'),
+    check('mealId')
+      .exists().withMessage('MealId is required')
       .isUUID(4)
       .withMessage('Invalid ID'),
     check('deliveryAddress')
@@ -33,6 +38,13 @@ export default {
       .isUUID(4)
       .withMessage('Invalid ID'),
     check('menuId')
+      .trim()
+      .optional()
+      .isUUID(4)
+      .withMessage('Invalid ID'),
+    check('mealId')
+      .trim()
+      .optional()
       .isUUID(4)
       .withMessage('Invalid ID'),
     check('deliveryAddress')

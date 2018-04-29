@@ -16,16 +16,17 @@ describe('Order Routes: Delete an Order', () => {
   const menu = {
     date: currentDay,
     meals: [
-      '72a3417e-45c8-4559-8b74-8b5a61be8614',
-      '8a65538d-f862-420e-bcdc-80743df06578',
-      'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
+      '81211c24-51c0-46ec-b1e0-18db55880958',
+      '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
+      'baa0412a-d167-4d2b-b1d8-404cb8f02631'
     ]
   };
 
-  const order = {
+  const newOrder = {
+    mealId: '81211c24-51c0-46ec-b1e0-18db55880958',
     deliveryAddress: '4, Church Street, Yaba',
     deliveryPhoneNo: '+2348134567890',
-    quantity: 2
+    quantity: 4
   };
 
   it('should add a menu for authenticated user, for the current day', (done) => {
@@ -40,7 +41,6 @@ describe('Order Routes: Delete an Order', () => {
         expect(res.body).to.include.keys('menuId');
         expect(res.body).to.include.keys('date');
         expect(res.body.date).to.equal(currentDay);
-        expect(res.body.meals[0].mealId).to.equal('72a3417e-45c8-4559-8b74-8b5a61be8614');
 
         if (err) return done(err);
         done();
@@ -52,7 +52,7 @@ describe('Order Routes: Delete an Order', () => {
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
       .set('authorization', userMockToken)
-      .send({ ...order, menuId: newMenuId })
+      .send({ ...newOrder, menuId: newMenuId })
       .end((err, res) => {
         newOrderId = res.body.orderId;
         expect(res.statusCode).to.equal(201);
@@ -60,7 +60,6 @@ describe('Order Routes: Delete an Order', () => {
         expect(res.body).to.include.keys('userId');
         expect(res.body).to.include.keys('created');
         expect(res.body).to.include.keys('updated');
-        expect(res.body.menu).to.include.keys('meals');
 
         if (err) return done(err);
         done();
@@ -88,7 +87,7 @@ describe('Order Routes: Delete an Order', () => {
       .set('authorization', userMockToken)
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
-        expect(res.body.error).to.equal('Order is Expired');
+        expect(res.body.error).to.equal('Order is expired');
 
         if (err) return done(err);
         done();

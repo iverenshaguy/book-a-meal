@@ -1,15 +1,13 @@
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
-import Controller from './Controller';
 import GetItems from '../middlewares/GetItems';
 import notificationsDB from '../../data/notifications.json';
 
 /**
  * @exports
  * @class Notifications
- * @extends Controller
  */
-class Notifications extends Controller {
+class Notifications {
   /**
    * lists User's Notifications
    * @method getNotifications
@@ -19,10 +17,11 @@ class Notifications extends Controller {
    * @param {string} role
    * @returns {object} JSON object
    */
-  static list(req, res, role) {
+  static list(req, res) {
+    const { role, userId } = req.body;
     const list = role === 'caterer' ?
-      notificationsDB.filter(item => item.userId === '8356954a-9a42-4616-8079-887a73455a7f') : // caterer id in real data with jwt
-      notificationsDB.filter(item => item.userId === null); // ie. no particular user
+      notificationsDB.filter(item => item.userId === userId) :
+      notificationsDB.filter(item => item.userId === null);
     return GetItems.items(req, res, list, 'notifications');
   }
 

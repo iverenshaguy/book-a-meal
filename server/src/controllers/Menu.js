@@ -46,7 +46,7 @@ class Menu extends Controller {
    */
   create(req, res, data) {
     // generate random id
-    data[`${this.type}Id`] = uuidv4();
+    data.menuId = uuidv4();
 
     // convert meals array string to array
     data.meals = stringToArray(data.meals);
@@ -62,12 +62,12 @@ class Menu extends Controller {
     Notifications.create({
       userId: null,
       orderId: null,
-      menuId: '15421f7a-0f82-4802-b215-e0e8efb6bfb3',
+      menuId: data.menuId,
       message: 'Rice and Stew with Beef was just added to the menu'
     });
 
     // get full meals object from mealsDB
-    const fullData = Object.assign({}, data);
+    const fullData = { ...data };
     fullData.meals = Menu.getMealObject(fullData.meals);
 
     return res.status(201).send(fullData);

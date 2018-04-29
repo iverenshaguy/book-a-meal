@@ -50,5 +50,18 @@
      "created": "2018-05-06T14:34:90.000",
      "updated": "2018-05-06T14:34:90.000",
      "role": "user"
+  },
+  {
+    "userId": "ac1b253c-6b33-439b-ab6f-805a4fdd2e05",
+    "firstname": null,
+    "businessName": "BellyFill",
+    "email": "belly@fill.com",
+    "password": "bellyfil",
+    "passwordHash": "23456789dtfgyuhio567890",
+    "businessPhone": "+2348134567890",
+    "businessAddress": "4, Church Street, Yaba",
+    "created": "2018-05-06T14:34:90.000",
+    "updated": "2018-05-06T14:34:90.000",
+    "role": "caterer"
   }
 ]

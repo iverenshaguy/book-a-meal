@@ -8,10 +8,7 @@ import ValidationHandler from '../middlewares/ValidationHandler';
 const ordersRoutes = express.Router();
 const ordersController = new Orders(ordersDB, 'order');
 
-ordersRoutes.get(
-  '/',
-  (req, res, next) => Authorization.authorizeAny(req, res, next, Orders.list)
-);
+ordersRoutes.get('/', Authorization.authorizeAny, Orders.list);
 
 ordersRoutes.post(
   '/', Authorization.authorizeUser, ordersValidation.create,

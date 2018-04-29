@@ -4,10 +4,7 @@ import Authorization from '../middlewares/Authorization';
 
 const notificationsRoutes = express.Router();
 
-notificationsRoutes.get(
-  '/',
-  (req, res, next) => Authorization.authorizeAny(req, res, next, Notifications.list)
-);
+notificationsRoutes.get('/', Authorization.authorizeAny, Notifications.list);
 
 
 export default notificationsRoutes;
