@@ -35,7 +35,7 @@ export default {
       .withMessage('Price must be a number')
       .isLength({ max: 5 })
       .withMessage('Price must not be more than 5 characters'),
-    check('image')
+    check('imageURL')
       .trim()
       .optional({ checkFalsy: true }),
     check('forVegetarians')
@@ -45,6 +45,9 @@ export default {
       .withMessage('Accepts only true or false'),
   ],
   update: [
+    check('mealId')
+      .isUUID(4)
+      .withMessage('Invalid ID'),
     check('title')
       .trim()
       .custom(value => notEmpty(value, 'Title cannot be empty'))
@@ -66,7 +69,7 @@ export default {
       .withMessage('Price must be a number')
       .isLength({ max: 5 })
       .withMessage('Price must not be more than 5 characters'),
-    check('image')
+    check('imageURL')
       .trim()
       .optional({ checkFalsy: true }),
     check('forVegetarians')
@@ -75,5 +78,10 @@ export default {
       .isIn([false, true])
       .withMessage('Accepts only true or false'),
   ],
+  delete: [
+    check('mealId')
+      .isUUID(4)
+      .withMessage('Invalid ID'),
+  ]
 };
 

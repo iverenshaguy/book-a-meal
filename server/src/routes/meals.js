@@ -18,8 +18,8 @@ mealsRoutes.put(
   (req, res) => ValidationHandler.validate(req, res, mealsController.update)
 );
 mealsRoutes.delete(
-  '/:mealId', Authorization.authorizeCaterer,
-  (req, res) => mealsController.delete(req, res)
+  '/:mealId', Authorization.authorizeCaterer, mealsValidation.delete,
+  (req, res) => ValidationHandler.validate(req, res, mealsController.delete)
 );
 
 export default mealsRoutes;

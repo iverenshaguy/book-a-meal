@@ -1,6 +1,7 @@
 import express from 'express';
 import authRoutes from './auth';
 import mealsRoutes from './meals';
+import menuRoutes from './menu';
 
 const apiRoutes = express.Router();
 
@@ -21,5 +22,6 @@ apiRoutes.get('/v1', (req, res) => res.status(200).send({
 
 apiRoutes.use('/v1/auth', authRoutes);
 apiRoutes.use('/v1/meals', mealsRoutes);
+apiRoutes.use('/v1/menu', menuRoutes);
 
 export default apiRoutes;
