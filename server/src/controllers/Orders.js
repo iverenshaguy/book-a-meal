@@ -176,7 +176,6 @@ class Orders {
    */
   static delete(req, res) {
     const { orderId } = req.params;
-    console.log(req.body.userId);
     const itemIndex =
       ordersDB.findIndex(item => item.orderId === orderId && item.userId === req.body.userId);
 
