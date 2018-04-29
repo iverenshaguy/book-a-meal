@@ -60,12 +60,12 @@ describe('Meal Routes: Edit a meal option', () => {
 
   invalidID(
     'should return 422 error for invalid meal id', 'mealId',
-    request(app), 'put', newMeal, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478'
+    request(app), 'put', newMeal, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', adminMockToken
   );
 
   notFound(
     'should return 404 error for non-existent meal id',
-    request(app), 'put', newMeal, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed539'
+    request(app), 'put', newMeal, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed539', adminMockToken
   );
 
   notAdmin(

@@ -78,7 +78,7 @@ describe('Menu Routes: Edit menu', () => {
 
   invalidID(
     'should return 422 error for invalid meal id', 'menuId',
-    request(app), 'put', menu, '/api/v1/menu/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478'
+    request(app), 'put', menu, '/api/v1/menu/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', adminMockToken
   );
 
   notAdmin(
@@ -88,7 +88,7 @@ describe('Menu Routes: Edit menu', () => {
 
   notFound(
     'should return 404 error for non-existent meal id',
-    request(app), 'put', menu, '/api/v1/menu/4f579f84-53e4-4fc5-a362-956aa36fbfb8'
+    request(app), 'put', menu, '/api/v1/menu/4f579f84-53e4-4fc5-a362-956aa36fbfb8', adminMockToken
   );
 
   unAuthorized(
