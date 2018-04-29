@@ -21,7 +21,7 @@ class Users {
   static async register(req, res, data) {
     // encrypt password
     const hash = await PasswordHash.hashPassword(req.body.password);
-    const newUser = Object.assign(data);
+    const newUser = Object.assign({}, data);
     newUser.passwordHash = hash;
     newUser.email = req.body.email.toLowerCase();
     newUser.userId = uuidv4();

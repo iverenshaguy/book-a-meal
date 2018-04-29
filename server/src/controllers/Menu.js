@@ -12,6 +12,29 @@ import mealsDB from '../dummyData/meals';
  */
 class Menu extends Controller {
   /**
+   * Gets the menu for the day
+   * @method getMenuForDay
+   * @memberof Meals
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  getMenuForDay(req, res) {
+    const date = req.query.date || moment().format('YYYY-MM-DD');
+    const menuForTheDay = this.database.find(item => moment(item.date).isSame(date));
+
+    if (!menuForTheDay) {
+      return res.status(200).send({ message: 'No Menu is Available For This Day' });
+    }
+
+    // get meal object for each meal ID
+    const menu = Object.assign({}, menuForTheDay);
+    menu.meals = Menu.getMealObject(menu.meals);
+
+    return res.status(200).send(menu);
+  }
+
+  /**
    * Creates a new item
    * @method create
    * @memberof Controller
@@ -28,9 +51,10 @@ class Menu extends Controller {
     data.meals = stringToArray(data.meals);
 
     this.database.push(data);
+    // console.log(this.database);
 
     // get full meals object from mealsDB
-    const fullData = Object.assign(data);
+    const fullData = Object.assign({}, data);
     fullData.meals = Menu.getMealObject(fullData.meals);
 
     return res.status(201).send(fullData);
@@ -65,14 +89,13 @@ class Menu extends Controller {
 
     // delete id and replace date from data
     delete data.menuId;
-
     data.date = oldItem.date;
 
     // update old meal with new meal and assign it to it's position in the array
-    this.database[itemIndex] = Object.assign(oldItem, data);
+    this.database[itemIndex] = Object.assign({}, oldItem, data);
 
     // get full meals object from mealsDB
-    const fullData = Object.assign(this.database[itemIndex]);
+    const fullData = Object.assign({}, this.database[itemIndex]);
     fullData.meals = Menu.getMealObject(fullData.meals);
 
     return res.status(200).send(fullData);
