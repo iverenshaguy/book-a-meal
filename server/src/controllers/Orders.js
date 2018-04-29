@@ -1,5 +1,6 @@
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
+import GetItems from '../middlewares/GetItems';
 import Controller from './Controller';
 import Menu from './Menu';
 import errors from '../helpers/errors.json';
@@ -14,6 +15,27 @@ import orderIsExpired from '../helpers/orderIsExpired';
  * @extends Controller
  */
 class Orders extends Controller {
+  /**
+   * Returns a list of Items
+   * @method list
+   * @memberof Controller
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  list(req, res) {
+    if (req.query.date) {
+      // if date query was added, get all orders whose created at include the date
+      // includes is used instead of equality because created at is a full date string
+      const { date } = req.query;
+      const dateToFind = date === 'today' ? moment().format('YYYY-MM-DD') : date;
+      const list = this.database.filter(item => item.created.includes(dateToFind));
+      return GetItems.items(req, res, list, `${this.type}s`);
+    }
+
+    return GetItems.items(req, res, this.database, `${this.type}s`);
+  }
+
   /**
    * Creates a new item
    * @method create
