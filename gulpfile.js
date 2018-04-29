@@ -1,9 +1,9 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var sourcemaps = require('gulp-sourcemaps');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const sourcemaps = require('gulp-sourcemaps');
 
-gulp.task('sass', function () {
+gulp.task('sass', () => {
   gulp.src('./UI/assets/scss/style.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
@@ -11,13 +11,13 @@ gulp.task('sass', function () {
     }).on('error', sass.logError))
     .pipe(sourcemaps.write())
     .pipe(autoprefixer())
-    .pipe(gulp.dest('./UI/assets/css'))
+    .pipe(gulp.dest('./UI/assets/css'));
 });
 
-// Rerun the task when a file changes 
-gulp.task('watch', function () {
+// Rerun the task when a file changes
+gulp.task('watch', () => {
   gulp.watch('./UI/assets/scss/**/*.scss', ['sass']);
 });
 
-// The default task (called when you run `gulp` from cli) 
+// The default task (called when you run `gulp` from cli)
 gulp.task('default', ['watch', 'sass']);
