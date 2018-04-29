@@ -1,8 +1,6 @@
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
-import usersDB from '../dummyData/users';
-import ordersDB from '../dummyData/orders';
-import GetItems from '../middlewares/GetItems';
+import usersDB from '../data/users.json';
 import PasswordHash from '../helpers/PasswordHash';
 
 const token = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
@@ -62,29 +60,12 @@ class Users {
       });
     }
 
-    authUser.updated = moment().format();
-
     const user = Object.assign({}, authUser);
 
     delete user.password;
     delete user.passwordHash;
 
     return res.status(200).send({ user, token });
-  }
-
-  /**
-   * lists User's Orders
-   * @method getOrders
-   * @memberof Users
-   * @param {object} req
-   * @param {object} res
-   * @returns {object} JSON object
-   */
-  static getOrders(req, res) {
-    // return orders pertaining to user when user query is passed
-    const { userId } = req.params;
-    const list = ordersDB.filter(item => item.userId === userId);
-    return GetItems.items(req, res, list, 'orders');
   }
 }
 

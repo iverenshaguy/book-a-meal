@@ -1,5 +1,5 @@
 import { check } from 'express-validator/check';
-import usersDB from '../dummyData/users';
+import usersDB from '../data/users.json';
 import notEmpty from '../helpers/notEmpty';
 
 export default {

@@ -1,4 +1,4 @@
-import errors from '../helpers/errors.json';
+import errors from '../data/errors.json';
 
 const userToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
 const adminToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
@@ -9,41 +9,50 @@ const adminToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuy
  */
 class Authorization {
   /**
-   * @constructor
-   * @param {string} type
-   */
-  constructor(type) {
-    this.type = type;
-    this.authorize = this.authorize.bind(this);
-  }
-
-  /**
-   * Authorize User
-   * @method authorize
+   * @method getToken
    * @memberof Authorization
    * @param {object} req
-   * @param {object} res
-   * @param {function} next
-   * @returns {(function|object)} Function next() or JSON object
+   * @returns {string} token
    */
-  authorize(req, res, next) {
+  static getToken(req) {
     // token could provided via body, as a query string or in the header
     const bearerToken = req.headers.authorization;
     const token = bearerToken && bearerToken.replace('Bearer ', '');
 
-    // check to be sure there's a token
-    if (!bearerToken || !token) {
+    return token;
+  }
+
+  /**
+   * Check if Anybody is Authenticated
+   * @method authorizeAny
+   * @memberof Authorization
+   * @param {object} req
+   * @param {object} res
+   * @param {function} next
+   * @param {function} method
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  static authorizeAny(req, res, next, method) {
+    const token = Authorization.getToken(req);
+    const role = token === adminToken ? 'caterer' : 'user';
+
+    if (!token) {
       return res.status(401).send({
         error: errors['401']
       });
     }
 
-    if (this.type === 'caterer') {
-      return Authorization.authorizeCaterer(req, res, next, token);
+    // we'll use the role from user token to know what type of user
+    // we need to get data for
+    if (token !== adminToken && token !== userToken) {
+      return res.status(403).send({
+        error: errors['403']
+      });
     }
 
-    return Authorization.authorizeUser(req, res, next, token);
+    return method(req, res, role);
   }
+
 
   /**
    * Check if Caterer is Authenticated
@@ -52,10 +61,17 @@ class Authorization {
    * @param {object} req
    * @param {object} res
    * @param {function} next
-   * @param {string} token
    * @returns {(function|object)} Function next() or JSON object
    */
-  static authorizeCaterer(req, res, next, token) {
+  static authorizeCaterer(req, res, next) {
+    const token = Authorization.getToken(req);
+
+    if (!token) {
+      return res.status(401).send({
+        error: errors['401']
+      });
+    }
+
     // return 403 forbidden error if user is not admin/caterer
     // role will be added in real JWT token implementation
     // if role in decoded token is not admin, action will not be allowed
@@ -75,10 +91,11 @@ class Authorization {
    * @param {object} req
    * @param {object} res
    * @param {function} next
-   * @param {string} token
    * @returns {(function|object)} Function next() or JSON object
    */
-  static authorizeUser(req, res, next, token) {
+  static authorizeUser(req, res, next) {
+    const token = Authorization.getToken(req);
+
     if (token !== userToken) {
       return res.status(401).send({
         error: errors['401']

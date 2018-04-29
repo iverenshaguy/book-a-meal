@@ -1,6 +1,6 @@
 import { check } from 'express-validator/check';
 import moment from 'moment';
-// import menuDB from '../dummyData/menu';
+// import menuDB from '../data/menu.json';
 import notEmpty from '../helpers/notEmpty';
 import checkMealsId from '../helpers/checkMealsId';
 

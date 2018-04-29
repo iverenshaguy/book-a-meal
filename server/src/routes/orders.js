@@ -1,29 +1,30 @@
 import express from 'express';
 import Orders from '../controllers/Orders';
-import ordersDB from '../dummyData/orders';
+import ordersDB from '../data/orders.json';
 import ordersValidation from '../validations/orders';
 import Authorization from '../middlewares/Authorization';
 import ValidationHandler from '../middlewares/ValidationHandler';
 
 const ordersRoutes = express.Router();
 const ordersController = new Orders(ordersDB, 'order');
-const authorization = new Authorization('user');
-const catAuthorization = new Authorization('caterer');
 
-ordersRoutes.get('/', catAuthorization.authorize, (req, res) => ordersController.list(req, res));
+ordersRoutes.get(
+  '/',
+  (req, res, next) => Authorization.authorizeAny(req, res, next, Orders.list)
+);
 
 ordersRoutes.post(
-  '/', authorization.authorize, ordersValidation.create,
+  '/', Authorization.authorizeUser, ordersValidation.create,
   (req, res) => ValidationHandler.validate(req, res, ordersController.create)
 );
 
 ordersRoutes.put(
-  '/:orderId', authorization.authorize, ordersValidation.update,
+  '/:orderId', Authorization.authorizeUser, ordersValidation.update,
   (req, res) => ValidationHandler.validate(req, res, ordersController.update)
 );
 
 ordersRoutes.delete(
-  '/:orderId', authorization.authorize, ordersValidation.delete,
+  '/:orderId', Authorization.authorizeUser, ordersValidation.delete,
   (req, res) => ValidationHandler.validate(req, res, ordersController.delete)
 );
 
