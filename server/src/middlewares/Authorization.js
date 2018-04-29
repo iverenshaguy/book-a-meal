@@ -45,6 +45,10 @@ class Authorization {
     const isInvalidToken = token !== userToken && token !== adminToken; // replace with jwt
     let role;
 
+    // skip authorization for get menu
+    if (req.baseUrl === '/api/v1/menu' && req.method === 'GET') return next();
+
+
     // we'll use the role from user token to know what type of user
     // we need to get data for. If there's no role, it means token is invalid
     // invalid/expired token or no token
@@ -80,6 +84,9 @@ class Authorization {
     const { type } = this;
     // will be used to know what role to check for
     const tokenType = type === 'caterer' ? adminToken : userToken;
+
+    // skip role authorization for menu and orders
+    if ((req.baseUrl === '/api/v1/orders' || req.baseUrl === '/api/v1/menu') && req.method === 'GET') return next();
 
     // return 403 forbidden error if user doesn't have required role
     // role will be added in real JWT token implementation

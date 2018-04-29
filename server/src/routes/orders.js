@@ -7,21 +7,11 @@ import ValidationHandler from '../middlewares/ValidationHandler';
 const ordersRoutes = express.Router();
 const authorization = new Authorization('user');
 
-ordersRoutes.get('/', Authorization.authorize, Orders.list);
+ordersRoutes.use(Authorization.authorize, authorization.authorizeRole);
 
-ordersRoutes.post(
-  '/', Authorization.authorize, authorization.authorizeRole,
-  ordersValidation.create, ValidationHandler.validate, Orders.create
-);
-
-ordersRoutes.put(
-  '/:orderId', Authorization.authorize, authorization.authorizeRole,
-  ordersValidation.update, ValidationHandler.validate, Orders.update
-);
-
-ordersRoutes.delete(
-  '/:orderId', Authorization.authorize, authorization.authorizeRole,
-  ordersValidation.delete, ValidationHandler.validate, Orders.delete
-);
+ordersRoutes.get('/', Orders.list);
+ordersRoutes.post('/', ordersValidation.create, ValidationHandler.validate, Orders.create);
+ordersRoutes.put('/:orderId', ordersValidation.update, ValidationHandler.validate, Orders.update);
+ordersRoutes.delete('/:orderId', ordersValidation.delete, ValidationHandler.validate, Orders.delete);
 
 export default ordersRoutes;
