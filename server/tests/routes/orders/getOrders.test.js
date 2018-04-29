@@ -69,8 +69,8 @@ describe('Order Routes: Get All Orders', () => {
         .set('Accept', 'application/json')
         .set('authorization', 'klopoopppppppjjlklklkjjk66788898')
         .end((err, res) => {
-          expect(res.statusCode).to.equal(403);
-          expect(res.body.error).to.equal('Forbidden');
+          expect(res.statusCode).to.equal(401);
+          expect(res.body.error).to.equal('Unauthorized');
 
           if (err) return done(err);
           done();
@@ -91,14 +91,15 @@ describe('Order Routes: Get All Orders', () => {
         .set('authorization', userMockToken)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
-          expect(res.body.orders.length).to.equal(3);
+          expect(res.body.orders.length).to.equal(4);
           expect(res.body.orders[0].orderId).to.equal('fb097bde-5959-45ff-8e21-51184fa60c25');
           expect(res.body.orders[1].orderId).to.equal('ce228787-f939-40a0-bfd3-6607ca8d2e53');
           expect(res.body.orders[2].orderId).to.equal('e544248c-145c-4145-b165-239658857637');
+          expect(res.body.orders[3].orderId).to.equal('e5508b87-7975-493d-a900-3d47a69dad03');
           expect(res.body.metadata).to.deep.equal({
             pages: [1],
-            totalCount: 3,
-            itemsPerPage: 3,
+            totalCount: 4,
+            itemsPerPage: 4,
             page: 1,
             lastPage: 1,
             firstPage: 1

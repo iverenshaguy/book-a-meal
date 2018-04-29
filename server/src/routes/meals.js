@@ -1,25 +1,24 @@
 import express from 'express';
 import Meals from '../controllers/Meals';
-import mealsDB from '../../data/meals.json';
 import mealsValidation from '../validations/meals';
 import Authorization from '../middlewares/Authorization';
 import ValidationHandler from '../middlewares/ValidationHandler';
 
 const mealsRoutes = express.Router();
-const mealsController = new Meals(mealsDB, 'meal');
+const authorization = new Authorization('caterer');
 
-mealsRoutes.get('/', Authorization.authorizeCaterer, (req, res) => mealsController.list(req, res));
+mealsRoutes.get('/', Authorization.authorize, authorization.authorizeRole, Meals.list);
 mealsRoutes.post(
-  '/', Authorization.authorizeCaterer, mealsValidation.create,
-  (req, res) => ValidationHandler.validate(req, res, mealsController.create)
+  '/', Authorization.authorize, authorization.authorizeRole, mealsValidation.create,
+  (req, res) => ValidationHandler.validate(req, res, Meals.create)
 );
 mealsRoutes.put(
-  '/:mealId', Authorization.authorizeCaterer, mealsValidation.update,
-  (req, res) => ValidationHandler.validate(req, res, mealsController.update)
+  '/:mealId', Authorization.authorize, authorization.authorizeRole, mealsValidation.update,
+  (req, res) => ValidationHandler.validate(req, res, Meals.update)
 );
 mealsRoutes.delete(
-  '/:mealId', Authorization.authorizeCaterer, mealsValidation.delete,
-  (req, res) => ValidationHandler.validate(req, res, mealsController.delete)
+  '/:mealId', Authorization.authorize, authorization.authorizeRole, mealsValidation.delete,
+  (req, res) => ValidationHandler.validate(req, res, Meals.delete)
 );
 
 export default mealsRoutes;

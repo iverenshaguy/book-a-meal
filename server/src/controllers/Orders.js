@@ -1,6 +1,5 @@
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
-import Controller from './Controller';
 import mealsDB from '../../data/meals.json';
 import menuDB from '../../data/menu.json';
 import ordersDB from '../../data/orders.json';
@@ -16,7 +15,7 @@ import isExpired from '../helpers/isExpired';
  * @class Orders
  * @extends Controller
  */
-class Orders extends Controller {
+class Orders {
   /**
    * Returns a list of Items
    * @method list
@@ -93,7 +92,7 @@ class Orders extends Controller {
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  create(req, res, data) {
+  static create(req, res, data) {
     if (!isMealAvailable(data.mealId)) res.status(422).send({ error: 'Meal is unavailable' });
 
     const trimmedData = trimValues(data);
@@ -111,7 +110,7 @@ class Orders extends Controller {
     trimmedData.quantity = parseInt(trimmedData.quantity, 10) || 1;
 
     // update DB
-    this.database.push(trimmedData);
+    ordersDB.push(trimmedData);
 
     // push to notifications table
     // Caterer's for when an order is made
@@ -136,9 +135,10 @@ class Orders extends Controller {
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  update(req, res, data) {
+  static update(req, res, data) {
     const { orderId } = req.params;
-    const itemIndex = this.database.findIndex(item => item.orderId === orderId);
+    const itemIndex =
+      ordersDB.findIndex(item => item.orderId === orderId && item.userId === req.body.userId);
 
     // return 404 error if order isn't found ie order doesnt exist
     if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
@@ -155,12 +155,12 @@ class Orders extends Controller {
     // real userId to be gotten from decoded token
     trimmedData.userId = 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac';
 
-    const oldOrder = this.database[itemIndex];
+    const oldOrder = ordersDB[itemIndex];
 
     // update db
-    this.database[itemIndex] = { ...oldOrder, ...trimmedData };
+    ordersDB[itemIndex] = { ...oldOrder, ...trimmedData };
 
-    const order = Orders.getOrderObject(this.database[itemIndex]);
+    const order = Orders.getOrderObject(ordersDB[itemIndex]);
 
     return res.status(200).send(order);
   }
@@ -174,9 +174,11 @@ class Orders extends Controller {
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  delete(req, res) {
+  static delete(req, res) {
     const { orderId } = req.params;
-    const itemIndex = this.database.findIndex(item => item.orderId === orderId);
+    console.log(req.body.userId);
+    const itemIndex =
+      ordersDB.findIndex(item => item.orderId === orderId && item.userId === req.body.userId);
 
     // return 404 error if index isn't found ie meal option doesnt exist
     if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
@@ -184,7 +186,7 @@ class Orders extends Controller {
     // check if order is expired and return response
     if (isExpired('order', ordersDB, orderId)) return res.status(422).send({ error: 'Order is expired' });
 
-    this.database.splice(itemIndex, 1);
+    ordersDB.splice(itemIndex, 1);
 
     return res.status(204).send();
   }

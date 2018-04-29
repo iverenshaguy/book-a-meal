@@ -1,23 +1,22 @@
 import express from 'express';
 import Menu from '../controllers/Menu';
-import menuDB from '../../data/menu.json';
 import menuValidation from '../validations/menu';
 import Authorization from '../middlewares/Authorization';
 import ValidationHandler from '../middlewares/ValidationHandler';
 
 const menuRoutes = express.Router();
-const menuController = new Menu(menuDB, 'menu');
+const authorization = new Authorization('caterer');
 
 menuRoutes.post(
-  '/', Authorization.authorizeCaterer, menuValidation.create,
-  (req, res) => ValidationHandler.validate(req, res, menuController.create)
+  '/', Authorization.authorize, authorization.authorizeRole, menuValidation.create,
+  (req, res) => ValidationHandler.validate(req, res, Menu.create)
 );
 
-menuRoutes.get('/', (req, res) => menuController.getMenuForDay(req, res));
+menuRoutes.get('/', Menu.getMenuForDay);
 
 menuRoutes.put(
-  '/:menuId', Authorization.authorizeCaterer, menuValidation.update,
-  (req, res) => ValidationHandler.validate(req, res, menuController.update)
+  '/:menuId', Authorization.authorize, authorization.authorizeRole, menuValidation.update,
+  (req, res) => ValidationHandler.validate(req, res, Menu.update)
 );
 
 export default menuRoutes;

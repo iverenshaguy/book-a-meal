@@ -22,12 +22,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>64/64</span>
+        <span class='fraction'>65/65</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>30/30</span>
+        <span class='fraction'>34/34</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>50/50</span>
+        <span class='fraction'>51/51</span>
       </div>
     </div>
     <p class="quiet">
@@ -257,8 +257,9 @@
 <a name='L209'></a><a href='#L209'>209</a>
 <a name='L210'></a><a href='#L210'>210</a>
 <a name='L211'></a><a href='#L211'>211</a>
-<a name='L212'></a><a href='#L212'>212</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L212'></a><a href='#L212'>212</a>
+<a name='L213'></a><a href='#L213'>213</a>
+<a name='L214'></a><a href='#L214'>214</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -397,6 +398,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">31x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -435,6 +437,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -470,7 +474,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import uuidv4 from 'uuid/v4';
 import moment from 'moment';
-import Controller from './Controller';
 import mealsDB from '../../data/meals.json';
 import menuDB from '../../data/menu.json';
 import ordersDB from '../../data/orders.json';
@@ -486,7 +489,7 @@ import isExpired from '../helpers/isExpired';
  * @class Orders
  * @extends Controller
  */
-class Orders extends Controller {
+class Orders {
   /**
    * Returns a list of Items
    * @method list
@@ -563,7 +566,7 @@ class Orders extends Controller {
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  create(req, res, data) {
+  static create(req, res, data) {
     if (!isMealAvailable(data.mealId)) res.status(422).send({ error: 'Meal is unavailable' });
 &nbsp;
     const trimmedData = trimValues(data);
@@ -581,7 +584,7 @@ class Orders extends Controller {
     trimmedData.quantity = parseInt(trimmedData.quantity, 10) || 1;
 &nbsp;
     // update DB
-    this.database.push(trimmedData);
+    ordersDB.push(trimmedData);
 &nbsp;
     // push to notifications table
     // Caterer's for when an order is made
@@ -606,9 +609,10 @@ class Orders extends Controller {
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  update(req, res, data) {
+  static update(req, res, data) {
     const { orderId } = req.params;
-    const itemIndex = this.database.findIndex(item =&gt; item.orderId === orderId);
+    const itemIndex =
+      ordersDB.findIndex(item =&gt; item.orderId === orderId &amp;&amp; item.userId === req.body.userId);
 &nbsp;
     // return 404 error if order isn't found ie order doesnt exist
     if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
@@ -625,12 +629,12 @@ class Orders extends Controller {
     // real userId to be gotten from decoded token
     trimmedData.userId = 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac';
 &nbsp;
-    const oldOrder = this.database[itemIndex];
+    const oldOrder = ordersDB[itemIndex];
 &nbsp;
     // update db
-    this.database[itemIndex] = { ...oldOrder, ...trimmedData };
+    ordersDB[itemIndex] = { ...oldOrder, ...trimmedData };
 &nbsp;
-    const order = Orders.getOrderObject(this.database[itemIndex]);
+    const order = Orders.getOrderObject(ordersDB[itemIndex]);
 &nbsp;
     return res.status(200).send(order);
   }
@@ -644,9 +648,11 @@ class Orders extends Controller {
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  delete(req, res) {
+  static delete(req, res) {
     const { orderId } = req.params;
-    const itemIndex = this.database.findIndex(item =&gt; item.orderId === orderId);
+    console.log(req.body.userId);
+    const itemIndex =
+      ordersDB.findIndex(item =&gt; item.orderId === orderId &amp;&amp; item.userId === req.body.userId);
 &nbsp;
     // return 404 error if index isn't found ie meal option doesnt exist
     if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
@@ -654,7 +660,7 @@ class Orders extends Controller {
     // check if order is expired and return response
     if (isExpired('order', ordersDB, orderId)) return res.status(422).send({ error: 'Order is expired' });
 &nbsp;
-    this.database.splice(itemIndex, 1);
+    ordersDB.splice(itemIndex, 1);
 &nbsp;
     return res.status(204).send();
   }
@@ -685,7 +691,7 @@ export default Orders;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Apr 29 2018 10:45:43 GMT+0100 (W. Central Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Apr 29 2018 12:16:22 GMT+0100 (W. Central Africa Standard Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>
