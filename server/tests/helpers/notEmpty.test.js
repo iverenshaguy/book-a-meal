@@ -9,8 +9,6 @@ describe('notEmpty', () => {
   });
 
   it('throws an error when value is empty', () => {
-    const check = notEmpty('yes', 'string cannot be empty');
-
-    expect(check).to.throw(new Error('string cannot be empty'));
+    expect(() => notEmpty('', 'string cannot be empty')).to.throw('string cannot be empty');
   });
 });
