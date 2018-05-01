@@ -45,6 +45,38 @@ describe('Meal Routes: Add a meal option', () => {
       });
   });
 
+  it('should return errors for invalid price, 0', (done) => {
+    request(app)
+      .post('/api/v1/meals')
+      .set('Accept', 'application/json')
+      .set('authorization', adminMockToken)
+      .send({ ...badMeal, price: 0 })
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(422);
+        expect(res.body).to.be.an('object');
+        expect(res.body.errors.price.msg).to.equal('Price must not be less than 200');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
+  it('should return errors for invalid price, -25', (done) => {
+    request(app)
+      .post('/api/v1/meals')
+      .set('Accept', 'application/json')
+      .set('authorization', adminMockToken)
+      .send({ ...badMeal, price: -25 })
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(422);
+        expect(res.body).to.be.an('object');
+        expect(res.body.errors.price.msg).to.equal('Price must not be less than 200');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
   notAdmin(
     'should return 403 error for authorized user ie non admin or caterer',
     request(app), 'post', '/api/v1/meals'
