@@ -5,6 +5,7 @@ import mealsDB from '../../data/meals.json';
 import Notifications from './Notifications';
 import errors from '../../data/errors.json';
 import stringToArray from '../helpers/stringToArray';
+import checkMenuUnique from '../helpers/checkMenuUnique';
 
 /**
  * @exports
@@ -43,15 +44,34 @@ class Menu {
    * @returns {(function|object)} Function next() or JSON object
    */
   static create(req, res) {
+    const defaultDate = moment().format('YYYY-MM-DD');
+    const today = moment().format();
+
     // generate random id
     req.body.menuId = uuidv4();
+
+    // date is either equal to today or given date
+    req.body.date = req.body.date || defaultDate;
 
     // convert meals array string to array
     req.body.meals = stringToArray(req.body.meals);
 
     // add dates
-    req.body.created = moment().format();
-    req.body.updated = moment().format();
+    req.body.created = today;
+    req.body.updated = today;
+
+    if (!checkMenuUnique(req.body.date, req.body.userId)) {
+      return res.status(422).send({
+        errors: {
+          date: {
+            location: 'body',
+            param: 'date',
+            value: req.body.date,
+            msg: 'Menu already exists for this day'
+          }
+        }
+      });
+    }
 
     menuDB.push(req.body);
 

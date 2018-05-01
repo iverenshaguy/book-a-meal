@@ -2,6 +2,7 @@ import request from 'supertest';
 import { expect } from 'chai';
 import moment from 'moment';
 import app from '../../../src/app';
+import menuDB from '../../../data/menu.json';
 
 const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
 const currentDay = moment().format('YYYY-MM-DD');
@@ -15,7 +16,7 @@ const menu = {
 };
 
 describe('Menu Routes: Get the menu specific day', () => {
-  it('should add a menu for authenticated user, for the current day', (done) => {
+  before((done) => {
     request(app)
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
@@ -27,6 +28,13 @@ describe('Menu Routes: Get the menu specific day', () => {
         if (err) return done(err);
         done();
       });
+  });
+
+  after(() => {
+    // delete menu for today after test
+    const index = menuDB.findIndex(item => item.date === currentDay);
+
+    menuDB.splice(index, 1);
   });
 
   it('should get menu for the current day', (done) => {

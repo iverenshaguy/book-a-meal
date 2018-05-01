@@ -2,6 +2,7 @@ import request from 'supertest';
 import { expect } from 'chai';
 import moment from 'moment';
 import app from '../../../src/app';
+import menuDB from '../../../data/menu.json';
 import unAuthorized from '../../utils/unAuthorized';
 
 const userMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
@@ -47,7 +48,7 @@ describe('Order Routes: Add an Order', () => {
     quantity: 2
   };
 
-  it('add a current menu to test order', (done) => {
+  before((done) => {
     request(app)
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
@@ -64,6 +65,13 @@ describe('Order Routes: Add an Order', () => {
         if (err) return done(err);
         done();
       });
+  });
+
+  after(() => {
+    // delete menu for today after test
+    const index = menuDB.findIndex(item => item.date === currentDay);
+
+    menuDB.splice(index, 1);
   });
 
   it('should add an order for authenticated user', (done) => {

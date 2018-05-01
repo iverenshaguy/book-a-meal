@@ -4,6 +4,7 @@ import moment from 'moment';
 import app from '../../../src/app';
 import notFound from '../../utils/notFound';
 import invalidID from '../../utils/invalidID';
+import menuDB from '../../../data/menu.json';
 import unAuthorized from '../../utils/unAuthorized';
 
 const userMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
@@ -43,7 +44,7 @@ describe('Order Routes: Modify an Order', () => {
     deliveryPhoneNo: 'disdod',
   };
 
-  it('should add a menu for authenticated user, for the current day', (done) => {
+  before((done) => {
     request(app)
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
@@ -59,6 +60,13 @@ describe('Order Routes: Modify an Order', () => {
         if (err) return done(err);
         done();
       });
+  });
+
+  after(() => {
+    // delete menu for today after test
+    const index = menuDB.findIndex(item => item.date === currentDay);
+
+    menuDB.splice(index, 1);
   });
 
   it('should add an order for authenticated user', (done) => {

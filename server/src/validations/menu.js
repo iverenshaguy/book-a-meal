@@ -3,7 +3,7 @@ import moment from 'moment';
 // import menuDB from '../../data/menu.json';
 import notEmpty from '../helpers/notEmpty';
 import checkMealsId from '../helpers/checkMealsId';
-// import checkMealExists from '../helpers/checkMealExists';
+import checkMenuUnique from '../helpers/checkMenuUnique';
 
 const yesterday = moment().subtract(1, 'days').format().toString();
 
@@ -11,7 +11,10 @@ export default {
   create: [
     check('date')
       .trim()
+      .optional({ checkFalsy: true })
       .custom(value => notEmpty(value, 'Date cannot be empty'))
+      .custom((value, { req }) => checkMenuUnique(value, req.body.userId))
+      .withMessage('Menu already exists for this day')
       .matches(/^\d{4}-\d{1,2}-\d{1,2}$/)
       .withMessage('Date is invalid, valid format is YYYY-MM-DD')
       .isAfter(yesterday)
