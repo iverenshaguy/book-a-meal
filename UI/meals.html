@@ -40,7 +40,7 @@
       </div>
     </div>
   </div>
-  <div class="content">
+  <div class="content" id="has-modal">
     <div class="sidenav" id="sidenav">
       <div class="sidenav-content">
         <div class="sidenav-header">
@@ -59,211 +59,22 @@
         </div>
         <div class="sidenav-body">
           <a href="./dashboard.html" class="menu-item">Dashboard</a>
-          <a href="./admin-order-history.html" class="menu-item">Order History</a>
           <a href="#" class="menu-item active">Meals</a>
           <a href="./admin-menu.html" class="menu-item">Menu</a>
+          <a href="./admin-order-history.html" class="menu-item">Order History</a>
         </div>
       </div>
     </div>
-    <div class="content-wrapper meals">
+    <div class="content-wrapper meals caterer-meals">
       <div class="top">
         <button class="btn btn-pri" id="add-meal-btn">Add a New Meal</button>
       </div>
       <div class="card-group meals-wrapper" id="card-group">
-        <div class="meal-card" id="meal-card">
-          <div class="meal-card-header">
-            <img src="./assets/img/meal-image.JPG" alt="meal">
-            <div class="dropdown card-dropdown">
-              <a href="#" id="dropdown-toggler" class="dropdown-menu">More</a>
-              <div class="dropdown-content" data-dropdown="" id="dropdown-content">
-                <a href="#add-edit-modal" id="edit-meal">Edit</a>
-                <a href="#add-edit-modal" id="delete-meal">Delete</a>
-              </div>
-            </div>
-            <div class="menu-card-title">
-              Jollof Rice Meal
-            </div>
-          </div>
-          <div class="meal-card-body">
-            <div>
-              <ul>
-                <li>Jollof Rice</li>
-                <li>Vegetable Salad</li>
-                <li>Chicken</li>
-              </ul>
-            </div>
-            <div>
-              <h3>&#8358; 1500</h3>
-            </div>
-          </div>
-        </div>
-        <div class="meal-card" id="meal-card">
-          <div class="meal-card-header">
-            <img src="./assets/img/meal-image.JPG" alt="meal">
-            <div class="dropdown card-dropdown">
-              <a href="#" id="dropdown-toggler" class="dropdown-menu">More</a>
-              <div class="dropdown-content" data-dropdown="" id="dropdown-content">
-                <a href="#add-edit-modal" id="edit-meal">Edit</a>
-                <a href="#add-edit-modal" id="delete-meal">Delete</a>
-              </div>
-            </div>
-            <div class="menu-card-title">
-              Jollof Rice Meal
-            </div>
-          </div>
-          <div class="meal-card-body">
-            <div>
-              <ul>
-                <li>Jollof Rice</li>
-                <li>Vegetable Salad</li>
-                <li>Chicken</li>
-              </ul>
-            </div>
-            <div>
-              <h3>&#8358; 1500</h3>
-            </div>
-          </div>
-        </div>
-        <div class="meal-card" id="meal-card">
-          <div class="meal-card-header">
-            <img src="./assets/img/meal-image.JPG" alt="meal">
-            <div class="dropdown card-dropdown">
-              <a href="#" id="dropdown-toggler" class="dropdown-menu">More</a>
-              <div class="dropdown-content" data-dropdown="" id="dropdown-content">
-                <a href="#add-edit-modal" id="edit-meal">Edit</a>
-                <a href="#add-edit-modal" id="delete-meal">Delete</a>
-              </div>
-            </div>
-            <div class="menu-card-title">
-              Jollof Rice Meal
-            </div>
-          </div>
-          <div class="meal-card-body">
-            <div>
-              <ul>
-                <li>Jollof Rice</li>
-                <li>Vegetable Salad</li>
-                <li>Chicken</li>
-              </ul>
-            </div>
-            <div>
-              <h3>&#8358; 1500</h3>
-            </div>
-          </div>
-        </div>
-        <div class="meal-card" id="meal-card">
-          <div class="meal-card-header">
-            <img src="./assets/img/meal-image.JPG" alt="meal">
-            <div class="dropdown card-dropdown">
-              <a href="#" id="dropdown-toggler" class="dropdown-menu">More</a>
-              <div class="dropdown-content" id="dropdown-content">
-                <a href="#add-edit-modal" id="edit-meal">Edit</a>
-                <a href="#add-edit-modal" id="delete-meal">Delete</a>
-              </div>
-            </div>
-            <div class="menu-card-title">
-              Jollof Rice Meal
-            </div>
-          </div>
-          <div class="meal-card-body">
-            <div>
-              <ul>
-                <li>Jollof Rice</li>
-                <li>Vegetable Salad</li>
-                <li>Chicken</li>
-              </ul>
-            </div>
-            <div>
-              <h3>&#8358; 1500</h3>
-            </div>
-          </div>
-        </div>
-        <div class="meal-card" id="meal-card">
-          <div class="meal-card-header">
-            <img src="./assets/img/meal-image.JPG" alt="meal">
-            <div class="dropdown card-dropdown">
-              <a href="#" id="dropdown-toggler" class="dropdown-menu">More</a>
-              <div class="dropdown-content" data-dropdown="" id="dropdown-content">
-                <a href="#add-edit-modal" id="edit-meal">Edit</a>
-                <a href="#add-edit-modal" id="delete-meal">Delete</a>
-              </div>
-            </div>
-            <div class="menu-card-title">
-              Jollof Rice Meal
-            </div>
-          </div>
-          <div class="meal-card-body">
-            <div>
-              <ul>
-                <li>Jollof Rice</li>
-                <li>Vegetable Salad</li>
-                <li>Chicken</li>
-              </ul>
-            </div>
-            <div>
-              <h3>&#8358; 1500</h3>
-            </div>
-          </div>
-        </div>
-        <div class="meal-card" id="meal-card">
-          <div class="meal-card-header">
-            <img src="./assets/img/meal-image.JPG" alt="meal">
-            <div class="dropdown card-dropdown">
-              <a href="#" id="dropdown-toggler" class="dropdown-menu">More</a>
-              <div class="dropdown-content" data-dropdown="" id="dropdown-content">
-                <a href="#add-edit-modal" id="edit-meal">Edit</a>
-                <a href="#add-edit-modal" id="delete-meal">Delete</a>
-              </div>
-            </div>
-            <div class="menu-card-title">
-              Jollof Rice Meal
-            </div>
-          </div>
-          <div class="meal-card-body">
-            <div>
-              <ul>
-                <li>Jollof Rice</li>
-                <li>Vegetable Salad</li>
-                <li>Chicken</li>
-              </ul>
-            </div>
-            <div>
-              <h3>&#8358; 1500</h3>
-            </div>
-          </div>
-        </div>
-        <div class="meal-card" id="meal-card">
-          <div class="meal-card-header">
-            <img src="./assets/img/meal-image.JPG" alt="meal">
-            <div class="dropdown card-dropdown">
-              <a href="#" id="dropdown-toggler" class="dropdown-menu">More</a>
-              <div class="dropdown-content" data-dropdown="" id="dropdown-content">
-                <a href="#add-edit-modal" id="edit-meal">Edit</a>
-                <a href="#add-edit-modal" id="delete-meal">Delete</a>
-              </div>
-            </div>
-            <div class="menu-card-title">
-              Jollof Rice Meal
-            </div>
-          </div>
-          <div class="meal-card-body">
-            <div>
-              <ul>
-                <li>Jollof Rice</li>
-                <li>Vegetable Salad</li>
-                <li>Chicken</li>
-              </ul>
-            </div>
-            <div>
-              <h3>&#8358; 1500</h3>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
   <div class="footer">
-    <p>&copy; 2018. Iveren Shaguy</p>
+    <p>&copy; 2018. Iveren Shaguy. All images were gottem from Google and are not mine.</p>
   </div>
   <div class="modal" id="meal-modal">
     <div class="modal-content">
@@ -280,7 +91,9 @@
       </div>
     </div>
   </div>
+  <script src="./assets/js/jquery-3.3.1.min.js"></script>
   <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/cards.js"></script>
 </body>
 
 </html>

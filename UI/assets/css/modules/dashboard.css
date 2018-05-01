@@ -1,0 +1,37 @@
+.dashboard .summary .total-sum,
+.dashboard .summary .highest-five {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.dashboard .summary .total-sum {
+    color: #4CAF50;
+    font-size: 1.5em;
+}
+
+.dashboard .summary .total-sum .count {
+    font-size: 2em;
+}
+
+.dashboard .summary .highest {
+    font-size: 1.3em;
+    color: #E32429;
+    justify-content: space-around;
+}
+
+.dashboard .summary .total-cash {
+    color: #4CAF50;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.dashboard .order-details {
+    margin-top: -30px;
+    padding: 0 40px;
+}
+
+.dashboard .order-history {
+    margin-top: 0;
+}

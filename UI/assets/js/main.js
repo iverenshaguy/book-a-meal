@@ -13,6 +13,7 @@ window.onload = function () {
   const menuModal = document.getElementById('menu-modal');
   const dropdowns = document.getElementsByClassName('dropdown');
   const checkoutBtn = document.getElementById('checkout');
+  const contentWithModal = document.getElementById('has-modal');
   const adminOrderHistoryPill = document.getElementsByClassName('admin-order-history-pill');
 
   // javscript closest polyfill
@@ -36,7 +37,7 @@ window.onload = function () {
   if (backBtn) backBtn.onclick = () => redirect('./user-menu.html');
 
   if (checkoutBtn) checkoutBtn.onclick = e => {
-    window.scroll({ top: 0, left: 0, behavior: 'smooth'}); showModal(e, notifModal)
+    showModal(e, notifModal)
   };
 
   if (mealCardBtns.length) for (let i = 0; i < mealCardBtns.length; i++) {
@@ -49,7 +50,7 @@ window.onload = function () {
 
   if (adminOrderHistoryPill) for (let i = 0; i < adminOrderHistoryPill.length; i++) {
     adminOrderHistoryPill[i].addEventListener('click', function (e) {
-      orderDetailsModal.classList.add('show');
+      showModal(e, orderDetailsModal);
     });
   }
 
@@ -97,8 +98,7 @@ window.onload = function () {
 
   if (modal) modal.addEventListener('click', function (e) {
     if (e.target !== e.currentTarget && e.target.id === 'modal-close-icon') {
-      e.preventDefault();
-      this.closest('.modal').classList.remove('show');
+      closeModal(e);
     }
 
     if (e.target !== e.currentTarget && (e.target.id === 'confirm-delete-yes' ||
@@ -120,6 +120,15 @@ window.onload = function () {
     e.stopPropagation();
   }, false);
 
+  $('.action-btns > button').on('click', function(e) {
+    return showModal(e, mealModal);
+  });
+
+  $('#select-menu-btn').on('click', function(e) {
+    window.location.href = './admin-menu.html';
+  })
+  
+
   function toggleDropdown(target, wrapper) {
     target.style.color = 'white';
     wrapper.classList.toggle('show');
@@ -128,6 +137,8 @@ window.onload = function () {
 
   function showModal(e, type) {
     type.classList.toggle('show');
+    if (contentWithModal) contentWithModal.style.position= 'fixed';
+    window.scroll({ top: 0, left: 0, behavior: 'smooth'});
 
     if (e.target.id === 'add-meal-btn') {
       mealForm('add');
@@ -150,9 +161,10 @@ window.onload = function () {
 
   function closeModal(e) {
     e.preventDefault();
+    contentWithModal.style.position = 'relative';
 
     if (e.target !== e.currentTarget && e.target.id === 'modal-close-icon') {
-      this.closest('.modal').classList.remove('show');
+      e.target.closest('.modal').classList.remove('show');
     }
 
     e.stopPropagation();
@@ -233,7 +245,7 @@ window.onload = function () {
   function confirmDeleteModal() {
     const content = `<div class="delete-meal">
     <p>Are You Sure?</p>
-    <div class="confirm-delete-btns">
+    <div class="confirm-delete-btns control-btns">
       <button class="btn btn-sec" id="confirm-delete-no">No</button>
       <button class="btn btn-sec-danger" id="confirm-delete-yes">Yes</button>
     </div>
