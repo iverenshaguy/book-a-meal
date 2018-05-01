@@ -3,27 +3,11 @@ import { expect } from 'chai';
 import app from '../../../src/app';
 import notAdmin from '../../utils/notAdmin';
 import unAuthorized from '../../utils/unAuthorized';
+import { addMeal as data, adminMockToken } from '../../utils/data';
 
-const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
-
+const { newMeal, badMeal } = data;
 
 describe('Meal Routes: Add a meal option', () => {
-  const newMeal = {
-    title: 'Oriental Fried Rice and Turkey',
-    description: 'Contains Sea Food',
-    price: 2200,
-    imageURL: 'images.com/imgurl1.jpeg',
-    forVegetarians: false
-  };
-
-  const badMeal = {
-    title: 'Jollof Spaghetti, Plantain and Turkey',
-    description: 'Contains %%% Sea Food',
-    price: '',
-    imageURL: 'images.com/imgurl1.jpeg',
-    forVegetarians: 'no'
-  };
-
   it('should add a meal for authenticated user', (done) => {
     request(app)
       .post('/api/v1/meals')

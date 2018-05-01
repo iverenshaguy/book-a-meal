@@ -1,19 +1,10 @@
 import request from 'supertest';
 import { expect } from 'chai';
-import moment from 'moment';
 import app from '../../../src/app';
 import menuDB from '../../../data/menu.json';
+import { addMenu as data, currentDay, adminMockToken } from '../../utils/data';
 
-const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
-const currentDay = moment().format('YYYY-MM-DD');
-const menu = {
-  date: currentDay,
-  meals: [
-    '72a3417e-45c8-4559-8b74-8b5a61be8614',
-    '8a65538d-f862-420e-bcdc-80743df06578',
-    'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
-  ]
-};
+const { menu1 } = data;
 
 describe('Menu Routes: Get the menu specific day', () => {
   before((done) => {
@@ -21,7 +12,7 @@ describe('Menu Routes: Get the menu specific day', () => {
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
       .set('authorization', adminMockToken)
-      .send(menu)
+      .send(menu1)
       .end((err, res) => {
         expect(res.statusCode).to.equal(201);
 

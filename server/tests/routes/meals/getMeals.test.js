@@ -3,8 +3,7 @@ import { expect } from 'chai';
 import app from '../../../src/app';
 import notAdmin from '../../utils/notAdmin';
 import unAuthorized from '../../utils/unAuthorized';
-
-const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
+import { adminMockToken } from '../../utils/data';
 
 describe('Meal Routes: Get all meals', () => {
   it('should get all meals for authenticated user', (done) => {

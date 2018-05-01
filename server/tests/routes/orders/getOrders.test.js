@@ -2,9 +2,7 @@ import request from 'supertest';
 import { expect } from 'chai';
 import app from '../../../src/app';
 import unAuthorized from '../../utils/unAuthorized';
-
-const userMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
-const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
+import { userMockToken, adminMockToken } from '../../utils/data';
 
 describe('Order Routes: Get All Orders', () => {
   describe('Get Caterer Orders', () => {

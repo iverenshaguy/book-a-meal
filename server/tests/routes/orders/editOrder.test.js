@@ -1,49 +1,27 @@
 import request from 'supertest';
 import { expect } from 'chai';
-import moment from 'moment';
 import app from '../../../src/app';
 import notFound from '../../utils/notFound';
 import invalidID from '../../utils/invalidID';
 import menuDB from '../../../data/menu.json';
 import unAuthorized from '../../utils/unAuthorized';
+import { addOrder, currentDay, userMockToken, adminMockToken } from '../../utils/data';
 
-const userMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
-const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
-const currentDay = moment().format('YYYY-MM-DD');
+const { newOrder, orderWithExpiredMenu, badOrder } = addOrder;
+
+const menu = {
+  date: currentDay,
+  meals: [
+    '81211c24-51c0-46ec-b1e0-18db55880958',
+    '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
+    'baa0412a-d167-4d2b-b1d8-404cb8f02631'
+  ]
+};
+
 let newMenuId, newOrderId;
 
 
 describe('Order Routes: Modify an Order', () => {
-  const menu = {
-    date: currentDay,
-    meals: [
-      '81211c24-51c0-46ec-b1e0-18db55880958',
-      '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
-      'baa0412a-d167-4d2b-b1d8-404cb8f02631'
-    ]
-  };
-
-  const newOrder = {
-    mealId: '81211c24-51c0-46ec-b1e0-18db55880958',
-    deliveryAddress: '4, Church Street, Yaba',
-    deliveryPhoneNo: '+2348134567890',
-    quantity: 4
-  };
-
-  const orderWithExpiredMenu = {
-    menuId: '1adfcfe7-c66d-42d2-82fd-39c1decd290a',
-    mealId: 'a3c35e8f-da7a-4113-aa01-a9c0fc088539',
-    deliveryAddress: '4, Church Street, Yaba',
-    deliveryPhoneNo: '+2348134567890',
-    quantity: 2
-  };
-
-  const badOrder = {
-    menuId: '15421f7a-0f82-4802-b215-e0e8efb6bfb38932',
-    deliveryAddress: '',
-    deliveryPhoneNo: 'disdod',
-  };
-
   before((done) => {
     request(app)
       .post('/api/v1/menu')
@@ -100,7 +78,7 @@ describe('Order Routes: Modify an Order', () => {
         expect(res.body).to.include.keys('userId');
         expect(res.body).to.include.keys('created');
         expect(res.body).to.include.keys('updated');
-        expect(res.body.quantity).to.equal(4);
+        expect(res.body.quantity).to.equal(2);
         expect(res.body.mealId).to.equal('36d525d1-efc9-4b75-9999-3e3d8dc64ce3');
 
         if (err) return done(err);

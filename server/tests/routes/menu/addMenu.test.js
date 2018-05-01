@@ -1,51 +1,16 @@
 import request from 'supertest';
 import { expect } from 'chai';
-import moment from 'moment';
 import app from '../../../src/app';
 import menuDB from '../../../data/menu.json';
 import notAdmin from '../../utils/notAdmin';
 import unAuthorized from '../../utils/unAuthorized';
+import { addMenu as data, adminMockToken, currentDay, twoDaysTime } from '../../utils/data';
 
-const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
-const currentDay = moment().format('YYYY-MM-DD');
-const twoDaysTime = moment().add(1, 'days').format('YYYY-MM-DD');
+const {
+  menu1, menu2, menu3, badMenu
+} = data;
 
 describe('Menu Routes: Add a new menu', () => {
-  const menu1 = {
-    meals: [
-      '72a3417e-45c8-4559-8b74-8b5a61be8614',
-      '8a65538d-f862-420e-bcdc-80743df06578',
-      'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
-    ]
-  };
-
-  const menu2 = {
-    date: twoDaysTime,
-    meals: [
-      '72a3417e-45c8-4559-8b74-8b5a61be8614',
-      '8a65538d-f862-420e-bcdc-80743df06578',
-      'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
-    ]
-  };
-
-  const menu3 = {
-    date: '2016-01-02',
-    meals: [
-      '72a3417e-45c8-4559-8b74-8b5a61be8614',
-      '8a65538d-f862-420e-bcdc-80743df06578',
-      'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
-    ]
-  };
-
-  const badMenu = {
-    date: '30-04-2018',
-    meals: [
-      '72a3417e-45c8-4559ie-8b74-8b5a61be8614',
-      '8a65538d-f862-420e78-bcdc-80743df06578',
-      'f9eb7652-125a-4bcbuu-ad81-02f84901cdc3',
-    ]
-  };
-
   after(() => {
     // delete menu for today after test
     const index = menuDB.findIndex(item => item.date === currentDay);

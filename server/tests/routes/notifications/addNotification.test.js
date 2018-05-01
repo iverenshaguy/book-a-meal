@@ -2,8 +2,6 @@ import { expect } from 'chai';
 import notificationsDB from '../../../data/notifications.json';
 import Notifications from '../../../src/controllers/Notifications';
 
-// const notifications = new Notifications(notificationsDB, 'notification');
-
 // testing just the controller because notification is
 // automatically added when new menu is added
 describe('Notifications Controller: Add a Notifcation', () => {

@@ -1,22 +1,9 @@
 import request from 'supertest';
 import { expect } from 'chai';
 import app from '../../../src/app';
+import { login as loginData } from '../../utils/data';
 
-const existingUser = {
-  email: 'iveren@shaguy.com',
-  password: 'iverenshaguy',
-};
-
-const nonExistingUser = {
-  email: 'favour@shaguy.com',
-  password: 'favourshaguy',
-};
-
-const wrongData = {
-  email: ''
-};
-
-// let userToken;
+const { existingUser, nonExistingUser, wrongData } = loginData;
 
 describe('Signin Routes', () => {
   it('signs in a user into the app and returns user + token', (done) => {
