@@ -31,15 +31,11 @@ describe('checkMealsId', () => {
   });
 
   it('returns false when item is an array of non-UUIDs ', () => {
-    const check = checkMealsId(arr1);
-
-    expect(check).to.equal(false);
+    expect(() => checkMealsId(arr1)).to.throw('MealId iieie is invalid, MealId siioe is invalid');
   });
 
   it('returns false when item is an array like string of non-UUIDs ', () => {
-    const check = checkMealsId(arr2);
-
-    expect(check).to.equal(false);
+    expect(() => checkMealsId(arr2)).to.throw('MealId iieie is invalid, MealId siioe is invalid');
   });
 
   it('returns false when item is an empty array', () => {

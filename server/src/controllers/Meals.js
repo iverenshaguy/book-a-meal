@@ -32,10 +32,14 @@ class Meals {
    */
   static create(req, res) {
     const newMeal = { ...req.body };
+    const today = moment().format();
+
+    // date is either equal to today or given date
+    newMeal.date = newMeal.date || today;
     // generate random id and created/updated date
     newMeal.mealId = uuidv4();
-    newMeal.created = moment().format();
-    newMeal.updated = moment().format();
+    newMeal.created = today;
+    newMeal.updated = today;
 
     mealsDB.push(newMeal);
 

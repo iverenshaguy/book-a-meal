@@ -3,6 +3,7 @@ import moment from 'moment';
 // import menuDB from '../../data/menu.json';
 import notEmpty from '../helpers/notEmpty';
 import checkMealsId from '../helpers/checkMealsId';
+// import checkMealExists from '../helpers/checkMealExists';
 
 const yesterday = moment().subtract(1, 'days').format().toString();
 
@@ -10,7 +11,6 @@ export default {
   create: [
     check('date')
       .trim()
-      .exists().withMessage('Date must be specified')
       .custom(value => notEmpty(value, 'Date cannot be empty'))
       .matches(/^\d{4}-\d{1,2}-\d{1,2}$/)
       .withMessage('Date is invalid, valid format is YYYY-MM-DD')
@@ -20,8 +20,7 @@ export default {
       .exists()
       .withMessage('Meals must be specified')
       .custom(value => notEmpty(value, 'Meals cannot be empty'))
-      .custom(value => checkMealsId(value))
-      .withMessage('Meals must be an array of mealIds'),
+      .custom(value => checkMealsId(value)),
   ],
   update: [
     check('menuId')

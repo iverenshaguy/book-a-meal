@@ -17,8 +17,6 @@ describe('isArrayOfUUID', () => {
   });
 
   it('returns false when it is not an array of UUIDs', () => {
-    const check = isArrayOfUUID(nonUUIDArr);
-
-    expect(check).to.equal(false);
+    expect(() => isArrayOfUUID(nonUUIDArr)).to.throw('MealId jdjkd is invalid, MealId diieie is invalid');
   });
 });
