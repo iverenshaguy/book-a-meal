@@ -120,6 +120,15 @@ window.onload = function () {
     e.stopPropagation();
   }, false);
 
+  $('.action-btns > button').on('click', function(e) {
+    return showModal(e, mealModal);
+  });
+
+  $('#select-menu-btn').on('click', function(e) {
+    window.location.href = './admin-menu.html';
+  })
+  
+
   function toggleDropdown(target, wrapper) {
     target.style.color = 'white';
     wrapper.classList.toggle('show');
