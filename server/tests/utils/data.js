@@ -106,7 +106,7 @@ export default {
   addMenu: {
     menu1: {
       meals: [
-        '72a3417e-45c8-4559-8b74-8b5a61be8614',
+        'baa0412a-d167-4d2b-b1d8-404cb8f02631',
         '8a65538d-f862-420e-bcdc-80743df06578',
         'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
       ]
@@ -115,7 +115,7 @@ export default {
     menu2: {
       date: twoDaysTime,
       meals: [
-        '72a3417e-45c8-4559-8b74-8b5a61be8614',
+        'baa0412a-d167-4d2b-b1d8-404cb8f02631',
         '8a65538d-f862-420e-bcdc-80743df06578',
         'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
       ]
@@ -124,7 +124,7 @@ export default {
     menu3: {
       date: '2016-01-02',
       meals: [
-        '72a3417e-45c8-4559-8b74-8b5a61be8614',
+        'baa0412a-d167-4d2b-b1d8-404cb8f02631',
         '8a65538d-f862-420e-bcdc-80743df06578',
         'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
       ]
@@ -168,5 +168,41 @@ export default {
       deliveryPhoneNo: '+2348134567890',
       quantity: 2
     },
+  },
+
+  helpers: {
+    isUsersMeal: {
+      UUIDArr1: [
+        '81211c24-51c0-46ec-b1e0-18db55880958',
+        '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
+        'baa0412a-d167-4d2b-b1d8-404cb8f02631'
+      ],
+
+      UUIDArr2: `[
+        '81211c24-51c0-46ec-b1e0-18db55880958',
+        '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
+        'baa0412a-d167-4d2b-b1d8-404cb8f02631'
+      ]`,
+
+      badUUIDArr: [
+        '72a3417e-45c8-4559-8b74-8b5a61be8614',
+        '8a65538d-f862-420e-bcdc-80743df06578',
+        'baa0412a-d167-4d2b-b1d8-404cb8f02631'
+      ]
+    },
+    checkMealsId: {
+      arr1: ['iieie', 'siioe'],
+      arr2: "['iieie', 'siioe']",
+      UUIDArr1: [
+        '91b6e41c-0972-4ac5-86da-4ac1f5226e83',
+        '8a65538d-f862-420e-bcdc-80743df06578',
+        'f9eb7652-125a-4bcb-ad81-02f84901cdc3'
+      ],
+      UUIDArr2: `[
+        '91b6e41c-0972-4ac5-86da-4ac1f5226e83',
+        '8a65538d-f862-420e-bcdc-80743df06578',
+        'f9eb7652-125a-4bcb-ad81-02f84901cdc3'
+      ]`,
+    }
   }
 };

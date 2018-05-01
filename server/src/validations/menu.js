@@ -2,6 +2,7 @@ import { check } from 'express-validator/check';
 import moment from 'moment';
 // import menuDB from '../../data/menu.json';
 import notEmpty from '../helpers/notEmpty';
+import isUsersMeal from '../helpers/isUsersMeal';
 import checkMealsId from '../helpers/checkMealsId';
 import checkMenuUnique from '../helpers/checkMenuUnique';
 
@@ -23,7 +24,8 @@ export default {
       .exists()
       .withMessage('Meals must be specified')
       .custom(value => notEmpty(value, 'Meals cannot be empty'))
-      .custom(value => checkMealsId(value)),
+      .custom(value => checkMealsId(value))
+      .custom((value, { req }) => isUsersMeal(value, req.body.userId)),
   ],
   update: [
     check('menuId')
@@ -33,6 +35,6 @@ export default {
       .optional()
       .custom(value => notEmpty(value, 'Meals cannot be empty'))
       .custom(value => checkMealsId(value))
-      .withMessage('Meals must be an array of mealIds'),
+      .custom((value, { req }) => isUsersMeal(value, req.body.userId)),
   ],
 };
