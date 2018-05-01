@@ -61,16 +61,7 @@ class Menu {
     req.body.updated = today;
 
     if (!checkMenuUnique(req.body.date, req.body.userId)) {
-      return res.status(422).send({
-        errors: {
-          date: {
-            location: 'body',
-            param: 'date',
-            value: req.body.date,
-            msg: 'Menu already exists for this day'
-          }
-        }
-      });
+      return res.status(422).send({ error: 'Menu already exists for this day' });
     }
 
     menuDB.push(req.body);

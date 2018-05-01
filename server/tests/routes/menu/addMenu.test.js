@@ -44,7 +44,7 @@ describe('Menu Routes: Add a new menu', () => {
       .send(menu1)
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
-        expect(res.body.errors.date.msg).to.equal('Menu already exists for this day');
+        expect(res.body.error).to.equal('Menu already exists for this day');
 
         if (err) return done(err);
         done();
@@ -80,7 +80,7 @@ describe('Menu Routes: Add a new menu', () => {
       .send(menu2)
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
-        expect(res.body.errors.date.msg).to.equal('Menu already exists for this day');
+        expect(res.body.error).to.equal('Menu already exists for this day');
 
         if (err) return done(err);
         done();

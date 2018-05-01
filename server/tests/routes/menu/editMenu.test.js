@@ -68,10 +68,11 @@ describe('Menu Routes: Edit menu', () => {
       .put('/api/v1/menu/a9fa6cb3-9f5e-46fa-b641-388f898ca824')
       .set('Accept', 'application/json')
       .set('authorization', adminMockToken)
-      .send(badMenu)
+      .send({ ...badMenu, date: '2018-05-06' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
         expect(res.body).to.be.an('object');
+        expect(res.body.errors.date.msg).to.equal('Menu dates cannot be changed');
         expect(res.body.errors.meals.msg).to.equal(' MealId 72a3417e-45c8-4559ie-8b74-8b5a61be8614 is invalid, MealId 8a65538d-f862-420e78-bcdc-80743df06578 is invalid, MealId f9eb7652-125a-4bcbuu-ad81-02f84901cdc3 is invalid');
 
         if (err) return done(err);
