@@ -67,6 +67,9 @@ class Meals {
       return res.status(404).send({ error: errors[404] });
     }
 
+    // return meal item if no data was sent ie req.body is only poulated with userId && role
+    if (Object.keys(req.body).length === 2) return res.status(200).send(mealsDB[itemIndex]);
+
     const oldItem = mealsDB[itemIndex];
 
     // delete id from data

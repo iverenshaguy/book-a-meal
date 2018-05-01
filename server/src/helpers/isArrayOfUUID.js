@@ -3,7 +3,7 @@ import isUUID from 'validator/lib/isUUID';
 /**
  * Function to check if values of an array are UUIDs
  * @param {string} value
- * @return {(bool)} returns true or false
+ * @return {(bool|error)} returns true or throws error
  */
 function isArrayOfUUID(value) {
   const mealErrorArr = [];

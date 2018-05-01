@@ -25,6 +25,21 @@ describe('Meal Routes: Edit a meal option', () => {
       });
   });
 
+  it('should return meal item for authenticated user when no data is sent', (done) => {
+    request(app)
+      .put('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')
+      .set('Accept', 'application/json')
+      .set('authorization', adminMockToken)
+      .send()
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(200);
+        expect(res.body.mealId).to.equal('91b6e41c-0972-4ac5-86da-4ac1f5226e83');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
   it('should return errors for invalid input', (done) => {
     request(app)
       .put('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')

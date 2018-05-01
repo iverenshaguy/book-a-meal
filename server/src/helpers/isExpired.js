@@ -5,7 +5,7 @@ import moment from 'moment';
  * @param {object} type
  * @param {object} db
  * @param {string} id
- * @return {(JSON|nothing)} returns response object or nothing
+ * @return {bool} returns true or false
  */
 function isExpired(type, db, id) {
   // get menu from menu db and check to ensure that order is not expired

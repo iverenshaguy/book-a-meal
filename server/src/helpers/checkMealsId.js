@@ -4,7 +4,7 @@ import isArrayOfUUID from './isArrayOfUUID';
 /**
  * Function to check if values of an array are UUIDs
  * @param {string} value
- * @return {(bool)} returns true or false
+ * @return {func} returns function isUUID/isArrayOfUUIDs
  */
 function checkMealsId(value) {
   if (Array.isArray(value)) {

@@ -14,7 +14,7 @@ function stringToArray(value) {
       newValue = newString.split(',');
     } else {
       formedArray.push(newString);
-      newValue = Array.from(formedArray);
+      newValue = [...formedArray];
     }
 
     return newValue;

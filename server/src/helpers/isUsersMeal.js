@@ -5,7 +5,7 @@ import stringToArray from './stringToArray';
  * Function to check if meal belongs to the user adding it to menu
  * @param {string} mealIdArr
  * @param {string} userId
- * @return {bool} returns false or true
+ * @return {(bool|error)} returns true or throws error
  */
 function isUsersMeal(mealIdArr, userId) {
   const mealIds = stringToArray(mealIdArr);
