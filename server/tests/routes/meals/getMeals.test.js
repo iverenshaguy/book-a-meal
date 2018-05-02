@@ -19,8 +19,8 @@ describe('Meal Routes: Get all meals', () => {
           totalCount: 10,
           itemsPerPage: 5,
           page: 1,
-          lastPage: 2,
-          firstPage: 1
+          prevPage: 1,
+          nextPage: 2
         });
 
         if (err) return done(err);
