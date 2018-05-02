@@ -7,7 +7,7 @@ import menuDB from '../../../data/menu.json';
 import unAuthorized from '../../utils/unAuthorized';
 import { addOrder, currentDay, userMockToken, adminMockToken } from '../../utils/data';
 
-const { newOrder, orderWithExpiredMenu, badOrder } = addOrder;
+const { newOrder, badOrder } = addOrder;
 
 const menu = {
   date: currentDay,
@@ -40,19 +40,12 @@ describe('Order Routes: Modify an Order', () => {
       });
   });
 
-  after(() => {
-    // delete menu for today after test
-    const index = menuDB.findIndex(item => item.date === currentDay);
-
-    menuDB.splice(index, 1);
-  });
-
-  it('should add an order for authenticated user', (done) => {
+  before((done) => {
     request(app)
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
       .set('authorization', userMockToken)
-      .send({ ...newOrder, menuId: newMenuId })
+      .send(newOrder)
       .end((err, res) => {
         newOrderId = res.body.orderId;
         expect(res.statusCode).to.equal(201);
@@ -66,20 +59,26 @@ describe('Order Routes: Modify an Order', () => {
       });
   });
 
+  after(() => {
+    // delete menu for today after test
+    const index = menuDB.findIndex(item => item.date === currentDay);
+
+    menuDB.splice(index, 1);
+  });
+
   it('should modify an order for authenticated user', (done) => {
     request(app)
       .put(`/api/v1/orders/${newOrderId}`)
       .set('Accept', 'application/json')
       .set('authorization', userMockToken)
-      .send({ ...newOrder, mealId: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3' })
+      .send({ ...newOrder, meals: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.include.keys('orderId');
         expect(res.body).to.include.keys('userId');
         expect(res.body).to.include.keys('created');
         expect(res.body).to.include.keys('updated');
-        expect(res.body.quantity).to.equal(2);
-        expect(res.body.mealId).to.equal('36d525d1-efc9-4b75-9999-3e3d8dc64ce3');
+        expect(res.body.meals[0].mealId).to.equal('36d525d1-efc9-4b75-9999-3e3d8dc64ce3');
 
         if (err) return done(err);
         done();
@@ -88,29 +87,13 @@ describe('Order Routes: Modify an Order', () => {
 
   it('should not modify an expired order i.e. past date', (done) => {
     request(app)
-      .put('/api/v1/orders/e5508b87-7975-493d-a900-3d47a69dad03')
+      .put('/api/v1/orders/fb097bde-5959-45ff-8e21-51184fa60c25')
       .set('Accept', 'application/json')
       .set('authorization', userMockToken)
-      .send({ ...newOrder, menuId: newMenuId })
+      .send(newOrder)
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
         expect(res.body.error).to.equal('Order is expired');
-
-        if (err) return done(err);
-        done();
-      });
-  });
-
-  it('should not add meal in expired menu/future menu when modifying order', (done) => {
-    request(app)
-      .put(`/api/v1/orders/${newOrderId}`)
-      .set('Accept', 'application/json')
-      .set('authorization', userMockToken)
-      .send(orderWithExpiredMenu)
-      .end((err, res) => {
-        expect(res.statusCode).to.equal(422);
-        expect(res.body).to.be.an('object');
-        expect(res.body.error).to.equal('Meal is unavailable');
 
         if (err) return done(err);
         done();
@@ -122,11 +105,12 @@ describe('Order Routes: Modify an Order', () => {
       .put('/api/v1/orders/e544248c-145c-4145-b165-239658857637')
       .set('Accept', 'application/json')
       .set('authorization', userMockToken)
-      .send(badOrder)
+      .send({ ...badOrder, date: '' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
         expect(res.body).to.be.an('object');
-        expect(res.body.errors.menuId.msg).to.equal('Invalid ID');
+        expect(res.body.errors.date.msg).to.equal('Date cannot be empty');
+        expect(res.body.errors.meals.msg).to.equal('Meals must be specified');
         expect(res.body.errors.deliveryAddress.msg).to.equal('Delivery Address cannot be empty');
         expect(res.body.errors.deliveryPhoneNo.msg).to.equal('Delivery Phone Number must be in the format +2348134567890');
 

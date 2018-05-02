@@ -38,14 +38,7 @@ describe('Order Routes: Delete an Order', () => {
       });
   });
 
-  after(() => {
-    // delete menu for today after test
-    const index = menuDB.findIndex(item => item.date === currentDay);
-
-    menuDB.splice(index, 1);
-  });
-
-  it('should add an order for authenticated user', (done) => {
+  before((done) => {
     request(app)
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
@@ -64,6 +57,13 @@ describe('Order Routes: Delete an Order', () => {
       });
   });
 
+  after(() => {
+    // delete menu for today after test
+    const index = menuDB.findIndex(item => item.date === currentDay);
+
+    menuDB.splice(index, 1);
+  });
+
   it('should delete a current order for an authenticated user', (done) => {
     request(app)
       .delete(`/api/v1/orders/${newOrderId}`)
@@ -80,7 +80,7 @@ describe('Order Routes: Delete an Order', () => {
 
   it('should not delete an expired order i.e. past date', (done) => {
     request(app)
-      .delete('/api/v1/orders/e5508b87-7975-493d-a900-3d47a69dad03')
+      .delete('/api/v1/orders/fb097bde-5959-45ff-8e21-51184fa60c25')
       .set('Accept', 'application/json')
       .set('authorization', userMockToken)
       .end((err, res) => {

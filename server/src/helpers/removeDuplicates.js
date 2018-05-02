@@ -7,7 +7,7 @@ import stringToArray from './stringToArray';
  */
 function removeDuplicates(mealIdArr) {
   // make sure it's an array;
-  const mealIds = stringToArray(mealIdArr);
+  const mealIds = stringToArray(mealIdArr, ',');
 
   // use set to remove duplicate values
   const unique = new Set(mealIds);

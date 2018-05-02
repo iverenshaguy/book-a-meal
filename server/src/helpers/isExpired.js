@@ -13,7 +13,6 @@ function isExpired(type, db, id) {
   const check = db.find(item => item[`${type}Id`] === id);
   const currentDate = moment().format('YYYY-MM-DD');
   const itemDate = check.created.substring(0, 10); // extract day string from date
-
   // return error if order is already expired, i.e. in the past
   if (moment(currentDate).isAfter(itemDate)) return true;
 

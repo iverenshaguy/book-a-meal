@@ -143,31 +143,23 @@ export default {
 
   addOrder: {
     newOrder: {
-      mealId: '81211c24-51c0-46ec-b1e0-18db55880958',
-      deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '+2348134567890',
-      quantity: 2
-    },
-
-    orderWithoutQuantity: {
-      mealId: '81211c24-51c0-46ec-b1e0-18db55880958',
+      meals: [
+        '81211c24-51c0-46ec-b1e0-18db55880958',
+        'baa0412a-d167-4d2b-b1d8-404cb8f02631'
+      ],
       deliveryAddress: '4, Church Street, Yaba',
       deliveryPhoneNo: '+2348134567890',
     },
 
     badOrder: {
-      menuId: '15421f7a-0f82-4802-b215-e0e8efb6bfb38932',
       deliveryAddress: '',
-      deliveryPhoneNo: 'disdod',
-      quantity: '2'
+      deliveryPhoneNo: 'disdod'
     },
 
     orderWithExpiredMenu: {
-      menuId: '1adfcfe7-c66d-42d2-82fd-39c1decd290a',
       mealId: 'a3c35e8f-da7a-4113-aa01-a9c0fc088539',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '+2348134567890',
-      quantity: 2
+      deliveryPhoneNo: '+2348134567890'
     },
   },
 
@@ -227,6 +219,12 @@ export default {
         '8a65538d-f862-420e-bcdc-80743df06578',
         'baa0412a-d167-4d2b-b1d8-404cb8f02631'
       ]
+    },
+
+    orderItems: {
+      badMeal: {
+        meals: ['81211c24-51c0-46ec-b1e0-18db55kdfkod880958', ''],
+      }
     }
   }
 };

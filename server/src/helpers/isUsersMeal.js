@@ -8,7 +8,7 @@ import stringToArray from './stringToArray';
  * @return {(bool|error)} returns true or throws error
  */
 function isUsersMeal(mealIdArr, userId) {
-  const mealIds = stringToArray(mealIdArr);
+  const mealIds = stringToArray(mealIdArr, ',');
   const mealErrorArr = [];
   mealIds.forEach((mealId) => {
     const meal = mealsDB.find(item => item.mealId === mealId
