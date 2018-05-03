@@ -71,20 +71,17 @@ class Meals {
    * @memberof Meals
    * @param {object} req
    * @param {object} res
-   * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  static delete(req, res) {
-    const itemIndex = mealsDB
-      .findIndex(item => item.mealId === req.params.mealId &&
-      item.userId === req.body.userId);
+  static async delete(req, res) {
+    const { mealId } = req.params;
+    const { userId } = req.body;
+    const mealItem = await db.Meal.findOne({ where: { mealId, userId } });
 
-    // return 404 error if index isn't found ie meal option doesnt exist
-    if (itemIndex === -1) {
-      return res.status(404).send({ error: errors[404] });
-    }
+    // return 404 error if meal option doesnt exist
+    if (!mealItem) return res.status(404).send({ error: errors[404] });
 
-    mealsDB.splice(itemIndex, 1);
+    await mealItem.destroy();
 
     return res.status(204).send();
   }
