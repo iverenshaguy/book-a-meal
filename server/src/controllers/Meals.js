@@ -1,6 +1,5 @@
 import moment from 'moment';
 import db from '../models';
-import mealsDB from '../../data/meals.json';
 import GetItems from '../middlewares/GetItems';
 import errors from '../../data/errors.json';
 
@@ -17,8 +16,10 @@ class Meals {
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
-  static list(req, res) {
-    return GetItems.items(req, res, mealsDB, 'meals');
+  static async list(req, res) {
+    const { userId } = req.body;
+    const mealList = await db.Meal.findAll({ where: { userId } });
+    return GetItems.items(req, res, mealList, 'meals');
   }
 
   /**
