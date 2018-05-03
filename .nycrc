@@ -13,6 +13,7 @@
     "server/config",
     "server/coverage/**",
     "server/tests/**",
+    "server/src/models/index.js",
     "server/test{,-*}.js"
   ],
   "reporter": ["lcov", "json", "text"],
