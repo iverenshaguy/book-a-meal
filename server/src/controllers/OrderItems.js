@@ -3,6 +3,7 @@ import moment from 'moment';
 import orderItemsDB from '../../data/orderItems.json';
 import Notifications from './Notifications';
 import getMealOwner from '../helpers/getMealOwner';
+import createMealOrder from '../helpers/createMealOrder';
 
 /**
  * @exports
@@ -19,11 +20,13 @@ class OrderItems {
    * @returns {(function|object)} Function next() or JSON object
    */
   static create(orderId, mealItems) {
-    mealItems.forEach((mealId) => {
+    const orderItems = createMealOrder(mealItems);
+    orderItems.forEach((order) => {
       const item = {};
       item.id = uuidv4();
       item.orderId = orderId;
-      item.mealId = mealId;
+      item.mealId = order.mealId;
+      item.quantity = order.quantity;
 
       // generate created date
       item.created = moment().format();

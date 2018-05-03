@@ -5,18 +5,7 @@ import menuDB from '../../../data/menu.json';
 import unAuthorized from '../../utils/unAuthorized';
 import { addOrder as data, currentDay, userMockToken, adminMockToken } from '../../utils/data';
 
-const menu = {
-  date: currentDay,
-  meals: [
-    '81211c24-51c0-46ec-b1e0-18db55880958',
-    '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
-    'baa0412a-d167-4d2b-b1d8-404cb8f02631'
-  ]
-};
-
-const {
-  newOrder
-} = data;
+const { newOrder, menu } = data;
 
 describe('Order Routes: Add an Order', () => {
   before((done) => {
@@ -57,7 +46,8 @@ describe('Order Routes: Add an Order', () => {
         expect(res.body).to.include.keys('created');
         expect(res.body).to.include.keys('updated');
         expect(res.body.meals.length).to.equal(2);
-        expect(res.body.meals[0]).to.include.keys('price');
+        expect(res.body.meals[0].quantity).to.equal(2);
+        expect(res.body.meals[0].meal).to.include.keys('price');
 
         if (err) return done(err);
         done();
