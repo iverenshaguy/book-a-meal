@@ -1,5 +1,5 @@
+import uuidv4 from 'uuid/v4';
 import moment from 'moment';
-import db from '../models';
 import mealsDB from '../../data/meals.json';
 import GetItems from '../middlewares/GetItems';
 import errors from '../../data/errors.json';
@@ -30,16 +30,21 @@ class Meals {
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  static async create(req, res) {
+  static create(req, res) {
     const newMeal = { ...req.body };
-    delete newMeal.role;
+    const today = moment().format();
+    const defaultDate = moment().format('YYYY-MM-DD');
+
     // date is either equal to today or given date
-    newMeal.date = newMeal.date || moment().format('YYYY-MM-DD');
-    newMeal.price = parseInt(newMeal.price, 10);
+    newMeal.date = newMeal.date || defaultDate;
+    // generate random id and created/updated date
+    newMeal.mealId = uuidv4();
+    newMeal.created = today;
+    newMeal.updated = today;
 
-    const meal = await db.Meal.create(newMeal, { include: [db.User] });
+    mealsDB.push(newMeal);
 
-    return res.status(201).send(meal);
+    return res.status(201).send(newMeal);
   }
 
   /**

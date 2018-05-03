@@ -22,8 +22,6 @@ describe('Menu Routes: Edit menu', () => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.include.keys('menuId');
         expect(res.body).to.include.keys('date');
-        expect(res.body).to.include.keys('created');
-        expect(res.body).to.include.keys('updated');
         expect(res.body.meals[0].mealId).to.equal('baa0412a-d167-4d2b-b1d8-404cb8f02631');
 
         if (err) return done(err);
@@ -56,8 +54,6 @@ describe('Menu Routes: Edit menu', () => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.include.keys('menuId');
         expect(res.body).to.include.keys('date');
-        expect(res.body).to.include.keys('created');
-        expect(res.body).to.include.keys('updated');
         expect(res.body.meals[0].mealId).to.equal('baa0412a-d167-4d2b-b1d8-404cb8f02631');
 
         if (err) return done(err);

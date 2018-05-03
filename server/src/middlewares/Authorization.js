@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { config } from 'dotenv';
 import errors from '../../data/errors.json';
-import usersDB from '../../data/users.json';
+import db from '../models';
 
 config();
 
@@ -72,7 +72,7 @@ class Authorization {
 
     if (!token) return res.status(401).send({ error: errors['401'] });
 
-    jwt.verify(token, process.env.SECRET, (err, decoded) => {
+    jwt.verify(token, process.env.SECRET, async (err, decoded) => {
       if (err) {
         // check for outdated token
         if (err.name === 'TokenExpiredError') {
@@ -83,7 +83,7 @@ class Authorization {
       }
 
       // check user existence
-      const foundUser = usersDB.find(user => user.userId === decoded.id);
+      const foundUser = await db.User.findOne({ where: { email: decoded.email } });
       if (!foundUser) return res.status(401).send({ error: errors['401'] });
 
       req.body.userId = foundUser.userId;

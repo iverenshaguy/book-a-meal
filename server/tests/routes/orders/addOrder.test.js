@@ -46,8 +46,6 @@ describe('Order Routes: Add an Order', () => {
         expect(res.statusCode).to.equal(201);
         expect(res.body).to.include.keys('orderId');
         expect(res.body).to.include.keys('userId');
-        expect(res.body).to.include.keys('created');
-        expect(res.body).to.include.keys('updated');
         expect(res.body.meals.length).to.equal(2);
         expect(res.body.meals[0].quantity).to.equal(2);
         expect(res.body.meals[0].meal).to.include.keys('price');
