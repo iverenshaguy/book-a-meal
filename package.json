@@ -14,7 +14,7 @@
     "build": "cross-env NODE_ENV=production babel ./server/src -d ./server/dist",
     "heroku-postbuild": "npm run build",
     "pretest": "npm-run-all lint migrate:test seed:test",
-    "lint": "",
+    "lint": "eslint **/*.js --fix",
     "migrate": "sequelize db:migrate:undo:all && sequelize db:migrate",
     "migrate:test": "sequelize db:migrate:undo:all --env=test && sequelize db:migrate --env=test",
     "seed": "sequelize db:seed:all",
