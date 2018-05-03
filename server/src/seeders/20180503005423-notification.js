@@ -7,8 +7,8 @@ export default {
         menuId: '15421f7a-0f82-4802-b215-e0e8efb6bfb3',
         orderId: null,
         message: 'Jollof Spaghetti, Plantain and Turkey was just added to the menu',
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       },
       {
         notifId: '87a311b7-898b-4a6b-81c2-619417c96432',
@@ -16,8 +16,8 @@ export default {
         menuId: null,
         orderId: '15421f7a-0f82-4802-b215-e0e8efb6bfb3',
         message: 'Your menu was just ordered',
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       },
       {
         notifId: '9015c150-6079-4be6-a240-272a4de6bd17',
@@ -25,8 +25,8 @@ export default {
         menuId: '15421f7a-0f82-4802-b215-e0e8efb6bfb3',
         orderId: null,
         message: 'Jollof Spaghetti, Plantain and Turkey was just added to the menu',
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       },
       {
         notifId: '38eb0942-38b7-4a16-91e9-8b1662175d75',
@@ -34,8 +34,8 @@ export default {
         menuId: '15421f7a-0f82-4802-b215-e0e8efb6bfb3',
         orderId: null,
         message: 'Jollof Spaghetti, Plantain and Turkey was just added to the menu',
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       },
       {
         notifId: 'd886ce22-9b41-4cf6-9dd6-7bdd5476d6c0',
@@ -43,8 +43,8 @@ export default {
         menuId: null,
         orderId: '15421f7a-0f82-4802-b215-e0e8efb6bfb3',
         message: 'Your menu was just ordered',
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       }
     ]);
   },

@@ -24,7 +24,7 @@ export default {
     mealId: {
       type: Sequelize.UUID,
       onDelete: 'CASCADE',
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'Meals',
         key: 'mealId',

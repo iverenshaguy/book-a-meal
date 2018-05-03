@@ -23,8 +23,6 @@ describe('Signup Routes', () => {
           expect(res.body).to.be.an('object');
           expect(res.body).to.include.keys('token');
           expect(res.body.user).to.include.keys('role');
-          expect(res.body.user).to.include.keys('created');
-          expect(res.body.user).to.include.keys('updated');
           expect(res.body.user).to.include.keys('userId');
           expect(res.body.user.email).to.equal('favour@shaguy.com');
 
@@ -142,8 +140,6 @@ describe('Signup Routes', () => {
           expect(res.body.user).to.include.keys('businessName');
           expect(res.body.user).to.include.keys('businessAddress');
           expect(res.body.user).to.include.keys('businessPhoneNo');
-          expect(res.body.user).to.include.keys('created');
-          expect(res.body.user).to.include.keys('updated');
           expect(res.body.user).to.include.keys('userId');
           expect(res.body.user.role).to.equal('caterer');
           expect(res.body.user.email).to.equal('wecook@cook.com');

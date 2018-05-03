@@ -73,7 +73,7 @@ Meal.init(
       type: Sequelize.TEXT,
       allowNull: true
     },
-    forVegetarian: {
+    forVegetarians: {
       type: Sequelize.BOOLEAN,
       allowNull: true,
       defaultValue: false,

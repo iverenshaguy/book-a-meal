@@ -1,7 +1,7 @@
 import validator from 'validator';
 import { check } from 'express-validator/check';
-import usersDB from '../../data/users.json';
 import notEmpty from '../helpers/notEmpty';
+import UserModel from '../models/User';
 
 export default {
   register: [
@@ -100,14 +100,13 @@ export default {
       .custom(value => notEmpty(value, 'Email cannot be empty'))
       .isEmail()
       .withMessage('Email is invalid')
-      .custom((value) => {
-        const checkUser = usersDB.find(user => user.email === value);
-        if (checkUser) {
+      .custom(value => UserModel.findOne({ where: { email: value } }).then((user) => {
+        if (user) {
           throw new Error('Email already in use');
         }
 
         return true;
-      }),
+      })),
     check('password')
       .exists().withMessage('Password must be specified')
       .custom(value => notEmpty(value, 'Password cannot be empty'))

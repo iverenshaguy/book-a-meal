@@ -11,8 +11,8 @@ export default {
           'baa0412a-d167-4d2b-b1d8-404cb8f02631',
           'f9eb7652-125a-4bcb-ad81-02f84901cdc3'
         ],
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       },
       {
         userId: '8356954a-9a42-4616-8079-887a73455a7f',
@@ -22,8 +22,8 @@ export default {
           'a3c35e8f-da7a-4113-aa01-a9c0fc088539',
           '3ec802c6-0a32-4d29-b27b-42e0f4b532dd'
         ],
-        createdAt: '2018-04-06T14:34:90.000',
-        updatedAt: '2018-04-06T14:34:90.000'
+        createdAt: '2018-04-06T00:47:03.687Z',
+        updatedAt: '2018-04-06T00:47:03.687Z'
       },
       {
         userId: 'ac1b253c-6b33-439b-ab6f-805a4fdd2e05',
@@ -32,8 +32,8 @@ export default {
         meals: [
           '72a3417e-45c8-4559-8b74-8b5a61be8614'
         ],
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       },
       {
         userId: 'ac1b253c-6b33-439b-ab6f-805a4fdd2e05',
@@ -43,8 +43,8 @@ export default {
           '72a3417e-45c8-4559-8b74-8b5a61be8614',
           '46ced7aa-eed5-4462-b2c0-153f31589bdd'
         ],
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       },
       {
         userId: '8356954a-9a42-4616-8079-887a73455a7f',
@@ -55,8 +55,8 @@ export default {
           'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
           '8a65538d-f862-420e-bcdc-80743df06578'
         ],
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       }
     ]);
   },

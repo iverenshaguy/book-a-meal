@@ -1,5 +1,3 @@
-
-
 export default {
   up: (queryInterface) => {
     queryInterface.bulkInsert('Users', [
@@ -9,11 +7,10 @@ export default {
         businessName: 'FoodCircle',
         email: 'food@circle.com',
         password: 'foodcircle',
-        passwordHash: '23456789dtfgyuhio567890',
-        businessPhone: '+2348134567890',
+        businessPhoneNo: '+2348134567890',
         businessAddress: '4, Church Street, Yaba',
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000',
+        createdAt: '2018-05-06T00:47:03.687Z',
+        updatedAt: '2018-05-06T00:47:03.687Z',
         role: 'caterer'
       },
       {
@@ -22,11 +19,10 @@ export default {
         businessName: null,
         email: 'iveren@shaguy.com',
         password: 'iverenshaguy',
-        passwordHash: '23456789dtfgyuhio567890',
-        businessPhone: null,
+        businessPhoneNo: null,
         businessAddress: null,
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000',
+        createdAt: '2018-05-06T00:47:03.687Z',
+        updatedAt: '2018-05-06T00:47:03.687Z',
         role: 'user'
       },
       {
@@ -35,11 +31,10 @@ export default {
         businessName: null,
         email: 'olisa@emodi.com',
         password: 'olisaemodi',
-        passwordHash: '23456789dtfgyuhio567890',
-        businessPhone: null,
+        businessPhoneNo: null,
         businessAddress: null,
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000',
+        createdAt: '2018-05-06T00:47:03.687Z',
+        updatedAt: '2018-05-06T00:47:03.687Z',
         role: 'user'
       },
       {
@@ -48,11 +43,10 @@ export default {
         businessName: null,
         email: 'emiola@olasanmi.com',
         password: 'emiolaolasanmi',
-        passwordHash: '23456789dtfgyuhio567890',
-        businessPhone: null,
+        businessPhoneNo: null,
         businessAddress: null,
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000',
+        createdAt: '2018-05-06T00:47:03.687Z',
+        updatedAt: '2018-05-06T00:47:03.687Z',
         role: 'user'
       },
       {
@@ -61,11 +55,10 @@ export default {
         businessName: 'BellyFill',
         email: 'belly@fill.com',
         password: 'bellyfil',
-        passwordHash: '23456789dtfgyuhio567890',
-        businessPhone: '+2348134567890',
+        businessPhoneNo: '+2348134567890',
         businessAddress: '4, Church Street, Yaba',
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000',
+        createdAt: '2018-05-06T00:47:03.687Z',
+        updatedAt: '2018-05-06T00:47:03.687Z',
         role: 'caterer'
       }
     ]);
