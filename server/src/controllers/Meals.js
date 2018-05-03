@@ -51,31 +51,18 @@ class Meals {
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  static update(req, res) {
+  static async update(req, res) {
+    const { mealId } = req.params;
+    const { userId } = req.body;
     const data = { ...req.body };
-    const itemIndex = mealsDB
-      .findIndex(item => item.mealId === req.params.mealId &&
-        item.userId === req.body.userId);
+    const mealItem = await db.Meal.findOne({ where: { mealId, userId } });
 
-    // return 404 error if index isn't found ie meal option doesnt exist
-    if (itemIndex === -1) {
-      return res.status(404).send({ error: errors[404] });
-    }
+    // return 404 error if meal option doesnt exist
+    if (!mealItem) return res.status(404).send({ error: errors[404] });
 
-    // return meal item if no data was sent ie req.body is only poulated with userId && role
-    if (Object.keys(req.body).length === 2) return res.status(200).send(mealsDB[itemIndex]);
+    const updatedMeal = await mealItem.update({ ...mealItem, ...data });
 
-    const oldItem = mealsDB[itemIndex];
-
-    // delete id from data
-    delete req.body.mealId;
-
-    data.updated = moment().format();
-
-    // update old meal with trimmed new meal and assign it to it's position in the array
-    mealsDB[itemIndex] = { ...oldItem, ...data };
-
-    return res.status(200).send(mealsDB[itemIndex]);
+    return res.status(200).send(updatedMeal);
   }
 
   /**
