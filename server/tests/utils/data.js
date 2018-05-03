@@ -18,8 +18,8 @@ export default {
     },
 
     nonExistingUser: {
-      email: 'favour@shaguy.com',
-      password: 'favourshaguy',
+      email: 'favo@shag.com',
+      password: 'favourshagy',
     },
 
     wrongData: {

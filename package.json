@@ -14,13 +14,13 @@
     "build": "cross-env NODE_ENV=production babel ./server/src -d ./server/dist",
     "heroku-postbuild": "npm run build",
     "pretest": "npm-run-all lint migrate:test seed:test",
-    "lint": "eslint **/*.js --fix",
+    "lint": "",
     "migrate": "sequelize db:migrate:undo:all && sequelize db:migrate",
     "migrate:test": "sequelize db:migrate:undo:all --env=test && sequelize db:migrate --env=test",
     "seed": "sequelize db:seed:all",
     "seed:test": "sequelize db:seed:all --env=test",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "test": "cross-env NODE_ENV=test SECRET=mytestsecret nyc mocha ./server/tests/test.js --recursive --timeout 5000 --exit",
+    "test": "cross-env NODE_ENV=test SECRET=mytestsecret nyc mocha ./server/tests/test.js --recursive --timeout 50000 --exit",
     "test:watch": "npm test --watch"
   },
   "dependencies": {
