@@ -5,8 +5,10 @@ import notAdmin from '../../utils/notAdmin';
 import notFound from '../../utils/notFound';
 import invalidID from '../../utils/invalidID';
 import unAuthorized from '../../utils/unAuthorized';
-import { addMenu as data, adminMockToken } from '../../utils/data';
+import { addMenu as data } from '../../utils/data';
+import { tokens } from '../../utils/setup';
 
+const { foodCircleToken } = tokens;
 const { menu1, badMenu } = data;
 
 describe('Menu Routes: Edit menu', () => {
@@ -14,7 +16,7 @@ describe('Menu Routes: Edit menu', () => {
     request(app)
       .put('/api/v1/menu/a9fa6cb3-9f5e-46fa-b641-388f898ca824')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send(menu1)
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
@@ -33,7 +35,7 @@ describe('Menu Routes: Edit menu', () => {
     request(app)
       .put('/api/v1/menu/15421f7a-0f82-4802-b215-e0e8efb6bfb3')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send(menu1)
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
@@ -48,7 +50,7 @@ describe('Menu Routes: Edit menu', () => {
     request(app)
       .put('/api/v1/menu/a9fa6cb3-9f5e-46fa-b641-388f898ca824')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send()
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
@@ -67,7 +69,7 @@ describe('Menu Routes: Edit menu', () => {
     request(app)
       .put('/api/v1/menu/a9fa6cb3-9f5e-46fa-b641-388f898ca824')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send({ ...badMenu, date: '2018-05-06' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
@@ -82,7 +84,7 @@ describe('Menu Routes: Edit menu', () => {
 
   invalidID(
     'should return 422 error for invalid meal id', 'menuId',
-    request(app), 'put', menu1, '/api/v1/menu/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', adminMockToken
+    request(app), 'put', menu1, '/api/v1/menu/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', foodCircleToken
   );
 
   notAdmin(
@@ -92,7 +94,7 @@ describe('Menu Routes: Edit menu', () => {
 
   notFound(
     'should return 404 error for non-existent meal id',
-    request(app), 'put', menu1, '/api/v1/menu/4f579f84-53e4-4fc5-a362-956aa36fbfb8', adminMockToken
+    request(app), 'put', menu1, '/api/v1/menu/4f579f84-53e4-4fc5-a362-956aa36fbfb8', foodCircleToken
   );
 
   unAuthorized(

@@ -3,7 +3,10 @@ import { expect } from 'chai';
 import app from '../../../src/app';
 import menuDB from '../../../data/menu.json';
 import unAuthorized from '../../utils/unAuthorized';
-import { addOrder as data, currentDay, userMockToken, adminMockToken } from '../../utils/data';
+import { addOrder as data, currentDay } from '../../utils/data';
+import { tokens } from '../../utils/setup';
+
+const { foodCircleToken, emiolaToken } = tokens;
 
 const { newOrder, menu } = data;
 
@@ -12,7 +15,7 @@ describe('Order Routes: Add an Order', () => {
     request(app)
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send(menu)
       .end((err, res) => {
         expect(res.statusCode).to.equal(201);
@@ -37,7 +40,7 @@ describe('Order Routes: Add an Order', () => {
     request(app)
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
-      .set('authorization', userMockToken)
+      .set('authorization', emiolaToken)
       .send(newOrder)
       .end((err, res) => {
         expect(res.statusCode).to.equal(201);
@@ -58,7 +61,7 @@ describe('Order Routes: Add an Order', () => {
     request(app)
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
-      .set('authorization', userMockToken)
+      .set('authorization', emiolaToken)
       .send({ ...newOrder, meals: ['46ced7aa-eed5-4462-b2c0-153f31589bdd'], date: '2018-05-11' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
@@ -73,7 +76,7 @@ describe('Order Routes: Add an Order', () => {
   //   request(app)
   //     .post('/api/v1/orders')
   //     .set('Accept', 'application/json')
-  //     .set('authorization', userMockToken)
+  //     .set('authorization', emiolaToken)
   //     .send(badOrder)
   //     .end((err, res) => {
   //       expect(res.statusCode).to.equal(422);

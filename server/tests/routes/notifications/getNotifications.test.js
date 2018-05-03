@@ -2,7 +2,9 @@ import request from 'supertest';
 import { expect } from 'chai';
 import app from '../../../src/app';
 import unAuthorized from '../../utils/unAuthorized';
-import { userMockToken, adminMockToken } from '../../utils/data';
+import { tokens } from '../../utils/setup';
+
+const { foodCircleToken, emiolaToken } = tokens;
 
 describe('Notification Routes: Get All Notifications', () => {
   describe('Get User Notifications', () => {
@@ -10,7 +12,7 @@ describe('Notification Routes: Get All Notifications', () => {
       request(app)
         .get('/api/v1/notifications')
         .set('Accept', 'application/json')
-        .set('authorization', userMockToken)
+        .set('authorization', emiolaToken)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body.notifications.length).not.to.equal(0);
@@ -31,7 +33,7 @@ describe('Notification Routes: Get All Notifications', () => {
       request(app)
         .get('/api/v1/notifications')
         .set('Accept', 'application/json')
-        .set('authorization', adminMockToken)
+        .set('authorization', foodCircleToken)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body.notifications.length).not.to.equal(0);

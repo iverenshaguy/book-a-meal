@@ -1,8 +1,9 @@
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
 import usersDB from '../../data/users.json';
-import Authorization from '../middlewares/Authorization';
+import PasswordHash from '../helpers/PasswordHash';
 
+const token = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
 const defaultUserObject = {
   firstname: null,
   businessName: null,
@@ -31,7 +32,9 @@ class Users {
    */
   static async register(req, res) {
     // encrypt password
+    const hash = await PasswordHash.hashPassword(req.body.password);
     const newUser = { ...defaultUserObject, ...req.body };
+    newUser.passwordHash = hash;
     newUser.email = req.body.email.toLowerCase();
     newUser.role = req.body.role.toLowerCase();
     newUser.userId = uuidv4();
@@ -44,9 +47,10 @@ class Users {
 
     delete newUser.passwordHash;
 
-    const token = Authorization.generateToken(req);
-
-    res.status(201).send({ user: newUser, token });
+    res.status(201).send({
+      user: newUser,
+      token
+    });
   }
 
   /**
@@ -68,7 +72,6 @@ class Users {
     }
 
     const user = { ...authUser };
-    const token = Authorization.generateToken(req);
 
     delete user.password;
     delete user.passwordHash;

@@ -4,8 +4,10 @@ import app from '../../../src/app';
 import menuDB from '../../../data/menu.json';
 import notAdmin from '../../utils/notAdmin';
 import unAuthorized from '../../utils/unAuthorized';
-import { addMenu as data, adminMockToken, currentDay, twoDaysTime } from '../../utils/data';
+import { addMenu as data, currentDay, twoDaysTime } from '../../utils/data';
+import { tokens } from '../../utils/setup';
 
+const { foodCircleToken } = tokens;
 const {
   menu1, menu2, menu3, badMenu
 } = data;
@@ -22,7 +24,7 @@ describe('Menu Routes: Add a new menu', () => {
     request(app)
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send(menu1)
       .end((err, res) => {
         expect(res.statusCode).to.equal(201);
@@ -40,7 +42,7 @@ describe('Menu Routes: Add a new menu', () => {
     request(app)
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send(menu1)
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
@@ -55,7 +57,7 @@ describe('Menu Routes: Add a new menu', () => {
     request(app)
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send(menu2)
       .end((err, res) => {
         expect(res.statusCode).to.equal(201);
@@ -76,7 +78,7 @@ describe('Menu Routes: Add a new menu', () => {
     request(app)
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send(menu2)
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
@@ -91,7 +93,7 @@ describe('Menu Routes: Add a new menu', () => {
     request(app)
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send(menu3)
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
@@ -107,7 +109,7 @@ describe('Menu Routes: Add a new menu', () => {
     request(app)
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send(badMenu)
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);

@@ -1,7 +1,9 @@
+import jwt from 'jsonwebtoken';
+import { config } from 'dotenv';
 import errors from '../../data/errors.json';
+import usersDB from '../../data/users.json';
 
-const userToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
-const adminToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
+config();
 
 /**
  * @exports
@@ -32,6 +34,28 @@ class Authorization {
   }
 
   /**
+   * @method generateToken
+   * @memberof Authorization
+   * @param {object} req
+   * @returns {string} token
+   */
+  static generateToken(req) {
+    const token = jwt.sign(
+      {
+        id: req.body.id,
+        role: req.body.role,
+        email: req.body.email.toLowerCase(),
+      },
+      process.env.SECRET,
+      {
+        expiresIn: 86400 // expires in 24 hours
+      }
+    );
+
+    return token;
+  }
+
+  /**
    * Authorize user
    * @method authorize
    * @memberof Authorization
@@ -42,32 +66,31 @@ class Authorization {
    */
   static authorize(req, res, next) {
     const token = Authorization.getToken(req);
-    const isInvalidToken = token !== userToken && token !== adminToken; // replace with jwt
-    let role;
 
     // skip authorization for get menu
     if (req.baseUrl === '/api/v1/menu' && req.method === 'GET') return next();
 
+    if (!token) return res.status(401).send({ error: errors['401'] });
 
-    // we'll use the role from user token to know what type of user
-    // we need to get data for. If there's no role, it means token is invalid
-    // invalid/expired token or no token
-    if (!token || isInvalidToken) {
-      return res.status(401).send({
-        error: errors['401']
-      });
-    }
+    jwt.verify(token, process.env.SECRET, (err, decoded) => {
+      if (err) {
+        // check for outdated token
+        if (err.name === 'TokenExpiredError') {
+          return res.status(401).send({ error: 'User authorization token is expired' });
+        }
 
-    if (token === adminToken) role = 'caterer';
-    if (token === userToken) role = 'user';
+        return res.status(500).send({ error: 'Failed to authenticate token' });
+      }
 
-    // if token is valid, jwt decode and change request body to reflect role and userId
-    req.body.role = role;
-    req.body.userId = role === 'caterer' ?
-      '8356954a-9a42-4616-8079-887a73455a7f' :
-      'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac';
+      // check user existence
+      const foundUser = usersDB.find(user => user.userId === decoded.id);
+      if (!foundUser) return res.status(401).send({ error: errors['401'] });
 
-    next();
+      req.body.userId = foundUser.userId;
+      req.body.role = foundUser.role;
+
+      return next();
+    });
   }
 
   /**
@@ -80,17 +103,12 @@ class Authorization {
    * @returns {(function|object)} Function next() or JSON object
    */
   authorizeRole(req, res, next) {
-    const token = Authorization.getToken(req);
     const { type } = this;
-    // will be used to know what role to check for
-    const tokenType = type === 'caterer' ? adminToken : userToken;
-
     // skip role authorization for menu and orders
     if ((req.baseUrl === '/api/v1/orders' || req.baseUrl === '/api/v1/menu') && req.method === 'GET') return next();
 
     // return 403 forbidden error if user doesn't have required role
-    // role will be added in real JWT token implementation
-    if (token !== tokenType) {
+    if (type !== req.body.role) {
       return res.status(403).send({
         error: errors['403']
       });
