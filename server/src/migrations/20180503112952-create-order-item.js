@@ -5,12 +5,6 @@ export default {
       autoIncrement: true,
       type: Sequelize.INTEGER
     },
-    orderItemId: {
-      type: Sequelize.UUID,
-      primaryKey: true,
-      defaultValue: Sequelize.UUIDV4,
-      allowNull: false
-    },
     orderId: {
       type: Sequelize.UUID,
       onDelete: 'CASCADE',
@@ -46,14 +40,6 @@ export default {
         isInt: true,
         min: 1
       }
-    },
-    deliveryAddress: {
-      type: Sequelize.TEXT,
-      allowNull: true
-    },
-    deliveryPhoneNo: {
-      type: Sequelize.STRING,
-      allowNull: true
     },
     createdAt: {
       allowNull: false,

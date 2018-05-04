@@ -22,7 +22,7 @@ describe('Menu Routes: Edit menu', () => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.include.keys('menuId');
         expect(res.body).to.include.keys('date');
-        expect(res.body.meals[0].mealId).to.equal('baa0412a-d167-4d2b-b1d8-404cb8f02631');
+        expect(res.body.meals.length).to.equal(3);
 
         if (err) return done(err);
         done();
@@ -38,23 +38,6 @@ describe('Menu Routes: Edit menu', () => {
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
         expect(res.body.error).to.equal('Menu Expired');
-
-        if (err) return done(err);
-        done();
-      });
-  });
-
-  it('should send menu item for authenticated user when no data is sent', (done) => {
-    request(app)
-      .put('/api/v1/menu/a9fa6cb3-9f5e-46fa-b641-388f898ca824')
-      .set('Accept', 'application/json')
-      .set('authorization', foodCircleToken)
-      .send()
-      .end((err, res) => {
-        expect(res.statusCode).to.equal(200);
-        expect(res.body).to.include.keys('menuId');
-        expect(res.body).to.include.keys('date');
-        expect(res.body.meals[0].mealId).to.equal('baa0412a-d167-4d2b-b1d8-404cb8f02631');
 
         if (err) return done(err);
         done();

@@ -1,7 +1,5 @@
-import uuidv4 from 'uuid/v4';
 import moment from 'moment';
-import menuDB from '../../data/menu.json';
-import mealsDB from '../../data/meals.json';
+import db from '../models';
 import Notifications from './Notifications';
 import errors from '../../data/errors.json';
 import checkMenuUnique from '../helpers/checkMenuUnique';
@@ -20,18 +18,18 @@ class Menu {
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
-  static getMenuForDay(req, res) {
+  static async getMenuForDay(req, res) {
     const date = req.query.date || moment().format('YYYY-MM-DD');
-    const menuForTheDay = menuDB.find(item => moment(item.date).isSame(date));
+    const menu = await db.Menu
+      .findOne({ where: { date } });
 
-    if (!menuForTheDay) {
+    if (!menu) {
       return res.status(200).send({ message: 'No Menu is Available For This Day' });
     }
 
-    // get meal object for each meal ID
-    const menu = { ...menuForTheDay };
-    menu.meals = Menu.getMealObject(menu.meals);
-
+    // get full meals object from mealsDB
+    const meals = await Menu.getMealObject(menu.meals);
+    menu.meals = meals;
     return res.status(200).send(menu);
   }
 
@@ -43,12 +41,8 @@ class Menu {
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
-  static create(req, res) {
+  static async create(req, res) {
     const defaultDate = moment().format('YYYY-MM-DD');
-    const today = moment().format();
-
-    // generate random id
-    req.body.menuId = uuidv4();
 
     // date is either equal to today or given date
     req.body.date = req.body.date || defaultDate;
@@ -56,15 +50,13 @@ class Menu {
     // convert meals array string to array and remove duplicates
     req.body.meals = removeDuplicates(req.body.meals);
 
-    // add dates
-    req.body.created = today;
-    req.body.updated = today;
+    const check = await checkMenuUnique(req.body.date, req.body.userId);
 
-    if (!checkMenuUnique(req.body.date, req.body.userId)) {
+    if (!check) {
       return res.status(422).send({ error: 'Menu already exists for this day' });
     }
 
-    menuDB.push(req.body);
+    const newMenu = await db.Menu.create(req.body, { include: [db.User] });
 
     // push to notifications table
     // userId is null for all user's
@@ -76,10 +68,9 @@ class Menu {
     });
 
     // get full meals object from mealsDB
-    const fullData = { ...req.body };
-    fullData.meals = Menu.getMealObject(fullData.meals);
-
-    return res.status(201).send(fullData);
+    const meals = await Menu.getMealObject(newMenu.meals);
+    newMenu.meals = meals;
+    return res.status(201).send(newMenu);
   }
 
   /**
@@ -90,45 +81,26 @@ class Menu {
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
-  static update(req, res) {
-    const itemIndex = menuDB
-      .findIndex(item => item.menuId === req.params.menuId &&
-      item.userId === req.body.userId);
+  static async update(req, res) {
+    const menu = await db.Menu
+      .findOne({ where: { menuId: req.params.menuId, userId: req.body.userId } });
 
     // return 404 error if index isn't found ie menu doesnt exist
-    if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
-
-    // return meal item if no data was sent ie req.body is only poulated with userId && role
-    if (Object.keys(req.body).length === 2) {
-      const unEditedMenu = menuDB[itemIndex];
-      unEditedMenu.meals = Menu.getMealObject(unEditedMenu.meals);
-
-      return res.status(200).send(unEditedMenu);
-    }
+    if (!menu) return res.status(404).send({ error: errors[404] });
 
     // if menuis expired i.e. menu is past, return error
-    if (menuDB[itemIndex].date.toString() < moment().format('YYYY-MM-DD').toString()) {
+    if (menu.date.toString() < moment().format('YYYY-MM-DD').toString()) {
       return res.status(422).send({ error: 'Menu Expired' });
     }
-
-    const oldItem = menuDB[itemIndex];
 
     // remove duplicates
     req.body.meals = removeDuplicates(req.body.meals);
 
-    // delete id and replace date and updated from req.body
-    delete req.body.menuId;
-    req.body.date = oldItem.date;
-    req.body.updated = moment().format();
+    const updatedMenu = await menu.update({ ...menu, ...req.body });
 
-    // update old meal with new meal and assign it to it's position in the array
-    menuDB[itemIndex] = { ...oldItem, ...req.body };
-
-    // get full meals object from mealsDB
-    const fullData = { ...menuDB[itemIndex] };
-    fullData.meals = Menu.getMealObject(fullData.meals);
-
-    return res.status(200).send(fullData);
+    const meals = await Menu.getMealObject(updatedMenu.meals);
+    updatedMenu.meals = meals;
+    return res.status(200).send(updatedMenu);
   }
 
   /**
@@ -138,8 +110,14 @@ class Menu {
    * @param {meals} mealIDArray
    * @returns {array} Array of filled Menu
    */
-  static getMealObject(mealIDArray) {
-    return mealIDArray.map(mealID => mealsDB.find(mealItem => mealItem.mealId === mealID));
+  static async getMealObject(mealIDArray) {
+    const arr = [];
+    const getObjs = mealIDArray.map(mealId => db.Meal.findById(mealId).then((meal) => {
+      arr.push(meal.dataValues);
+    }));
+
+    const objArr = await Promise.all(getObjs).then(() => arr);
+    return objArr;
   }
 }
 

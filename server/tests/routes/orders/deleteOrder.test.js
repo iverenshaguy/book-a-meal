@@ -3,60 +3,14 @@ import { expect } from 'chai';
 import app from '../../../src/app';
 import notFound from '../../utils/notFound';
 import invalidID from '../../utils/invalidID';
-import menuDB from '../../../data/menu.json';
 import unAuthorized from '../../utils/unAuthorized';
-import { addOrder, currentDay } from '../../utils/data';
 import { tokens } from '../../utils/setup';
 
-const { foodCircleToken, emiolaToken } = tokens;
+const { emiolaToken } = tokens;
 
-const { newOrder, menu } = addOrder;
-
-let newMenuId, newOrderId;
+let newOrderId;
 
 describe('Order Routes: Delete an Order', () => {
-  before((done) => {
-    request(app)
-      .post('/api/v1/menu')
-      .set('Accept', 'application/json')
-      .set('authorization', foodCircleToken)
-      .send(menu)
-      .end((err, res) => {
-        newMenuId = res.body.menuId;
-        expect(res.statusCode).to.equal(201);
-        expect(res.body).to.include.keys('menuId');
-        expect(res.body).to.include.keys('date');
-        expect(res.body.date).to.equal(currentDay);
-
-        if (err) return done(err);
-        done();
-      });
-  });
-
-  before((done) => {
-    request(app)
-      .post('/api/v1/orders')
-      .set('Accept', 'application/json')
-      .set('authorization', emiolaToken)
-      .send({ ...newOrder, menuId: newMenuId })
-      .end((err, res) => {
-        newOrderId = res.body.orderId;
-        expect(res.statusCode).to.equal(201);
-        expect(res.body).to.include.keys('orderId');
-        expect(res.body).to.include.keys('userId');
-
-        if (err) return done(err);
-        done();
-      });
-  });
-
-  after(() => {
-    // delete menu for today after test
-    const index = menuDB.findIndex(item => item.date === currentDay);
-
-    menuDB.splice(index, 1);
-  });
-
   it('should delete a current order for an authenticated user', (done) => {
     request(app)
       .delete(`/api/v1/orders/${newOrderId}`)

@@ -11,14 +11,16 @@ function isValidOrderItems(items, req) {
   const err = [];
   items = stringToArray(items, ',');
   // check mealId availability
-  items.forEach((item) => {
-    if (!isMealAvailable(item, req.body.date)) err.push(`Meal ${item} is not available`);
+  const promises = items.map(item => isMealAvailable(item, req.body.date).then((mealAvai) => {
+    if (!mealAvai) err.push(`Meal ${item} is not available`);
+  }));
+
+  const errs = Promise.all(promises).then(() => {
+    if (err.length === 0) return true;
+    if (err.length !== 0) throw new Error(err);
   });
 
-  if (err.length === 0) return true;
-
-  // stringify so that error can be seen
-  throw new Error(err);
+  return errs;
 }
 
 export default isValidOrderItems;

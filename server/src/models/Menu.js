@@ -18,15 +18,11 @@ export default (sequelize) => {
         }
       },
       meals: {
-        type: Sequelize.ARRAY(Sequelize.TEXT),
+        type: Sequelize.ARRAY(Sequelize.STRING),
         allowNull: false,
         defaultValue: [],
-        validate: {
-          isUUID: 4,
-          notEmpty: true
-        }
       }
-    }
+    }, { freezeTableName: true }
   );
 
   Menu.associate = (models) => {

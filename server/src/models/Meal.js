@@ -77,11 +77,6 @@ export default (sequelize) => {
       foreignKey: 'mealId',
       as: 'orderItems'
     });
-
-    Meal.hasMany(models.Menu, {
-      foreignKey: 'mealId',
-      as: 'menu'
-    });
   };
 
   return Meal;

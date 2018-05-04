@@ -86,6 +86,22 @@ describe('Menu Routes: Add a new menu', () => {
       });
   });
 
+  it('should not add meal that\'s not for user', (done) => {
+    request(app)
+      .post('/api/v1/menu')
+      .set('Accept', 'application/json')
+      .set('authorization', foodCircleToken)
+      .send({ ...menu1, date: '2019-05-04', meals: ['46ced7aa-eed5-4462-b2c0-153f31589bdd'] })
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(422);
+        expect(res.body).to.be.an('object');
+        expect(res.body.errors.meals.msg).to.equal('Meal 46ced7aa-eed5-4462-b2c0-153f31589bdd doesn\'t exist');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
   notAdmin(
     'should return 403 error for authorized user ie non admin or caterer',
     request(app), 'post', '/api/v1/meals'
