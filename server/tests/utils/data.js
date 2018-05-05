@@ -3,9 +3,11 @@ import moment from 'moment';
 const userMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
 const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
 const currentDay = moment().format('YYYY-MM-DD');
+const tomorrow = moment().add(1, 'days').format('YYYY-MM-DD');
 const twoDaysTime = moment().add(2, 'days').format('YYYY-MM-DD');
 
 export default {
+  tomorrow,
   currentDay,
   twoDaysTime,
   adminMockToken,
