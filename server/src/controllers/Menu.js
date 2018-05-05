@@ -1,6 +1,6 @@
 import moment from 'moment';
-import db from '../models';
 import menuDB from '../../data/menu.json';
+import db from '../models';
 import Notifications from './Notifications';
 import errors from '../../data/errors.json';
 import checkMenuUnique from '../helpers/checkMenuUnique';
@@ -29,7 +29,7 @@ class Menu {
 
     // get meal object for each meal ID
     const menu = { ...menuForTheDay };
-    menu.meals = Menu.getMealObject(menu.meals);
+    menu.meals = Menu.getMealsObject(menu.meals);
 
     return res.status(200).send(menu);
   }
@@ -56,10 +56,7 @@ class Menu {
 
     if (!isMenuUnique) return res.status(422).send({ error: 'Menu already exists for this day' });
 
-    const newMenu = await db.Menu.create(
-      { date: req.body.date, userId },
-      { include: [db.User] }
-    )
+    const newMenu = await db.Menu.create({ date: req.body.date, userId }, { include: [db.User] })
       .then(async (menu) => {
         await menu.setMeals(req.body.meals, { through: db.MenuMeal });
         await Menu.getMealsObject(menu);
@@ -97,7 +94,7 @@ class Menu {
     // return meal item if no data was sent ie req.body is only poulated with userId && role
     if (Object.keys(req.body).length === 2) {
       const unEditedMenu = menuDB[itemIndex];
-      unEditedMenu.meals = Menu.getMealObject(unEditedMenu.meals);
+      unEditedMenu.meals = Menu.getMealsObject(unEditedMenu.meals);
 
       return res.status(200).send(unEditedMenu);
     }
@@ -122,7 +119,7 @@ class Menu {
 
     // get full meals object from mealsDB
     const fullData = { ...menuDB[itemIndex] };
-    fullData.meals = Menu.getMealObject(fullData.meals);
+    fullData.meals = Menu.getMealsObject(fullData.meals);
 
     return res.status(200).send(fullData);
   }

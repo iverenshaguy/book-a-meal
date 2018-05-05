@@ -1,7 +1,6 @@
 import request from 'supertest';
 import { expect } from 'chai';
 import app from '../../../src/app';
-import menuDB from '../../../data/menu.json';
 import notAdmin from '../../utils/notAdmin';
 import unAuthorized from '../../utils/unAuthorized';
 import { addMenu as data, currentDay } from '../../utils/data';
@@ -13,13 +12,6 @@ const {
 } = data;
 
 describe('Menu Routes: Add a new menu', () => {
-  after(() => {
-    // delete menu for today after test
-    const index = menuDB.findIndex(item => item.date === currentDay);
-
-    menuDB.splice(index, 1);
-  });
-
   it('should add a menu for authenticated user, for the current day', (done) => {
     request(app)
       .post('/api/v1/menu')
