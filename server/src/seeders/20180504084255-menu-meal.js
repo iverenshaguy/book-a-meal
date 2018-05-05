@@ -9,21 +9,21 @@ export default {
     },
     {
       id: 2,
-      mealId: '81211c24-51c0-46ec-b1e0-18db55880958',
+      mealId: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
       menuId: 'a9fa6cb3-9f5e-46fa-b641-388f898ca824',
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
     },
     {
       id: 3,
-      mealId: '81211c24-51c0-46ec-b1e0-18db55880958',
+      mealId: 'baa0412a-d167-4d2b-b1d8-404cb8f02631',
       menuId: 'a9fa6cb3-9f5e-46fa-b641-388f898ca824',
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
     },
     {
       id: 4,
-      mealId: '81211c24-51c0-46ec-b1e0-18db55880958',
+      mealId: 'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
       menuId: 'a9fa6cb3-9f5e-46fa-b641-388f898ca824',
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'

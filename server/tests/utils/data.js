@@ -181,19 +181,22 @@ export default {
   },
 
   addOrder: {
-    menu: {
-      date: currentDay,
+    validOrder: {
       meals: [
         '81211c24-51c0-46ec-b1e0-18db55880958',
-        '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
+        '81211c24-51c0-46ec-b1e0-18db55880958',
         'baa0412a-d167-4d2b-b1d8-404cb8f02631'
-      ]
+      ],
+      deliveryAddress: '4, Church Street, Yaba',
+      deliveryPhoneNo: '+2348134567890',
     },
+
     newOrder: {
       meals: [
-        '81211c24-51c0-46ec-b1e0-18db55880958',
-        '81211c24-51c0-46ec-b1e0-18db55880958',
-        'baa0412a-d167-4d2b-b1d8-404cb8f02631'
+        'baa0412a-d167-4d2b-b1d8-404cb8f02631',
+        '8a65538d-f862-420e-bcdc-80743df06578',
+        'baa0412a-d167-4d2b-b1d8-404cb8f02631',
+        'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
       ],
       deliveryAddress: '4, Church Street, Yaba',
       deliveryPhoneNo: '+2348134567890',

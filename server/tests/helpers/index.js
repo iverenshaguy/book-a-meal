@@ -5,3 +5,4 @@ import './isArrayOfUUID.test';
 import './stringToArray.test';
 import './removeDuplicates.test';
 import './createMealOrder.test';
+import './isValidOrderItems.test';

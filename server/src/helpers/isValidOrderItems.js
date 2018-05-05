@@ -8,16 +8,18 @@ import isMealAvailable from './isMealAvailable';
  * @return {bool} returns false or true
  */
 function isValidOrderItems(items, req) {
-  const err = [];
+  const errArr = [];
   items = stringToArray(items, ',');
   // check mealId availability
-  const promises = items.map(item => isMealAvailable(item, req.body.date).then((mealAvai) => {
-    if (!mealAvai) err.push(`Meal ${item} is not available`);
-  }));
+  const promises = items.map(async (item) => {
+    await isMealAvailable(item, req.body.date).then((mealAvai) => {
+      if (!mealAvai) errArr.push(`Meal ${item} is not available`);
+    });
+  });
 
   const errs = Promise.all(promises).then(() => {
-    if (err.length === 0) return true;
-    if (err.length !== 0) throw new Error(err);
+    if (errArr.length === 0) return true;
+    if (errArr.length !== 0) throw new Error(errArr);
   });
 
   return errs;
