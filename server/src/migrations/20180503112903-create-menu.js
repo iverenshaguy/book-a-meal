@@ -28,15 +28,6 @@ export default {
         isDate: true
       }
     },
-    meals: {
-      type: Sequelize.ARRAY(Sequelize.TEXT),
-      allowNull: false,
-      defaultValue: [],
-      validate: {
-        isUUID: 4,
-        notEmpty: true
-      }
-    },
     createdAt: {
       allowNull: false,
       type: Sequelize.DATE

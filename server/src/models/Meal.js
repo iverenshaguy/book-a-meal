@@ -77,6 +77,11 @@ export default (sequelize) => {
       foreignKey: 'mealId',
       as: 'orderItems'
     });
+
+    Meal.belongsToMany(models.Menu, {
+      through: models.MenuMeal,
+      foreignKey: 'mealId',
+    });
   };
 
   return Meal;

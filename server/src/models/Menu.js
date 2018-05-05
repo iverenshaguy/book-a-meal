@@ -16,11 +16,6 @@ export default (sequelize) => {
         validate: {
           isDate: true
         }
-      },
-      meals: {
-        type: Sequelize.ARRAY(Sequelize.STRING),
-        allowNull: false,
-        defaultValue: [],
       }
     }, { freezeTableName: true }
   );
@@ -29,6 +24,12 @@ export default (sequelize) => {
     Menu.belongsTo(models.User, {
       foreignKey: 'userId',
       onDelete: 'CASCADE',
+    });
+
+    Menu.belongsToMany(models.Meal, {
+      as: 'meals',
+      through: models.MenuMeal,
+      foreignKey: 'menuId',
     });
   };
 

@@ -4,13 +4,6 @@ export default (sequelize) => {
   const OrderItem = sequelize.define(
     'OrderItem',
     {
-      date: {
-        type: Sequelize.DATEONLY,
-        allowNull: false,
-        validate: {
-          isDate: true
-        }
-      },
       quantity: {
         type: Sequelize.INTEGER,
         allowNull: true,
