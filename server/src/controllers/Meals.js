@@ -55,13 +55,12 @@ class Meals {
   static async update(req, res) {
     const { mealId } = req.params;
     const { userId } = req.body;
-    const data = { ...req.body };
     const mealItem = await db.Meal.findOne({ where: { mealId, userId } });
 
     // return 404 error if meal option doesnt exist
     if (!mealItem) return res.status(404).send({ error: errors[404] });
 
-    const updatedMeal = await mealItem.update({ ...mealItem, ...data });
+    const updatedMeal = await mealItem.update({ ...mealItem, ...req.body });
 
     return res.status(200).send(updatedMeal);
   }

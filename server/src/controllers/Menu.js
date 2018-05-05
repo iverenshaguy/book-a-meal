@@ -1,5 +1,6 @@
 import moment from 'moment';
 import db from '../models';
+import menuDB from '../../data/menu.json';
 import Notifications from './Notifications';
 import errors from '../../data/errors.json';
 import checkMenuUnique from '../helpers/checkMenuUnique';
@@ -18,18 +19,18 @@ class Menu {
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
-  static async getMenuForDay(req, res) {
+  static getMenuForDay(req, res) {
     const date = req.query.date || moment().format('YYYY-MM-DD');
-    const menu = await db.Menu
-      .findOne({ where: { date } });
+    const menuForTheDay = menuDB.find(item => moment(item.date).isSame(date));
 
-    if (!menu) {
+    if (!menuForTheDay) {
       return res.status(200).send({ message: 'No Menu is Available For This Day' });
     }
 
-    // get full meals object from mealsDB
-    const meals = await Menu.getMealObject(menu.meals);
-    menu.meals = meals;
+    // get meal object for each meal ID
+    const menu = { ...menuForTheDay };
+    menu.meals = Menu.getMealObject(menu.meals);
+
     return res.status(200).send(menu);
   }
 
@@ -40,38 +41,42 @@ class Menu {
    * @param {object} req
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
+   * date is either equal to the request date or the default date (today)
+   * check menu unique ensures that menu doesn't already exists in db
+   * Notifications are also created when a new menu is added
    */
   static async create(req, res) {
+    const { userId } = req.body;
     const defaultDate = moment().format('YYYY-MM-DD');
 
-    // date is either equal to today or given date
     req.body.date = req.body.date || defaultDate;
-
-    // convert meals array string to array and remove duplicates
     req.body.meals = removeDuplicates(req.body.meals);
 
-    const check = await checkMenuUnique(req.body.date, req.body.userId);
+    const isMenuUnique = await checkMenuUnique(req.body.date, req.body.userId);
 
-    if (!check) {
-      return res.status(422).send({ error: 'Menu already exists for this day' });
-    }
+    if (!isMenuUnique) return res.status(422).send({ error: 'Menu already exists for this day' });
 
-    const newMenu = await db.Menu.create(req.body, { include: [db.User] });
+    const newMenu = await db.Menu.create(
+      { date: req.body.date, userId },
+      { include: [db.User] }
+    )
+      .then(async (menu) => {
+        await menu.setMeals(req.body.meals, { through: db.MenuMeal });
+        await Menu.getMealsObject(menu);
 
-    // push to notifications table
-    // userId is null for all user's
-    Notifications.create({
-      userId: null,
-      orderId: null,
-      menuId: req.body.menuId,
-      message: 'Rice and Stew with Beef was just added to the menu'
-    });
+        Notifications.create({
+          userId: null,
+          orderId: null,
+          menuId: req.body.menuId,
+          message: 'The menu for today was just added'
+        });
 
-    // get full meals object from mealsDB
-    const meals = await Menu.getMealObject(newMenu.meals);
-    newMenu.meals = meals;
+        return menu;
+      });
+
     return res.status(201).send(newMenu);
   }
+
 
   /**
    * Updates an existing item
@@ -81,43 +86,58 @@ class Menu {
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
-  static async update(req, res) {
-    const menu = await db.Menu
-      .findOne({ where: { menuId: req.params.menuId, userId: req.body.userId } });
+  static update(req, res) {
+    const itemIndex = menuDB
+      .findIndex(item => item.menuId === req.params.menuId &&
+      item.userId === req.body.userId);
 
     // return 404 error if index isn't found ie menu doesnt exist
-    if (!menu) return res.status(404).send({ error: errors[404] });
+    if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
+
+    // return meal item if no data was sent ie req.body is only poulated with userId && role
+    if (Object.keys(req.body).length === 2) {
+      const unEditedMenu = menuDB[itemIndex];
+      unEditedMenu.meals = Menu.getMealObject(unEditedMenu.meals);
+
+      return res.status(200).send(unEditedMenu);
+    }
 
     // if menuis expired i.e. menu is past, return error
-    if (menu.date.toString() < moment().format('YYYY-MM-DD').toString()) {
+    if (menuDB[itemIndex].date.toString() < moment().format('YYYY-MM-DD').toString()) {
       return res.status(422).send({ error: 'Menu Expired' });
     }
+
+    const oldItem = menuDB[itemIndex];
 
     // remove duplicates
     req.body.meals = removeDuplicates(req.body.meals);
 
-    const updatedMenu = await menu.update({ ...menu, ...req.body });
+    // delete id and replace date and updated from req.body
+    delete req.body.menuId;
+    req.body.date = oldItem.date;
+    req.body.updated = moment().format();
 
-    const meals = await Menu.getMealObject(updatedMenu.meals);
-    updatedMenu.meals = meals;
-    return res.status(200).send(updatedMenu);
+    // update old meal with new meal and assign it to it's position in the array
+    menuDB[itemIndex] = { ...oldItem, ...req.body };
+
+    // get full meals object from mealsDB
+    const fullData = { ...menuDB[itemIndex] };
+    fullData.meals = Menu.getMealObject(fullData.meals);
+
+    return res.status(200).send(fullData);
   }
 
   /**
-   * Gets meals from mealsDB with ID
-   * @method getMealObject
+   * Gets meals for the Menu
+   * @method getMealsObject
    * @memberof Controller
-   * @param {meals} mealIDArray
-   * @returns {array} Array of filled Menu
+   * @param {OBJECT} menu
+   * @returns {array} Array of Meals
    */
-  static async getMealObject(mealIDArray) {
-    const arr = [];
-    const getObjs = mealIDArray.map(mealId => db.Meal.findById(mealId).then((meal) => {
-      arr.push(meal.dataValues);
-    }));
-
-    const objArr = await Promise.all(getObjs).then(() => arr);
-    return objArr;
+  static async getMealsObject(menu) {
+    menu.dataValues.meals = await menu.getMeals({
+      attributes: ['mealId', 'title', 'imageURL', 'description', 'forVegetarians', 'price']
+    });
   }
 }
 
