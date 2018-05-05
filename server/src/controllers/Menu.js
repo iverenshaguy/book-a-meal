@@ -1,5 +1,4 @@
 import moment from 'moment';
-import menuDB from '../../data/menu.json';
 import db from '../models';
 import Notifications from './Notifications';
 import errors from '../../data/errors.json';
@@ -19,19 +18,17 @@ class Menu {
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
-  static getMenuForDay(req, res) {
+  static async getMenuForDay(req, res) {
     const date = req.query.date || moment().format('YYYY-MM-DD');
-    const menuForTheDay = menuDB.find(item => moment(item.date).isSame(date));
+    const menu = await db.Menu.findOne({ where: { date } });
 
-    if (!menuForTheDay) {
+    if (!menu) {
       return res.status(200).send({ message: 'No Menu is Available For This Day' });
     }
 
-    // get meal object for each meal ID
-    const menu = { ...menuForTheDay };
-    menu.meals = Menu.getMealsObject(menu.meals);
+    const menuPerDay = await Menu.getMealsObject(menu).then(() => menu);
 
-    return res.status(200).send(menu);
+    return res.status(200).send(menuPerDay);
   }
 
   /**
