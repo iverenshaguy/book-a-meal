@@ -60,6 +60,21 @@ describe('Menu Routes: Edit menu', () => {
       });
   });
 
+  it('should not add meal that doesn\'t belong to user to the menu', (done) => {
+    request(app)
+      .put(`/api/v1/menu/${newMenuId}`)
+      .set('Accept', 'application/json')
+      .set('authorization', foodCircleToken)
+      .send({ ...menu1, meals: ['46ced7aa-eed5-4462-b2c0-153f31589bdd'] })
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(422);
+        expect(res.body.errors.meals.msg).to.equal('Meal 46ced7aa-eed5-4462-b2c0-153f31589bdd doesn\'t exist');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
   it('should return errors for invalid input', (done) => {
     request(app)
       .put('/api/v1/menu/a9fa6cb3-9f5e-46fa-b641-388f898ca824')

@@ -191,6 +191,14 @@ export default {
       deliveryPhoneNo: '+2348134567890',
     },
 
+    inValidOrder: {
+      meals: [
+        '8a65538d-f862-420e-bcdc-80743df06578',
+      ],
+      deliveryAddress: '4, Church Street, Yaba',
+      deliveryPhoneNo: '+2348134567890',
+    },
+
     newOrder: {
       meals: [
         'baa0412a-d167-4d2b-b1d8-404cb8f02631',
