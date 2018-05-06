@@ -8,8 +8,8 @@
     "passwordHash": "23456789dtfgyuhio567890",
     "businessPhone": "+2348134567890",
     "businessAddress": "4, Church Street, Yaba",
-    "created": "2018-05-06T14:34:90.000",
-    "updated": "2018-05-06T14:34:90.000",
+    "createdAt": "2018-05-06T14:34:90.000",
+    "updatedAt": "2018-05-06T14:34:90.000",
     "role": "caterer"
   },
   {
@@ -21,8 +21,8 @@
     "passwordHash": "23456789dtfgyuhio567890",
     "businessPhone": null,
     "businessAddress": null,
-    "created": "2018-05-06T14:34:90.000",
-    "updated": "2018-05-06T14:34:90.000",
+    "createdAt": "2018-05-06T14:34:90.000",
+    "updatedAt": "2018-05-06T14:34:90.000",
     "role": "user"
   },
   {
@@ -34,8 +34,8 @@
      "passwordHash": "23456789dtfgyuhio567890",
      "businessPhone": null,
      "businessAddress": null,
-     "created": "2018-05-06T14:34:90.000",
-     "updated": "2018-05-06T14:34:90.000",
+     "createdAt": "2018-05-06T14:34:90.000",
+     "updatedAt": "2018-05-06T14:34:90.000",
      "role": "user"
   },
   {
@@ -47,8 +47,8 @@
      "passwordHash": "23456789dtfgyuhio567890",
      "businessPhone": null,
      "businessAddress": null,
-     "created": "2018-05-06T14:34:90.000",
-     "updated": "2018-05-06T14:34:90.000",
+     "createdAt": "2018-05-06T14:34:90.000",
+     "updatedAt": "2018-05-06T14:34:90.000",
      "role": "user"
   },
   {
@@ -60,8 +60,8 @@
     "passwordHash": "23456789dtfgyuhio567890",
     "businessPhone": "+2348134567890",
     "businessAddress": "4, Church Street, Yaba",
-    "created": "2018-05-06T14:34:90.000",
-    "updated": "2018-05-06T14:34:90.000",
+    "createdAt": "2018-05-06T14:34:90.000",
+    "updatedAt": "2018-05-06T14:34:90.000",
     "role": "caterer"
   }
 ]
