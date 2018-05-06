@@ -43,6 +43,7 @@
               </div>
             </a>
             <div class="dropdown-content profile" id="dropdown-content">
+              <a href="./user-menu.html" id="user-menu">Menu</a>
               <a href="./user-order-history.html" id="user-order-history">Order History</a>
               <a href="./login.html" id="logout">Logout</a>
             </div>
@@ -56,17 +57,29 @@
   <div class="main-wrapper">
     <div class="order-confirmation">
       <div id="one">
-        <h2>Order Details</h2>
+        <h2>Cart</h2>
         <hr>
         <div class="order-summary">
           <div>
-            <p>2x</p>
-            <p>Jollof Rice</p>
+            <p>
+              <input type="text" class="order-input" value="2">
+            </p>
+            <select>
+              <option>Jollof Rice</option>
+              <option>Pounded Yam and Egusi Soup</option>
+              <option>Fish and Chips</option>
+            </select>
             <p>&#8358;300.00</p>
           </div>
           <div>
-            <p>1x</p>
-            <p>Basmati Rice</p>
+            <p>
+              <input type="text" class="order-input" value="1">
+            </p>
+            <select>
+              <option>Jollof Rice</option>
+              <option>Pounded Yam and Egusi Soup</option>
+              <option selected>Fish and Chips</option>
+            </select>
             <p>&#8358;800.00</p>
           </div>
         </div>
@@ -122,6 +135,7 @@
       </div>
       <div class="hide" id="three">
         <h2>Please Confirm Your Order Details</h2>
+        <p class="text-center">Please note that meals CANNOT be edited or canceled after 15 minutes of order placement. Thank you</p>
         <hr>
         <div class="order-summary">
           <div>

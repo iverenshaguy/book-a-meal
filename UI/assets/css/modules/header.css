@@ -3,8 +3,8 @@
     height: 70px;
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 1%;
+    width: 99%;
     z-index: 13;
 }
 
@@ -66,6 +66,10 @@
 }
 
 @media (max-width: 768px) {
+    .header {
+        left: 0;
+        width: 100%;
+    }
     .header .navbar .page-title a {
         font-size: 1em;
     }

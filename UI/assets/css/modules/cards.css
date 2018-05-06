@@ -15,7 +15,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     padding: 40px;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-content: space-around;
     align-items: center;
 }

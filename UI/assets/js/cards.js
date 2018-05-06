@@ -62,7 +62,7 @@ const cardInfo = [
 ];
 
 const menuMealCards = cardInfo.map(card =>
-  `<div class="meal-card no-content" id="meal-card">
+  `<div class="meal-card" id="meal-card">
     <div class="meal-card-header">
       <img src="${card.img}" alt="meal">
       <div class="menu-card-title">
@@ -79,16 +79,16 @@ const menuMealCards = cardInfo.map(card =>
 );
 
 const catererMealCards = cardInfo.map(card =>
-  `<div class="meal-card no-content" id="meal-card">
+  `<div class="meal-card" id="meal-card">
     <div class="meal-card-header">
       <img src="${card.img}" alt="meal">
-      <!-- <div class="dropdown card-dropdown">
+      <div class="dropdown card-dropdown">
         <a href="#" id="dropdown-toggler" class="dropdown-menu">&hellip;</a>
         <div class="dropdown-content" data-dropdown="" id="dropdown-content">
           <a href="#add-edit-modal" id="edit-meal" >Edit</a>
           <a href="#add-edit-modal" id="delete-meal">Delete</a>
         </div>
-      </div>-->
+      </div>
       <div class="menu-card-title">
         <p>${card.title}</p>
       </div>
@@ -98,16 +98,16 @@ const catererMealCards = cardInfo.map(card =>
         <h3>&#8358; ${card.price}</h3>
         <p>${card.desc}</p>
       </div>
-      <div class="action-btns">
+      <!--<div class="action-btns">
         <button class="btn btn-sec" id="edit-meal">Edit</button>
         <button class="btn btn-sec-danger" id="delete-meal">Delete</button>
-      </div>
+      </div>-->
     </div>
   </div>`
 );
 
 const userMealCards = cardInfo.map(card =>
-  `<div class="meal-card no-content" id="meal-card">
+  `<div class="meal-card order-meal-card" id="meal-card">
     <div class="meal-card-header">
       <img src="${card.img}" alt="meal">
       <div class="menu-card-title">
@@ -130,14 +130,14 @@ $('.caterer-meals #card-group').html(catererMealCards);
 $('.menu-meals #card-group').html(menuMealCards);
 $('.user-meals #card-group').html(userMealCards);
 
-$('.meal-card').on('click', '.meal-card-header', function() {
-  $(this).parent().toggleClass('no-content');
-  $(this).next('.meal-card-body').toggle(250, 'linear');
-  $(this).find('#edit-meal').on('click', function(e) {
-    console.log('tyay');
-    return showModal(e, mealModal);
-  })
-});
+// $('.meal-card').on('click', '.meal-card-header', function() {
+//   $(this).parent().toggleClass('no-content');
+//   $(this).next('.meal-card-body').toggle(250, 'linear');
+//   $(this).find('#edit-meal').on('click', function(e) {
+//     console.log('tyay');
+//     return showModal(e, mealModal);
+//   })
+// });
 
 // if (e.target !== e.currentTarget && (e.target.id === 'edit-meal' || e.target.id === 'delete-meal')) {
 //   showModal(e, mealModal);
