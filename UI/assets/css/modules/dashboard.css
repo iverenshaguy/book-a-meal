@@ -1,5 +1,11 @@
+.dashboard .card-group.summary {
+    justify-content: space-around;
+}
+
 .dashboard .summary .total-sum,
-.dashboard .summary .highest-five {
+.dashboard .summary .total-cash,
+.dashboard .summary .pending {
+    font-size: 1.5em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,24 +13,29 @@
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-.dashboard .summary .total-sum {
-    color: #4CAF50;
+.dashboard .summary .total-sum .count,
+.dashboard .summary .total-cash .count,
+.dashboard .summary .pending .count {
     font-size: 1.5em;
 }
 
-.dashboard .summary .total-sum .count {
-    font-size: 2em;
-}
-
-.dashboard .summary .highest {
-    font-size: 1.3em;
-    color: #E32429;
-    justify-content: space-around;
+.dashboard .summary .total-sum {
+    color: #ffa100
 }
 
 .dashboard .summary .total-cash {
     color: #4CAF50;
-    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.dashboard .summary .pending {
+    color: #E32429;
+}
+
+.dashboard .summary.card-group .card {
+    min-height: 120px;
+    text-align: end;
+    align-items: flex-end !important;
+    padding-right: 30px;
 }
 
 .dashboard .order-details {

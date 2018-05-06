@@ -1,0 +1,7 @@
+{
+  "hashBytes": 32,
+  "saltBytes": 16,
+  "digest": "SHA512",
+  "iterations": 500000,
+  "encoding": "hex"
+}

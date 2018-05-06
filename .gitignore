@@ -1,2 +1,7 @@
 .vscode
 node_modules
+.gitattributes
+server/dist
+.nyc_output
+coverage
+.env

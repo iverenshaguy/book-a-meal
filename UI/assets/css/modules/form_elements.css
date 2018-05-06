@@ -123,3 +123,21 @@ form label {
     color: #449d48;
     transition: color 0.5s;
 }
+
+select {
+    padding: 0.3em;
+    outline: none;
+    border: 0;
+    font-size: 1em;
+    padding-left: 0em;
+}
+
+option {
+    outline: none;
+    padding-left: 0em;
+}
+
+.order-input {
+    width: 25px;
+    outline: none;
+}

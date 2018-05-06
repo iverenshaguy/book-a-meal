@@ -33,13 +33,6 @@ body {
     justify-content: space-between;
 }
 
-body.overlay {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/chicken-fajitas.jpg") no-repeat center center;
-    background-color: white;
-    background-size: cover;
-    background-attachment: fixed;
-}
-
 .hide {
     display: none;
 }
@@ -70,6 +63,12 @@ body.overlay {
 @media (min-width: 768px) {
     .d-md {
         display: block;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .d-flex-md {
+        display: none !important;
     }
 }
 
@@ -188,6 +187,7 @@ hr {
     color: #FFFFFF;
     background-color: transparent;
     padding: 0 10px;
+    text-align: center;
     justify-content: center;
     align-items: center;
 }
@@ -231,16 +231,21 @@ hr {
 
 .admin {
     display: block;
-    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("../img/chicken-fajitas.jpg") no-repeat center center;
-    background-color: white;
-    background-size: cover;
-    background-attachment: fixed;
+    background: none;
+    background-color: #EBEFF2 !important;
     color: #333;
     margin-left: 0;
 }
 
+.admin .header {
+    position: relative;
+    background-color: white;
+}
+
 .admin .navbar {
-    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1);
+    color: #333;
+    background-color: inherit;
+    /* box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1); */
 }
 
 .admin .navbar .admin-nav {
@@ -261,8 +266,8 @@ hr {
     color: #333;
 }
 
-.admin .content {
-    margin-top: 70px;
+.admin.no-date .content {
+    margin-top: 0px;
 }
 
 .admin .content-wrapper {
@@ -286,6 +291,9 @@ hr {
         align-items: stretch;
         margin-left: 250px;
     }
+    .admin .header {
+        background-color: #EBEFF2;
+    }
     .admin.user {
         margin-left: 0;
     }
@@ -294,14 +302,23 @@ hr {
         display: flex;
         flex-direction: row;
         min-height: 100%;
-        margin-top: 70px;
+        margin-top: 0px;
     }
     .admin .content .content-wrapper {
         flex-grow: 1;
     }
 }
 
-.admin .date,
+.admin .navbar .date {
+    margin: 0;
+}
+
+.admin .date {
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 40px;
+}
+
 .admin .page-heading {
     display: flex;
     justify-content: space-between;
@@ -323,8 +340,15 @@ hr {
     font-size: 20px;
 }
 
+.admin .header-date {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
 @media (max-width: 767.98px) {
     .admin .date {
+        text-align: center;
         flex-direction: column;
     }
 }
@@ -348,7 +372,7 @@ hr {
     flex-direction: column;
     flex-wrap: wrap;
     padding: 40px;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-content: space-around;
     align-items: center;
 }
@@ -391,7 +415,7 @@ hr {
 
 .datepicker-div #datepicker {
     position: absolute;
-    width: 100%;
+    width: 99%;
     height: 100%;
     top: 0;
     left: 0;
@@ -417,6 +441,20 @@ hr {
     background-color: white;
     background-size: cover;
     background-attachment: fixed;
+}
+
+.user .header {
+    left: 0%;
+    width: 100%;
+    position: fixed;
+}
+
+.user .content-wrapper {
+    margin-top: 70px;
+}
+
+.user .navbar {
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1);
 }
 
 .user .header .navbar .page-title a,
@@ -453,8 +491,8 @@ hr {
     flex-grow: 1;
 }
 
-.order-confirmation .order-summary>div p:nth-child(2) {
-    flex-grow: 10;
+.order-confirmation .order-summary>div select {
+    flex-grow: 2;
 }
 
 .order-confirmation .order-summary>div p:nth-child(3) {
@@ -495,6 +533,7 @@ hr {
     display: flex;
     flex-direction: column;
     margin-top: 0;
+    height: 100%;
 }
 
 @-webkit-keyframes pop-in {
@@ -531,7 +570,6 @@ hr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 40vh;
     width: 100%;
 }
 
@@ -576,10 +614,6 @@ hr {
     margin-top: 0;
 }
 
-.auth-wrapper {
-    margin-top: 0;
-}
-
 @media (min-width: 451px) and (max-width: 575.98px) {
     .auth,
     .order-confirmation {
@@ -602,9 +636,6 @@ hr {
         margin: 40px;
         width: 80%;
     }
-    .home .landing {
-        height: 50vh;
-    }
     .home .landing h1 {
         font-size: 2.2em;
     }
@@ -620,9 +651,6 @@ hr {
         margin: 50px;
         width: 60%;
     }
-    .home .landing {
-        height: 50vh;
-    }
     .home .landing h1 {
         font-size: 2.2em;
     }
@@ -632,9 +660,6 @@ hr {
     .order-history {
         margin: 50px;
         width: 60%;
-    }
-    .home .landing {
-        height: 90vh;
     }
     .home .landing h1 {
         font-size: 3em;

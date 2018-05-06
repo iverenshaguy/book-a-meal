@@ -9,18 +9,18 @@
   <title>Book a Meal</title>
 </head>
 
-<body class="admin">
+<body class="admin no-date">
   <div class="header">
-    <div class="navbar white-navbar">
+    <div class="navbar">
       <div class="menu-control d-none-md">
         <a href="#sidenav" class="d-none-md">
           <img src="./assets/img/toggler.png" alt="toggler">
         </a>
       </div>
-      <div class="page-title">
-        <h3>
-          <a href="./index.html">BOOK-A-MEAL</a>
-        </h3>
+      <div class="page-title d-flex-md">
+        <div class="date">
+          <h2>Thursday, 19th April 2018 &nbsp; &nbsp; 18:00</h2>
+        </div>
       </div>
       <div class="navlinks admin-nav">
         <div class="dropdown notification">
@@ -48,6 +48,9 @@
             <a href="#" aria-hidden="true">&times;</a>
           </div>
           <div class="sidenav-title">
+            <h3>
+              <a href="./index.html">BOOK-A-MEAL</a>
+            </h3>
             <div class="username-circle">
               <p>I</p>
             </div>
@@ -145,7 +148,11 @@
         <div class="order-misc">
           <p class="order-date">15/12/2017 07:45pm</p>
           <p>Status:
-            <span class="warning">Pending</span>
+            <select class="warning table-select">
+              <option class="success" value="Delivered">Delivered</option>
+              <option class="warning" value="Pending" selected>Pending</option>
+              <option class="danger" value="Canceled">Canceled</option>
+            </select>
           </p>
           <p>Mrs. Tola Olanipekun</p>
           <p>Address Provided: 4, Church Street, Yaba</p>

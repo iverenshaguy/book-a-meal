@@ -54,6 +54,10 @@ window.onload = function () {
     });
   }
 
+  // $('#dropdown-toggler').click(function (e) { 
+  //   $('.dropdown-content.profile').toggleClass('show');
+  // })
+
   if (dropdowns.length) for (let i = 0; i < dropdowns.length; i++) {
     dropdowns[i].addEventListener('click', function (e) {
       e.preventDefault();
@@ -82,6 +86,10 @@ window.onload = function () {
 
       if (e.target !== e.currentTarget && e.target.id === 'user-order-history') {
         window.location.href = './user-order-history.html'
+      }
+
+      if (e.target !== e.currentTarget && e.target.id === 'user-menu') {
+        window.location.href = './user-menu.html'
       }
 
       e.stopPropagation();
@@ -199,9 +207,9 @@ window.onload = function () {
       </div>
   
       <div class="form-input">
-        <label for="description">Description</label>
+        <label for="description">Description <span class="text-small">(Not more than 65 characters)</span></label>
         <br/>
-        <textarea rows="5" required id="description" name="description">${mealDesc}</textarea>
+        <textarea rows="2" required id="description" name="description" maxLength=65>${mealDesc}</textarea>
       </div>
   
       <div class="form-input-checkbox">
@@ -254,4 +262,13 @@ window.onload = function () {
     modalTitle.innerText = 'Delete Meal';
     modalBody.innerHTML = content;
   }
+
+  $('.table-select').on('change', function(e) {
+    if (e.target.value === 'Delivered') $(this).addClass('success')
+      .removeClass('warning').removeClass('danger');
+    if (e.target.value === 'Canceled') $(this).addClass('danger')
+      .removeClass('warning').removeClass('success');
+    if (e.target.value === 'Pending') $(this).addClass('warning')
+      .removeClass('success').removeClass('danger');
+  });
 }

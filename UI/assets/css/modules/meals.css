@@ -1,7 +1,6 @@
-.card,
 .meals .meal-card {
     min-width: 200px;
-    min-height: 200px;
+    min-height: 300px;
     box-sizing: border-box;
     color: #333;
     background-color: #FFFFFF;
@@ -9,16 +8,11 @@
     display: flex;
     flex-direction: column;
     border-radius: 5px;
+    position: relative;
 }
 
-.card-group {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 40px;
-    justify-content: space-evenly;
-    align-content: space-around;
-    align-items: center;
+.meals .meal-card.order-meal-card {
+    min-height: 380px;
 }
 
 .card-group .card,
@@ -142,10 +136,18 @@
 }
 
 .meals .meal-card .meal-card-body {
+    height: 100px;
     width: 100%;
-    display: none;
+    display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 10px;
+}
+
+.meals .meal-card.order-meal-card .meal-card-body {
+    height: 180px;
+    /* padding-bottom: 0; */
 }
 
 .meals .meal-card .meal-card-body h3,
@@ -158,8 +160,13 @@
 }
 
 .meals .meal-card .meal-card-action {
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .meals .meal-card .meal-card-action .btn {

@@ -1,0 +1,17 @@
+version: "2"
+
+checks:
+ return-statements:
+   enabled: false
+ similar-code:
+   enabled: false
+ identical-code:
+   enabled: false
+ file-lines:
+   enabled: false
+
+exclude_paths:
+- ".nyc_output/"
+- "node_modules/"
+- "coverage/"
+- "UI/"
