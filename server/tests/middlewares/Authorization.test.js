@@ -19,44 +19,41 @@ describe('Authorization Handler', () => {
   describe('Admin Auth', () => {
     it('sends error 401 for unauthenticated user', () => {
       const unAuthReq = { headers: { authorization: '' } };
-      Authorization.authorizeCaterer(unAuthReq, res, next);
+      Authorization.authorize(unAuthReq, res, next);
 
       assert(status.calledWith(401));
     });
 
     it('sends error 403 for forbidden user ie user that\'s not admin/caterer', () => {
       const forbReq = { headers: { authorization: userMockToken } };
-      Authorization.authorizeCaterer(forbReq, res, next);
+      const authorization = new Authorization('caterer');
+      authorization.authorizeRole(forbReq, res, next);
 
       assert(status.calledWith(403));
     });
 
     it('calls next for authenticated caterer', () => {
       const authReq = { headers: { authorization: adminMockToken } };
-      Authorization.authorizeCaterer(authReq, res, next);
+      const authorization = new Authorization('caterer');
+      authorization.authorizeRole(authReq, res, next);
 
       assert(next.called);
     });
   });
 
   describe('User Auth', () => {
-    it('sends error 401 for unauthenticated user', () => {
-      const unAuthReq = { headers: { authorization: '' } };
-      Authorization.authorizeUser(unAuthReq, res, next);
-
-      assert(status.calledWith(401));
-    });
-
     it('sends error 401 for wrong token', () => {
       const unAuthReq = { headers: { authorization: 'ooefoperopopeieropkldfkldf;okekf;l' } };
-      Authorization.authorizeUser(unAuthReq, res, next);
+      const authorization = new Authorization('user');
+      authorization.authorizeRole(unAuthReq, res, next);
 
       assert(status.calledWith(401));
     });
 
     it('calls next for authenticated user', () => {
       const authReq = { headers: { authorization: userMockToken } };
-      Authorization.authorizeUser(authReq, res, next);
+      const authorization = new Authorization('user');
+      authorization.authorizeRole(authReq, res, next);
 
       assert(next.called);
     });

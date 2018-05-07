@@ -13,19 +13,21 @@ describe('Order Routes: Add an Order', () => {
   const menu = {
     date: currentDay,
     meals: [
-      '72a3417e-45c8-4559-8b74-8b5a61be8614',
-      '8a65538d-f862-420e-bcdc-80743df06578',
-      'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
+      '81211c24-51c0-46ec-b1e0-18db55880958',
+      '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
+      'baa0412a-d167-4d2b-b1d8-404cb8f02631'
     ]
   };
 
   const newOrder = {
+    mealId: '81211c24-51c0-46ec-b1e0-18db55880958',
     deliveryAddress: '4, Church Street, Yaba',
     deliveryPhoneNo: '+2348134567890',
     quantity: 2
   };
 
   const orderwithoutQuantity = {
+    mealId: '81211c24-51c0-46ec-b1e0-18db55880958',
     deliveryAddress: '4, Church Street, Yaba',
     deliveryPhoneNo: '+2348134567890',
   };
@@ -38,13 +40,14 @@ describe('Order Routes: Add an Order', () => {
   };
 
   const orderWithExpiredMenu = {
-    menuId: 'f43f3d49-a6c9-476d-b65a-1af772ff0f36',
+    menuId: '1adfcfe7-c66d-42d2-82fd-39c1decd290a',
+    mealId: 'a3c35e8f-da7a-4113-aa01-a9c0fc088539',
     deliveryAddress: '4, Church Street, Yaba',
     deliveryPhoneNo: '+2348134567890',
     quantity: 2
   };
 
-  it('should add a menu for authenticated user, for the current day', (done) => {
+  it('add a current menu to test order', (done) => {
     request(app)
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
@@ -56,7 +59,7 @@ describe('Order Routes: Add an Order', () => {
         expect(res.body).to.include.keys('menuId');
         expect(res.body).to.include.keys('date');
         expect(res.body.date).to.equal(currentDay);
-        expect(res.body.meals[0].mealId).to.equal('72a3417e-45c8-4559-8b74-8b5a61be8614');
+        expect(res.body.meals[0].mealId).to.equal('81211c24-51c0-46ec-b1e0-18db55880958');
 
         if (err) return done(err);
         done();
@@ -75,7 +78,8 @@ describe('Order Routes: Add an Order', () => {
         expect(res.body).to.include.keys('userId');
         expect(res.body).to.include.keys('created');
         expect(res.body).to.include.keys('updated');
-        expect(res.body.menu).to.include.keys('meals');
+        expect(res.body.mealId).to.equal('81211c24-51c0-46ec-b1e0-18db55880958');
+        expect(res.body.menuId).to.equal(newMenuId);
 
         if (err) return done(err);
         done();
@@ -97,7 +101,7 @@ describe('Order Routes: Add an Order', () => {
       });
   });
 
-  it('should not add expired menu/future menu', (done) => {
+  it('should not add meal in expired menu/future menu', (done) => {
     request(app)
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
@@ -106,7 +110,7 @@ describe('Order Routes: Add an Order', () => {
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
         expect(res.body).to.be.an('object');
-        expect(res.body.error).to.equal('Menu is Unavailable');
+        expect(res.body.error).to.equal('Meal is unavailable');
 
         if (err) return done(err);
         done();
@@ -122,7 +126,7 @@ describe('Order Routes: Add an Order', () => {
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
         expect(res.body).to.be.an('object');
-        // expect(res.body.errors.menuId.msg).to.equal('Invalid ID');
+        expect(res.body.errors.mealId.msg).to.equal('MealId is required');
         expect(res.body.errors.deliveryAddress.msg).to.equal('Delivery Address cannot be empty');
         expect(res.body.errors.deliveryPhoneNo.msg).to.equal('Delivery Phone Number must be in the format +2348134567890');
 

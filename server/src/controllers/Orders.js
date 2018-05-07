@@ -1,22 +1,21 @@
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
-import Menu from './Menu';
-import Controller from './Controller';
+import mealsDB from '../../data/meals.json';
 import menuDB from '../../data/menu.json';
 import ordersDB from '../../data/orders.json';
 import errors from '../../data/errors.json';
 import Notifications from './Notifications';
 import trimValues from '../helpers/trimValues';
 import GetItems from '../middlewares/GetItems';
-import isMenuAvailable from '../helpers/isMenuAvailable';
-import orderIsExpired from '../helpers/orderIsExpired';
+import isMealAvailable from '../helpers/isMealAvailable';
+import isExpired from '../helpers/isExpired';
 
 /**
  * @exports
  * @class Orders
  * @extends Controller
  */
-class Orders extends Controller {
+class Orders {
   /**
    * Returns a list of Items
    * @method list
@@ -26,12 +25,12 @@ class Orders extends Controller {
    * @param {string} role
    * @returns {(function|object)} Function next() or JSON object
    */
-  static list(req, res, role) {
-    if (role === 'caterer') {
-      Orders.getCaterersOrders(req, res);
-    }
+  static list(req, res) {
+    const { role } = req.body;
 
-    Orders.getUsersOrders(req, res);
+    return role === 'caterer' ?
+      Orders.getCaterersOrders(req, res) :
+      Orders.getUsersOrders(req, res);
   }
 
   /**
@@ -43,15 +42,14 @@ class Orders extends Controller {
    * @returns {(function|object)} Function next() or JSON object
    */
   static getUsersOrders(req, res) {
-    // send error forbidden if user tries to get all orders in app
-    if (!req.query || req.query.date) {
-      return res.status(403).send({
-        error: errors['403']
-      });
-    }
+    const { body: { userId }, query: { date } } = req;
+    let list = ordersDB.filter(item => item.userId === userId);
 
-    const { user } = req.query;
-    const list = ordersDB.filter(item => item.userId === user);
+    // if date is provided in query, get orders that belong to user and were created on that date
+    if (date) {
+      const dateToFind = date === 'today' ? moment().format('YYYY-MM-DD') : date;
+      list = ordersDB.filter(item => item.created.includes(dateToFind) && item.userId === userId);
+    }
 
     return GetItems.items(req, res, list, 'orders');
   }
@@ -65,21 +63,21 @@ class Orders extends Controller {
    * @returns {(function|object)} Function next() or JSON object
    */
   static getCaterersOrders(req, res) {
-    let list = ordersDB;
+    const { body: { userId }, query: { date } } = req;
+    // get caterer's mealIds from mealsDB
+    const mealIdsArray = mealsDB.reduce((idArray, meal) => {
+      if (meal.userId === userId) idArray.push(meal.mealId);
+      return idArray;
+    }, []);
 
-    // if caterer tries to get all user's orders send 403 error
-    if (req.query.user) {
-      return res.status(403).send({
-        error: errors['403']
-      });
-    }
+    let list = ordersDB.filter(order => mealIdsArray.includes(order.mealId));
 
-    if (req.query.date) {
+    if (date) {
       // if date query was added, get all orders whose created at include the date
       // includes is used instead of equality because created at is a full date string
-      const { date } = req.query;
       const dateToFind = date === 'today' ? moment().format('YYYY-MM-DD') : date;
-      list = ordersDB.filter(item => item.created.includes(dateToFind));
+      list = ordersDB.filter(order => order.created.includes(dateToFind)
+        && mealIdsArray.includes(order.mealId));
     }
 
     return GetItems.items(req, res, list, 'orders');
@@ -94,14 +92,12 @@ class Orders extends Controller {
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  create(req, res, data) {
-    if (!isMenuAvailable(data.menuId)) {
-      res.status(422).send({ error: 'Menu is Unavailable' });
-    }
+  static create(req, res, data) {
+    if (!isMealAvailable(data.mealId)) res.status(422).send({ error: 'Meal is unavailable' });
 
     const trimmedData = trimValues(data);
     // generate random id
-    trimmedData[`${this.type}Id`] = uuidv4();
+    trimmedData.orderId = uuidv4();
 
     // fake userId, original to be gotten from jwt
     trimmedData.userId = 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac';
@@ -114,18 +110,20 @@ class Orders extends Controller {
     trimmedData.quantity = parseInt(trimmedData.quantity, 10) || 1;
 
     // update DB
-    this.database.push(trimmedData);
+    ordersDB.push(trimmedData);
 
     // push to notifications table
     // Caterer's for when an order is made
     Notifications.create({
       menuId: null,
       userId: '8356954a-9a42-4616-8079-887a73455a7f', // caterer id to notify caterer
-      orderId: '6ed0963f-9663-4fe2-8ad4-2f06c6294482',
+      orderId: trimmedData.orderId,
       message: 'Your menu was just ordered'
     });
 
-    return Orders.getOrderObject(res, trimmedData, 201);
+    const order = Orders.getOrderObject(trimmedData);
+
+    return res.status(201).send(order);
   }
 
   /**
@@ -137,20 +135,19 @@ class Orders extends Controller {
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  update(req, res, data) {
-    const itemIndex = this.database.findIndex(item => item.orderId === req.params.orderId);
+  static update(req, res, data) {
+    const { orderId } = req.params;
+    const itemIndex =
+      ordersDB.findIndex(item => item.orderId === orderId && item.userId === req.body.userId);
 
-    // return 404 error if index isn't found ie order doesnt exist
-    if (itemIndex === -1) {
-      return res.status(404).send({ error: errors[404] });
-    }
-
-    if (!isMenuAvailable(data.menuId)) {
-      res.status(422).send({ error: 'Menu is Unavailable' });
-    }
+    // return 404 error if order isn't found ie order doesnt exist
+    if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
 
     // check if order is expired and return response
-    orderIsExpired(res, this.database[itemIndex].menuId);
+    if (isExpired('order', ordersDB, orderId)) return res.status(422).send({ error: 'Order is expired' });
+
+    // check if meal is in the menu for the day
+    if (!isMealAvailable(data.mealId)) return res.status(422).send({ error: 'Meal is unavailable' });
 
     const trimmedData = trimValues(data);
     // update date
@@ -158,12 +155,14 @@ class Orders extends Controller {
     // real userId to be gotten from decoded token
     trimmedData.userId = 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac';
 
-    const oldOrder = this.database[itemIndex];
+    const oldOrder = ordersDB[itemIndex];
 
     // update db
-    this.database[itemIndex] = Object.assign({}, oldOrder, trimmedData);
+    ordersDB[itemIndex] = { ...oldOrder, ...trimmedData };
 
-    return Orders.getOrderObject(res, this.database[itemIndex], 200);
+    const order = Orders.getOrderObject(ordersDB[itemIndex]);
+
+    return res.status(200).send(order);
   }
 
   /**
@@ -175,19 +174,18 @@ class Orders extends Controller {
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  delete(req, res) {
-    const itemIndex = this.database
-      .findIndex(item => item.orderId === req.params.orderId);
+  static delete(req, res) {
+    const { orderId } = req.params;
+    const itemIndex =
+      ordersDB.findIndex(item => item.orderId === orderId && item.userId === req.body.userId);
 
     // return 404 error if index isn't found ie meal option doesnt exist
-    if (itemIndex === -1) {
-      return res.status(404).send({ error: errors[404] });
-    }
+    if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
 
     // check if order is expired and return response
-    orderIsExpired(res, this.database[itemIndex].menuId);
+    if (isExpired('order', ordersDB, orderId)) return res.status(422).send({ error: 'Order is expired' });
 
-    this.database.splice(itemIndex, 1);
+    ordersDB.splice(itemIndex, 1);
 
     return res.status(204).send();
   }
@@ -196,21 +194,18 @@ class Orders extends Controller {
    * Generated Order Object to be Returned as Response
    * @method getOrderObject
    * @memberof Orders
-   * @param {object} res
    * @param {object} order
-   * @param {number} statusCode
    * @returns {object} JSON object
    */
-  static getOrderObject(res, order, statusCode) {
-    const newOrder = Object.assign({}, order);
+  static getOrderObject(order) {
+    const newOrder = { ...order };
 
     // get menu from menuDB through menuId and replace ids with real meals
-    const menuObj = menuDB.find(menu => menu.menuId === newOrder.menuId);
-    menuObj.meals = Menu.getMealObject(menuObj.meals);
+    const mealObj = menuDB.find(menu => menu.menuId === newOrder.menuId);
 
-    newOrder.menu = menuObj;
+    newOrder.meal = mealObj;
 
-    return res.status(statusCode).send(newOrder);
+    return newOrder;
   }
 }
 

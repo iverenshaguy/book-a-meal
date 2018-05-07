@@ -16,20 +16,22 @@ describe('Order Routes: Modify an Order', () => {
   const menu = {
     date: currentDay,
     meals: [
-      '72a3417e-45c8-4559-8b74-8b5a61be8614',
-      '8a65538d-f862-420e-bcdc-80743df06578',
-      'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
+      '81211c24-51c0-46ec-b1e0-18db55880958',
+      '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
+      'baa0412a-d167-4d2b-b1d8-404cb8f02631'
     ]
   };
 
   const newOrder = {
+    mealId: '81211c24-51c0-46ec-b1e0-18db55880958',
     deliveryAddress: '4, Church Street, Yaba',
     deliveryPhoneNo: '+2348134567890',
     quantity: 4
   };
 
   const orderWithExpiredMenu = {
-    menuId: 'f43f3d49-a6c9-476d-b65a-1af772ff0f36',
+    menuId: '1adfcfe7-c66d-42d2-82fd-39c1decd290a',
+    mealId: 'a3c35e8f-da7a-4113-aa01-a9c0fc088539',
     deliveryAddress: '4, Church Street, Yaba',
     deliveryPhoneNo: '+2348134567890',
     quantity: 2
@@ -53,7 +55,6 @@ describe('Order Routes: Modify an Order', () => {
         expect(res.body).to.include.keys('menuId');
         expect(res.body).to.include.keys('date');
         expect(res.body.date).to.equal(currentDay);
-        expect(res.body.meals[0].mealId).to.equal('72a3417e-45c8-4559-8b74-8b5a61be8614');
 
         if (err) return done(err);
         done();
@@ -73,7 +74,6 @@ describe('Order Routes: Modify an Order', () => {
         expect(res.body).to.include.keys('userId');
         expect(res.body).to.include.keys('created');
         expect(res.body).to.include.keys('updated');
-        expect(res.body.menu).to.include.keys('meals');
 
         if (err) return done(err);
         done();
@@ -85,7 +85,7 @@ describe('Order Routes: Modify an Order', () => {
       .put(`/api/v1/orders/${newOrderId}`)
       .set('Accept', 'application/json')
       .set('authorization', userMockToken)
-      .send({ ...newOrder, menuId: newMenuId })
+      .send({ ...newOrder, mealId: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.include.keys('orderId');
@@ -93,7 +93,7 @@ describe('Order Routes: Modify an Order', () => {
         expect(res.body).to.include.keys('created');
         expect(res.body).to.include.keys('updated');
         expect(res.body.quantity).to.equal(4);
-        expect(res.body.menu).to.include.keys('meals');
+        expect(res.body.mealId).to.equal('36d525d1-efc9-4b75-9999-3e3d8dc64ce3');
 
         if (err) return done(err);
         done();
@@ -108,23 +108,23 @@ describe('Order Routes: Modify an Order', () => {
       .send({ ...newOrder, menuId: newMenuId })
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
-        expect(res.body.error).to.equal('Order is Expired');
+        expect(res.body.error).to.equal('Order is expired');
 
         if (err) return done(err);
         done();
       });
   });
 
-  it('should not add expired menu/future menu when modifying order', (done) => {
+  it('should not add meal in expired menu/future menu when modifying order', (done) => {
     request(app)
-      .put('/api/v1/orders/e5508b87-7975-493d-a900-3d47a69dad03')
+      .put(`/api/v1/orders/${newOrderId}`)
       .set('Accept', 'application/json')
       .set('authorization', userMockToken)
       .send(orderWithExpiredMenu)
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
         expect(res.body).to.be.an('object');
-        expect(res.body.error).to.equal('Menu is Unavailable');
+        expect(res.body.error).to.equal('Meal is unavailable');
 
         if (err) return done(err);
         done();
