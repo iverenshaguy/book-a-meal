@@ -1,49 +1,38 @@
-import Sequelize, { Model } from 'sequelize';
-import db from './index';
+import Sequelize from 'sequelize';
 
-const { sequelize } = db;
+export default (sequelize) => {
+  const Order = sequelize.define(
+    'Order',
+    {
+      orderId: {
+        type: Sequelize.UUID,
+        primaryKey: true,
+        defaultValue: Sequelize.UUIDV4,
+        allowNull: false
+      },
+      date: {
+        type: Sequelize.DATEONLY,
+        allowNull: false,
+        validate: {
+          isDate: true
+        }
+      },
+      deliveryAddress: {
+        type: Sequelize.TEXT,
+        allowNull: true
+      },
+      deliveryPhoneNo: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
+    },
+  );
 
-/**
- * @class Order
- * @extends Model
- */
-export default class Order extends Model {
-  /**
-   * @method associate
-   * @memberof Order
-   * @param {Object} models
-   * @returns {nothins} returns nothing
-   */
-  static associate(models) {
-    this.belongsTo(models.User, {
+  Order.associate = (models) => {
+    Order.belongsTo(models.User, {
       foreignKey: 'userId'
     });
-  }
-}
+  };
 
-Order.init(
-  {
-    orderId: {
-      type: Sequelize.UUID,
-      primaryKey: true,
-      defaultValue: Sequelize.UUIDV4,
-      allowNull: false
-    },
-    date: {
-      type: Sequelize.DATEONLY,
-      allowNull: false,
-      validate: {
-        isDate: true
-      }
-    },
-    deliveryAddress: {
-      type: Sequelize.TEXT,
-      allowNull: true
-    },
-    deliveryPhoneNo: {
-      type: Sequelize.STRING,
-      allowNull: true
-    },
-  },
-  { sequelize }
-);
+  return Order;
+};

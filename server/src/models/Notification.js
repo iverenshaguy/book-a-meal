@@ -1,49 +1,38 @@
-import Sequelize, { Model } from 'sequelize';
-import db from './index';
+import Sequelize from 'sequelize';
 
-const { sequelize } = db;
+export default (sequelize) => {
+  const Notification = sequelize.define(
+    'Notification',
+    {
+      notifId: {
+        type: Sequelize.UUID,
+        primaryKey: true,
+        defaultValue: Sequelize.UUIDV4,
+        allowNull: false
+      },
+      message: {
+        type: Sequelize.TEXT,
+        allowNull: false
+      },
+    },
+  );
 
-/**
- * @class Notification
- * @extends Model
- */
-export default class Notification extends Model {
-  /**
-   * @method associate
-   * @memberof Notification
-   * @param {Object} models
-   * @returns {nothins} returns nothing
-   */
-  static associate(models) {
-    this.belongsTo(models.User, {
+  Notification.associate = (models) => {
+    Notification.belongsTo(models.User, {
       foreignKey: 'userId',
       onDelete: 'CASCADE',
     });
 
-    this.belongsTo(models.Menu, {
+    Notification.belongsTo(models.Menu, {
       foreignKey: 'menuId',
       onDelete: 'CASCADE',
     });
 
-    this.belongsTo(models.Order, {
+    Notification.belongsTo(models.Order, {
       foreignKey: 'orderId',
       onDelete: 'CASCADE',
     });
-  }
-}
+  };
 
-Notification.init(
-  {
-    notifId: {
-      type: Sequelize.UUID,
-      primaryKey: true,
-      defaultValue: Sequelize.UUIDV4,
-      allowNull: false
-    },
-    message: {
-      type: Sequelize.TEXT,
-      allowNull: false
-    },
-  },
-  { sequelize }
-);
+  return Notification;
+};

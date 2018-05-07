@@ -1,64 +1,53 @@
-import Sequelize, { Model } from 'sequelize';
-import db from './index';
+import Sequelize from 'sequelize';
 
-const { sequelize } = db;
+export default (sequelize) => {
+  const OrderItem = sequelize.define(
+    'OrderItem',
+    {
+      orderItemId: {
+        type: Sequelize.UUID,
+        primaryKey: true,
+        defaultValue: Sequelize.UUIDV4,
+        allowNull: false
+      },
+      date: {
+        type: Sequelize.DATEONLY,
+        allowNull: false,
+        validate: {
+          isDate: true
+        }
+      },
+      quantity: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        default: 1,
+        validate: {
+          isInt: true,
+          min: 1
+        }
+      },
+      deliveryAddress: {
+        type: Sequelize.TEXT,
+        allowNull: true
+      },
+      deliveryPhoneNo: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
+    }
+  );
 
-/**
- * @class OrderItem
- * @extends Model
- */
-export default class OrderItem extends Model {
-  /**
-   * @method associate
-   * @memberof OrderItem
-   * @param {Object} models
-   * @returns {nothins} returns nothing
-   */
-  static associate(models) {
-    this.belongsTo(models.Meal, {
+  OrderItem.associate = (models) => {
+    OrderItem.belongsTo(models.Meal, {
       foreignKey: 'mealId',
       onDelete: 'CASCADE',
     });
 
-    this.belongsTo(models.Order, {
+    OrderItem.belongsTo(models.Order, {
       foreignKey: 'orderId',
       onDelete: 'CASCADE',
     });
-  }
-}
+  };
 
-OrderItem.init(
-  {
-    orderItemId: {
-      type: Sequelize.UUID,
-      primaryKey: true,
-      defaultValue: Sequelize.UUIDV4,
-      allowNull: false
-    },
-    date: {
-      type: Sequelize.DATEONLY,
-      allowNull: false,
-      validate: {
-        isDate: true
-      }
-    },
-    quantity: {
-      type: Sequelize.INTEGER,
-      allowNull: true,
-      default: 1,
-      validate: {
-        isInt: true,
-        min: 1
-      }
-    },
-    deliveryAddress: {
-      type: Sequelize.TEXT,
-      allowNull: true
-    },
-    deliveryPhoneNo: {
-      type: Sequelize.STRING,
-      allowNull: true
-    },
-  },
-  { sequelize }
-);
+  return OrderItem;
+};

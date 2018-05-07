@@ -45,8 +45,6 @@ describe('Order Routes: Modify an Order', () => {
         expect(res.statusCode).to.equal(201);
         expect(res.body).to.include.keys('orderId');
         expect(res.body).to.include.keys('userId');
-        expect(res.body).to.include.keys('created');
-        expect(res.body).to.include.keys('updated');
 
         if (err) return done(err);
         done();
@@ -70,8 +68,6 @@ describe('Order Routes: Modify an Order', () => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.include.keys('orderId');
         expect(res.body).to.include.keys('userId');
-        expect(res.body).to.include.keys('created');
-        expect(res.body).to.include.keys('updated');
         expect(res.body.meals[0].mealId).to.equal('36d525d1-efc9-4b75-9999-3e3d8dc64ce3');
 
         if (err) return done(err);

@@ -1,6 +1,5 @@
-import uuidv4 from 'uuid/v4';
 import moment from 'moment';
-import mealsDB from '../../data/meals.json';
+import db from '../models';
 import GetItems from '../middlewares/GetItems';
 import errors from '../../data/errors.json';
 
@@ -17,8 +16,10 @@ class Meals {
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
-  static list(req, res) {
-    return GetItems.items(req, res, mealsDB, 'meals');
+  static async list(req, res) {
+    const { userId } = req.body;
+    const mealList = await db.Meal.findAll({ where: { userId } });
+    return GetItems.items(req, res, mealList, 'meals');
   }
 
   /**
@@ -30,21 +31,16 @@ class Meals {
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  static create(req, res) {
+  static async create(req, res) {
     const newMeal = { ...req.body };
-    const today = moment().format();
-    const defaultDate = moment().format('YYYY-MM-DD');
-
+    delete newMeal.role;
     // date is either equal to today or given date
-    newMeal.date = newMeal.date || defaultDate;
-    // generate random id and created/updated date
-    newMeal.mealId = uuidv4();
-    newMeal.created = today;
-    newMeal.updated = today;
+    newMeal.date = newMeal.date || moment().format('YYYY-MM-DD');
+    newMeal.price = parseInt(newMeal.price, 10);
 
-    mealsDB.push(newMeal);
+    const meal = await db.Meal.create(newMeal, { include: [db.User] });
 
-    return res.status(201).send(newMeal);
+    return res.status(201).send(meal);
   }
 
   /**
@@ -56,31 +52,18 @@ class Meals {
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  static update(req, res) {
+  static async update(req, res) {
+    const { mealId } = req.params;
+    const { userId } = req.body;
     const data = { ...req.body };
-    const itemIndex = mealsDB
-      .findIndex(item => item.mealId === req.params.mealId &&
-        item.userId === req.body.userId);
+    const mealItem = await db.Meal.findOne({ where: { mealId, userId } });
 
-    // return 404 error if index isn't found ie meal option doesnt exist
-    if (itemIndex === -1) {
-      return res.status(404).send({ error: errors[404] });
-    }
+    // return 404 error if meal option doesnt exist
+    if (!mealItem) return res.status(404).send({ error: errors[404] });
 
-    // return meal item if no data was sent ie req.body is only poulated with userId && role
-    if (Object.keys(req.body).length === 2) return res.status(200).send(mealsDB[itemIndex]);
+    const updatedMeal = await mealItem.update({ ...mealItem, ...data });
 
-    const oldItem = mealsDB[itemIndex];
-
-    // delete id from data
-    delete req.body.mealId;
-
-    data.updated = moment().format();
-
-    // update old meal with trimmed new meal and assign it to it's position in the array
-    mealsDB[itemIndex] = { ...oldItem, ...data };
-
-    return res.status(200).send(mealsDB[itemIndex]);
+    return res.status(200).send(updatedMeal);
   }
 
   /**
@@ -89,20 +72,17 @@ class Meals {
    * @memberof Meals
    * @param {object} req
    * @param {object} res
-   * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  static delete(req, res) {
-    const itemIndex = mealsDB
-      .findIndex(item => item.mealId === req.params.mealId &&
-      item.userId === req.body.userId);
+  static async delete(req, res) {
+    const { mealId } = req.params;
+    const { userId } = req.body;
+    const mealItem = await db.Meal.findOne({ where: { mealId, userId } });
 
-    // return 404 error if index isn't found ie meal option doesnt exist
-    if (itemIndex === -1) {
-      return res.status(404).send({ error: errors[404] });
-    }
+    // return 404 error if meal option doesnt exist
+    if (!mealItem) return res.status(404).send({ error: errors[404] });
 
-    mealsDB.splice(itemIndex, 1);
+    await mealItem.destroy();
 
     return res.status(204).send();
   }

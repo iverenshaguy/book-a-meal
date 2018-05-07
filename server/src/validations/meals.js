@@ -25,7 +25,7 @@ export default {
       .optional({ checkFalsy: true })
       .isLength({ max: 255 })
       .withMessage('Text must not be more than 255 characters')
-      .matches(/^[a-z (),.'-]+$/i)
+      .matches(/^[a-z 0-9 (),.'-]+$/i)
       .withMessage('Text can only contain letters and the characters (,.\'-)'),
     check('price')
       .trim()
@@ -63,7 +63,7 @@ export default {
       .optional({ checkFalsy: true })
       .isLength({ max: 255 })
       .withMessage('Text must not be more than 255 characters')
-      .matches(/^[a-z (),.'-]+$/i)
+      .matches(/^[a-z 0-9 (),.'-]+$/i)
       .withMessage('Text can only contain letters and the characters (,.\'-)'),
     check('price')
       .trim()

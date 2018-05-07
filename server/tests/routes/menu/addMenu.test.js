@@ -4,12 +4,12 @@ import app from '../../../src/app';
 import menuDB from '../../../data/menu.json';
 import notAdmin from '../../utils/notAdmin';
 import unAuthorized from '../../utils/unAuthorized';
-import { addMenu as data, currentDay, twoDaysTime } from '../../utils/data';
+import { addMenu as data, currentDay } from '../../utils/data';
 import { tokens } from '../../utils/setup';
 
 const { foodCircleToken } = tokens;
 const {
-  menu1, menu2, menu3, badMenu
+  menu1, menu3, badMenu
 } = data;
 
 describe('Menu Routes: Add a new menu', () => {
@@ -44,42 +44,6 @@ describe('Menu Routes: Add a new menu', () => {
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
       .send(menu1)
-      .end((err, res) => {
-        expect(res.statusCode).to.equal(422);
-        expect(res.body.error).to.equal('Menu already exists for this day');
-
-        if (err) return done(err);
-        done();
-      });
-  });
-
-  it('should add a menu for authenticated user, for two days time and remove duplicates', (done) => {
-    request(app)
-      .post('/api/v1/menu')
-      .set('Accept', 'application/json')
-      .set('authorization', foodCircleToken)
-      .send(menu2)
-      .end((err, res) => {
-        expect(res.statusCode).to.equal(201);
-        expect(res.body).to.include.keys('menuId');
-        expect(res.body).to.include.keys('date');
-        expect(res.body).to.include.keys('created');
-        expect(res.body).to.include.keys('updated');
-        expect(res.body.date).to.equal(twoDaysTime);
-        expect(res.body.meals.length).to.equal(3);
-        expect(res.body.meals[0].mealId).to.equal('baa0412a-d167-4d2b-b1d8-404cb8f02631');
-
-        if (err) return done(err);
-        done();
-      });
-  });
-
-  it('should not add a menu for authenticated user, for two days time again', (done) => {
-    request(app)
-      .post('/api/v1/menu')
-      .set('Accept', 'application/json')
-      .set('authorization', foodCircleToken)
-      .send(menu2)
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
         expect(res.body.error).to.equal('Menu already exists for this day');

@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import Authorization from '../middlewares/Authorization';
-import UserModel from '../models/User';
+import db from '../models';
 
 /**
  * @exports
@@ -16,7 +16,7 @@ class Users {
    * @returns {(function|object)} Function next() or JSON object
    */
   static async register(req, res) {
-    const newUser = await UserModel.create({
+    const newUser = await db.User.create({
       firstname: req.body.firstname,
       businessName: req.body.businessName,
       email: req.body.email.toLowerCase(),
@@ -41,7 +41,7 @@ class Users {
    * @returns {(function|object)} Function next() or JSON object
    */
   static async login(req, res) {
-    return UserModel.findOne({ where: { email: req.body.email } }).then(async (authUser) => {
+    return db.User.findOne({ where: { email: req.body.email } }).then(async (authUser) => {
       if (!authUser) return res.status(401).send({ error: 'Invalid Credentials' });
 
       const valid = await Users.verifyPassword(req.body.password, authUser.password);

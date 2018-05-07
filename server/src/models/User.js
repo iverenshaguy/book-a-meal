@@ -1,76 +1,91 @@
-import Sequelize, { Model } from 'sequelize';
 import bcrypt from 'bcrypt';
-import db from './index';
+// import Menu from './index';
+// import Meal from './Meal';
+// import Menu from './Menu';
+// import Order from './Order';
+// import Notification from './Notification';
+
 
 const SALT_ROUNDS = 10;
-const { sequelize } = db;
 
-/**
- * @class User
- * @extends Model
- */
-class User extends Model {
-  /**
-   * @method hashPassword
-   * @memberof User
-   * @param {object} user
-   * @param {object} options
-   * @returns {snothing} returns nothing
-   */
-  static async hashPassword(user) {
+export default (sequelize, DataTypes) => {
+  const User = sequelize.define(
+    'User',
+    {
+      userId: {
+        type: DataTypes.UUID,
+        primaryKey: true,
+        defaultValue: DataTypes.UUIDV4,
+        allowNull: false
+      },
+      firstname: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: null,
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      role: {
+        type: DataTypes.ENUM('caterer', 'user'),
+        allowNull: false
+      },
+      businessName: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: null,
+      },
+      businessAddress: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: null,
+      },
+      businessPhoneNo: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: null,
+      },
+    },
+    {
+      hooks: {
+        beforeCreate: user => User.hashPassword(user)
+      }
+    }
+  );
+
+  User.associate = (models) => {
+    User.hasMany(models.Meal, {
+      foreignKey: 'userId',
+      as: 'meals'
+    });
+
+    User.hasMany(models.Menu, {
+      foreignKey: 'userId',
+      as: 'menu'
+    });
+
+    User.hasMany(models.Order, {
+      foreignKey: 'userId',
+      as: 'orders'
+    });
+
+    User.hasMany(models.Notification, {
+      foreignKey: 'userId',
+      as: 'notifications'
+    });
+  };
+
+  User.hashPassword = async (user) => {
     const hash = await bcrypt.hash(user.password, SALT_ROUNDS);
     return user.setDataValue('password', hash);
-  }
-}
+  };
 
-User.init(
-  {
-    userId: {
-      type: Sequelize.UUID,
-      primaryKey: true,
-      defaultValue: Sequelize.UUIDV4,
-      allowNull: false
-    },
-    firstname: {
-      type: Sequelize.STRING,
-      allowNull: true,
-      defaultValue: null,
-    },
-    email: {
-      type: Sequelize.STRING,
-      allowNull: false,
-      unique: true
-    },
-    password: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    role: {
-      type: Sequelize.ENUM('caterer', 'user'),
-      allowNull: false
-    },
-    businessName: {
-      type: Sequelize.STRING,
-      allowNull: true,
-      defaultValue: null,
-    },
-    businessAddress: {
-      type: Sequelize.STRING,
-      allowNull: true,
-      defaultValue: null,
-    },
-    businessPhoneNo: {
-      type: Sequelize.STRING,
-      allowNull: true,
-      defaultValue: null,
-    },
-  },
-  {
-    sequelize,
-    hooks: {
-      beforeCreate: User.hashPassword
-    }
-  }
-);
+  return User;
+};
 
-export default User;
