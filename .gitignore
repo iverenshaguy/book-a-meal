@@ -1,7 +1,7 @@
 .vscode
 node_modules
-gulpfile.js
 .gitattributes
 server/dist
 .nyc_output
 coverage
+.env

@@ -1,0 +1,75 @@
+
+
+export default {
+  up: (queryInterface) => {
+    queryInterface.bulkInsert('Users', [
+      {
+        userId: '8356954a-9a42-4616-8079-887a73455a7f',
+        firstname: null,
+        businessName: 'FoodCircle',
+        email: 'food@circle.com',
+        password: 'foodcircle',
+        passwordHash: '23456789dtfgyuhio567890',
+        businessPhone: '+2348134567890',
+        businessAddress: '4, Church Street, Yaba',
+        createdAt: '2018-05-06T14:34:90.000',
+        updatedAt: '2018-05-06T14:34:90.000',
+        role: 'caterer'
+      },
+      {
+        userId: '61bb8f8d-3b59-4294-acbc-16623818c391',
+        firstname: 'Iveren',
+        businessName: null,
+        email: 'iveren@shaguy.com',
+        password: 'iverenshaguy',
+        passwordHash: '23456789dtfgyuhio567890',
+        businessPhone: null,
+        businessAddress: null,
+        createdAt: '2018-05-06T14:34:90.000',
+        updatedAt: '2018-05-06T14:34:90.000',
+        role: 'user'
+      },
+      {
+        userId: 'e42c7ce0-958e-4368-adcb-e5d97dbbe5b7',
+        firstname: 'Olisa',
+        businessName: null,
+        email: 'olisa@emodi.com',
+        password: 'olisaemodi',
+        passwordHash: '23456789dtfgyuhio567890',
+        businessPhone: null,
+        businessAddress: null,
+        createdAt: '2018-05-06T14:34:90.000',
+        updatedAt: '2018-05-06T14:34:90.000',
+        role: 'user'
+      },
+      {
+        userId: 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac',
+        firstname: 'Emiola',
+        businessName: null,
+        email: 'emiola@olasanmi.com',
+        password: 'emiolaolasanmi',
+        passwordHash: '23456789dtfgyuhio567890',
+        businessPhone: null,
+        businessAddress: null,
+        createdAt: '2018-05-06T14:34:90.000',
+        updatedAt: '2018-05-06T14:34:90.000',
+        role: 'user'
+      },
+      {
+        userId: 'ac1b253c-6b33-439b-ab6f-805a4fdd2e05',
+        firstname: null,
+        businessName: 'BellyFill',
+        email: 'belly@fill.com',
+        password: 'bellyfil',
+        passwordHash: '23456789dtfgyuhio567890',
+        businessPhone: '+2348134567890',
+        businessAddress: '4, Church Street, Yaba',
+        createdAt: '2018-05-06T14:34:90.000',
+        updatedAt: '2018-05-06T14:34:90.000',
+        role: 'caterer'
+      }
+    ]);
+  },
+
+  down: queryInterface => queryInterface.bulkDelete('Users', null, {})
+};
