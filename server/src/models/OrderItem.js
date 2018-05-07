@@ -4,19 +4,6 @@ export default (sequelize) => {
   const OrderItem = sequelize.define(
     'OrderItem',
     {
-      orderItemId: {
-        type: Sequelize.UUID,
-        primaryKey: true,
-        defaultValue: Sequelize.UUIDV4,
-        allowNull: false
-      },
-      date: {
-        type: Sequelize.DATEONLY,
-        allowNull: false,
-        validate: {
-          isDate: true
-        }
-      },
       quantity: {
         type: Sequelize.INTEGER,
         allowNull: true,

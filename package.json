@@ -24,6 +24,7 @@
     "test:watch": "npm test --watch"
   },
   "dependencies": {
+    "babel-core": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
     "bcrypt": "^2.0.1",
@@ -45,7 +46,6 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.3",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-istanbul": "^4.1.6",

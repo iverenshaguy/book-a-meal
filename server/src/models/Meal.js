@@ -78,9 +78,9 @@ export default (sequelize) => {
       as: 'orderItems'
     });
 
-    Meal.hasMany(models.Menu, {
+    Meal.belongsToMany(models.Menu, {
+      through: models.MenuMeal,
       foreignKey: 'mealId',
-      as: 'menu'
     });
   };
 

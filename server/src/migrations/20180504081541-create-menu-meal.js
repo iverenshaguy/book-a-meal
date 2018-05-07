@@ -1,37 +1,31 @@
 export default {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('OrderItems', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('MenuMeals', {
     id: {
       allowNull: false,
       autoIncrement: true,
+      primaryKey: true,
       type: Sequelize.INTEGER
-    },
-    orderId: {
-      type: Sequelize.UUID,
-      onDelete: 'CASCADE',
-      allowNull: true,
-      references: {
-        model: 'Orders',
-        key: 'orderId',
-        as: 'orderId'
-      }
     },
     mealId: {
       type: Sequelize.UUID,
       onDelete: 'CASCADE',
       allowNull: true,
+      defaultValue: null,
       references: {
         model: 'Meals',
         key: 'mealId',
         as: 'mealId'
       }
     },
-    quantity: {
-      type: Sequelize.INTEGER,
+    menuId: {
+      type: Sequelize.UUID,
+      onDelete: 'CASCADE',
       allowNull: true,
-      default: 1,
-      validate: {
-        isInt: true,
-        min: 1
+      defaultValue: null,
+      references: {
+        model: 'Menu',
+        key: 'menuId',
+        as: 'menuId'
       }
     },
     createdAt: {
@@ -43,5 +37,6 @@ export default {
       type: Sequelize.DATE
     }
   }),
-  down: queryInterface => queryInterface.dropTable('OrderItems')
+
+  down: queryInterface => queryInterface.dropTable('MenuMeals')
 };

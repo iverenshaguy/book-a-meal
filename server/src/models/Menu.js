@@ -16,23 +16,20 @@ export default (sequelize) => {
         validate: {
           isDate: true
         }
-      },
-      meals: {
-        type: Sequelize.ARRAY(Sequelize.TEXT),
-        allowNull: false,
-        defaultValue: [],
-        validate: {
-          isUUID: 4,
-          notEmpty: true
-        }
       }
-    }
+    }, { freezeTableName: true }
   );
 
   Menu.associate = (models) => {
     Menu.belongsTo(models.User, {
       foreignKey: 'userId',
       onDelete: 'CASCADE',
+    });
+
+    Menu.belongsToMany(models.Meal, {
+      as: 'meals',
+      through: models.MenuMeal,
+      foreignKey: 'menuId',
     });
   };
 

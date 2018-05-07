@@ -3,50 +3,35 @@ export default {
     id: {
       allowNull: false,
       autoIncrement: true,
-      primaryKey: true,
       type: Sequelize.INTEGER
+    },
+    notifId: {
+      type: Sequelize.UUID,
+      primaryKey: true,
+      defaultValue: Sequelize.UUIDV4,
+      allowNull: false
     },
     userId: {
       type: Sequelize.UUID,
       onDelete: 'CASCADE',
       allowNull: true,
-      defaultValue: null,
-      references: {
-        model: 'Users',
-        key: 'userId',
-        as: 'userId'
-      }
+      defaultValue: null
     },
     menuId: {
       type: Sequelize.UUID,
       onDelete: 'CASCADE',
       allowNull: true,
-      defaultValue: null,
-      references: {
-        model: 'Menu',
-        key: 'menuId',
-        as: 'menuId'
-      }
+      defaultValue: null
     },
     orderId: {
       type: Sequelize.UUID,
       onDelete: 'CASCADE',
       allowNull: true,
-      defaultValue: null,
-      references: {
-        model: 'Orders',
-        key: 'orderId',
-        as: 'orderId'
-      }
+      defaultValue: null
     },
-    firstName: {
-      type: Sequelize.STRING
-    },
-    lastName: {
-      type: Sequelize.STRING
-    },
-    email: {
-      type: Sequelize.STRING
+    message: {
+      type: Sequelize.TEXT,
+      allowNull: false
     },
     createdAt: {
       allowNull: false,
