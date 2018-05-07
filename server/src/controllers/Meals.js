@@ -31,8 +31,8 @@ class Meals {
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  static create(req, res, data) {
-    const trimmedData = trimValues(data);
+  static create(req, res) {
+    const trimmedData = trimValues(req.body);
     // generate random id and created/updated date
     trimmedData.mealId = uuidv4();
     trimmedData.created = moment().format();
@@ -52,7 +52,7 @@ class Meals {
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  static update(req, res, data) {
+  static update(req, res) {
     const itemIndex = mealsDB
       .findIndex(item => item.mealId === req.params.mealId &&
         item.userId === req.body.userId);
@@ -65,9 +65,9 @@ class Meals {
     const oldItem = mealsDB[itemIndex];
 
     // delete id from data
-    delete data.mealId;
+    delete req.body.mealId;
 
-    const trimmedData = trimValues(data);
+    const trimmedData = trimValues(req.body);
     trimmedData.updated = moment().format();
 
     // update old meal with trimmed new meal and assign it to it's position in the array

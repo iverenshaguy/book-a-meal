@@ -28,13 +28,12 @@ class Users {
    * @memberof Users
    * @param {object} req
    * @param {object} res
-   * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  static async register(req, res, data) {
+  static async register(req, res) {
     // encrypt password
     const hash = await PasswordHash.hashPassword(req.body.password);
-    const newUser = Object.assign({}, defaultUserObject, data);
+    const newUser = { ...defaultUserObject, ...req.body };
     newUser.passwordHash = hash;
     newUser.email = req.body.email.toLowerCase();
     newUser.role = req.body.role.toLowerCase();
@@ -60,12 +59,11 @@ class Users {
    * @memberof Users
    * @param {object} req
    * @param {object} res
-   * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    */
-  static login(req, res, data) {
+  static login(req, res) {
     const authUser = usersDB
-      .find(user => user.email === data.email && user.password === data.password);
+      .find(user => user.email === req.body.email && user.password === req.body.password);
 
     if (!authUser) {
       return res.status(401).send({
@@ -73,7 +71,7 @@ class Users {
       });
     }
 
-    const user = Object.assign({}, authUser);
+    const user = { ...authUser };
 
     delete user.password;
     delete user.passwordHash;
