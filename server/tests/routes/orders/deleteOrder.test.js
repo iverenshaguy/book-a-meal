@@ -5,7 +5,10 @@ import notFound from '../../utils/notFound';
 import invalidID from '../../utils/invalidID';
 import menuDB from '../../../data/menu.json';
 import unAuthorized from '../../utils/unAuthorized';
-import { addOrder, currentDay, userMockToken, adminMockToken } from '../../utils/data';
+import { addOrder, currentDay } from '../../utils/data';
+import { tokens } from '../../utils/setup';
+
+const { foodCircleToken, emiolaToken } = tokens;
 
 const { newOrder, menu } = addOrder;
 
@@ -16,7 +19,7 @@ describe('Order Routes: Delete an Order', () => {
     request(app)
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send(menu)
       .end((err, res) => {
         newMenuId = res.body.menuId;
@@ -34,7 +37,7 @@ describe('Order Routes: Delete an Order', () => {
     request(app)
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
-      .set('authorization', userMockToken)
+      .set('authorization', emiolaToken)
       .send({ ...newOrder, menuId: newMenuId })
       .end((err, res) => {
         newOrderId = res.body.orderId;
@@ -60,7 +63,7 @@ describe('Order Routes: Delete an Order', () => {
     request(app)
       .delete(`/api/v1/orders/${newOrderId}`)
       .set('Accept', 'application/json')
-      .set('authorization', userMockToken)
+      .set('authorization', emiolaToken)
       .end((err, res) => {
         expect(res.statusCode).to.equal(204);
         expect(res.body).to.deep.equal({});
@@ -74,7 +77,7 @@ describe('Order Routes: Delete an Order', () => {
     request(app)
       .delete('/api/v1/orders/fb097bde-5959-45ff-8e21-51184fa60c25')
       .set('Accept', 'application/json')
-      .set('authorization', userMockToken)
+      .set('authorization', emiolaToken)
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
         expect(res.body.error).to.equal('Order is expired');
@@ -86,12 +89,12 @@ describe('Order Routes: Delete an Order', () => {
 
   invalidID(
     'should return 422 error for invalid menu id', 'orderId',
-    request(app), 'delete', undefined, '/api/v1/orders/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', userMockToken
+    request(app), 'delete', undefined, '/api/v1/orders/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', emiolaToken
   );
 
   notFound(
     'should return 404 error for non-existent menu id',
-    request(app), 'delete', undefined, '/api/v1/orders/9ce447be-ee46-424e-82b8-ae4160e795b4', userMockToken
+    request(app), 'delete', undefined, '/api/v1/orders/9ce447be-ee46-424e-82b8-ae4160e795b4', emiolaToken
   );
 
   unAuthorized(

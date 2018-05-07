@@ -66,6 +66,43 @@ export default {
       passwordConfirm: 'foodcircle',
       businessPhoneNo: '+234813456',
     },
+
+    wrongRoleUserData: {
+      role: 'person',
+      firstname: 'Favour{}',
+      email: 'favour@shaguy.com',
+      password: 'favourshaguy',
+      passwordConfirm: 'favourshaguy'
+    },
+
+    wrongLengthCatererData: {
+      role: 'caterer',
+      businessName: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+      Aenean malesuada lorem non elit cursus, non sodales orci volutpat. 
+      Suspendisse eleifend sed libero dignissim mollis. Nullam imperdiet`,
+      email: 'wecook@cook.com',
+      password: 'wecookgoofood',
+      passwordConfirm: 'wecookgoofood',
+      businessAddress: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+      Aenean malesuada lorem non elit cursus, non sodales orci volutpat. 
+      Suspendisse eleifend sed libero dignissim mollis. Nullam imperdiet 
+      lorem dui, at ultrices purus lacinia in. Integer consequat eros consequat, 
+      ornare felis et, faucibus diam. Suspendisse et consequat diam. 
+      Duis id tincidunt diam. Nulla ac quam mattis, congue leo vel, rutrum elit. Sed id dolor
+       ut lacus vehicula vulputate. Donec dui ex, fringilla vel facilisis a, iaculis id sem`,
+    },
+
+    wrongCatererDataFormat: {
+      role: 'caterer',
+      firstname: 'Favour',
+      businessName: 'ijjjk89877jjjk',
+      businessPhoneNo: 'ijjjk89877jjjk',
+      businessAddress: 'uiiowe,ksdyuil&9jk',
+    },
+
+    longFirstName: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+    Aenean malesuada lorem non elit cursus, non sodales orci volutpat. 
+    Suspendisse eleifend sed libero dignissim mollis. Nullam imperdiet`,
   },
 
   addMeal: {

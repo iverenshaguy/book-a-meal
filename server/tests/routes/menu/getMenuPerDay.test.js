@@ -2,7 +2,10 @@ import request from 'supertest';
 import { expect } from 'chai';
 import app from '../../../src/app';
 import menuDB from '../../../data/menu.json';
-import { addMenu as data, currentDay, adminMockToken } from '../../utils/data';
+import { addMenu as data, currentDay } from '../../utils/data';
+import { tokens } from '../../utils/setup';
+
+const { foodCircleToken } = tokens;
 
 const { menu1 } = data;
 
@@ -11,7 +14,7 @@ describe('Menu Routes: Get the menu specific day', () => {
     request(app)
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send(menu1)
       .end((err, res) => {
         expect(res.statusCode).to.equal(201);

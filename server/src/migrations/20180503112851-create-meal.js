@@ -14,7 +14,7 @@ export default {
     userId: {
       type: Sequelize.UUID,
       onDelete: 'CASCADE',
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'Users',
         key: 'userId',
@@ -54,7 +54,7 @@ export default {
       type: Sequelize.TEXT,
       allowNull: true
     },
-    forVegetarian: {
+    forVegetarians: {
       type: Sequelize.BOOLEAN,
       allowNull: true,
       defaultValue: false,

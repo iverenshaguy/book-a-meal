@@ -5,8 +5,10 @@ import notAdmin from '../../utils/notAdmin';
 import notFound from '../../utils/notFound';
 import invalidID from '../../utils/invalidID';
 import unAuthorized from '../../utils/unAuthorized';
-import { editMeal as data, adminMockToken } from '../../utils/data';
+import { editMeal as data } from '../../utils/data';
+import { tokens } from '../../utils/setup';
 
+const { foodCircleToken } = tokens;
 const { newMeal, badMeal } = data;
 
 describe('Meal Routes: Edit a meal option', () => {
@@ -14,7 +16,7 @@ describe('Meal Routes: Edit a meal option', () => {
     request(app)
       .put('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send(newMeal)
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
@@ -29,7 +31,7 @@ describe('Meal Routes: Edit a meal option', () => {
     request(app)
       .put('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send()
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
@@ -44,7 +46,7 @@ describe('Meal Routes: Edit a meal option', () => {
     request(app)
       .put('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send(badMeal)
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
@@ -61,12 +63,12 @@ describe('Meal Routes: Edit a meal option', () => {
 
   invalidID(
     'should return 422 error for invalid meal id', 'mealId',
-    request(app), 'put', newMeal, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', adminMockToken
+    request(app), 'put', newMeal, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', foodCircleToken
   );
 
   notFound(
     'should return 404 error for non-existent meal id',
-    request(app), 'put', newMeal, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed539', adminMockToken
+    request(app), 'put', newMeal, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed539', foodCircleToken
   );
 
   notAdmin(

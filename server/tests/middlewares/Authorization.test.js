@@ -1,6 +1,14 @@
 import sinon from 'sinon';
 import { assert } from 'chai';
+import {
+  tokens,
+  expiredToken,
+  invalidToken,
+  wrongSecretToken
+} from '../utils/setup';
 import Authorization from '../../src/middlewares/Authorization';
+
+const { emiolaToken, foodCircleToken } = tokens;
 
 // mock server response
 const res = {
@@ -12,8 +20,6 @@ const res = {
 
 const status = sinon.spy(res, 'status');
 const next = sinon.stub();
-const userMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
-const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
 
 describe('Authorization Handler', () => {
   describe('Admin Auth', () => {
@@ -24,8 +30,8 @@ describe('Authorization Handler', () => {
       assert(status.calledWith(401));
     });
 
-    it('sends error 403 for forbidden user ie user that\'s not admin/caterer', () => {
-      const forbReq = { headers: { authorization: userMockToken } };
+    it('sends error 403 for forbidden user ie user that\'s not admin', () => {
+      const forbReq = { body: { role: 'user' }, headers: { authorization: emiolaToken } };
       const authorization = new Authorization('caterer');
       authorization.authorizeRole(forbReq, res, next);
 
@@ -33,7 +39,7 @@ describe('Authorization Handler', () => {
     });
 
     it('calls next for authenticated caterer', () => {
-      const authReq = { headers: { authorization: adminMockToken } };
+      const authReq = { body: { role: 'caterer' }, headers: { authorization: foodCircleToken } };
       const authorization = new Authorization('caterer');
       authorization.authorizeRole(authReq, res, next);
 
@@ -42,16 +48,29 @@ describe('Authorization Handler', () => {
   });
 
   describe('User Auth', () => {
-    it('sends error 401 for wrong token', () => {
-      const unAuthReq = { headers: { authorization: 'ooefoperopopeieropkldfkldf;okekf;l' } };
-      const authorization = new Authorization('user');
-      authorization.authorizeRole(unAuthReq, res, next);
+    it('sends error 500 for wrong token secret', () => {
+      const unAuthReq = { headers: { authorization: wrongSecretToken } };
+      Authorization.authorize(unAuthReq, res, next);
+
+      assert(status.calledWith(500));
+    });
+
+    it('sends error 403 for invalid token', () => {
+      const unAuthReq = { headers: { authorization: invalidToken } };
+      Authorization.authorize(unAuthReq, res, next);
+
+      assert(status.calledWith(403));
+    });
+
+    it('sends error 401 for expired token', () => {
+      const unAuthReq = { headers: { authorization: expiredToken } };
+      Authorization.authorize(unAuthReq, res, next);
 
       assert(status.calledWith(401));
     });
 
     it('calls next for authenticated user', () => {
-      const authReq = { headers: { authorization: userMockToken } };
+      const authReq = { body: { role: 'user' }, headers: { authorization: emiolaToken } };
       const authorization = new Authorization('user');
       authorization.authorizeRole(authReq, res, next);
 

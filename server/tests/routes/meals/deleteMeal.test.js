@@ -5,14 +5,16 @@ import notAdmin from '../../utils/notAdmin';
 import notFound from '../../utils/notFound';
 import invalidID from '../../utils/invalidID';
 import unAuthorized from '../../utils/unAuthorized';
-import { adminMockToken } from '../../utils/data';
+import { tokens } from '../../utils/setup';
+
+const { foodCircleToken } = tokens;
 
 describe('Meal Routes: Delete a meal option', () => {
   it('should delete a meal for authenticated user', (done) => {
     request(app)
       .delete('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .end((err, res) => {
         expect(res.statusCode).to.equal(204);
         expect(res.body).to.deep.equal({});
@@ -24,12 +26,12 @@ describe('Meal Routes: Delete a meal option', () => {
 
   invalidID(
     'should return 422 error for invalid meal id', 'mealId',
-    request(app), 'delete', undefined, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', adminMockToken
+    request(app), 'delete', undefined, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', foodCircleToken
   );
 
   notFound(
     'should return 404 error for non-existent meal id',
-    request(app), 'delete', undefined, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed539', adminMockToken
+    request(app), 'delete', undefined, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed539', foodCircleToken
   );
 
   notAdmin(

@@ -1,11 +1,11 @@
 export default {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('Menu', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('Orders', {
     id: {
       allowNull: false,
       autoIncrement: true,
       type: Sequelize.INTEGER
     },
-    menuId: {
+    orderId: {
       type: Sequelize.UUID,
       primaryKey: true,
       defaultValue: Sequelize.UUIDV4,
@@ -13,8 +13,7 @@ export default {
     },
     userId: {
       type: Sequelize.UUID,
-      onDelete: 'CASCADE',
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'Users',
         key: 'userId',
@@ -28,14 +27,13 @@ export default {
         isDate: true
       }
     },
-    meals: {
-      type: Sequelize.ARRAY(Sequelize.TEXT),
-      allowNull: false,
-      defaultValue: [],
-      validate: {
-        isUUID: 4,
-        notEmpty: true
-      }
+    deliveryAddress: {
+      type: Sequelize.TEXT,
+      allowNull: true
+    },
+    deliveryPhoneNo: {
+      type: Sequelize.STRING,
+      allowNull: true
     },
     createdAt: {
       allowNull: false,
@@ -46,5 +44,5 @@ export default {
       type: Sequelize.DATE
     }
   }),
-  down: queryInterface => queryInterface.dropTable('Menu')
+  down: queryInterface => queryInterface.dropTable('Orders')
 };

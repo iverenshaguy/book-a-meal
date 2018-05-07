@@ -2,7 +2,9 @@ import request from 'supertest';
 import { expect } from 'chai';
 import app from '../../../src/app';
 import unAuthorized from '../../utils/unAuthorized';
-import { userMockToken, adminMockToken } from '../../utils/data';
+import { tokens } from '../../utils/setup';
+
+const { foodCircleToken, emiolaToken, fakeUserToken } = tokens;
 
 describe('Order Routes: Get All Orders', () => {
   describe('Get Caterer Orders', () => {
@@ -10,7 +12,7 @@ describe('Order Routes: Get All Orders', () => {
       request(app)
         .get('/api/v1/orders')
         .set('Accept', 'application/json')
-        .set('authorization', adminMockToken)
+        .set('authorization', foodCircleToken)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body.orders.length).to.equal(1);
@@ -27,7 +29,7 @@ describe('Order Routes: Get All Orders', () => {
       request(app)
         .get('/api/v1/orders?date=2018-05-15')
         .set('Accept', 'application/json')
-        .set('authorization', adminMockToken)
+        .set('authorization', foodCircleToken)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body.orders.length).to.equal(1);
@@ -43,7 +45,7 @@ describe('Order Routes: Get All Orders', () => {
       request(app)
         .get('/api/v1/orders?date=today')
         .set('Accept', 'application/json')
-        .set('authorization', adminMockToken)
+        .set('authorization', foodCircleToken)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body.orders.length).to.equal(0);
@@ -57,7 +59,7 @@ describe('Order Routes: Get All Orders', () => {
       request(app)
         .get('/api/v1/orders')
         .set('Accept', 'application/json')
-        .set('authorization', 'klopoopppppppjjlklklkjjk66788898')
+        .set('authorization', fakeUserToken)
         .end((err, res) => {
           expect(res.statusCode).to.equal(401);
           expect(res.body.error).to.equal('Unauthorized');
@@ -78,7 +80,7 @@ describe('Order Routes: Get All Orders', () => {
       request(app)
         .get('/api/v1/orders')
         .set('Accept', 'application/json')
-        .set('authorization', userMockToken)
+        .set('authorization', emiolaToken)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body.orders.length).to.equal(1);
@@ -93,7 +95,7 @@ describe('Order Routes: Get All Orders', () => {
       request(app)
         .get('/api/v1/orders?date=today')
         .set('Accept', 'application/json')
-        .set('authorization', userMockToken)
+        .set('authorization', emiolaToken)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body.orders.length).to.equal(0);
@@ -107,7 +109,7 @@ describe('Order Routes: Get All Orders', () => {
       request(app)
         .get('/api/v1/orders?date=2018-05-15')
         .set('Accept', 'application/json')
-        .set('authorization', userMockToken)
+        .set('authorization', emiolaToken)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body.orders.length).to.equal(1);

@@ -20,9 +20,11 @@ before_install:
   - export PATH="$HOME/.yarn/bin:$PATH"
 
 before_script:
+  - psql -c 'create database book_a_meal_test;' -U postgres
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
+  - npm run build
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

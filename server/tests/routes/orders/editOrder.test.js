@@ -5,7 +5,10 @@ import notFound from '../../utils/notFound';
 import invalidID from '../../utils/invalidID';
 import menuDB from '../../../data/menu.json';
 import unAuthorized from '../../utils/unAuthorized';
-import { addOrder, currentDay, userMockToken, adminMockToken } from '../../utils/data';
+import { addOrder, currentDay } from '../../utils/data';
+import { tokens } from '../../utils/setup';
+
+const { foodCircleToken, emiolaToken } = tokens;
 
 const { newOrder, badOrder, menu } = addOrder;
 
@@ -17,7 +20,7 @@ describe('Order Routes: Modify an Order', () => {
     request(app)
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send(menu)
       .end((err, res) => {
         newMenuId = res.body.menuId;
@@ -35,7 +38,7 @@ describe('Order Routes: Modify an Order', () => {
     request(app)
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
-      .set('authorization', userMockToken)
+      .set('authorization', emiolaToken)
       .send(newOrder)
       .end((err, res) => {
         newOrderId = res.body.orderId;
@@ -61,7 +64,7 @@ describe('Order Routes: Modify an Order', () => {
     request(app)
       .put(`/api/v1/orders/${newOrderId}`)
       .set('Accept', 'application/json')
-      .set('authorization', userMockToken)
+      .set('authorization', emiolaToken)
       .send({ ...newOrder, meals: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
@@ -80,7 +83,7 @@ describe('Order Routes: Modify an Order', () => {
     request(app)
       .put('/api/v1/orders/fb097bde-5959-45ff-8e21-51184fa60c25')
       .set('Accept', 'application/json')
-      .set('authorization', userMockToken)
+      .set('authorization', emiolaToken)
       .send(newOrder)
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
@@ -95,7 +98,7 @@ describe('Order Routes: Modify an Order', () => {
     request(app)
       .put('/api/v1/orders/e544248c-145c-4145-b165-239658857637')
       .set('Accept', 'application/json')
-      .set('authorization', userMockToken)
+      .set('authorization', emiolaToken)
       .send({ ...badOrder, date: '' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
@@ -112,12 +115,12 @@ describe('Order Routes: Modify an Order', () => {
 
   invalidID(
     'should return 422 error for invalid menu id', 'orderId',
-    request(app), 'put', { ...newOrder, menuId: newMenuId }, '/api/v1/orders/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', userMockToken
+    request(app), 'put', { ...newOrder, menuId: newMenuId }, '/api/v1/orders/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', emiolaToken
   );
 
   notFound(
     'should return 404 error for non-existent menu id',
-    request(app), 'put', { ...newOrder, menuId: '8356954a-9a42-4616-8079-887a73455a7f' }, '/api/v1/orders/9ce447be-ee46-424e-82b8-ae4160e795b4', userMockToken
+    request(app), 'put', { ...newOrder, menuId: '8356954a-9a42-4616-8079-887a73455a7f' }, '/api/v1/orders/9ce447be-ee46-424e-82b8-ae4160e795b4', emiolaToken
   );
 
   unAuthorized(

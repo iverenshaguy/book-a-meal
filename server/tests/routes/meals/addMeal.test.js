@@ -3,8 +3,10 @@ import { expect } from 'chai';
 import app from '../../../src/app';
 import notAdmin from '../../utils/notAdmin';
 import unAuthorized from '../../utils/unAuthorized';
-import { addMeal as data, adminMockToken } from '../../utils/data';
+import { addMeal as data } from '../../utils/data';
+import { tokens } from '../../utils/setup';
 
+const { foodCircleToken } = tokens;
 const { newMeal, badMeal } = data;
 
 describe('Meal Routes: Add a meal option', () => {
@@ -12,7 +14,7 @@ describe('Meal Routes: Add a meal option', () => {
     request(app)
       .post('/api/v1/meals')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send(newMeal)
       .end((err, res) => {
         expect(res.statusCode).to.equal(201);
@@ -30,7 +32,7 @@ describe('Meal Routes: Add a meal option', () => {
     request(app)
       .post('/api/v1/meals')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send(badMeal)
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
@@ -49,7 +51,7 @@ describe('Meal Routes: Add a meal option', () => {
     request(app)
       .post('/api/v1/meals')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send({ ...badMeal, price: 0 })
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
@@ -65,7 +67,7 @@ describe('Meal Routes: Add a meal option', () => {
     request(app)
       .post('/api/v1/meals')
       .set('Accept', 'application/json')
-      .set('authorization', adminMockToken)
+      .set('authorization', foodCircleToken)
       .send({ ...badMeal, price: -25 })
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);

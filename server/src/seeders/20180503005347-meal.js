@@ -9,8 +9,8 @@ export default {
         price: 1500,
         imageURL: 'http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg',
         forVegetarians: false,
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       },
       {
         userId: '8356954a-9a42-4616-8079-887a73455a7f',
@@ -20,8 +20,8 @@ export default {
         price: 1200,
         imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
         forVegetarians: true,
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       },
       {
         userId: '8356954a-9a42-4616-8079-887a73455a7f',
@@ -31,8 +31,8 @@ export default {
         price: 2000,
         imageURL: 'https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg',
         forVegetarians: false,
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       },
       {
         userId: '8356954a-9a42-4616-8079-887a73455a7f',
@@ -42,8 +42,8 @@ export default {
         price: 1200,
         imageURL: 'http://sisijemimah.com/wp-content/uploads/2015/08/IMG_8335.jpg',
         forVegetarians: false,
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       },
       {
         userId: 'ac1b253c-6b33-439b-ab6f-805a4fdd2e05',
@@ -53,8 +53,8 @@ export default {
         price: 2000,
         imageURL: 'http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg',
         forVegetarians: false,
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       },
       {
         userId: '8356954a-9a42-4616-8079-887a73455a7f',
@@ -64,8 +64,8 @@ export default {
         price: 1200,
         imageURL: 'http://www.ndtv.com/cooks/images/shawarma%20new.jpg',
         forVegetarians: false,
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       },
       {
         userId: '8356954a-9a42-4616-8079-887a73455a7f',
@@ -75,8 +75,8 @@ export default {
         price: 2000,
         imageURL: 'http://www.kalakutahgrills.com/wp-content/uploads/2017/02/my-pics-group-3-007.jpg',
         forVegetarians: false,
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       },
       {
         userId: '8356954a-9a42-4616-8079-887a73455a7f',
@@ -86,8 +86,8 @@ export default {
         price: 1200,
         imageURL: 'https://i0.wp.com/www.eatingnigerian.com/wp-content/uploads/2016/08/Yam-and-Plantain-Pottage-21.jpg',
         forVegetarians: false,
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       },
       {
         userId: 'ac1b253c-6b33-439b-ab6f-805a4fdd2e05',
@@ -97,8 +97,8 @@ export default {
         price: 2000,
         imageURL: 'http://koalaghana.com/wp-content/uploads/DSC02053.jpg',
         forVegetarians: false,
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       },
       {
         userId: '8356954a-9a42-4616-8079-887a73455a7f',
@@ -108,8 +108,8 @@ export default {
         price: 1200,
         imageURL: 'https://lagosmums.com/wp-content/uploads/2015/06/Jollof-Spaghetti.jpeg',
         forVegetarians: false,
-        createdAt: '2018-05-06T14:34:90.000',
-        updatedAt: '2018-05-06T14:34:90.000'
+        createdAt: '2018-05-01T00:47:03.687Z',
+        updatedAt: '2018-05-01T00:47:03.687Z'
       }
     ]);
   },

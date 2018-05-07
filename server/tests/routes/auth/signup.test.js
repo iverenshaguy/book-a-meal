@@ -4,45 +4,10 @@ import app from '../../../src/app';
 import { signup as signupData } from '../../utils/data';
 
 const {
-  rightUserData, rightCatererData, wrongUserData, wrongCatererData
+  rightUserData, rightCatererData, wrongUserData, wrongCatererData,
+  wrongRoleUserData, wrongLengthCatererData,
+  wrongCatererDataFormat, longFirstName
 } = signupData;
-
-const wrongRoleUserData = {
-  role: 'person',
-  firstname: 'Favour{}',
-  email: 'favour@shaguy.com',
-  password: 'favourshaguy',
-  passwordConfirm: 'favourshaguy'
-};
-
-const wrongLengthCatererData = {
-  role: 'caterer',
-  businessName: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-  Aenean malesuada lorem non elit cursus, non sodales orci volutpat. 
-  Suspendisse eleifend sed libero dignissim mollis. Nullam imperdiet`,
-  email: 'wecook@cook.com',
-  password: 'wecookgoofood',
-  passwordConfirm: 'wecookgoofood',
-  businessAddress: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-  Aenean malesuada lorem non elit cursus, non sodales orci volutpat. 
-  Suspendisse eleifend sed libero dignissim mollis. Nullam imperdiet 
-  lorem dui, at ultrices purus lacinia in. Integer consequat eros consequat, 
-  ornare felis et, faucibus diam. Suspendisse et consequat diam. 
-  Duis id tincidunt diam. Nulla ac quam mattis, congue leo vel, rutrum elit. Sed id dolor
-   ut lacus vehicula vulputate. Donec dui ex, fringilla vel facilisis a, iaculis id sem`,
-};
-
-const wrongCatererDataFormat = {
-  role: 'caterer',
-  firstname: 'Favour',
-  businessName: 'ijjjk89877jjjk',
-  businessPhoneNo: 'ijjjk89877jjjk',
-  businessAddress: 'uiiowe,ksdyuil&9jk',
-};
-
-const longFirstName = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-Aenean malesuada lorem non elit cursus, non sodales orci volutpat. 
-Suspendisse eleifend sed libero dignissim mollis. Nullam imperdiet`;
 
 // let userToken;
 
@@ -58,8 +23,6 @@ describe('Signup Routes', () => {
           expect(res.body).to.be.an('object');
           expect(res.body).to.include.keys('token');
           expect(res.body.user).to.include.keys('role');
-          expect(res.body.user).to.include.keys('created');
-          expect(res.body.user).to.include.keys('updated');
           expect(res.body.user).to.include.keys('userId');
           expect(res.body.user.email).to.equal('favour@shaguy.com');
 
@@ -177,8 +140,6 @@ describe('Signup Routes', () => {
           expect(res.body.user).to.include.keys('businessName');
           expect(res.body.user).to.include.keys('businessAddress');
           expect(res.body.user).to.include.keys('businessPhoneNo');
-          expect(res.body.user).to.include.keys('created');
-          expect(res.body.user).to.include.keys('updated');
           expect(res.body.user).to.include.keys('userId');
           expect(res.body.user.role).to.equal('caterer');
           expect(res.body.user.email).to.equal('wecook@cook.com');
