@@ -1,7 +1,7 @@
 import { check } from 'express-validator/check';
 import moment from 'moment';
-// import menuDB from '../../data/menu.json';
 import notEmpty from '../helpers/notEmpty';
+import isUsersMeal from '../helpers/isUsersMeal';
 import checkMealsId from '../helpers/checkMealsId';
 
 const yesterday = moment().subtract(1, 'days').format().toString();
@@ -10,7 +10,7 @@ export default {
   create: [
     check('date')
       .trim()
-      .exists().withMessage('Date must be specified')
+      .optional({ checkFalsy: true })
       .custom(value => notEmpty(value, 'Date cannot be empty'))
       .matches(/^\d{4}-\d{1,2}-\d{1,2}$/)
       .withMessage('Date is invalid, valid format is YYYY-MM-DD')
@@ -21,16 +21,19 @@ export default {
       .withMessage('Meals must be specified')
       .custom(value => notEmpty(value, 'Meals cannot be empty'))
       .custom(value => checkMealsId(value))
-      .withMessage('Meals must be an array of mealIds'),
+      .custom((value, { req }) => isUsersMeal(value, req.body.userId)),
   ],
   update: [
     check('menuId')
       .isUUID(4)
       .withMessage('Invalid ID'),
+    check('date')
+      .custom(value => !value)
+      .withMessage('Menu dates cannot be changed'),
     check('meals')
       .optional()
       .custom(value => notEmpty(value, 'Meals cannot be empty'))
       .custom(value => checkMealsId(value))
-      .withMessage('Meals must be an array of mealIds'),
+      .custom((value, { req }) => isUsersMeal(value, req.body.userId)),
   ],
 };

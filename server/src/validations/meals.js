@@ -33,6 +33,8 @@ export default {
       .custom(value => notEmpty(value, 'Price cannot be empty'))
       .isInt()
       .withMessage('Price must be a number')
+      .custom(value => value > 200)
+      .withMessage('Price must not be less than 200')
       .isLength({ max: 5 })
       .withMessage('Price must not be more than 5 characters'),
     check('imageURL')
@@ -67,8 +69,10 @@ export default {
       .trim()
       .optional()
       .custom(value => notEmpty(value, 'Price cannot be empty'))
-      .isNumeric()
+      .isInt()
       .withMessage('Price must be a number')
+      .custom(value => value > 200)
+      .withMessage('Price must not be less than 200')
       .isLength({ max: 5 })
       .withMessage('Price must not be more than 5 characters'),
     check('imageURL')

@@ -18,6 +18,8 @@ class Pagination {
     this.limit = parseInt(limit, 10);
     this.currentPage = parseInt(page, 10);
     this.totalPages = Math.ceil(this.totalItems / this.limit);
+    this.nextPage = (this.currentPage >= this.totalPages) ? this.totalPages : this.currentPage + 1;
+    this.prevPage = (this.currentPage <= 1) ? 1 : this.currentPage - 1;
     this.getItemsForPage = this.getItemsForPage.bind(this);
     this.paginateItems = this.paginateItems.bind(this);
   }
@@ -37,6 +39,7 @@ class Pagination {
 
     if (this.currentPage < 1) {
       this.currentPage = 1;
+      this.prevPage = 1;
     }
 
     // eg offset for page 2, limit 5 is 5 meaning index 5 and item 6
@@ -50,8 +53,8 @@ class Pagination {
         totalCount: this.totalItems,
         itemsPerPage: paginatedItems.length,
         page: this.currentPage,
-        lastPage: this.totalPages,
-        firstPage: 1
+        prevPage: this.prevPage,
+        nextPage: this.nextPage
       }
     };
   }

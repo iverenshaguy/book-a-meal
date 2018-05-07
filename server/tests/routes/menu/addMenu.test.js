@@ -1,50 +1,22 @@
 import request from 'supertest';
 import { expect } from 'chai';
-import moment from 'moment';
 import app from '../../../src/app';
+import menuDB from '../../../data/menu.json';
 import notAdmin from '../../utils/notAdmin';
 import unAuthorized from '../../utils/unAuthorized';
+import { addMenu as data, adminMockToken, currentDay, twoDaysTime } from '../../utils/data';
 
-const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
-const currentDay = moment().format('YYYY-MM-DD');
-const twoDaysTime = moment().add(1, 'days').format('YYYY-MM-DD');
+const {
+  menu1, menu2, menu3, badMenu
+} = data;
 
 describe('Menu Routes: Add a new menu', () => {
-  const menu1 = {
-    date: currentDay,
-    meals: [
-      '72a3417e-45c8-4559-8b74-8b5a61be8614',
-      '8a65538d-f862-420e-bcdc-80743df06578',
-      'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
-    ]
-  };
+  after(() => {
+    // delete menu for today after test
+    const index = menuDB.findIndex(item => item.date === currentDay);
 
-  const menu2 = {
-    date: twoDaysTime,
-    meals: [
-      '72a3417e-45c8-4559-8b74-8b5a61be8614',
-      '8a65538d-f862-420e-bcdc-80743df06578',
-      'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
-    ]
-  };
-
-  const menu3 = {
-    date: '2017-01-02',
-    meals: [
-      '72a3417e-45c8-4559-8b74-8b5a61be8614',
-      '8a65538d-f862-420e-bcdc-80743df06578',
-      'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
-    ]
-  };
-
-  const badMenu = {
-    date: '30-04-2018',
-    meals: [
-      '72a3417e-45c8-4559ie-8b74-8b5a61be8614',
-      '8a65538d-f862-420e78-bcdc-80743df06578',
-      'f9eb7652-125a-4bcbuu-ad81-02f84901cdc3',
-    ]
-  };
+    menuDB.splice(index, 1);
+  });
 
   it('should add a menu for authenticated user, for the current day', (done) => {
     request(app)
@@ -57,14 +29,29 @@ describe('Menu Routes: Add a new menu', () => {
         expect(res.body).to.include.keys('menuId');
         expect(res.body).to.include.keys('date');
         expect(res.body.date).to.equal(currentDay);
-        expect(res.body.meals[0].mealId).to.equal('72a3417e-45c8-4559-8b74-8b5a61be8614');
+        expect(res.body.meals[0].mealId).to.equal('baa0412a-d167-4d2b-b1d8-404cb8f02631');
 
         if (err) return done(err);
         done();
       });
   });
 
-  it('should add a menu for authenticated user, for two days time', (done) => {
+  it('should not add a menu for authenticated user, for the current day again', (done) => {
+    request(app)
+      .post('/api/v1/menu')
+      .set('Accept', 'application/json')
+      .set('authorization', adminMockToken)
+      .send(menu1)
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(422);
+        expect(res.body.error).to.equal('Menu already exists for this day');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
+  it('should add a menu for authenticated user, for two days time and remove duplicates', (done) => {
     request(app)
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
@@ -77,7 +64,23 @@ describe('Menu Routes: Add a new menu', () => {
         expect(res.body).to.include.keys('created');
         expect(res.body).to.include.keys('updated');
         expect(res.body.date).to.equal(twoDaysTime);
-        expect(res.body.meals[0].mealId).to.equal('72a3417e-45c8-4559-8b74-8b5a61be8614');
+        expect(res.body.meals.length).to.equal(3);
+        expect(res.body.meals[0].mealId).to.equal('baa0412a-d167-4d2b-b1d8-404cb8f02631');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
+  it('should not add a menu for authenticated user, for two days time again', (done) => {
+    request(app)
+      .post('/api/v1/menu')
+      .set('Accept', 'application/json')
+      .set('authorization', adminMockToken)
+      .send(menu2)
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(422);
+        expect(res.body.error).to.equal('Menu already exists for this day');
 
         if (err) return done(err);
         done();
@@ -110,7 +113,7 @@ describe('Menu Routes: Add a new menu', () => {
         expect(res.statusCode).to.equal(422);
         expect(res.body).to.be.an('object');
         expect(res.body.errors.date.msg).to.equal('Date is invalid, valid format is YYYY-MM-DD');
-        expect(res.body.errors.meals.msg).to.equal('Meals must be an array of mealIds');
+        expect(res.body.errors.meals.msg).to.equal(' MealId 72a3417e-45c8-4559ie-8b74-8b5a61be8614 is invalid, MealId 8a65538d-f862-420e78-bcdc-80743df06578 is invalid, MealId f9eb7652-125a-4bcbuu-ad81-02f84901cdc3 is invalid');
 
         if (err) return done(err);
         done();

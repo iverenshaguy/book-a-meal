@@ -3,8 +3,7 @@ import { expect } from 'chai';
 import app from '../../../src/app';
 import notAdmin from '../../utils/notAdmin';
 import unAuthorized from '../../utils/unAuthorized';
-
-const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
+import { adminMockToken } from '../../utils/data';
 
 describe('Meal Routes: Get all meals', () => {
   it('should get all meals for authenticated user', (done) => {
@@ -20,8 +19,8 @@ describe('Meal Routes: Get all meals', () => {
           totalCount: 10,
           itemsPerPage: 5,
           page: 1,
-          lastPage: 2,
-          firstPage: 1
+          prevPage: 1,
+          nextPage: 2
         });
 
         if (err) return done(err);

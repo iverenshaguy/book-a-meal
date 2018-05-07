@@ -30,8 +30,8 @@ describe('Pagination Handler', () => {
       totalCount: 10,
       itemsPerPage: 5,
       page: 2,
-      lastPage: 2,
-      firstPage: 1
+      prevPage: 1,
+      nextPage: 2
     });
   });
 
@@ -47,8 +47,8 @@ describe('Pagination Handler', () => {
       totalCount: 10,
       itemsPerPage: 5,
       page: 1,
-      lastPage: 2,
-      firstPage: 1
+      prevPage: 1,
+      nextPage: 2
     });
   });
 
@@ -56,14 +56,14 @@ describe('Pagination Handler', () => {
     const paginationLarge = new Pagination('meals', mealsDB, 5, 3);
     const pagesObj = paginationLarge.getItemsForPage();
 
-    expect(pagesObj.metadata.lastPage).to.equal(2);
+    expect(pagesObj.metadata.nextPage).to.equal(2);
   });
 
   it('sets currentPage to firstpage when current page is less than total pages', () => {
     const paginationLarge = new Pagination('meals', mealsDB, 5, 0.5);
     const pagesObj = paginationLarge.getItemsForPage();
 
-    expect(pagesObj.metadata.firstPage).to.equal(1);
+    expect(pagesObj.metadata.prevPage).to.equal(1);
   });
 
   it('paginates and sends items', () => {

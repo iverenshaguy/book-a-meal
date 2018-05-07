@@ -1,35 +1,26 @@
 import request from 'supertest';
 import { expect } from 'chai';
-import moment from 'moment';
 import app from '../../../src/app';
 import notFound from '../../utils/notFound';
 import invalidID from '../../utils/invalidID';
+import menuDB from '../../../data/menu.json';
 import unAuthorized from '../../utils/unAuthorized';
+import { addOrder, currentDay, userMockToken, adminMockToken } from '../../utils/data';
 
-const userMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
-const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
-const currentDay = moment().format('YYYY-MM-DD');
+const { newOrder } = addOrder;
+const menu = {
+  date: currentDay,
+  meals: [
+    '81211c24-51c0-46ec-b1e0-18db55880958',
+    '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
+    'baa0412a-d167-4d2b-b1d8-404cb8f02631'
+  ]
+};
+
 let newMenuId, newOrderId;
 
-
 describe('Order Routes: Delete an Order', () => {
-  const menu = {
-    date: currentDay,
-    meals: [
-      '81211c24-51c0-46ec-b1e0-18db55880958',
-      '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
-      'baa0412a-d167-4d2b-b1d8-404cb8f02631'
-    ]
-  };
-
-  const newOrder = {
-    mealId: '81211c24-51c0-46ec-b1e0-18db55880958',
-    deliveryAddress: '4, Church Street, Yaba',
-    deliveryPhoneNo: '+2348134567890',
-    quantity: 4
-  };
-
-  it('should add a menu for authenticated user, for the current day', (done) => {
+  before((done) => {
     request(app)
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
@@ -47,7 +38,7 @@ describe('Order Routes: Delete an Order', () => {
       });
   });
 
-  it('should add an order for authenticated user', (done) => {
+  before((done) => {
     request(app)
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
@@ -66,6 +57,13 @@ describe('Order Routes: Delete an Order', () => {
       });
   });
 
+  after(() => {
+    // delete menu for today after test
+    const index = menuDB.findIndex(item => item.date === currentDay);
+
+    menuDB.splice(index, 1);
+  });
+
   it('should delete a current order for an authenticated user', (done) => {
     request(app)
       .delete(`/api/v1/orders/${newOrderId}`)
@@ -82,7 +80,7 @@ describe('Order Routes: Delete an Order', () => {
 
   it('should not delete an expired order i.e. past date', (done) => {
     request(app)
-      .delete('/api/v1/orders/e5508b87-7975-493d-a900-3d47a69dad03')
+      .delete('/api/v1/orders/fb097bde-5959-45ff-8e21-51184fa60c25')
       .set('Accept', 'application/json')
       .set('authorization', userMockToken)
       .end((err, res) => {

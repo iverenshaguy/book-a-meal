@@ -5,31 +5,32 @@ import notAdmin from '../../utils/notAdmin';
 import notFound from '../../utils/notFound';
 import invalidID from '../../utils/invalidID';
 import unAuthorized from '../../utils/unAuthorized';
+import { editMeal as data, adminMockToken } from '../../utils/data';
 
-const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
+const { newMeal, badMeal } = data;
 
 describe('Meal Routes: Edit a meal option', () => {
-  const newMeal = {
-    title: 'Jollof Spaghetti, Plantain and Chicken',
-    description: 'Contains Sea Food',
-    price: 2400,
-    imageURL: 'images.com/imgurl4.jpeg',
-  };
-
-  const badMeal = {
-    title: '',
-    description: 'Contains %%% Sea Food',
-    price: '23yu50',
-    imageURL: 'images.com/imgurl1.jpeg',
-    forVegetarians: 'no'
-  };
-
   it('should edit a meal for authenticated user', (done) => {
     request(app)
       .put('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')
       .set('Accept', 'application/json')
       .set('authorization', adminMockToken)
       .send(newMeal)
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(200);
+        expect(res.body.mealId).to.equal('91b6e41c-0972-4ac5-86da-4ac1f5226e83');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
+  it('should return meal item for authenticated user when no data is sent', (done) => {
+    request(app)
+      .put('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')
+      .set('Accept', 'application/json')
+      .set('authorization', adminMockToken)
+      .send()
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
         expect(res.body.mealId).to.equal('91b6e41c-0972-4ac5-86da-4ac1f5226e83');

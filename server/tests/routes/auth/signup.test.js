@@ -1,45 +1,11 @@
 import request from 'supertest';
 import { expect } from 'chai';
 import app from '../../../src/app';
+import { signup as signupData } from '../../utils/data';
 
-const rightUserData = {
-  role: 'user',
-  firstname: 'Favour',
-  email: 'favour@shaguy.com',
-  password: 'favourshaguy',
-  passwordConfirm: 'favourshaguy'
-};
-
-const rightCatererData = {
-  role: 'caterer',
-  businessName: 'We Cook',
-  email: 'wecook@cook.com',
-  password: 'wecookgoofood',
-  passwordConfirm: 'wecookgoofood',
-  businessPhoneNo: '+2348134567890',
-  businessAddress: '4, Church Street, Yaba',
-};
-
-const wrongUserData = {
-  role: 'user',
-  firstname: '',
-  email: 'favour@shaguy',
-  password: 'favou',
-  passwordConfirm: 'favourshaguy',
-  businessName: 'Foodie',
-  businessPhoneNo: '+2348134567890',
-  businessAddress: '4, Church Street, Yaba',
-};
-
-const wrongCatererData = {
-  role: 'caterer',
-  businessName: '',
-  firstname: 'Iveren',
-  email: 'food@circle',
-  password: 'foodc',
-  passwordConfirm: 'foodcircle',
-  businessPhoneNo: '+234813456',
-};
+const {
+  rightUserData, rightCatererData, wrongUserData, wrongCatererData
+} = signupData;
 
 const wrongRoleUserData = {
   role: 'person',

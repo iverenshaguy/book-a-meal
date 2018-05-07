@@ -5,8 +5,7 @@ import notAdmin from '../../utils/notAdmin';
 import notFound from '../../utils/notFound';
 import invalidID from '../../utils/invalidID';
 import unAuthorized from '../../utils/unAuthorized';
-
-const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
+import { adminMockToken } from '../../utils/data';
 
 describe('Meal Routes: Delete a meal option', () => {
   it('should delete a meal for authenticated user', (done) => {

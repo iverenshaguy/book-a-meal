@@ -4,7 +4,8 @@ import menuDB from '../../data/menu.json';
 import mealsDB from '../../data/meals.json';
 import Notifications from './Notifications';
 import errors from '../../data/errors.json';
-import stringToArray from '../helpers/stringToArray';
+import checkMenuUnique from '../helpers/checkMenuUnique';
+import removeDuplicates from '../helpers/removeDuplicates';
 
 /**
  * @exports
@@ -43,15 +44,25 @@ class Menu {
    * @returns {(function|object)} Function next() or JSON object
    */
   static create(req, res) {
+    const defaultDate = moment().format('YYYY-MM-DD');
+    const today = moment().format();
+
     // generate random id
     req.body.menuId = uuidv4();
 
-    // convert meals array string to array
-    req.body.meals = stringToArray(req.body.meals);
+    // date is either equal to today or given date
+    req.body.date = req.body.date || defaultDate;
+
+    // convert meals array string to array and remove duplicates
+    req.body.meals = removeDuplicates(req.body.meals);
 
     // add dates
-    req.body.created = moment().format();
-    req.body.updated = moment().format();
+    req.body.created = today;
+    req.body.updated = today;
+
+    if (!checkMenuUnique(req.body.date, req.body.userId)) {
+      return res.status(422).send({ error: 'Menu already exists for this day' });
+    }
 
     menuDB.push(req.body);
 
@@ -84,17 +95,26 @@ class Menu {
       .findIndex(item => item.menuId === req.params.menuId &&
       item.userId === req.body.userId);
 
-    // return 404 error if index isn't found ie meal option doesnt exist
+    // return 404 error if index isn't found ie menu doesnt exist
     if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
 
-    if (menuDB[itemIndex].date.toString() < moment().format().toString()) {
+    // return meal item if no data was sent ie req.body is only poulated with userId && role
+    if (Object.keys(req.body).length === 2) {
+      const unEditedMenu = menuDB[itemIndex];
+      unEditedMenu.meals = Menu.getMealObject(unEditedMenu.meals);
+
+      return res.status(200).send(unEditedMenu);
+    }
+
+    // if menuis expired i.e. menu is past, return error
+    if (menuDB[itemIndex].date.toString() < moment().format('YYYY-MM-DD').toString()) {
       return res.status(422).send({ error: 'Menu Expired' });
     }
 
     const oldItem = menuDB[itemIndex];
 
-    // convert meals array string to array
-    req.body.meals = stringToArray(req.body.meals);
+    // remove duplicates
+    req.body.meals = removeDuplicates(req.body.meals);
 
     // delete id and replace date and updated from req.body
     delete req.body.menuId;

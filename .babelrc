@@ -3,7 +3,7 @@
   "plugins": ["transform-object-rest-spread"],
   "env": {
     "test": {
-      "plugins": ["istanbul"]
+      "plugins": ["istanbul", "add-module-exports"]
     }
   }
 }

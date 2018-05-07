@@ -1,16 +1,26 @@
+import moment from 'moment';
 import { check } from 'express-validator/check';
 import notEmpty from '../helpers/notEmpty';
+import checkMealsId from '../helpers/checkMealsId';
+import isValidOrderItems from '../helpers/isValidOrderItems';
+
+const yesterday = moment().subtract(1, 'days').format().toString();
 
 export default {
   create: [
-    check('menuId')
-      .exists().withMessage('MenuId is required')
-      .isUUID(4)
-      .withMessage('Invalid ID'),
-    check('mealId')
-      .exists().withMessage('MealId is required')
-      .isUUID(4)
-      .withMessage('Invalid ID'),
+    check('date')
+      .trim()
+      .optional()
+      .custom(value => notEmpty(value, 'Date cannot be empty'))
+      .matches(/^\d{4}-\d{1,2}-\d{1,2}$/)
+      .withMessage('Date is invalid, valid format is YYYY-MM-DD')
+      .isAfter(yesterday)
+      .withMessage('Date must be either today or in the future'),
+    check('meals')
+      .exists().withMessage('Meals must be specified')
+      .custom(value => notEmpty(value, 'Meals cannot be empty'))
+      .custom(value => checkMealsId(value))
+      .custom((value, { req }) => isValidOrderItems(value, req)),
     check('deliveryAddress')
       .trim()
       .exists().withMessage('Delivery Address must be specified')
@@ -27,26 +37,24 @@ export default {
       .withMessage('Delivery Phone Number must be in the format +2348134567890')
       .isLength({ min: 10, max: 15 })
       .withMessage('Delivery Phone Number must be between 10 and 15 characters'),
-    check('quantity')
-      .trim()
-      .optional({ checkFalsy: true })
-      .isInt()
-      .withMessage('Quantity must be a number'),
   ],
   update: [
     check('orderId')
       .isUUID(4)
       .withMessage('Invalid ID'),
-    check('menuId')
+    check('date')
       .trim()
       .optional()
-      .isUUID(4)
-      .withMessage('Invalid ID'),
-    check('mealId')
-      .trim()
-      .optional()
-      .isUUID(4)
-      .withMessage('Invalid ID'),
+      .custom(value => notEmpty(value, 'Date cannot be empty'))
+      .matches(/^\d{4}-\d{1,2}-\d{1,2}$/)
+      .withMessage('Date is invalid, valid format is YYYY-MM-DD')
+      .isAfter(yesterday)
+      .withMessage('Date must be either today or in the future'),
+    check('meals')
+      .exists().withMessage('Meals must be specified')
+      .custom(value => notEmpty(value, 'Meals cannot be empty'))
+      .custom(value => checkMealsId(value))
+      .custom((value, { req }) => isValidOrderItems(value, req)),
     check('deliveryAddress')
       .trim()
       .optional()
@@ -63,11 +71,6 @@ export default {
       .withMessage('Delivery Phone Number must be in the format +2348134567890')
       .isLength({ min: 10, max: 15 })
       .withMessage('Price must be between 5 and 15 characters'),
-    check('quantity')
-      .trim()
-      .optional()
-      .isInt()
-      .withMessage('Quantity must be a number'),
   ],
   delete: [
     check('orderId')
