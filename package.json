@@ -11,8 +11,8 @@
   "scripts": {
     "start": "node ./server/dist/app.js",
     "start:dev": "cross-env NODE_ENV=development nodemon --exec babel-node -- ./server/src/app.js",
-    "build": "cross-env NODE_ENV=development babel ./server/src -d ./server/dist",
-    "heroku-postbuild": "npm build",
+    "build": "cross-env NODE_ENV=production babel ./server/src -d ./server/dist",
+    "heroku-postbuild": "npm run build",
     "pretest": "npm run lint",
     "lint": "eslint **/*.js --fix",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
@@ -37,6 +37,7 @@
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.3",
     "babel-plugin-istanbul": "^4.1.6",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
