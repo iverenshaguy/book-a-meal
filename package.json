@@ -20,7 +20,7 @@
     "seed": "sequelize db:seed:all",
     "seed:test": "sequelize db:seed:all --env=test",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "test": "cross-env NODE_ENV=test SECRET=mytestsecret nyc mocha ./server/tests/test.js --recursive --timeout 5000 --exit",
+    "test": "cross-env NODE_ENV=test SECRET=mytestsecret nyc mocha ./server/tests/test.js --recursive --timeout 50000 --exit",
     "test:watch": "npm test --watch"
   },
   "dependencies": {

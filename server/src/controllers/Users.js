@@ -1,4 +1,4 @@
-import usersDB from '../../data/users.json';
+import bcrypt from 'bcrypt';
 import Authorization from '../middlewares/Authorization';
 import UserModel from '../models/User';
 
@@ -27,6 +27,7 @@ class Users {
     });
 
     const token = Authorization.generateToken(req);
+    delete newUser.password;
 
     res.status(201).send({ user: newUser, token });
   }
@@ -40,22 +41,32 @@ class Users {
    * @returns {(function|object)} Function next() or JSON object
    */
   static async login(req, res) {
-    const authUser = usersDB
-      .find(user => user.email === req.body.email && user.password === req.body.password);
+    return UserModel.findOne({ where: { email: req.body.email } }).then(async (authUser) => {
+      if (!authUser) return res.status(401).send({ error: 'Invalid Credentials' });
 
-    if (!authUser) {
-      return res.status(401).send({
-        error: 'Invalid Credentials'
-      });
-    }
+      const valid = await Users.verifyPassword(req.body.password, authUser.password);
 
-    const user = { ...authUser };
-    const token = Authorization.generateToken(req);
+      if (!valid) return res.status(401).send({ error: 'Invalid Credentials' });
 
-    delete user.password;
-    delete user.passwordHash;
+      const user = { ...authUser };
+      const token = Authorization.generateToken(req);
 
-    return res.status(200).send({ user, token });
+      delete user.password;
+
+      return res.status(200).send({ user: authUser, token });
+    });
+  }
+
+
+  /**
+   * @method verifyPassword
+   * @memberof Users
+   * @param {string} password
+   * @param {string} hash
+   * @return {Promise} Promise of true or false
+   */
+  static async verifyPassword(password, hash) {
+    return bcrypt.compare(password, hash);
   }
 }
 

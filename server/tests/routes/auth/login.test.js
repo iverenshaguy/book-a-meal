@@ -14,8 +14,6 @@ describe('Signin Routes', () => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.be.an('object');
         expect(res.body).to.include.keys('token');
-        expect(res.body.user).to.include.keys('created');
-        expect(res.body.user).to.include.keys('updated');
         expect(res.body.user.firstname).to.equal('Iveren');
         expect(res.body.user.email).to.equal('iveren@shaguy.com');
 
@@ -28,6 +26,20 @@ describe('Signin Routes', () => {
     request.agent(app)
       .post('/api/v1/auth/signin')
       .send(nonExistingUser)
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(401);
+        expect(res.body).to.be.an('object');
+        expect(res.body.error).to.equal('Invalid Credentials');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
+  it('doesn\'t signin an user existing user with a wrong password', (done) => {
+    request.agent(app)
+      .post('/api/v1/auth/signin')
+      .send({ ...existingUser, password: 'kowo' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(401);
         expect(res.body).to.be.an('object');
