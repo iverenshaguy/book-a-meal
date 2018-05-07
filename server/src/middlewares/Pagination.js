@@ -29,10 +29,9 @@ class Pagination {
    * @method getItemsForPage
    * @memberof Pagination
    * @return {object} - an object that contains items and metadata for the page
+   * normalize request page that is not within range
    */
   getItemsForPage() {
-    // check that page is within range
-    // normalize if not within range
     if (this.currentPage > this.totalPages) {
       this.currentPage = this.totalPages;
     }

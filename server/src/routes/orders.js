@@ -9,7 +9,7 @@ const authorization = new Authorization('user');
 
 ordersRoutes.use(Authorization.authorize, authorization.authorizeRole);
 
-ordersRoutes.get('/', Orders.list);
+ordersRoutes.get('/', Orders.getOrders);
 ordersRoutes.post('/', ordersValidation.create, ValidationHandler.validate, Orders.create);
 ordersRoutes.put('/:orderId', ordersValidation.update, ValidationHandler.validate, Orders.update);
 ordersRoutes.delete('/:orderId', ordersValidation.delete, ValidationHandler.validate, Orders.delete);

@@ -11,13 +11,13 @@ import errors from '../../data/errors.json';
 class Meals {
   /**
    * Returns a list of Items
-   * @method list
+   * @method getMeals
    * @memberof Meals
    * @param {object} req
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
-  static list(req, res) {
+  static getMeals(req, res) {
     return GetItems.items(req, res, mealsDB, 'meals');
   }
 
@@ -29,18 +29,17 @@ class Meals {
    * @param {object} res
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
+   * default date is today
    */
   static create(req, res) {
     const newMeal = { ...req.body };
     const today = moment().format();
     const defaultDate = moment().format('YYYY-MM-DD');
 
-    // date is either equal to today or given date
     newMeal.date = newMeal.date || defaultDate;
-    // generate random id and created/updated date
     newMeal.mealId = uuidv4();
-    newMeal.created = today;
-    newMeal.updated = today;
+    newMeal.createdAt = today;
+    newMeal.updatedAt = today;
 
     mealsDB.push(newMeal);
 
@@ -62,22 +61,17 @@ class Meals {
       .findIndex(item => item.mealId === req.params.mealId &&
         item.userId === req.body.userId);
 
-    // return 404 error if index isn't found ie meal option doesnt exist
     if (itemIndex === -1) {
       return res.status(404).send({ error: errors[404] });
     }
 
-    // return meal item if no data was sent ie req.body is only poulated with userId && role
-    if (Object.keys(req.body).length === 2) return res.status(200).send(mealsDB[itemIndex]);
+    // TODO validate empty put request
 
     const oldItem = mealsDB[itemIndex];
 
-    // delete id from data
     delete req.body.mealId;
 
-    data.updated = moment().format();
-
-    // update old meal with trimmed new meal and assign it to it's position in the array
+    data.updatedAt = moment().format();
     mealsDB[itemIndex] = { ...oldItem, ...data };
 
     return res.status(200).send(mealsDB[itemIndex]);
@@ -97,7 +91,6 @@ class Meals {
       .findIndex(item => item.mealId === req.params.mealId &&
       item.userId === req.body.userId);
 
-    // return 404 error if index isn't found ie meal option doesnt exist
     if (itemIndex === -1) {
       return res.status(404).send({ error: errors[404] });
     }

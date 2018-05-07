@@ -17,7 +17,7 @@ class Notifications {
    * @param {string} role
    * @returns {object} JSON object
    */
-  static list(req, res) {
+  static getNotifications(req, res) {
     const { role, userId } = req.body;
     const list = role === 'caterer' ?
       notificationsDB.filter(item => item.userId === userId) :
@@ -33,8 +33,8 @@ class Notifications {
    */
   static create(notif) {
     notif.notifId = uuidv4();
-    notif.created = moment().format();
-    notif.updated = moment().format();
+    notif.createdAt = moment().format();
+    notif.updatedAt = moment().format();
 
     notificationsDB.push(notif);
   }

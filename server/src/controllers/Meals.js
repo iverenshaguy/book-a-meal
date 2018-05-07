@@ -9,14 +9,14 @@ import errors from '../../data/errors.json';
  */
 class Meals {
   /**
-   * Returns a list of Items
-   * @method list
+   * Returns a list of Meal Opyions
+   * @method getMeals
    * @memberof Meals
    * @param {object} req
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
-  static async list(req, res) {
+  static async getMeals(req, res) {
     const { userId } = req.body;
     const mealList = await db.Meal.findAll({ where: { userId } });
     return GetItems.items(req, res, mealList, 'meals');
