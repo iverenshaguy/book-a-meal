@@ -1,5 +1,5 @@
 import { check } from 'express-validator/check';
-import mealsDB from '../data/meals.json';
+import mealsDB from '../../data/meals.json';
 import notEmpty from '../helpers/notEmpty';
 
 export default {

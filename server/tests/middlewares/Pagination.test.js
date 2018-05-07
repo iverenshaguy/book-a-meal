@@ -1,6 +1,6 @@
 import sinon from 'sinon';
 import { assert, expect } from 'chai';
-import mealsDB from '../../src/data/meals.json';
+import mealsDB from '../../data/meals.json';
 import Pagination from '../../src/middlewares/Pagination';
 
 // mock server response

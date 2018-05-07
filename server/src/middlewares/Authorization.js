@@ -1,4 +1,4 @@
-import errors from '../data/errors.json';
+import errors from '../../data/errors.json';
 
 const userToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
 const adminToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';

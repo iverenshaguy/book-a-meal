@@ -72,8 +72,10 @@ An application that allows customers to make food orders and helps the food vend
   [http://localhost:8000/api/v1/menu](http://localhost:8000/api/v1/menu)
 * Modify an Existing Menu - PUT
   [http://localhost:8000/api/v1/menu/:menuId](http://localhost:8000/api/v1/menu/:menuId)
-* Get All Orders - GET
+* Get All Caterer Orders - GET
   [http://localhost:8000/api/v1/orders](http://localhost:8000/api/v1/orders)
+* Get All User Orders - GET
+  [http://localhost:8000/api/v1/orders](http://localhost:8000/api/v1/orders?user={userId})
 * Order a Menu - POST
   [http://localhost:8000/api/v1/orders](http://localhost:8000/api/v1/orders)
 * Modify an Open Order  - PUT
@@ -91,6 +93,9 @@ You can find the template at [https://www.pivotaltracker.com/n/projects/2165637]
 
 ### Template
 Template is hosted at [https://iverenshaguy.github.io/UI/index.html](https://iverenshaguy.github.io/UI/index.html)
+
+### API (Non-Persistent)
+API is hosted at [https://book-a-meal-sivy.herokuapp.com](https://book-a-meal-sivy.herokuapp.com)
 
 ### Installing
 

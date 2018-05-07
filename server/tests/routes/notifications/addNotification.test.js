@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import notificationsDB from '../../../src/data/notifications.json';
+import notificationsDB from '../../../data/notifications.json';
 import Notifications from '../../../src/controllers/Notifications';
 
 // const notifications = new Notifications(notificationsDB, 'notification');

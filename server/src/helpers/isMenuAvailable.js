@@ -1,5 +1,5 @@
 import moment from 'moment';
-import menuDB from '../data/menu.json';
+import menuDB from '../../data/menu.json';
 
 /**
  * Function to check if menu is expired

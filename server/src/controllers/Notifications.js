@@ -2,7 +2,7 @@ import uuidv4 from 'uuid/v4';
 import moment from 'moment';
 import Controller from './Controller';
 import GetItems from '../middlewares/GetItems';
-import notificationsDB from '../data/notifications.json';
+import notificationsDB from '../../data/notifications.json';
 
 /**
  * @exports
