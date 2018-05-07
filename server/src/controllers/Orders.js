@@ -124,8 +124,9 @@ class Orders {
     data.updated = moment().format();
 
     // send order items to its DB
-    OrderItems.create(data.orderId, data.meals);
+    OrderItems.create(data.orderId, req.body.meals);
 
+    delete data.role;
 
     // update Orders DB
     ordersDB.push(data);
@@ -139,9 +140,7 @@ class Orders {
     //   message: 'Your menu was just ordered'
     // });
 
-    const order = { ...data };
-
-    order.meals = order.meals.map(item => mealsDB.find(meal => meal.mealId === item));
+    const order = Orders.getOrderObject(data);
 
     return res.status(201).send(order);
   }
@@ -180,7 +179,7 @@ class Orders {
     ordersDB[itemIndex] = { ...oldOrder, ...data };
 
     // update order items in its DB
-    OrderItems.update(data.orderId, data.meals);
+    OrderItems.update(data.orderId, req.body.meals);
 
     // create notification on update
 
@@ -228,7 +227,7 @@ class Orders {
   static getOrderObject(order, catererId = null) {
     // get order items from order items db
     const getOrderItems = orderItemsDB.filter(item => item.orderId === order.orderId);
-    order.meals = order.meals || [];
+    order.meals = [];
 
     if (catererId) {
       // filter meals to give only meals that belong to caterer
@@ -244,8 +243,12 @@ class Orders {
       // get menu for each of the items from menuDB
       // through mealId and replace ids with real meals
       getOrderItems.forEach((item) => {
-        item.meal = mealsDB.find(meal => item.mealId === meal.mealId);
-        order.meals.push(item);
+        mealsDB.forEach((meal) => {
+          if (item.mealId === meal.mealId) {
+            item.meal = meal;
+            order.meals.push(item);
+          }
+        });
       });
     }
 

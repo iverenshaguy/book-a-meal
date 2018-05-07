@@ -142,8 +142,17 @@ export default {
   },
 
   addOrder: {
+    menu: {
+      date: currentDay,
+      meals: [
+        '81211c24-51c0-46ec-b1e0-18db55880958',
+        '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
+        'baa0412a-d167-4d2b-b1d8-404cb8f02631'
+      ]
+    },
     newOrder: {
       meals: [
+        '81211c24-51c0-46ec-b1e0-18db55880958',
         '81211c24-51c0-46ec-b1e0-18db55880958',
         'baa0412a-d167-4d2b-b1d8-404cb8f02631'
       ],
@@ -225,6 +234,23 @@ export default {
       badMeal: {
         meals: ['81211c24-51c0-46ec-b1e0-18db55kdfkod880958', ''],
       }
+    },
+
+    createMealOrderData: {
+      dupArr: [
+        '72a3417e-45c8-4559-8b74-8b5a61be8614',
+        '8a65538d-f862-420e-bcdc-80743df06578',
+        'baa0412a-d167-4d2b-b1d8-404cb8f02631',
+        '8a65538d-f862-420e-bcdc-80743df06578',
+        'baa0412a-d167-4d2b-b1d8-404cb8f02631',
+        '8a65538d-f862-420e-bcdc-80743df06578',
+      ],
+
+      arr: [
+        '72a3417e-45c8-4559-8b74-8b5a61be8614',
+        '8a65538d-f862-420e-bcdc-80743df06578',
+        'baa0412a-d167-4d2b-b1d8-404cb8f02631',
+      ]
     }
   }
 };
