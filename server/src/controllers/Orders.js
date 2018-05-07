@@ -5,10 +5,10 @@ import menuDB from '../../data/menu.json';
 import ordersDB from '../../data/orders.json';
 import errors from '../../data/errors.json';
 import Notifications from './Notifications';
-import trimValues from '../helpers/trimValues';
 import GetItems from '../middlewares/GetItems';
-import isMealAvailable from '../helpers/isMealAvailable';
 import isExpired from '../helpers/isExpired';
+import getMealOwner from '../helpers/getMealOwner';
+import isMealAvailable from '../helpers/isMealAvailable';
 
 /**
  * @exports
@@ -94,33 +94,33 @@ class Orders {
   static create(req, res) {
     if (!isMealAvailable(req.body.mealId)) res.status(422).send({ error: 'Meal is unavailable' });
 
-    const trimmedData = trimValues(req.body);
+    const data = { ...req.body };
     // generate random id
-    trimmedData.orderId = uuidv4();
+    data.orderId = uuidv4();
 
     // fake userId, original to be gotten from jwt
-    trimmedData.userId = 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac';
+    data.userId = 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac';
 
     // generate created date
-    trimmedData.created = moment().format();
-    trimmedData.updated = moment().format();
+    data.created = moment().format();
+    data.updated = moment().format();
 
     // default quantity is 1
-    trimmedData.quantity = parseInt(trimmedData.quantity, 10) || 1;
+    data.quantity = parseInt(data.quantity, 10) || 1;
 
     // update DB
-    ordersDB.push(trimmedData);
+    ordersDB.push(data);
 
     // push to notifications table
     // Caterer's for when an order is made
     Notifications.create({
       menuId: null,
-      userId: '8356954a-9a42-4616-8079-887a73455a7f', // caterer id to notify caterer
-      orderId: trimmedData.orderId,
+      userId: getMealOwner(data.mealId),
+      orderId: data.orderId,
       message: 'Your menu was just ordered'
     });
 
-    const order = Orders.getOrderObject(trimmedData);
+    const order = Orders.getOrderObject(data);
 
     return res.status(201).send(order);
   }
@@ -134,6 +134,7 @@ class Orders {
    * @returns {(function|object)} Function next() or JSON object
    */
   static update(req, res) {
+    const data = { ...req.body };
     const { orderId } = req.params;
     const itemIndex =
       ordersDB.findIndex(item => item.orderId === orderId && item.userId === req.body.userId);
@@ -147,16 +148,15 @@ class Orders {
     // check if meal is in the menu for the day
     if (!isMealAvailable(req.body.mealId)) return res.status(422).send({ error: 'Meal is unavailable' });
 
-    const trimmedData = trimValues(req.body);
     // update date
-    trimmedData.updated = moment().format();
+    data.updated = moment().format();
     // real userId to be gotten from decoded token
-    trimmedData.userId = 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac';
+    data.userId = 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac';
 
     const oldOrder = ordersDB[itemIndex];
 
     // update db
-    ordersDB[itemIndex] = { ...oldOrder, ...trimmedData };
+    ordersDB[itemIndex] = { ...oldOrder, ...data };
 
     const order = Orders.getOrderObject(ordersDB[itemIndex]);
 
