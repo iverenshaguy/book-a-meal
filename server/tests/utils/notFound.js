@@ -20,8 +20,6 @@ const notFound = (message, request, method, data, url, token) => {
         .set('authorization', token)
         .send(data)
         .end((err, res) => {
-          console.log(err);
-          console.log(res.body);
           expect(res.statusCode).to.equal(404);
           expect(res.body.error).to.equal('Not Found');
 

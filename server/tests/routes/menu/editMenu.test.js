@@ -5,16 +5,32 @@ import notAdmin from '../../utils/notAdmin';
 import notFound from '../../utils/notFound';
 import invalidID from '../../utils/invalidID';
 import unAuthorized from '../../utils/unAuthorized';
-import { addMenu as data } from '../../utils/data';
+import { addMenu as data, tomorrow } from '../../utils/data';
 import { tokens } from '../../utils/setup';
 
 const { foodCircleToken } = tokens;
 const { menu1, badMenu } = data;
+let newMenuId;
 
 describe('Menu Routes: Edit menu', () => {
+  before((done) => {
+    request(app)
+      .post('/api/v1/menu')
+      .set('Accept', 'application/json')
+      .set('authorization', foodCircleToken)
+      .send({ ...menu1, date: tomorrow })
+      .end((err, res) => {
+        newMenuId = res.body.menuId;
+        expect(res.statusCode).to.equal(201);
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
   it('should edit a menu for authenticated user', (done) => {
     request(app)
-      .put('/api/v1/menu/a9fa6cb3-9f5e-46fa-b641-388f898ca824')
+      .put(`/api/v1/menu/${newMenuId}`)
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
       .send(menu1)
@@ -38,6 +54,21 @@ describe('Menu Routes: Edit menu', () => {
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
         expect(res.body.error).to.equal('Menu Expired');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
+  it('should not add meal that doesn\'t belong to user to the menu', (done) => {
+    request(app)
+      .put(`/api/v1/menu/${newMenuId}`)
+      .set('Accept', 'application/json')
+      .set('authorization', foodCircleToken)
+      .send({ ...menu1, meals: ['46ced7aa-eed5-4462-b2c0-153f31589bdd'] })
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(422);
+        expect(res.body.errors.meals.msg).to.equal('Meal 46ced7aa-eed5-4462-b2c0-153f31589bdd doesn\'t exist');
 
         if (err) return done(err);
         done();
