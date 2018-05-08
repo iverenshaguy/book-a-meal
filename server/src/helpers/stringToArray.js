@@ -3,12 +3,12 @@
  * @param {(array|string)} value
  * @param {string} spliter
  * @return {array} returns a new array
+ * replace removes square brackets and spaces and convert to an array
  */
 function stringToArray(value, spliter = ',') {
   if (!Array.isArray(value)) {
     let newValue;
     const formedArray = [];
-    // remove square brackets and spaces and convert to an array
     const newString = value.replace(/[\[\]\s/n']+/g, ''); // eslint-disable-line
 
     if (newString.includes(spliter)) {

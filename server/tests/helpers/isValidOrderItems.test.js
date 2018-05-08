@@ -1,8 +1,11 @@
-import { expect } from 'chai';
+import chai, { expect } from 'chai';
+import chaiAsPromised from 'chai-as-promised';
 import isValidOrderItems from '../../src/helpers/isValidOrderItems';
 import { addOrder } from '../utils/data';
 
-const { validOrder } = addOrder;
+chai.use(chaiAsPromised);
+chai.should();
+const { validOrder, inValidOrder } = addOrder;
 
 const req = {
   body: {
@@ -15,5 +18,13 @@ describe('isValidOrderItems', () => {
     const check = await isValidOrderItems(validOrder.meals, req);
 
     expect(check).to.equal(true);
+  });
+
+  it('returns err when invalid', async () => {
+    try {
+      await isValidOrderItems(inValidOrder.meals, req);
+    } catch (err) {
+      expect(err.message).to.equal('Meal 8a65538d-f862-420e-bcdc-80743df06578 is not available');
+    }
   });
 });

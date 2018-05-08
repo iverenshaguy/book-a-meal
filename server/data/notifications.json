@@ -5,8 +5,8 @@
     "menuId": "15421f7a-0f82-4802-b215-e0e8efb6bfb3",
     "orderId": null,
     "message": "Jollof Spaghetti, Plantain and Turkey was just added to the menu",
-    "created": "2018-05-06T14:34:90.000",
-    "updated": "2018-05-06T14:34:90.000"
+    "createdAt": "2018-05-06T14:34:90.000",
+    "updatedAt": "2018-05-06T14:34:90.000"
  },
   {
     "notifId": "87a311b7-898b-4a6b-81c2-619417c96432",
@@ -14,8 +14,8 @@
     "menuId": null,
     "orderId": "15421f7a-0f82-4802-b215-e0e8efb6bfb3",
     "message": "Your menu was just ordered",
-    "created": "2018-05-06T14:34:90.000",
-    "updated": "2018-05-06T14:34:90.000"
+    "createdAt": "2018-05-06T14:34:90.000",
+    "updatedAt": "2018-05-06T14:34:90.000"
  },
   {
     "notifId": "9015c150-6079-4be6-a240-272a4de6bd17",
@@ -23,8 +23,8 @@
     "menuId": "15421f7a-0f82-4802-b215-e0e8efb6bfb3",
     "orderId": null,
     "message": "Jollof Spaghetti, Plantain and Turkey was just added to the menu",
-    "created": "2018-05-06T14:34:90.000",
-    "updated": "2018-05-06T14:34:90.000"
+    "createdAt": "2018-05-06T14:34:90.000",
+    "updatedAt": "2018-05-06T14:34:90.000"
  },
   {
     "notifId": "38eb0942-38b7-4a16-91e9-8b1662175d75",
@@ -32,8 +32,8 @@
     "menuId": "15421f7a-0f82-4802-b215-e0e8efb6bfb3",
     "orderId": null,
     "message": "Jollof Spaghetti, Plantain and Turkey was just added to the menu",
-    "created": "2018-05-06T14:34:90.000",
-    "updated": "2018-05-06T14:34:90.000"
+    "createdAt": "2018-05-06T14:34:90.000",
+    "updatedAt": "2018-05-06T14:34:90.000"
  },
   {
     "notifId": "d886ce22-9b41-4cf6-9dd6-7bdd5476d6c0",
@@ -41,7 +41,7 @@
      "menuId": null,
      "orderId": "15421f7a-0f82-4802-b215-e0e8efb6bfb3",
      "message": "Your menu was just ordered",
-     "created": "2018-05-06T14:34:90.000",
-     "updated": "2018-05-06T14:34:90.000"
+     "createdAt": "2018-05-06T14:34:90.000",
+     "updatedAt": "2018-05-06T14:34:90.000"
   }
 ]

@@ -16,8 +16,8 @@ describe('Notifications Controller: Add a Notifcation', () => {
 
     expect(notificationsDB[notificationsDB.length - 1]).to.include.keys('userId');
     expect(notificationsDB[notificationsDB.length - 1]).to.include.keys('menuId');
-    expect(notificationsDB[notificationsDB.length - 1]).to.include.keys('created');
-    expect(notificationsDB[notificationsDB.length - 1]).to.include.keys('updated');
+    expect(notificationsDB[notificationsDB.length - 1]).to.include.keys('createdAt');
+    expect(notificationsDB[notificationsDB.length - 1]).to.include.keys('updatedAt');
     expect(notificationsDB[notificationsDB.length - 1]).to.include.keys('notifId');
     expect(notificationsDB[notificationsDB.length - 1].message)
       .to.equal('Rice and Stew with Beef was just added to the menu');

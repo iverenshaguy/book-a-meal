@@ -6,14 +6,13 @@ import moment from 'moment';
  * @param {object} db
  * @param {string} id
  * @return {bool} returns true or false
+ * order is expirde after 15 mins of ordering
  */
 function isExpired(type, db, id) {
-  // get menu from menu db and check to ensure that order is not expired
-  // order is expired when the day passes
   const check = db.find(item => item[`${type}Id`] === id);
   const currentDate = moment().format('YYYY-MM-DD');
-  const itemDate = check.created.substring(0, 10); // extract day string from date
-  // return error if order is already expired, i.e. in the past
+  const itemDate = check.createdAt.substring(0, 10);
+
   if (moment(currentDate).isAfter(itemDate)) return true;
 
   return false;

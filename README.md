@@ -79,37 +79,136 @@ API is deployed at [https://book-a-meal-sivy.herokuapp.com](https://book-a-meal-
 
 <table>
 
-<tr><th>HTTP VERB</th><th>ENDPOINT</th><th>FUNCTIONALITY</th></tr>
+<tr><th>VERB</th><th>ENDPOINT</th><th>FUNCTIONALITY</th><th>SAMPLE DATA</th></tr>
 
-<tr><td>POST</td> <td>api/v1/auth/signup</td> <td>Signup</td></tr>
+<tr><td>POST</td> <td>api/v1/auth/signup</td> <td>Signup</td><td>
 
-<tr><td>POST</td> <td>api/v1/auth/signin</td> <td>Signin</td></tr>
+Users:
+`{
+  firstname: Favour,
+  email: favour@shaguy.com,
+  password: favourshaguy,
+  passwordConfirm: favourshaguy,
+  role: user
+}`
 
-<tr><td>GET</td> <td>api/v1/meals</td> <td>Get All Meal Options</td></tr>
+For Caterers:
+`{
+  businessName: FoodCircle,
+  businessAddress: 4, Church Street, Yaba, Lagos,
+  businessPhoneNo: +2348123456789,
+  email: food@circle.com,
+  password: foodcircle,
+  passwordConfirm: foodcircle
+  role: caterer
+}`
+</td></tr>
 
-<tr><td>POST</td> <td>api/v1/meals</td>  <td> Add a Meal Option</td></tr>
+<tr><td>POST</td> <td>api/v1/auth/signin</td> <td>Signin</td><td>
 
-<tr><td>PUT</td> <td>api/v1/meals/:mealId</td>  <td>Modify an Existing Meal Option</td></tr>
+`{
+  email: iveren@shaguy.com,
+  password: iverenshaguy
+}`
+</td></tr>
 
-<tr><td>DELETE</td> <td>api/v1/meals/:mealId</td>  <td>Delete an Existing Meal Option</td></tr>
+<tr><td>GET</td> <td>api/v1/meals</td> <td>Get All Meal Options</td><td>None</td></tr>
 
-<tr><td>GET</td> <td>api/v1/menu</td> <td>Get Menu for Today</td></tr>
+<tr><td>POST</td> <td>api/v1/meals</td> <td> Add a Meal Option</td><td>
 
-<tr><td>GET</td> <td>api/v1/menu?date={YYYY-MM-DD}</td> <td>Get Menu for a Specific Day</td></tr>
+`{
+  title: Wheat and Ogbono
+  description: Meal contains 2 pieces of beef and other assorted meat and fish products
+  price: 3000
+  imageURL: http://koalaghana.com/wp-content/uploads/DSC02053.jpg
+  forVegetarians: false
+}`
+</td></tr>
 
-<tr><td>POST</td> <td>api/v1/menu</td> <td>Add Meal Options to Menu for the Day</td></tr>
+<tr><td>PUT</td> <td>api/v1/meals/:mealId</td>  <td>Modify an Existing Meal Option</td><td>
 
-<tr><td>PUT</td> <td>api/v1/menu/:menuId</td> <td>Modify an Existing Menu</td></tr>
+`{
+  description: Meal contains 3 pieces of beef and other assorted meat and fish products
+  price: 4000
+}`
+</td></tr>
 
-<tr><td>GET</td> <td>api/v1/orders</td> <td>Get All Orders (Both Users and Caterers)</td></tr>
+<tr><td>DELETE</td> <td>api/v1/meals/:mealId</td> <td>Delete an Existing Meal Option</td><td>None</td></tr>
 
-<tr><td>POST</td> <td>api/v1/orders</td> <td>Order a Meal</td></tr>
+<tr><td>GET</td> <td>api/v1/menu</td> <td>Get Menu for Today</td><td>None</td></tr>
 
-<tr><td>PUT</td> <td>api/v1/orders/:orderId</td> <td>Modify an Open Order</td></tr>
+<tr><td>GET</td> <td>api/v1/menu?date={YYYY-MM-DD}</td><td>Get Menu for a Specific Day</td><td>None</td></tr>
 
-<tr><td>DELETE</td> <td>api/v1/orders/:orderId</td> <td>Delete an Open Order</td></tr>
+<tr><td>POST</td> <td>api/v1/menu</td> <td>Add Meal Options to Menu for the Day</td>
+<td>
 
-<tr><td>GET</td> <td>api/v1/notifications</td> <td>Get All Notifications (Both Users and Caterers)</td></tr>
+For a Future Date
+`{
+  date: 2018-05-17,
+  meals: [
+    81211c24-51c0-46ec-b1e0-18db55880958,
+    36d525d1-efc9-4b75-9999-3e3d8dc64ce3
+    baa0412a-d167-4d2b-b1d8-404cb8f02631
+  ]
+}`
+
+For Today:
+`{
+  meals: [
+    81211c24-51c0-46ec-b1e0-18db55880958,
+    36d525d1-efc9-4b75-9999-3e3d8dc64ce3
+    baa0412a-d167-4d2b-b1d8-404cb8f02631
+  ]
+}`
+</td></tr>
+
+<tr><td>PUT</td> <td>api/v1/menu/:menuId</td> <td>Modify an Existing Menu</td>
+<td>
+
+`{
+  meals: [
+    36d525d1-efc9-4b75-9999-3e3d8dc64ce3
+    baa0412a-d167-4d2b-b1d8-404cb8f02631
+  ]
+}`
+</td></tr>
+
+<tr><td>GET</td> <td>api/v1/orders</td> <td>Get All Orders</td><td>None</td></tr>
+
+<tr><td>POST</td> <td>api/v1/orders</td> <td>Order Meals</td>
+<td>
+
+`{
+  meals: [
+    36d525d1-efc9-4b75-9999-3e3d8dc64ce3
+    baa0412a-d167-4d2b-b1d8-404cb8f02631
+    81211c24-51c0-46ec-b1e0-18db55880958
+    baa0412a-d167-4d2b-b1d8-404cb8f02631
+    81211c24-51c0-46ec-b1e0-18db55880958
+  ]
+  deliveryAddress: 4, Church Street, Yaba
+  deliveryPhoneNo: +2348134567890
+}`
+
+_No of Occurence of MealId is the Quantity if Meal Ordered_
+</td>
+</tr>
+
+<tr><td>PUT</td> <td>api/v1/orders/:orderId</td> <td>Modify an Open Order</td>
+<td>
+
+`{
+  meals: [
+    81211c24-51c0-46ec-b1e0-18db55880958
+    baa0412a-d167-4d2b-b1d8-404cb8f02631
+  ]
+  deliveryAddress: 6, Church Street, Yaba
+}`
+</td></tr>
+
+<tr><td>DELETE</td> <td>api/v1/orders/:orderId</td> <td>Delete an Open Order</td><td>None</td></tr>
+
+<tr><td>GET</td> <td>api/v1/notifications</td> <td>Get All Notifications (Both Users and Caterers)</td><td>None</td></tr>
 
 </table>
 
@@ -118,7 +217,7 @@ API is deployed at [https://book-a-meal-sivy.herokuapp.com](https://book-a-meal-
 ### Installation
 
 * git clone
-  [More Recipes](https://github.com/iverenshaguy/book-a-meal.git)
+  [Book A Meal](https://github.com/iverenshaguy/book-a-meal.git)
 * Run `yarn install` or `npm install` to install packages
 * Run `yarn build` or `npm run build` to build the project
 * Run `yarn start` or `npm start` to start the server

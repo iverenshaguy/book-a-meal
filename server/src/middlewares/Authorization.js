@@ -26,7 +26,6 @@ class Authorization {
    * @returns {string} token
    */
   static getToken(req) {
-    // token could provided via body, as a query string or in the header
     const bearerToken = req.headers.authorization;
     const token = bearerToken && bearerToken.replace('Bearer ', '');
 
@@ -38,6 +37,7 @@ class Authorization {
    * @memberof Authorization
    * @param {object} req
    * @returns {string} token
+   * expires in 24 hours
    */
   static generateToken(req) {
     const token = jwt.sign(
@@ -48,7 +48,7 @@ class Authorization {
       },
       process.env.SECRET,
       {
-        expiresIn: 86400 // expires in 24 hours
+        expiresIn: 86400
       }
     );
 
@@ -67,14 +67,12 @@ class Authorization {
   static authorize(req, res, next) {
     const token = Authorization.getToken(req);
 
-    // skip authorization for get menu
     if (req.baseUrl === '/api/v1/menu' && req.method === 'GET') return next();
 
     if (!token) return res.status(401).send({ error: errors['401'] });
 
     jwt.verify(token, process.env.SECRET, async (err, decoded) => {
       if (err) {
-        // check for outdated token
         if (err.name === 'TokenExpiredError') {
           return res.status(401).send({ error: 'User authorization token is expired' });
         }
@@ -82,8 +80,8 @@ class Authorization {
         return res.status(500).send({ error: 'Failed to authenticate token' });
       }
 
-      // check user existence
       const foundUser = await db.User.findOne({ where: { email: decoded.email } });
+
       if (!foundUser) return res.status(401).send({ error: errors['401'] });
 
       req.body.userId = foundUser.userId;
@@ -101,13 +99,12 @@ class Authorization {
    * @param {object} res
    * @param {function} next
    * @returns {(function|object)} Function next() or JSON object
+   * return 403 forbidden error if user doesn't have required role
    */
   authorizeRole(req, res, next) {
     const { type } = this;
-    // skip role authorization for menu and orders
     if ((req.baseUrl === '/api/v1/orders' || req.baseUrl === '/api/v1/menu') && req.method === 'GET') return next();
 
-    // return 403 forbidden error if user doesn't have required role
     if (type !== req.body.role) {
       return res.status(403).send({
         error: errors['403']

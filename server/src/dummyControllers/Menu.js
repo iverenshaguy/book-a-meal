@@ -27,7 +27,6 @@ class Menu {
       return res.status(200).send({ message: 'No Menu is Available For This Day' });
     }
 
-    // get meal object for each meal ID
     const menu = { ...menuForTheDay };
     menu.meals = Menu.getMealObject(menu.meals);
 
@@ -45,10 +44,7 @@ class Menu {
   static async create(req, res) {
     const defaultDate = moment().format('YYYY-MM-DD');
 
-    // date is either equal to today or given date
     req.body.date = req.body.date || defaultDate;
-
-    // convert meals array string to array and remove duplicates
     req.body.meals = removeDuplicates(req.body.meals);
 
 
@@ -58,8 +54,6 @@ class Menu {
 
     menuDB.push(req.body);
 
-    // push to notifications table
-    // userId is null for all user's
     Notifications.create({
       userId: null,
       orderId: null,
@@ -67,7 +61,6 @@ class Menu {
       message: 'Rice and Stew with Beef was just added to the menu'
     });
 
-    // get full meals object from mealsDB
     const fullData = { ...req.body };
     fullData.meals = Menu.getMealObject(fullData.meals);
 
@@ -87,10 +80,9 @@ class Menu {
       .findIndex(item => item.menuId === req.params.menuId &&
       item.userId === req.body.userId);
 
-    // return 404 error if index isn't found ie menu doesnt exist
     if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
 
-    // return meal item if no data was sent ie req.body is only poulated with userId && role
+    // return meal item if no data was sent ie req.body is only populated with userId && role
     if (Object.keys(req.body).length === 2) {
       const unEditedMenu = menuDB[itemIndex];
       unEditedMenu.meals = Menu.getMealObject(unEditedMenu.meals);
@@ -105,18 +97,13 @@ class Menu {
 
     const oldItem = menuDB[itemIndex];
 
-    // remove duplicates
-    req.body.meals = removeDuplicates(req.body.meals);
-
-    // delete id and replace date and updated from req.body
     delete req.body.menuId;
+    req.body.meals = removeDuplicates(req.body.meals);
     req.body.date = oldItem.date;
-    req.body.updated = moment().format();
+    req.body.updatedAt = moment().format();
 
-    // update old meal with new meal and assign it to it's position in the array
     menuDB[itemIndex] = { ...oldItem, ...req.body };
 
-    // get full meals object from mealsDB
     const fullData = { ...menuDB[itemIndex] };
     fullData.meals = Menu.getMealObject(fullData.meals);
 
