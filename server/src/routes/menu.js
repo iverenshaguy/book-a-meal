@@ -1,6 +1,5 @@
 import express from 'express';
 import Menu from '../controllers/Menu';
-import asyncWrapper from '../helpers/asyncWrapper';
 import menuValidation from '../validations/menu';
 import Authorization from '../middlewares/Authorization';
 import ValidationHandler from '../middlewares/ValidationHandler';
@@ -10,8 +9,8 @@ const authorization = new Authorization('caterer');
 
 menuRoutes.use(Authorization.authorize, authorization.authorizeRole);
 
-menuRoutes.get('/', asyncWrapper(Menu.getMenuForDay));
-menuRoutes.post('/', menuValidation.create, ValidationHandler.validate, asyncWrapper(Menu.create));
-menuRoutes.put('/:menuId', menuValidation.update, ValidationHandler.validate, asyncWrapper(Menu.update));
+menuRoutes.get('/', Menu.getMenuForDay);
+menuRoutes.post('/', menuValidation.create, ValidationHandler.validate, Menu.create);
+menuRoutes.put('/:menuId', menuValidation.update, ValidationHandler.validate, Menu.update);
 
 export default menuRoutes;
