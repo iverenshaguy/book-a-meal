@@ -36,7 +36,6 @@ describe('Order Routes: Add an Order', () => {
       .set('authorization', emiolaToken)
       .send({ ...newOrder, meals: ['46ced7aa-eed5-4462-b2c0-153f31589bdd'], date: '2018-05-11' })
       .end((err, res) => {
-        console.log(res.body);
         expect(res.statusCode).to.equal(422);
         expect(res.body.errors.meals.msg).to.equal('Meal 46ced7aa-eed5-4462-b2c0-153f31589bdd is not available');
 
