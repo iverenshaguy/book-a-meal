@@ -11,16 +11,16 @@
 
 <body class="admin">
   <div class="header">
-    <div class="navbar white-navbar">
+    <div class="navbar">
       <div class="menu-control d-none-md">
         <a href="#sidenav" class="d-none-md">
           <img src="./assets/img/toggler.png" alt="toggler">
         </a>
       </div>
-      <div class="page-title">
-        <h3>
-          <a href="./index.html">BOOK-A-MEAL</a>
-        </h3>
+      <div class="page-title d-flex-md">
+        <div class="date">
+          <h2>Thursday, 19th April 2018 &nbsp; &nbsp; 18:00</h2>
+        </div>
       </div>
       <div class="navlinks admin-nav">
         <div class="dropdown notification">
@@ -48,6 +48,9 @@
             <a href="#" aria-hidden="true">&times;</a>
           </div>
           <div class="sidenav-title">
+            <h3>
+              <a href="./index.html">BOOK-A-MEAL</a>
+            </h3>
             <div class="username-circle">
               <p>I</p>
             </div>
@@ -66,22 +69,21 @@
       </div>
     </div>
     <div class="content-wrapper dashboard">
-      <div class="date">
+      <div class="date d-none-md">
         <h2>Thursday, 19th April 2018 &nbsp; &nbsp; 18:00</h2>
       </div>
       <div class="card-group summary">
         <div class="card total-sum">
           <div class="count">345</div>
-          <div>Orders</div>
+          <div>Today's Orders</div>
         </div>
-        <div class="card highest">
-          <div>59 Banana Souffle</div>
-          <div>42 Asun Deals</div>
-          <div>30 Jollof Rice Packs </div>
-          <div>17 Kebab meals</div>
+        <div class="card pending">
+          <div class="count">21</div>
+          <div>Pending Orders</div>
         </div>
         <div class="card total-cash">
-          <h1>&#8358; 365, 780.00</h1>
+          <div class="count">&#8358; 365, 780.00</div>
+          <div>Today's Revenue</div>
         </div>
       </div>
       <div class="order-details">
@@ -89,7 +91,7 @@
           <table>
             <thead>
               <th>Order Id</th>
-              <th>Menu Item(s)</th>
+              <th>Meal Item(s)</th>
               <th>Customer</th>
               <th>Amount</th>
               <th>Date</th>
@@ -102,7 +104,13 @@
               <td>&#8358;2100</td>
               <td>21/04/17 8:50pm</td>
               <td>
-                <span class="success">Delivered</span>
+                <span>
+                  <select class="success table-select" value="Pending">
+                    <option class="success" value="Delivered" selected>Delivered</option>
+                    <option class="warning" value="Pending">Pending</option>
+                    <option class="danger" value="Canceled">Canceled</option>
+                  </select>
+                </span>
               </td>
             </tr>
             <tr>
@@ -112,7 +120,13 @@
               <td>&#8358;2100</td>
               <td>21/04/17 8:50pm</td>
               <td>
-                <span class="danger">Canceled</span>
+                <span>
+                  <select class="danger table-select" disabled>
+                    <option class="success" value="Delivered">Delivered</option>
+                    <option class="warning" value="Pending">Pending</option>
+                    <option class="danger" value="Canceled" selected>Canceled</option>
+                  </select>
+                </span>
               </td>
             </tr>
             <tr>
@@ -122,7 +136,13 @@
               <td>&#8358;2100</td>
               <td>21/04/17 8:50pm</td>
               <td>
-                <span class="success">Delivered</span>
+                <span>
+                  <select class="success table-select">
+                    <option class="success" value="Delivered" selected>Delivered</option>
+                    <option class="warning" value="Pending">Pending</option>
+                    <option class="danger" value="Canceled">Canceled</option>
+                  </select>
+                </span>
               </td>
             </tr>
             <tr>
@@ -132,7 +152,13 @@
               <td>&#8358;2100</td>
               <td>21/04/17 8:50pm</td>
               <td>
-                <span class="warning">Pending</span>
+                <span>
+                  <select class="warning table-select">
+                    <option class="success" value="Delivered">Delivered</option>
+                    <option class="warning" value="Pending" selected>Pending</option>
+                    <option class="danger" value="Canceled">Canceled</option>
+                  </select>
+                </span>
               </td>
             </tr>
             <tr>
@@ -142,7 +168,13 @@
               <td>&#8358;3000</td>
               <td>13/04/18 8:59am</td>
               <td>
-                <span class="success">Delivered</span>
+                <span>
+                  <select class="success table-select">
+                    <option class="success" value="Delivered" selected>Delivered</option>
+                    <option class="warning" value="Pending">Pending</option>
+                    <option class="danger" value="Canceled">Canceled</option>
+                  </select>
+                </span>
               </td>
             </tr>
           </table>
