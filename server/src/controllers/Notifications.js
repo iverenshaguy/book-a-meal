@@ -18,7 +18,7 @@ class Notifications {
    * @returns {object} JSON object
    */
   static getNotifications(req, res) {
-    const { role, userId } = req.body;
+    const { role, userId } = req;
     const list = role === 'caterer' ?
       notificationsDB.filter(item => item.userId === userId) :
       notificationsDB.filter(item => item.userId === null);

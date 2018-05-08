@@ -84,8 +84,8 @@ class Authorization {
 
       if (!foundUser) return res.status(401).send({ error: errors['401'] });
 
-      req.body.userId = foundUser.userId;
-      req.body.role = foundUser.role;
+      req.userId = foundUser.userId;
+      req.role = foundUser.role;
 
       return next();
     });
@@ -105,7 +105,7 @@ class Authorization {
     const { type } = this;
     if ((req.baseUrl === '/api/v1/orders' || req.baseUrl === '/api/v1/menu') && req.method === 'GET') return next();
 
-    if (type !== req.body.role) {
+    if (type !== req.role) {
       return res.status(403).send({
         error: errors['403']
       });

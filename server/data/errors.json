@@ -3,5 +3,6 @@
   "403": "Forbidden",
   "404": "Not Found",
   "422": "Validation Error",
-  "500": "Internal Server Error"
+  "500": "Internal Server Error",
+  "empty": "Empty PUT Requests Are Not Allowed"
 }

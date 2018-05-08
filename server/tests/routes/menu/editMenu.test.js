@@ -92,6 +92,23 @@ describe('Menu Routes: Edit menu', () => {
       });
   });
 
+  it('should return error for an empty PUT request', (done) => {
+    request(app)
+      .put(`/api/v1/menu/${newMenuId}`)
+      .set('Accept', 'application/json')
+      .set('authorization', foodCircleToken)
+      .send({})
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(422);
+        expect(res.body.error).to.equal('Empty PUT Requests Are Not Allowed');
+
+        if (err) {
+          return done(err);
+        }
+        done();
+      });
+  });
+
   invalidID(
     'should return 422 error for invalid meal id', 'menuId',
     request(app), 'put', menu1, '/api/v1/menu/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', foodCircleToken

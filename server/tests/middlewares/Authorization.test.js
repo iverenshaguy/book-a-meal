@@ -31,7 +31,7 @@ describe('Authorization Handler', () => {
     });
 
     it('sends error 403 for forbidden user ie user that\'s not admin', () => {
-      const forbReq = { body: { role: 'user' }, headers: { authorization: emiolaToken } };
+      const forbReq = { role: 'user', headers: { authorization: emiolaToken } };
       const authorization = new Authorization('caterer');
       authorization.authorizeRole(forbReq, res, next);
 
@@ -39,7 +39,7 @@ describe('Authorization Handler', () => {
     });
 
     it('calls next for authenticated caterer', () => {
-      const authReq = { body: { role: 'caterer' }, headers: { authorization: foodCircleToken } };
+      const authReq = { role: 'caterer', headers: { authorization: foodCircleToken } };
       const authorization = new Authorization('caterer');
       authorization.authorizeRole(authReq, res, next);
 
@@ -70,7 +70,7 @@ describe('Authorization Handler', () => {
     });
 
     it('calls next for authenticated user', () => {
-      const authReq = { body: { role: 'user' }, headers: { authorization: emiolaToken } };
+      const authReq = { role: 'user', headers: { authorization: emiolaToken } };
       const authorization = new Authorization('user');
       authorization.authorizeRole(authReq, res, next);
 
