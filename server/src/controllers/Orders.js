@@ -27,7 +27,7 @@ class Orders {
    * @returns {(function|object)} Function next() or JSON object
    */
   static getOrders(req, res) {
-    const { role } = req.body;
+    const { role } = req;
 
     return role === 'caterer' ?
       Orders.getCaterersOrders(req, res) :
@@ -45,7 +45,7 @@ class Orders {
    * to user and were created on that date
    */
   static getUsersOrders(req, res) {
-    const { body: { userId }, query: { date } } = req;
+    const { userId, query: { date } } = req;
     let list = ordersDB.filter(item => item.userId === userId);
 
     if (date) {
@@ -72,7 +72,7 @@ class Orders {
    * includes is used instead of equality because created at is a full date string
    */
   static getCaterersOrders(req, res) {
-    const { body: { userId }, query: { date } } = req;
+    const { userId, query: { date } } = req;
     // get caterer's mealIds from mealsDB
     const mealIdsArray = mealsDB.reduce((idArray, meal) => {
       if (meal.userId === userId) idArray.push(meal.mealId);
@@ -92,7 +92,7 @@ class Orders {
         && caterersOrderIds.includes(order.orderId));
     }
 
-    list.map(orderItem => Orders.getOrderObject(orderItem, req.body.userId));
+    list.map(orderItem => Orders.getOrderObject(orderItem, req.userId));
 
     return GetItems.items(req, res, list, 'orders');
   }
@@ -148,12 +148,13 @@ class Orders {
     const data = { ...req.body };
     const { orderId } = req.params;
     const itemIndex =
-      ordersDB.findIndex(item => item.orderId === orderId && item.userId === req.body.userId);
+      ordersDB.findIndex(item => item.orderId === orderId && item.userId === req.userId);
 
     if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
 
     if (isExpired('order', ordersDB, orderId)) return res.status(422).send({ error: 'Order is expired' });
 
+    data.userId = req.userId;
     data.updatedAt = moment().format();
     data.createdAt = moment().format();
     data.orderId = orderId;
@@ -188,7 +189,7 @@ class Orders {
   static delete(req, res) {
     const { orderId } = req.params;
     const itemIndex =
-      ordersDB.findIndex(item => item.orderId === orderId && item.userId === req.body.userId);
+      ordersDB.findIndex(item => item.orderId === orderId && item.userId === req.userId);
 
     if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
 

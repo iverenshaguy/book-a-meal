@@ -4,6 +4,7 @@ import app from '../../../src/app';
 import notAdmin from '../../utils/notAdmin';
 import notFound from '../../utils/notFound';
 import invalidID from '../../utils/invalidID';
+import invalidPUT from '../../utils/invalidPUT';
 import unAuthorized from '../../utils/unAuthorized';
 import { editMeal as data } from '../../utils/data';
 import { tokens } from '../../utils/setup';
@@ -18,21 +19,6 @@ describe('Meal Routes: Edit a meal option', () => {
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
       .send(newMeal)
-      .end((err, res) => {
-        expect(res.statusCode).to.equal(200);
-        expect(res.body.mealId).to.equal('91b6e41c-0972-4ac5-86da-4ac1f5226e83');
-
-        if (err) return done(err);
-        done();
-      });
-  });
-
-  it('should return meal item for authenticated user when no data is sent', (done) => {
-    request(app)
-      .put('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')
-      .set('Accept', 'application/json')
-      .set('authorization', foodCircleToken)
-      .send()
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
         expect(res.body.mealId).to.equal('91b6e41c-0972-4ac5-86da-4ac1f5226e83');
@@ -64,6 +50,11 @@ describe('Meal Routes: Edit a meal option', () => {
   invalidID(
     'should return 422 error for invalid meal id', 'mealId',
     request(app), 'put', newMeal, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', foodCircleToken
+  );
+
+  invalidPUT(
+    'should return 422 error for empty object',
+    request(app), '/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83', foodCircleToken
   );
 
   notFound(
