@@ -1,7 +1,6 @@
 import request from 'supertest';
 import { expect } from 'chai';
 import app from '../../../src/app';
-import menuDB from '../../../data/menu.json';
 import notAdmin from '../../utils/notAdmin';
 import unAuthorized from '../../utils/unAuthorized';
 import { addMenu as data, currentDay } from '../../utils/data';
@@ -13,13 +12,6 @@ const {
 } = data;
 
 describe('Menu Routes: Add a new menu', () => {
-  after(() => {
-    // delete menu for today after test
-    const index = menuDB.findIndex(item => item.date === currentDay);
-
-    menuDB.splice(index, 1);
-  });
-
   it('should add a menu for authenticated user, for the current day', (done) => {
     request(app)
       .post('/api/v1/menu')
@@ -80,6 +72,22 @@ describe('Menu Routes: Add a new menu', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.errors.date.msg).to.equal('Date is invalid, valid format is YYYY-MM-DD');
         expect(res.body.errors.meals.msg).to.equal(' MealId 72a3417e-45c8-4559ie-8b74-8b5a61be8614 is invalid, MealId 8a65538d-f862-420e78-bcdc-80743df06578 is invalid, MealId f9eb7652-125a-4bcbuu-ad81-02f84901cdc3 is invalid');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
+  it('should not add meal that\'s not for user', (done) => {
+    request(app)
+      .post('/api/v1/menu')
+      .set('Accept', 'application/json')
+      .set('authorization', foodCircleToken)
+      .send({ ...menu1, date: '2019-05-04', meals: ['46ced7aa-eed5-4462-b2c0-153f31589bdd'] })
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(422);
+        expect(res.body).to.be.an('object');
+        expect(res.body.errors.meals.msg).to.equal('Meal 46ced7aa-eed5-4462-b2c0-153f31589bdd doesn\'t exist');
 
         if (err) return done(err);
         done();

@@ -1,8 +1,7 @@
 import moment from 'moment';
-import db from '../models';
 import menuDB from '../../data/menu.json';
 import mealsDB from '../../data/meals.json';
-// import Notifications from './Notifications';
+import Notifications from './Notifications';
 import errors from '../../data/errors.json';
 import checkMenuUnique from '../helpers/checkMenuUnique';
 import removeDuplicates from '../helpers/removeDuplicates';
@@ -57,22 +56,22 @@ class Menu {
       return res.status(422).send({ error: 'Menu already exists for this day' });
     }
 
-    const newMenu = await db.Menu.create(req.body, { include: [db.User] });
+    menuDB.push(req.body);
 
     // push to notifications table
     // userId is null for all user's
-    // Notifications.create({
-    //   userId: null,
-    //   orderId: null,
-    //   menuId: req.body.menuId,
-    //   message: 'Rice and Stew with Beef was just added to the menu'
-    // });
+    Notifications.create({
+      userId: null,
+      orderId: null,
+      menuId: req.body.menuId,
+      message: 'Rice and Stew with Beef was just added to the menu'
+    });
 
     // get full meals object from mealsDB
     const fullData = { ...req.body };
     fullData.meals = Menu.getMealObject(fullData.meals);
 
-    return res.status(201).send(newMenu);
+    return res.status(201).send(req.body);
   }
 
   /**

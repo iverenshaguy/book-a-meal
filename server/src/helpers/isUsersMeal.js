@@ -1,4 +1,4 @@
-import mealsDB from '../../data/meals.json';
+import db from '../models';
 import stringToArray from './stringToArray';
 
 /**
@@ -7,19 +7,22 @@ import stringToArray from './stringToArray';
  * @param {string} userId
  * @return {(bool|error)} returns true or throws error
  */
-function isUsersMeal(mealIdArr, userId) {
+async function isUsersMeal(mealIdArr, userId) {
   const mealIds = stringToArray(mealIdArr, ',');
   const mealErrorArr = [];
-  mealIds.forEach((mealId) => {
-    const meal = mealsDB.find(item => item.mealId === mealId
-      && item.userId === userId);
+
+  const checks = mealIds.map(async (mealId) => {
+    const meal = await db.Meal.findOne({ where: { mealId, userId } });
 
     if (!meal) mealErrorArr.push(`Meal ${mealId} doesn't exist`);
   });
 
-  if (mealErrorArr.length === 0) return true;
+  const errs = Promise.all(checks).then(() => {
+    if (mealErrorArr.length === 0) return true;
+    if (mealErrorArr.length !== 0) throw new Error(mealErrorArr);
+  });
 
-  throw new Error(mealErrorArr);
+  return errs;
 }
 
 export default isUsersMeal;

@@ -1,10 +1,4 @@
 import bcrypt from 'bcrypt';
-// import Menu from './index';
-// import Meal from './Meal';
-// import Menu from './Menu';
-// import Order from './Order';
-// import Notification from './Notification';
-
 
 const SALT_ROUNDS = 10;
 

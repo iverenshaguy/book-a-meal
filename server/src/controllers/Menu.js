@@ -1,7 +1,6 @@
-import uuidv4 from 'uuid/v4';
 import moment from 'moment';
 import menuDB from '../../data/menu.json';
-import mealsDB from '../../data/meals.json';
+import db from '../models';
 import Notifications from './Notifications';
 import errors from '../../data/errors.json';
 import checkMenuUnique from '../helpers/checkMenuUnique';
@@ -30,7 +29,7 @@ class Menu {
 
     // get meal object for each meal ID
     const menu = { ...menuForTheDay };
-    menu.meals = Menu.getMealObject(menu.meals);
+    menu.meals = Menu.getMealsObject(menu.meals);
 
     return res.status(200).send(menu);
   }
@@ -42,45 +41,39 @@ class Menu {
    * @param {object} req
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
+   * date is either equal to the request date or the default date (today)
+   * check menu unique ensures that menu doesn't already exists in db
+   * Notifications are also created when a new menu is added
    */
-  static create(req, res) {
+  static async create(req, res) {
+    const { userId } = req.body;
     const defaultDate = moment().format('YYYY-MM-DD');
-    const today = moment().format();
 
-    // generate random id
-    req.body.menuId = uuidv4();
-
-    // date is either equal to today or given date
     req.body.date = req.body.date || defaultDate;
-
-    // convert meals array string to array and remove duplicates
     req.body.meals = removeDuplicates(req.body.meals);
 
-    // add dates
-    req.body.created = today;
-    req.body.updated = today;
+    const isMenuUnique = await checkMenuUnique(req.body.date, req.body.userId);
 
-    if (!checkMenuUnique(req.body.date, req.body.userId)) {
-      return res.status(422).send({ error: 'Menu already exists for this day' });
-    }
+    if (!isMenuUnique) return res.status(422).send({ error: 'Menu already exists for this day' });
 
-    menuDB.push(req.body);
+    const newMenu = await db.Menu.create({ date: req.body.date, userId }, { include: [db.User] })
+      .then(async (menu) => {
+        await menu.setMeals(req.body.meals, { through: db.MenuMeal });
+        await Menu.getMealsObject(menu);
 
-    // push to notifications table
-    // userId is null for all user's
-    Notifications.create({
-      userId: null,
-      orderId: null,
-      menuId: req.body.menuId,
-      message: 'Rice and Stew with Beef was just added to the menu'
-    });
+        Notifications.create({
+          userId: null,
+          orderId: null,
+          menuId: req.body.menuId,
+          message: 'The menu for today was just added'
+        });
 
-    // get full meals object from mealsDB
-    const fullData = { ...req.body };
-    fullData.meals = Menu.getMealObject(fullData.meals);
+        return menu;
+      });
 
-    return res.status(201).send(fullData);
+    return res.status(201).send(newMenu);
   }
+
 
   /**
    * Updates an existing item
@@ -101,7 +94,7 @@ class Menu {
     // return meal item if no data was sent ie req.body is only poulated with userId && role
     if (Object.keys(req.body).length === 2) {
       const unEditedMenu = menuDB[itemIndex];
-      unEditedMenu.meals = Menu.getMealObject(unEditedMenu.meals);
+      unEditedMenu.meals = Menu.getMealsObject(unEditedMenu.meals);
 
       return res.status(200).send(unEditedMenu);
     }
@@ -126,20 +119,22 @@ class Menu {
 
     // get full meals object from mealsDB
     const fullData = { ...menuDB[itemIndex] };
-    fullData.meals = Menu.getMealObject(fullData.meals);
+    fullData.meals = Menu.getMealsObject(fullData.meals);
 
     return res.status(200).send(fullData);
   }
 
   /**
-   * Gets meals from mealsDB with ID
-   * @method getMealObject
+   * Gets meals for the Menu
+   * @method getMealsObject
    * @memberof Controller
-   * @param {meals} mealIDArray
-   * @returns {array} Array of filled Menu
+   * @param {OBJECT} menu
+   * @returns {array} Array of Meals
    */
-  static getMealObject(mealIDArray) {
-    return mealIDArray.map(mealID => mealsDB.find(mealItem => mealItem.mealId === mealID));
+  static async getMealsObject(menu) {
+    menu.dataValues.meals = await menu.getMeals({
+      attributes: ['mealId', 'title', 'imageURL', 'description', 'forVegetarians', 'price']
+    });
   }
 }
 

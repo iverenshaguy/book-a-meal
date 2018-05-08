@@ -1,4 +1,4 @@
-import menuDB from '../../data/menu.json';
+import db from '../models';
 
 /**
  * Function to check if menu for this day already exits
@@ -6,8 +6,8 @@ import menuDB from '../../data/menu.json';
  * @param {string} userId
  * @return {(bool)} returns true or false
  */
-function checkMenuUnique(value, userId) {
-  const check = menuDB.find(menu => menu.date === value && menu.userId === userId);
+async function checkMenuUnique(value, userId) {
+  const check = await db.Menu.findOne({ where: { date: value, userId } });
 
   return !check;
 }

@@ -1,5 +1,5 @@
 import moment from 'moment';
-import menuDB from '../../data/menu.json';
+import db from '../models';
 
 /**
  * Function to check if menu for the day contains meal
@@ -7,12 +7,12 @@ import menuDB from '../../data/menu.json';
  * @param {string} date
  * @return {bool} returns false or true
  */
-function isMealAvailable(mealId, date = moment().format('YYYY-MM-DD')) {
+async function isMealAvailable(mealId, date = moment().format('YYYY-MM-DD')) {
   // find a menu whose date is today and has the meal as an available meal for the day
-  const meal = menuDB.find(item => item.date.includes(date)
-    && item.meals.includes(mealId));
+  const menu = await db.Menu.findOne({ where: { date } });
+  const checkMeal = menu.meals.includes(mealId);
 
-  if (!meal) return false;
+  if (!checkMeal) return false;
 
   return true;
 }

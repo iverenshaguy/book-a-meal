@@ -21,7 +21,9 @@ export default {
       .withMessage('Meals must be specified')
       .custom(value => notEmpty(value, 'Meals cannot be empty'))
       .custom(value => checkMealsId(value))
-      .custom((value, { req }) => isUsersMeal(value, req.body.userId)),
+      .custom(async (value, { req }) => {
+        await isUsersMeal(value, req.body.userId).then(err => err);
+      }),
   ],
   update: [
     check('menuId')
@@ -34,6 +36,8 @@ export default {
       .optional()
       .custom(value => notEmpty(value, 'Meals cannot be empty'))
       .custom(value => checkMealsId(value))
-      .custom((value, { req }) => isUsersMeal(value, req.body.userId)),
+      .custom(async (value, { req }) => {
+        await isUsersMeal(value, req.body.userId).then(err => err);
+      }),
   ],
 };
