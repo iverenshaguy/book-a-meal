@@ -83,45 +83,26 @@ class Menu {
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
-  static update(req, res) {
-    const itemIndex = menuDB
-      .findIndex(item => item.menuId === req.params.menuId &&
-      item.userId === req.body.userId);
+  static async update(req, res) {
+    const menu = await db.Menu
+      .findOne({ where: { menuId: req.params.menuId, userId: req.body.userId } });
 
-    // return 404 error if index isn't found ie menu doesnt exist
-    if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
+    if (!menu) return res.status(404).send({ error: errors[404] });
 
-    // return meal item if no data was sent ie req.body is only poulated with userId && role
-    if (Object.keys(req.body).length === 2) {
-      const unEditedMenu = menuDB[itemIndex];
-      unEditedMenu.meals = Menu.getMealsObject(unEditedMenu.meals);
-
-      return res.status(200).send(unEditedMenu);
-    }
-
-    // if menuis expired i.e. menu is past, return error
-    if (menuDB[itemIndex].date.toString() < moment().format('YYYY-MM-DD').toString()) {
+    if (menu.date.toString() < moment().format('YYYY-MM-DD').toString()) {
       return res.status(422).send({ error: 'Menu Expired' });
     }
 
-    const oldItem = menuDB[itemIndex];
-
-    // remove duplicates
     req.body.meals = removeDuplicates(req.body.meals);
 
-    // delete id and replace date and updated from req.body
-    delete req.body.menuId;
-    req.body.date = oldItem.date;
-    req.body.updated = moment().format();
+    await menu.setMeals([], { through: db.MenuMeal });
+    const updatedMenu = await menu.setMeals(req.body.meals, { through: db.MenuMeal })
+      .then(async () => {
+        await Menu.getMealsObject(menu);
+        return menu;
+      });
 
-    // update old meal with new meal and assign it to it's position in the array
-    menuDB[itemIndex] = { ...oldItem, ...req.body };
-
-    // get full meals object from mealsDB
-    const fullData = { ...menuDB[itemIndex] };
-    fullData.meals = Menu.getMealsObject(fullData.meals);
-
-    return res.status(200).send(fullData);
+    return res.status(200).send(updatedMenu);
   }
 
   /**

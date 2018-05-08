@@ -12,24 +12,22 @@ const { foodCircleToken } = tokens;
 const { menu1, badMenu } = data;
 
 describe('Menu Routes: Edit menu', () => {
-  // it('should edit a menu for authenticated user', (done) => {
-  //   request(app)
-  //     .put('/api/v1/menu/a9fa6cb3-9f5e-46fa-b641-388f898ca824')
-  //     .set('Accept', 'application/json')
-  //     .set('authorization', foodCircleToken)
-  //     .send(menu1)
-  //     .end((err, res) => {
-  //       console.log(err);
-  //       console.log(res.body);
-  //       expect(res.statusCode).to.equal(200);
-  //       expect(res.body).to.include.keys('menuId');
-  //       expect(res.body).to.include.keys('date');
-  //       expect(res.body.meals.length).to.equal(3);
+  it('should edit a menu for authenticated user', (done) => {
+    request(app)
+      .put('/api/v1/menu/a9fa6cb3-9f5e-46fa-b641-388f898ca824')
+      .set('Accept', 'application/json')
+      .set('authorization', foodCircleToken)
+      .send(menu1)
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(200);
+        expect(res.body).to.include.keys('menuId');
+        expect(res.body).to.include.keys('date');
+        expect(res.body.meals.length).to.equal(3);
 
-  //       if (err) return done(err);
-  //       done();
-  //     });
-  // });
+        if (err) return done(err);
+        done();
+      });
+  });
 
   it('should not edit expired menu for authenticated user', (done) => {
     request(app)
@@ -38,8 +36,6 @@ describe('Menu Routes: Edit menu', () => {
       .set('authorization', foodCircleToken)
       .send(menu1)
       .end((err, res) => {
-        console.log(err);
-        console.log(res.body);
         expect(res.statusCode).to.equal(422);
         expect(res.body.error).to.equal('Menu Expired');
 
