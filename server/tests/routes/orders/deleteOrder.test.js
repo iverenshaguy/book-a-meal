@@ -24,8 +24,8 @@ describe('Order Routes: Delete an Order', () => {
         expect(res.statusCode).to.equal(201);
         expect(res.body).to.include.keys('orderId');
         expect(res.body).to.include.keys('userId');
-        expect(res.body).to.include.keys('created');
-        expect(res.body).to.include.keys('updated');
+        expect(res.body).to.include.keys('createdAt');
+        expect(res.body).to.include.keys('updatedAt');
 
         if (err) return done(err);
         done();

@@ -11,7 +11,7 @@ import moment from 'moment';
 function isExpired(type, db, id) {
   const check = db.find(item => item[`${type}Id`] === id);
   const currentDate = moment().format('YYYY-MM-DD');
-  const itemDate = check.created.substring(0, 10);
+  const itemDate = check.createdAt.substring(0, 10);
 
   if (moment(currentDate).isAfter(itemDate)) return true;
 
