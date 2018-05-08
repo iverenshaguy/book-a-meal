@@ -19,7 +19,6 @@ const invalidPUT = (message, request, url, token) => {
         .set('authorization', token)
         .send({})
         .end((err, res) => {
-          console.log(res.body);
           expect(res.statusCode).to.equal(422);
           expect(res.body.error).to.equal('Empty PUT Requests Are Not Allowed');
 
