@@ -113,7 +113,8 @@ class Menu {
    */
   static async getMealsObject(menu) {
     menu.dataValues.meals = await menu.getMeals({
-      attributes: ['mealId', 'title', 'imageURL', 'description', 'forVegetarians', 'price']
+      attributes: ['mealId', 'title', 'imageURL', 'description', 'forVegetarians', 'price'],
+      joinTableAttributes: []
     });
   }
 }

@@ -20,13 +20,6 @@ export default {
         as: 'userId'
       }
     },
-    date: {
-      type: Sequelize.DATEONLY,
-      allowNull: false,
-      validate: {
-        isDate: true
-      }
-    },
     deliveryAddress: {
       type: Sequelize.TEXT,
       allowNull: true

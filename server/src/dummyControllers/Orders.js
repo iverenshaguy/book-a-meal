@@ -1,12 +1,12 @@
+import uuidv4 from 'uuid/v4';
 import moment from 'moment';
-import db from '../models';
 import mealsDB from '../../data/meals.json';
 import ordersDB from '../../data/orders.json';
 import orderItemsDB from '../../data/orderItems.json';
 import errors from '../../data/errors.json';
 import GetItems from '../middlewares/GetItems';
+import OrderItems from './OrderItems';
 import isExpired from '../helpers/isExpired';
-import createMealOrder from '../helpers/createMealOrder';
 import getMealOwner from '../helpers/getMealOwner';
 import Notifications from './Notifications';
 import removeDuplicates from '../helpers/removeDuplicates';
@@ -107,30 +107,32 @@ class Orders {
    * notification is created when an order is made
    * order is expired after 15 minutes of original purchase
    */
-  static async create(req, res) {
-    const orderItems = createMealOrder(req.body.meals);
-    req.body.meals = removeDuplicates(req.body.meals);
-    req.body.userId = req.userId;
+  static create(req, res) {
+    const data = { ...req.body };
 
-    const newOrder = await db.Order.create(req.body, { include: [db.User] })
-      .then(async (order) => {
-        const promises = orderItems.map(item =>
-          order.addMeal(item.mealId, { through: { quantity: item.quantity } }).then(() => {
-            Notifications.create({
-              menuId: null,
-              userId: getMealOwner(item.mealId),
-              orderId: item.orderId,
-              message: 'Your menu was just ordered'
-            });
-          }));
+    data.orderId = uuidv4();
+    data.date = req.body.date || moment().format('YYYY-MM-DD');
+    data.meals = removeDuplicates(data.meals);
+    data.userId = 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac';
+    data.createdAt = moment().format();
+    data.updatedAt = moment().format();
 
-        await Promise.all(promises);
-        await Orders.getMealsObject(order);
+    OrderItems.create(data.orderId, req.body.meals);
 
-        return order;
-      });
+    delete data.role;
 
-    return res.status(201).send(newOrder);
+    ordersDB.push(data);
+
+    Notifications.create({
+      menuId: null,
+      userId: getMealOwner(data.mealId),
+      orderId: data.orderId,
+      message: 'Your menu was just ordered'
+    });
+
+    const order = Orders.getOrderObject(data);
+
+    return res.status(201).send(order);
   }
 
   /**
@@ -162,6 +164,8 @@ class Orders {
 
     ordersDB[itemIndex] = { ...oldOrder, ...data };
 
+    OrderItems.update(data.orderId, req.body.meals);
+
     Notifications.create({
       menuId: null,
       userId: getMealOwner(data.mealId),
@@ -191,23 +195,10 @@ class Orders {
 
     if (isExpired('order', ordersDB, orderId)) return res.status(422).send({ error: 'Order is expired' });
 
+    OrderItems.delete(orderId);
     ordersDB.splice(itemIndex, 1);
 
     return res.status(204).send();
-  }
-
-  /**
-   * Generated Order Object to be Returned as Response
-   * @method getMealsObject
-   * @memberof Orders
-   * @param {object} order
-   * @returns {object} JSON object
-   */
-  static async getMealsObject(order) {
-    order.dataValues.meals = await order.getMeals({
-      attributes: ['mealId', 'title', 'imageURL', 'description', 'forVegetarians', 'price'],
-      joinTableAttributes: ['quantity']
-    });
   }
 
   /**
