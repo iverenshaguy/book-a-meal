@@ -8,11 +8,11 @@ import isMealAvailable from './isMealAvailable';
  * @param {object} req
  * @return {bool} returns false or true
  */
-async function isValidOrderItems(items, req) {
+async function isValidOrderItems(items) {
   const err = [];
   items = stringToArray(items, ',');
   // check mealId availability
-  const promises = items.map(item => isMealAvailable(item, req.body.date).then((mealAvai) => {
+  const promises = items.map(item => isMealAvailable(item).then((mealAvai) => {
     if (!mealAvai) err.push(`Meal ${item} is not available`);
   }));
 

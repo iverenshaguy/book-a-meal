@@ -1,3 +1,7 @@
+import moment from 'moment';
+
+const currentDay = moment().format('YYYY-MM-DD');
+
 export default {
   up: queryInterface => queryInterface.bulkInsert('Menu', [
     {
@@ -32,6 +36,13 @@ export default {
       userId: '8356954a-9a42-4616-8079-887a73455a7f',
       menuId: '15421f7a-0f82-4802-b215-e0e8efb6bfb3',
       date: '2018-04-27',
+      createdAt: '2018-05-01T00:47:03.687Z',
+      updatedAt: '2018-05-01T00:47:03.687Z'
+    },
+    {
+      userId: '8356954a-9a42-4616-8079-887a73455a7f',
+      menuId: '6f27c0fb-19a9-4d9e-b5a1-d97c2d426ab5',
+      date: currentDay,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
     }

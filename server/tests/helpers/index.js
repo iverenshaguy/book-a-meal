@@ -7,3 +7,5 @@ import './removeDuplicates.test';
 import './createMealOrder.test';
 import './isUsersMeal.test';
 import './isValidOrderItems.test';
+import './isMealAvailable.test';
+import './isExpired.test';

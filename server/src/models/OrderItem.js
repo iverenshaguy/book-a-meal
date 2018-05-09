@@ -12,29 +12,9 @@ export default (sequelize) => {
           isInt: true,
           min: 1
         }
-      },
-      deliveryAddress: {
-        type: Sequelize.TEXT,
-        allowNull: true
-      },
-      deliveryPhoneNo: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
+      }
     }
   );
-
-  OrderItem.associate = (models) => {
-    OrderItem.belongsTo(models.Meal, {
-      foreignKey: 'mealId',
-      onDelete: 'CASCADE',
-    });
-
-    OrderItem.belongsTo(models.Order, {
-      foreignKey: 'orderId',
-      onDelete: 'CASCADE',
-    });
-  };
 
   return OrderItem;
 };

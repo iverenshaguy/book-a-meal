@@ -5,32 +5,16 @@ import notAdmin from '../../utils/notAdmin';
 import notFound from '../../utils/notFound';
 import invalidID from '../../utils/invalidID';
 import unAuthorized from '../../utils/unAuthorized';
-import { addMenu as data, tomorrow } from '../../utils/data';
+import { addMenu as data } from '../../utils/data';
 import { tokens } from '../../utils/setup';
 
 const { foodCircleToken } = tokens;
 const { menu1, badMenu } = data;
-let newMenuId;
 
 describe('Menu Routes: Edit menu', () => {
-  before((done) => {
-    request(app)
-      .post('/api/v1/menu')
-      .set('Accept', 'application/json')
-      .set('authorization', foodCircleToken)
-      .send({ ...menu1, date: tomorrow })
-      .end((err, res) => {
-        newMenuId = res.body.menuId;
-        expect(res.statusCode).to.equal(201);
-
-        if (err) return done(err);
-        done();
-      });
-  });
-
   it('should edit a menu for authenticated user', (done) => {
     request(app)
-      .put(`/api/v1/menu/${newMenuId}`)
+      .put('/api/v1/menu/6f27c0fb-19a9-4d9e-b5a1-d97c2d426ab5')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
       .send(menu1)
@@ -62,7 +46,7 @@ describe('Menu Routes: Edit menu', () => {
 
   it('should not add meal that doesn\'t belong to user to the menu', (done) => {
     request(app)
-      .put(`/api/v1/menu/${newMenuId}`)
+      .put('/api/v1/menu/6f27c0fb-19a9-4d9e-b5a1-d97c2d426ab5')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
       .send({ ...menu1, meals: ['46ced7aa-eed5-4462-b2c0-153f31589bdd'] })
@@ -94,7 +78,7 @@ describe('Menu Routes: Edit menu', () => {
 
   it('should return error for an empty PUT request', (done) => {
     request(app)
-      .put(`/api/v1/menu/${newMenuId}`)
+      .put('/api/v1/menu/6f27c0fb-19a9-4d9e-b5a1-d97c2d426ab5')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
       .send({})

@@ -1,40 +1,82 @@
 import request from 'supertest';
 import { expect } from 'chai';
+import moment from 'moment';
 import app from '../../../src/app';
 import unAuthorized from '../../utils/unAuthorized';
-import { addOrder as data, tomorrow } from '../../utils/data';
+import { addOrder as data } from '../../utils/data';
 import { tokens } from '../../utils/setup';
 
 const { emiolaToken } = tokens;
 
 const { badOrder, newOrder } = data;
+const currentHour = moment().hour();
+const currentMin = moment().minute();
 
 describe('Order Routes: Add an Order', () => {
+  let env;
+  before(() => {
+    env = process.env; // eslint-disable-line
+
+    process.env.OPENING_HOUR = currentHour - 1;
+    process.env.OPENING_MINUTE = currentMin;
+    process.env.CLOSING_HOUR = currentHour + 1;
+    process.env.CLOSING_MINUTE = 0;
+  });
+
+  after(() => {
+    process.env = env;
+  });
+
   it('should add an order for authenticated user', (done) => {
     request(app)
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
       .set('authorization', emiolaToken)
-      .send({ ...newOrder, date: tomorrow })
+      .send({ ...newOrder })
       .end((err, res) => {
         expect(res.statusCode).to.equal(201);
         expect(res.body).to.include.keys('orderId');
         expect(res.body).to.include.keys('userId');
-        expect(res.body.meals.length).to.equal(3);
-        expect(res.body.meals[0].quantity).to.equal(2);
-        expect(res.body.meals[0].meal).to.include.keys('price');
+        expect(res.body.meals.length).to.equal(2);
+        expect(res.body.meals[0].OrderItem.quantity).to.equal(2);
+        expect(res.body.meals[0]).to.include.keys('price');
 
         if (err) return done(err);
         done();
       });
   });
 
-  it('should not add an order when meal isn\'t in menu for the date', (done) => {
+  it('should not add an order when office is closed', (done) => {
+    process.env.OPENING_HOUR = currentHour - 2;
+    process.env.OPENING_MINUTE = currentMin;
+    process.env.CLOSING_HOUR = currentHour - 1;
+    process.env.CLOSING_MINUTE = 0;
+
     request(app)
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
       .set('authorization', emiolaToken)
-      .send({ ...newOrder, meals: ['46ced7aa-eed5-4462-b2c0-153f31589bdd'], date: '2018-05-11' })
+      .send(newOrder)
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(422);
+        expect(res.body.error).to.equal('Meals can only be ordered from 8:30am to 4:00pm');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
+  it('should not add an order when meal isn\'t in menu for the day', (done) => {
+    process.env.OPENING_HOUR = currentHour - 1;
+    process.env.OPENING_MINUTE = currentMin;
+    process.env.CLOSING_HOUR = currentHour + 1;
+    process.env.CLOSING_MINUTE = 0;
+
+    request(app)
+      .post('/api/v1/orders')
+      .set('Accept', 'application/json')
+      .set('authorization', emiolaToken)
+      .send({ meals: ['46ced7aa-eed5-4462-b2c0-153f31589bdd'] })
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
         expect(res.body.errors.meals.msg).to.equal('Meal 46ced7aa-eed5-4462-b2c0-153f31589bdd is not available');
@@ -45,6 +87,11 @@ describe('Order Routes: Add an Order', () => {
   });
 
   it('should return errors for invalid input', (done) => {
+    process.env.OPENING_HOUR = currentHour - 1;
+    process.env.OPENING_MINUTE = currentMin;
+    process.env.CLOSING_HOUR = currentHour + 1;
+    process.env.CLOSING_MINUTE = 0;
+
     request(app)
       .post('/api/v1/orders')
       .set('Accept', 'application/json')

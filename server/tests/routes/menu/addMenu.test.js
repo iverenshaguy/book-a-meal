@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import app from '../../../src/app';
 import notAdmin from '../../utils/notAdmin';
 import unAuthorized from '../../utils/unAuthorized';
-import { addMenu as data, currentDay } from '../../utils/data';
+import { addMenu as data, tomorrow } from '../../utils/data';
 import { tokens } from '../../utils/setup';
 
 const { foodCircleToken } = tokens;
@@ -17,12 +17,12 @@ describe('Menu Routes: Add a new menu', () => {
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send(menu1)
+      .send({ ...menu1, date: tomorrow })
       .end((err, res) => {
         expect(res.statusCode).to.equal(201);
         expect(res.body).to.include.keys('menuId');
         expect(res.body).to.include.keys('date');
-        expect(res.body.date).to.equal(currentDay);
+        expect(res.body.date).to.equal(tomorrow);
         expect(res.body.meals[0].mealId).to.equal('baa0412a-d167-4d2b-b1d8-404cb8f02631');
 
         if (err) return done(err);

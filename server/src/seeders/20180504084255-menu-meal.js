@@ -83,7 +83,35 @@ export default {
       menuId: '15421f7a-0f82-4802-b215-e0e8efb6bfb3',
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
-    }
+    },
+    {
+      id: 13,
+      mealId: '81211c24-51c0-46ec-b1e0-18db55880958',
+      menuId: '6f27c0fb-19a9-4d9e-b5a1-d97c2d426ab5',
+      createdAt: '2018-05-01T00:47:03.687Z',
+      updatedAt: '2018-05-01T00:47:03.687Z'
+    },
+    {
+      id: 14,
+      mealId: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
+      menuId: '6f27c0fb-19a9-4d9e-b5a1-d97c2d426ab5',
+      createdAt: '2018-05-01T00:47:03.687Z',
+      updatedAt: '2018-05-01T00:47:03.687Z'
+    },
+    {
+      id: 15,
+      mealId: 'baa0412a-d167-4d2b-b1d8-404cb8f02631',
+      menuId: '6f27c0fb-19a9-4d9e-b5a1-d97c2d426ab5',
+      createdAt: '2018-05-01T00:47:03.687Z',
+      updatedAt: '2018-05-01T00:47:03.687Z'
+    },
+    {
+      id: 16,
+      mealId: 'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
+      menuId: '6f27c0fb-19a9-4d9e-b5a1-d97c2d426ab5',
+      createdAt: '2018-05-01T00:47:03.687Z',
+      updatedAt: '2018-05-01T00:47:03.687Z'
+    },
   ]),
 
   down: queryInterface => queryInterface.bulkDelete('MenuMeals', null, {})
