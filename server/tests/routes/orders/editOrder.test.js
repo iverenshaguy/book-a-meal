@@ -16,6 +16,11 @@ let newOrderId;
 
 
 describe('Order Routes: Modify an Order', () => {
+  // let env;
+  // before(() => {
+  //   env = process.env; // eslint-disable-line
+  // });
+
   before((done) => {
     request(app)
       .post('/api/v1/orders')
@@ -35,6 +40,10 @@ describe('Order Routes: Modify an Order', () => {
       });
   });
 
+  // after(() => {
+  //   process.env = env;
+  // });
+
   it('should modify an order for authenticated user', (done) => {
     request(app)
       .put(`/api/v1/orders/${newOrderId}`)
@@ -42,11 +51,11 @@ describe('Order Routes: Modify an Order', () => {
       .set('authorization', emiolaToken)
       .send({ ...newOrder, meals: 'baa0412a-d167-4d2b-b1d8-404cb8f02631' })
       .end((err, res) => {
-        expect(res.statusCode).to.equal(404);
-        // expect(res.body).to.include.keys('orderId');
-        // expect(res.body).to.include.keys('userId');
-        // expect(res.body.meals.length).to.equal(1);
-        // expect(res.body.meals[0].mealId).to.equal('baa0412a-d167-4d2b-b1d8-404cb8f02631');
+        expect(res.statusCode).to.equal(200);
+        expect(res.body).to.include.keys('orderId');
+        expect(res.body).to.include.keys('userId');
+        expect(res.body.meals.length).to.equal(1);
+        expect(res.body.meals[0].mealId).to.equal('baa0412a-d167-4d2b-b1d8-404cb8f02631');
 
         if (err) return done(err);
         done();
@@ -61,7 +70,7 @@ describe('Order Routes: Modify an Order', () => {
       .send(newOrder)
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
-        // expect(res.body.error).to.equal('Order is expired');
+        expect(res.body.error).to.equal('Order is expired');
 
         if (err) return done(err);
         done();
@@ -70,14 +79,13 @@ describe('Order Routes: Modify an Order', () => {
 
   it('should return errors for invalid input', (done) => {
     request(app)
-      .put('/api/v1/orders/e544248c-145c-4145-b165-239658857637')
+      .put(`/api/v1/orders/${newOrderId}`)
       .set('Accept', 'application/json')
       .set('authorization', emiolaToken)
       .send({ ...badOrder, date: '' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
         expect(res.body).to.be.an('object');
-        expect(res.body.errors.meals.msg).to.equal('Meals must be specified');
         expect(res.body.errors.deliveryAddress.msg).to.equal('Delivery Address cannot be empty');
         expect(res.body.errors.deliveryPhoneNo.msg).to.equal('Delivery Phone Number must be in the format +2348134567890');
 
