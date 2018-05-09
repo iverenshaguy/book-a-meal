@@ -12,7 +12,27 @@ export default (sequelize) => {
           isInt: true,
           min: 1
         }
-      }
+      },
+      orderId: {
+        type: Sequelize.UUID,
+        onDelete: 'CASCADE',
+        allowNull: true,
+        references: {
+          model: 'Orders',
+          key: 'orderId',
+          as: 'orderId'
+        }
+      },
+      mealId: {
+        type: Sequelize.UUID,
+        onDelete: 'CASCADE',
+        allowNull: true,
+        references: {
+          model: 'Meals',
+          key: 'mealId',
+          as: 'mealId'
+        }
+      },
     }
   );
 

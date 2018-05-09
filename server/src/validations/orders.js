@@ -32,6 +32,7 @@ export default {
       .isUUID(4)
       .withMessage('Invalid ID'),
     check('meals')
+      .optional()
       .exists().withMessage('Meals must be specified')
       .custom(value => notEmpty(value, 'Meals cannot be empty'))
       .custom(value => checkMealsId(value))

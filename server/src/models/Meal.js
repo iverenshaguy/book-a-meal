@@ -64,6 +64,16 @@ export default (sequelize) => {
           min: 100
         }
       },
+      userId: {
+        type: Sequelize.UUID,
+        onDelete: 'CASCADE',
+        allowNull: true,
+        references: {
+          model: 'Users',
+          key: 'userId',
+          as: 'userId'
+        }
+      }
     }
   );
 

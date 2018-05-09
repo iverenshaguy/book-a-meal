@@ -3,11 +3,11 @@ import db from '../models';
 /**
  * Function to check if menu for the day contains meal
  * @param {string} mealId
+ * @param {string} date
  * @return {bool} returns false or true
  * find a menu whose date is today and has the meal as an available meal for the day
  */
-async function isMealAvailable(mealId) {
-  const date = moment().format('YYYY-MM-DD');
+async function isMealAvailable(mealId, date = moment().format('YYYY-MM-DD')) {
   const menu = await db.Menu.findOne({ where: { date } });
 
   if (!menu) return false;

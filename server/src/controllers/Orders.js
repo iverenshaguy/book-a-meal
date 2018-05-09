@@ -5,7 +5,7 @@ import ordersDB from '../../data/orders.json';
 import orderItemsDB from '../../data/orderItems.json';
 import errors from '../../data/errors.json';
 import GetItems from '../middlewares/GetItems';
-import isExpired from '../helpers/isExpired';
+import isOrderExpired from '../helpers/isOrderExpired';
 import createMealOrder from '../helpers/createMealOrder';
 import getMealOwner from '../helpers/getMealOwner';
 import Notifications from './Notifications';
@@ -114,15 +114,7 @@ class Orders {
 
     const newOrder = await db.Order.create(req.body, { include: [db.User] })
       .then(async (order) => {
-        const promises = orderItems.map(item =>
-          order.addMeal(item.mealId, { through: { quantity: item.quantity } }).then(() => {
-            Notifications.create({
-              menuId: null,
-              userId: getMealOwner(item.mealId),
-              orderId: item.orderId,
-              message: 'Your menu was just ordered'
-            });
-          }));
+        const promises = Orders.addMeals(order, orderItems);
 
         await Promise.all(promises);
         await Orders.getMealsObject(order);
@@ -142,36 +134,31 @@ class Orders {
    * @returns {(function|object)} Function next() or JSON object
    * notification is created on order update
    */
-  static update(req, res) {
-    const data = { ...req.body };
+  static async update(req, res) {
+    if (!Object.values(req.body).length) return res.status(422).send({ error: errors.empty });
+
     const { orderId } = req.params;
-    const itemIndex =
-      ordersDB.findIndex(item => item.orderId === orderId && item.userId === req.userId);
 
-    if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
+    const order = await db.Order.findOne({ where: { orderId, userId: req.userId } });
+    if (!order) return res.status(404).send({ error: errors[404] });
 
-    if (isExpired('order', ordersDB, orderId)) return res.status(422).send({ error: 'Order is expired' });
+    const isExpired = await isOrderExpired(orderId);
+    if (isExpired) return res.status(422).send({ error: 'Order is expired' });
 
-    data.userId = req.userId;
-    data.updatedAt = moment().format();
-    data.createdAt = moment().format();
-    data.orderId = orderId;
-    data.meals = removeDuplicates(data.meals);
+    const updatedOrder = await order.update({ ...order, ...req.body }).then(async () => {
+      if (req.body.meals) {
+        const orderItems = createMealOrder(req.body.meals);
+        await order.setMeals([]);
+        const promises = Orders.addMeals(order, orderItems);
 
-    const oldOrder = ordersDB[itemIndex];
+        await Promise.all(promises);
+      }
 
-    ordersDB[itemIndex] = { ...oldOrder, ...data };
-
-    Notifications.create({
-      menuId: null,
-      userId: getMealOwner(data.mealId),
-      orderId: data.orderId,
-      message: 'This order was just updated'
+      await Orders.getMealsObject(order);
+      return order;
     });
 
-    data.meals = data.meals.map(item => mealsDB.find(meal => meal.mealId === item));
-
-    return res.status(200).send(data);
+    return res.status(200).send(updatedOrder);
   }
 
   /**
@@ -189,11 +176,31 @@ class Orders {
 
     if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
 
-    if (isExpired('order', ordersDB, orderId)) return res.status(422).send({ error: 'Order is expired' });
+    if (isOrderExpired(orderId)) return res.status(422).send({ error: 'Order is expired' });
 
     ordersDB.splice(itemIndex, 1);
 
     return res.status(204).send();
+  }
+
+  /**
+   * Adds meas to order-meal join table
+   * @method addMeals
+   * @memberof Orders
+   * @param {object} order
+   * @param {array} mealItems
+   * @returns {object} JSON object
+   */
+  static addMeals(order, mealItems) {
+    return mealItems.map(item =>
+      order.addMeal(item.mealId, { through: { quantity: item.quantity } }).then(() => {
+        Notifications.create({
+          menuId: null,
+          userId: getMealOwner(item.mealId),
+          orderId: item.orderId,
+          message: 'Your menu was just ordered'
+        });
+      }));
   }
 
   /**

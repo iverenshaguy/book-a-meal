@@ -18,6 +18,15 @@ export default (sequelize) => {
         type: Sequelize.STRING,
         allowNull: true
       },
+      userId: {
+        type: Sequelize.UUID,
+        allowNull: true,
+        references: {
+          model: 'Users',
+          key: 'userId',
+          as: 'userId'
+        }
+      },
     },
   );
 
