@@ -12,10 +12,7 @@
 
 .card-group {
     display: grid;
-    flex-direction: column;
-    flex-wrap: wrap;
     padding: 40px 25px;
-    justify-content: space-between;
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
