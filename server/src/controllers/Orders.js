@@ -162,28 +162,6 @@ class Orders {
   }
 
   /**
-   * Deletes an existing order
-   * @method delete
-   * @memberof Orders
-   * @param {object} req
-   * @param {object} res
-   * @returns {(function|object)} Function next() or JSON object
-   */
-  static delete(req, res) {
-    const { orderId } = req.params;
-    const itemIndex =
-      ordersDB.findIndex(item => item.orderId === orderId && item.userId === req.userId);
-
-    if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
-
-    if (isOrderExpired(orderId)) return res.status(422).send({ error: 'Order is expired' });
-
-    ordersDB.splice(itemIndex, 1);
-
-    return res.status(204).send();
-  }
-
-  /**
    * Adds meas to order-meal join table
    * @method addMeals
    * @memberof Orders
