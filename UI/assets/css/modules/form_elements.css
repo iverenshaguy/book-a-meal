@@ -128,8 +128,12 @@ select {
     padding: 0.3em;
     outline: none;
     border: 0;
-    font-size: 1em;
+    /* font-size: 0.9em; */
     padding-left: 0em;
+}
+
+select.meal-options {
+    overflow-y: auto;
 }
 
 option {
