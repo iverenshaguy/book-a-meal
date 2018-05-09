@@ -28,15 +28,11 @@ class OrderItems {
       item.mealId = order.mealId;
       item.quantity = order.quantity;
 
-      // generate created date
-      item.created = moment().format();
-      item.updated = moment().format();
+      item.createdAt = moment().format();
+      item.updatedAt = moment().format();
 
-      // update DB
       orderItemsDB.push(item);
 
-      // push to notifications table
-      // Caterer's for when an order is made
       Notifications.create({
         menuId: null,
         userId: getMealOwner(item.mealId),
@@ -55,10 +51,8 @@ class OrderItems {
    * @returns {(function|object)} Function next() or JSON object
    */
   static update(orderId, mealItems) {
-    // delete former order items in db
     OrderItems.delete(orderId);
 
-    // readd new items against orderId
     return OrderItems.create(orderId, mealItems);
   }
 
@@ -70,14 +64,11 @@ class OrderItems {
    * @returns {(function|object)} Function next() or JSON object
    */
   static delete(orderId) {
-    // get all items in DB for the order
     const items = orderItemsDB.filter(item => item.orderId === orderId);
 
     items.forEach((item) => {
-      // find the items index in the DB
       const index = orderItemsDB.findIndex(order => order.orderId === item.orderId);
 
-      // remove the item
       orderItemsDB.splice(index, 1);
     });
   }

@@ -43,13 +43,13 @@ class Menu {
    * Notifications are also created when a new menu is added
    */
   static async create(req, res) {
-    const { userId } = req.body;
+    const { userId } = req;
     const defaultDate = moment().format('YYYY-MM-DD');
 
     req.body.date = req.body.date || defaultDate;
     req.body.meals = removeDuplicates(req.body.meals);
 
-    const isMenuUnique = await checkMenuUnique(req.body.date, req.body.userId);
+    const isMenuUnique = await checkMenuUnique(req.body.date, userId);
 
     if (!isMenuUnique) return res.status(422).send({ error: 'Menu already exists for this day' });
 
@@ -81,8 +81,10 @@ class Menu {
    * @returns {(function|object)} Function next() or JSON object
    */
   static async update(req, res) {
+    if (!Object.values(req.body).length) return res.status(422).send({ error: errors.empty });
+
     const menu = await db.Menu
-      .findOne({ where: { menuId: req.params.menuId, userId: req.body.userId } });
+      .findOne({ where: { menuId: req.params.menuId, userId: req.userId } });
 
     if (!menu) return res.status(404).send({ error: errors[404] });
 
@@ -111,7 +113,8 @@ class Menu {
    */
   static async getMealsObject(menu) {
     menu.dataValues.meals = await menu.getMeals({
-      attributes: ['mealId', 'title', 'imageURL', 'description', 'forVegetarians', 'price']
+      attributes: ['mealId', 'title', 'imageURL', 'description', 'forVegetarians', 'price'],
+      joinTableAttributes: []
     });
   }
 }

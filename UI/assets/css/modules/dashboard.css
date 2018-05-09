@@ -1,4 +1,6 @@
 .dashboard .card-group.summary {
+    display: flex;
+    flex-direction: row;
     justify-content: space-around;
 }
 

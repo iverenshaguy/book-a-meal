@@ -9,15 +9,15 @@ import errors from '../../data/errors.json';
  */
 class Meals {
   /**
-   * Returns a list of Items
-   * @method list
+   * Returns a list of Meal Opyions
+   * @method getMeals
    * @memberof Meals
    * @param {object} req
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
-  static async list(req, res) {
-    const { userId } = req.body;
+  static async getMeals(req, res) {
+    const { userId } = req;
     const mealList = await db.Meal.findAll({ where: { userId } });
     return GetItems.items(req, res, mealList, 'meals');
   }
@@ -33,13 +33,11 @@ class Meals {
    * date is either equal to today or given date
    */
   static async create(req, res) {
-    const newMeal = { ...req.body };
-    delete newMeal.role;
+    req.body.userId = req.userId;
+    req.body.date = req.body.date || moment().format('YYYY-MM-DD');
+    req.body.price = parseInt(req.body.price, 10);
 
-    newMeal.date = newMeal.date || moment().format('YYYY-MM-DD');
-    newMeal.price = parseInt(newMeal.price, 10);
-
-    const meal = await db.Meal.create(newMeal, { include: [db.User] });
+    const meal = await db.Meal.create(req.body, { include: [db.User] });
 
     return res.status(201).send(meal);
   }
@@ -55,7 +53,10 @@ class Meals {
    */
   static async update(req, res) {
     const { mealId } = req.params;
-    const { userId } = req.body;
+    const { userId } = req;
+
+    if (!Object.values(req.body).length) return res.status(422).send({ error: errors.empty });
+
     const mealItem = await db.Meal.findOne({ where: { mealId, userId } });
 
     if (!mealItem) return res.status(404).send({ error: errors[404] });
@@ -75,7 +76,7 @@ class Meals {
    */
   static async delete(req, res) {
     const { mealId } = req.params;
-    const { userId } = req.body;
+    const { userId } = req;
     const mealItem = await db.Meal.findOne({ where: { mealId, userId } });
 
     if (!mealItem) return res.status(404).send({ error: errors[404] });

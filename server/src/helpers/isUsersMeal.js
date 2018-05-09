@@ -17,12 +17,9 @@ async function isUsersMeal(mealIdArr, userId) {
     if (!meal) mealErrorArr.push(`Meal ${mealId} doesn't exist`);
   });
 
-  const errs = Promise.all(checks).then(() => {
-    if (mealErrorArr.length === 0) return true;
-    if (mealErrorArr.length !== 0) throw new Error(mealErrorArr);
-  });
-
-  return errs;
+  await Promise.all(checks);
+  if (mealErrorArr.length === 0) return true;
+  throw new Error(mealErrorArr);
 }
 
 export default isUsersMeal;

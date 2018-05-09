@@ -22,7 +22,7 @@ export default {
       .custom(value => notEmpty(value, 'Meals cannot be empty'))
       .custom(value => checkMealsId(value))
       .custom(async (value, { req }) => {
-        await isUsersMeal(value, req.body.userId).then(err => err);
+        await isUsersMeal(value, req.userId).then(err => err);
       }),
   ],
   update: [
@@ -37,7 +37,7 @@ export default {
       .custom(value => notEmpty(value, 'Meals cannot be empty'))
       .custom(value => checkMealsId(value))
       .custom(async (value, { req }) => {
-        await isUsersMeal(value, req.body.userId).then(err => err);
+        await isUsersMeal(value, req.userId).then(err => err);
       }),
   ],
 };

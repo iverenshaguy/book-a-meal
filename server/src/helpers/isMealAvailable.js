@@ -5,9 +5,9 @@ import db from '../models';
  * @param {string} mealId
  * @param {string} date
  * @return {bool} returns false or true
+ * find a menu whose date is today and has the meal as an available meal for the day
  */
 async function isMealAvailable(mealId, date = moment().format('YYYY-MM-DD')) {
-  // find a menu whose date is today and has the meal as an available meal for the day
   const menu = await db.Menu.findOne({ where: { date } });
 
   if (!menu) return false;

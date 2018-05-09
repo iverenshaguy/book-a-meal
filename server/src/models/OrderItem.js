@@ -13,28 +13,28 @@ export default (sequelize) => {
           min: 1
         }
       },
-      deliveryAddress: {
-        type: Sequelize.TEXT,
-        allowNull: true
+      orderId: {
+        type: Sequelize.UUID,
+        onDelete: 'CASCADE',
+        allowNull: true,
+        references: {
+          model: 'Orders',
+          key: 'orderId',
+          as: 'orderId'
+        }
       },
-      deliveryPhoneNo: {
-        type: Sequelize.STRING,
-        allowNull: true
+      mealId: {
+        type: Sequelize.UUID,
+        onDelete: 'CASCADE',
+        allowNull: true,
+        references: {
+          model: 'Meals',
+          key: 'mealId',
+          as: 'mealId'
+        }
       },
     }
   );
-
-  OrderItem.associate = (models) => {
-    OrderItem.belongsTo(models.Meal, {
-      foreignKey: 'mealId',
-      onDelete: 'CASCADE',
-    });
-
-    OrderItem.belongsTo(models.Order, {
-      foreignKey: 'orderId',
-      onDelete: 'CASCADE',
-    });
-  };
 
   return OrderItem;
 };

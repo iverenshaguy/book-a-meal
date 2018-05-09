@@ -16,6 +16,11 @@ let newOrderId;
 
 
 describe('Order Routes: Modify an Order', () => {
+  // let env;
+  // before(() => {
+  //   env = process.env; // eslint-disable-line
+  // });
+
   before((done) => {
     request(app)
       .post('/api/v1/orders')
@@ -27,13 +32,17 @@ describe('Order Routes: Modify an Order', () => {
         expect(res.statusCode).to.equal(201);
         expect(res.body).to.include.keys('orderId');
         expect(res.body).to.include.keys('userId');
-        expect(res.body).to.include.keys('created');
-        expect(res.body).to.include.keys('updated');
+        expect(res.body).to.include.keys('createdAt');
+        expect(res.body).to.include.keys('updatedAt');
 
         if (err) return done(err);
         done();
       });
   });
+
+  // after(() => {
+  //   process.env = env;
+  // });
 
   it('should modify an order for authenticated user', (done) => {
     request(app)
@@ -70,15 +79,13 @@ describe('Order Routes: Modify an Order', () => {
 
   it('should return errors for invalid input', (done) => {
     request(app)
-      .put('/api/v1/orders/e544248c-145c-4145-b165-239658857637')
+      .put(`/api/v1/orders/${newOrderId}`)
       .set('Accept', 'application/json')
       .set('authorization', emiolaToken)
       .send({ ...badOrder, date: '' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
         expect(res.body).to.be.an('object');
-        expect(res.body.errors.date.msg).to.equal('Date cannot be empty');
-        expect(res.body.errors.meals.msg).to.equal('Meals must be specified');
         expect(res.body.errors.deliveryAddress.msg).to.equal('Delivery Address cannot be empty');
         expect(res.body.errors.deliveryPhoneNo.msg).to.equal('Delivery Phone Number must be in the format +2348134567890');
 

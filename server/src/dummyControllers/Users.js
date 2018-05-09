@@ -40,8 +40,8 @@ class Users {
     newUser.userId = uuidv4();
     delete newUser.password;
     delete newUser.passwordConfirm;
-    newUser.created = moment().format();
-    newUser.updated = moment().format();
+    newUser.createdAt = moment().format();
+    newUser.updatedAt = moment().format();
 
     usersDB.push(newUser);
 

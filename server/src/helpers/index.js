@@ -1,5 +1,5 @@
 import notEmpty from './notEmpty';
-import isExpired from './isExpired';
+import isOrderExpired from './isOrderExpired';
 import getMealOwner from './getMealOwner';
 import PasswordHash from './PasswordHash';
 import checkMealsId from './checkMealsId';
@@ -9,7 +9,7 @@ import isMealAvailable from './isMealAvailable';
 
 export default {
   notEmpty,
-  isExpired,
+  isOrderExpired,
   getMealOwner,
   PasswordHash,
   checkMealsId,

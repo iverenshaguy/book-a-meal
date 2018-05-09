@@ -367,17 +367,10 @@ hr {
     border-radius: 5px;
 }
 
-.card-group {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 40px;
-    justify-content: space-between;
-    align-content: space-around;
-    align-items: center;
+.card-group .card {
+    margin-bottom: 20px;
 }
 
-.card-group .card,
 .card-group .auth,
 .card-group .order-confirmation {
     font-family: "Nunito", sans-serif;
@@ -389,9 +382,6 @@ hr {
 }
 
 @media (min-width: 576px) {
-    .card-group {
-        flex-direction: row !important;
-    }
     .card-group .card,
     .card-group .auth,
     .card-group .order-confirmation {

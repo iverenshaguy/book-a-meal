@@ -10,13 +10,6 @@ export default (sequelize) => {
         defaultValue: Sequelize.UUIDV4,
         allowNull: false
       },
-      date: {
-        type: Sequelize.DATEONLY,
-        allowNull: false,
-        validate: {
-          isDate: true
-        }
-      },
       deliveryAddress: {
         type: Sequelize.TEXT,
         allowNull: true
@@ -25,12 +18,27 @@ export default (sequelize) => {
         type: Sequelize.STRING,
         allowNull: true
       },
+      userId: {
+        type: Sequelize.UUID,
+        allowNull: true,
+        references: {
+          model: 'Users',
+          key: 'userId',
+          as: 'userId'
+        }
+      },
     },
   );
 
   Order.associate = (models) => {
     Order.belongsTo(models.User, {
       foreignKey: 'userId'
+    });
+
+    Order.belongsToMany(models.Meal, {
+      as: 'meals',
+      through: models.OrderItem,
+      foreignKey: 'orderId'
     });
   };
 

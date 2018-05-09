@@ -1,26 +1,15 @@
-import moment from 'moment';
 import { check } from 'express-validator/check';
 import notEmpty from '../helpers/notEmpty';
 import checkMealsId from '../helpers/checkMealsId';
 import isValidOrderItems from '../helpers/isValidOrderItems';
 
-const yesterday = moment().subtract(1, 'days').format().toString();
-
 export default {
   create: [
-    check('date')
-      .trim()
-      .optional()
-      .custom(value => notEmpty(value, 'Date cannot be empty'))
-      .matches(/^\d{4}-\d{1,2}-\d{1,2}$/)
-      .withMessage('Date is invalid, valid format is YYYY-MM-DD')
-      .isAfter(yesterday)
-      .withMessage('Date must be either today or in the future'),
     check('meals')
       .exists().withMessage('Meals must be specified')
       .custom(value => notEmpty(value, 'Meals cannot be empty'))
       .custom(value => checkMealsId(value))
-      .custom((value, { req }) => isValidOrderItems(value, req)),
+      .custom(value => isValidOrderItems(value)),
     check('deliveryAddress')
       .trim()
       .exists().withMessage('Delivery Address must be specified')
@@ -42,19 +31,12 @@ export default {
     check('orderId')
       .isUUID(4)
       .withMessage('Invalid ID'),
-    check('date')
-      .trim()
-      .optional()
-      .custom(value => notEmpty(value, 'Date cannot be empty'))
-      .matches(/^\d{4}-\d{1,2}-\d{1,2}$/)
-      .withMessage('Date is invalid, valid format is YYYY-MM-DD')
-      .isAfter(yesterday)
-      .withMessage('Date must be either today or in the future'),
     check('meals')
+      .optional()
       .exists().withMessage('Meals must be specified')
       .custom(value => notEmpty(value, 'Meals cannot be empty'))
       .custom(value => checkMealsId(value))
-      .custom((value, { req }) => isValidOrderItems(value, req)),
+      .custom(value => isValidOrderItems(value)),
     check('deliveryAddress')
       .trim()
       .optional()

@@ -64,6 +64,16 @@ export default (sequelize) => {
           min: 100
         }
       },
+      userId: {
+        type: Sequelize.UUID,
+        onDelete: 'CASCADE',
+        allowNull: true,
+        references: {
+          model: 'Users',
+          key: 'userId',
+          as: 'userId'
+        }
+      }
     }
   );
 
@@ -73,13 +83,13 @@ export default (sequelize) => {
       onDelete: 'CASCADE',
     });
 
-    Meal.hasMany(models.OrderItem, {
-      foreignKey: 'mealId',
-      as: 'orderItems'
-    });
-
     Meal.belongsToMany(models.Menu, {
       through: models.MenuMeal,
+      foreignKey: 'mealId',
+    });
+
+    Meal.belongsToMany(models.Order, {
+      through: models.OrderItem,
       foreignKey: 'mealId',
     });
   };

@@ -16,7 +16,17 @@ export default (sequelize) => {
         validate: {
           isDate: true
         }
-      }
+      },
+      userId: {
+        type: Sequelize.UUID,
+        onDelete: 'CASCADE',
+        allowNull: true,
+        references: {
+          model: 'Users',
+          key: 'userId',
+          as: 'userId'
+        }
+      },
     }, { freezeTableName: true }
   );
 

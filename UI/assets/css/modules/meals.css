@@ -23,18 +23,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 @media (min-width: 576px) {
-    .card-group {
-        flex-direction: row !important;
-    }
     .card-group .card,
     .card-group .meals .meal-card,
     .meals .card-group .meal-card {
         font-family: "Nunito", sans-serif;
-        width: 300px !important;
         display: flex;
         justify-content: center !important;
         align-items: center !important;
@@ -57,7 +53,7 @@
 }
 
 .meals .meal-card {
-    margin-bottom: 50px !important;
+    margin-bottom: 50px;
 }
 
 .meals .meal-card.no-content .meal-card-header img,
