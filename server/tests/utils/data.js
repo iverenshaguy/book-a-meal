@@ -202,7 +202,6 @@ export default {
     newOrder: {
       meals: [
         'baa0412a-d167-4d2b-b1d8-404cb8f02631',
-        '8a65538d-f862-420e-bcdc-80743df06578',
         'baa0412a-d167-4d2b-b1d8-404cb8f02631',
         'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
       ],

@@ -6,6 +6,10 @@ node_js:
 env:
   global:
     - CC_TEST_REPORTER_ID=1d64771979b17b23c6604237e6fa9e47f4ea993a33a4b938e04f3924925679bc
+    - OPENING_HOUR=8
+    - OPENING_MINUTE=30
+    - CLOSING_HOUR=16
+    - CLOSING_MINUTE=00
 
 script:
   - npm run test

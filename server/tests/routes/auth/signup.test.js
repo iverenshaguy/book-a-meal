@@ -115,7 +115,6 @@ describe('Signup Routes', () => {
         .post('/api/v1/auth/signup')
         .send(Object.assign({}, rightUserData, { email: 'iveren@shaguy.com' }))
         .end((err, res) => {
-          // userToken = res.body.token;
           expect(res.statusCode).to.equal(422);
           expect(res.body).to.be.an('object');
           expect(res.body.errors.email.msg).to.equal('Email already in use');
