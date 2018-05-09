@@ -8,4 +8,4 @@ import './createMealOrder.test';
 import './isUsersMeal.test';
 import './isValidOrderItems.test';
 import './isMealAvailable.test';
-import './isExpired.test';
+import './isOrderExpired.test';

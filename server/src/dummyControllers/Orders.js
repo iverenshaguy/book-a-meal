@@ -6,7 +6,7 @@ import orderItemsDB from '../../data/orderItems.json';
 import errors from '../../data/errors.json';
 import GetItems from '../middlewares/GetItems';
 import OrderItems from './OrderItems';
-import isExpired from '../helpers/isExpired';
+import isOrderExpired from '../helpers/isOrderExpired';
 import getMealOwner from '../helpers/getMealOwner';
 import Notifications from './Notifications';
 import removeDuplicates from '../helpers/removeDuplicates';
@@ -152,7 +152,7 @@ class Orders {
 
     if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
 
-    if (isExpired('order', ordersDB, orderId)) return res.status(422).send({ error: 'Order is expired' });
+    if (isOrderExpired('order', ordersDB, orderId)) return res.status(422).send({ error: 'Order is expired' });
 
     data.userId = req.userId;
     data.updatedAt = moment().format();
@@ -193,7 +193,7 @@ class Orders {
 
     if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
 
-    if (isExpired('order', ordersDB, orderId)) return res.status(422).send({ error: 'Order is expired' });
+    if (isOrderExpired('order', ordersDB, orderId)) return res.status(422).send({ error: 'Order is expired' });
 
     OrderItems.delete(orderId);
     ordersDB.splice(itemIndex, 1);
