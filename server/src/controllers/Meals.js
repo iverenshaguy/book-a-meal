@@ -39,7 +39,7 @@ class Meals {
 
     const meal = await db.Meal.create(req.body, { include: [db.User] });
 
-    return res.status(201).send(meal);
+    return res.status(201).json(meal);
   }
 
   /**
@@ -55,15 +55,15 @@ class Meals {
     const { mealId } = req.params;
     const { userId } = req;
 
-    if (!Object.values(req.body).length) return res.status(422).send({ error: errors.empty });
+    if (!Object.values(req.body).length) return res.status(422).json({ error: errors.empty });
 
     const mealItem = await db.Meal.findOne({ where: { mealId, userId } });
 
-    if (!mealItem) return res.status(404).send({ error: errors[404] });
+    if (!mealItem) return res.status(404).json({ error: errors[404] });
 
     const updatedMeal = await mealItem.update({ ...mealItem, ...req.body });
 
-    return res.status(200).send(updatedMeal);
+    return res.status(200).json(updatedMeal);
   }
 
   /**
@@ -79,11 +79,11 @@ class Meals {
     const { userId } = req;
     const mealItem = await db.Meal.findOne({ where: { mealId, userId } });
 
-    if (!mealItem) return res.status(404).send({ error: errors[404] });
+    if (!mealItem) return res.status(404).json({ error: errors[404] });
 
     await mealItem.destroy();
 
-    return res.status(204).send();
+    return res.status(204).json();
   }
 }
 

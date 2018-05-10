@@ -24,13 +24,13 @@ class Menu {
     const menuForTheDay = menuDB.find(item => moment(item.date).isSame(date));
 
     if (!menuForTheDay) {
-      return res.status(200).send({ message: 'No Menu is Available For This Day' });
+      return res.status(200).json({ message: 'No Menu is Available For This Day' });
     }
 
     const menu = { ...menuForTheDay };
     menu.meals = Menu.getMealObject(menu.meals);
 
-    return res.status(200).send(menu);
+    return res.status(200).json(menu);
   }
 
   /**
@@ -49,7 +49,7 @@ class Menu {
 
 
     if (!checkMenuUnique(req.body.date, req.body.userId)) {
-      return res.status(422).send({ error: 'Menu already exists for this day' });
+      return res.status(422).json({ error: 'Menu already exists for this day' });
     }
 
     menuDB.push(req.body);
@@ -64,7 +64,7 @@ class Menu {
     const fullData = { ...req.body };
     fullData.meals = Menu.getMealObject(fullData.meals);
 
-    return res.status(201).send(req.body);
+    return res.status(201).json(req.body);
   }
 
   /**
@@ -80,19 +80,19 @@ class Menu {
       .findIndex(item => item.menuId === req.params.menuId &&
       item.userId === req.body.userId);
 
-    if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
+    if (itemIndex === -1) return res.status(404).json({ error: errors[404] });
 
     // return meal item if no data was sent ie req.body is only populated with userId && role
     if (Object.keys(req.body).length === 2) {
       const unEditedMenu = menuDB[itemIndex];
       unEditedMenu.meals = Menu.getMealObject(unEditedMenu.meals);
 
-      return res.status(200).send(unEditedMenu);
+      return res.status(200).json(unEditedMenu);
     }
 
     // if menuis expired i.e. menu is past, return error
     if (menuDB[itemIndex].date.toString() < moment().format('YYYY-MM-DD').toString()) {
-      return res.status(422).send({ error: 'Menu Expired' });
+      return res.status(422).json({ error: 'Menu Expired' });
     }
 
     const oldItem = menuDB[itemIndex];
@@ -107,7 +107,7 @@ class Menu {
     const fullData = { ...menuDB[itemIndex] };
     fullData.meals = Menu.getMealObject(fullData.meals);
 
-    return res.status(200).send(fullData);
+    return res.status(200).json(fullData);
   }
 
   /**

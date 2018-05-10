@@ -21,7 +21,7 @@ class GetItems {
     const pagination = new Pagination(type, items, limit, page);
 
     if (items.length === 0) {
-      return res.status(200).send({ [type]: [] });
+      return res.status(200).json({ [type]: [] });
     }
 
     return pagination.paginateItems(res);

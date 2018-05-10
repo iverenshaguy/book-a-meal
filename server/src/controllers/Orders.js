@@ -125,7 +125,7 @@ class Orders {
 
     orderEmitter.emit('create', newOrder);
 
-    return res.status(201).send(newOrder);
+    return res.status(201).json(newOrder);
   }
 
   /**
@@ -138,14 +138,14 @@ class Orders {
    * notification is created on order update
    */
   static async update(req, res) {
-    if (!Object.values(req.body).length) return res.status(422).send({ error: errors.empty });
+    if (!Object.values(req.body).length) return res.status(422).json({ error: errors.empty });
 
     const { orderId } = req.params;
 
     const order = await db.Order.findOne({ where: { orderId, userId: req.userId } });
-    if (!order) return res.status(404).send({ error: errors[404] });
+    if (!order) return res.status(404).json({ error: errors[404] });
 
-    if (order.status === 'delivered') return res.status(422).send({ error: 'Order is expired' });
+    if (order.status === 'delivered') return res.status(422).json({ error: 'Order is expired' });
 
     const updatedOrder = await order.update({ ...order, ...req.body }).then(async () => {
       if (req.body.meals) {
@@ -160,7 +160,7 @@ class Orders {
       return order;
     });
 
-    return res.status(200).send(updatedOrder);
+    return res.status(200).json(updatedOrder);
   }
 
   /**

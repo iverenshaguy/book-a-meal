@@ -68,7 +68,7 @@ class Pagination {
   paginateItems(res) {
     const { itemsByPage, metadata } = this.getItemsForPage();
 
-    return res.status(200).send({ [this.type]: itemsByPage, metadata });
+    return res.status(200).json({ [this.type]: itemsByPage, metadata });
   }
 }
 

@@ -132,7 +132,7 @@ class Orders {
 
     const order = Orders.getOrderObject(data);
 
-    return res.status(201).send(order);
+    return res.status(201).json(order);
   }
 
   /**
@@ -150,10 +150,10 @@ class Orders {
     const itemIndex =
       ordersDB.findIndex(item => item.orderId === orderId && item.userId === req.userId);
 
-    if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
+    if (itemIndex === -1) return res.status(404).json({ error: errors[404] });
 
     // if (isOrderExpired('order', ordersDB, orderId))
-    // return res.status(422).send({ error: 'Order is expired' });
+    // return res.status(422).json({ error: 'Order is expired' });
 
     data.userId = req.userId;
     data.updatedAt = moment().format();
@@ -176,7 +176,7 @@ class Orders {
 
     data.meals = data.meals.map(item => mealsDB.find(meal => meal.mealId === item));
 
-    return res.status(200).send(data);
+    return res.status(200).json(data);
   }
 
   /**
@@ -192,15 +192,15 @@ class Orders {
     const itemIndex =
       ordersDB.findIndex(item => item.orderId === orderId && item.userId === req.userId);
 
-    if (itemIndex === -1) return res.status(404).send({ error: errors[404] });
+    if (itemIndex === -1) return res.status(404).json({ error: errors[404] });
 
     // if (isOrderExpired('order', ordersDB, orderId))
-    // return res.status(422).send({ error: 'Order is expired' });
+    // return res.status(422).json({ error: 'Order is expired' });
 
     OrderItems.delete(orderId);
     ordersDB.splice(itemIndex, 1);
 
-    return res.status(204).send();
+    return res.status(204).json();
   }
 
   /**

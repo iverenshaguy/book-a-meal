@@ -7,7 +7,7 @@ import Pagination from '../../src/middlewares/Pagination';
 const res = {
   headersSent: false,
   status: status => ({
-    send: message => ({ status, message })
+    json: message => ({ status, message })
   })
 };
 const status = sinon.spy(res, 'status');

@@ -43,7 +43,7 @@ class Meals {
 
     mealsDB.push(newMeal);
 
-    return res.status(201).send(newMeal);
+    return res.status(201).json(newMeal);
   }
 
   /**
@@ -62,7 +62,7 @@ class Meals {
         item.userId === req.body.userId);
 
     if (itemIndex === -1) {
-      return res.status(404).send({ error: errors[404] });
+      return res.status(404).json({ error: errors[404] });
     }
 
     // TODO validate empty put request
@@ -74,7 +74,7 @@ class Meals {
     data.updatedAt = moment().format();
     mealsDB[itemIndex] = { ...oldItem, ...data };
 
-    return res.status(200).send(mealsDB[itemIndex]);
+    return res.status(200).json(mealsDB[itemIndex]);
   }
 
   /**
@@ -92,12 +92,12 @@ class Meals {
       item.userId === req.body.userId);
 
     if (itemIndex === -1) {
-      return res.status(404).send({ error: errors[404] });
+      return res.status(404).json({ error: errors[404] });
     }
 
     mealsDB.splice(itemIndex, 1);
 
-    return res.status(204).send();
+    return res.status(204).json();
   }
 }
 

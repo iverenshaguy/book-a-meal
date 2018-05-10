@@ -5,7 +5,7 @@ import GetItems from '../../src/middlewares/GetItems';
 
 // mock server response
 const res = {
-  send: message => ({ message }),
+  json: message => ({ message }),
   status() {
     return this;
   }
@@ -20,19 +20,19 @@ const req = {
   }
 };
 
-const send = sinon.spy(res, 'send');
+const json = sinon.spy(res, 'json');
 
 
 describe('GetItems Handler', () => {
   it('sends an empty arrays', () => {
     GetItems.items(req, res, [], 'meals');
 
-    assert(send.calledWith({ meals: [] }));
+    assert(json.calledWith({ meals: [] }));
   });
 
   it('sends paginated array of data', () => {
     GetItems.items(req, res, mealsDB, 'meals');
 
-    assert(send.called);
+    assert(json.called);
   });
 });

@@ -12,9 +12,9 @@ const { emiolaToken, foodCircleToken } = tokens;
 
 // mock server response
 const res = {
-  send: message => ({ message }),
+  json: message => ({ message }),
   status: status => ({
-    send: message => ({ status, message })
+    json: message => ({ status, message })
   })
 };
 

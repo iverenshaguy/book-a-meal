@@ -69,20 +69,20 @@ class Authorization {
 
     if (req.baseUrl === '/api/v1/menu' && req.method === 'GET') return next();
 
-    if (!token) return res.status(401).send({ error: errors['401'] });
+    if (!token) return res.status(401).json({ error: errors['401'] });
 
     jwt.verify(token, process.env.SECRET, async (err, decoded) => {
       if (err) {
         if (err.name === 'TokenExpiredError') {
-          return res.status(401).send({ error: 'User authorization token is expired' });
+          return res.status(401).json({ error: 'User authorization token is expired' });
         }
 
-        return res.status(500).send({ error: 'Failed to authenticate token' });
+        return res.status(500).json({ error: 'Failed to authenticate token' });
       }
 
       const foundUser = await db.User.findOne({ where: { email: decoded.email } });
 
-      if (!foundUser) return res.status(401).send({ error: errors['401'] });
+      if (!foundUser) return res.status(401).json({ error: errors['401'] });
 
       req.userId = foundUser.userId;
       req.role = foundUser.role;
@@ -106,7 +106,7 @@ class Authorization {
     if ((req.baseUrl === '/api/v1/orders' || req.baseUrl === '/api/v1/menu') && req.method === 'GET') return next();
 
     if (type !== req.role) {
-      return res.status(403).send({
+      return res.status(403).json({
         error: errors['403']
       });
     }

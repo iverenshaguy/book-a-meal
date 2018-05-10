@@ -23,12 +23,12 @@ class Menu {
     const menu = await db.Menu.findOne({ where: { date } });
 
     if (!menu) {
-      return res.status(200).send({ message: 'No Menu is Available For This Day' });
+      return res.status(200).json({ message: 'No Menu is Available For This Day' });
     }
 
     const menuPerDay = await Menu.getMealsObject(menu).then(() => menu);
 
-    return res.status(200).send(menuPerDay);
+    return res.status(200).json(menuPerDay);
   }
 
   /**
@@ -51,7 +51,7 @@ class Menu {
 
     const isMenuUnique = await checkMenuUnique(req.body.date, userId);
 
-    if (!isMenuUnique) return res.status(422).send({ error: 'Menu already exists for this day' });
+    if (!isMenuUnique) return res.status(422).json({ error: 'Menu already exists for this day' });
 
     const newMenu = await db.Menu.create({ date: req.body.date, userId }, { include: [db.User] })
       .then(async (menu) => {
@@ -68,7 +68,7 @@ class Menu {
         return menu;
       });
 
-    return res.status(201).send(newMenu);
+    return res.status(201).json(newMenu);
   }
 
 
@@ -81,15 +81,15 @@ class Menu {
    * @returns {(function|object)} Function next() or JSON object
    */
   static async update(req, res) {
-    if (!Object.values(req.body).length) return res.status(422).send({ error: errors.empty });
+    if (!Object.values(req.body).length) return res.status(422).json({ error: errors.empty });
 
     const menu = await db.Menu
       .findOne({ where: { menuId: req.params.menuId, userId: req.userId } });
 
-    if (!menu) return res.status(404).send({ error: errors[404] });
+    if (!menu) return res.status(404).json({ error: errors[404] });
 
     if (menu.date.toString() < moment().format('YYYY-MM-DD').toString()) {
-      return res.status(422).send({ error: 'Menu Expired' });
+      return res.status(422).json({ error: 'Menu Expired' });
     }
 
     req.body.meals = removeDuplicates(req.body.meals);
@@ -101,7 +101,7 @@ class Menu {
         return menu;
       });
 
-    return res.status(200).send(updatedMenu);
+    return res.status(200).json(updatedMenu);
   }
 
   /**
