@@ -14,7 +14,6 @@ const { newOrder, badOrder } = addOrder;
 let newMenuId;
 let newOrderId;
 
-
 describe('Order Routes: Modify an Order', () => {
   // let env;
   // before(() => {
@@ -44,7 +43,7 @@ describe('Order Routes: Modify an Order', () => {
   //   process.env = env;
   // });
 
-  it('should modify an order for authenticated user', (done) => {
+  it('should modify an order for authenticated user with meals', (done) => {
     request(app)
       .put(`/api/v1/orders/${newOrderId}`)
       .set('Accept', 'application/json')
@@ -56,6 +55,21 @@ describe('Order Routes: Modify an Order', () => {
         expect(res.body).to.include.keys('userId');
         expect(res.body.meals.length).to.equal(1);
         expect(res.body.meals[0].mealId).to.equal('baa0412a-d167-4d2b-b1d8-404cb8f02631');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
+  it('should modify an order for authenticated user without meals', (done) => {
+    request(app)
+      .put(`/api/v1/orders/${newOrderId}`)
+      .set('Accept', 'application/json')
+      .set('authorization', emiolaToken)
+      .send({ deliveryAddress: '5, Abakaliki Street, Lagos' })
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(200);
+        expect(res.body.deliveryAddress).to.equal('5, Abakaliki Street, Lagos');
 
         if (err) return done(err);
         done();
@@ -88,6 +102,21 @@ describe('Order Routes: Modify an Order', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.errors.deliveryAddress.msg).to.equal('Delivery Address cannot be empty');
         expect(res.body.errors.deliveryPhoneNo.msg).to.equal('Delivery Phone Number must be in the format +2348134567890');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
+  it('should return error for empty request', (done) => {
+    request(app)
+      .put(`/api/v1/orders/${newOrderId}`)
+      .set('Accept', 'application/json')
+      .set('authorization', emiolaToken)
+      .send()
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(422);
+        expect(res.body.error).to.equal('Empty PUT Requests Are Not Allowed');
 
         if (err) return done(err);
         done();

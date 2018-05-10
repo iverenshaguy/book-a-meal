@@ -37,7 +37,7 @@ class Authorization {
    * @memberof Authorization
    * @param {object} req
    * @returns {string} token
-   * expires in 24 hours
+   * expires in 48 hours
    */
   static generateToken(req) {
     const token = jwt.sign(
@@ -48,7 +48,7 @@ class Authorization {
       },
       process.env.SECRET,
       {
-        expiresIn: 86400
+        expiresIn: 172800
       }
     );
 

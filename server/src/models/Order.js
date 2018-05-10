@@ -18,6 +18,11 @@ export default (sequelize) => {
         type: Sequelize.STRING,
         allowNull: true
       },
+      status: {
+        type: Sequelize.ENUM('pending', 'delivered', 'canceled'),
+        allowNull: true,
+        defaultValue: 'pending'
+      },
       userId: {
         type: Sequelize.UUID,
         allowNull: true,
