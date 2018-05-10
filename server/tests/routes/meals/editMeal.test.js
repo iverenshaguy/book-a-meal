@@ -18,7 +18,7 @@ describe('Meal Routes: Edit a meal option', () => {
       .put('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send(newMeal)
+      .send({ ...newMeal, title: 'Plantain and Egg' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
         expect(res.body.mealId).to.equal('91b6e41c-0972-4ac5-86da-4ac1f5226e83');
@@ -47,6 +47,23 @@ describe('Meal Routes: Edit a meal option', () => {
       });
   });
 
+  it('should return error for existent meal title', (done) => {
+    process.env.EXPIRY = 5000;
+
+    request(app)
+      .put('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')
+      .set('Accept', 'application/json')
+      .set('authorization', foodCircleToken)
+      .send({ ...newMeal, title: 'Oriental Fried Rice' })
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(422);
+        expect(res.body.errors.title.msg).to.equal('Meal already exists');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
   invalidID(
     'should return 422 error for invalid meal id', 'mealId',
     request(app), 'put', newMeal, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', foodCircleToken
@@ -59,7 +76,7 @@ describe('Meal Routes: Edit a meal option', () => {
 
   notFound(
     'should return 404 error for non-existent meal id',
-    request(app), 'put', newMeal, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed539', foodCircleToken
+    request(app), 'put', { ...newMeal, title: 'Porridge' }, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed539', foodCircleToken
   );
 
   notAdmin(

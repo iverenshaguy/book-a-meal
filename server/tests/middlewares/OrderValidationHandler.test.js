@@ -9,7 +9,7 @@ const currentMin = moment().minute();
 // mock server response
 const res = {
   status: status => ({
-    send: message => ({ status, message })
+    json: message => ({ status, message })
   })
 };
 

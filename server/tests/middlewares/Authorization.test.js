@@ -12,9 +12,9 @@ const { emiolaToken, foodCircleToken } = tokens;
 
 // mock server response
 const res = {
-  send: message => ({ message }),
+  json: message => ({ message }),
   status: status => ({
-    send: message => ({ status, message })
+    json: message => ({ status, message })
   })
 };
 
@@ -48,11 +48,11 @@ describe('Authorization Handler', () => {
   });
 
   describe('User Auth', () => {
-    it('sends error 500 for wrong token secret', () => {
+    it('sends error 401 for wrong token secret', () => {
       const unAuthReq = { headers: { authorization: wrongSecretToken } };
       Authorization.authorize(unAuthReq, res, next);
 
-      assert(status.calledWith(500));
+      assert(status.calledWith(401));
     });
 
     it('sends error 403 for invalid token', () => {

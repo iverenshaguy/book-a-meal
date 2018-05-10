@@ -16,8 +16,8 @@ describe('Meal Routes: Delete a meal option', () => {
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
       .end((err, res) => {
-        expect(res.statusCode).to.equal(204);
-        expect(res.body).to.deep.equal({});
+        expect(res.statusCode).to.equal(200);
+        expect(res.body.message).to.equal('Meal deleted successfully');
 
         if (err) return done(err);
         done();

@@ -20,6 +20,8 @@ export default {
       .exists()
       .withMessage('Meals must be specified')
       .custom(value => notEmpty(value, 'Meals cannot be empty'))
+      .custom(value => Array.isArray(value))
+      .withMessage('Meals must be an array of Meal Ids')
       .custom(value => checkMealsId(value))
       .custom(async (value, { req }) => {
         await isUsersMeal(value, req.userId).then(err => err);
@@ -35,6 +37,8 @@ export default {
     check('meals')
       .optional()
       .custom(value => notEmpty(value, 'Meals cannot be empty'))
+      .custom(value => Array.isArray(value))
+      .withMessage('Meals must be an array of Meal Ids')
       .custom(value => checkMealsId(value))
       .custom(async (value, { req }) => {
         await isUsersMeal(value, req.userId).then(err => err);

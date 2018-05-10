@@ -2,7 +2,6 @@ import uuidv4 from 'uuid/v4';
 import moment from 'moment';
 import orderItemsDB from '../../data/orderItems.json';
 import Notifications from './Notifications';
-import getMealOwner from '../helpers/getMealOwner';
 import createMealOrder from '../helpers/createMealOrder';
 
 /**
@@ -35,7 +34,7 @@ class OrderItems {
 
       Notifications.create({
         menuId: null,
-        userId: getMealOwner(item.mealId),
+        // userId: getMealOwner(item.mealId),
         orderId,
         message: 'Your menu was just ordered'
       });

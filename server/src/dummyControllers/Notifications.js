@@ -1,6 +1,6 @@
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
-import GetItems from '../middlewares/GetItems';
+// import GetItems from '../middlewares/GetItems';
 import notificationsDB from '../../data/notifications.json';
 
 /**
@@ -17,13 +17,13 @@ class Notifications {
    * @param {string} role
    * @returns {object} JSON object
    */
-  static getNotifications(req, res) {
-    const { role, userId } = req.body;
-    const list = role === 'caterer' ?
-      notificationsDB.filter(item => item.userId === userId) :
-      notificationsDB.filter(item => item.userId === null);
-    return GetItems.items(req, res, list, 'notifications');
-  }
+  // static getNotifications(req, res) {
+  //   const { role, userId } = req.body;
+  //   const list = role === 'caterer' ?
+  //     notificationsDB.filter(item => item.userId === userId) :
+  //     notificationsDB.filter(item => item.userId === null);
+  //   // return GetItems.items(req, res, list, 'notifications');
+  // }
 
   /**
    * @method create

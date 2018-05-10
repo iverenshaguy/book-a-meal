@@ -2,3 +2,4 @@ node_modules
 UI
 server/dist
 coverage
+server/docs

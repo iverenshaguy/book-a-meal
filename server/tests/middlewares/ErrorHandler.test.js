@@ -6,7 +6,7 @@ import ErrorHandler from '../../src/middlewares/ErrorHandler';
 const res = {
   headersSent: false,
   status: status => ({
-    send: message => ({ status, message })
+    json: message => ({ status, message })
   })
 };
 

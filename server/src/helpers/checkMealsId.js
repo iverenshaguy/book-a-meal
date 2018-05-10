@@ -1,4 +1,3 @@
-import isUUID from 'validator/lib/isUUID';
 import isArrayOfUUID from './isArrayOfUUID';
 
 /**
@@ -15,16 +14,7 @@ function checkMealsId(value) {
     return isArrayOfUUID(value);
   }
 
-  // since value is a string, remove square brackets
-  //  and spaces and convert to an array
-  const newString = value.replace(/[[\]\s/n']+/g, ''); // eslint-disable-line
-  const newValue = newString.includes(',') ? newString.split(',') : newString;
-
-  if (!Array.isArray(newValue)) {
-    return isUUID(newValue, 4);
-  }
-
-  return isArrayOfUUID(newValue);
+  return false;
 }
 
 export default checkMealsId;

@@ -117,7 +117,7 @@ export default {
     },
 
     badMeal: {
-      title: 'Jollof Spaghetti, Plantain and Turkey',
+      title: '',
       description: 'Contains %%% Sea Food',
       price: '',
       imageURL: 'images.com/imgurl1.jpeg',
@@ -255,29 +255,6 @@ export default {
         '8a65538d-f862-420e-bcdc-80743df06578',
         'f9eb7652-125a-4bcb-ad81-02f84901cdc3'
       ]`,
-    },
-    removeDuplicates: {
-      dupArr1: [
-        '72a3417e-45c8-4559-8b74-8b5a61be8614',
-        '8a65538d-f862-420e-bcdc-80743df06578',
-        '72a3417e-45c8-4559-8b74-8b5a61be8614',
-      ],
-      fltrdArr1: [
-        '72a3417e-45c8-4559-8b74-8b5a61be8614',
-        '8a65538d-f862-420e-bcdc-80743df06578',
-      ],
-      dupArr2: `[
-        '81211c24-51c0-46ec-b1e0-18db55880958',
-        '81211c24-51c0-46ec-b1e0-18db55880958'
-      ]`,
-      fltrdArr2: [
-        '81211c24-51c0-46ec-b1e0-18db55880958'
-      ],
-      uniqueArr: [
-        '72a3417e-45c8-4559-8b74-8b5a61be8614',
-        '8a65538d-f862-420e-bcdc-80743df06578',
-        'baa0412a-d167-4d2b-b1d8-404cb8f02631'
-      ]
     },
 
     orderItems: {

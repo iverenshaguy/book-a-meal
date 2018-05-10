@@ -25,11 +25,13 @@ class Users {
       businessAddress: req.body.businessAddress,
       role: req.body.role.toLowerCase()
     });
+    const user = { ...newUser.dataValues };
 
-    const token = Authorization.generateToken(req);
-    delete newUser.password;
+    delete user.password;
 
-    res.status(201).send({ user: newUser, token });
+    const token = Authorization.generateToken(user);
+
+    res.status(201).json({ user, token });
   }
 
   /**
@@ -42,21 +44,21 @@ class Users {
    */
   static async login(req, res) {
     return db.User.findOne({ where: { email: req.body.email } }).then(async (authUser) => {
-      if (!authUser) return res.status(401).send({ error: 'Invalid Credentials' });
+      if (!authUser) return res.status(401).json({ error: 'Invalid Credentials' });
 
       const valid = await Users.verifyPassword(req.body.password, authUser.password);
 
-      if (!valid) return res.status(401).send({ error: 'Invalid Credentials' });
+      if (!valid) return res.status(401).json({ error: 'Invalid Credentials' });
 
-      const user = { ...authUser };
-      const token = Authorization.generateToken(req);
+      const user = { ...authUser.dataValues };
 
       delete user.password;
 
-      return res.status(200).send({ user: authUser, token });
+      const token = Authorization.generateToken(user);
+
+      return res.status(200).json({ user, token });
     });
   }
-
 
   /**
    * @method verifyPassword
