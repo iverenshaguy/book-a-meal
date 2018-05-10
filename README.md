@@ -24,10 +24,13 @@ Project is currently being built with the Project Management Tool, Pivotal Track
 You can find the template at [https://www.pivotaltracker.com/n/projects/2165637](https://www.pivotaltracker.com/n/projects/2165637)
 
 ### Template
-Template is hosted at [https://iverenshaguy.github.io/UI/index.html](https://iverenshaguy.github.io/UI/index.html)
+Template is hosted at [https://iverenshaguy.github.io/book-a-meal/UI/index.html](https://iverenshaguy.github.io/book-a-meal/UI/index.html)
 
-### API Deployment (Non-Persistent)
+### API Deployment
 API is deployed at [https://book-a-meal-sivy.herokuapp.com](https://book-a-meal-sivy.herokuapp.com)
+
+### Documentation
+Documentation can be read at [https://book-a-meal-sivy.herokuapp.com/api/v1/docs](https://book-a-meal-sivy.herokuapp.com/api/v1/docs)
 
 ## Technologies
 
@@ -63,7 +66,6 @@ API is deployed at [https://book-a-meal-sivy.herokuapp.com](https://book-a-meal-
 * Setup Menu for Particular Day
 * Get All Orders for a Specific Day
 * Get All Caterer's Orders on the platform
-* Get Order Notifications
 
 ### Users
 * Signup and Login
@@ -71,7 +73,6 @@ API is deployed at [https://book-a-meal-sivy.herokuapp.com](https://book-a-meal-
 * Modify an Order
 * Get Menu for the Day
 * Get Meal Order History
-* Get New Menu Notifications
 
 ## API Endpoints
 
