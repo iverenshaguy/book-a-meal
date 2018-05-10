@@ -17,6 +17,5 @@ ordersRoutes.post(
   ValidationHandler.validate, asyncWrapper(Orders.create)
 );
 ordersRoutes.put('/:orderId', ordersValidation.update, ValidationHandler.validate, asyncWrapper(Orders.update));
-ordersRoutes.delete('/:orderId', ordersValidation.delete, ValidationHandler.validate, asyncWrapper(Orders.delete));
 
 export default ordersRoutes;
