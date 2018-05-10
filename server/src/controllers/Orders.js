@@ -1,11 +1,7 @@
 import db from '../models';
 import errors from '../../data/errors.json';
-import GetItems from '../middlewares/GetItems';
 import orderEmitter from '../events/Orders';
 import createMealOrder from '../helpers/createMealOrder';
-import getMealOwner from '../helpers/getMealOwner';
-import Notifications from './Notifications';
-import removeDuplicates from '../helpers/removeDuplicates';
 
 /**
  * @exports
@@ -50,7 +46,7 @@ class Orders {
 
     Orders.getMappedOrders(ordersArr);
 
-    return GetItems.items(req, res, ordersArr, 'orders');
+    return res.status(200).json(ordersArr);
   }
 
   /**
@@ -94,7 +90,7 @@ class Orders {
 
     Orders.getMappedOrders(orders);
 
-    return GetItems.items(req, res, orders, 'orders');
+    return res.status(200).json(orders);
   }
 
   /**
@@ -110,7 +106,7 @@ class Orders {
    */
   static async create(req, res) {
     const orderItems = createMealOrder(req.body.meals);
-    req.body.meals = removeDuplicates(req.body.meals);
+    req.body.meals = [...(new Set(req.body.meals))];
     req.body.userId = req.userId;
 
     const newOrder = await db.Order.create(req.body, { include: [db.User] })
@@ -173,14 +169,7 @@ class Orders {
    */
   static addMeals(order, mealItems) {
     return mealItems.map(item =>
-      order.addMeal(item.mealId, { through: { quantity: item.quantity } }).then(() => {
-        Notifications.create({
-          menuId: null,
-          userId: getMealOwner(item.mealId),
-          orderId: item.orderId,
-          message: 'Your menu was just ordered'
-        });
-      }));
+      order.addMeal(item.mealId, { through: { quantity: item.quantity } }).then(() => {}));
   }
 
   /**

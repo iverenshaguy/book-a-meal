@@ -20,6 +20,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// Documentation
+app.use('/api/v1/docs', express.static('server/docs'));
+
 //  Connect all our routes to our application
 app.use('/api', apiRoutes);
 

@@ -1,7 +1,7 @@
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
 import mealsDB from '../../data/meals.json';
-import GetItems from '../middlewares/GetItems';
+// import GetItems from '../middlewares/GetItems';
 import errors from '../../data/errors.json';
 
 /**
@@ -17,9 +17,9 @@ class Meals {
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
-  static getMeals(req, res) {
-    return GetItems.items(req, res, mealsDB, 'meals');
-  }
+  // static getMeals(req, res) {
+  // return GetItems.items(req, res, mealsDB, 'meals');
+  // }
 
   /**
    * Creates a new item

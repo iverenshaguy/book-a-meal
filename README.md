@@ -206,8 +206,6 @@ _No of Occurence of MealId is the Quantity if Meal Ordered_
 }`
 </td></tr>
 
-<tr><td>GET</td> <td>api/v1/notifications</td> <td>Get All Notifications (Both Users and Caterers)</td><td>None</td></tr>
-
 </table>
 
 ## Getting Started

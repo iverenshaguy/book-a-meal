@@ -25,11 +25,13 @@ class Users {
       businessAddress: req.body.businessAddress,
       role: req.body.role.toLowerCase()
     });
+    const user = { ...newUser.dataValues };
 
-    const token = Authorization.generateToken(req);
-    delete newUser.password;
+    delete user.password;
 
-    res.status(201).json({ user: newUser, token });
+    const token = Authorization.generateToken(user);
+
+    res.status(201).json({ user, token });
   }
 
   /**
@@ -48,15 +50,15 @@ class Users {
 
       if (!valid) return res.status(401).json({ error: 'Invalid Credentials' });
 
-      const user = { ...authUser };
-      const token = Authorization.generateToken(req);
+      const user = { ...authUser.dataValues };
 
       delete user.password;
 
-      return res.status(200).json({ user: authUser, token });
+      const token = Authorization.generateToken(user);
+
+      return res.status(200).json({ user, token });
     });
   }
-
 
   /**
    * @method verifyPassword

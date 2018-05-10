@@ -27,7 +27,6 @@ export default {
         args: false,
         msg: 'This is a required field'
       },
-      unique: true,
       validate: {
         is: {
           args: /^[a-z 0-9 ,.'-()\s]+$/i,

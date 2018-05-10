@@ -48,7 +48,7 @@ describe('Order Routes: Modify an Order', () => {
       .put(`/api/v1/orders/${newOrderId}`)
       .set('Accept', 'application/json')
       .set('authorization', emiolaToken)
-      .send({ ...newOrder, meals: 'baa0412a-d167-4d2b-b1d8-404cb8f02631' })
+      .send({ ...newOrder, meals: ['baa0412a-d167-4d2b-b1d8-404cb8f02631'] })
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.include.keys('orderId');

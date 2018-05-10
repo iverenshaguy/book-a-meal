@@ -8,6 +8,8 @@ export default {
     check('meals')
       .exists().withMessage('Meals must be specified')
       .custom(value => notEmpty(value, 'Meals cannot be empty'))
+      .custom(value => Array.isArray(value))
+      .withMessage('Meals must be an array of Meal Ids')
       .custom(value => checkMealsId(value))
       .custom(value => isValidOrderItems(value)),
     check('status')
@@ -38,6 +40,8 @@ export default {
       .optional()
       .exists().withMessage('Meals must be specified')
       .custom(value => notEmpty(value, 'Meals cannot be empty'))
+      .custom(value => Array.isArray(value))
+      .withMessage('Meals must be an array of Meal Ids')
       .custom(value => checkMealsId(value))
       .custom(value => isValidOrderItems(value)),
     check('status')

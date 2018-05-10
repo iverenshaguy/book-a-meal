@@ -1,6 +1,5 @@
 import moment from 'moment';
 import db from '../models';
-import GetItems from '../middlewares/GetItems';
 import errors from '../../data/errors.json';
 
 /**
@@ -19,7 +18,7 @@ class Meals {
   static async getMeals(req, res) {
     const { userId } = req;
     const mealList = await db.Meal.findAll({ where: { userId } });
-    return GetItems.items(req, res, mealList, 'meals');
+    return res.status(200).json(mealList);
   }
 
   /**
@@ -83,7 +82,7 @@ class Meals {
 
     await mealItem.destroy();
 
-    return res.status(204).json();
+    return res.status(200).json({ message: 'Meal deleted successfully' });
   }
 }
 

@@ -5,17 +5,22 @@ import ordersValidation from '../validations/orders';
 import Authorization from '../middlewares/Authorization';
 import ValidationHandler from '../middlewares/ValidationHandler';
 import OrderValidationHandler from '../middlewares/OrderValidationHandler';
+import TrimValues from '../middlewares/TrimValues';
 
 const ordersRoutes = express.Router();
 const authorization = new Authorization('user');
+const validation = [ValidationHandler.validate, TrimValues.trim];
 
-ordersRoutes.use(Authorization.authorize, authorization.authorizeRole);
+ordersRoutes.use(Authorization.authorize);
 
 ordersRoutes.get('/', asyncWrapper(Orders.getOrders));
+
+ordersRoutes.use(authorization.authorizeRole);
+
 ordersRoutes.post(
   '/', ordersValidation.create, OrderValidationHandler.isShopOpen,
-  ValidationHandler.validate, asyncWrapper(Orders.create)
+  validation, asyncWrapper(Orders.create)
 );
-ordersRoutes.put('/:orderId', ordersValidation.update, ValidationHandler.validate, asyncWrapper(Orders.update));
+ordersRoutes.put('/:orderId', ordersValidation.update, validation, asyncWrapper(Orders.update));
 
 export default ordersRoutes;

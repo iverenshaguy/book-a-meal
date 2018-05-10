@@ -35,16 +35,16 @@ class Authorization {
   /**
    * @method generateToken
    * @memberof Authorization
-   * @param {object} req
+   * @param {object} user
    * @returns {string} token
    * expires in 48 hours
    */
-  static generateToken(req) {
+  static generateToken(user) {
     const token = jwt.sign(
       {
-        id: req.body.id,
-        role: req.body.role,
-        email: req.body.email.toLowerCase(),
+        id: user.id,
+        role: user.role,
+        email: user.email.toLowerCase(),
       },
       process.env.SECRET,
       {
@@ -67,8 +67,6 @@ class Authorization {
   static authorize(req, res, next) {
     const token = Authorization.getToken(req);
 
-    if (req.baseUrl === '/api/v1/menu' && req.method === 'GET') return next();
-
     if (!token) return res.status(401).json({ error: errors['401'] });
 
     jwt.verify(token, process.env.SECRET, async (err, decoded) => {
@@ -77,7 +75,7 @@ class Authorization {
           return res.status(401).json({ error: 'User authorization token is expired' });
         }
 
-        return res.status(500).json({ error: 'Failed to authenticate token' });
+        return res.status(401).json({ error: 'Failed to authenticate token' });
       }
 
       const foundUser = await db.User.findOne({ where: { email: decoded.email } });
@@ -103,7 +101,6 @@ class Authorization {
    */
   authorizeRole(req, res, next) {
     const { type } = this;
-    if ((req.baseUrl === '/api/v1/orders' || req.baseUrl === '/api/v1/menu') && req.method === 'GET') return next();
 
     if (type !== req.role) {
       return res.status(403).json({

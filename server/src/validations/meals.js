@@ -1,5 +1,5 @@
 import { check } from 'express-validator/check';
-import mealsDB from '../../data/meals.json';
+import db from '../models';
 import notEmpty from '../helpers/notEmpty';
 
 export default {
@@ -8,12 +8,12 @@ export default {
       .trim()
       .exists().withMessage('Title must be specified')
       .custom(value => notEmpty(value, 'Title cannot be empty'))
-      .isLength({ max: 50 })
+      .isLength({ min: 5, max: 50 })
       .withMessage('Title must not be more than 50 characters')
       .matches(/^[a-z (),.'-]+$/i)
       .withMessage('Title can only contain letters and the characters (,.\'-)')
-      .custom((value) => {
-        const checkMeal = mealsDB.find(meal => meal.title.toLowerCase() === value.toLowerCase());
+      .custom(async (value, { req }) => {
+        const checkMeal = await db.Meal.findOne({ where: { title: value, userId: req.userId } });
         if (checkMeal) {
           throw new Error('Meal already exists');
         }
@@ -57,7 +57,15 @@ export default {
       .isLength({ max: 50 })
       .withMessage('Title must not be more than 50 characters')
       .matches(/^[a-z (),.'-]+$/i)
-      .withMessage('Title can only contain letters and the characters (,.\'-)'),
+      .withMessage('Title can only contain letters and the characters (,.\'-)')
+      .custom(async (value, { req }) => {
+        const checkMeal = await db.Meal.findOne({ where: { title: value, userId: req.userId } });
+        if (checkMeal) {
+          throw new Error('Meal already exists');
+        }
+
+        return true;
+      }),
     check('description')
       .trim()
       .optional({ checkFalsy: true })

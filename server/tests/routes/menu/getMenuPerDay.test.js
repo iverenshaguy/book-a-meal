@@ -4,7 +4,7 @@ import app from '../../../src/app';
 import { addMenu as data, twoDaysTime, currentDay } from '../../utils/data';
 import { tokens } from '../../utils/setup';
 
-const { foodCircleToken } = tokens;
+const { foodCircleToken, emiolaToken } = tokens;
 const { menu1 } = data;
 
 describe('Menu Routes: Get the menu specific day', () => {
@@ -26,6 +26,7 @@ describe('Menu Routes: Get the menu specific day', () => {
     request(app)
       .get('/api/v1/menu')
       .set('Accept', 'application/json')
+      .set('authorization', emiolaToken)
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.include.keys('menuId');
@@ -41,6 +42,7 @@ describe('Menu Routes: Get the menu specific day', () => {
     request(app)
       .get(`/api/v1/menu?date=${twoDaysTime}`)
       .set('Accept', 'application/json')
+      .set('authorization', emiolaToken)
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.include.keys('menuId');
@@ -56,6 +58,7 @@ describe('Menu Routes: Get the menu specific day', () => {
     request(app)
       .get('/api/v1/menu?date=2018-04-25')
       .set('Accept', 'application/json')
+      .set('authorization', emiolaToken)
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
         expect(res.body.message).to.equal('No Menu is Available For This Day');

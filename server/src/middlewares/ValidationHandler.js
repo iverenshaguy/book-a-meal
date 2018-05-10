@@ -1,6 +1,5 @@
 import { validationResult } from 'express-validator/check';
 import { matchedData } from 'express-validator/filter';
-import TrimValues from './TrimValues';
 
 /**
  * @exports
@@ -24,7 +23,7 @@ class ValidationHandler {
       return res.status(422).json({ errors: errors.mapped() });
     }
 
-    return TrimValues.trim(req, res, next);
+    return next();
   }
 }
 

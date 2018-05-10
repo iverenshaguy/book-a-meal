@@ -3,8 +3,6 @@ import menuDB from '../../data/menu.json';
 import mealsDB from '../../data/meals.json';
 import Notifications from './Notifications';
 import errors from '../../data/errors.json';
-import checkMenuUnique from '../helpers/checkMenuUnique';
-import removeDuplicates from '../helpers/removeDuplicates';
 
 /**
  * @exports
@@ -45,12 +43,12 @@ class Menu {
     const defaultDate = moment().format('YYYY-MM-DD');
 
     req.body.date = req.body.date || defaultDate;
-    req.body.meals = removeDuplicates(req.body.meals);
+    req.body.meals = [...(new Set(req.body.meals))];
 
 
-    if (!checkMenuUnique(req.body.date, req.body.userId)) {
-      return res.status(422).json({ error: 'Menu already exists for this day' });
-    }
+    // if (!checkMenuUnique(req.body.date, req.body.userId)) {
+    //   return res.status(422).json({ error: 'Menu already exists for this day' });
+    // }
 
     menuDB.push(req.body);
 
@@ -98,7 +96,7 @@ class Menu {
     const oldItem = menuDB[itemIndex];
 
     delete req.body.menuId;
-    req.body.meals = removeDuplicates(req.body.meals);
+    req.body.meals = [...(new Set(req.body.meals))];
     req.body.date = oldItem.date;
     req.body.updatedAt = moment().format();
 

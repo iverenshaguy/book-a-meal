@@ -1,9 +1,6 @@
 import moment from 'moment';
 import db from '../models';
-import Notifications from './Notifications';
 import errors from '../../data/errors.json';
-import checkMenuUnique from '../helpers/checkMenuUnique';
-import removeDuplicates from '../helpers/removeDuplicates';
 
 /**
  * @exports
@@ -26,7 +23,7 @@ class Menu {
       return res.status(200).json({ message: 'No Menu is Available For This Day' });
     }
 
-    const menuPerDay = await Menu.getMealsObject(menu).then(() => menu);
+    const menuPerDay = await Menu.getArrayOfMeals(menu).then(() => menu);
 
     return res.status(200).json(menuPerDay);
   }
@@ -47,23 +44,16 @@ class Menu {
     const defaultDate = moment().format('YYYY-MM-DD');
 
     req.body.date = req.body.date || defaultDate;
-    req.body.meals = removeDuplicates(req.body.meals);
+    req.body.meals = [...(new Set(req.body.meals))];
 
-    const isMenuUnique = await checkMenuUnique(req.body.date, userId);
+    const isMenuCreated = await db.Menu.findOne({ where: { date: req.body.date, userId } });
 
-    if (!isMenuUnique) return res.status(422).json({ error: 'Menu already exists for this day' });
+    if (isMenuCreated) return res.status(422).json({ error: 'Menu already exists for this day' });
 
     const newMenu = await db.Menu.create({ date: req.body.date, userId }, { include: [db.User] })
       .then(async (menu) => {
         await menu.setMeals(req.body.meals, { through: db.MenuMeal });
-        await Menu.getMealsObject(menu);
-
-        Notifications.create({
-          userId: null,
-          orderId: null,
-          menuId: req.body.menuId,
-          message: 'The menu for today was just added'
-        });
+        await Menu.getArrayOfMeals(menu);
 
         return menu;
       });
@@ -92,12 +82,12 @@ class Menu {
       return res.status(422).json({ error: 'Menu Expired' });
     }
 
-    req.body.meals = removeDuplicates(req.body.meals);
+    req.body.meals = [...(new Set(req.body.meals))];
 
     await menu.setMeals([], { through: db.MenuMeal });
     const updatedMenu = await menu.setMeals(req.body.meals, { through: db.MenuMeal })
       .then(async () => {
-        await Menu.getMealsObject(menu);
+        await Menu.getArrayOfMeals(menu);
         return menu;
       });
 
@@ -106,12 +96,12 @@ class Menu {
 
   /**
    * Gets meals for the Menu
-   * @method getMealsObject
+   * @method getArrayOfMeals
    * @memberof Controller
    * @param {OBJECT} menu
    * @returns {array} Array of Meals
    */
-  static async getMealsObject(menu) {
+  static async getArrayOfMeals(menu) {
     menu.dataValues.meals = await menu.getMeals({
       attributes: ['mealId', 'title', 'imageURL', 'description', 'forVegetarians', 'price'],
       joinTableAttributes: []

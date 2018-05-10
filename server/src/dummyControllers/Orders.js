@@ -4,12 +4,9 @@ import mealsDB from '../../data/meals.json';
 import ordersDB from '../../data/orders.json';
 import orderItemsDB from '../../data/orderItems.json';
 import errors from '../../data/errors.json';
-import GetItems from '../middlewares/GetItems';
+// import GetItems from '../middlewares/GetItems';
 import OrderItems from './OrderItems';
-// import isOrderExpired from '../helpers/isOrderExpired';
-import getMealOwner from '../helpers/getMealOwner';
 import Notifications from './Notifications';
-import removeDuplicates from '../helpers/removeDuplicates';
 
 /**
  * @exports
@@ -44,22 +41,22 @@ class Orders {
    * if date is provided in query, get orders that belong
    * to user and were created on that date
    */
-  static getUsersOrders(req, res) {
-    const { userId, query: { date } } = req;
-    let list = ordersDB.filter(item => item.userId === userId);
+  // static getUsersOrders(req, res) {
+  // const { userId, query: { date } } = req;
+  // let list = ordersDB.filter(item => item.userId === userId);
 
-    if (date) {
-      const dateToFind = date === 'today' ? moment().format('YYYY-MM-DD') : date;
-      list = ordersDB.filter(item => item.date.includes(dateToFind) && item.userId === userId);
-    }
+  // if (date) {
+  //   const dateToFind = date === 'today' ? moment().format('YYYY-MM-DD') : date;
+  //   list = ordersDB.filter(item => item.date.includes(dateToFind) && item.userId === userId);
+  // }
 
-    list.map((orderItem) => {
-      orderItem = Orders.getOrderObject(orderItem);
-      return orderItem;
-    });
+  // list.map((orderItem) => {
+  //   orderItem = Orders.getOrderObject(orderItem);
+  //   return orderItem;
+  // });
 
-    return GetItems.items(req, res, list, 'orders');
-  }
+  // return GetItems.items(req, res, list, 'orders');
+  // }
 
   /**
    * Returns Users' Orders
@@ -71,31 +68,31 @@ class Orders {
    * if date query was added, get all orders whose created at include the date
    * includes is used instead of equality because created at is a full date string
    */
-  static getCaterersOrders(req, res) {
-    const { userId, query: { date } } = req;
-    // get caterer's mealIds from mealsDB
-    const mealIdsArray = mealsDB.reduce((idArray, meal) => {
-      if (meal.userId === userId) idArray.push(meal.mealId);
-      return idArray;
-    }, []);
+  // static getCaterersOrders(req, res) {
+  // const { userId, query: { date } } = req;
+  // // get caterer's mealIds from mealsDB
+  // const mealIdsArray = mealsDB.reduce((idArray, meal) => {
+  //   if (meal.userId === userId) idArray.push(meal.mealId);
+  //   return idArray;
+  // }, []);
 
-    const caterersOrderIds = orderItemsDB.reduce((idArray, orderItem) => {
-      if (mealIdsArray.includes(orderItem.mealId)) idArray.push(orderItem.orderId);
-      return removeDuplicates(idArray);
-    }, []);
+  // const caterersOrderIds = orderItemsDB.reduce((idArray, orderItem) => {
+  //   if (mealIdsArray.includes(orderItem.mealId)) idArray.push(orderItem.orderId);
+  //   return [...(new Set(idArray))];
+  // }, []);
 
-    let list = ordersDB.filter(order => caterersOrderIds.includes(order.orderId));
+  // let list = ordersDB.filter(order => caterersOrderIds.includes(order.orderId));
 
-    if (date) {
-      const dateToFind = date === 'today' ? moment().format('YYYY-MM-DD') : date;
-      list = ordersDB.filter(order => order.date.includes(dateToFind)
-        && caterersOrderIds.includes(order.orderId));
-    }
+  // if (date) {
+  //   const dateToFind = date === 'today' ? moment().format('YYYY-MM-DD') : date;
+  //   list = ordersDB.filter(order => order.date.includes(dateToFind)
+  //     && caterersOrderIds.includes(order.orderId));
+  // }
 
-    list.map(orderItem => Orders.getOrderObject(orderItem, req.userId));
+  // list.map(orderItem => Orders.getOrderObject(orderItem, req.userId));
 
-    return GetItems.items(req, res, list, 'orders');
-  }
+  // return GetItems.items(req, res, list, 'orders');
+  // }
 
   /**
    * Creates a new item
@@ -110,23 +107,23 @@ class Orders {
   static create(req, res) {
     const data = { ...req.body };
 
-    data.orderId = uuidv4();
-    data.date = req.body.date || moment().format('YYYY-MM-DD');
-    data.meals = removeDuplicates(data.meals);
-    data.userId = 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac';
-    data.createdAt = moment().format();
-    data.updatedAt = moment().format();
+    req.body.orderId = uuidv4();
+    req.body.date = req.body.date || moment().format('YYYY-MM-DD');
+    req.body.meals = [...(new Set(req.body.meals))];
+    req.body.userId = 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac';
+    req.body.createdAt = moment().format();
+    req.body.updatedAt = moment().format();
 
-    OrderItems.create(data.orderId, req.body.meals);
+    OrderItems.create(req.body.orderId, req.body.meals);
 
-    delete data.role;
+    delete req.body.role;
 
-    ordersDB.push(data);
+    ordersDB.push(req.body);
 
     Notifications.create({
       menuId: null,
-      userId: getMealOwner(data.mealId),
-      orderId: data.orderId,
+      // userId: getMealOwner(req.body.mealId),
+      orderId: req.body.orderId,
       message: 'Your menu was just ordered'
     });
 
@@ -145,7 +142,6 @@ class Orders {
    * notification is created on order update
    */
   static update(req, res) {
-    const data = { ...req.body };
     const { orderId } = req.params;
     const itemIndex =
       ordersDB.findIndex(item => item.orderId === orderId && item.userId === req.userId);
@@ -155,28 +151,28 @@ class Orders {
     // if (isOrderExpired('order', ordersDB, orderId))
     // return res.status(422).json({ error: 'Order is expired' });
 
-    data.userId = req.userId;
-    data.updatedAt = moment().format();
-    data.createdAt = moment().format();
-    data.orderId = orderId;
-    data.meals = removeDuplicates(data.meals);
+    req.body.userId = req.userId;
+    req.body.updatedAt = moment().format();
+    req.body.createdAt = moment().format();
+    req.body.orderId = orderId;
+    req.body.meals = [...(new Set(req.body.meals))];
 
     const oldOrder = ordersDB[itemIndex];
 
-    ordersDB[itemIndex] = { ...oldOrder, ...data };
+    ordersDB[itemIndex] = { ...oldOrder, ...req.body };
 
-    OrderItems.update(data.orderId, req.body.meals);
+    OrderItems.update(req.body.orderId, req.body.meals);
 
     Notifications.create({
       menuId: null,
-      userId: getMealOwner(data.mealId),
-      orderId: data.orderId,
+      // userId: getMealOwner(req.body.mealId),
+      orderId: req.body.orderId,
       message: 'This order was just updated'
     });
 
-    data.meals = data.meals.map(item => mealsDB.find(meal => meal.mealId === item));
+    req.body.meals = req.body.meals.map(item => mealsDB.find(meal => meal.mealId === item));
 
-    return res.status(200).json(data);
+    return res.status(200).json(req.body);
   }
 
   /**
