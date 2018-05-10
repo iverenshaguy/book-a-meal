@@ -10,6 +10,9 @@ export default {
       .custom(value => notEmpty(value, 'Meals cannot be empty'))
       .custom(value => checkMealsId(value))
       .custom(value => isValidOrderItems(value)),
+    check('status')
+      .custom(value => !value)
+      .withMessage('Status should not be provided'),
     check('deliveryAddress')
       .trim()
       .exists().withMessage('Delivery Address must be specified')
@@ -37,6 +40,12 @@ export default {
       .custom(value => notEmpty(value, 'Meals cannot be empty'))
       .custom(value => checkMealsId(value))
       .custom(value => isValidOrderItems(value)),
+    check('status')
+      .trim()
+      .optional()
+      .custom(value => notEmpty(value, 'Status cannot be empty'))
+      .isIn(['pending', 'canceled'])
+      .withMessage('Accepts only pending or canceled'),
     check('deliveryAddress')
       .trim()
       .optional()

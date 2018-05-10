@@ -1,7 +1,6 @@
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
 import usersDB from '../../data/users.json';
-import PasswordHash from '../helpers/PasswordHash';
 
 const token = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
 const defaultUserObject = {
@@ -32,9 +31,9 @@ class Users {
    */
   static async register(req, res) {
     // encrypt password
-    const hash = await PasswordHash.hashPassword(req.body.password);
+    // const hash = await PasswordHash.hashPassword(req.body.password);
     const newUser = { ...defaultUserObject, ...req.body };
-    newUser.passwordHash = hash;
+    // newUser.passwordHash = hash;
     newUser.email = req.body.email.toLowerCase();
     newUser.role = req.body.role.toLowerCase();
     newUser.userId = uuidv4();
