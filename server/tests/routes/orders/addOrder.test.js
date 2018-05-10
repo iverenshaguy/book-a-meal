@@ -100,6 +100,7 @@ describe('Order Routes: Add an Order', () => {
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
         expect(res.body).to.be.an('object');
+        expect(res.body.errors.status.msg).to.equal('Status should not be provided');
         expect(res.body.errors.meals.msg).to.equal('Meals must be specified');
         expect(res.body.errors.deliveryAddress.msg).to.equal('Delivery Address cannot be empty');
         expect(res.body.errors.deliveryPhoneNo.msg)

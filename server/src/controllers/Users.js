@@ -23,7 +23,7 @@ class Users {
       password: req.body.password,
       businessPhoneNo: req.body.businessPhoneNo,
       businessAddress: req.body.businessAddress,
-      role: req.body.role
+      role: req.body.role.toLowerCase()
     });
 
     const token = Authorization.generateToken(req);

@@ -1,7 +1,7 @@
 import db from '../models';
 import errors from '../../data/errors.json';
 import GetItems from '../middlewares/GetItems';
-import isOrderExpired from '../helpers/isOrderExpired';
+import orderEmitter from '../events/Orders';
 import createMealOrder from '../helpers/createMealOrder';
 import getMealOwner from '../helpers/getMealOwner';
 import Notifications from './Notifications';
@@ -10,7 +10,6 @@ import removeDuplicates from '../helpers/removeDuplicates';
 /**
  * @exports
  * @class Orders
- * @extends Controller
  */
 class Orders {
   /**
@@ -107,6 +106,7 @@ class Orders {
    * @returns {(function|object)} Function next() or JSON object
    * notification is created when an order is made
    * order is expired after 15 minutes of original purchase
+   * emits create event after creation
    */
   static async create(req, res) {
     const orderItems = createMealOrder(req.body.meals);
@@ -122,6 +122,8 @@ class Orders {
 
         return order;
       });
+
+    orderEmitter.emit('create', newOrder);
 
     return res.status(201).send(newOrder);
   }
@@ -143,8 +145,7 @@ class Orders {
     const order = await db.Order.findOne({ where: { orderId, userId: req.userId } });
     if (!order) return res.status(404).send({ error: errors[404] });
 
-    const isExpired = await isOrderExpired(orderId);
-    if (isExpired) return res.status(422).send({ error: 'Order is expired' });
+    if (order.status === 'delivered') return res.status(422).send({ error: 'Order is expired' });
 
     const updatedOrder = await order.update({ ...order, ...req.body }).then(async () => {
       if (req.body.meals) {
