@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { config } from 'dotenv';
-import errors from '../../data/errors.json';
+import messages from '../../data/errors.json';
 
 config();
 
@@ -23,7 +23,7 @@ class OrderValidationHandler {
     const closing = moment({ hour: process.env.CLOSING_HOUR, minute: process.env.CLOSING_MINUTE });
 
     if (!moment().isBetween(opening, closing)) {
-      return res.status(422).json({ error: errors.shopClosed });
+      return res.status(200).json({ message: messages.shopClosed });
     }
 
     next();

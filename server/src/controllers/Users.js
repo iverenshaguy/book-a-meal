@@ -17,21 +17,38 @@ class Users {
    */
   static async register(req, res) {
     const newUser = await db.User.create({
-      firstname: req.body.firstname,
+      username: req.body.username,
       businessName: req.body.businessName,
       email: req.body.email.toLowerCase(),
       password: req.body.password,
       businessPhoneNo: req.body.businessPhoneNo,
       businessAddress: req.body.businessAddress,
-      role: req.body.role.toLowerCase()
+      role: req.body.role
     });
     const user = { ...newUser.dataValues };
+    let userObj;
 
-    delete user.password;
+    if (user.role === 'user') {
+      userObj = {
+        userId: user.userId,
+        username: user.username,
+        email: user.email,
+      };
+    }
+
+    if (user.role === 'caterer') {
+      userObj = {
+        userId: user.userId,
+        businessName: user.businessName,
+        businessAddress: user.businessAddress,
+        businessPhoneNo: user.businessPhoneNo,
+        email: user.email,
+      };
+    }
 
     const token = Authorization.generateToken(user);
 
-    res.status(201).json({ user, token });
+    res.status(201).json({ user: userObj, token });
   }
 
   /**
@@ -51,12 +68,29 @@ class Users {
       if (!valid) return res.status(401).json({ error: 'Invalid Credentials' });
 
       const user = { ...authUser.dataValues };
+      let userObj;
 
-      delete user.password;
+      if (user.role === 'user') {
+        userObj = {
+          userId: user.userId,
+          username: user.username,
+          email: user.email,
+        };
+      }
+
+      if (user.role === 'caterer') {
+        userObj = {
+          userId: user.userId,
+          businessName: user.businessName,
+          businessAddress: user.businessAddress,
+          businessPhoneNo: user.businessPhoneNo,
+          email: user.email,
+        };
+      }
 
       const token = Authorization.generateToken(user);
 
-      return res.status(200).json({ user, token });
+      return res.status(200).json({ user: userObj, token });
     });
   }
 

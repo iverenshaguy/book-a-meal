@@ -21,7 +21,7 @@ const notAdmin = (message, request, method, url) => {
         .set('authorization', emiolaToken)
         .end((err, res) => {
           expect(res.statusCode).to.equal(403);
-          expect(res.body.error).to.equal('Forbidden');
+          expect(res.body.error).to.equal('You are not authorized to perform this action');
 
           if (err) {
             return done(err);

@@ -20,7 +20,9 @@ class ValidationHandler {
     req = { ...req, ...matchedData(req) };
 
     if (!errors.isEmpty()) {
-      return res.status(422).json({ errors: errors.mapped() });
+      const mappedErrors = errors.mapped();
+      // delete mappedErrors[/a-zA-Z/g].value;
+      return res.status(422).json({ errors: mappedErrors });
     }
 
     return next();

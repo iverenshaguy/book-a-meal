@@ -69,7 +69,7 @@ describe('Meal Routes: Add a meal option', () => {
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
         expect(res.body).to.be.an('object');
-        expect(res.body.errors.price.msg).to.equal('Price must not be less than 200');
+        expect(res.body.errors.price.msg).to.equal('Price must be greater than or equal to 50');
 
         if (err) return done(err);
         done();
@@ -85,7 +85,7 @@ describe('Meal Routes: Add a meal option', () => {
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
         expect(res.body).to.be.an('object');
-        expect(res.body.errors.price.msg).to.equal('Price must not be less than 200');
+        expect(res.body.errors.price.msg).to.equal('Price must be greater than or equal to 50');
 
         if (err) return done(err);
         done();

@@ -58,8 +58,8 @@ describe('Order Routes: Add an Order', () => {
       .set('authorization', emiolaToken)
       .send(newOrder)
       .end((err, res) => {
-        expect(res.statusCode).to.equal(422);
-        expect(res.body.error).to.equal('Meals can only be ordered from 8:30am to 4:00pm');
+        expect(res.statusCode).to.equal(200);
+        expect(res.body.message).to.equal('Meals can only be ordered from 8:30am to 4:00pm');
 
         if (err) return done(err);
         done();

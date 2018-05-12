@@ -11,7 +11,7 @@ export default {
       defaultValue: Sequelize.UUIDV4,
       allowNull: false
     },
-    firstname: {
+    username: {
       type: Sequelize.STRING,
       allowNull: true,
       defaultValue: null,
