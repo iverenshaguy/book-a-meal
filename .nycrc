@@ -14,7 +14,8 @@
     "server/coverage/**",
     "server/tests/**",
     "server/src/models/index.js",
-    "server/test{,-*}.js"
+    "server/test{,-*}.js",
+    "server/docs.**"
   ],
   "reporter": ["lcov", "json", "text"],
   "sourceMap": false,

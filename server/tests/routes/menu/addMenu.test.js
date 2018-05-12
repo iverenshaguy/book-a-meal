@@ -87,7 +87,7 @@ describe('Menu Routes: Add a new menu', () => {
       .end((err, res) => {
         expect(res.statusCode).to.equal(422);
         expect(res.body).to.be.an('object');
-        expect(res.body.errors.meals.msg).to.equal('Meal 46ced7aa-eed5-4462-b2c0-153f31589bdd doesn\'t exist');
+        expect(res.body.errors.meals.msg).to.equal('You don\'t have access to Meal 46ced7aa-eed5-4462-b2c0-153f31589bdd');
 
         if (err) return done(err);
         done();

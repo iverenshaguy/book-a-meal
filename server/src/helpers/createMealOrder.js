@@ -1,13 +1,9 @@
-import stringToArray from './stringToArray';
-
 /**
  * Function to create a meal order from an array of meal Ids
- * @param {string} mealIdArr
+ * @param {string} mealIds
  * @return {array} returns unique array
- * function stringToArray converts string to an array
  */
-function createMealOrder(mealIdArr) {
-  const mealIds = stringToArray(mealIdArr, ',');
+function createMealOrder(mealIds) {
   const objArr = [];
 
   mealIds.forEach((id) => {

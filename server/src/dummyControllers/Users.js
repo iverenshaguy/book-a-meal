@@ -46,7 +46,7 @@ class Users {
 
     delete newUser.passwordHash;
 
-    res.status(201).send({
+    res.status(201).json({
       user: newUser,
       token
     });
@@ -65,7 +65,7 @@ class Users {
       .find(user => user.email === req.body.email && user.password === req.body.password);
 
     if (!authUser) {
-      return res.status(401).send({
+      return res.status(401).json({
         error: 'Invalid Credentials'
       });
     }
@@ -75,7 +75,7 @@ class Users {
     delete user.password;
     delete user.passwordHash;
 
-    return res.status(200).send({ user, token });
+    return res.status(200).json({ user, token });
   }
 }
 

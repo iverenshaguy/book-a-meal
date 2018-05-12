@@ -15,8 +15,7 @@ describe('Meal Routes: Get all meals', () => {
       .set('authorization', foodCircleToken)
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
-        expect(res.body.meals.length).to.equal(5);
-        expect(res.body).to.include.keys('metadata');
+        expect(res.body.length).to.equal(8);
 
         if (err) return done(err);
         done();

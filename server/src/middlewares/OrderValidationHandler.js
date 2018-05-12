@@ -23,7 +23,7 @@ class OrderValidationHandler {
     const closing = moment({ hour: process.env.CLOSING_HOUR, minute: process.env.CLOSING_MINUTE });
 
     if (!moment().isBetween(opening, closing)) {
-      return res.status(422).send({ error: errors.shopClosed });
+      return res.status(422).json({ error: errors.shopClosed });
     }
 
     next();
