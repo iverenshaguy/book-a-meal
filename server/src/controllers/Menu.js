@@ -19,7 +19,7 @@ class Menu {
     const { role } = req;
 
     if (role === 'caterer') return Menu.getMenuForCaterer(req, res);
-    if (role === 'user') return Menu.getMenuForUser(req, res);
+    return Menu.getMenuForUser(req, res);
   }
 
   /**
@@ -34,10 +34,6 @@ class Menu {
     const date = moment().format('YYYY-MM-DD');
 
     const menuArray = await db.Menu.findAll({ where: { date } });
-
-    if (!menuArray) {
-      return res.status(200).json({ message: 'No Menu is Available For This Day' });
-    }
 
     const promises = menuArray.map(menu => Menu.getArrayOfMeals(menu).then(() => menu));
 

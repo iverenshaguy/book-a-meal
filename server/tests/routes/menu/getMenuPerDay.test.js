@@ -1,6 +1,7 @@
 import request from 'supertest';
 import { expect } from 'chai';
 import app from '../../../src/app';
+import db from '../../../src/models';
 import { addMenu as data, twoDaysTime, currentDay } from '../../utils/data';
 import { tokens } from '../../utils/setup';
 
@@ -68,5 +69,39 @@ describe('Menu Routes: Get the menu specific day', () => {
         if (err) return done(err);
         done();
       });
+  });
+
+  describe('No Menu', () => {
+    before(() => {
+      db.Menu.destroy({ truncate: { cascade: true } });
+    });
+
+    it('User: should return no menu message when there are no menu', (done) => {
+      request(app)
+        .get('/api/v1/menu')
+        .set('Accept', 'application/json')
+        .set('authorization', emiolaToken)
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(200);
+          expect(res.body.menu.length).to.equal(0);
+
+          if (err) return done(err);
+          done();
+        });
+    });
+
+    it('Caterer: should return no menu message when there are no menu', (done) => {
+      request(app)
+        .get('/api/v1/menu')
+        .set('Accept', 'application/json')
+        .set('authorization', foodCircleToken)
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(200);
+          expect(res.body.message).to.equal('You don\'t have a menu for this day');
+
+          if (err) return done(err);
+          done();
+        });
+    });
   });
 });
