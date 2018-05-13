@@ -11,12 +11,14 @@ version: "2"
 #    enabled: false
 
 exclude_paths:
-- ".nyc_output/"
-- "node_modules/"
-- "coverage/"
 - "UI/"
+- "coverage/"
 - "server/docs"
 - "server/tests"
+- ".nyc_output/"
+- "node_modules/"
 - "server/src/models"
-- "server/src/migrations"
 - "server/src/seeders"
+- "server/src/migrations"
+- "server/src/validations"
+- "server/src/dummyControllers"
