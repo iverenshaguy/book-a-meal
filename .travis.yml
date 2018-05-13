@@ -15,8 +15,7 @@ env:
 script:
   - npm run test
 
-cache: 
-  yarn: true
+cache:
   directories:
     - 'node_modules'
 
