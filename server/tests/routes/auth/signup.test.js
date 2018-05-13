@@ -36,7 +36,7 @@ describe('Signup Routes', () => {
         .send(wrongUserData)
         .end((err, res) => {
           // userToken = res.body.token;
-          expect(res.statusCode).to.equal(422);
+          expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body.errors.businessName.msg).to.equal('Unaccepted Field');
           expect(res.body.errors.username.msg).to.equal('username must be specified');
@@ -55,7 +55,7 @@ describe('Signup Routes', () => {
         .send({ role: 'user', username: '6848jkkl()' })
         .end((err, res) => {
           // userToken = res.body.token;
-          expect(res.statusCode).to.equal(422);
+          expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body.errors.username.msg).to.equal('username can only contain letters and the characters (,.\'-)');
 
@@ -70,7 +70,7 @@ describe('Signup Routes', () => {
         .send({ role: 'user', username: longusername })
         .end((err, res) => {
           // userToken = res.body.token;
-          expect(res.statusCode).to.equal(422);
+          expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body.errors.username.msg).to.equal('username must not be more than 40 characters');
 
@@ -85,7 +85,7 @@ describe('Signup Routes', () => {
         .send(wrongRoleUserData)
         .end((err, res) => {
           // userToken = res.body.token;
-          expect(res.statusCode).to.equal(422);
+          expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body.errors.role.msg).to.equal('Role must be specified as either caterer or user');
 
@@ -100,7 +100,7 @@ describe('Signup Routes', () => {
         .send({ role: '' })
         .end((err, res) => {
           // userToken = res.body.token;
-          expect(res.statusCode).to.equal(422);
+          expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body.errors.role.msg).to.equal('Role cannot be empty');
 
@@ -114,7 +114,7 @@ describe('Signup Routes', () => {
         .post('/api/v1/auth/signup')
         .send(Object.assign({}, rightUserData, { email: 'iveren@shaguy.com' }))
         .end((err, res) => {
-          expect(res.statusCode).to.equal(422);
+          expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body.errors.email.msg).to.equal('Email already in use');
 
@@ -152,7 +152,7 @@ describe('Signup Routes', () => {
         .send(wrongCatererData)
         .end((err, res) => {
           // userToken = res.body.token;
-          expect(res.statusCode).to.equal(422);
+          expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body.errors.username.msg).to.equal('Unaccepted Field');
           expect(res.body.errors.businessName.msg).to.equal('Business name must be specified');
@@ -173,7 +173,7 @@ describe('Signup Routes', () => {
         .send(wrongLengthCatererData)
         .end((err, res) => {
           // userToken = res.body.token;
-          expect(res.statusCode).to.equal(422);
+          expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body.errors.businessName.msg).to.equal('Business name must not be more than 60 characters');
           expect(res.body.errors.businessAddress.msg).to.equal('Business Address must be between 5 and 255 characters');
@@ -191,7 +191,7 @@ describe('Signup Routes', () => {
         .send(wrongCatererDataFormat)
         .end((err, res) => {
           // userToken = res.body.token;
-          expect(res.statusCode).to.equal(422);
+          expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body.errors.businessName.msg)
             .to.equal('Business name can only contain letters, spaces, and the characters (,.\'-)');
@@ -211,7 +211,7 @@ describe('Signup Routes', () => {
         .send(Object.assign({}, rightCatererData, { email: 'food@circle.com' }))
         .end((err, res) => {
           // userToken = res.body.token;
-          expect(res.statusCode).to.equal(422);
+          expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body.errors.email.msg).to.equal('Email already in use');
 

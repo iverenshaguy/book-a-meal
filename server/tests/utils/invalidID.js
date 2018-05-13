@@ -21,7 +21,7 @@ const invalidID = (message, type, request, method, data, url, token) => {
         .set('authorization', token)
         .send(data)
         .end((err, res) => {
-          expect(res.statusCode).to.equal(422);
+          expect(res.statusCode).to.equal(400);
           expect(res.body.errors[type].msg).to.equal('Invalid ID');
 
           if (err) {

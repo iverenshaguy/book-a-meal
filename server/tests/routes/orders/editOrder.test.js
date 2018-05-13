@@ -83,7 +83,7 @@ describe('Order Routes: Modify an Order', () => {
       .set('authorization', emiolaToken)
       .send(newOrder)
       .end((err, res) => {
-        expect(res.statusCode).to.equal(422);
+        expect(res.statusCode).to.equal(400);
         expect(res.body.error).to.equal('Order is expired');
 
         if (err) return done(err);
@@ -98,7 +98,7 @@ describe('Order Routes: Modify an Order', () => {
       .set('authorization', emiolaToken)
       .send({ ...badOrder, date: '' })
       .end((err, res) => {
-        expect(res.statusCode).to.equal(422);
+        expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
         expect(res.body.errors.deliveryAddress.msg).to.equal('Delivery Address cannot be empty');
         expect(res.body.errors.deliveryPhoneNo.msg).to.equal('Delivery Phone Number must be in the format +2348134567890');
@@ -115,7 +115,7 @@ describe('Order Routes: Modify an Order', () => {
       .set('authorization', emiolaToken)
       .send()
       .end((err, res) => {
-        expect(res.statusCode).to.equal(422);
+        expect(res.statusCode).to.equal(400);
         expect(res.body.error).to.equal('Empty PUT Requests Are Not Allowed');
 
         if (err) return done(err);
@@ -124,7 +124,7 @@ describe('Order Routes: Modify an Order', () => {
   });
 
   invalidID(
-    'should return 422 error for invalid menu id', 'orderId',
+    'should return 400 error for invalid menu id', 'orderId',
     request(app), 'put', { ...newOrder, menuId: newMenuId }, '/api/v1/orders/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', emiolaToken
   );
 

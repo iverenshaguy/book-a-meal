@@ -53,9 +53,6 @@ class Meals {
   static async update(req, res) {
     const { mealId } = req.params;
     const { userId } = req;
-
-    if (!Object.values(req.body).length) return res.status(422).json({ error: errors.empty });
-
     const mealItem = await db.Meal.findOne({ where: { mealId, userId } });
 
     if (!mealItem) return res.status(404).json({ error: errors[404] });

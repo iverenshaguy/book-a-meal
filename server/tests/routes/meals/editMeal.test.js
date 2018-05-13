@@ -35,7 +35,7 @@ describe('Meal Routes: Edit a meal option', () => {
       .set('authorization', foodCircleToken)
       .send(badMeal)
       .end((err, res) => {
-        expect(res.statusCode).to.equal(422);
+        expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
         expect(res.body.errors.title.msg).to.equal('Title cannot be empty');
         expect(res.body.errors.description.msg).to.equal('Text can only contain letters and the characters (,.\'-)');
@@ -56,7 +56,7 @@ describe('Meal Routes: Edit a meal option', () => {
       .set('authorization', foodCircleToken)
       .send({ ...newMeal, title: 'Oriental Fried Rice' })
       .end((err, res) => {
-        expect(res.statusCode).to.equal(422);
+        expect(res.statusCode).to.equal(400);
         expect(res.body.errors.title.msg).to.equal('Meal already exists');
 
         if (err) return done(err);
@@ -65,12 +65,12 @@ describe('Meal Routes: Edit a meal option', () => {
   });
 
   invalidID(
-    'should return 422 error for invalid meal id', 'mealId',
+    'should return 400 error for invalid meal id', 'mealId',
     request(app), 'put', newMeal, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', foodCircleToken
   );
 
   invalidPUT(
-    'should return 422 error for empty object',
+    'should return 400 error for empty object',
     request(app), '/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83', foodCircleToken
   );
 

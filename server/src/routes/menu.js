@@ -8,7 +8,7 @@ import TrimValues from '../middlewares/TrimValues';
 
 const menuRoutes = express.Router();
 const authorization = new Authorization('caterer');
-const validation = [ValidationHandler.validate, TrimValues.trim];
+const validation = [ValidationHandler.validate, TrimValues.trim, ValidationHandler.isEmptyReq];
 
 
 menuRoutes.use(Authorization.authorize);

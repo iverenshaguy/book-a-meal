@@ -71,7 +71,7 @@ describe('Signin Routes', () => {
       .post('/api/v1/auth/signin')
       .send(wrongData)
       .end((err, res) => {
-        expect(res.statusCode).to.equal(422);
+        expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
         expect(res.body.errors.email.msg).to.equal('Email is invalid');
         expect(res.body.errors.password.msg).to.equal('Password must be specified');
