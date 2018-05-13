@@ -16,3 +16,7 @@ exclude_paths:
 - "coverage/"
 - "UI/"
 - "server/docs"
+- "server/tests"
+- "server/models"
+- "server/migrations"
+- "server/seeders"

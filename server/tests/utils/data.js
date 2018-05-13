@@ -1,7 +1,5 @@
 import moment from 'moment';
 
-const userMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
-const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
 const currentDay = moment().format('YYYY-MM-DD');
 const tomorrow = moment().add(1, 'days').format('YYYY-MM-DD');
 const twoDaysTime = moment().add(2, 'days').format('YYYY-MM-DD');
@@ -10,8 +8,6 @@ export default {
   tomorrow,
   currentDay,
   twoDaysTime,
-  adminMockToken,
-  userMockToken,
 
   login: {
     existingUser: {
@@ -242,6 +238,7 @@ export default {
         'baa0412a-d167-4d2b-b1d8-404cb8f02631'
       ]
     },
+
     checkMealsId: {
       arr1: ['iieie', 'siioe'],
       arr2: "['iieie', 'siioe']",
