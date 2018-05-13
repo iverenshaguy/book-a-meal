@@ -4,7 +4,7 @@ import usersDB from '../../data/users.json';
 
 const token = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
 const defaultUserObject = {
-  firstname: null,
+  username: null,
   businessName: null,
   email: null,
   password: null, // for testing reference, won't be in real database
@@ -35,7 +35,7 @@ class Users {
     const newUser = { ...defaultUserObject, ...req.body };
     // newUser.passwordHash = hash;
     newUser.email = req.body.email.toLowerCase();
-    newUser.role = req.body.role.toLowerCase();
+    newUser.role = req.body.role;
     newUser.userId = uuidv4();
     delete newUser.password;
     delete newUser.passwordConfirm;

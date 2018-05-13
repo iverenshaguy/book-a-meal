@@ -8,8 +8,8 @@ export default {
       .trim()
       .exists().withMessage('Title must be specified')
       .custom(value => notEmpty(value, 'Title cannot be empty'))
-      .isLength({ min: 5, max: 50 })
-      .withMessage('Title must not be more than 50 characters')
+      .isLength({ min: 1, max: 50 })
+      .withMessage('Title must be between 1 and 50 characters')
       .matches(/^[a-z (),.'-]+$/i)
       .withMessage('Title can only contain letters and the characters (,.\'-)')
       .custom(async (value, { req }) => {
@@ -31,15 +31,15 @@ export default {
       .trim()
       .exists().withMessage('Price must be specified')
       .custom(value => notEmpty(value, 'Price cannot be empty'))
-      .isInt()
+      .isDecimal()
       .withMessage('Price must be a number')
-      .custom(value => value > 200)
-      .withMessage('Price must not be less than 200')
-      .isLength({ max: 5 })
-      .withMessage('Price must not be more than 5 characters'),
+      .custom(value => value >= 50)
+      .withMessage('Price must be greater than or equal to 50'),
     check('imageURL')
       .trim()
-      .optional({ checkFalsy: true }),
+      .optional({ checkFalsy: true })
+      .isURL()
+      .withMessage('imageURL must be a url'),
     check('forVegetarians')
       .trim()
       .optional({ checkFalsy: true })
@@ -54,8 +54,8 @@ export default {
       .trim()
       .optional()
       .custom(value => notEmpty(value, 'Title cannot be empty'))
-      .isLength({ max: 50 })
-      .withMessage('Title must not be more than 50 characters')
+      .isLength({ min: 1, max: 50 })
+      .withMessage('Title must be between 1 and 50 characters')
       .matches(/^[a-z (),.'-]+$/i)
       .withMessage('Title can only contain letters and the characters (,.\'-)')
       .custom(async (value, { req }) => {
@@ -77,15 +77,15 @@ export default {
       .trim()
       .optional()
       .custom(value => notEmpty(value, 'Price cannot be empty'))
-      .isInt()
+      .isDecimal()
       .withMessage('Price must be a number')
-      .custom(value => value > 200)
-      .withMessage('Price must not be less than 200')
-      .isLength({ max: 5 })
-      .withMessage('Price must not be more than 5 characters'),
+      .custom(value => value >= 50)
+      .withMessage('Price must be greater than or equal to 50'),
     check('imageURL')
       .trim()
-      .optional({ checkFalsy: true }),
+      .optional({ checkFalsy: true })
+      .isURL()
+      .withMessage('imageURL must be a url'),
     check('forVegetarians')
       .trim()
       .optional({ checkFalsy: true })

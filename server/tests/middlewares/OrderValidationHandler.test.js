@@ -41,7 +41,7 @@ describe('Order Validation Handler', () => {
 
     OrderValidationHandler.isShopOpen(req, res, next);
 
-    assert(status.calledWith(422));
+    assert(status.calledWith(200));
   });
 
   it('calls next if shop is open', () => {

@@ -46,7 +46,7 @@ class Orders {
 
     Orders.getMappedOrders(ordersArr);
 
-    return res.status(200).json(ordersArr);
+    return res.status(200).json({ orders: ordersArr });
   }
 
   /**

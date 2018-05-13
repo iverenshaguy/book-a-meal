@@ -16,11 +16,47 @@ class Menu {
    * @returns {(function|object)} Function next() or JSON object
    */
   static async getMenuForDay(req, res) {
+    const { role } = req;
+
+    if (role === 'caterer') return Menu.getMenuForCaterer(req, res);
+    return Menu.getMenuForUser(req, res);
+  }
+
+  /**
+   * Gets the menu for the day
+   * @method getMenuForUser
+   * @memberof Meals
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  static async getMenuForUser(req, res) {
+    const date = moment().format('YYYY-MM-DD');
+
+    const menuArray = await db.Menu.findAll({ where: { date } });
+
+    const promises = menuArray.map(menu => Menu.getArrayOfMeals(menu).then(() => menu));
+
+    const menuPerDay = await Promise.all(promises);
+
+    return res.status(200).json({ menu: menuPerDay });
+  }
+
+  /**
+   * Gets the menu for the day
+   * @method getMenuForCaterer
+   * @memberof Meals
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  static async getMenuForCaterer(req, res) {
     const date = req.query.date || moment().format('YYYY-MM-DD');
-    const menu = await db.Menu.findOne({ where: { date } });
+
+    const menu = await db.Menu.findOne({ where: { date, userId: req.userId } });
 
     if (!menu) {
-      return res.status(200).json({ message: 'No Menu is Available For This Day' });
+      return res.status(200).json({ message: 'You don\'t have a menu for this day' });
     }
 
     const menuPerDay = await Menu.getArrayOfMeals(menu).then(() => menu);

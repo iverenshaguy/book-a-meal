@@ -32,7 +32,7 @@ export default {
   signup: {
     rightUserData: {
       role: 'user',
-      firstname: 'Favour',
+      username: 'Favour',
       email: 'favour@shaguy.com',
       password: 'favourshaguy',
       passwordConfirm: 'favourshaguy'
@@ -50,7 +50,7 @@ export default {
 
     wrongUserData: {
       role: 'user',
-      firstname: '',
+      username: '',
       email: 'favour@shaguy',
       password: 'favou',
       passwordConfirm: 'favourshaguy',
@@ -62,7 +62,7 @@ export default {
     wrongCatererData: {
       role: 'caterer',
       businessName: '',
-      firstname: 'Iveren',
+      username: 'Iveren',
       email: 'food@circle',
       password: 'foodc',
       passwordConfirm: 'foodcircle',
@@ -71,7 +71,7 @@ export default {
 
     wrongRoleUserData: {
       role: 'person',
-      firstname: 'Favour{}',
+      username: 'Favour{}',
       email: 'favour@shaguy.com',
       password: 'favourshaguy',
       passwordConfirm: 'favourshaguy'
@@ -96,13 +96,13 @@ export default {
 
     wrongCatererDataFormat: {
       role: 'caterer',
-      firstname: 'Favour',
+      username: 'Favour',
       businessName: 'ijjjk89877jjjk',
       businessPhoneNo: 'ijjjk89877jjjk',
       businessAddress: 'uiiowe,ksdyuil&9jk',
     },
 
-    longFirstName: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+    longusername: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     Aenean malesuada lorem non elit cursus, non sodales orci volutpat. 
     Suspendisse eleifend sed libero dignissim mollis. Nullam imperdiet`,
   },

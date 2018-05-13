@@ -7,61 +7,75 @@ export default {
   register: [
     check('role')
       .trim()
-      .exists().withMessage('User Role must be specified')
+      .exists().withMessage('User role must be specified')
       .custom(value => notEmpty(value, 'Role cannot be empty'))
-      .isIn(['caterer', 'user', 'Caterer', 'User', 'CATERER', 'USER'])
-      .withMessage('Role must be specified as Either Caterer or User'),
-    check('firstname')
+      .isIn(['caterer', 'user'])
+      .withMessage('Role must be specified as either caterer or user'),
+    check('username')
       .trim()
       .custom((value, { req }) => {
-        if (req.body.role.toLowerCase() === 'caterer' && value) {
+        if (req.body.role && req.body.role === 'caterer' && value) {
           throw new Error('Unaccepted Field');
         }
 
         return true;
       })
       .custom((value, { req }) => {
-        if (req.body.role.toLowerCase() === 'user') {
-          if (!req.body.firstname) throw new Error('Firstname must be specified');
-          if (value.length > 40) throw new Error('Firstname must not be more than 40 characters');
+        if (req.body.role && req.body.role === 'user') {
+          if (!req.body.username) throw new Error('username must be specified');
+          if (value.length > 40) throw new Error('username must not be more than 40 characters');
           if (!validator.matches(value, /^[a-z ,.'-]+$/i)) {
-            throw new Error('Firstname can only contain letters and the characters (,.\'-)');
+            throw new Error('username can only contain letters and the characters (,.\'-)');
           }
-          return notEmpty(value, 'Firstname cannot be empty');
+          return notEmpty(value, 'username cannot be empty');
         }
         return true;
-      }),
+      })
+      .custom(value => db.User.findOne({ where: { username: value } }).then((user) => {
+        if (user) {
+          throw new Error('Username already in use');
+        }
+
+        return true;
+      })),
     check('businessName')
       .trim()
       .custom((value, { req }) => {
-        if (req.body.role.toLowerCase() === 'user' && value) {
+        if (req.body.role && req.body.role === 'user' && value) {
           throw new Error('Unaccepted Field');
         }
 
         return true;
       })
       .custom((value, { req }) => {
-        if (req.body.role.toLowerCase() === 'caterer') {
-          if (!req.body.businessName) throw new Error('Business Name must be specified');
-          if (value.length > 60) throw new Error('Business Name must not be more than 60 characters');
+        if (req.body.role && req.body.role === 'caterer') {
+          if (!req.body.businessName) throw new Error('Business name must be specified');
+          if (value.length > 60) throw new Error('Business name must not be more than 60 characters');
           if (!validator.matches(value, /^[a-z ,.'-\s]+$/i)) {
-            throw new Error('Business Name can only contain letters, spaces, and the characters (,.\'-)');
+            throw new Error('Business name can only contain letters, spaces, and the characters (,.\'-)');
           }
-          return notEmpty(value, 'Business Name cannot be empty');
+          return notEmpty(value, 'Business name cannot be empty');
         }
         return true;
-      }),
+      })
+      .custom(value => db.User.findOne({ where: { businessName: value } }).then((user) => {
+        if (user) {
+          throw new Error('Business name already in use');
+        }
+
+        return true;
+      })),
     check('businessAddress')
       .trim()
       .custom((value, { req }) => {
-        if (req.body.role.toLowerCase() === 'user' && value) {
+        if (req.body.role && req.body.role === 'user' && value) {
           throw new Error('Unaccepted Field');
         }
 
         return true;
       })
       .custom((value, { req }) => {
-        if (req.body.role.toLowerCase() === 'caterer') {
+        if (req.body.role && req.body.role === 'caterer') {
           if (!req.body.businessAddress) throw new Error('Business Address must be specified');
           if (value.length < 5 || value.length > 255) {
             throw new Error('Business Address must be between 5 and 255 characters');
@@ -76,14 +90,14 @@ export default {
     check('businessPhoneNo')
       .trim()
       .custom((value, { req }) => {
-        if (req.body.role.toLowerCase() === 'user' && value) {
+        if (req.body.role && req.body.role === 'user' && value) {
           throw new Error('Unaccepted Field');
         }
 
         return true;
       })
       .custom((value, { req }) => {
-        if (req.body.role.toLowerCase() === 'caterer') {
+        if (req.body.role && req.body.role === 'caterer') {
           if (!req.body.businessPhoneNo) throw new Error('Business Phone Number must be specified');
           if (!validator.matches(value, /^\+?(234)([0-9]{10})$/)) {
             throw new Error('Business Phone Number must be in the format +2348134567890');
@@ -97,7 +111,7 @@ export default {
       .normalizeEmail()
       .exists()
       .withMessage('Email must be specified')
-      .custom(value => notEmpty(value, 'Email cannot be empty'))
+      .custom(value => notEmpty(value, 'Email must be specified'))
       .isEmail()
       .withMessage('Email is invalid')
       .custom(value => db.User.findOne({ where: { email: value } }).then((user) => {
@@ -123,7 +137,7 @@ export default {
       .normalizeEmail()
       .exists()
       .withMessage('Email must be specified')
-      .custom(value => notEmpty(value, 'Email cannot be empty'))
+      .custom(value => notEmpty(value, 'Email must be specified'))
       .isEmail()
       .withMessage('Email is invalid'),
     check('password')

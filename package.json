@@ -25,6 +25,10 @@
   },
   "dependencies": {
     "babel-core": "^6.26.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-istanbul": "^4.1.6",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
     "bcrypt": "^2.0.1",
@@ -47,10 +51,6 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.3",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-istanbul": "^4.1.6",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "coveralls": "^3.0.0",

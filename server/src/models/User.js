@@ -12,7 +12,7 @@ export default (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
         allowNull: false
       },
-      firstname: {
+      username: {
         type: DataTypes.STRING,
         allowNull: true,
         defaultValue: null,
