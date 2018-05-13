@@ -1,6 +1,7 @@
 import validator from 'validator';
 import { check } from 'express-validator/check';
 import notEmpty from '../helpers/notEmpty';
+import unacceptedField from '../helpers/unacceptedField';
 import db from '../models';
 
 export default {
@@ -13,13 +14,7 @@ export default {
       .withMessage('Role must be specified as either caterer or user'),
     check('username')
       .trim()
-      .custom((value, { req }) => {
-        if (req.body.role && req.body.role === 'caterer' && value) {
-          throw new Error('Unaccepted Field');
-        }
-
-        return true;
-      })
+      .custom((value, { req }) => unacceptedField('caterer', req.body.role, value))
       .custom((value, { req }) => {
         if (req.body.role && req.body.role === 'user') {
           if (!req.body.username) throw new Error('username must be specified');
@@ -40,13 +35,7 @@ export default {
       })),
     check('businessName')
       .trim()
-      .custom((value, { req }) => {
-        if (req.body.role && req.body.role === 'user' && value) {
-          throw new Error('Unaccepted Field');
-        }
-
-        return true;
-      })
+      .custom((value, { req }) => unacceptedField('user', req.body.role, value))
       .custom((value, { req }) => {
         if (req.body.role && req.body.role === 'caterer') {
           if (!req.body.businessName) throw new Error('Business name must be specified');
@@ -67,13 +56,7 @@ export default {
       })),
     check('businessAddress')
       .trim()
-      .custom((value, { req }) => {
-        if (req.body.role && req.body.role === 'user' && value) {
-          throw new Error('Unaccepted Field');
-        }
-
-        return true;
-      })
+      .custom((value, { req }) => unacceptedField('user', req.body.role, value))
       .custom((value, { req }) => {
         if (req.body.role && req.body.role === 'caterer') {
           if (!req.body.businessAddress) throw new Error('Business Address must be specified');
@@ -89,13 +72,7 @@ export default {
       }),
     check('businessPhoneNo')
       .trim()
-      .custom((value, { req }) => {
-        if (req.body.role && req.body.role === 'user' && value) {
-          throw new Error('Unaccepted Field');
-        }
-
-        return true;
-      })
+      .custom((value, { req }) => unacceptedField('user', req.body.role, value))
       .custom((value, { req }) => {
         if (req.body.role && req.body.role === 'caterer') {
           if (!req.body.businessPhoneNo) throw new Error('Business Phone Number must be specified');

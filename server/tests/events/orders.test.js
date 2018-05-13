@@ -23,7 +23,7 @@
 //       });
 
 //       emitter.emit('create', );
-//       assert(status.calledWith(422));
+//       assert(status.calledWith(400));
 //     });
 
 //     it('should pass arguments to the callbacks', () => {

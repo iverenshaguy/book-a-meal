@@ -1,9 +1,11 @@
+import TrimValues from './TrimValues';
 import ErrorHandler from './ErrorHandler';
+import Authorization from './Authorization';
 import ValidationHandler from './ValidationHandler';
-import OrderValidationHandler from './OrderValidationHandler';
 
 export default {
+  TrimValues,
   ErrorHandler,
-  ValidationHandler,
-  OrderValidationHandler
+  Authorization,
+  ValidationHandler
 };

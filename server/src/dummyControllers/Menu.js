@@ -47,7 +47,7 @@ class Menu {
 
 
     // if (!checkMenuUnique(req.body.date, req.body.userId)) {
-    //   return res.status(422).json({ error: 'Menu already exists for this day' });
+    //   return res.status(400).json({ error: 'Menu already exists for this day' });
     // }
 
     menuDB.push(req.body);
@@ -90,7 +90,7 @@ class Menu {
 
     // if menuis expired i.e. menu is past, return error
     if (menuDB[itemIndex].date.toString() < moment().format('YYYY-MM-DD').toString()) {
-      return res.status(422).json({ error: 'Menu Expired' });
+      return res.status(400).json({ error: 'Menu Expired' });
     }
 
     const oldItem = menuDB[itemIndex];

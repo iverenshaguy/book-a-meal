@@ -134,14 +134,12 @@ class Orders {
    * notification is created on order update
    */
   static async update(req, res) {
-    if (!Object.values(req.body).length) return res.status(422).json({ error: errors.empty });
-
     const { orderId } = req.params;
-
     const order = await db.Order.findOne({ where: { orderId, userId: req.userId } });
+
     if (!order) return res.status(404).json({ error: errors[404] });
 
-    if (order.status === 'delivered') return res.status(422).json({ error: 'Order is expired' });
+    if (order.status === 'delivered') return res.status(400).json({ error: 'Order is expired' });
 
     const updatedOrder = await order.update({ ...order, ...req.body }).then(async () => {
       if (req.body.meals) {

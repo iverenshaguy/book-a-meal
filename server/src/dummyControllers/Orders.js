@@ -149,7 +149,7 @@ class Orders {
     if (itemIndex === -1) return res.status(404).json({ error: errors[404] });
 
     // if (isOrderExpired('order', ordersDB, orderId))
-    // return res.status(422).json({ error: 'Order is expired' });
+    // return res.status(400).json({ error: 'Order is expired' });
 
     req.body.userId = req.userId;
     req.body.updatedAt = moment().format();
@@ -191,7 +191,7 @@ class Orders {
     if (itemIndex === -1) return res.status(404).json({ error: errors[404] });
 
     // if (isOrderExpired('order', ordersDB, orderId))
-    // return res.status(422).json({ error: 'Order is expired' });
+    // return res.status(400).json({ error: 'Order is expired' });
 
     OrderItems.delete(orderId);
     ordersDB.splice(itemIndex, 1);

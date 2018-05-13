@@ -84,7 +84,7 @@ class Menu {
 
     const isMenuCreated = await db.Menu.findOne({ where: { date: req.body.date, userId } });
 
-    if (isMenuCreated) return res.status(422).json({ error: 'Menu already exists for this day' });
+    if (isMenuCreated) return res.status(400).json({ error: 'Menu already exists for this day' });
 
     const newMenu = await db.Menu.create({ date: req.body.date, userId }, { include: [db.User] })
       .then(async (menu) => {
@@ -107,15 +107,13 @@ class Menu {
    * @returns {(function|object)} Function next() or JSON object
    */
   static async update(req, res) {
-    if (!Object.values(req.body).length) return res.status(422).json({ error: errors.empty });
-
     const menu = await db.Menu
       .findOne({ where: { menuId: req.params.menuId, userId: req.userId } });
 
     if (!menu) return res.status(404).json({ error: errors[404] });
 
     if (menu.date.toString() < moment().format('YYYY-MM-DD').toString()) {
-      return res.status(422).json({ error: 'Menu Expired' });
+      return res.status(400).json({ error: 'Menu Expired' });
     }
 
     req.body.meals = [...(new Set(req.body.meals))];

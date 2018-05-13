@@ -6,7 +6,7 @@ import ValidationHandler from '../middlewares/ValidationHandler';
 import TrimValues from '../middlewares/TrimValues';
 
 const authRoutes = express.Router();
-const validation = [ValidationHandler.validate, TrimValues.trim];
+const validation = [ValidationHandler.validate, TrimValues.trim, ValidationHandler.isEmptyReq];
 
 
 authRoutes.post('/signup', authValidation.register, validation, asyncWrapper(UsersController.register));

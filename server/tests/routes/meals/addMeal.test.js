@@ -33,7 +33,7 @@ describe('Meal Routes: Add a meal option', () => {
       .set('authorization', foodCircleToken)
       .send({ ...newMeal, title: 'Oriental Fried Rice' })
       .end((err, res) => {
-        expect(res.statusCode).to.equal(422);
+        expect(res.statusCode).to.equal(400);
         expect(res.body.errors.title.msg).to.equal('Meal already exists');
 
         if (err) return done(err);
@@ -48,7 +48,7 @@ describe('Meal Routes: Add a meal option', () => {
       .set('authorization', foodCircleToken)
       .send(badMeal)
       .end((err, res) => {
-        expect(res.statusCode).to.equal(422);
+        expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
         expect(res.body.errors.title.msg).to.equal('Title cannot be empty');
         expect(res.body.errors.description.msg).to.equal('Text can only contain letters and the characters (,.\'-)');
@@ -67,7 +67,7 @@ describe('Meal Routes: Add a meal option', () => {
       .set('authorization', foodCircleToken)
       .send({ ...badMeal, price: 0 })
       .end((err, res) => {
-        expect(res.statusCode).to.equal(422);
+        expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
         expect(res.body.errors.price.msg).to.equal('Price must be greater than or equal to 50');
 
@@ -83,7 +83,7 @@ describe('Meal Routes: Add a meal option', () => {
       .set('authorization', foodCircleToken)
       .send({ ...badMeal, price: -25 })
       .end((err, res) => {
-        expect(res.statusCode).to.equal(422);
+        expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
         expect(res.body.errors.price.msg).to.equal('Price must be greater than or equal to 50');
 
