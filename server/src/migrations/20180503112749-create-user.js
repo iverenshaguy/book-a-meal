@@ -11,7 +11,12 @@ export default {
       defaultValue: Sequelize.UUIDV4,
       allowNull: false
     },
-    username: {
+    firstname: {
+      type: Sequelize.STRING,
+      allowNull: true,
+      defaultValue: null,
+    },
+    lastname: {
       type: Sequelize.STRING,
       allowNull: true,
       defaultValue: null,
@@ -26,7 +31,7 @@ export default {
       allowNull: false
     },
     role: {
-      type: Sequelize.ENUM('caterer', 'user'),
+      type: Sequelize.ENUM('caterer', 'user', 'admin'),
       allowNull: false
     },
     businessName: {

@@ -12,27 +12,34 @@ export default {
       .custom(value => notEmpty(value, 'Role cannot be empty'))
       .isIn(['caterer', 'user'])
       .withMessage('Role must be specified as either caterer or user'),
-    check('username')
+    check('firstname')
       .trim()
       .custom((value, { req }) => unacceptedField('caterer', req.body.role, value))
       .custom((value, { req }) => {
         if (req.body.role && req.body.role === 'user') {
-          if (!req.body.username) throw new Error('username must be specified');
-          if (value.length > 40) throw new Error('username must not be more than 40 characters');
-          if (!validator.matches(value, /^[a-z ,.'-]+$/i)) {
-            throw new Error('username can only contain letters and the characters (,.\'-)');
+          if (!req.body.firstname) throw new Error('Firstname must be specified');
+          if (value.length > 40) throw new Error('Firstname must not be more than 40 characters');
+          if (!validator.matches(value, /^[a-z'-]+$/i)) {
+            throw new Error('Firstname can only contain letters and the characters (\'-)');
           }
-          return notEmpty(value, 'username cannot be empty');
+          return notEmpty(value, 'Firstname cannot be empty');
         }
         return true;
-      })
-      .custom(value => db.User.findOne({ where: { username: value } }).then((user) => {
-        if (user) {
-          throw new Error('Username already in use');
+      }),
+    check('lastname')
+      .trim()
+      .custom((value, { req }) => unacceptedField('caterer', req.body.role, value))
+      .custom((value, { req }) => {
+        if (req.body.role && req.body.role === 'user') {
+          if (!req.body.lastname) throw new Error('Lastname must be specified');
+          if (value.length > 40) throw new Error('Lastname must not be more than 40 characters');
+          if (!validator.matches(value, /^[a-z'-]+$/i)) {
+            throw new Error('Lastname can only contain letters and the characters (\'-)');
+          }
+          return notEmpty(value, 'Lastname cannot be empty');
         }
-
         return true;
-      })),
+      }),
     check('businessName')
       .trim()
       .custom((value, { req }) => unacceptedField('user', req.body.role, value))

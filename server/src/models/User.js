@@ -12,7 +12,12 @@ export default (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
         allowNull: false
       },
-      username: {
+      firstname: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: null,
+      },
+      lastname: {
         type: DataTypes.STRING,
         allowNull: true,
         defaultValue: null,
@@ -27,7 +32,7 @@ export default (sequelize, DataTypes) => {
         allowNull: false
       },
       role: {
-        type: DataTypes.ENUM('caterer', 'user'),
+        type: DataTypes.ENUM('caterer', 'user', 'admin'),
         allowNull: false
       },
       businessName: {

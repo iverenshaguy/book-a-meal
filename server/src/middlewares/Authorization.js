@@ -42,7 +42,7 @@ class Authorization {
   static generateToken(user) {
     const token = jwt.sign(
       {
-        id: user.id,
+        id: user.userId,
         role: user.role,
         email: user.email.toLowerCase(),
       },

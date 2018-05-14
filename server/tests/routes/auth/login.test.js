@@ -14,7 +14,7 @@ describe('Signin Routes', () => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.be.an('object');
         expect(res.body).to.include.keys('token');
-        expect(res.body.user.username).to.equal('Iveren');
+        expect(res.body.user.firstname).to.equal('Iveren');
         expect(res.body.user.email).to.equal('iveren@shaguy.com');
 
         if (err) return done(err);

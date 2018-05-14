@@ -1,4 +1,5 @@
 import { check } from 'express-validator/check';
+import { Op } from 'sequelize';
 import db from '../models';
 import notEmpty from '../helpers/notEmpty';
 
@@ -6,14 +7,21 @@ export default {
   create: [
     check('title')
       .trim()
-      .exists().withMessage('Title must be specified')
+      .customSanitizer(value => value.replace(/  +/g, ' ').trim())
+      .exists()
+      .withMessage('Title must be specified')
       .custom(value => notEmpty(value, 'Title cannot be empty'))
       .isLength({ min: 1, max: 50 })
       .withMessage('Title must be between 1 and 50 characters')
       .matches(/^[a-z (),.'-]+$/i)
       .withMessage('Title can only contain letters and the characters (,.\'-)')
       .custom(async (value, { req }) => {
-        const checkMeal = await db.Meal.findOne({ where: { title: value, userId: req.userId } });
+        const checkMeal = await db.Meal.findOne({
+          where: {
+            title: { [Op.iLike]: value },
+            userId: req.userId
+          }
+        });
         if (checkMeal) {
           throw new Error('Meal already exists');
         }
@@ -52,6 +60,7 @@ export default {
       .withMessage('Invalid ID'),
     check('title')
       .trim()
+      .customSanitizer(value => value.replace(/  +/g, ' ').trim())
       .optional()
       .custom(value => notEmpty(value, 'Title cannot be empty'))
       .isLength({ min: 1, max: 50 })
@@ -59,7 +68,12 @@ export default {
       .matches(/^[a-z (),.'-]+$/i)
       .withMessage('Title can only contain letters and the characters (,.\'-)')
       .custom(async (value, { req }) => {
-        const checkMeal = await db.Meal.findOne({ where: { title: value, userId: req.userId } });
+        const checkMeal = await db.Meal.findOne({
+          where: {
+            title: { [Op.iLike]: value },
+            userId: req.userId
+          }
+        });
         if (checkMeal) {
           throw new Error('Meal already exists');
         }

@@ -28,7 +28,8 @@ export default {
   signup: {
     rightUserData: {
       role: 'user',
-      username: 'Favour',
+      firstname: 'Favour',
+      lastname: 'Shaguy',
       email: 'favour@shaguy.com',
       password: 'favourshaguy',
       passwordConfirm: 'favourshaguy'
@@ -46,7 +47,7 @@ export default {
 
     wrongUserData: {
       role: 'user',
-      username: '',
+      firstname: '',
       email: 'favour@shaguy',
       password: 'favou',
       passwordConfirm: 'favourshaguy',
@@ -58,7 +59,7 @@ export default {
     wrongCatererData: {
       role: 'caterer',
       businessName: '',
-      username: 'Iveren',
+      firstname: 'Iveren',
       email: 'food@circle',
       password: 'foodc',
       passwordConfirm: 'foodcircle',
@@ -67,7 +68,7 @@ export default {
 
     wrongRoleUserData: {
       role: 'person',
-      username: 'Favour{}',
+      firstname: 'Favour{}',
       email: 'favour@shaguy.com',
       password: 'favourshaguy',
       passwordConfirm: 'favourshaguy'
@@ -92,7 +93,7 @@ export default {
 
     wrongCatererDataFormat: {
       role: 'caterer',
-      username: 'Favour',
+      firstname: 'Favour',
       businessName: 'ijjjk89877jjjk',
       businessPhoneNo: 'ijjjk89877jjjk',
       businessAddress: 'uiiowe,ksdyuil&9jk',
