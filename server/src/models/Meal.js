@@ -22,7 +22,7 @@ export default (sequelize) => {
         type: Sequelize.TEXT,
         allowNull: true
       },
-      forVegetarians: {
+      vegetarian: {
         type: Sequelize.BOOLEAN,
         allowNull: true,
         defaultValue: false

@@ -37,10 +37,10 @@ describe('Meal Routes: Edit a meal option', () => {
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
-        expect(res.body.errors.title.msg).to.equal('Title cannot be empty');
+        expect(res.body.errors.title.msg).to.equal('Meal title cannot be empty');
         expect(res.body.errors.description.msg).to.equal('Text can only contain letters and the characters (,.\'-)');
         expect(res.body.errors.price.msg).to.equal('Price must be a number');
-        expect(res.body.errors.forVegetarians.msg).to.equal('Accepts only true or false');
+        expect(res.body.errors.vegetarian.msg).to.equal('Accepts only true or false');
 
         if (err) return done(err);
         done();

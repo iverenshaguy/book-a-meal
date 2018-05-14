@@ -110,7 +110,7 @@ export default {
       description: 'Contains Sea Food',
       price: 2200,
       imageURL: 'images.com/imgurl1.jpeg',
-      forVegetarians: false
+      vegetarian: false
     },
 
     badMeal: {
@@ -118,7 +118,7 @@ export default {
       description: 'Contains %%% Sea Food',
       price: '',
       imageURL: 'images.com/imgurl1.jpeg',
-      forVegetarians: 'no'
+      vegetarian: 'no'
     },
   },
 
@@ -135,7 +135,7 @@ export default {
       description: 'Contains %%% Sea Food',
       price: '23yu50',
       imageURL: 'images.com/imgurl1.jpeg',
-      forVegetarians: 'no'
+      vegetarian: 'no'
     }
   },
 

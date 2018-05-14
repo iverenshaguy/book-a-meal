@@ -9,12 +9,12 @@ export default {
       .trim()
       .customSanitizer(value => value.replace(/  +/g, ' ').trim())
       .exists()
-      .withMessage('Title must be specified')
-      .custom(value => notEmpty(value, 'Title cannot be empty'))
+      .withMessage('Meal title must be specified')
+      .custom(value => notEmpty(value, 'Meal title cannot be empty'))
       .isLength({ min: 1, max: 50 })
-      .withMessage('Title must be between 1 and 50 characters')
+      .withMessage('Meal title must be between 1 and 50 characters')
       .matches(/^[a-z (),.'-]+$/i)
-      .withMessage('Title can only contain letters and the characters (,.\'-)')
+      .withMessage('Meal title can only contain letters and the characters (,.\'-)')
       .custom(async (value, { req }) => {
         const checkMeal = await db.Meal.findOne({
           where: {
@@ -48,7 +48,7 @@ export default {
       .optional({ checkFalsy: true })
       .isURL()
       .withMessage('imageURL must be a url'),
-    check('forVegetarians')
+    check('vegetarian')
       .trim()
       .optional({ checkFalsy: true })
       .isIn([false, true])
@@ -62,11 +62,11 @@ export default {
       .trim()
       .customSanitizer(value => value.replace(/  +/g, ' ').trim())
       .optional()
-      .custom(value => notEmpty(value, 'Title cannot be empty'))
+      .custom(value => notEmpty(value, 'Meal title cannot be empty'))
       .isLength({ min: 1, max: 50 })
-      .withMessage('Title must be between 1 and 50 characters')
+      .withMessage('Meal title must be between 1 and 50 characters')
       .matches(/^[a-z (),.'-]+$/i)
-      .withMessage('Title can only contain letters and the characters (,.\'-)')
+      .withMessage('Meal title can only contain letters and the characters (,.\'-)')
       .custom(async (value, { req }) => {
         const checkMeal = await db.Meal.findOne({
           where: {
@@ -100,7 +100,7 @@ export default {
       .optional({ checkFalsy: true })
       .isURL()
       .withMessage('imageURL must be a url'),
-    check('forVegetarians')
+    check('vegetarian')
       .trim()
       .optional({ checkFalsy: true })
       .isIn([false, true])

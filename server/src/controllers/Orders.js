@@ -179,7 +179,7 @@ class Orders {
    */
   static async getOrderMeals(order) {
     order.dataValues.meals = await order.getMeals({
-      attributes: ['mealId', 'title', 'imageURL', 'description', 'forVegetarians', 'price'],
+      attributes: ['mealId', 'title', 'imageURL', 'description', 'vegetarian', 'price'],
       joinTableAttributes: ['quantity']
     });
   }
