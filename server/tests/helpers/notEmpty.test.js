@@ -3,12 +3,12 @@ import notEmpty from '../../src/helpers/notEmpty';
 
 describe('notEmpty', () => {
   it('returns true when not empty', () => {
-    const check = notEmpty('yes', 'string cannot be empty');
+    const check = notEmpty('yes', 'string field cannot be left blank');
 
     expect(check).to.equal(true);
   });
 
   it('throws an error when value is empty', () => {
-    expect(() => notEmpty('', 'string cannot be empty')).to.throw('string cannot be empty');
+    expect(() => notEmpty('', 'string field cannot be left blank')).to.throw('string field cannot be left blank');
   });
 });

@@ -53,6 +53,7 @@ class Meals {
     const { userId } = req;
 
     req.body.price = parseFloat(req.body.price);
+    delete req.body.mealId;
 
     const mealItem = await db.Meal.findOne({ where: { mealId, userId } });
 

@@ -105,7 +105,7 @@ describe('Signup Routes', () => {
           // userToken = res.body.token;
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
-          expect(res.body.errors.role.msg).to.equal('Role cannot be empty');
+          expect(res.body.errors.role.msg).to.equal('Role field cannot be left blank');
 
           if (err) return done(err);
           done();

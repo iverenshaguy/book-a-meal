@@ -141,6 +141,8 @@ class Orders {
 
     if (order.status === 'delivered') return res.status(400).json({ error: 'Order is expired' });
 
+    delete req.body.orderId;
+
     const updatedOrder = await order.update({ ...order, ...req.body }).then(async () => {
       if (req.body.meals) {
         const orderItems = createMealOrder(req.body.meals);

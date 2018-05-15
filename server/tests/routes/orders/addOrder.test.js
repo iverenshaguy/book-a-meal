@@ -102,7 +102,7 @@ describe('Order Routes: Add an Order', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.errors.status.msg).to.equal('Status should not be provided');
         expect(res.body.errors.meals.msg).to.equal('Meals must be specified');
-        expect(res.body.errors.deliveryAddress.msg).to.equal('Delivery Address cannot be empty');
+        expect(res.body.errors.deliveryAddress.msg).to.equal('Delivery Address field cannot be left blank');
         expect(res.body.errors.deliveryPhoneNo.msg)
           .to.equal('Delivery Phone Number must be in the format +2348134567890');
 
