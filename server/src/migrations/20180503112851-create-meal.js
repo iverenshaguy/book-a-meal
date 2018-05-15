@@ -42,7 +42,7 @@ export default {
       defaultValue: false
     },
     price: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.DECIMAL(10, 2),
       allowNull: false
     },
     createdAt: {

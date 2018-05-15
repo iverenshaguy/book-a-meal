@@ -40,9 +40,9 @@ export default {
       .exists().withMessage('Price must be specified')
       .custom(value => notEmpty(value, 'Price cannot be empty'))
       .isDecimal()
-      .withMessage('Price must be a number')
-      .custom(value => value >= 50)
-      .withMessage('Price must be greater than or equal to 50'),
+      .withMessage('Price must be a number or decimal')
+      .custom(value => parseFloat(value).toFixed(2) > 0)
+      .withMessage('Price must be greater than 0'),
     check('imageURL')
       .trim()
       .optional({ checkFalsy: true })

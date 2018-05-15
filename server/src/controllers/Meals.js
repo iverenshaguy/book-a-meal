@@ -1,4 +1,3 @@
-import moment from 'moment';
 import db from '../models';
 import errors from '../../data/errors.json';
 
@@ -33,8 +32,7 @@ class Meals {
    */
   static async create(req, res) {
     req.body.userId = req.userId;
-    req.body.date = req.body.date || moment().format('YYYY-MM-DD');
-    req.body.price = parseInt(req.body.price, 10);
+    req.body.price = parseFloat(req.body.price);
 
     const meal = await db.Meal.create(req.body, { include: [db.User] });
 
@@ -53,6 +51,9 @@ class Meals {
   static async update(req, res) {
     const { mealId } = req.params;
     const { userId } = req;
+
+    req.body.price = parseFloat(req.body.price);
+
     const mealItem = await db.Meal.findOne({ where: { mealId, userId } });
 
     if (!mealItem) return res.status(404).json({ error: errors[404] });
