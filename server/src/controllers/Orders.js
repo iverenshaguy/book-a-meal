@@ -36,18 +36,25 @@ class Orders {
    * to user and were created on that date
    */
   static async getUsersOrders(req, res) {
-    const ordersArr = await db.Order.findAll({
+    const orders = await db.Order.findAll({
       where: { userId: req.userId },
+      attributes: [['orderId', 'id'], 'deliveryAddress', 'deliveryPhoneNo', 'status', 'createdAt'],
       include: [{
         model: db.Meal,
         as: 'meals',
+        attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price'],
+        include: [{
+          model: db.User,
+          attributes: ['businessName', 'businessAddress', 'businessPhoneNo', 'email'],
+          as: 'caterer'
+        }],
         paranoid: false,
       }]
     });
 
-    Orders.getMappedOrders(ordersArr);
+    orders.map(order => Orders.mapQuantityToMeal(order));
 
-    return res.status(200).json({ orders: ordersArr });
+    return res.status(200).json({ orders });
   }
 
   /**
@@ -63,34 +70,29 @@ class Orders {
    */
   static async getCaterersOrders(req, res) {
     const { userId } = req;
-    const ordersObj = {};
-    const orderItems = [];
-    const meals = await db.Meal.findAll({ where: { userId }, paranoid: false });
-    const promises = meals.map(async (meal) => {
-      await db.Order.findAll({
-        include: [{
+    const orders = await db.Order.findAll({
+      attributes: [['orderId', 'id'], 'deliveryAddress', 'deliveryPhoneNo', 'status', 'createdAt'],
+      include: [
+        {
+          model: db.User,
+          as: 'customer',
+          attributes: ['firstname', 'lastname', 'email']
+        },
+        {
           model: db.Meal,
           as: 'meals',
-          where: { mealId: meal.mealId },
+          attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price'],
           paranoid: false,
+          include: [{
+            model: db.User,
+            as: 'caterer',
+            where: { userId },
+            attributes: []
+          }]
         }]
-      }).then(order => orderItems.push(...order));
     });
 
-    await Promise.all(promises);
-
-    orderItems.forEach((item) => {
-      if (ordersObj[item.orderId]) {
-        ordersObj[item.orderId].meals.push(...item.meals);
-        return;
-      }
-
-      ordersObj[item.orderId] = item;
-    });
-
-    const orders = Object.values(ordersObj);
-
-    Orders.getMappedOrders(orders);
+    orders.map(order => Orders.mapQuantityToMeal(order));
 
     return res.status(200).json(orders);
   }
@@ -111,17 +113,19 @@ class Orders {
     req.body.meals = [...(new Set(req.body.meals))];
     req.body.userId = req.userId;
 
-    const newOrder = await db.Order.create(req.body, { include: [db.User] })
+    const newOrder = await db.Order.create(req.body, { include: [{ model: db.User, as: 'customer' }] })
       .then(async (order) => {
         const promises = Orders.addMeals(order, orderItems);
 
         await Promise.all(promises);
         await Orders.getOrderMeals(order);
 
-        return order;
-      });
+        orderEmitter.emit('create', order);
 
-    orderEmitter.emit('create', newOrder);
+        Orders.mapQuantityToMeal(order);
+
+        return Orders.getOrderObject(order);
+      });
 
     return res.status(201).json(newOrder);
   }
@@ -140,7 +144,7 @@ class Orders {
     const order = await db.Order.findOne({ where: { orderId, userId: req.userId } });
 
     if (!order) return res.status(404).json({ error: errors[404] });
-
+    if (order.status === 'canceled') return res.status(400).json({ error: 'Order has been canceled' });
     if (order.status === 'delivered') return res.status(400).json({ error: 'Order is expired' });
 
     delete req.body.orderId;
@@ -155,7 +159,10 @@ class Orders {
       }
 
       await Orders.getOrderMeals(order);
-      return order;
+
+      Orders.mapQuantityToMeal(order);
+
+      return Orders.getOrderObject(order);
     });
 
     return res.status(200).json(updatedOrder);
@@ -171,7 +178,7 @@ class Orders {
    */
   static addMeals(order, mealItems) {
     return mealItems.map(item =>
-      order.addMeal(item.mealId, { through: { quantity: item.quantity } }).then(() => {}));
+      order.addMeal(item.mealId, { through: { quantity: item.quantity } }).then(() => order));
   }
 
   /**
@@ -183,7 +190,7 @@ class Orders {
    */
   static async getOrderMeals(order) {
     order.dataValues.meals = await order.getMeals({
-      attributes: ['mealId', 'title', 'imageURL', 'description', 'vegetarian', 'price'],
+      attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price'],
       joinTableAttributes: ['quantity'],
       paranoid: false
     });
@@ -192,19 +199,34 @@ class Orders {
   /**
    * Maps Orders to Show Order Quantity
    * instead of including OrderItem Association
-   * @method getMappedOrders
+   * @method mapQuantityToMeal
    * @memberof Orders
-   * @param {object} orders
+   * @param {object} order
    * @returns {object} JSON object
    */
-  static getMappedOrders(orders) {
-    orders.forEach((item) => {
-      item.dataValues.meals = item.meals.map((meal) => {
-        meal.dataValues.quantity = meal.OrderItem.quantity;
-        delete meal.dataValues.OrderItem;
-        return meal;
-      });
+  static mapQuantityToMeal(order) {
+    order.dataValues.meals = order.dataValues.meals.map((meal) => {
+      meal.dataValues.quantity = meal.OrderItem.quantity;
+      delete meal.dataValues.OrderItem;
+      return meal;
     });
+  }
+
+  /**
+   * Gets order object for created and updated order
+   * @method getOrderObject
+   * @memberof Controller
+   * @param {object} order
+   * @returns {object} Order object
+   */
+  static getOrderObject(order) {
+    return {
+      id: order.getDataValue('orderId'),
+      deliveryAddress: order.getDataValue('deliveryAddress'),
+      deliveryPhoneNo: order.getDataValue('deliveryPhoneNo'),
+      status: order.getDataValue('status'),
+      meals: order.dataValues.meals
+    };
   }
 }
 

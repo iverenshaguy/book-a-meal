@@ -37,7 +37,8 @@ export default (sequelize) => {
 
   Order.associate = (models) => {
     Order.belongsTo(models.User, {
-      foreignKey: 'userId'
+      foreignKey: 'userId',
+      as: 'customer'
     });
 
     Order.belongsToMany(models.Meal, {

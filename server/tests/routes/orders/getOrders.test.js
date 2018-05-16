@@ -51,7 +51,7 @@ describe('Order Routes: Get All Orders', () => {
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body.orders.length).to.equal(1);
-          expect(res.body.orders[0].orderId).to.equal('fb097bde-5959-45ff-8e21-51184fa60c25');
+          expect(res.body.orders[0].id).to.equal('fb097bde-5959-45ff-8e21-51184fa60c25');
 
           if (err) return done(err);
           done();

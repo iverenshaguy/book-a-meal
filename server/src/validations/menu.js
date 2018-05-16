@@ -1,6 +1,7 @@
 import { check } from 'express-validator/check';
 import moment from 'moment';
 import notEmpty from '../helpers/notEmpty';
+import validateDate from '../helpers/validateDate';
 import isUsersMeal from '../helpers/isUsersMeal';
 import checkMealsId from '../helpers/checkMealsId';
 
@@ -12,8 +13,7 @@ export default {
       .trim()
       .optional({ checkFalsy: true })
       .custom(value => notEmpty(value, 'Date field cannot be left blank'))
-      .matches(/^\d{4}-\d{1,2}-\d{1,2}$/)
-      .withMessage('Date is invalid, valid format is YYYY-MM-DD')
+      .custom(value => validateDate(value))
       .isAfter(yesterday)
       .withMessage('Date must be either today or in the future'),
     check('meals')

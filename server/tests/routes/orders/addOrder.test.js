@@ -35,10 +35,9 @@ describe('Order Routes: Add an Order', () => {
       .send({ ...newOrder })
       .end((err, res) => {
         expect(res.statusCode).to.equal(201);
-        expect(res.body).to.include.keys('orderId');
-        expect(res.body).to.include.keys('userId');
+        expect(res.body).to.include.keys('id');
         expect(res.body.meals.length).to.equal(2);
-        expect(res.body.meals[0].OrderItem.quantity).to.equal(2);
+        expect(res.body.meals[0].quantity).to.equal(2);
         expect(res.body.meals[0]).to.include.keys('price');
 
         if (err) return done(err);

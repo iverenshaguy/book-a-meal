@@ -21,7 +21,7 @@ describe('Meal Routes: Edit a meal option', () => {
       .send({ ...newMeal, title: 'Plantain and Egg' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
-        expect(res.body.mealId).to.equal('91b6e41c-0972-4ac5-86da-4ac1f5226e83');
+        expect(res.body.id).to.equal('91b6e41c-0972-4ac5-86da-4ac1f5226e83');
 
         if (err) return done(err);
         done();

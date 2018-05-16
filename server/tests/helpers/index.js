@@ -5,3 +5,4 @@ import './createMealOrder.test';
 import './isUsersMeal.test';
 import './isValidOrderItems.test';
 import './isMealAvailable.test';
+import './validateDate.test';

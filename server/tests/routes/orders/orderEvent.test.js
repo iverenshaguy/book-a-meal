@@ -21,7 +21,7 @@ describe('Order Routes: Modify an Order', () => {
       .end((err, res) => {
         setTimeout(async () => {
           try {
-            const order = await db.Order.findOne({ where: { orderId: res.body.orderId } });
+            const order = await db.Order.findOne({ where: { orderId: res.body.id } });
             expect(order.status).to.equal('delivered');
           } catch (err) {
             return err;
@@ -40,12 +40,12 @@ describe('Order Routes: Modify an Order', () => {
       .send(newOrder)
       .end(async (err, res) => {
         try {
-          const order = await db.Order.findOne({ where: { orderId: res.body.orderId } });
+          const order = await db.Order.findOne({ where: { orderId: res.body.id } });
           order.update({ status: 'canceled' }).then(async () => {
             setTimeout(async () => {
               try {
                 const reloadedOrder = await db.Order
-                  .findOne({ where: { orderId: res.body.orderId } });
+                  .findOne({ where: { orderId: res.body.id } });
                 expect(reloadedOrder.status).to.not.equal('delivered');
               } catch (err) {
                 return err;
