@@ -41,7 +41,7 @@ export default (sequelize) => {
           as: 'userId'
         }
       }
-    }
+    }, { paranoid: true }
   );
 
   Meal.associate = (models) => {

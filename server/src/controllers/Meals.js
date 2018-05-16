@@ -16,7 +16,7 @@ class Meals {
    */
   static async getMeals(req, res) {
     const { userId } = req;
-    const mealList = await db.Meal.findAll({ where: { userId } });
+    const mealList = await db.Meal.findAll({ where: { userId }, paranoid: true });
     return res.status(200).json({ meals: mealList });
   }
 

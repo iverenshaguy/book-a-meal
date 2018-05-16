@@ -52,6 +52,10 @@ export default {
     updatedAt: {
       allowNull: false,
       type: Sequelize.DATE
+    },
+    deletedAt: {
+      allowNull: true,
+      type: Sequelize.DATE
     }
   }),
   down: queryInterface => queryInterface.dropTable('Meals')

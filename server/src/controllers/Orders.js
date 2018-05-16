@@ -41,6 +41,7 @@ class Orders {
       include: [{
         model: db.Meal,
         as: 'meals',
+        paranoid: false,
       }]
     });
 
@@ -64,13 +65,14 @@ class Orders {
     const { userId } = req;
     const ordersObj = {};
     const orderItems = [];
-    const meals = await db.Meal.findAll({ where: { userId } });
+    const meals = await db.Meal.findAll({ where: { userId }, paranoid: false });
     const promises = meals.map(async (meal) => {
       await db.Order.findAll({
         include: [{
           model: db.Meal,
           as: 'meals',
           where: { mealId: meal.mealId },
+          paranoid: false,
         }]
       }).then(order => orderItems.push(...order));
     });
@@ -182,7 +184,8 @@ class Orders {
   static async getOrderMeals(order) {
     order.dataValues.meals = await order.getMeals({
       attributes: ['mealId', 'title', 'imageURL', 'description', 'vegetarian', 'price'],
-      joinTableAttributes: ['quantity']
+      joinTableAttributes: ['quantity'],
+      paranoid: false
     });
   }
 
