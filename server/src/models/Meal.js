@@ -22,13 +22,13 @@ export default (sequelize) => {
         type: Sequelize.TEXT,
         allowNull: true
       },
-      forVegetarians: {
+      vegetarian: {
         type: Sequelize.BOOLEAN,
         allowNull: true,
         defaultValue: false
       },
       price: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DECIMAL(10, 2),
         allowNull: false
       },
       userId: {
@@ -41,7 +41,7 @@ export default (sequelize) => {
           as: 'userId'
         }
       }
-    }
+    }, { paranoid: true }
   );
 
   Meal.associate = (models) => {

@@ -125,7 +125,7 @@ For Caterers:
   description: Meal contains 2 pieces of beef and other assorted meat and fish products
   price: 3000
   imageURL: http://koalaghana.com/wp-content/uploads/DSC02053.jpg
-  forVegetarians: false
+  vegetarian: false
 }`
 </td></tr>
 

@@ -50,10 +50,10 @@ describe('Meal Routes: Add a meal option', () => {
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
-        expect(res.body.errors.title.msg).to.equal('Title cannot be empty');
+        expect(res.body.errors.title.msg).to.equal('Meal title field cannot be left blank');
         expect(res.body.errors.description.msg).to.equal('Text can only contain letters and the characters (,.\'-)');
-        expect(res.body.errors.price.msg).to.equal('Price cannot be empty');
-        expect(res.body.errors.forVegetarians.msg).to.equal('Accepts only true or false');
+        expect(res.body.errors.price.msg).to.equal('Price field cannot be left blank');
+        expect(res.body.errors.vegetarian.msg).to.equal('Accepts only true or false');
 
         if (err) return done(err);
         done();
@@ -69,7 +69,7 @@ describe('Meal Routes: Add a meal option', () => {
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
-        expect(res.body.errors.price.msg).to.equal('Price must be greater than or equal to 50');
+        expect(res.body.errors.price.msg).to.equal('Price must be greater than 0');
 
         if (err) return done(err);
         done();
@@ -85,7 +85,7 @@ describe('Meal Routes: Add a meal option', () => {
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
-        expect(res.body.errors.price.msg).to.equal('Price must be greater than or equal to 50');
+        expect(res.body.errors.price.msg).to.equal('Price must be greater than 0');
 
         if (err) return done(err);
         done();

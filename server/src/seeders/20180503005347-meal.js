@@ -7,7 +7,7 @@ export default {
       description: 'Jollof Rice, Beef and Plantain. 2 pieces of beef per plate',
       price: 1500,
       imageURL: 'http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg',
-      forVegetarians: false,
+      vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
     },
@@ -18,7 +18,7 @@ export default {
       description: 'Sharwama contains no animal products, perfect for dieters',
       price: 1200,
       imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
-      forVegetarians: true,
+      vegetarian: true,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
     },
@@ -29,7 +29,7 @@ export default {
       description: 'Meal contains 2 pieces of beef and other assorted meat and fish products',
       price: 2000,
       imageURL: 'https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg',
-      forVegetarians: false,
+      vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
     },
@@ -40,7 +40,7 @@ export default {
       description: '',
       price: 1200,
       imageURL: 'http://sisijemimah.com/wp-content/uploads/2015/08/IMG_8335.jpg',
-      forVegetarians: false,
+      vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
     },
@@ -51,7 +51,7 @@ export default {
       description: '',
       price: 2000,
       imageURL: 'http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg',
-      forVegetarians: false,
+      vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
     },
@@ -62,7 +62,7 @@ export default {
       description: '',
       price: 1200,
       imageURL: 'http://www.ndtv.com/cooks/images/shawarma%20new.jpg',
-      forVegetarians: false,
+      vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
     },
@@ -73,7 +73,7 @@ export default {
       description: 'Meal contains 2 pieces of beef and other assorted meat and fish products',
       price: 2000,
       imageURL: 'http://www.kalakutahgrills.com/wp-content/uploads/2017/02/my-pics-group-3-007.jpg',
-      forVegetarians: false,
+      vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
     },
@@ -84,7 +84,7 @@ export default {
       description: 'Meal come with Fish',
       price: 1200,
       imageURL: 'https://i0.wp.com/www.eatingnigerian.com/wp-content/uploads/2016/08/Yam-and-Plantain-Pottage-21.jpg',
-      forVegetarians: false,
+      vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
     },
@@ -95,7 +95,7 @@ export default {
       description: 'Meal contains 2 pieces of beef and other assorted meat and fish products',
       price: 2000,
       imageURL: 'http://koalaghana.com/wp-content/uploads/DSC02053.jpg',
-      forVegetarians: false,
+      vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
     },
@@ -106,7 +106,7 @@ export default {
       description: '',
       price: 1200,
       imageURL: 'https://lagosmums.com/wp-content/uploads/2015/06/Jollof-Spaghetti.jpeg',
-      forVegetarians: false,
+      vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
     }

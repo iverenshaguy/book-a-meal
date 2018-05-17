@@ -41,6 +41,7 @@ class Orders {
       include: [{
         model: db.Meal,
         as: 'meals',
+        paranoid: false,
       }]
     });
 
@@ -64,13 +65,14 @@ class Orders {
     const { userId } = req;
     const ordersObj = {};
     const orderItems = [];
-    const meals = await db.Meal.findAll({ where: { userId } });
+    const meals = await db.Meal.findAll({ where: { userId }, paranoid: false });
     const promises = meals.map(async (meal) => {
       await db.Order.findAll({
         include: [{
           model: db.Meal,
           as: 'meals',
           where: { mealId: meal.mealId },
+          paranoid: false,
         }]
       }).then(order => orderItems.push(...order));
     });
@@ -141,6 +143,8 @@ class Orders {
 
     if (order.status === 'delivered') return res.status(400).json({ error: 'Order is expired' });
 
+    delete req.body.orderId;
+
     const updatedOrder = await order.update({ ...order, ...req.body }).then(async () => {
       if (req.body.meals) {
         const orderItems = createMealOrder(req.body.meals);
@@ -179,8 +183,9 @@ class Orders {
    */
   static async getOrderMeals(order) {
     order.dataValues.meals = await order.getMeals({
-      attributes: ['mealId', 'title', 'imageURL', 'description', 'forVegetarians', 'price'],
-      joinTableAttributes: ['quantity']
+      attributes: ['mealId', 'title', 'imageURL', 'description', 'vegetarian', 'price'],
+      joinTableAttributes: ['quantity'],
+      paranoid: false
     });
   }
 

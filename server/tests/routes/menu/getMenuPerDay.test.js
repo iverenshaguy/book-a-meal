@@ -72,11 +72,12 @@ describe('Menu Routes: Get the menu specific day', () => {
   });
 
   describe('No Menu', () => {
-    before(() => {
+    before((done) => {
       db.Menu.destroy({ truncate: { cascade: true } });
+      done();
     });
 
-    it('User: should return no menu message when there are no menu', (done) => {
+    it('User: should return empty array when there are no menu', (done) => {
       request(app)
         .get('/api/v1/menu')
         .set('Accept', 'application/json')

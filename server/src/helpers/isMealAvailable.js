@@ -9,7 +9,7 @@ import db from '../models';
  */
 async function isMealAvailable(mealId, date = moment().format('YYYY-MM-DD')) {
   const mealIdArray = [];
-  const menuArray = await db.Menu.findAll({ where: { date } });
+  const menuArray = await db.Menu.findAll({ where: { date }, paranoid: true });
 
   if (menuArray.length === 0) return false;
 

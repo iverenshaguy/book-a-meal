@@ -36,13 +36,13 @@ export default {
       type: Sequelize.TEXT,
       allowNull: true
     },
-    forVegetarians: {
+    vegetarian: {
       type: Sequelize.BOOLEAN,
       allowNull: true,
       defaultValue: false
     },
     price: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.DECIMAL(10, 2),
       allowNull: false
     },
     createdAt: {
@@ -51,6 +51,10 @@ export default {
     },
     updatedAt: {
       allowNull: false,
+      type: Sequelize.DATE
+    },
+    deletedAt: {
+      allowNull: true,
       type: Sequelize.DATE
     }
   }),

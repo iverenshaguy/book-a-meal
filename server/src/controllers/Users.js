@@ -17,7 +17,8 @@ class Users {
    */
   static async register(req, res) {
     const newUser = await db.User.create({
-      username: req.body.username,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
       businessName: req.body.businessName,
       email: req.body.email.toLowerCase(),
       password: req.body.password,
@@ -75,10 +76,11 @@ class Users {
   static getUserObj(user) {
     let userObj;
 
-    if (user.role === 'user') {
+    if (user.role === 'user' || user.role === 'admin') {
       userObj = {
         userId: user.userId,
-        username: user.username,
+        firstname: user.firstname,
+        lastname: user.lastname,
         email: user.email,
       };
     }

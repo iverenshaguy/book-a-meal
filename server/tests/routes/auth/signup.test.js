@@ -39,7 +39,8 @@ describe('Signup Routes', () => {
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body.errors.businessName.msg).to.equal('Unaccepted Field');
-          expect(res.body.errors.username.msg).to.equal('username must be specified');
+          expect(res.body.errors.firstname.msg).to.equal('Firstname must be specified');
+          expect(res.body.errors.lastname.msg).to.equal('Lastname must be specified');
           expect(res.body.errors.email.msg).to.equal('Email is invalid');
           expect(res.body.errors.password.msg).to.equal('Password must be at least 8 characters');
           expect(res.body.errors.passwordConfirm.msg).to.equal('Passwords don\'t match');
@@ -52,27 +53,29 @@ describe('Signup Routes', () => {
     it('returns validation errors for invalid username data', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
-        .send({ role: 'user', username: '6848jkkl()' })
+        .send({ role: 'user', firstname: '6848jkkl()', lastname: '6848jkkl()' })
         .end((err, res) => {
           // userToken = res.body.token;
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
-          expect(res.body.errors.username.msg).to.equal('username can only contain letters and the characters (,.\'-)');
+          expect(res.body.errors.firstname.msg).to.equal('Firstname can only contain letters and the characters (\'-)');
+          expect(res.body.errors.lastname.msg).to.equal('Lastname can only contain letters and the characters (\'-)');
 
           if (err) return done(err);
           done();
         });
     });
 
-    it('returns validation errors for extra length username data', (done) => {
+    it('returns validation errors for extra length firstname data', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
-        .send({ role: 'user', username: longusername })
+        .send({ role: 'user', firstname: longusername, lastname: longusername })
         .end((err, res) => {
           // userToken = res.body.token;
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
-          expect(res.body.errors.username.msg).to.equal('username must not be more than 40 characters');
+          expect(res.body.errors.firstname.msg).to.equal('Firstname must not be more than 40 characters');
+          expect(res.body.errors.lastname.msg).to.equal('Lastname must not be more than 40 characters');
 
           if (err) return done(err);
           done();
@@ -102,7 +105,7 @@ describe('Signup Routes', () => {
           // userToken = res.body.token;
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
-          expect(res.body.errors.role.msg).to.equal('Role cannot be empty');
+          expect(res.body.errors.role.msg).to.equal('Role field cannot be left blank');
 
           if (err) return done(err);
           done();
@@ -154,7 +157,7 @@ describe('Signup Routes', () => {
           // userToken = res.body.token;
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
-          expect(res.body.errors.username.msg).to.equal('Unaccepted Field');
+          expect(res.body.errors.firstname.msg).to.equal('Unaccepted Field');
           expect(res.body.errors.businessName.msg).to.equal('Business name must be specified');
           expect(res.body.errors.email.msg).to.equal('Email is invalid');
           expect(res.body.errors.password.msg).to.equal('Password must be at least 8 characters');
