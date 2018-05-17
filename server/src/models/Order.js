@@ -19,9 +19,9 @@ export default (sequelize) => {
         allowNull: true
       },
       status: {
-        type: Sequelize.ENUM('pending', 'delivered', 'canceled'),
+        type: Sequelize.ENUM('started', 'pending', 'delivered', 'canceled'),
         allowNull: true,
-        defaultValue: 'pending'
+        defaultValue: 'started'
       },
       userId: {
         type: Sequelize.UUID,

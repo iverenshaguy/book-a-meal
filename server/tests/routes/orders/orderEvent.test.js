@@ -10,7 +10,7 @@ const { emiolaToken } = tokens;
 const { newOrder } = addOrder;
 
 describe('Order Routes: Modify an Order', () => {
-  it('should update created order to delivered after the expiry time', (done) => {
+  it('should update created order to pending after the expiry time', (done) => {
     process.env.EXPIRY = 2000;
 
     request(app)
@@ -22,7 +22,7 @@ describe('Order Routes: Modify an Order', () => {
         setTimeout(async () => {
           try {
             const order = await db.Order.findOne({ where: { orderId: res.body.id } });
-            expect(order.status).to.equal('delivered');
+            expect(order.status).to.equal('pending');
           } catch (err) {
             return err;
           }
@@ -31,7 +31,7 @@ describe('Order Routes: Modify an Order', () => {
       });
   });
 
-  it('should not update a canceled order status to delivered', (done) => {
+  it('should not update a canceled order status to pending', (done) => {
     process.env.EXPIRY = 10000;
     request(app)
       .post('/api/v1/orders')
@@ -46,7 +46,7 @@ describe('Order Routes: Modify an Order', () => {
               try {
                 const reloadedOrder = await db.Order
                   .findOne({ where: { orderId: res.body.id } });
-                expect(reloadedOrder.status).to.not.equal('delivered');
+                expect(reloadedOrder.status).to.not.equal('pending');
               } catch (err) {
                 return err;
               }

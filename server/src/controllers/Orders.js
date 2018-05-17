@@ -1,7 +1,6 @@
 import db from '../models';
 import errors from '../../data/errors.json';
 import orderEmitter from '../events/Orders';
-import createMealOrder from '../helpers/createMealOrder';
 
 /**
  * @exports
@@ -109,13 +108,12 @@ class Orders {
    * emits create event after creation
    */
   static async create(req, res) {
-    const orderItems = createMealOrder(req.body.meals);
     req.body.meals = [...(new Set(req.body.meals))];
     req.body.userId = req.userId;
 
     const newOrder = await db.Order.create(req.body, { include: [{ model: db.User, as: 'customer' }] })
       .then(async (order) => {
-        const promises = Orders.addMeals(order, orderItems);
+        const promises = Orders.addMeals(order, req.body.meals);
 
         await Promise.all(promises);
         await Orders.getOrderMeals(order);
@@ -144,19 +142,21 @@ class Orders {
     const order = await db.Order.findOne({ where: { orderId, userId: req.userId } });
 
     if (!order) return res.status(404).json({ error: errors[404] });
+    if (order.status === 'pending') return res.status(400).json({ error: 'Order is being processed and cannot be edited' });
     if (order.status === 'canceled') return res.status(400).json({ error: 'Order has been canceled' });
     if (order.status === 'delivered') return res.status(400).json({ error: 'Order is expired' });
 
     const updatedOrder = await order.update({ ...order, ...req.body }).then(async () => {
       if (req.body.meals) {
-        const orderItems = createMealOrder(req.body.meals);
         await order.setMeals([]);
 
-        const promises = Orders.addMeals(order, orderItems);
+        const promises = Orders.addMeals(order, req.body.meals);
         await Promise.all(promises);
       }
 
       await Orders.getOrderMeals(order);
+
+      orderEmitter.emit('create', order);
 
       Orders.mapQuantityToMeal(order);
 

@@ -78,7 +78,7 @@ describe('Order Routes: Add an Order', () => {
       .send({ meals: ['46ced7aa-eed5-4462-b2c0-153f31589bdd'] })
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
-        expect(res.body.errors.meals.msg).to.equal('Meal 46ced7aa-eed5-4462-b2c0-153f31589bdd is not available');
+        expect(res.body.errors.meals.msg).to.equal('Item 1 must be an object of mealId and quantity');
 
         if (err) return done(err);
         done();

@@ -37,7 +37,7 @@ describe('Order Routes: Modify an Order', () => {
       .put(`/api/v1/orders/${newOrderId}`)
       .set('Accept', 'application/json')
       .set('authorization', emiolaToken)
-      .send({ ...newOrder, meals: ['baa0412a-d167-4d2b-b1d8-404cb8f02631'] })
+      .send({ ...newOrder, meals: [{ mealId: 'baa0412a-d167-4d2b-b1d8-404cb8f02631', quantity: 1 }] })
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.include.keys('id');
@@ -77,6 +77,24 @@ describe('Order Routes: Modify an Order', () => {
         if (err) return done(err);
         done();
       });
+  });
+
+  it('should not modify a pending order', (done) => {
+    db.Order.findOne({ where: { orderId: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }).then(order =>
+      order.update({ status: 'pending' }).then(() => {
+        request(app)
+          .put('/api/v1/orders/fb097bde-5959-45ff-8e21-51184fa60c25')
+          .set('Accept', 'application/json')
+          .set('authorization', emiolaToken)
+          .send(newOrder)
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(400);
+            expect(res.body.error).to.equal('Order is being processed and cannot be edited');
+
+            if (err) return done(err);
+            done();
+          });
+      }));
   });
 
   it('should not modify a canceled order', (done) => {

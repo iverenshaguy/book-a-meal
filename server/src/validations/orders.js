@@ -1,6 +1,8 @@
 import { check } from 'express-validator/check';
 import notEmpty from '../helpers/notEmpty';
-import checkMealsId from '../helpers/checkMealsId';
+import checkOrderMeals from '../helpers/checkOrderMeals';
+import checkOrderMealsId from '../helpers/checkOrderMealsId';
+import checkOrderQuantity from '../helpers/checkOrderQuantity';
 import isValidOrderItems from '../helpers/isValidOrderItems';
 
 export default {
@@ -9,8 +11,10 @@ export default {
       .exists().withMessage('Meals must be specified')
       .custom(value => notEmpty(value, 'Meals field cannot be left blank'))
       .custom(value => Array.isArray(value))
-      .withMessage('Meals must be an array of Meal Ids')
-      .custom(value => checkMealsId(value))
+      .withMessage('Meals must be an array of Meal objects')
+      .custom(value => checkOrderMeals(value))
+      .custom(value => checkOrderMealsId(value))
+      .custom(value => checkOrderQuantity(value))
       .custom(value => isValidOrderItems(value)),
     check('status')
       .custom(value => !value)
@@ -41,7 +45,9 @@ export default {
       .custom(value => notEmpty(value, 'If provided, meals field cannot be left blank'))
       .custom(value => Array.isArray(value))
       .withMessage('Meals must be an array of Meal Ids')
-      .custom(value => checkMealsId(value))
+      .custom(value => checkOrderMeals(value))
+      .custom(value => checkOrderMealsId(value))
+      .custom(value => checkOrderQuantity(value))
       .custom(value => isValidOrderItems(value)),
     check('status')
       .trim()
