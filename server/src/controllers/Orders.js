@@ -38,7 +38,7 @@ class Orders {
   static async getUsersOrders(req, res) {
     const orders = await db.Order.findAll({
       where: { userId: req.userId },
-      attributes: [['orderId', 'id'], 'deliveryAddress', 'deliveryPhoneNo', 'status', 'createdAt'],
+      attributes: [['orderId', 'id'], 'deliveryAddress', 'deliveryPhoneNo', 'status', 'createdAt', 'updatedAt'],
       include: [{
         model: db.Meal,
         as: 'meals',
@@ -71,7 +71,7 @@ class Orders {
   static async getCaterersOrders(req, res) {
     const { userId } = req;
     const orders = await db.Order.findAll({
-      attributes: [['orderId', 'id'], 'deliveryAddress', 'deliveryPhoneNo', 'status', 'createdAt'],
+      attributes: [['orderId', 'id'], 'deliveryAddress', 'deliveryPhoneNo', 'status', 'createdAt', 'updatedAt'],
       include: [
         {
           model: db.User,
@@ -225,6 +225,8 @@ class Orders {
       deliveryAddress: order.getDataValue('deliveryAddress'),
       deliveryPhoneNo: order.getDataValue('deliveryPhoneNo'),
       status: order.getDataValue('status'),
+      createdAt: order.getDataValue('createdAt'),
+      updatedAt: order.getDataValue('updatedAt'),
       meals: order.dataValues.meals
     };
   }
