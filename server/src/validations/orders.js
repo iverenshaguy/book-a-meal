@@ -72,10 +72,16 @@ export default {
       .isLength({ min: 10, max: 15 })
       .withMessage('Delivery Phone Number must be between 5 and 15 characters'),
   ],
-  delete: [
+  deliver: [
     check('orderId')
       .isUUID(4)
-      .withMessage('Invalid ID')
+      .withMessage('Invalid ID'),
+    check('delivered')
+      .trim()
+      .exists().withMessage('Delivery status must be specified')
+      .custom(value => notEmpty(value, 'Delivery status field cannot be left blank'))
+      .isBoolean()
+      .withMessage('True and False are the only available options'),
   ]
 };
 

@@ -1,3 +1,4 @@
+import { Op } from 'sequelize';
 import db from '../models';
 import errors from '../../data/errors.json';
 import orderEmitter from '../events/Orders';
@@ -71,11 +72,16 @@ class Orders {
     const { userId } = req;
     const orders = await db.Order.findAll({
       attributes: [['orderId', 'id'], 'deliveryAddress', 'deliveryPhoneNo', 'status', 'createdAt', 'updatedAt'],
+      where: {
+        status: {
+          [Op.not]: 'started'
+        }
+      },
       include: [
         {
           model: db.User,
           as: 'customer',
-          attributes: ['firstname', 'lastname', 'email']
+          attributes: ['firstname', 'lastname', 'email'],
         },
         {
           model: db.Meal,
@@ -93,7 +99,7 @@ class Orders {
 
     orders.map(order => Orders.mapQuantityToMeal(order));
 
-    return res.status(200).json(orders);
+    return res.status(200).json({ orders });
   }
 
   /**
@@ -135,7 +141,6 @@ class Orders {
    * @param {object} req
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
-   * notification is created on order update
    */
   static async update(req, res) {
     const { orderId } = req.params;
@@ -167,6 +172,54 @@ class Orders {
   }
 
   /**
+   * Marks Caterer's Order as Delievered
+   * @method deliver
+   * @memberof Orders
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  static async deliver(req, res) {
+    const { orderId } = req.params;
+    const { userId } = req;
+
+    const order = await db.Order.findOne({
+      where: {
+        orderId,
+        status: 'pending'
+      },
+      include: [
+        {
+          model: db.Meal,
+          as: 'meals',
+          attributes: [],
+          where: { userId }
+        }
+      ]
+    });
+
+    if (!order) return res.status(404).json({ error: errors[404] });
+
+    const meals = await order.getMeals({ where: { userId } });
+
+    const promises = meals.map((meal) => {
+      meal.OrderItem.delivered = req.body.delivered;
+
+      return meal.OrderItem.save();
+    });
+
+    await Promise.all(promises);
+
+    await Orders.getOrderMeals(order);
+
+    orderEmitter.emit('deliver', order);
+
+    Orders.mapQuantityToMeal(order);
+
+    return res.status(200).json(Orders.getOrderObject(order));
+  }
+
+  /**
    * Adds meas to order-meal join table
    * @method addMeals
    * @memberof Orders
@@ -189,13 +242,13 @@ class Orders {
   static async getOrderMeals(order) {
     order.dataValues.meals = await order.getMeals({
       attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price'],
-      joinTableAttributes: ['quantity'],
+      joinTableAttributes: ['quantity', 'delivered'],
       paranoid: false
     });
   }
 
   /**
-   * Maps Orders to Show Order Quantity
+   * Maps Orders to Show Order Quantity and Item Delivery Status
    * instead of including OrderItem Association
    * @method mapQuantityToMeal
    * @memberof Orders
@@ -205,6 +258,7 @@ class Orders {
   static mapQuantityToMeal(order) {
     order.dataValues.meals = order.dataValues.meals.map((meal) => {
       meal.dataValues.quantity = meal.OrderItem.quantity;
+      meal.dataValues.delivered = meal.OrderItem.delivered;
       delete meal.dataValues.OrderItem;
       return meal;
     });

@@ -64,7 +64,7 @@ describe('Order Routes: Modify an Order', () => {
       });
   });
 
-  it('should not modify an expired order i.e. past date', (done) => {
+  it('should not modify an expired order', (done) => {
     request(app)
       .put('/api/v1/orders/fb097bde-5959-45ff-8e21-51184fa60c25')
       .set('Accept', 'application/json')

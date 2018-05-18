@@ -41,6 +41,8 @@ app.get('/*', (req, res) =>
 
 orderEmitter.on('create', OrderHandler.startOrderProcess);
 
+orderEmitter.on('deliver', OrderHandler.markOrderAsDelivered);
+
 // Handle App Errors
 app.use(ErrorHandler.sendError);
 
