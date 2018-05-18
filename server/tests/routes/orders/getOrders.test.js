@@ -35,7 +35,7 @@ describe('Order Routes: Get All Orders', () => {
         .set('authorization', foodCircleToken)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
-          expect(res.body.orders.length).to.equal(4);
+          expect(res.body.orders.length).to.equal(5);
 
           if (err) return done(err);
           done();
@@ -84,7 +84,7 @@ describe('Order Routes: Get All Orders', () => {
         .set('authorization', emiolaToken)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
-          expect(res.body.orders.length).to.equal(5);
+          expect(res.body.orders.length).to.equal(6);
           expect(res.body.orders[0].id).to.equal('fb097bde-5959-45ff-8e21-51184fa60c25');
 
           if (err) return done(err);

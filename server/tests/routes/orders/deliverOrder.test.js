@@ -12,7 +12,7 @@ const { emiolaToken, foodCircleToken } = tokens;
 
 const { newOrder } = addOrder;
 
-let newOrderId;
+let newOrderId1, newOrderId2;
 
 describe('Order Routes: Deliver an Order', () => {
   before((done) => {
@@ -22,7 +22,7 @@ describe('Order Routes: Deliver an Order', () => {
       .set('authorization', emiolaToken)
       .send(newOrder)
       .end((err, res) => {
-        newOrderId = res.body.id;
+        newOrderId1 = res.body.id;
         expect(res.statusCode).to.equal(201);
         expect(res.body).to.include.keys('id');
 
@@ -31,11 +31,28 @@ describe('Order Routes: Deliver an Order', () => {
       });
   });
 
+  before((done) => {
+    request(app)
+      .post('/api/v1/orders')
+      .set('Accept', 'application/json')
+      .set('authorization', emiolaToken)
+      .send(newOrder)
+      .end((err, res) => {
+        newOrderId2 = res.body.id;
+        db.Order.findOne({ where: { orderId: res.body.id } }).then(order =>
+          order.addMeal('46ced7aa-eed5-4462-b2c0-153f31589bdd', { through: { quantity: 1 } }).then(() =>
+            order.update({ status: 'pending' }).then(() => {
+              if (err) return done(err);
+              done();
+            })));
+      });
+  });
+
   it('should deliver order belonging to caterer', (done) => {
-    db.Order.findOne({ where: { orderId: newOrderId } }).then(order =>
+    db.Order.findOne({ where: { orderId: newOrderId1 } }).then(order =>
       order.update({ status: 'pending' }).then(() => {
         request(app)
-          .post(`/api/v1/orders/${newOrderId}/deliver`)
+          .post(`/api/v1/orders/${newOrderId1}/deliver`)
           .set('Accept', 'application/json')
           .set('authorization', foodCircleToken)
           .send({ delivered: true })
@@ -50,29 +67,25 @@ describe('Order Routes: Deliver an Order', () => {
   });
 
   it('should not change order status to delivered when all meals haven\'t been delivered', (done) => {
-    db.Order.findOne({ where: { orderId: newOrderId } }).then(order =>
-      order.addMeal('46ced7aa-eed5-4462-b2c0-153f31589bdd', { through: { quantity: 1 } }).then(() =>
-        order.update({ status: 'pending' }).then(() => {
-          request(app)
-            .post(`/api/v1/orders/${newOrderId}/deliver`)
-            .set('Accept', 'application/json')
-            .set('authorization', foodCircleToken)
-            .send({ delivered: true })
-            .end((err, res) => {
-              expect(res.statusCode).to.equal(200);
-              expect(res.body.status).to.equal('pending');
+    request(app)
+      .post(`/api/v1/orders/${newOrderId2}/deliver`)
+      .set('Accept', 'application/json')
+      .set('authorization', foodCircleToken)
+      .send({ delivered: true })
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(200);
+        expect(res.body.status).to.equal('pending');
 
-              if (err) return done(err);
-              done();
-            });
-        })));
+        if (err) return done(err);
+        done();
+      });
   });
 
   it('should not modify an expired/delivered order', (done) => {
-    db.Order.findOne({ where: { orderId: newOrderId } }).then(order =>
+    db.Order.findOne({ where: { orderId: newOrderId1 } }).then(order =>
       order.update({ status: 'delivered' }).then(() => {
         request(app)
-          .post(`/api/v1/orders/${newOrderId}/deliver`)
+          .post(`/api/v1/orders/${newOrderId1}/deliver`)
           .set('Accept', 'application/json')
           .set('authorization', foodCircleToken)
           .send({ delivered: true })
@@ -87,10 +100,10 @@ describe('Order Routes: Deliver an Order', () => {
   });
 
   it('should not modify a canceled order', (done) => {
-    db.Order.findOne({ where: { orderId: newOrderId } }).then(order =>
+    db.Order.findOne({ where: { orderId: newOrderId1 } }).then(order =>
       order.update({ status: 'canceled' }).then(() => {
         request(app)
-          .post(`/api/v1/orders/${newOrderId}/deliver`)
+          .post(`/api/v1/orders/${newOrderId1}/deliver`)
           .set('Accept', 'application/json')
           .set('authorization', foodCircleToken)
           .send({ delivered: true })
@@ -106,7 +119,7 @@ describe('Order Routes: Deliver an Order', () => {
 
   it('should return errors for invalid input', (done) => {
     request(app)
-      .post(`/api/v1/orders/${newOrderId}/deliver`)
+      .post(`/api/v1/orders/${newOrderId1}/deliver`)
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
       .send({ delivered: 'tru' })
@@ -121,7 +134,7 @@ describe('Order Routes: Deliver an Order', () => {
 
   it('should return error when delivery status isn\'t specified', (done) => {
     request(app)
-      .post(`/api/v1/orders/${newOrderId}/deliver`)
+      .post(`/api/v1/orders/${newOrderId1}/deliver`)
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
       .send()

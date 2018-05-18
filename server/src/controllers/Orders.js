@@ -71,79 +71,22 @@ class Orders {
    * extract order details using OrderItem join table
    */
   static async getCaterersOrders(req, res) {
-    if (req.query.date) return Orders.getCaterersOrdersPerDay(req, res);
+    let where = { status: { [Op.not]: 'started' } };
 
-    const { userId } = req;
-    const orders = await db.Order.findAll({
-      attributes: [['orderId', 'id'], 'deliveryAddress', 'deliveryPhoneNo', 'status', 'createdAt', 'updatedAt'],
-      where: {
-        status: {
-          [Op.not]: 'started'
-        }
-      },
-      include: [
-        {
-          model: db.User,
-          as: 'customer',
-          attributes: ['firstname', 'lastname', 'email'],
-        },
-        {
-          model: db.Meal,
-          as: 'meals',
-          attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price'],
-          paranoid: false,
-          include: [{
-            model: db.User,
-            as: 'caterer',
-            where: { userId },
-            attributes: []
-          }]
-        }]
-    });
-
-    orders.map(order => Orders.mapQuantityToMeal(order));
-
-    const totalCashEarned = Orders.totalCashEarned(orders);
-
-    const pendingOrders = Orders.pendingOrders(req.role, orders);
-
-    return res.status(200).json({ orders, totalCashEarned, pendingOrders });
-  }
-
-  /**
-   * Returns Caterer's Orders
-   * @method getCaterersOrdersPerDay
-   * @memberof Orders
-   * @param {object} req
-   * @param {object} res
-   * @returns {(function|object)} Function next() or JSON object
-   * find meals which belong to the caterer
-   * for each mealId, find the order(s) that correspond to it
-   * extract order details using OrderItem join table
-   */
-  static async getCaterersOrdersPerDay(req, res) {
-    const { userId } = req;
-    const orders = await db.Order.findAll({
-      attributes: [['orderId', 'id'], 'deliveryAddress', 'deliveryPhoneNo', 'status', 'createdAt', 'updatedAt'],
-      where: {
+    if (req.query.date) {
+      where = {
         [Op.and]: [
-          {
-            status: {
-              [Op.not]: 'started'
-            }
-          },
-          sequelize.where(
-            sequelize.fn('DATE', sequelize.col('Order.createdAt')),
-            req.query.date
-          )
+          { status: { [Op.not]: 'started' } },
+          sequelize.where(sequelize.fn('DATE', sequelize.col('Order.createdAt')), req.query.date)
         ]
-      },
+      };
+    }
+
+    const orders = await db.Order.findAll({
+      attributes: [['orderId', 'id'], 'deliveryAddress', 'deliveryPhoneNo', 'status', 'createdAt', 'updatedAt'],
+      where,
       include: [
-        {
-          model: db.User,
-          as: 'customer',
-          attributes: ['firstname', 'lastname', 'email'],
-        },
+        { model: db.User, as: 'customer', attributes: ['firstname', 'lastname', 'email'] },
         {
           model: db.Meal,
           as: 'meals',
@@ -152,16 +95,14 @@ class Orders {
           include: [{
             model: db.User,
             as: 'caterer',
-            where: { userId },
+            where: { userId: req.userId },
             attributes: []
           }]
         }]
     });
 
     orders.map(order => Orders.mapQuantityToMeal(order));
-
     const totalCashEarned = Orders.totalCashEarned(orders);
-
     const pendingOrders = Orders.pendingOrders(req.role, orders);
 
     return res.status(200).json({ orders, totalCashEarned, pendingOrders });
@@ -249,10 +190,7 @@ class Orders {
     const { userId } = req;
 
     const order = await db.Order.findOne({
-      where: {
-        orderId,
-        status: 'pending'
-      },
+      where: { orderId, status: 'pending' },
       include: [
         {
           model: db.Meal,
@@ -274,7 +212,6 @@ class Orders {
     });
 
     await Promise.all(promises);
-
     await Orders.getOrderMeals(order);
 
     orderEmitter.emit('deliver', order);
