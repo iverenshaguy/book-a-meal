@@ -1,4 +1,4 @@
-import { Op } from 'sequelize';
+import sequelize, { Op } from 'sequelize';
 import db from '../models';
 import errors from '../../data/errors.json';
 import orderEmitter from '../events/Orders';
@@ -54,11 +54,13 @@ class Orders {
 
     orders.map(order => Orders.mapQuantityToMeal(order));
 
-    return res.status(200).json({ orders });
+    const pendingOrders = Orders.pendingOrders(req.role, orders);
+
+    return res.status(200).json({ orders, pendingOrders });
   }
 
   /**
-   * Returns Users' Orders
+   * Returns Caterer's Orders
    * @method getCaterersOrders
    * @memberof Orders
    * @param {object} req
@@ -69,6 +71,8 @@ class Orders {
    * extract order details using OrderItem join table
    */
   static async getCaterersOrders(req, res) {
+    if (req.query.date) return Orders.getCaterersOrdersPerDay(req, res);
+
     const { userId } = req;
     const orders = await db.Order.findAll({
       attributes: [['orderId', 'id'], 'deliveryAddress', 'deliveryPhoneNo', 'status', 'createdAt', 'updatedAt'],
@@ -99,7 +103,68 @@ class Orders {
 
     orders.map(order => Orders.mapQuantityToMeal(order));
 
-    return res.status(200).json({ orders });
+    const totalCashEarned = Orders.totalCashEarned(orders);
+
+    const pendingOrders = Orders.pendingOrders(req.role, orders);
+
+    return res.status(200).json({ orders, totalCashEarned, pendingOrders });
+  }
+
+  /**
+   * Returns Caterer's Orders
+   * @method getCaterersOrdersPerDay
+   * @memberof Orders
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
+   * find meals which belong to the caterer
+   * for each mealId, find the order(s) that correspond to it
+   * extract order details using OrderItem join table
+   */
+  static async getCaterersOrdersPerDay(req, res) {
+    const { userId } = req;
+    const orders = await db.Order.findAll({
+      attributes: [['orderId', 'id'], 'deliveryAddress', 'deliveryPhoneNo', 'status', 'createdAt', 'updatedAt'],
+      where: {
+        [Op.and]: [
+          {
+            status: {
+              [Op.not]: 'started'
+            }
+          },
+          sequelize.where(
+            sequelize.fn('DATE', sequelize.col('Order.createdAt')),
+            req.query.date
+          )
+        ]
+      },
+      include: [
+        {
+          model: db.User,
+          as: 'customer',
+          attributes: ['firstname', 'lastname', 'email'],
+        },
+        {
+          model: db.Meal,
+          as: 'meals',
+          attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price'],
+          paranoid: false,
+          include: [{
+            model: db.User,
+            as: 'caterer',
+            where: { userId },
+            attributes: []
+          }]
+        }]
+    });
+
+    orders.map(order => Orders.mapQuantityToMeal(order));
+
+    const totalCashEarned = Orders.totalCashEarned(orders);
+
+    const pendingOrders = Orders.pendingOrders(req.role, orders);
+
+    return res.status(200).json({ orders, totalCashEarned, pendingOrders });
   }
 
   /**
@@ -220,7 +285,58 @@ class Orders {
   }
 
   /**
-   * Adds meas to order-meal join table
+   * Gets total caterer profit
+   * @method totalCashEarned
+   * @memberof Orders
+   * @param {array} orders
+   * @returns {number} Cash Earned
+   */
+  static totalCashEarned(orders) {
+    return orders.reduce((totalProfit, order) => {
+      const profitPerOrder = order.meals.reduce((total, meal) => {
+        if (!meal.dataValues.delivered) return total + 0;
+
+        const orderItemPrice = parseInt(meal.dataValues.price, 10) *
+        parseInt(meal.dataValues.quantity, 10);
+        return total + orderItemPrice;
+      }, 0);
+
+      return profitPerOrder + totalProfit;
+    }, 0);
+  }
+
+  /**
+   * Gets number of pending orders
+   * @method pendingOrders
+   * @memberof Orders
+   * @param {string} role
+   * @param {array} orders
+   * @returns {number} Cash Earned
+   */
+  static pendingOrders(role, orders) {
+    if (role === 'caterer') {
+      return orders.reduce((totalPending, order) => {
+        const pendingPerOrder = order.meals.reduce((total, meal) => {
+          if (!meal.dataValues.delivered) return total + 1;
+
+          return total + 0;
+        }, 0);
+
+        return pendingPerOrder + totalPending;
+      }, 0);
+    }
+
+    return orders.reduce((total, order) => {
+      if (order.status === 'pending' || order.status === 'started') {
+        return total + 1;
+      }
+
+      return total + 0;
+    }, 0);
+  }
+
+  /**
+   * Adds meals to order-meal join table
    * @method addMeals
    * @memberof Orders
    * @param {object} order

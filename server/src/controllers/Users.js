@@ -78,7 +78,7 @@ class Users {
 
     if (user.role === 'user' || user.role === 'admin') {
       userObj = {
-        userId: user.userId,
+        id: user.userId,
         firstname: user.firstname,
         lastname: user.lastname,
         email: user.email,
@@ -87,7 +87,7 @@ class Users {
 
     if (user.role === 'caterer') {
       userObj = {
-        userId: user.userId,
+        id: user.userId,
         businessName: user.businessName,
         businessAddress: user.businessAddress,
         businessPhoneNo: user.businessPhoneNo,

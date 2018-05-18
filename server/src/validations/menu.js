@@ -44,4 +44,11 @@ export default {
         await isUsersMeal(value, req.userId).then(err => err);
       }),
   ],
+  retrieve: [
+    check('date')
+      .trim()
+      .optional()
+      .custom(value => notEmpty(value, 'Date field cannot be left blank'))
+      .custom(value => validateDate(value)),
+  ]
 };

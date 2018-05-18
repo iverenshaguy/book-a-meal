@@ -1,5 +1,6 @@
 import { check } from 'express-validator/check';
 import notEmpty from '../helpers/notEmpty';
+import validateDate from '../helpers/validateDate';
 import checkOrderMeals from '../helpers/checkOrderMeals';
 import checkOrderMealsId from '../helpers/checkOrderMealsId';
 import checkOrderQuantity from '../helpers/checkOrderQuantity';
@@ -82,6 +83,13 @@ export default {
       .custom(value => notEmpty(value, 'Delivery status field cannot be left blank'))
       .isBoolean()
       .withMessage('True and False are the only available options'),
+  ],
+  retrieve: [
+    check('date')
+      .trim()
+      .optional()
+      .custom(value => notEmpty(value, 'Date field cannot be left blank'))
+      .custom(value => validateDate(value)),
   ]
 };
 
