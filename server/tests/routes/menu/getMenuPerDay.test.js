@@ -46,7 +46,7 @@ describe('Menu Routes: Get the menu specific day', () => {
       .set('authorization', foodCircleToken)
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
-        expect(res.body).to.include.keys('menuId');
+        expect(res.body).to.include.keys('id');
         expect(res.body).to.include.keys('date');
         expect(res.body.date).to.equal(currentDay);
 
@@ -62,7 +62,7 @@ describe('Menu Routes: Get the menu specific day', () => {
       .set('authorization', foodCircleToken)
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
-        expect(res.body).to.include.keys('menuId');
+        expect(res.body).to.include.keys('id');
         expect(res.body).to.include.keys('date');
         expect(res.body.date).to.equal(twoDaysTime);
 
@@ -73,8 +73,7 @@ describe('Menu Routes: Get the menu specific day', () => {
 
   describe('No Menu', () => {
     before((done) => {
-      db.Menu.destroy({ truncate: { cascade: true } });
-      done();
+      db.Menu.destroy({ truncate: { cascade: true } }).then(() => done());
     });
 
     it('User: should return empty array when there are no menu', (done) => {

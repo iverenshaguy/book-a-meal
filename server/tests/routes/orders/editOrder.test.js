@@ -1,5 +1,6 @@
 import request from 'supertest';
 import { expect } from 'chai';
+import db from '../../../src/models';
 import app from '../../../src/app';
 import notFound from '../../utils/notFound';
 import invalidID from '../../utils/invalidID';
@@ -15,11 +16,6 @@ let newMenuId;
 let newOrderId;
 
 describe('Order Routes: Modify an Order', () => {
-  // let env;
-  // before(() => {
-  //   env = process.env; // eslint-disable-line
-  // });
-
   before((done) => {
     request(app)
       .post('/api/v1/orders')
@@ -27,34 +23,26 @@ describe('Order Routes: Modify an Order', () => {
       .set('authorization', emiolaToken)
       .send(newOrder)
       .end((err, res) => {
-        newOrderId = res.body.orderId;
+        newOrderId = res.body.id;
         expect(res.statusCode).to.equal(201);
-        expect(res.body).to.include.keys('orderId');
-        expect(res.body).to.include.keys('userId');
-        expect(res.body).to.include.keys('createdAt');
-        expect(res.body).to.include.keys('updatedAt');
+        expect(res.body).to.include.keys('id');
 
         if (err) return done(err);
         done();
       });
   });
 
-  // after(() => {
-  //   process.env = env;
-  // });
-
   it('should modify an order for authenticated user with meals', (done) => {
     request(app)
       .put(`/api/v1/orders/${newOrderId}`)
       .set('Accept', 'application/json')
       .set('authorization', emiolaToken)
-      .send({ ...newOrder, meals: ['baa0412a-d167-4d2b-b1d8-404cb8f02631'] })
+      .send({ ...newOrder, meals: [{ mealId: 'baa0412a-d167-4d2b-b1d8-404cb8f02631', quantity: 1 }] })
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
-        expect(res.body).to.include.keys('orderId');
-        expect(res.body).to.include.keys('userId');
+        expect(res.body).to.include.keys('id');
         expect(res.body.meals.length).to.equal(1);
-        expect(res.body.meals[0].mealId).to.equal('baa0412a-d167-4d2b-b1d8-404cb8f02631');
+        expect(res.body.meals[0].id).to.equal('baa0412a-d167-4d2b-b1d8-404cb8f02631');
 
         if (err) return done(err);
         done();
@@ -76,7 +64,7 @@ describe('Order Routes: Modify an Order', () => {
       });
   });
 
-  it('should not modify an expired order i.e. past date', (done) => {
+  it('should not modify an expired order', (done) => {
     request(app)
       .put('/api/v1/orders/fb097bde-5959-45ff-8e21-51184fa60c25')
       .set('Accept', 'application/json')
@@ -89,6 +77,42 @@ describe('Order Routes: Modify an Order', () => {
         if (err) return done(err);
         done();
       });
+  });
+
+  it('should not modify a pending order', (done) => {
+    db.Order.findOne({ where: { orderId: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }).then(order =>
+      order.update({ status: 'pending' }).then(() => {
+        request(app)
+          .put('/api/v1/orders/fb097bde-5959-45ff-8e21-51184fa60c25')
+          .set('Accept', 'application/json')
+          .set('authorization', emiolaToken)
+          .send(newOrder)
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(400);
+            expect(res.body.error).to.equal('Order is being processed and cannot be edited');
+
+            if (err) return done(err);
+            done();
+          });
+      }));
+  });
+
+  it('should not modify a canceled order', (done) => {
+    db.Order.findOne({ where: { orderId: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }).then(order =>
+      order.update({ status: 'canceled' }).then(() => {
+        request(app)
+          .put('/api/v1/orders/fb097bde-5959-45ff-8e21-51184fa60c25')
+          .set('Accept', 'application/json')
+          .set('authorization', emiolaToken)
+          .send(newOrder)
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(400);
+            expect(res.body.error).to.equal('Order has been canceled');
+
+            if (err) return done(err);
+            done();
+          });
+      }));
   });
 
   it('should return errors for invalid input', (done) => {

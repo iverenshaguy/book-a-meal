@@ -180,9 +180,8 @@ export default {
   addOrder: {
     validOrder: {
       meals: [
-        '81211c24-51c0-46ec-b1e0-18db55880958',
-        '81211c24-51c0-46ec-b1e0-18db55880958',
-        'baa0412a-d167-4d2b-b1d8-404cb8f02631'
+        { mealId: '81211c24-51c0-46ec-b1e0-18db55880958', quantity: 2 },
+        { mealId: 'baa0412a-d167-4d2b-b1d8-404cb8f02631', quantity: 1 }
       ],
       deliveryAddress: '4, Church Street, Yaba',
       deliveryPhoneNo: '+2348134567890',
@@ -190,7 +189,7 @@ export default {
 
     inValidOrder: {
       meals: [
-        '8a65538d-f862-420e-bcdc-80743df06578',
+        { mealId: '8a65538d-f862-420e-bcdc-80743df06578', quantity: 1 }
       ],
       deliveryAddress: '4, Church Street, Yaba',
       deliveryPhoneNo: '+2348134567890',
@@ -198,9 +197,8 @@ export default {
 
     newOrder: {
       meals: [
-        'baa0412a-d167-4d2b-b1d8-404cb8f02631',
-        'baa0412a-d167-4d2b-b1d8-404cb8f02631',
-        'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
+        { mealId: 'f9eb7652-125a-4bcb-ad81-02f84901cdc3', quantity: 1 },
+        { mealId: 'baa0412a-d167-4d2b-b1d8-404cb8f02631', quantity: 2 }
       ],
       deliveryAddress: '4, Church Street, Yaba',
       deliveryPhoneNo: '+2348134567890',
@@ -257,25 +255,11 @@ export default {
 
     orderItems: {
       badMeal: {
-        meals: ['81211c24-51c0-46ec-b1e0-18db55kdfkod880958', ''],
+        meals: [
+          { mealId: '81211c24-51c0-46ec-b1e0-18db55kdfkod880958', quantity: 1 },
+          { mealId: '', quantity: 1 }
+        ],
       }
-    },
-
-    createMealOrderData: {
-      dupArr: [
-        '72a3417e-45c8-4559-8b74-8b5a61be8614',
-        '8a65538d-f862-420e-bcdc-80743df06578',
-        'baa0412a-d167-4d2b-b1d8-404cb8f02631',
-        '8a65538d-f862-420e-bcdc-80743df06578',
-        'baa0412a-d167-4d2b-b1d8-404cb8f02631',
-        '8a65538d-f862-420e-bcdc-80743df06578',
-      ],
-
-      arr: [
-        '72a3417e-45c8-4559-8b74-8b5a61be8614',
-        '8a65538d-f862-420e-bcdc-80743df06578',
-        'baa0412a-d167-4d2b-b1d8-404cb8f02631',
-      ]
     }
   }
 };

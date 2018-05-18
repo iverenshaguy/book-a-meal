@@ -7,7 +7,7 @@ import errors from '../../data/errors.json';
  */
 class Meals {
   /**
-   * Returns a list of Meal Opyions
+   * Returns a list of Meal Options
    * @method getMeals
    * @memberof Meals
    * @param {object} req
@@ -16,7 +16,11 @@ class Meals {
    */
   static async getMeals(req, res) {
     const { userId } = req;
-    const mealList = await db.Meal.findAll({ where: { userId }, paranoid: true });
+    const mealList = await db.Meal.findAll({
+      where: { userId },
+      paranoid: true,
+      attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price']
+    });
     return res.status(200).json({ meals: mealList });
   }
 
@@ -34,9 +38,13 @@ class Meals {
     req.body.userId = req.userId;
     req.body.price = parseFloat(req.body.price);
 
-    const meal = await db.Meal.create(req.body, { include: [db.User] });
+    const meal = await db.Meal.create(req.body, {
+      include: [{
+        model: db.User, as: 'caterer'
+      }]
+    });
 
-    return res.status(201).json(meal);
+    return res.status(201).json(Meals.getMealObject(meal));
   }
 
   /**
@@ -53,7 +61,6 @@ class Meals {
     const { userId } = req;
 
     req.body.price = parseFloat(req.body.price);
-    delete req.body.mealId;
 
     const mealItem = await db.Meal.findOne({ where: { mealId, userId } });
 
@@ -61,7 +68,7 @@ class Meals {
 
     const updatedMeal = await mealItem.update({ ...mealItem, ...req.body });
 
-    return res.status(200).json(updatedMeal);
+    return res.status(200).json(Meals.getMealObject(updatedMeal));
   }
 
   /**
@@ -82,6 +89,24 @@ class Meals {
     await mealItem.destroy();
 
     return res.status(200).json({ message: 'Meal deleted successfully' });
+  }
+
+  /**
+   * Creates a New Meal Object from Meal Item
+   * @method getMealObject
+   * @memberof Meals
+   * @param {object} meal
+   * @returns {object} Object
+   */
+  static getMealObject(meal) {
+    return {
+      id: meal.getDataValue('mealId'),
+      title: meal.getDataValue('title'),
+      imageURL: meal.getDataValue('imageURL'),
+      description: meal.getDataValue('description'),
+      vegetarian: meal.getDataValue('vegetarian'),
+      price: meal.getDataValue('price')
+    };
   }
 }
 

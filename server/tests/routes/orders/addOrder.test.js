@@ -35,10 +35,9 @@ describe('Order Routes: Add an Order', () => {
       .send({ ...newOrder })
       .end((err, res) => {
         expect(res.statusCode).to.equal(201);
-        expect(res.body).to.include.keys('orderId');
-        expect(res.body).to.include.keys('userId');
+        expect(res.body).to.include.keys('id');
         expect(res.body.meals.length).to.equal(2);
-        expect(res.body.meals[0].OrderItem.quantity).to.equal(2);
+        expect(res.body.meals[0].quantity).to.equal(2);
         expect(res.body.meals[0]).to.include.keys('price');
 
         if (err) return done(err);
@@ -47,9 +46,9 @@ describe('Order Routes: Add an Order', () => {
   });
 
   it('should not add an order when office is closed', (done) => {
-    process.env.OPENING_HOUR = currentHour - 2;
+    process.env.OPENING_HOUR = currentHour + 1;
     process.env.OPENING_MINUTE = currentMin;
-    process.env.CLOSING_HOUR = currentHour - 1;
+    process.env.CLOSING_HOUR = currentHour + 2;
     process.env.CLOSING_MINUTE = 0;
 
     request(app)
@@ -76,7 +75,7 @@ describe('Order Routes: Add an Order', () => {
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
       .set('authorization', emiolaToken)
-      .send({ meals: ['46ced7aa-eed5-4462-b2c0-153f31589bdd'] })
+      .send({ meals: [{ mealId: '46ced7aa-eed5-4462-b2c0-153f31589bdd', quantity: 1 }] })
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body.errors.meals.msg).to.equal('Meal 46ced7aa-eed5-4462-b2c0-153f31589bdd is not available');

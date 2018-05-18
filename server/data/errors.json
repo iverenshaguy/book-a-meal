@@ -2,7 +2,6 @@
   "401": "Unauthorized",
   "403": "You are not authorized to perform this action",
   "404": "Item Not Found",
-  "400": "Validation Error",
   "500": "Internal Server Error",
   "empty": "Empty PUT Requests Are Not Allowed",
   "shopClosed": "Meals can only be ordered from 8:30am to 4:00pm"

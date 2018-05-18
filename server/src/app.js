@@ -7,6 +7,7 @@ import apiRoutes from './routes';
 import errors from '../data/errors.json';
 import orderEmitter from './events/Orders';
 import ErrorHandler from './middlewares/ErrorHandler';
+import OrderHandler from './eventHandlers/Orders';
 
 config();
 
@@ -38,15 +39,9 @@ app.get('/*', (req, res) =>
     message: errors['404']
   }));
 
-orderEmitter.on('create', (order) => {
-  // expiry is 15 minutes
-  setTimeout(async () => {
-    await order.reload();
-    if (order.status !== 'canceled') {
-      await order.update({ status: 'delivered' });
-    }
-  }, process.env.EXPIRY);
-});
+orderEmitter.on('create', OrderHandler.startOrderProcess);
+
+orderEmitter.on('deliver', OrderHandler.markOrderAsDelivered);
 
 // Handle App Errors
 app.use(ErrorHandler.sendError);

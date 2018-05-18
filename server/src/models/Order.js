@@ -19,9 +19,9 @@ export default (sequelize) => {
         allowNull: true
       },
       status: {
-        type: Sequelize.ENUM('pending', 'delivered', 'canceled'),
+        type: Sequelize.ENUM('started', 'pending', 'delivered', 'canceled'),
         allowNull: true,
-        defaultValue: 'pending'
+        defaultValue: 'started'
       },
       userId: {
         type: Sequelize.UUID,
@@ -37,7 +37,8 @@ export default (sequelize) => {
 
   Order.associate = (models) => {
     Order.belongsTo(models.User, {
-      foreignKey: 'userId'
+      foreignKey: 'userId',
+      as: 'customer'
     });
 
     Order.belongsToMany(models.Meal, {

@@ -1,4 +1,5 @@
 import validator from 'validator';
+import { Op } from 'sequelize';
 import { check } from 'express-validator/check';
 import notEmpty from '../helpers/notEmpty';
 import unacceptedField from '../helpers/unacceptedField';
@@ -54,7 +55,9 @@ export default {
         }
         return true;
       })
-      .custom(value => db.User.findOne({ where: { businessName: value } }).then((user) => {
+      .custom(value => db.User.findOne({
+        where: { businessName: { [Op.iLike]: value } }
+      }).then((user) => {
         if (user) {
           throw new Error('Business name already in use');
         }
@@ -98,7 +101,9 @@ export default {
       .custom(value => notEmpty(value, 'Email must be specified'))
       .isEmail()
       .withMessage('Email is invalid')
-      .custom(value => db.User.findOne({ where: { email: value } }).then((user) => {
+      .custom(value => db.User.findOne({
+        where: { email: { [Op.iLike]: value } }
+      }).then((user) => {
         if (user) {
           throw new Error('Email already in use');
         }

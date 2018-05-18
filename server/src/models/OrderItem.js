@@ -13,6 +13,11 @@ export default (sequelize) => {
           min: 1
         }
       },
+      delivered: {
+        type: Sequelize.BOOLEAN,
+        allowNull: true,
+        defaultValue: false
+      },
       orderId: {
         type: Sequelize.UUID,
         onDelete: 'CASCADE',

@@ -20,7 +20,7 @@ describe('Menu Routes: Edit menu', () => {
       .send(menu1)
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
-        expect(res.body).to.include.keys('menuId');
+        expect(res.body).to.include.keys('id');
         expect(res.body).to.include.keys('date');
         expect(res.body.meals.length).to.equal(3);
 

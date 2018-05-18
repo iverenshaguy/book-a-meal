@@ -10,7 +10,7 @@ env:
     - OPENING_MINUTE=30
     - CLOSING_HOUR=16
     - CLOSING_MINUTE=00
-    - EXPIRY=2000
+    - EXPIRY=1000
 
 script:
   - npm run test

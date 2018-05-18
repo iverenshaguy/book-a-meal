@@ -46,6 +46,7 @@ export default (sequelize) => {
 
   Meal.associate = (models) => {
     Meal.belongsTo(models.User, {
+      as: 'caterer',
       foreignKey: 'userId',
       onDelete: 'CASCADE',
     });

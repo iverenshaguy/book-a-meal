@@ -1,6 +1,9 @@
 import { check } from 'express-validator/check';
 import notEmpty from '../helpers/notEmpty';
-import checkMealsId from '../helpers/checkMealsId';
+import validateDate from '../helpers/validateDate';
+import checkOrderMeals from '../helpers/checkOrderMeals';
+import checkOrderMealsId from '../helpers/checkOrderMealsId';
+import checkOrderQuantity from '../helpers/checkOrderQuantity';
 import isValidOrderItems from '../helpers/isValidOrderItems';
 
 export default {
@@ -9,8 +12,10 @@ export default {
       .exists().withMessage('Meals must be specified')
       .custom(value => notEmpty(value, 'Meals field cannot be left blank'))
       .custom(value => Array.isArray(value))
-      .withMessage('Meals must be an array of Meal Ids')
-      .custom(value => checkMealsId(value))
+      .withMessage('Meals must be an array of Meal objects')
+      .custom(value => checkOrderMeals(value))
+      .custom(value => checkOrderMealsId(value))
+      .custom(value => checkOrderQuantity(value))
       .custom(value => isValidOrderItems(value)),
     check('status')
       .custom(value => !value)
@@ -41,7 +46,9 @@ export default {
       .custom(value => notEmpty(value, 'If provided, meals field cannot be left blank'))
       .custom(value => Array.isArray(value))
       .withMessage('Meals must be an array of Meal Ids')
-      .custom(value => checkMealsId(value))
+      .custom(value => checkOrderMeals(value))
+      .custom(value => checkOrderMealsId(value))
+      .custom(value => checkOrderQuantity(value))
       .custom(value => isValidOrderItems(value)),
     check('status')
       .trim()
@@ -66,10 +73,23 @@ export default {
       .isLength({ min: 10, max: 15 })
       .withMessage('Delivery Phone Number must be between 5 and 15 characters'),
   ],
-  delete: [
+  deliver: [
     check('orderId')
       .isUUID(4)
-      .withMessage('Invalid ID')
+      .withMessage('Invalid ID'),
+    check('delivered')
+      .trim()
+      .exists().withMessage('Delivery status must be specified')
+      .custom(value => notEmpty(value, 'Delivery status field cannot be left blank'))
+      .isBoolean()
+      .withMessage('True and False are the only available options'),
+  ],
+  retrieve: [
+    check('date')
+      .trim()
+      .optional()
+      .custom(value => notEmpty(value, 'Date field cannot be left blank'))
+      .custom(value => validateDate(value)),
   ]
 };
 

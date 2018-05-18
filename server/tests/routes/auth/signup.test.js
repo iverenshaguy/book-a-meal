@@ -18,11 +18,10 @@ describe('Signup Routes', () => {
         .post('/api/v1/auth/signup')
         .send(rightUserData)
         .end((err, res) => {
-          // userToken = res.body.token;
           expect(res.statusCode).to.equal(201);
           expect(res.body).to.be.an('object');
           expect(res.body).to.include.keys('token');
-          expect(res.body.user).to.include.keys('userId');
+          expect(res.body.user).to.include.keys('id');
           expect(res.body.user.email).to.equal('favour@shaguy.com');
 
           if (err) return done(err);
@@ -133,14 +132,13 @@ describe('Signup Routes', () => {
         .post('/api/v1/auth/signup')
         .send(rightCatererData)
         .end((err, res) => {
-          // userToken = res.body.token;
           expect(res.statusCode).to.equal(201);
           expect(res.body).to.be.an('object');
           expect(res.body).to.include.keys('token');
           expect(res.body.user).to.include.keys('businessName');
           expect(res.body.user).to.include.keys('businessAddress');
           expect(res.body.user).to.include.keys('businessPhoneNo');
-          expect(res.body.user).to.include.keys('userId');
+          expect(res.body.user).to.include.keys('id');
           expect(res.body.user.email).to.equal('wecook@cook.com');
           expect(res.body.user.businessName).to.equal('We Cook');
 

@@ -33,13 +33,27 @@ class Menu {
   static async getMenuForUser(req, res) {
     const date = moment().format('YYYY-MM-DD');
 
-    const menuArray = await db.Menu.findAll({ where: { date } });
+    const menu = await db.Menu.findAll({
+      where: { date },
+      attributes: [['menuId', 'id'], 'date'],
+      include: [
+        {
+          model: db.User,
+          as: 'caterer',
+          attributes: [['userId', 'id'], 'businessName', 'businessPhoneNo', 'businessAddress', 'email'],
+        },
+        {
+          model: db.Meal,
+          as: 'meals',
+          attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price'],
+          through: {
+            attributes: []
+          }
+        }
+      ]
+    });
 
-    const promises = menuArray.map(menu => Menu.getArrayOfMeals(menu).then(() => menu));
-
-    const menuPerDay = await Promise.all(promises);
-
-    return res.status(200).json({ menu: menuPerDay });
+    return res.status(200).json({ menu });
   }
 
   /**
@@ -53,15 +67,24 @@ class Menu {
   static async getMenuForCaterer(req, res) {
     const date = req.query.date || moment().format('YYYY-MM-DD');
 
-    const menu = await db.Menu.findOne({ where: { date, userId: req.userId } });
+    const menu = await db.Menu.findOne({
+      where: { date, userId: req.userId },
+      attributes: [['menuId', 'id'], 'date'],
+      include: [{
+        model: db.Meal,
+        as: 'meals',
+        attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price'],
+        through: {
+          attributes: []
+        }
+      }]
+    });
 
     if (!menu) {
       return res.status(200).json({ message: 'You don\'t have a menu for this day' });
     }
 
-    const menuPerDay = await Menu.getArrayOfMeals(menu).then(() => menu);
-
-    return res.status(200).json(menuPerDay);
+    return res.status(200).json(menu);
   }
 
   /**
@@ -86,13 +109,18 @@ class Menu {
 
     if (isMenuCreated) return res.status(400).json({ error: 'Menu already exists for this day' });
 
-    const newMenu = await db.Menu.create({ date: req.body.date, userId }, { include: [db.User] })
-      .then(async (menu) => {
-        await menu.setMeals(req.body.meals, { through: db.MenuMeal });
-        await Menu.getArrayOfMeals(menu);
+    const newMenu = await db.Menu.create({ date: req.body.date, userId }, {
+      attributes: [['menuId', 'id'], 'date'],
+      include: [{
+        model: db.User,
+        as: 'caterer'
+      }]
+    }).then(async (menu) => {
+      await menu.setMeals(req.body.meals, { through: db.MenuMeal });
+      await Menu.getArrayOfMeals(menu);
 
-        return menu;
-      });
+      return Menu.getMenuObject(menu);
+    });
 
     return res.status(201).json(newMenu);
   }
@@ -119,25 +147,42 @@ class Menu {
     req.body.meals = [...(new Set(req.body.meals))];
 
     await menu.setMeals([], { through: db.MenuMeal });
+
     const updatedMenu = await menu.setMeals(req.body.meals, { through: db.MenuMeal })
       .then(async () => {
         await Menu.getArrayOfMeals(menu);
-        return menu;
+
+        return Menu.getMenuObject(menu);
       });
 
     return res.status(200).json(updatedMenu);
   }
 
   /**
+   * Gets menu object for created and updated menu
+   * @method getMenuObject
+   * @memberof Controller
+   * @param {object} menu
+   * @returns {object} Menu object
+   */
+  static getMenuObject(menu) {
+    return {
+      id: menu.getDataValue('menuId'),
+      date: menu.getDataValue('date'),
+      meals: menu.dataValues.meals
+    };
+  }
+
+  /**
    * Gets meals for the Menu
    * @method getArrayOfMeals
    * @memberof Controller
-   * @param {OBJECT} menu
+   * @param {object} menu
    * @returns {array} Array of Meals
    */
   static async getArrayOfMeals(menu) {
     menu.dataValues.meals = await menu.getMeals({
-      attributes: ['mealId', 'title', 'imageURL', 'description', 'vegetarian', 'price'],
+      attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price'],
       joinTableAttributes: []
     });
   }

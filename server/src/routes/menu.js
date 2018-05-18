@@ -8,16 +8,17 @@ import TrimValues from '../middlewares/TrimValues';
 
 const menuRoutes = express.Router();
 const authorization = new Authorization('caterer');
-const validation = [ValidationHandler.validate, TrimValues.trim, ValidationHandler.isEmptyReq];
+const validation = [ValidationHandler.validate, TrimValues.trim];
+const reqBodyValidation = [...validation, ValidationHandler.isEmptyReq];
 
 
 menuRoutes.use(Authorization.authorize);
 
-menuRoutes.get('/', asyncWrapper(Menu.getMenuForDay));
+menuRoutes.get('/', menuValidation.retrieve, validation, asyncWrapper(Menu.getMenuForDay));
 
 menuRoutes.use(authorization.authorizeRole);
 
-menuRoutes.post('/', menuValidation.create, validation, asyncWrapper(Menu.create));
-menuRoutes.put('/:menuId', menuValidation.update, validation, asyncWrapper(Menu.update));
+menuRoutes.post('/', menuValidation.create, reqBodyValidation, asyncWrapper(Menu.create));
+menuRoutes.put('/:menuId', menuValidation.update, reqBodyValidation, asyncWrapper(Menu.update));
 
 export default menuRoutes;

@@ -8,7 +8,7 @@ import isUUID from 'validator/lib/isUUID';
 function isArrayOfUUID(value) {
   const mealErrorArr = [];
   value.forEach((item) => {
-    if (!isUUID(item, 4)) {
+    if (!isUUID(`${item}`, 4)) {
       mealErrorArr.push(` MealId ${item} is invalid`);
     }
   });

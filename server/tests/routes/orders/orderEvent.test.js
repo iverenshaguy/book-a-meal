@@ -10,7 +10,7 @@ const { emiolaToken } = tokens;
 const { newOrder } = addOrder;
 
 describe('Order Routes: Modify an Order', () => {
-  it('should update created order to delivered after the expiry time', (done) => {
+  it('should update created order to pending after the expiry time', (done) => {
     process.env.EXPIRY = 2000;
 
     request(app)
@@ -21,8 +21,8 @@ describe('Order Routes: Modify an Order', () => {
       .end((err, res) => {
         setTimeout(async () => {
           try {
-            const order = await db.Order.findOne({ where: { orderId: res.body.orderId } });
-            expect(order.status).to.equal('delivered');
+            const order = await db.Order.findOne({ where: { orderId: res.body.id } });
+            expect(order.status).to.equal('pending');
           } catch (err) {
             return err;
           }
@@ -31,7 +31,7 @@ describe('Order Routes: Modify an Order', () => {
       });
   });
 
-  it('should not update a canceled order status to delivered', (done) => {
+  it('should not update a canceled order status to pending', (done) => {
     process.env.EXPIRY = 10000;
     request(app)
       .post('/api/v1/orders')
@@ -40,13 +40,13 @@ describe('Order Routes: Modify an Order', () => {
       .send(newOrder)
       .end(async (err, res) => {
         try {
-          const order = await db.Order.findOne({ where: { orderId: res.body.orderId } });
+          const order = await db.Order.findOne({ where: { orderId: res.body.id } });
           order.update({ status: 'canceled' }).then(async () => {
             setTimeout(async () => {
               try {
                 const reloadedOrder = await db.Order
-                  .findOne({ where: { orderId: res.body.orderId } });
-                expect(reloadedOrder.status).to.not.equal('delivered');
+                  .findOne({ where: { orderId: res.body.id } });
+                expect(reloadedOrder.status).to.not.equal('pending');
               } catch (err) {
                 return err;
               }

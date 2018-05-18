@@ -18,7 +18,7 @@ describe('Meal Routes: Add a meal option', () => {
       .send({ ...newMeal, title: 'Oriental Fried Rice' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(201);
-        expect(res.body).to.include.keys('mealId');
+        expect(res.body).to.include.keys('id');
         expect(res.body.title).to.equal('Oriental Fried Rice');
 
         if (err) return done(err);

@@ -29,9 +29,9 @@ export default {
       allowNull: true
     },
     status: {
-      type: Sequelize.ENUM('pending', 'delivered', 'canceled'),
+      type: Sequelize.ENUM('started', 'pending', 'delivered', 'canceled'),
       allowNull: true,
-      defaultValue: 'pending'
+      defaultValue: 'started'
     },
     createdAt: {
       allowNull: false,
