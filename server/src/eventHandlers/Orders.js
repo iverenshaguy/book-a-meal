@@ -17,13 +17,11 @@ class Orders {
     // expiry is 15 minutes
     clearTimeout(updateOrder);
 
-    updateOrder = setTimeout(() => {
-      order.reload().then(() => {
-        if (order.status !== 'canceled') {
-          order.update({ status: 'pending' }).then(() => order);
-        }
-      });
-    }, process.env.EXPIRY);
+    updateOrder = setTimeout(() => order.reload().then(() => {
+      if (order.status !== 'canceled') {
+        order.update({ status: 'pending' }).then(() => order);
+      }
+    }), process.env.EXPIRY);
   }
 
   /**
