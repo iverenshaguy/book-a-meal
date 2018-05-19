@@ -147,7 +147,7 @@
 
 .modal-content .modal-body.order-confirmation {
     margin-top: 0;
-    width: 100%;
+    width: initial;
 }
 
 .modal-content .modal-body .delete-meal {
