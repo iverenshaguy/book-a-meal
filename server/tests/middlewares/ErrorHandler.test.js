@@ -6,7 +6,7 @@ import ErrorHandler from '../../src/middlewares/ErrorHandler';
 const res = {
   headersSent: false,
   status: status => ({
-    send: message => ({ status, message })
+    json: message => ({ status, message })
   })
 };
 
@@ -16,7 +16,7 @@ const req = {
 };
 
 const err = {
-  status: 422,
+  status: 400,
   message: 'error'
 };
 
@@ -27,7 +27,7 @@ describe('Error Handler', () => {
   it('handles errors with no headers sent', () => {
     ErrorHandler.sendError(err, req, res, next);
 
-    assert(status.calledWith(422));
+    assert(status.calledWith(400));
   });
 
   it('handles errors with no headers sent and no status', () => {

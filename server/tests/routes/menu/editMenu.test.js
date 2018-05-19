@@ -20,7 +20,7 @@ describe('Menu Routes: Edit menu', () => {
       .send(menu1)
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
-        expect(res.body).to.include.keys('menuId');
+        expect(res.body).to.include.keys('id');
         expect(res.body).to.include.keys('date');
         expect(res.body.meals.length).to.equal(3);
 
@@ -36,7 +36,7 @@ describe('Menu Routes: Edit menu', () => {
       .set('authorization', foodCircleToken)
       .send(menu1)
       .end((err, res) => {
-        expect(res.statusCode).to.equal(422);
+        expect(res.statusCode).to.equal(400);
         expect(res.body.error).to.equal('Menu Expired');
 
         if (err) return done(err);
@@ -51,8 +51,8 @@ describe('Menu Routes: Edit menu', () => {
       .set('authorization', foodCircleToken)
       .send({ ...menu1, meals: ['46ced7aa-eed5-4462-b2c0-153f31589bdd'] })
       .end((err, res) => {
-        expect(res.statusCode).to.equal(422);
-        expect(res.body.errors.meals.msg).to.equal('Meal 46ced7aa-eed5-4462-b2c0-153f31589bdd doesn\'t exist');
+        expect(res.statusCode).to.equal(400);
+        expect(res.body.errors.meals.msg).to.equal('You don\'t have access to Meal 46ced7aa-eed5-4462-b2c0-153f31589bdd');
 
         if (err) return done(err);
         done();
@@ -66,7 +66,7 @@ describe('Menu Routes: Edit menu', () => {
       .set('authorization', foodCircleToken)
       .send({ ...badMenu, date: '2018-05-06' })
       .end((err, res) => {
-        expect(res.statusCode).to.equal(422);
+        expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
         expect(res.body.errors.date.msg).to.equal('Menu dates cannot be changed');
         expect(res.body.errors.meals.msg).to.equal(' MealId 72a3417e-45c8-4559ie-8b74-8b5a61be8614 is invalid, MealId 8a65538d-f862-420e78-bcdc-80743df06578 is invalid, MealId f9eb7652-125a-4bcbuu-ad81-02f84901cdc3 is invalid');
@@ -83,7 +83,7 @@ describe('Menu Routes: Edit menu', () => {
       .set('authorization', foodCircleToken)
       .send({})
       .end((err, res) => {
-        expect(res.statusCode).to.equal(422);
+        expect(res.statusCode).to.equal(400);
         expect(res.body.error).to.equal('Empty PUT Requests Are Not Allowed');
 
         if (err) {
@@ -94,7 +94,7 @@ describe('Menu Routes: Edit menu', () => {
   });
 
   invalidID(
-    'should return 422 error for invalid meal id', 'menuId',
+    'should return 400 error for invalid meal id', 'menuId',
     request(app), 'put', menu1, '/api/v1/menu/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', foodCircleToken
   );
 

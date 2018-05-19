@@ -18,6 +18,7 @@ class Users {
   static async register(req, res) {
     const newUser = await db.User.create({
       firstname: req.body.firstname,
+      lastname: req.body.lastname,
       businessName: req.body.businessName,
       email: req.body.email.toLowerCase(),
       password: req.body.password,
@@ -26,10 +27,10 @@ class Users {
       role: req.body.role
     });
 
-    const token = Authorization.generateToken(req);
-    delete newUser.password;
+    const user = Users.getUserObj({ ...newUser.dataValues });
+    const token = Authorization.generateToken(user);
 
-    res.status(201).send({ user: newUser, token });
+    res.status(201).json({ user, token });
   }
 
   /**
@@ -42,21 +43,18 @@ class Users {
    */
   static async login(req, res) {
     return db.User.findOne({ where: { email: req.body.email } }).then(async (authUser) => {
-      if (!authUser) return res.status(401).send({ error: 'Invalid Credentials' });
+      if (!authUser) return res.status(401).json({ error: 'Invalid Credentials' });
 
       const valid = await Users.verifyPassword(req.body.password, authUser.password);
 
-      if (!valid) return res.status(401).send({ error: 'Invalid Credentials' });
+      if (!valid) return res.status(401).json({ error: 'Invalid Credentials' });
 
-      const user = { ...authUser };
-      const token = Authorization.generateToken(req);
+      const user = Users.getUserObj({ ...authUser.dataValues });
+      const token = Authorization.generateToken(user);
 
-      delete user.password;
-
-      return res.status(200).send({ user: authUser, token });
+      return res.status(200).json({ user, token });
     });
   }
-
 
   /**
    * @method verifyPassword
@@ -67,6 +65,37 @@ class Users {
    */
   static async verifyPassword(password, hash) {
     return bcrypt.compare(password, hash);
+  }
+
+  /**
+   * @method getUserObj
+   * @memberof Users
+   * @param {object} user
+   * @return {object} User Object
+   */
+  static getUserObj(user) {
+    let userObj;
+
+    if (user.role === 'user' || user.role === 'admin') {
+      userObj = {
+        id: user.userId,
+        firstname: user.firstname,
+        lastname: user.lastname,
+        email: user.email,
+      };
+    }
+
+    if (user.role === 'caterer') {
+      userObj = {
+        id: user.userId,
+        businessName: user.businessName,
+        businessAddress: user.businessAddress,
+        businessPhoneNo: user.businessPhoneNo,
+        email: user.email,
+      };
+    }
+
+    return userObj;
   }
 }
 

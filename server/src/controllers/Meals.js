@@ -1,6 +1,4 @@
-import moment from 'moment';
 import db from '../models';
-import GetItems from '../middlewares/GetItems';
 import errors from '../../data/errors.json';
 
 /**
@@ -9,7 +7,7 @@ import errors from '../../data/errors.json';
  */
 class Meals {
   /**
-   * Returns a list of Meal Opyions
+   * Returns a list of Meal Options
    * @method getMeals
    * @memberof Meals
    * @param {object} req
@@ -18,8 +16,12 @@ class Meals {
    */
   static async getMeals(req, res) {
     const { userId } = req;
-    const mealList = await db.Meal.findAll({ where: { userId } });
-    return GetItems.items(req, res, mealList, 'meals');
+    const mealList = await db.Meal.findAll({
+      where: { userId },
+      paranoid: true,
+      attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price']
+    });
+    return res.status(200).json({ meals: mealList });
   }
 
   /**
@@ -34,12 +36,15 @@ class Meals {
    */
   static async create(req, res) {
     req.body.userId = req.userId;
-    req.body.date = req.body.date || moment().format('YYYY-MM-DD');
-    req.body.price = parseInt(req.body.price, 10);
+    req.body.price = parseFloat(req.body.price);
 
-    const meal = await db.Meal.create(req.body, { include: [db.User] });
+    const meal = await db.Meal.create(req.body, {
+      include: [{
+        model: db.User, as: 'caterer'
+      }]
+    });
 
-    return res.status(201).send(meal);
+    return res.status(201).json(Meals.getMealObject(meal));
   }
 
   /**
@@ -55,15 +60,15 @@ class Meals {
     const { mealId } = req.params;
     const { userId } = req;
 
-    if (!Object.values(req.body).length) return res.status(422).send({ error: errors.empty });
+    req.body.price = parseFloat(req.body.price);
 
     const mealItem = await db.Meal.findOne({ where: { mealId, userId } });
 
-    if (!mealItem) return res.status(404).send({ error: errors[404] });
+    if (!mealItem) return res.status(404).json({ error: errors[404] });
 
     const updatedMeal = await mealItem.update({ ...mealItem, ...req.body });
 
-    return res.status(200).send(updatedMeal);
+    return res.status(200).json(Meals.getMealObject(updatedMeal));
   }
 
   /**
@@ -79,11 +84,29 @@ class Meals {
     const { userId } = req;
     const mealItem = await db.Meal.findOne({ where: { mealId, userId } });
 
-    if (!mealItem) return res.status(404).send({ error: errors[404] });
+    if (!mealItem) return res.status(404).json({ error: errors[404] });
 
     await mealItem.destroy();
 
-    return res.status(204).send();
+    return res.status(200).json({ message: 'Meal deleted successfully' });
+  }
+
+  /**
+   * Creates a New Meal Object from Meal Item
+   * @method getMealObject
+   * @memberof Meals
+   * @param {object} meal
+   * @returns {object} Object
+   */
+  static getMealObject(meal) {
+    return {
+      id: meal.getDataValue('mealId'),
+      title: meal.getDataValue('title'),
+      imageURL: meal.getDataValue('imageURL'),
+      description: meal.getDataValue('description'),
+      vegetarian: meal.getDataValue('vegetarian'),
+      price: meal.getDataValue('price')
+    };
   }
 }
 

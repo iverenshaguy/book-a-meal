@@ -1,7 +1,5 @@
 import moment from 'moment';
 
-const userMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
-const adminMockToken = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsup[d73489jsdbcuydsiudsy';
 const currentDay = moment().format('YYYY-MM-DD');
 const tomorrow = moment().add(1, 'days').format('YYYY-MM-DD');
 const twoDaysTime = moment().add(2, 'days').format('YYYY-MM-DD');
@@ -10,8 +8,6 @@ export default {
   tomorrow,
   currentDay,
   twoDaysTime,
-  adminMockToken,
-  userMockToken,
 
   login: {
     existingUser: {
@@ -33,6 +29,7 @@ export default {
     rightUserData: {
       role: 'user',
       firstname: 'Favour',
+      lastname: 'Shaguy',
       email: 'favour@shaguy.com',
       password: 'favourshaguy',
       passwordConfirm: 'favourshaguy'
@@ -102,7 +99,7 @@ export default {
       businessAddress: 'uiiowe,ksdyuil&9jk',
     },
 
-    longFirstName: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+    longusername: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     Aenean malesuada lorem non elit cursus, non sodales orci volutpat. 
     Suspendisse eleifend sed libero dignissim mollis. Nullam imperdiet`,
   },
@@ -113,15 +110,15 @@ export default {
       description: 'Contains Sea Food',
       price: 2200,
       imageURL: 'images.com/imgurl1.jpeg',
-      forVegetarians: false
+      vegetarian: false
     },
 
     badMeal: {
-      title: 'Jollof Spaghetti, Plantain and Turkey',
+      title: '',
       description: 'Contains %%% Sea Food',
       price: '',
       imageURL: 'images.com/imgurl1.jpeg',
-      forVegetarians: 'no'
+      vegetarian: 'no'
     },
   },
 
@@ -138,7 +135,7 @@ export default {
       description: 'Contains %%% Sea Food',
       price: '23yu50',
       imageURL: 'images.com/imgurl1.jpeg',
-      forVegetarians: 'no'
+      vegetarian: 'no'
     }
   },
 
@@ -183,9 +180,8 @@ export default {
   addOrder: {
     validOrder: {
       meals: [
-        '81211c24-51c0-46ec-b1e0-18db55880958',
-        '81211c24-51c0-46ec-b1e0-18db55880958',
-        'baa0412a-d167-4d2b-b1d8-404cb8f02631'
+        { mealId: '81211c24-51c0-46ec-b1e0-18db55880958', quantity: 2 },
+        { mealId: 'baa0412a-d167-4d2b-b1d8-404cb8f02631', quantity: 1 }
       ],
       deliveryAddress: '4, Church Street, Yaba',
       deliveryPhoneNo: '+2348134567890',
@@ -193,7 +189,7 @@ export default {
 
     inValidOrder: {
       meals: [
-        '8a65538d-f862-420e-bcdc-80743df06578',
+        { mealId: '8a65538d-f862-420e-bcdc-80743df06578', quantity: 1 }
       ],
       deliveryAddress: '4, Church Street, Yaba',
       deliveryPhoneNo: '+2348134567890',
@@ -201,15 +197,15 @@ export default {
 
     newOrder: {
       meals: [
-        'baa0412a-d167-4d2b-b1d8-404cb8f02631',
-        'baa0412a-d167-4d2b-b1d8-404cb8f02631',
-        'f9eb7652-125a-4bcb-ad81-02f84901cdc3',
+        { mealId: 'f9eb7652-125a-4bcb-ad81-02f84901cdc3', quantity: 1 },
+        { mealId: 'baa0412a-d167-4d2b-b1d8-404cb8f02631', quantity: 2 }
       ],
       deliveryAddress: '4, Church Street, Yaba',
       deliveryPhoneNo: '+2348134567890',
     },
 
     badOrder: {
+      status: 'canceled',
       deliveryAddress: '',
       deliveryPhoneNo: 'disdod'
     },
@@ -241,6 +237,7 @@ export default {
         'baa0412a-d167-4d2b-b1d8-404cb8f02631'
       ]
     },
+
     checkMealsId: {
       arr1: ['iieie', 'siioe'],
       arr2: "['iieie', 'siioe']",
@@ -255,51 +252,14 @@ export default {
         'f9eb7652-125a-4bcb-ad81-02f84901cdc3'
       ]`,
     },
-    removeDuplicates: {
-      dupArr1: [
-        '72a3417e-45c8-4559-8b74-8b5a61be8614',
-        '8a65538d-f862-420e-bcdc-80743df06578',
-        '72a3417e-45c8-4559-8b74-8b5a61be8614',
-      ],
-      fltrdArr1: [
-        '72a3417e-45c8-4559-8b74-8b5a61be8614',
-        '8a65538d-f862-420e-bcdc-80743df06578',
-      ],
-      dupArr2: `[
-        '81211c24-51c0-46ec-b1e0-18db55880958',
-        '81211c24-51c0-46ec-b1e0-18db55880958'
-      ]`,
-      fltrdArr2: [
-        '81211c24-51c0-46ec-b1e0-18db55880958'
-      ],
-      uniqueArr: [
-        '72a3417e-45c8-4559-8b74-8b5a61be8614',
-        '8a65538d-f862-420e-bcdc-80743df06578',
-        'baa0412a-d167-4d2b-b1d8-404cb8f02631'
-      ]
-    },
 
     orderItems: {
       badMeal: {
-        meals: ['81211c24-51c0-46ec-b1e0-18db55kdfkod880958', ''],
+        meals: [
+          { mealId: '81211c24-51c0-46ec-b1e0-18db55kdfkod880958', quantity: 1 },
+          { mealId: '', quantity: 1 }
+        ],
       }
-    },
-
-    createMealOrderData: {
-      dupArr: [
-        '72a3417e-45c8-4559-8b74-8b5a61be8614',
-        '8a65538d-f862-420e-bcdc-80743df06578',
-        'baa0412a-d167-4d2b-b1d8-404cb8f02631',
-        '8a65538d-f862-420e-bcdc-80743df06578',
-        'baa0412a-d167-4d2b-b1d8-404cb8f02631',
-        '8a65538d-f862-420e-bcdc-80743df06578',
-      ],
-
-      arr: [
-        '72a3417e-45c8-4559-8b74-8b5a61be8614',
-        '8a65538d-f862-420e-bcdc-80743df06578',
-        'baa0412a-d167-4d2b-b1d8-404cb8f02631',
-      ]
     }
   }
 };

@@ -1,7 +1,7 @@
 import sinon from 'sinon';
 import moment from 'moment';
 import { assert } from 'chai';
-import OrderValidationHandler from '../../src/middlewares/OrderValidationHandler';
+import ValidationHandler from '../../src/middlewares/ValidationHandler';
 
 const currentHour = moment().hour();
 const currentMin = moment().minute();
@@ -9,7 +9,7 @@ const currentMin = moment().minute();
 // mock server response
 const res = {
   status: status => ({
-    send: message => ({ status, message })
+    json: message => ({ status, message })
   })
 };
 
@@ -21,7 +21,7 @@ const req = {
 const next = sinon.spy();
 const status = sinon.spy(res, 'status');
 
-describe('Order Validation Handler', () => {
+describe('Validation Handler: Orders', () => {
   let env;
 
   // mocking an environment
@@ -39,9 +39,9 @@ describe('Order Validation Handler', () => {
     process.env.CLOSING_HOUR = currentHour + 2;
     process.env.CLOSING_MINUTE = 0;
 
-    OrderValidationHandler.isShopOpen(req, res, next);
+    ValidationHandler.isShopOpen(req, res, next);
 
-    assert(status.calledWith(422));
+    assert(status.calledWith(200));
   });
 
   it('calls next if shop is open', () => {
@@ -50,7 +50,7 @@ describe('Order Validation Handler', () => {
     process.env.CLOSING_HOUR = currentHour + 1;
     process.env.CLOSING_MINUTE = 0;
 
-    OrderValidationHandler.isShopOpen(req, res, next);
+    ValidationHandler.isShopOpen(req, res, next);
 
     assert(next.called);
   });

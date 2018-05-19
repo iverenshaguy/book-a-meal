@@ -1,4 +1,3 @@
-import stringToArray from './stringToArray';
 import isMealAvailable from './isMealAvailable';
 
 /**
@@ -10,10 +9,9 @@ import isMealAvailable from './isMealAvailable';
  */
 async function isValidOrderItems(items) {
   const err = [];
-  items = stringToArray(items, ',');
   // check mealId availability
-  const promises = items.map(item => isMealAvailable(item).then((mealAvai) => {
-    if (!mealAvai) err.push(`Meal ${item} is not available`);
+  const promises = items.map(item => isMealAvailable(item.mealId).then((mealAvai) => {
+    if (!mealAvai) err.push(`Meal ${item.mealId} is not available`);
   }));
 
 

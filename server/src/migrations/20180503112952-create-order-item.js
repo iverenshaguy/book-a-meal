@@ -34,6 +34,11 @@ export default {
         min: 1
       }
     },
+    delivered: {
+      type: Sequelize.BOOLEAN,
+      allowNull: true,
+      defaultValue: false
+    },
     createdAt: {
       allowNull: false,
       type: Sequelize.DATE

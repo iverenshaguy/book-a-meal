@@ -8,12 +8,16 @@ import db from '../models';
  * find a menu whose date is today and has the meal as an available meal for the day
  */
 async function isMealAvailable(mealId, date = moment().format('YYYY-MM-DD')) {
-  const menu = await db.Menu.findOne({ where: { date } });
+  const mealIdArray = [];
+  const menuArray = await db.Menu.findAll({ where: { date }, paranoid: true });
 
-  if (!menu) return false;
+  if (menuArray.length === 0) return false;
 
-  const meals = await menu.getMeals({ attributes: ['mealId'] });
-  const mealIdArr = meals.map(meal => meal.mealId);
+  const promises = menuArray.map(menu => menu.getMeals({ attributes: ['mealId'] })
+    .then(meals => mealIdArray.push(...meals)));
+
+  await Promise.all(promises);
+  const mealIdArr = mealIdArray.map(meal => meal.mealId);
   const checkMeal = mealIdArr.includes(mealId);
 
   if (!checkMeal) return false;

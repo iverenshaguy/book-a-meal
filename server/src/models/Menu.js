@@ -32,6 +32,7 @@ export default (sequelize) => {
 
   Menu.associate = (models) => {
     Menu.belongsTo(models.User, {
+      as: 'caterer',
       foreignKey: 'userId',
       onDelete: 'CASCADE',
     });

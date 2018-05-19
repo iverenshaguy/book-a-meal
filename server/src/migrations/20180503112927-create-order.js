@@ -28,6 +28,11 @@ export default {
       type: Sequelize.STRING,
       allowNull: true
     },
+    status: {
+      type: Sequelize.ENUM('started', 'pending', 'delivered', 'canceled'),
+      allowNull: true,
+      defaultValue: 'started'
+    },
     createdAt: {
       allowNull: false,
       type: Sequelize.DATE

@@ -1,6 +1,7 @@
 import { check } from 'express-validator/check';
 import moment from 'moment';
 import notEmpty from '../helpers/notEmpty';
+import validateDate from '../helpers/validateDate';
 import isUsersMeal from '../helpers/isUsersMeal';
 import checkMealsId from '../helpers/checkMealsId';
 
@@ -11,15 +12,16 @@ export default {
     check('date')
       .trim()
       .optional({ checkFalsy: true })
-      .custom(value => notEmpty(value, 'Date cannot be empty'))
-      .matches(/^\d{4}-\d{1,2}-\d{1,2}$/)
-      .withMessage('Date is invalid, valid format is YYYY-MM-DD')
+      .custom(value => notEmpty(value, 'Date field cannot be left blank'))
+      .custom(value => validateDate(value))
       .isAfter(yesterday)
       .withMessage('Date must be either today or in the future'),
     check('meals')
       .exists()
       .withMessage('Meals must be specified')
-      .custom(value => notEmpty(value, 'Meals cannot be empty'))
+      .custom(value => notEmpty(value, 'Meals field cannot be left blank'))
+      .custom(value => Array.isArray(value))
+      .withMessage('Meals must be an array of Meal Ids')
       .custom(value => checkMealsId(value))
       .custom(async (value, { req }) => {
         await isUsersMeal(value, req.userId).then(err => err);
@@ -34,10 +36,19 @@ export default {
       .withMessage('Menu dates cannot be changed'),
     check('meals')
       .optional()
-      .custom(value => notEmpty(value, 'Meals cannot be empty'))
+      .custom(value => notEmpty(value, 'If provided, meals field cannot be left blank'))
+      .custom(value => Array.isArray(value))
+      .withMessage('Meals must be an array of Meal Ids')
       .custom(value => checkMealsId(value))
       .custom(async (value, { req }) => {
         await isUsersMeal(value, req.userId).then(err => err);
       }),
   ],
+  retrieve: [
+    check('date')
+      .trim()
+      .optional()
+      .custom(value => notEmpty(value, 'Date field cannot be left blank'))
+      .custom(value => validateDate(value)),
+  ]
 };

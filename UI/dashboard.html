@@ -27,7 +27,7 @@
           <a href="#" id="dropdown-toggler" class="link">
             <img src="./assets/img/notif.png" alt="notification bell" id="dropdown-img">
           </a>
-          <div class="dropdown-content" id="dropdown-content">
+          <div class="dropdown-content admin-dropdown-content" id="dropdown-content">
             <a href="#" class="read">User just ordered your menu</a>
             <a href="#">User just ordered your menu</a>
             <a href="#" class="read">User just ordered your menu</a>
@@ -68,7 +68,7 @@
         </div>
       </div>
     </div>
-    <div class="content-wrapper dashboard">
+    <div class="content-wrapper dashboard" id="has-modal">
       <div class="date d-none-md">
         <h2>Thursday, 19th April 2018 &nbsp; &nbsp; 18:00</h2>
       </div>
@@ -184,6 +184,19 @@
   </div>
   <div class="footer">
     <p>&copy; 2018. Iveren Shaguy. All images were gottem from Google and are not mine.</p>
+  </div>
+  <div class="modal" id="notif-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="close">
+          <a href="#" aria-hidden="true" id="modal-close-icon">&times;</a>
+        </div>
+      </div>
+      <hr>
+      <div class="modal-body">
+        <p>A user just ordered your meal</p>
+      </div>
+    </div>
   </div>
   <script src="./assets/js/jquery-3.3.1.min.js"></script>
   <script src="./assets/js/main.js"></script>

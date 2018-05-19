@@ -21,7 +21,7 @@ const notFound = (message, request, method, data, url, token) => {
         .send(data)
         .end((err, res) => {
           expect(res.statusCode).to.equal(404);
-          expect(res.body.error).to.equal('Not Found');
+          expect(res.body.error).to.equal('Item Not Found');
 
           if (err) {
             return done(err);

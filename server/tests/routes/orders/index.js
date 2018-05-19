@@ -1,4 +1,5 @@
-import './getOrders.test';
 import './addOrder.test';
 import './editOrder.test';
-import './deleteOrder.test';
+import './deliverOrder.test';
+import './getOrders.test';
+import './orderEvent.test';

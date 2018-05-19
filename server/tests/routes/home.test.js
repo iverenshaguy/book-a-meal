@@ -44,7 +44,7 @@ describe('API Home Routes', () => {
       .get('/api/fallback')
       .end((err, res) => {
         expect(res.statusCode).to.equal(404);
-        expect(res.body.message).to.equal('Not Found');
+        expect(res.body.message).to.equal('Item Not Found');
 
         if (err) return done(err);
         done();
@@ -56,7 +56,7 @@ describe('API Home Routes', () => {
       .get('/fallback')
       .end((err, res) => {
         expect(res.statusCode).to.equal(404);
-        expect(res.body.message).to.equal('Not Found');
+        expect(res.body.message).to.equal('Item Not Found');
 
         if (err) return done(err);
         done();

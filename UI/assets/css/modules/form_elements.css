@@ -130,6 +130,7 @@ select {
     border: 0;
     /* font-size: 0.9em; */
     padding-left: 0em;
+    background-color: inherit;
 }
 
 select.meal-options {
@@ -144,4 +145,6 @@ option {
 .order-input {
     width: 25px;
     outline: none;
+    border: none;
+    background-color: inherit;
 }

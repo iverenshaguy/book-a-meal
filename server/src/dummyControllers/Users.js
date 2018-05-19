@@ -1,11 +1,10 @@
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
 import usersDB from '../../data/users.json';
-import PasswordHash from '../helpers/PasswordHash';
 
 const token = '68734hjsdjkjksdjkndjsjk78938823sdvzgsuydsugsujsdbcuydsiudsy';
 const defaultUserObject = {
-  firstname: null,
+  username: null,
   businessName: null,
   email: null,
   password: null, // for testing reference, won't be in real database
@@ -32,11 +31,11 @@ class Users {
    */
   static async register(req, res) {
     // encrypt password
-    const hash = await PasswordHash.hashPassword(req.body.password);
+    // const hash = await PasswordHash.hashPassword(req.body.password);
     const newUser = { ...defaultUserObject, ...req.body };
-    newUser.passwordHash = hash;
+    // newUser.passwordHash = hash;
     newUser.email = req.body.email.toLowerCase();
-    newUser.role = req.body.role.toLowerCase();
+    newUser.role = req.body.role;
     newUser.userId = uuidv4();
     delete newUser.password;
     delete newUser.passwordConfirm;
@@ -47,7 +46,7 @@ class Users {
 
     delete newUser.passwordHash;
 
-    res.status(201).send({
+    res.status(201).json({
       user: newUser,
       token
     });
@@ -66,7 +65,7 @@ class Users {
       .find(user => user.email === req.body.email && user.password === req.body.password);
 
     if (!authUser) {
-      return res.status(401).send({
+      return res.status(401).json({
         error: 'Invalid Credentials'
       });
     }
@@ -76,7 +75,7 @@ class Users {
     delete user.password;
     delete user.passwordHash;
 
-    return res.status(200).send({ user, token });
+    return res.status(200).json({ user, token });
   }
 }
 

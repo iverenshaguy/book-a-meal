@@ -26,54 +26,24 @@ export default {
       allowNull: {
         args: false,
         msg: 'This is a required field'
-      },
-      unique: true,
-      validate: {
-        is: {
-          args: /^[a-z 0-9 ,.'-()\s]+$/i,
-          msg: 'Input is not valid'
-        },
-        notEmpty: {
-          args: true,
-          msg: 'Input cannot be empty'
-        }
       }
     },
     imageURL: {
       type: Sequelize.TEXT,
-      allowNull: false,
-      validate: {
-        isUrl: true,
-        notEmpty: {
-          args: true,
-          msg: 'Input cannot be empty'
-        }
-      }
+      allowNull: false
     },
     description: {
       type: Sequelize.TEXT,
       allowNull: true
     },
-    forVegetarians: {
+    vegetarian: {
       type: Sequelize.BOOLEAN,
       allowNull: true,
-      defaultValue: false,
-      validate: {
-        isIn: {
-          args: [
-            [false, true]
-          ],
-          msg: 'Please select a field'
-        }
-      }
+      defaultValue: false
     },
     price: {
-      type: Sequelize.INTEGER,
-      allowNull: false,
-      validate: {
-        isInt: true,
-        min: 100
-      }
+      type: Sequelize.DECIMAL(10, 2),
+      allowNull: false
     },
     createdAt: {
       allowNull: false,
@@ -81,6 +51,10 @@ export default {
     },
     updatedAt: {
       allowNull: false,
+      type: Sequelize.DATE
+    },
+    deletedAt: {
+      allowNull: true,
       type: Sequelize.DATE
     }
   }),

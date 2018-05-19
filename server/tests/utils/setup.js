@@ -11,6 +11,7 @@ const tokens = {
     email: 'ivy@shaguy.com',
     role: 'caterer',
   }, process.env.SECRET, { expiresIn: '1 hour' })}`,
+
   iverenToken: `Bearer ${jwt.sign({
     id: '61bb8f8d-3b59-4294-acbc-16623818c391',
     email: 'iveren@shaguy.com',

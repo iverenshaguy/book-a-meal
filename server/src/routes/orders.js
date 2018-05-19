@@ -4,19 +4,22 @@ import asyncWrapper from '../helpers/asyncWrapper';
 import ordersValidation from '../validations/orders';
 import Authorization from '../middlewares/Authorization';
 import ValidationHandler from '../middlewares/ValidationHandler';
-import OrderValidationHandler from '../middlewares/OrderValidationHandler';
+import TrimValues from '../middlewares/TrimValues';
 
 const ordersRoutes = express.Router();
-const authorization = new Authorization('user');
+const userAuth = new Authorization('user').authorizeRole;
+const catererAuth = new Authorization('caterer').authorizeRole;
+const validation = [ValidationHandler.validate, TrimValues.trim];
+const reqBodyValidation = [...validation, ValidationHandler.isEmptyReq];
 
-ordersRoutes.use(Authorization.authorize, authorization.authorizeRole);
+ordersRoutes.use(Authorization.authorize);
 
-ordersRoutes.get('/', asyncWrapper(Orders.getOrders));
-ordersRoutes.post(
-  '/', ordersValidation.create, OrderValidationHandler.isShopOpen,
-  ValidationHandler.validate, asyncWrapper(Orders.create)
-);
-ordersRoutes.put('/:orderId', ordersValidation.update, ValidationHandler.validate, asyncWrapper(Orders.update));
-ordersRoutes.delete('/:orderId', ordersValidation.delete, ValidationHandler.validate, asyncWrapper(Orders.delete));
+ordersRoutes.get('/', ordersValidation.retrieve, validation, asyncWrapper(Orders.getOrders));
+ordersRoutes.post('/:orderId/deliver', catererAuth, ordersValidation.deliver, reqBodyValidation, asyncWrapper(Orders.deliver));
+
+ordersRoutes.use(userAuth);
+
+ordersRoutes.post('/', ValidationHandler.isShopOpen, ordersValidation.create, reqBodyValidation, asyncWrapper(Orders.create));
+ordersRoutes.put('/:orderId', ordersValidation.update, reqBodyValidation, asyncWrapper(Orders.update));
 
 export default ordersRoutes;

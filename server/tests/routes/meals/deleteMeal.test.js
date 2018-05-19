@@ -16,8 +16,8 @@ describe('Meal Routes: Delete a meal option', () => {
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
       .end((err, res) => {
-        expect(res.statusCode).to.equal(204);
-        expect(res.body).to.deep.equal({});
+        expect(res.statusCode).to.equal(200);
+        expect(res.body.message).to.equal('Meal deleted successfully');
 
         if (err) return done(err);
         done();
@@ -25,7 +25,7 @@ describe('Meal Routes: Delete a meal option', () => {
   });
 
   invalidID(
-    'should return 422 error for invalid meal id', 'mealId',
+    'should return 400 error for invalid meal id', 'mealId',
     request(app), 'delete', undefined, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', foodCircleToken
   );
 

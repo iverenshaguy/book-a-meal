@@ -225,7 +225,7 @@ hr {
 @media (min-width: 451px) {
     .auth,
     .order-confirmation {
-        border-radius: 3px;
+        border-radius: 5px;
     }
 }
 
@@ -353,7 +353,7 @@ hr {
     }
 }
 
-.card,
+/* .card,
 .auth,
 .order-confirmation {
     min-width: 200px;
@@ -365,7 +365,7 @@ hr {
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-}
+} */
 
 .card-group .card {
     margin-bottom: 20px;
@@ -455,7 +455,7 @@ hr {
 }
 
 .order-confirmation {
-    border-radius: 5px;
+    /* border-radius: 5px; */
     margin-top: 50px;
     padding-bottom: 40px !important;
     background-color: rgba(255, 255, 255, 0.8);

@@ -1,10 +1,15 @@
 import express from 'express';
 import logger from 'morgan';
+import { config } from 'dotenv';
 import bodyParser from 'body-parser';
 import 'babel-polyfill';
 import apiRoutes from './routes';
 import errors from '../data/errors.json';
+import orderEmitter from './events/Orders';
 import ErrorHandler from './middlewares/ErrorHandler';
+import OrderHandler from './eventHandlers/Orders';
+
+config();
 
 // Set up the express app
 const app = express();
@@ -16,14 +21,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// Documentation
+app.use('/api/v1/docs', express.static('server/docs'));
+
 //  Connect all our routes to our application
 app.use('/api', apiRoutes);
-
-// Default catch-all route that sends back a not found warning for wrong api routes.
-app.get('/api/*', (req, res) =>
-  res.status(404).send({
-    message: errors['404']
-  }));
 
 app.get('/', (req, res) =>
   res.status(200).json({
@@ -31,11 +33,15 @@ app.get('/', (req, res) =>
     api: '/api'
   }));
 
-// Default catch-all route that sends back a not found warning for wrong routes.
+// Default catch-all route that sends back a Item Not Found warning for wrong routes.
 app.get('/*', (req, res) =>
-  res.status(404).send({
+  res.status(404).json({
     message: errors['404']
   }));
+
+orderEmitter.on('create', OrderHandler.startOrderProcess);
+
+orderEmitter.on('deliver', OrderHandler.markOrderAsDelivered);
 
 // Handle App Errors
 app.use(ErrorHandler.sendError);

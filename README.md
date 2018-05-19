@@ -24,10 +24,14 @@ Project is currently being built with the Project Management Tool, Pivotal Track
 You can find the template at [https://www.pivotaltracker.com/n/projects/2165637](https://www.pivotaltracker.com/n/projects/2165637)
 
 ### Template
-Template is hosted at [https://iverenshaguy.github.io/UI/index.html](https://iverenshaguy.github.io/UI/index.html)
+Template is hosted at [https://iverenshaguy.github.io/book-a-meal/UI/index.html](https://iverenshaguy.github.io/book-a-meal/UI/index.html)
 
-### API Deployment (Non-Persistent)
+### API Deployment
 API is deployed at [https://book-a-meal-sivy.herokuapp.com](https://book-a-meal-sivy.herokuapp.com)
+
+### Documentation
+Documentation is hosted at [https://book-a-meal-sivy.herokuapp.com/api/v1/docs]
+(https://book-a-meal-sivy.herokuapp.com/api/v1/docs)
 
 ## Technologies
 
@@ -85,7 +89,7 @@ API is deployed at [https://book-a-meal-sivy.herokuapp.com](https://book-a-meal-
 
 Users:
 `{
-  firstname: Favour,
+  username: Favour,
   email: favour@shaguy.com,
   password: favourshaguy,
   passwordConfirm: favourshaguy,
@@ -121,7 +125,7 @@ For Caterers:
   description: Meal contains 2 pieces of beef and other assorted meat and fish products
   price: 3000
   imageURL: http://koalaghana.com/wp-content/uploads/DSC02053.jpg
-  forVegetarians: false
+  vegetarian: false
 }`
 </td></tr>
 
@@ -205,10 +209,6 @@ _No of Occurence of MealId is the Quantity if Meal Ordered_
   deliveryAddress: 6, Church Street, Yaba
 }`
 </td></tr>
-
-<tr><td>DELETE</td> <td>api/v1/orders/:orderId</td> <td>Delete an Open Order</td><td>None</td></tr>
-
-<tr><td>GET</td> <td>api/v1/notifications</td> <td>Get All Notifications (Both Users and Caterers)</td><td>None</td></tr>
 
 </table>
 

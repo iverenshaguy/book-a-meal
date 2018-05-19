@@ -1,9 +1,6 @@
 import moment from 'moment';
 import db from '../models';
-import Notifications from './Notifications';
 import errors from '../../data/errors.json';
-import checkMenuUnique from '../helpers/checkMenuUnique';
-import removeDuplicates from '../helpers/removeDuplicates';
 
 /**
  * @exports
@@ -19,16 +16,75 @@ class Menu {
    * @returns {(function|object)} Function next() or JSON object
    */
   static async getMenuForDay(req, res) {
+    const { role } = req;
+
+    if (role === 'caterer') return Menu.getMenuForCaterer(req, res);
+    return Menu.getMenuForUser(req, res);
+  }
+
+  /**
+   * Gets the menu for the day
+   * @method getMenuForUser
+   * @memberof Meals
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  static async getMenuForUser(req, res) {
+    const date = moment().format('YYYY-MM-DD');
+
+    const menu = await db.Menu.findAll({
+      where: { date },
+      attributes: [['menuId', 'id'], 'date'],
+      include: [
+        {
+          model: db.User,
+          as: 'caterer',
+          attributes: [['userId', 'id'], 'businessName', 'businessPhoneNo', 'businessAddress', 'email'],
+        },
+        {
+          model: db.Meal,
+          as: 'meals',
+          attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price'],
+          through: {
+            attributes: []
+          }
+        }
+      ]
+    });
+
+    return res.status(200).json({ menu });
+  }
+
+  /**
+   * Gets the menu for the day
+   * @method getMenuForCaterer
+   * @memberof Meals
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  static async getMenuForCaterer(req, res) {
     const date = req.query.date || moment().format('YYYY-MM-DD');
-    const menu = await db.Menu.findOne({ where: { date } });
+
+    const menu = await db.Menu.findOne({
+      where: { date, userId: req.userId },
+      attributes: [['menuId', 'id'], 'date'],
+      include: [{
+        model: db.Meal,
+        as: 'meals',
+        attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price'],
+        through: {
+          attributes: []
+        }
+      }]
+    });
 
     if (!menu) {
-      return res.status(200).send({ message: 'No Menu is Available For This Day' });
+      return res.status(200).json({ message: 'You don\'t have a menu for this day' });
     }
 
-    const menuPerDay = await Menu.getMealsObject(menu).then(() => menu);
-
-    return res.status(200).send(menuPerDay);
+    return res.status(200).json(menu);
   }
 
   /**
@@ -47,28 +103,26 @@ class Menu {
     const defaultDate = moment().format('YYYY-MM-DD');
 
     req.body.date = req.body.date || defaultDate;
-    req.body.meals = removeDuplicates(req.body.meals);
+    req.body.meals = [...(new Set(req.body.meals))];
 
-    const isMenuUnique = await checkMenuUnique(req.body.date, userId);
+    const isMenuCreated = await db.Menu.findOne({ where: { date: req.body.date, userId } });
 
-    if (!isMenuUnique) return res.status(422).send({ error: 'Menu already exists for this day' });
+    if (isMenuCreated) return res.status(400).json({ error: 'Menu already exists for this day' });
 
-    const newMenu = await db.Menu.create({ date: req.body.date, userId }, { include: [db.User] })
-      .then(async (menu) => {
-        await menu.setMeals(req.body.meals, { through: db.MenuMeal });
-        await Menu.getMealsObject(menu);
+    const newMenu = await db.Menu.create({ date: req.body.date, userId }, {
+      attributes: [['menuId', 'id'], 'date'],
+      include: [{
+        model: db.User,
+        as: 'caterer'
+      }]
+    }).then(async (menu) => {
+      await menu.setMeals(req.body.meals, { through: db.MenuMeal });
+      await Menu.getArrayOfMeals(menu);
 
-        Notifications.create({
-          userId: null,
-          orderId: null,
-          menuId: req.body.menuId,
-          message: 'The menu for today was just added'
-        });
+      return Menu.getMenuObject(menu);
+    });
 
-        return menu;
-      });
-
-    return res.status(201).send(newMenu);
+    return res.status(201).json(newMenu);
   }
 
 
@@ -81,39 +135,54 @@ class Menu {
    * @returns {(function|object)} Function next() or JSON object
    */
   static async update(req, res) {
-    if (!Object.values(req.body).length) return res.status(422).send({ error: errors.empty });
-
     const menu = await db.Menu
       .findOne({ where: { menuId: req.params.menuId, userId: req.userId } });
 
-    if (!menu) return res.status(404).send({ error: errors[404] });
+    if (!menu) return res.status(404).json({ error: errors[404] });
 
     if (menu.date.toString() < moment().format('YYYY-MM-DD').toString()) {
-      return res.status(422).send({ error: 'Menu Expired' });
+      return res.status(400).json({ error: 'Menu Expired' });
     }
 
-    req.body.meals = removeDuplicates(req.body.meals);
+    req.body.meals = [...(new Set(req.body.meals))];
 
     await menu.setMeals([], { through: db.MenuMeal });
+
     const updatedMenu = await menu.setMeals(req.body.meals, { through: db.MenuMeal })
       .then(async () => {
-        await Menu.getMealsObject(menu);
-        return menu;
+        await Menu.getArrayOfMeals(menu);
+
+        return Menu.getMenuObject(menu);
       });
 
-    return res.status(200).send(updatedMenu);
+    return res.status(200).json(updatedMenu);
+  }
+
+  /**
+   * Gets menu object for created and updated menu
+   * @method getMenuObject
+   * @memberof Controller
+   * @param {object} menu
+   * @returns {object} Menu object
+   */
+  static getMenuObject(menu) {
+    return {
+      id: menu.getDataValue('menuId'),
+      date: menu.getDataValue('date'),
+      meals: menu.dataValues.meals
+    };
   }
 
   /**
    * Gets meals for the Menu
-   * @method getMealsObject
+   * @method getArrayOfMeals
    * @memberof Controller
-   * @param {OBJECT} menu
+   * @param {object} menu
    * @returns {array} Array of Meals
    */
-  static async getMealsObject(menu) {
+  static async getArrayOfMeals(menu) {
     menu.dataValues.meals = await menu.getMeals({
-      attributes: ['mealId', 'title', 'imageURL', 'description', 'forVegetarians', 'price'],
+      attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price'],
       joinTableAttributes: []
     });
   }
