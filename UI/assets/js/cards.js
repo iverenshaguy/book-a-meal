@@ -84,7 +84,7 @@ const catererMealCards = cardInfo.map(card =>
       <img src="${card.img}" alt="meal">
       <div class="dropdown card-dropdown">
         <a href="#" id="dropdown-toggler" class="dropdown-menu">&hellip;</a>
-        <div class="dropdown-content" data-dropdown="" id="dropdown-content">
+        <div class="dropdown-content meal" data-dropdown="" id="dropdown-content">
           <a href="#add-edit-modal" id="edit-meal" >Edit</a>
           <a href="#add-edit-modal" id="delete-meal">Delete</a>
         </div>

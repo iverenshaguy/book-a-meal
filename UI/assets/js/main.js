@@ -5,6 +5,7 @@ window.onload = function () {
   const mealCardBtns = document.getElementsByClassName('meal-card-btn');
   const mealModal = document.getElementById('meal-modal');
   const notifModal = document.getElementById('notif-modal');
+  const orderSuccessModal = document.getElementById('order-success-modal');
   const orderDetailsModal = document.getElementById('order-details-modal');
   const modalTitle = document.getElementById('modal-title-h3');
   const modalBody = document.getElementsByClassName('modal-body')[0];
@@ -37,7 +38,7 @@ window.onload = function () {
   if (backBtn) backBtn.onclick = () => redirect('./user-menu.html');
 
   if (checkoutBtn) checkoutBtn.onclick = e => {
-    showModal(e, notifModal)
+    showModal(e, orderSuccessModal)
   };
 
   if (mealCardBtns.length) for (let i = 0; i < mealCardBtns.length; i++) {
@@ -61,36 +62,65 @@ window.onload = function () {
   if (dropdowns.length) for (let i = 0; i < dropdowns.length; i++) {
     dropdowns[i].addEventListener('click', function (e) {
       e.preventDefault();
+      const target = e.target;
+      let wrapper = e.target.children[1];
 
-      if (e.target !== e.currentTarget && e.target.id === 'dropdown-toggler') {
-        const target = e.target;
-        const wrapper = target.nextSibling.nextSibling;
+      if (target.id === 'dropdown-img') {
+        wrapper = target.parentNode.nextSibling.nextSibling;
+        toggleDropdown(target, wrapper);
+      }
 
+      if (target.id === 'dropdown-toggler') {
+        wrapper = target.nextSibling.nextSibling;
+        toggleDropdown(target, wrapper);
+      }
+
+      if (target.className.includes('circle-click')) {
+        wrapper = document.getElementsByClassName('profile-dropdown-content')[0];
         toggleDropdown(target, wrapper);
       }
 
       if (e.target !== e.currentTarget && (e.target.id === 'edit-meal' || e.target.id === 'delete-meal')) {
         showModal(e, mealModal);
-      }
-
-      if (e.target !== e.currentTarget && e.target.id === 'dropdown-img') {
-        const target = e.target;
-        const wrapper = target.parentNode.nextSibling.nextSibling;
-
-        toggleDropdown(target, wrapper);
+        return;
       }
 
       if (e.target !== e.currentTarget && e.target.id === 'logout') {
-        window.location.href = './login.html'
+        window.location.href = './login.html';
+        return;
       }
 
       if (e.target !== e.currentTarget && e.target.id === 'user-order-history') {
-        window.location.href = './user-order-history.html'
+        window.location.href = './user-order-history.html';
+        return;
       }
 
       if (e.target !== e.currentTarget && e.target.id === 'user-menu') {
-        window.location.href = './user-menu.html'
+        window.location.href = './user-menu.html';
+        return;
       }
+
+      e.stopPropagation();
+    }, false);
+
+    dropdowns[i].addEventListener('mouseenter', function (e) {
+      if (isMobileDevice()) return;
+      const wrapper = e.target.children[1];
+
+      e.target.style.color = 'white';
+      wrapper.classList.add('show');
+      e.target.style.color = '';
+
+      e.stopPropagation();
+    }, false);
+
+    dropdowns[i].addEventListener('mouseleave', function (e) {
+      if (isMobileDevice()) return;
+      const wrapper = e.target.children[1];
+
+      e.target.style.color = 'white';
+      wrapper.classList.remove('show');
+      e.target.style.color = '';
 
       e.stopPropagation();
     }, false);
@@ -134,12 +164,22 @@ window.onload = function () {
 
   $('#select-menu-btn').on('click', function(e) {
     window.location.href = './admin-menu.html';
-  })
-  
+  });
+
+  // Gotten from coderwall.com article
+  function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+  }
 
   function toggleDropdown(target, wrapper) {
+    console.log(wrapper.classList);
     target.style.color = 'white';
     wrapper.classList.toggle('show');
+    target.style.color = '';
+  }
+
+  function hideDropdown(target, wrapper) {
+    wrapper.classList.remove('show');
     target.style.color = '';
   }
 
@@ -171,9 +211,11 @@ window.onload = function () {
     e.preventDefault();
     contentWithModal.style.position = 'relative';
 
-    if (e.target !== e.currentTarget && e.target.id === 'modal-close-icon') {
-      e.target.closest('.modal').classList.remove('show');
-    }
+    // if (e.target !== e.currentTarget && e.target.id === 'modal-close-icon') {
+    //   e.target.closest('.modal').classList.remove('show');
+    // }
+
+    $('.modal').removeClass('show');
 
     e.stopPropagation();
   }
@@ -208,7 +250,6 @@ window.onload = function () {
   
       <div class="form-input">
         <label for="description">Description <span class="text-small">(Not more than 65 characters)</span></label>
-        <br/>
         <textarea rows="2" required id="description" name="description" maxLength=65>${mealDesc}</textarea>
       </div>
   
@@ -270,5 +311,13 @@ window.onload = function () {
       .removeClass('warning').removeClass('success');
     if (e.target.value === 'Pending') $(this).addClass('warning')
       .removeClass('success').removeClass('danger');
+  });
+
+  $('.notification .dropdown-content a').on('click', function(e) {
+    showModal(e, notifModal);
+  });
+
+  $('.modal .close a').on('click', function(e) {
+    closeModal(e);
   });
 }

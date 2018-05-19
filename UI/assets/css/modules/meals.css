@@ -142,7 +142,7 @@
 }
 
 .meals .meal-card.order-meal-card .meal-card-body {
-    height: 180px;
+    height: 150px;
     /* padding-bottom: 0; */
 }
 
@@ -198,4 +198,17 @@
 .meals .meal-card .action-btns .btn.btn-sec-danger:focus,
 .meals .meal-card .action-btns .btn.btn-sec-danger:active {
     color: #b10000;
+}
+
+.meal-card.order-meal-card .meal-card-body {
+    flex-direction: column;
+    flex: 1;
+}
+
+.meal-card.order-meal-card .meal-card-body div:first-child {
+    height: 120px;
+}
+
+.meal-card.order-meal-card .meal-card-body div:first-child h3 {
+    margin: 0.5em 15px 0.3em;
 }

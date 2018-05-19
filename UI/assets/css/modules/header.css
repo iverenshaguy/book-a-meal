@@ -106,11 +106,17 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
 }
 
 .header .navbar.white-navbar .navlinks .user-info .dropdown,
 .header .navbar.white-navbar .navlinks .user-info .circle {
     padding-right: 0px;
+}
+
+.header .dropdown,
+.header #dropdown-toggler {
+    cursor: pointer;
 }
 
 @media (min-width: 992px) {

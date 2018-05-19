@@ -37,12 +37,12 @@
         </a>
         <div class="user-info">
           <div class="dropdown">
-            <a href="#" id="dropdown-toggler" class="link circle">
-              <div class="username-circle" id="dropdown-img">
-                <p>I</p>
+            <a href="#" class="link circle circle-click">
+              <div class="username-circle circle-click">
+                <p class="circle-click">I&#9663;</p>
               </div>
             </a>
-            <div class="dropdown-content profile" id="dropdown-content">
+            <div class="dropdown-content profile profile-dropdown-content" id="dropdown-content">
               <a href="./user-menu.html" id="user-menu">Menu</a>
               <a href="./user-order-history.html" id="user-order-history">Order History</a>
               <a href="./login.html" id="logout">Logout</a>
@@ -54,7 +54,7 @@
       </div>
     </div>
   </div>
-  <div class="main-wrapper">
+  <div class="main-wrapper" id="has-modal">
     <div class="order-confirmation">
       <div id="one">
         <h2>Cart</h2>
@@ -62,7 +62,7 @@
         <div class="order-summary">
           <div>
             <p>
-              <input type="number" class="order-input" value="2">
+              <input type="number" class="order-input" value="2" min="1">
             </p>
             <select class="meal-options">
               <option>Jollof Rice</option>
@@ -73,7 +73,7 @@
           </div>
           <div>
             <p>
-              <input type="number" class="order-input" value="1">
+              <input type="number" class="order-input" value="1" min="1">
             </p>
             <select class="meal-options">
               <option>Jollof Rice</option>
@@ -84,7 +84,7 @@
           </div>
           <div>
             <p>
-              <input type="number" class="order-input" value="1">
+              <input type="number" class="order-input" value="1" min="1">
             </p>
             <select class="meal-options">
               <option>Jollof Rice</option>
@@ -95,7 +95,7 @@
           </div>
           <div>
             <p>
-              <input type="number" class="order-input" value="1">
+              <input type="number" class="order-input" value="1" min="1">
             </p>
             <select class="meal-options">
               <option>Jollof Rice</option>
@@ -120,7 +120,7 @@
           </div>
           <div>
             <p>Total</p>
-            <h1>&#8358;1700.00</h1>
+            <h2>&#8358;1700.00</h2>
           </div>
         </div>
         <br />
@@ -186,7 +186,7 @@
           </div>
           <div>
             <p>Total</p>
-            <h1>&#8358;1700.00</h1>
+            <h2>&#8358;1700.00</h2>
           </div>
         </div>
         <div class="customer-details">
@@ -208,7 +208,7 @@
   <div class="footer">
     <p>&copy; 2018. Iveren Shaguy. All images were gottem from Google and are not mine.</p>
   </div>
-  <div class="modal" id="notif-modal">
+  <div class="modal" id="order-success-modal">
     <div class="modal-content">
       <div class="modal-header">
         <div class="close">
@@ -218,6 +218,19 @@
       <hr>
       <div class="modal-body">
         <p class="text-center">Thank you for your order. Your belly will be filled up shortly</p>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="notif-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="close">
+          <a href="#" aria-hidden="true" id="modal-close-icon">&times;</a>
+        </div>
+      </div>
+      <hr>
+      <div class="modal-body">
+        <p>Caterer BellyFill added Jollof Rice to the Menu for the Day</p>
       </div>
     </div>
   </div>
