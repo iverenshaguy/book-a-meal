@@ -1,3 +1,4 @@
+import moment from 'moment';
 import sequelize, { Op } from 'sequelize';
 import db from '../models';
 import errors from '../../data/errors.json';
@@ -36,9 +37,8 @@ class Orders {
    * to user and were created on that date
    */
   static async getUsersOrders(req, res) {
-    const orders = await db.Order.findAll({
+    let orders = await db.Order.findAll({
       where: { userId: req.userId },
-      attributes: [['orderId', 'id'], 'deliveryAddress', 'deliveryPhoneNo', 'status', 'createdAt', 'updatedAt'],
       include: [{
         model: db.Meal,
         as: 'meals',
@@ -52,7 +52,10 @@ class Orders {
       }]
     });
 
-    orders.map(order => Orders.mapQuantityToMeal(order));
+    orders = orders.map((order) => {
+      Orders.mapQuantityToMeal(order);
+      return Orders.getOrderObject(order);
+    });
 
     const pendingOrders = Orders.pendingOrders(req.role, orders);
 
@@ -82,8 +85,7 @@ class Orders {
       };
     }
 
-    const orders = await db.Order.findAll({
-      attributes: [['orderId', 'id'], 'deliveryAddress', 'deliveryPhoneNo', 'status', 'createdAt', 'updatedAt'],
+    let orders = await db.Order.findAll({
       where,
       include: [
         { model: db.User, as: 'customer', attributes: ['firstname', 'lastname', 'email'] },
@@ -101,7 +103,11 @@ class Orders {
         }]
     });
 
-    orders.map(order => Orders.mapQuantityToMeal(order));
+    orders = orders.map((order) => {
+      Orders.mapQuantityToMeal(order);
+      return Orders.getOrderObject(order);
+    });
+
     const totalCashEarned = Orders.totalCashEarned(orders);
     const pendingOrders = Orders.pendingOrders(req.role, orders);
 
@@ -330,8 +336,8 @@ class Orders {
       deliveryAddress: order.getDataValue('deliveryAddress'),
       deliveryPhoneNo: order.getDataValue('deliveryPhoneNo'),
       status: order.getDataValue('status'),
-      createdAt: order.getDataValue('createdAt'),
-      updatedAt: order.getDataValue('updatedAt'),
+      createdAt: moment(order.getDataValue('createdAt')).format(),
+      updatedAt: moment(order.getDataValue('updatedAt')).format(),
       meals: order.dataValues.meals
     };
   }
