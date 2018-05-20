@@ -58,7 +58,7 @@ Documentation is hosted at [https://book-a-meal-sivy.herokuapp.com/api/v1/docs](
 
 ## Features
 
-### Caterer
+### Caterers
 * Signup and Login
 * Create Meals
 * Modiy Meals
@@ -68,13 +68,12 @@ Documentation is hosted at [https://book-a-meal-sivy.herokuapp.com/api/v1/docs](
 * Get All Caterer's Orders on the platform
 * Get Order Notifications
 
-### Users
+### Customers
 * Signup and Login
 * Make an Order
 * Modify an Order
 * Get Menu for the Day
 * Get Meal Order History
-* Get Order Notifications
 * Get New Menu Notifications
 
 ## Getting Started
