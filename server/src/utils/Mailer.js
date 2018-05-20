@@ -57,7 +57,7 @@ class Mailer {
           const message =
             `<div>
             <p style="text-transform: capitalize;">Hello ${customer.firstname},</p>
-            <p>${businessName} just added the following meals to the menu for today</p>
+            <p>${businessName} just added the following meal(s) to the menu for today</p>
             <ul>
             ${mealList.join('')}
             </ul>
@@ -70,6 +70,46 @@ class Mailer {
             subject: `${businessName}'s Menu for Today`,
             message
           });
+        });
+      });
+  }
+
+  /**
+   * Sends Mail
+   * @method catererOrderMail
+   * @memberof Mailer
+   * @param {object} order
+   * @param {object} customer
+   * @param {string} catererId
+   * @returns {nothing} returns nothing
+   */
+  static catererOrderMail(order, customer, catererId) {
+    return db.User.findOne({ where: { userId: catererId }, attributes: ['userId', 'businessName', 'email'] })
+      .then((caterer) => {
+        const mealList = order.meals[catererId].map(meal =>
+          `<tr><td>${meal.title} (${meal.OrderItem.quantity})</td><td>&#8358;${meal.price}</td></tr>`);
+        const totalPrice = order.meals[catererId].reduce((total, meal) =>
+          total + (meal.price * meal.OrderItem.quantity), 0);
+        const message =
+            `<div>
+            <p style="text-transform: capitalize;">Hello ${caterer.businessName},</p>
+            <p>${customer.firstname} ${customer.lastname} just ordered your meal(s).</p>
+            <p>Order Details: </p>
+            <table>
+            <tbody>
+              ${mealList.join('')}
+            </tbody>
+            <tfoot><tr><th></th><th>&#8358;${totalPrice}</th></tr></tfoot>
+            </table>
+            <p>See your <a href='http://${url}/${caterer.userId}/orders'>order details</a></p>
+            <p>Remember that a happy customer keeps coming back.</p>
+            <p>Have a great day filling bellies.</p>
+            </div>`;
+
+        return Mailer.sendMail({
+          to: caterer.email,
+          subject: `Order #${order.orderId}`,
+          message
         });
       });
   }

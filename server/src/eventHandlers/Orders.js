@@ -1,3 +1,6 @@
+import NotificationHandler from './Notifications';
+import mapCaterersOrder from '../helpers/mapCaterersOrder';
+
 let updateOrder;
 
 /**
@@ -11,15 +14,19 @@ class Orders {
    * @method startOrderProcess
    * @memberof Orders
    * @param {object} order
+   * @param {string} userId
    * @returns {nothing} returns nothing
    */
-  static startOrderProcess(order) {
+  static startOrderProcess(order, userId) {
     // expiry is 15 minutes
     clearTimeout(updateOrder);
 
     updateOrder = setTimeout(() => order.reload().then(() => {
       if (order.status !== 'canceled') {
-        order.update({ status: 'pending' }).then(() => order);
+        order.update({ status: 'pending' }).then(async () => {
+          const mappedOrder = await mapCaterersOrder(order);
+          return NotificationHandler.notifyCaterer(mappedOrder, userId);
+        });
       }
     }), process.env.EXPIRY);
   }
