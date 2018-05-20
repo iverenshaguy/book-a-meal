@@ -27,11 +27,10 @@ You can find the template at [https://www.pivotaltracker.com/n/projects/2165637]
 Template is hosted at [https://iverenshaguy.github.io/book-a-meal/UI/index.html](https://iverenshaguy.github.io/book-a-meal/UI/index.html)
 
 ### API Deployment
-API is deployed at [https://book-a-meal-sivy.herokuapp.com](https://book-a-meal-sivy.herokuapp.com)
+API is deployed at [https://book-a-meal-sivy.herokuapp.com/api/v1](https://book-a-meal-sivy.herokuapp.com/api/v1)
 
 ### Documentation
-Documentation is hosted at [https://book-a-meal-sivy.herokuapp.com/api/v1/docs]
-(https://book-a-meal-sivy.herokuapp.com/api/v1/docs)
+Documentation is hosted at [https://book-a-meal-sivy.herokuapp.com/api/v1/docs](https://book-a-meal-sivy.herokuapp.com/api/v1/docs)
 
 ## Technologies
 
@@ -75,142 +74,8 @@ Documentation is hosted at [https://book-a-meal-sivy.herokuapp.com/api/v1/docs]
 * Modify an Order
 * Get Menu for the Day
 * Get Meal Order History
+* Get Order Notifications
 * Get New Menu Notifications
-
-## API Endpoints
-
-###
-
-<table>
-
-<tr><th>VERB</th><th>ENDPOINT</th><th>FUNCTIONALITY</th><th>SAMPLE DATA</th></tr>
-
-<tr><td>POST</td> <td>api/v1/auth/signup</td> <td>Signup</td><td>
-
-Users:
-`{
-  username: Favour,
-  email: favour@shaguy.com,
-  password: favourshaguy,
-  passwordConfirm: favourshaguy,
-  role: user
-}`
-
-For Caterers:
-`{
-  businessName: FoodCircle,
-  businessAddress: 4, Church Street, Yaba, Lagos,
-  businessPhoneNo: +2348123456789,
-  email: food@circle.com,
-  password: foodcircle,
-  passwordConfirm: foodcircle
-  role: caterer
-}`
-</td></tr>
-
-<tr><td>POST</td> <td>api/v1/auth/signin</td> <td>Signin</td><td>
-
-`{
-  email: iveren@shaguy.com,
-  password: iverenshaguy
-}`
-</td></tr>
-
-<tr><td>GET</td> <td>api/v1/meals</td> <td>Get All Meal Options</td><td>None</td></tr>
-
-<tr><td>POST</td> <td>api/v1/meals</td> <td> Add a Meal Option</td><td>
-
-`{
-  title: Wheat and Ogbono
-  description: Meal contains 2 pieces of beef and other assorted meat and fish products
-  price: 3000
-  imageURL: http://koalaghana.com/wp-content/uploads/DSC02053.jpg
-  vegetarian: false
-}`
-</td></tr>
-
-<tr><td>PUT</td> <td>api/v1/meals/:mealId</td>  <td>Modify an Existing Meal Option</td><td>
-
-`{
-  description: Meal contains 3 pieces of beef and other assorted meat and fish products
-  price: 4000
-}`
-</td></tr>
-
-<tr><td>DELETE</td> <td>api/v1/meals/:mealId</td> <td>Delete an Existing Meal Option</td><td>None</td></tr>
-
-<tr><td>GET</td> <td>api/v1/menu</td> <td>Get Menu for Today</td><td>None</td></tr>
-
-<tr><td>GET</td> <td>api/v1/menu?date={YYYY-MM-DD}</td><td>Get Menu for a Specific Day</td><td>None</td></tr>
-
-<tr><td>POST</td> <td>api/v1/menu</td> <td>Add Meal Options to Menu for the Day</td>
-<td>
-
-For a Future Date
-`{
-  date: 2018-05-17,
-  meals: [
-    81211c24-51c0-46ec-b1e0-18db55880958,
-    36d525d1-efc9-4b75-9999-3e3d8dc64ce3
-    baa0412a-d167-4d2b-b1d8-404cb8f02631
-  ]
-}`
-
-For Today:
-`{
-  meals: [
-    81211c24-51c0-46ec-b1e0-18db55880958,
-    36d525d1-efc9-4b75-9999-3e3d8dc64ce3
-    baa0412a-d167-4d2b-b1d8-404cb8f02631
-  ]
-}`
-</td></tr>
-
-<tr><td>PUT</td> <td>api/v1/menu/:menuId</td> <td>Modify an Existing Menu</td>
-<td>
-
-`{
-  meals: [
-    36d525d1-efc9-4b75-9999-3e3d8dc64ce3
-    baa0412a-d167-4d2b-b1d8-404cb8f02631
-  ]
-}`
-</td></tr>
-
-<tr><td>GET</td> <td>api/v1/orders</td> <td>Get All Orders</td><td>None</td></tr>
-
-<tr><td>POST</td> <td>api/v1/orders</td> <td>Order Meals</td>
-<td>
-
-`{
-  meals: [
-    36d525d1-efc9-4b75-9999-3e3d8dc64ce3
-    baa0412a-d167-4d2b-b1d8-404cb8f02631
-    81211c24-51c0-46ec-b1e0-18db55880958
-    baa0412a-d167-4d2b-b1d8-404cb8f02631
-    81211c24-51c0-46ec-b1e0-18db55880958
-  ]
-  deliveryAddress: 4, Church Street, Yaba
-  deliveryPhoneNo: +2348134567890
-}`
-
-_No of Occurence of MealId is the Quantity if Meal Ordered_
-</td>
-</tr>
-
-<tr><td>PUT</td> <td>api/v1/orders/:orderId</td> <td>Modify an Open Order</td>
-<td>
-
-`{
-  meals: [
-    81211c24-51c0-46ec-b1e0-18db55880958
-    baa0412a-d167-4d2b-b1d8-404cb8f02631
-  ]
-  deliveryAddress: 6, Church Street, Yaba
-}`
-</td></tr>
-
-</table>
 
 ## Getting Started
 

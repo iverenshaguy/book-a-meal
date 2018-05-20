@@ -3,10 +3,10 @@ import { expect } from 'chai';
 import app from '../../../src/app';
 import notAdmin from '../../utils/notAdmin';
 import unAuthorized from '../../utils/unAuthorized';
-import { addMenu as data, tomorrow } from '../../utils/data';
+import { addMenu as data, tomorrow, currentDay } from '../../utils/data';
 import { tokens } from '../../utils/setup';
 
-const { foodCircleToken } = tokens;
+const { foodCircleToken, bellyFillToken } = tokens;
 const {
   menu1, menu3, badMenu
 } = data;
@@ -24,6 +24,24 @@ describe('Menu Routes: Add a new menu', () => {
         expect(res.body).to.include.keys('date');
         expect(res.body.date).to.equal(tomorrow);
         expect(res.body.meals[0].id).to.equal('baa0412a-d167-4d2b-b1d8-404cb8f02631');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
+  it('should add a menu for authenticated user, for the current day', (done) => {
+    request(app)
+      .post('/api/v1/menu')
+      .set('Accept', 'application/json')
+      .set('authorization', bellyFillToken)
+      .send({ meals: ['46ced7aa-eed5-4462-b2c0-153f31589bdd'] })
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(201);
+        expect(res.body).to.include.keys('id');
+        expect(res.body).to.include.keys('date');
+        expect(res.body.date).to.equal(currentDay);
+        expect(res.body.meals[0].id).to.equal('46ced7aa-eed5-4462-b2c0-153f31589bdd');
 
         if (err) return done(err);
         done();

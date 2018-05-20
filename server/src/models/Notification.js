@@ -18,17 +18,17 @@ export default (sequelize) => {
   );
 
   Notification.associate = (models) => {
-    Notification.belongsTo(models.User, {
+    Notification.hasOne(models.User, {
       foreignKey: 'userId',
       onDelete: 'CASCADE',
     });
 
-    Notification.belongsTo(models.Menu, {
+    Notification.hasOne(models.Menu, {
       foreignKey: 'menuId',
       onDelete: 'CASCADE',
     });
 
-    Notification.belongsTo(models.Order, {
+    Notification.hasOne(models.Order, {
       foreignKey: 'orderId',
       onDelete: 'CASCADE',
     });

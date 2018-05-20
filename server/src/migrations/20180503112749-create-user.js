@@ -31,7 +31,7 @@ export default {
       allowNull: false
     },
     role: {
-      type: Sequelize.ENUM('caterer', 'user', 'admin'),
+      type: Sequelize.ENUM('caterer', 'customer', 'admin'),
       allowNull: false
     },
     businessName: {

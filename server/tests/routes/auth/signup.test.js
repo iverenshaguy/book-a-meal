@@ -52,9 +52,8 @@ describe('Signup Routes', () => {
     it('returns validation errors for invalid username data', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
-        .send({ role: 'user', firstname: '6848jkkl()', lastname: '6848jkkl()' })
+        .send({ role: 'customer', firstname: '6848jkkl()', lastname: '6848jkkl()' })
         .end((err, res) => {
-          // userToken = res.body.token;
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body.errors.firstname.msg).to.equal('Firstname can only contain letters and the characters (\'-)');
@@ -68,9 +67,8 @@ describe('Signup Routes', () => {
     it('returns validation errors for extra length firstname data', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
-        .send({ role: 'user', firstname: longusername, lastname: longusername })
+        .send({ role: 'customer', firstname: longusername, lastname: longusername })
         .end((err, res) => {
-          // userToken = res.body.token;
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body.errors.firstname.msg).to.equal('Firstname must not be more than 40 characters');
@@ -89,7 +87,7 @@ describe('Signup Routes', () => {
           // userToken = res.body.token;
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
-          expect(res.body.errors.role.msg).to.equal('Role must be specified as either caterer or user');
+          expect(res.body.errors.role.msg).to.equal('Role must be specified as either caterer or customer');
 
           if (err) return done(err);
           done();

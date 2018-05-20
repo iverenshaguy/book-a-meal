@@ -37,7 +37,7 @@ export default {
       businessAddress: null,
       createdAt: '2018-05-06T00:47:03.687Z',
       updatedAt: '2018-05-06T00:47:03.687Z',
-      role: 'user'
+      role: 'customer'
     },
     {
       userId: 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac',
@@ -50,7 +50,7 @@ export default {
       businessAddress: null,
       createdAt: '2018-05-06T00:47:03.687Z',
       updatedAt: '2018-05-06T00:47:03.687Z',
-      role: 'user'
+      role: 'customer'
     },
     {
       userId: 'ac1b253c-6b33-439b-ab6f-805a4fdd2e05',

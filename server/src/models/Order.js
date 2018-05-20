@@ -46,6 +46,11 @@ export default (sequelize) => {
       through: models.OrderItem,
       foreignKey: 'orderId'
     });
+
+    Order.hasMany(models.Notification, {
+      foreignKey: 'orderId',
+      as: 'notifications'
+    });
   };
 
   return Order;
