@@ -26,23 +26,26 @@ class Notifications {
     });
   }
 
-  // /**
-  //  * Notifies User when an order has been placed by the User
-  //  * @method notifyUser
-  //  * @memberof Notifications
-  //  * @returns {nothing} returns nothing
-  //  */
-  // static notifyUser() {
-  // }
-
-  // /**
-  //  * Notifies Caterer when Caterer's meal has been ordered
-  //  * @method notifyCaterer
-  //  * @memberof Notifications
-  //  * @returns {nothing} returns nothing
-  //  */
-  // static notifyCaterer() {
-  // }
+  /**
+   * Notifies Caterer when Caterer's meal has been ordered
+   * @method notifyCaterer
+   * @memberof Notifications
+   * @param {object} order
+   * @param {string} userId
+   * @returns {nothing} returns nothing
+   */
+  static notifyCaterer(order, userId) {
+    db.User.findOne({ where: { userId } }).then((user) => {
+      Object.entries(order.meals).forEach(([catererId, mealArray]) => {
+        const meals = mealArray.map(meal => meal.title);
+        const message = `${user.firstname} ${user.lastname} just ordered meal(s); ${meals.join(', ')}.`;
+        return NotifController.create({ message, orderId: order.orderId, userId: catererId })
+          .then(() => {
+            Mailer.catererOrderMail(order, user, catererId);
+          });
+      });
+    });
+  }
 }
 
 export default Notifications;

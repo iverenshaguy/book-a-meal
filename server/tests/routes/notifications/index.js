@@ -1,1 +1,1 @@
-import './addNotification.test';
+import './notifications.test';

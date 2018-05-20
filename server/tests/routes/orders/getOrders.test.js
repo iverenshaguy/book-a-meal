@@ -76,8 +76,8 @@ describe('Order Routes: Get All Orders', () => {
     );
   });
 
-  describe('Get User Orders', () => {
-    it('should get all orders in the app for user', (done) => {
+  describe('Get Customer Orders', () => {
+    it('should get all orders in the app for customer', (done) => {
       request(app)
         .get('/api/v1/orders')
         .set('Accept', 'application/json')

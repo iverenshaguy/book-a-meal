@@ -136,7 +136,7 @@ class Orders {
         await Promise.all(promises);
         await Orders.getOrderMeals(order);
 
-        orderEmitter.emit('create', order);
+        orderEmitter.emit('create', order, req.userId);
 
         Orders.mapQuantityToMeal(order);
 
