@@ -42,6 +42,11 @@ export default (sequelize) => {
       through: models.MenuMeal,
       foreignKey: 'menuId',
     });
+
+    Menu.hasOne(models.Notification, {
+      foreignKey: 'menuId',
+      as: 'notifications'
+    });
   };
 
   return Menu;

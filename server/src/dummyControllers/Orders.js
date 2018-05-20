@@ -28,12 +28,12 @@ class Orders {
 
     return role === 'caterer' ?
       Orders.getCaterersOrders(req, res) :
-      Orders.getUsersOrders(req, res);
+      Orders.getCustomersOrders(req, res);
   }
 
   /**
    * Returns Users' Orders
-   * @method getUsersOrders
+   * @method getCustomersOrders
    * @memberof Orders
    * @param {object} req
    * @param {object} res
@@ -41,7 +41,7 @@ class Orders {
    * if date is provided in query, get orders that belong
    * to user and were created on that date
    */
-  // static getUsersOrders(req, res) {
+  // static getCustomersOrders(req, res) {
   // const { userId, query: { date } } = req;
   // let list = ordersDB.filter(item => item.userId === userId);
 

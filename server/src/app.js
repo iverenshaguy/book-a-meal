@@ -6,8 +6,10 @@ import 'babel-polyfill';
 import apiRoutes from './routes';
 import errors from '../data/errors.json';
 import orderEmitter from './events/Orders';
+import notifEmitter from './events/Notifications';
 import ErrorHandler from './middlewares/ErrorHandler';
 import OrderHandler from './eventHandlers/Orders';
+import NotifHandler from './eventHandlers/Notifications';
 
 config();
 
@@ -40,8 +42,8 @@ app.get('/*', (req, res) =>
   }));
 
 orderEmitter.on('create', OrderHandler.startOrderProcess);
-
 orderEmitter.on('deliver', OrderHandler.markOrderAsDelivered);
+notifEmitter.on('createMenu', NotifHandler.notifyAllUsers);
 
 // Handle App Errors
 app.use(ErrorHandler.sendError);

@@ -76,7 +76,7 @@ class Users {
   static getUserObj(user) {
     let userObj;
 
-    if (user.role === 'user' || user.role === 'admin') {
+    if (user.role === 'customer' || user.role === 'admin') {
       userObj = {
         id: user.userId,
         firstname: user.firstname,

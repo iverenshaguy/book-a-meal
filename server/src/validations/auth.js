@@ -11,13 +11,13 @@ export default {
       .trim()
       .exists().withMessage('User role must be specified')
       .custom(value => notEmpty(value, 'Role field cannot be left blank'))
-      .isIn(['caterer', 'user'])
-      .withMessage('Role must be specified as either caterer or user'),
+      .isIn(['caterer', 'customer'])
+      .withMessage('Role must be specified as either caterer or customer'),
     check('firstname')
       .trim()
       .custom((value, { req }) => unacceptedField('caterer', req.body.role, value))
       .custom((value, { req }) => {
-        if (req.body.role && req.body.role === 'user') {
+        if (req.body.role && req.body.role === 'customer') {
           if (!req.body.firstname) throw new Error('Firstname must be specified');
           if (value.length > 40) throw new Error('Firstname must not be more than 40 characters');
           if (!validator.matches(value, /^[a-z'-]+$/i)) {
@@ -31,7 +31,7 @@ export default {
       .trim()
       .custom((value, { req }) => unacceptedField('caterer', req.body.role, value))
       .custom((value, { req }) => {
-        if (req.body.role && req.body.role === 'user') {
+        if (req.body.role && req.body.role === 'customer') {
           if (!req.body.lastname) throw new Error('Lastname must be specified');
           if (value.length > 40) throw new Error('Lastname must not be more than 40 characters');
           if (!validator.matches(value, /^[a-z'-]+$/i)) {
@@ -43,7 +43,7 @@ export default {
       }),
     check('businessName')
       .trim()
-      .custom((value, { req }) => unacceptedField('user', req.body.role, value))
+      .custom((value, { req }) => unacceptedField('customer', req.body.role, value))
       .custom((value, { req }) => {
         if (req.body.role && req.body.role === 'caterer') {
           if (!req.body.businessName) throw new Error('Business name must be specified');
@@ -66,7 +66,7 @@ export default {
       })),
     check('businessAddress')
       .trim()
-      .custom((value, { req }) => unacceptedField('user', req.body.role, value))
+      .custom((value, { req }) => unacceptedField('customer', req.body.role, value))
       .custom((value, { req }) => {
         if (req.body.role && req.body.role === 'caterer') {
           if (!req.body.businessAddress) throw new Error('Business Address must be specified');
@@ -82,7 +82,7 @@ export default {
       }),
     check('businessPhoneNo')
       .trim()
-      .custom((value, { req }) => unacceptedField('user', req.body.role, value))
+      .custom((value, { req }) => unacceptedField('customer', req.body.role, value))
       .custom((value, { req }) => {
         if (req.body.role && req.body.role === 'caterer') {
           if (!req.body.businessPhoneNo) throw new Error('Business Phone Number must be specified');

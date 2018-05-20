@@ -7,7 +7,7 @@ import ValidationHandler from '../middlewares/ValidationHandler';
 import TrimValues from '../middlewares/TrimValues';
 
 const ordersRoutes = express.Router();
-const userAuth = new Authorization('user').authorizeRole;
+const userAuth = new Authorization('customer').authorizeRole;
 const catererAuth = new Authorization('caterer').authorizeRole;
 const validation = [ValidationHandler.validate, TrimValues.trim];
 const reqBodyValidation = [...validation, ValidationHandler.isEmptyReq];

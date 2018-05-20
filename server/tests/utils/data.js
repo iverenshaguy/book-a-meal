@@ -27,7 +27,7 @@ export default {
 
   signup: {
     rightUserData: {
-      role: 'user',
+      role: 'customer',
       firstname: 'Favour',
       lastname: 'Shaguy',
       email: 'favour@shaguy.com',
@@ -46,7 +46,7 @@ export default {
     },
 
     wrongUserData: {
-      role: 'user',
+      role: 'customer',
       firstname: '',
       email: 'favour@shaguy',
       password: 'favou',

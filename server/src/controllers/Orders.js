@@ -23,12 +23,12 @@ class Orders {
 
     return role === 'caterer' ?
       Orders.getCaterersOrders(req, res) :
-      Orders.getUsersOrders(req, res);
+      Orders.getCustomersOrders(req, res);
   }
 
   /**
    * Returns Users' Orders
-   * @method getUsersOrders
+   * @method getCustomersOrders
    * @memberof Orders
    * @param {object} req
    * @param {object} res
@@ -36,7 +36,7 @@ class Orders {
    * if date is provided in query, get orders that belong
    * to user and were created on that date
    */
-  static async getUsersOrders(req, res) {
+  static async getCustomersOrders(req, res) {
     let orders = await db.Order.findAll({
       where: { userId: req.userId },
       include: [{
