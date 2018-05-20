@@ -12,9 +12,8 @@ describe('Notifications: Get Notifications', () => {
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
       .end((err, res) => {
-        console.log(res.body);
         expect(res.statusCode).to.equal(200);
-        expect(res.body.orders.length).to.equal(1);
+        expect(res.body.notifications.length).to.equal(2);
 
         if (err) return done(err);
         done();
@@ -27,9 +26,8 @@ describe('Notifications: Get Notifications', () => {
       .set('Accept', 'application/json')
       .set('authorization', emiolaToken)
       .end((err, res) => {
-        console.log(res.body);
         expect(res.statusCode).to.equal(200);
-        expect(res.body.orders.length).to.equal(1);
+        expect(res.body.notifications.length).to.equal(5);
 
         if (err) return done(err);
         done();
