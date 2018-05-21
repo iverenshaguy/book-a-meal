@@ -49,6 +49,14 @@ export default {
       allowNull: true,
       defaultValue: null,
     },
+    passwordResetToken: {
+      type: Sequelize.STRING,
+      allowNull: true
+    },
+    passwordTokenExpiry: {
+      type: Sequelize.BIGINT,
+      allowNull: true
+    },
     createdAt: {
       allowNull: false,
       type: Sequelize.DATE

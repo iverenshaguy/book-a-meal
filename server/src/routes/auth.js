@@ -11,5 +11,7 @@ const validation = [ValidationHandler.validate, TrimValues.trim, ValidationHandl
 
 authRoutes.post('/signup', authValidation.register, validation, asyncWrapper(UsersController.register));
 authRoutes.post('/signin', authValidation.login, validation, asyncWrapper(UsersController.login));
+authRoutes.post('/forgot_password', authValidation.forgotPassword, validation, asyncWrapper(UsersController.forgotPassword));
+authRoutes.post('/reset_password', authValidation.resetPassword, validation, asyncWrapper(UsersController.resetPassword));
 
 export default authRoutes;

@@ -1,9 +1,7 @@
 import validator from 'validator';
-import { Op } from 'sequelize';
 import { check } from 'express-validator/check';
 import notEmpty from '../helpers/notEmpty';
 import unacceptedField from '../helpers/unacceptedField';
-import db from '../models';
 
 export default {
   register: [
@@ -54,16 +52,7 @@ export default {
           return notEmpty(value, 'Business name field cannot be left blank');
         }
         return true;
-      })
-      .custom(value => db.User.findOne({
-        where: { businessName: { [Op.iLike]: value } }
-      }).then((user) => {
-        if (user) {
-          throw new Error('Business name already in use');
-        }
-
-        return true;
-      })),
+      }),
     check('businessAddress')
       .trim()
       .custom((value, { req }) => unacceptedField('customer', req.body.role, value))
@@ -98,18 +87,9 @@ export default {
       .normalizeEmail()
       .exists()
       .withMessage('Email must be specified')
-      .custom(value => notEmpty(value, 'Email must be specified'))
+      .custom(value => notEmpty(value, 'Email field cannot be left blank'))
       .isEmail()
-      .withMessage('Email is invalid')
-      .custom(value => db.User.findOne({
-        where: { email: { [Op.iLike]: value } }
-      }).then((user) => {
-        if (user) {
-          throw new Error('Email already in use');
-        }
-
-        return true;
-      })),
+      .withMessage('Email is invalid'),
     check('password')
       .exists().withMessage('Password must be specified')
       .custom(value => notEmpty(value, 'Password field cannot be left blank'))
@@ -126,11 +106,28 @@ export default {
       .normalizeEmail()
       .exists()
       .withMessage('Email must be specified')
-      .custom(value => notEmpty(value, 'Email must be specified'))
+      .custom(value => notEmpty(value, 'Email field cannot be left blank'))
       .isEmail()
       .withMessage('Email is invalid'),
     check('password')
       .exists().withMessage('Password must be specified')
       .custom(value => notEmpty(value, 'Password field cannot be left blank'))
+  ],
+  forgotPassword: [
+    check('email')
+      .trim()
+      .normalizeEmail()
+      .exists()
+      .withMessage('Email must be specified')
+      .custom(value => notEmpty(value, 'Email field cannot be left blank'))
+      .isEmail()
+      .withMessage('Email is invalid')
+  ],
+  resetPassword: [
+    check('password')
+      .exists().withMessage('Password must be specified')
+      .custom(value => notEmpty(value, 'Password field cannot be left blank'))
+      .isLength({ min: 8 })
+      .withMessage('Password must be at least 8 characters')
   ]
 };

@@ -114,9 +114,9 @@ describe('Signup Routes', () => {
         .post('/api/v1/auth/signup')
         .send(Object.assign({}, rightUserData, { email: 'iveren@shaguy.com' }))
         .end((err, res) => {
-          expect(res.statusCode).to.equal(400);
+          expect(res.statusCode).to.equal(409);
           expect(res.body).to.be.an('object');
-          expect(res.body.errors.email.msg).to.equal('Email already in use');
+          expect(res.body.error).to.equal('Email already in use');
 
           if (err) return done(err);
           done();
@@ -207,12 +207,25 @@ describe('Signup Routes', () => {
     it('returns error for already taken email address', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
-        .send(Object.assign({}, rightCatererData, { email: 'food@circle.com' }))
+        .send({ ...rightCatererData, email: 'food@circle.com' })
         .end((err, res) => {
-          // userToken = res.body.token;
-          expect(res.statusCode).to.equal(400);
+          expect(res.statusCode).to.equal(409);
           expect(res.body).to.be.an('object');
-          expect(res.body.errors.email.msg).to.equal('Email already in use');
+          expect(res.body.error).to.equal('Email already in use');
+
+          if (err) return done(err);
+          done();
+        });
+    });
+
+    it('returns error for already taken business name', (done) => {
+      request.agent(app)
+        .post('/api/v1/auth/signup')
+        .send({ ...rightCatererData, email: 'new@circle.com' })
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(409);
+          expect(res.body).to.be.an('object');
+          expect(res.body.error).to.equal('Business name already in use');
 
           if (err) return done(err);
           done();

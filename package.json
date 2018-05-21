@@ -44,6 +44,7 @@
     "npm-run-all": "^4.1.2",
     "pg": "7.4.1",
     "pg-hstore": "^2.3.2",
+    "random-string": "^0.2.0",
     "sequelize": "^4.37.6",
     "sequelize-cli": "^4.0.0",
     "uuid": "^3.2.1",

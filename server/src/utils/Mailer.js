@@ -42,7 +42,7 @@ class Mailer {
   }
 
   /**
-   * Sends Mail
+   * Sends Mail to Customer when Caterer adds the order for the day
    * @method menuMail
    * @memberof Mailer
    * @param {array} meals
@@ -75,7 +75,7 @@ class Mailer {
   }
 
   /**
-   * Sends Mail
+   * Sends Mail to Caterer when an order is placed
    * @method catererOrderMail
    * @memberof Mailer
    * @param {object} order
@@ -112,6 +112,54 @@ class Mailer {
           message
         });
       });
+  }
+
+  /**
+   * Sends Mail for user to use to reset his password
+   * @method forgotPasswordMail
+   * @memberof Mailer
+   * @param {string} token
+   * @param {string} email
+   * @returns {nothing} returns nothing
+   */
+  static forgotPasswordMail(token, email) {
+    const message =
+      `<div>
+      <p style="text-transform: capitalize;">Hi,</p>
+      <p>You recently requested to reset your password. If this wasn't you, please ignore this mail.</p>
+      <p>You can click on or copy this link: <a href='http://${url}/reset_password?token=${token}'>
+      http://${url}/reset_password?token=${token}</a> to reset your password</p>
+      <p>This link expires in 1 hour.</p>
+      <p>Have a great day.</p>
+      </div>`;
+
+    return Mailer.sendMail({
+      to: email,
+      subject: 'Reset Password',
+      message
+    });
+  }
+
+  /**
+   * Sends Mail after user succesfully reset his password
+   * @method resetPasswordMail
+   * @memberof Mailer
+   * @param {string} email
+   * @returns {nothing} returns nothing
+   */
+  static resetPasswordMail(email) {
+    const message =
+      `<div>
+      <p style="text-transform: capitalize;">Hi,</p>
+      <p>Your password was reset succesfully.</p>
+      <p><a href='http://${url}/signin'>Login</a> to your account.</p>
+      </div>`;
+
+    return Mailer.sendMail({
+      to: email,
+      subject: 'Password Reset Successful',
+      message
+    });
   }
 }
 

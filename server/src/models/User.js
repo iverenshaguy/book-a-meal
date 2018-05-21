@@ -50,10 +50,19 @@ export default (sequelize, DataTypes) => {
         allowNull: true,
         defaultValue: null,
       },
+      passwordResetToken: {
+        type: DataTypes.STRING,
+        allowNull: true
+      },
+      passwordTokenExpiry: {
+        type: DataTypes.BIGINT,
+        allowNull: true
+      },
     },
     {
       hooks: {
-        beforeCreate: user => User.hashPassword(user)
+        beforeCreate: user => User.hashPassword(user),
+        beforeUpdate: user => User.hashPassword(user)
       }
     }
   );

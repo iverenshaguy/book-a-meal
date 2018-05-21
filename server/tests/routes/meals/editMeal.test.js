@@ -56,8 +56,8 @@ describe('Meal Routes: Edit a meal option', () => {
       .set('authorization', foodCircleToken)
       .send({ ...newMeal, title: 'Oriental Fried Rice' })
       .end((err, res) => {
-        expect(res.statusCode).to.equal(400);
-        expect(res.body.errors.title.msg).to.equal('Meal already exists');
+        expect(res.statusCode).to.equal(409);
+        expect(res.body.error).to.equal('Meal already exists');
 
         if (err) return done(err);
         done();
