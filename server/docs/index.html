@@ -305,6 +305,12 @@
           <li>
             <a href="#signin" class="toc-h2 toc-link" data-title="signin">Signin</a>
           </li>
+          <li>
+            <a href="#password-reset-forgot-password" class="toc-h2 toc-link" data-title="password-reset-forgot-password">Password Reset - Forgot Password</a>
+          </li>
+          <li>
+            <a href="#password-reset-reset-password" class="toc-h2 toc-link" data-title="password-reset-reset-password">Password Reset - Reset Password</a>
+          </li>
         </ul>
       </li>
       <li>
@@ -356,6 +362,14 @@
         </ul>
       </li>
       <li>
+        <a href="#notifications" class="toc-h1 toc-link" data-title="notifications">Notifications</a>
+        <ul class="toc-list-h2">
+          <li>
+            <a href="#get-notifications" class="toc-h2 toc-link" data-title="get-notifications">Get Notifications</a>
+          </li>
+        </ul>
+      </li>
+      <li>
         <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
       </li>
     </div>
@@ -382,7 +396,8 @@
       <p>Authorization tokens expire after 48 hours after they are generated.</p>
 
       <p>BookAMeal expects a token to be included in all protected API requests to the server in a header that looks like the
-        following:</p>
+        following:
+      </p>
 
       <p>
         <code>Authorization: averyveryverylong.jsonwebtoken.requiredforauthentication</code>
@@ -400,7 +415,7 @@
         <p>Request Body - User</p>
       </blockquote>
       <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emiola"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olasanmi"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emiola@olasanmi.com"</span><span class="p">,</span><span class="w">
@@ -635,7 +650,7 @@
       </table>
 
       <blockquote>
-        <p>Response Body - User</p>
+        <p>Response Body - Customer</p>
       </blockquote>
       <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -664,6 +679,141 @@
         </p>
       </blockquote>
       <h3 id='http-response-2'>HTTP Response</h3>
+      <ul>
+        <li>Status Code:
+          <code>200</code>
+        </li>
+        <li>Body:
+          <code>(application/json)</code>
+        </li>
+      </ul>
+      <h2 id='password-reset-forgot-password'>Password Reset - Forgot Password</h2>
+      <p>Sends a link to user&#39;s email to reset password.</p>
+
+      <blockquote>
+        <p>Request Body</p>
+      </blockquote>
+      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emiola@olasanmi.com"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+      <h3 id='http-request-3'>HTTP Request</h3>
+      <ul>
+        <li>Endpoint:
+          <code>/auth/forgot_password</code>
+        </li>
+        <li>Verb:
+          <code>POST</code>
+        </li>
+        <li>Body:
+          <code>(application/json)</code>
+        </li>
+      </ul>
+      <h3 id='request-body-parameters-3'>Request Body Parameters</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Format</th>
+            <th>Details</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>email</td>
+            <td>string</td>
+            <td>Required</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <blockquote>
+        <p>Response Body</p>
+      </blockquote>
+      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A reset token has been sent to your email address"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+      <h3 id='http-response-3'>HTTP Response</h3>
+      <ul>
+        <li>Status Code:
+          <code>200</code>
+        </li>
+        <li>Body:
+          <code>(application/json)</code>
+        </li>
+      </ul>
+      <h2 id='password-reset-reset-password'>Password Reset - Reset Password</h2>
+      <p>Resets a user&#39;s password.</p>
+
+      <blockquote>
+        <p>Request Body</p>
+      </blockquote>
+      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"newPassword"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+      <h3 id='http-request-4'>HTTP Request</h3>
+      <ul>
+        <li>Endpoint:
+          <code>/auth/reset_password</code>
+        </li>
+        <li>Verb:
+          <code>POST</code>
+        </li>
+        <li>Body:
+          <code>(application/json)</code>
+        </li>
+      </ul>
+      <h3 id='request-body-parameters-4'>Request Body Parameters</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Format</th>
+            <th>Details</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>password</td>
+            <td>string</td>
+            <td>Required</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 id='query-parameters'>Query Parameters</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Format</th>
+            <th>Details</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>token</td>
+            <td>string</td>
+            <td>Required</td>
+            <td>The token attached to the email sent to the user</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <blockquote>
+        <p>Response Body</p>
+      </blockquote>
+      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Password reset successful"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+      <h3 id='http-response-4'>HTTP Response</h3>
       <ul>
         <li>Status Code:
           <code>200</code>
@@ -702,7 +852,7 @@
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <h3 id='http-request-3'>HTTP Request</h3>
+      <h3 id='http-request-5'>HTTP Request</h3>
       <ul>
         <li>Endpoint:
           <code>/meals</code>
@@ -714,7 +864,7 @@
           <code>(application/json)</code>
         </li>
       </ul>
-      <h3 id='http-response-3'>HTTP Response</h3>
+      <h3 id='http-response-5'>HTTP Response</h3>
       <ul>
         <li>Status Code:
           <code>200</code>
@@ -737,7 +887,7 @@
   </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <h3 id='http-request-4'>HTTP Request</h3>
+      <h3 id='http-request-6'>HTTP Request</h3>
       <ul>
         <li>Endpoint:
           <code>/meals</code>
@@ -749,7 +899,7 @@
           <code>(application/json)</code>
         </li>
       </ul>
-      <h3 id='request-body-parameters-3'>Request Body Parameters</h3>
+      <h3 id='request-body-parameters-5'>Request Body Parameters</h3>
       <table>
         <thead>
           <tr>
@@ -805,7 +955,7 @@
     </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <h3 id='http-response-4'>HTTP Response</h3>
+      <h3 id='http-response-6'>HTTP Response</h3>
       <ul>
         <li>Status Code:
           <code>201</code>
@@ -824,7 +974,7 @@
   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meal contains no beef"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <h3 id='http-request-5'>HTTP Request</h3>
+      <h3 id='http-request-7'>HTTP Request</h3>
       <ul>
         <li>Endpoint:
           <code>/meals/</code>
@@ -864,7 +1014,7 @@
     </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <h3 id='http-response-5'>HTTP Response</h3>
+      <h3 id='http-response-7'>HTTP Response</h3>
       <ul>
         <li>Status Code:
           <code>200</code>
@@ -885,7 +1035,7 @@
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meal deleted succesfully"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <h3 id='http-request-6'>HTTP Request</h3>
+      <h3 id='http-request-8'>HTTP Request</h3>
       <ul>
         <li>Endpoint:
           <code>/meals/</code>
@@ -909,7 +1059,7 @@
           </tr>
         </tbody>
       </table>
-      <h3 id='http-response-6'>HTTP Response</h3>
+      <h3 id='http-response-8'>HTTP Response</h3>
       <ul>
         <li>Status Code:
           <code>200</code>
@@ -949,7 +1099,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
       <blockquote>
-        <p>Response Body - User</p>
+        <p>Response Body - Customer</p>
       </blockquote>
       <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"menu"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -978,7 +1128,7 @@
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <h3 id='http-request-7'>HTTP Request</h3>
+      <h3 id='http-request-9'>HTTP Request</h3>
       <ul>
         <li>Endpoint:
           <code>/menu/</code>
@@ -987,7 +1137,7 @@
           <code>GET</code>
         </li>
       </ul>
-      <h3 id='query-parameters'>Query Parameters</h3>
+      <h3 id='query-parameters-2'>Query Parameters</h3>
       <table>
         <thead>
           <tr>
@@ -1008,7 +1158,7 @@
           </tr>
         </tbody>
       </table>
-      <h3 id='http-response-7'>HTTP Response</h3>
+      <h3 id='http-response-9'>HTTP Response</h3>
       <ul>
         <li>Status Code:
           <code>200</code>
@@ -1030,7 +1180,7 @@
   </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"baa0412a-d167-4d2b-b1d8-404cb8f02631"</span><span class="p">,</span><span class="s2">"36d525d1-efc9-4b75-9999-3e3d8dc64ce3"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <h3 id='http-request-8'>HTTP Request</h3>
+      <h3 id='http-request-10'>HTTP Request</h3>
       <ul>
         <li>Endpoint:
           <code>/menu/</code>
@@ -1042,7 +1192,7 @@
           <code>(application/json)</code>
         </li>
       </ul>
-      <h3 id='request-body-parameters-4'>Request Body Parameters</h3>
+      <h3 id='request-body-parameters-6'>Request Body Parameters</h3>
       <table>
         <thead>
           <tr>
@@ -1094,7 +1244,7 @@
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <h3 id='http-response-8'>HTTP Response</h3>
+      <h3 id='http-response-10'>HTTP Response</h3>
       <ul>
         <li>Status Code:
           <code>201</code>
@@ -1113,7 +1263,7 @@
   </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"baa0412a-d167-4d2b-b1d8-404cb8f02631"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <h3 id='http-request-9'>HTTP Request</h3>
+      <h3 id='http-request-11'>HTTP Request</h3>
       <ul>
         <li>Endpoint:
           <code>/menu/</code>
@@ -1159,7 +1309,7 @@
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <h3 id='http-response-9'>HTTP Response</h3>
+      <h3 id='http-response-11'>HTTP Response</h3>
       <ul>
         <li>Status Code:
           <code>200</code>
@@ -1246,7 +1396,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
       <blockquote>
-        <p>Response Body - User</p>
+        <p>Response Body - Customer</p>
       </blockquote>
       <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
         </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1312,7 +1462,7 @@
     </span><span class="s2">"pendingOrders"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <h3 id='http-request-10'>HTTP Request</h3>
+      <h3 id='http-request-12'>HTTP Request</h3>
       <ul>
         <li>Endpoint:
           <code>/orders/</code>
@@ -1321,7 +1471,7 @@
           <code>GET</code>
         </li>
       </ul>
-      <h3 id='query-parameters-2'>Query Parameters</h3>
+      <h3 id='query-parameters-3'>Query Parameters</h3>
       <table>
         <thead>
           <tr>
@@ -1342,7 +1492,7 @@
           </tr>
         </tbody>
       </table>
-      <h3 id='http-response-10'>HTTP Response</h3>
+      <h3 id='http-response-12'>HTTP Response</h3>
       <ul>
         <li>Status Code:
           <code>200</code>
@@ -1368,7 +1518,7 @@
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <h3 id='http-request-11'>HTTP Request</h3>
+      <h3 id='http-request-13'>HTTP Request</h3>
       <ul>
         <li>Endpoint:
           <code>/orders/</code>
@@ -1377,7 +1527,7 @@
           <code>POST</code>
         </li>
       </ul>
-      <h3 id='request-body-parameters-5'>Request Body Parameters</h3>
+      <h3 id='request-body-parameters-7'>Request Body Parameters</h3>
       <table>
         <thead>
           <tr>
@@ -1455,7 +1605,7 @@
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <h3 id='http-response-11'>HTTP Response</h3>
+      <h3 id='http-response-13'>HTTP Response</h3>
       <ul>
         <li>Status Code:
           <code>201</code>
@@ -1477,7 +1627,7 @@
   </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="s2">"mealId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36d525d1-efc9-4b75-9999-3e3d8dc64ce3"</span><span class="p">,</span><span class="w"> </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <h3 id='http-request-12'>HTTP Request</h3>
+      <h3 id='http-request-14'>HTTP Request</h3>
       <ul>
         <li>Endpoint:
           <code>/orders/</code>
@@ -1526,7 +1676,7 @@
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <h3 id='http-response-12'>HTTP Response</h3>
+      <h3 id='http-response-14'>HTTP Response</h3>
       <ul>
         <li>Status Code:
           <code>200</code>
@@ -1549,7 +1699,7 @@
   </span><span class="s2">"delivered"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <h3 id='http-request-13'>HTTP Request</h3>
+      <h3 id='http-request-15'>HTTP Request</h3>
       <ul>
         <li>Endpoint:
           <code>/orders/:orderId/deliver</code>
@@ -1573,7 +1723,7 @@
           </tr>
         </tbody>
       </table>
-      <h3 id='request-body-parameters-6'>Request Body Parameters</h3>
+      <h3 id='request-body-parameters-8'>Request Body Parameters</h3>
       <table>
         <thead>
           <tr>
@@ -1617,7 +1767,7 @@
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <h3 id='http-response-13'>HTTP Response</h3>
+      <h3 id='http-response-15'>HTTP Response</h3>
       <ul>
         <li>Status Code:
           <code>200</code>
@@ -1628,6 +1778,70 @@
       </ul>
 
       <aside class="notice">Endpoint can only be accessed by the caterers</aside>
+      <h1 id='notifications'>Notifications</h1>
+      <h2 id='get-notifications'>Get Notifications</h2>
+      <p>Gets all notifications for Caterers and Users.</p>
+
+      <blockquote>
+        <p>Response Body - Caterer</p>
+      </blockquote>
+      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"notifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87a311b7-898b-4a6b-81c2-619417c96432"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your menu was just ordered"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15421f7a-0f82-4802-b215-e0e8efb6bfb3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-01T01:47:03+01:00"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2d48f81e-b619-4da4-9dd4-b7d7d45e3f36"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emiola Olasanmi just ordered meal(s); Vegetable Sharwama and Guava Smoothie, Semo/Wheat and Egusi Soup."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"435816a0-e304-4b4d-b4e4-72a2f643b65e"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-20T21:38:33+01:00"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+      <blockquote>
+        <p>Response Body - Customer</p>
+      </blockquote>
+      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"notifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3dc9cc9b-179b-4f0d-ac60-7ca6f4659d79"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jollof Spaghetti, Plantain and Turkey was just added to the menu"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"menuId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15421f7a-0f82-4802-b215-e0e8efb6bfb3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-01T01:47:03+01:00"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9015c150-6079-4be6-a240-272a4de6bd17"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jollof Spaghetti, Plantain and Turkey was just added to the menu"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"menuId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15421f7a-0f82-4802-b215-e0e8efb6bfb3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-01T01:47:03+01:00"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+      <h3 id='http-request-16'>HTTP Request</h3>
+      <ul>
+        <li>Endpoint:
+          <code>/notifications/</code>
+        </li>
+        <li>Verb:
+          <code>GET</code>
+        </li>
+      </ul>
+      <h3 id='http-response-16'>HTTP Response</h3>
+      <ul>
+        <li>Status Code:
+          <code>200</code>
+        </li>
+        <li>Body:
+          <code>(application/json)</code>
+        </li>
+      </ul>
       <h1 id='errors'>Errors</h1>
       <p>The Book A Meal API uses the following error codes:</p>
 
@@ -1654,6 +1868,10 @@
           <tr>
             <td>404</td>
             <td>Item Not Found</td>
+          </tr>
+          <tr>
+            <td>409</td>
+            <td>Conflict</td>
           </tr>
           <tr>
             <td>500</td>
