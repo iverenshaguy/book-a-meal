@@ -17,7 +17,7 @@ describe('Order Routes: Add an Order', () => {
   before(() => {
     env = process.env; // eslint-disable-line
 
-    process.env.OPENING_HOUR = currentHour - 1;
+    process.env.OPENING_HOUR = 0;
     process.env.OPENING_MINUTE = currentMin;
     process.env.CLOSING_HOUR = currentHour + 1;
     process.env.CLOSING_MINUTE = 0;
@@ -66,7 +66,7 @@ describe('Order Routes: Add an Order', () => {
   });
 
   it('should not add an order when meal isn\'t in menu for the day', (done) => {
-    process.env.OPENING_HOUR = currentHour - 1;
+    process.env.OPENING_HOUR = 0;
     process.env.OPENING_MINUTE = currentMin;
     process.env.CLOSING_HOUR = currentHour + 1;
     process.env.CLOSING_MINUTE = 0;
@@ -86,7 +86,7 @@ describe('Order Routes: Add an Order', () => {
   });
 
   it('should return errors for invalid input', (done) => {
-    process.env.OPENING_HOUR = currentHour - 1;
+    process.env.OPENING_HOUR = 0;
     process.env.OPENING_MINUTE = currentMin;
     process.env.CLOSING_HOUR = currentHour + 1;
     process.env.CLOSING_MINUTE = 0;
