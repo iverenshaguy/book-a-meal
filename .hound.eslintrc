@@ -1,10 +1,20 @@
 {
   "root": true,
-  "extends": "airbnb-base",
+  "extends": "airbnb",
   "env": {
     "node": true,
+    "browser": true,
     "es6": true,
-    "mocha": true
+    "mocha": true,
+    "jest": true
+  },
+  "globals": {
+    "shallow": true,
+    "mount": true,
+    "expect": true,
+    "render": true,
+    "toJson": true,
+    "rrcMock": true
   },
   "rules": {
     "one-var": 0,
