@@ -45,7 +45,7 @@ describe('Validation Handler: Orders', () => {
   });
 
   it('calls next if shop is open', () => {
-    process.env.OPENING_HOUR = currentHour - 1;
+    process.env.OPENING_HOUR = 0;
     process.env.OPENING_MINUTE = currentMin;
     process.env.CLOSING_HOUR = currentHour + 1;
     process.env.CLOSING_MINUTE = 0;

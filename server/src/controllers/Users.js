@@ -1,6 +1,9 @@
 import bcrypt from 'bcrypt';
+import randomString from 'random-string';
+import { Op } from 'sequelize';
 import Authorization from '../middlewares/Authorization';
 import db from '../models';
+import Mailer from '../utils/Mailer';
 
 /**
  * @exports
@@ -16,6 +19,14 @@ class Users {
    * @returns {(function|object)} Function next() or JSON object
    */
   static async register(req, res) {
+    const userExists = await db.User.findOne({ where: { email: { [Op.iLike]: req.body.email } } });
+    if (userExists) return res.status(409).send({ error: 'Email already in use' });
+
+    const businessNameExists = await db.User.findOne({
+      where: { businessName: { [Op.iLike]: req.body.businessName } }
+    });
+    if (businessNameExists) return res.status(409).send({ error: 'Business name already in use' });
+
     const newUser = await db.User.create({
       firstname: req.body.firstname,
       lastname: req.body.lastname,
@@ -65,6 +76,60 @@ class Users {
    */
   static async verifyPassword(password, hash) {
     return bcrypt.compare(password, hash);
+  }
+
+  /**
+   * Sends password token to user
+   * @method forgotPassword
+   * @memberof Users
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  static async forgotPassword(req, res) {
+    const user = await db.User.findOne({ where: { email: req.body.email } });
+    if (!user) return res.status(404).json({ error: 'User doesn\'t exist on the platform' });
+
+    const token = randomString({ length: 40 });
+    await user.update({
+      passwordResetToken: token,
+      passwordTokenExpiry: Date.now() + 3600000 // 1 hour from now
+    });
+
+    await Mailer.forgotPasswordMail(token, req.body.email);
+
+    return res.status(200).json({ message: 'A reset token has been sent to your email address' });
+  }
+
+  /**
+   * Sends password token to user
+   * @method resetPassword
+   * @memberof Users
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  static async resetPassword(req, res) {
+    const user = await db.User.findOne({
+      where: {
+        passwordResetToken: req.query.token,
+        passwordTokenExpiry: {
+          [Op.gt]: Date.now()
+        }
+      }
+    });
+
+    if (!user) return res.status(400).send({ error: 'Password reset token is invalid or has expired' });
+
+    await user.update({
+      passwordResetToken: null,
+      passwordTokenExpiry: null,
+      password: req.body.password
+    });
+
+    await Mailer.resetPasswordMail(req.body.email);
+
+    return res.status(200).json({ message: 'Password reset successful' });
   }
 
   /**
