@@ -45,5 +45,6 @@ before_script:
   - npm run build
   
 after_success:
+  - cd coverage && dir && cd ..
   - npm run coverage
   
