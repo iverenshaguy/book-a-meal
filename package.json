@@ -31,7 +31,7 @@
     "test:server:watch": "npn run test:server --watch",
     "test:client": "jest --env=jsdom --coverage",
     "test:client:watch": "jest --env=jsdom --watch",
-    "merge:lcov": "lcov-result-merger ./coverage/lcov.*.info ./coverage/lcov.info"
+    "merge:lcov": "lcov-result-merger coverage/lcov.*.info coverage/lcov.info"
   },
   "dependencies": {
     "autoprefixer": "^8.5.0",
