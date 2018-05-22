@@ -19,7 +19,7 @@ script:
   - npm run test:server
   - mv ./coverage/lcov.info ./coverage/lcov.server.info
   - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.server.info --output ./coverage/codeclimate.server.json
-    - cd coverage && dir && cd ..
+  - cd coverage && dir && cd ..
   - npm run test:client
   - mv ./coverage/lcov.info ./coverage/lcov.client.info
   - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.client.info  --output ./coverage/codeclimate.client.json
