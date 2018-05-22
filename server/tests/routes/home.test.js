@@ -9,7 +9,7 @@ describe('API Home Routes', () => {
         .get('/')
         .expect('Content-Type', /html/)
         .end((err, res) => {
-          expect(res.text).to.contain('<div id="root"></div>');
+          expect(res.text).to.contain('<div id="app"></div>');
 
           if (err) return done(err);
           done();
@@ -21,7 +21,7 @@ describe('API Home Routes', () => {
         .get('/yadayada')
         .expect('Content-Type', /html/)
         .end((err, res) => {
-          expect(res.text).to.contain('<div id="root"></div>');
+          expect(res.text).to.contain('<div id="app"></div>');
 
           if (err) return done(err);
           done();
@@ -56,9 +56,9 @@ describe('API Home Routes', () => {
   it('should return a Fallback Message for API Route', (done) => {
     request(app)
       .get('/api/fallback')
+      .expect('Content-Type', /html/)
       .end((err, res) => {
-        expect(res.statusCode).to.equal(404);
-        expect(res.body.message).to.equal('Item Not Found');
+        expect(res.text).to.contain('<div id="app"></div>');
 
         if (err) return done(err);
         done();

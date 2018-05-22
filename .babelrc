@@ -4,9 +4,10 @@
       "targets": {
         "node": "current"
       }
-    }, "react"]
+    }],
+    "react"
   ],
-  "plugins": ["transform-object-rest-spread", "react-hot-loader/patch",  "add-module-exports"],
+  "plugins": ["transform-object-rest-spread", "react-hot-loader/babel",  "add-module-exports"],
   "env": {
     "test": {
       "plugins": ["istanbul"]

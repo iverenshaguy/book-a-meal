@@ -46,10 +46,10 @@ describe('Order Routes: Add an Order', () => {
   });
 
   it('should not add an order when office is closed', (done) => {
-    process.env.OPENING_HOUR = currentHour + 1;
-    process.env.OPENING_MINUTE = currentMin;
-    process.env.CLOSING_HOUR = currentHour + 2;
-    process.env.CLOSING_MINUTE = 0;
+    process.env.OPENING_HOUR = currentHour + 0;
+    process.env.OPENING_MINUTE = currentMin + 3;
+    process.env.CLOSING_HOUR = currentHour + 0;
+    process.env.CLOSING_MINUTE = currentMin + 5;
 
     request(app)
       .post('/api/v1/orders')

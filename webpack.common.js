@@ -2,14 +2,13 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production';
 
 const htmlPlugin = new HtmlWebPackPlugin({
   title: 'Book A Meal',
-  template: './client/src/index.html',
-  filename: './client/dist/index.html'
+  template: 'client/src/index.html',
+  filename: 'index.html'
 });
 
 const cssPlugin = new MiniCssExtractPlugin({
@@ -17,12 +16,10 @@ const cssPlugin = new MiniCssExtractPlugin({
   chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
 });
 
-const cleanerPlugin = new CleanWebpackPlugin('./client/dist', {});
-
 const hotReloader = new webpack.HotModuleReplacementPlugin();
 
 module.exports = {
-  entry: { app: ['react-hot-loader/patch', './client/src/index.js', 'webpack-hot-middleware/client'] },
+  entry: { app: ['react-hot-loader/patch', 'webpack-hot-middleware/client', './client/src/index.jsx'] },
   devServer: {
     contentBase: './client/dist',
     hot: true
@@ -35,11 +32,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
+        use: ['babel-loader']
       },
       {
         test: /\.scss$/,
@@ -66,5 +61,8 @@ module.exports = {
       }
     ]
   },
-  plugins: [hotReloader, cleanerPlugin, htmlPlugin, cssPlugin]
+  resolve: {
+    extensions: ['.js', '.json', '.jsx']
+  },
+  plugins: [htmlPlugin, cssPlugin, hotReloader]
 };

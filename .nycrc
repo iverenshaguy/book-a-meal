@@ -16,11 +16,12 @@
     "server/tests/**",
     "server/src/models/index.js",
     "server/test{,-*}.js",
-    "server/docs.**"
+    "server/docs.**",
+    "webpack.**.js"
   ],
   "reporter": ["lcov", "json", "text"],
   "sourceMap": false,
   "instrument": false,
   "cache": true,
-  "report-dir": "./server/coverage"
+  "report-dir": "./coverage"
 }

@@ -1,21 +1,23 @@
 module.exports = {
-  collectCoverageFrom: ['./client/src/**/*.{js,jsx,mjs}'],
-  coverageDirectory: './client/coverage',
+  collectCoverageFrom: ['<rootDir>/client/src/**/*.{js,jsx}'],
+  coverageDirectory: '<rootDir>/coverage',
   coveragePathIgnorePatterns: [
-    './node_modules/',
-    './server/',
+    '<rootDir>/node_modules/',
+    '<rootDir>/server/',
+    '<rootDir>/client/src/index.jsx',
+    '<rootDir>/client/src/rootReducer.js',
   ],
-  setupTestFrameworkScriptFile: './client/src/setupTests.js',
+  setupTestFrameworkScriptFile: '<rootDir>/client/setupTests.js',
   testMatch: [
-    './client/src/**/tests/**/*.{js,jsx,mjs}',
-    './client/src/**/?(*.)(spec|test).{js,jsx,mjs}',
+    '<rootDir>/client/src/**/tests/**/*.(spec|test).{js,jsx}',
+    '<rootDir>/client/src/**/?(*.)(spec|test).{js,jsx}',
   ],
   testEnvironment: 'node',
   testURL: 'http://localhost',
   testPathIgnorePatterns: [
-    './node_modules/',
-    './client/src/tests/__mocks__/',
-    './client/src/tests/setup/',
+    '<rootDir>/node_modules/',
+    '<rootDir>/client/src/tests/__mocks__/',
+    '<rootDir>/client/src/tests/setup/',
   ],
   transform: {
     '^.+\\.(js|jsx|mjs)$': '<rootDir>/node_modules/babel-jest',
