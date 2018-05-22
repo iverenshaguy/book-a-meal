@@ -26,6 +26,7 @@ script:
   - cd coverage && dir && cd ..
   - ./cc-test-reporter sum-coverage -p 2 ./coverage/codeclimate.server.json ./coverage/codeclimate.client.json
   - ./cc-test-reporter upload-coverage
+  - npm run merge:lcov
   - cd coverage && dir && cd ..
   - npm run coverage
 
@@ -45,7 +46,7 @@ before_script:
   - ./cc-test-reporter before-build
   - npm run build
   
-after_success:
-  - cd coverage && dir && cd ..
-  - npm run coverage
+# after_success:
+#   - cd coverage && dir && cd ..
+#   - npm run coverage
   
