@@ -21,7 +21,6 @@ script:
   - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.server.info --output ./coverage/codeclimate.server.json
   - npm run test:client
   - mv ./coverage/lcov.info ./coverage/lcov.client.info
-  - npm run coverage
   - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.client.info  --output ./coverage/codeclimate.client.json
   - ./cc-test-reporter sum-coverage -p 2 ./coverage/codeclimate.server.json ./coverage/codeclimate.client.json
   - ./cc-test-reporter upload-coverage
@@ -42,6 +41,6 @@ before_script:
   - ./cc-test-reporter before-build
   - npm run build
   
-# after_success:
-#   - npm run coverage
+after_success:
+  - npm run coverage
   
