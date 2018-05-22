@@ -27,6 +27,7 @@ script:
   - ./cc-test-reporter sum-coverage -p 2 ./coverage/codeclimate.server.json ./coverage/codeclimate.client.json
   - ./cc-test-reporter upload-coverage
   - cd coverage && dir && cd ..
+  - npm run coverage
 
 cache: 
   yarn: true
