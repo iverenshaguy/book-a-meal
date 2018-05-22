@@ -19,13 +19,14 @@ script:
   - npm run test:server
   - mv ./coverage/lcov.info ./coverage/lcov.server.info
   - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.server.info --output ./coverage/codeclimate.server.json
+    - cd coverage && dir && cd ..
   - npm run test:client
   - mv ./coverage/lcov.info ./coverage/lcov.client.info
-   - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.client.info  --output ./coverage/codeclimate.client.json
+  - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.client.info  --output ./coverage/codeclimate.client.json
   - cd coverage && dir && cd ..
-  - npm run coverage
   - ./cc-test-reporter sum-coverage -p 2 ./coverage/codeclimate.server.json ./coverage/codeclimate.client.json
   - ./cc-test-reporter upload-coverage
+  - cd coverage && dir && cd ..
 
 cache: 
   yarn: true
@@ -43,6 +44,6 @@ before_script:
   - ./cc-test-reporter before-build
   - npm run build
   
-# after_success:
-#   - npm run coverage
+after_success:
+  - npm run coverage
   
