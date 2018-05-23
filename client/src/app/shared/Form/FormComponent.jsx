@@ -213,11 +213,7 @@ class FormComponent extends Component {
    */
   render() {
     const { pristine, formValid } = this.state;
-
-    const {
-      submitting, submitError, meta
-    } = this.props;
-
+    const { submitting, submitError, meta } = this.props;
     const { btnText, extra } = meta;
 
     return (
@@ -226,8 +222,6 @@ class FormComponent extends Component {
           <div className="modal-preloader text-center"><MiniPreLoader /></div>}
         {!submitting &&
           <Fragment>
-            {/* <h4 className="text-center">{title}</h4> */}
-            {/* <hr /> */}
             <form onSubmit={this.handleSubmit}>
               {submitError && (
               <p className="danger text-center mb-0">{submitError}</p>
