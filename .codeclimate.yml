@@ -12,9 +12,10 @@ version: "2"
 
 exclude_paths:
 - "UI/"
-- "coverage/"
 - "server/docs"
 - "server/tests"
+- "client/tests"
+- "client/src/**/?(*.)(spec|test).{js,jsx}"
 - ".nyc_output/"
 - "node_modules/"
 - "server/src/models"

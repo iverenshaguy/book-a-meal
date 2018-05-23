@@ -7,7 +7,7 @@
     }],
     "react"
   ],
-  "plugins": ["transform-object-rest-spread", "react-hot-loader/babel",  "add-module-exports"],
+  "plugins": ["transform-object-rest-spread", "transform-class-properties", "react-hot-loader/babel",  "add-module-exports"],
   "env": {
     "test": {
       "plugins": ["istanbul"]

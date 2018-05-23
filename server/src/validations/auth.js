@@ -46,7 +46,7 @@ export default {
         if (req.body.role && req.body.role === 'caterer') {
           if (!req.body.businessName) throw new Error('Business name must be specified');
           if (value.length > 60) throw new Error('Business name must not be more than 60 characters');
-          if (!validator.matches(value, /^[a-z ,.'-\s]+$/i)) {
+          if (!validator.matches(value, /^[a-z0-9,.'-\s]+$/i)) {
             throw new Error('Business name can only contain letters, spaces, and the characters (,.\'-)');
           }
           return notEmpty(value, 'Business name field cannot be left blank');

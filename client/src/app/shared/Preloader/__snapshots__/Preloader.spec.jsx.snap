@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Preloader renders correctly 1`] = `
+<Loader
+  active={true}
+  type="ball-scale-multiple"
+/>
+`;
+
+exports[`Preloader renders correctly: MiniPreloader 1`] = `
+<Loader
+  active={true}
+  type="ball-beat"
+/>
+`;

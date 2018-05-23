@@ -94,7 +94,7 @@ export default {
     wrongCatererDataFormat: {
       role: 'caterer',
       firstname: 'Favour',
-      businessName: 'ijjjk89877jjjk',
+      businessName: 'ijjjk8987&&&7jjjk',
       businessPhoneNo: 'ijjjk89877jjjk',
       businessAddress: 'uiiowe,ksdyuil&9jk',
     },
