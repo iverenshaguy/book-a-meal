@@ -99,10 +99,9 @@ describe('Auth Actions', () => {
 
         return store.dispatch(auth('signin')({ email: 'iveren@shaguy.com', password: 'iverenshaguytt' })).catch(() => {
           const dispatchedActions = store.getActions();
-          console.log(dispatchedActions);
 
           const actionTypes = dispatchedActions.map(action => action.type);
-          console.log(actionTypes);
+
 
           expect(actionTypes).toEqual(expectedActions);
           expect(localStorage.getItem('jwtToken')).toEqual(undefined);
