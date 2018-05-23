@@ -8,24 +8,22 @@ module.exports = {
   coveragePathIgnorePatterns: [
     '<rootDir>/node_modules/',
     '<rootDir>/server/',
-    '<rootDir>/client/src/index.jsx',
-    '<rootDir>/client/src/app/pages/Auth/index.js',
+    '<rootDir>/client/src/index.jsx'
   ],
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy',
-    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$': '<rootDir>/src/__mocks__/fileMock.js'
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$': '<rootDir>/tests/__mocks__/fileMock.js'
   },
-  setupTestFrameworkScriptFile: '<rootDir>/client/src/setupTests.js',
+  setupTestFrameworkScriptFile: '<rootDir>/client/tests/setupTests.js',
   testMatch: [
     '<rootDir>/client/tests/**/*.(spec|test).{js,jsx}',
     '<rootDir>/client/src/**/?(*.)(spec|test).{js,jsx}'
   ],
+  verbose: true,
   testEnvironment: 'node',
   testURL: 'http://localhost',
   testPathIgnorePatterns: [
-    '<rootDir>/node_modules/',
-    '<rootDir>/client/src/__mocks__/',
-    '<rootDir>/client/src/tests/setup/',
+    '<rootDir>/node_modules/'
   ],
   transform: {
     '^.+\\.(js|jsx|mjs)$': '<rootDir>/node_modules/babel-jest',
