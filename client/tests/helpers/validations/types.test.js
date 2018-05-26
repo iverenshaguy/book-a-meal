@@ -73,7 +73,7 @@ describe('Validation Types', () => {
     });
 
     test('isPhoneNumber', () => {
-      const check = isPhoneNumber(1234567890);
+      const check = isPhoneNumber(+2348155361655);
 
       expect(check).toEqual(undefined);
     });
@@ -131,19 +131,19 @@ describe('Validation Types', () => {
     test('isBusinessName', () => {
       const check = isBusinessName('My Business **Name');
 
-      expect(check).toEqual("Only letters, spaces and the characters ,.'- allowed!");
+      expect(check).toEqual("Only letters, numbers, spaces and the characters (,.'-) allowed!");
     });
 
     test('isAddress', () => {
       const check = isAddress('3#, Macaulay');
 
-      expect(check).toEqual("Only letters, numbers, spaces and the characters ,.'- allowed!");
+      expect(check).toEqual("Only letters, numbers, spaces and the characters (,.'-) allowed!");
     });
 
     test('isPhoneNumber', () => {
       const check = isPhoneNumber(12345678910);
 
-      expect(check).toEqual('Phone number is invalid, must be 10 digits!');
+      expect(check).toEqual('Phone number is invalid, must be in the format +2348134567890');
     });
 
     test('isValidPasswordConfirm', () => {

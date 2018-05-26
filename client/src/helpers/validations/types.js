@@ -5,8 +5,9 @@ export const isRequired = value => (value ? undefined : 'Required!');
 export const maxLength = max => value =>
   (value && value.length > max ? `Must be ${max} characters or less!` : undefined);
 
-export const maxLength15 = maxLength(15);
 export const maxLength25 = maxLength(25);
+export const maxLength40 = maxLength(40);
+export const maxLength60 = maxLength(60);
 export const maxLength144 = maxLength(144);
 export const maxLength255 = maxLength(255);
 
@@ -15,8 +16,8 @@ export const minLength = min => value =>
 
 export const minLength1 = minLength(1);
 export const minLength2 = minLength(2);
-export const minLength3 = minLength(3);
-export const minLength10 = minLength(10);
+export const minLength5 = minLength(5);
+export const minLength8 = minLength(8);
 
 export const isNumber = value => (value && isNaN(Number(value)) ? `Must be a number!` : undefined); // eslint-disable-line
 
@@ -35,18 +36,15 @@ export const isName = value =>
     : undefined);
 
 export const isBusinessName = value =>
-  (value && !(/^[a-z0-9 ,.'-]+$/i.test(value))
-    ? "Only letters, spaces and the characters ,.'- allowed!"
+  (value && !(/^[a-z0-9 (),.'-]+$/i.test(value))
+    ? "Only letters, numbers, spaces and the characters (,.'-) allowed!"
     : undefined);
 
-export const isAddress = value =>
-  (value && !(/^[a-z0-9 (),.'-]+$/i.test(value))
-    ? "Only letters, numbers, spaces and the characters ,.'- allowed!"
-    : undefined);
+export const isAddress = value => isBusinessName(value);
 
 export const isPhoneNumber = value =>
-  (value && !(/^(0|[1-9][0-9]{9})$/i.test(value))
-    ? 'Phone number is invalid, must be 10 digits!'
+  (value && !(/^\+?(234)([0-9]{10})$/.test(value))
+    ? 'Phone number is invalid, must be in the format +2348134567890'
     : undefined);
 
 export const isValidPasswordConfirm = (value, allValues) => {

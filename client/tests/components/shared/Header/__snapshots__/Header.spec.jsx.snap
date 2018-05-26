@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<div
+  className="header homepage"
+>
+  <div
+    className="navbar unauth-navbar"
+  >
+    <div
+      className="page-title"
+    >
+      <h3>
+        <a
+          href="/"
+        >
+          BOOK-A-MEAL
+        </a>
+      </h3>
+    </div>
+    <div
+      className="navlinks"
+    >
+      <a
+        className="link"
+        href="./signin"
+      >
+        Log In
+      </a>
+      <a
+        className="link"
+        href="./signup"
+      >
+        Sign Up
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Header renders unauthenticated header correctly 1`] = `
+<div
+  className="header unauth"
+>
+  <div
+    className="navbar unauth-navbar"
+  >
+    <div
+      className="page-title"
+    >
+      <h3>
+        <a
+          href="/"
+        >
+          BOOK-A-MEAL
+        </a>
+      </h3>
+    </div>
+  </div>
+</div>
+`;

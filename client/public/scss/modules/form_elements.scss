@@ -111,7 +111,8 @@ form {
     color: $darkgrey;
 }
 
-.form-extra-info a {
+.form-extra-info a,
+.form-extra-info .link-btn {
     color: $primary-color;
     &:hover,
     &:focus,

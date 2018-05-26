@@ -6,28 +6,23 @@ import FormComponent from '../../src/app/shared/Form/FormComponent';
 
 const { formFields } = formHelpers;
 const dispatchMock = jest.fn();
-const formComponentSetup = (type) => {
-  const props = {
-    type,
-    state: {
-      values: arrayToObject(formFields[type], ''),
-      touched: arrayToObject(formFields[type], false),
-      error: arrayToObject(formFields[type], null),
-      pristine: true,
-      formValid: false,
-      asyncValidating: false,
-      rating: 0
-    },
-    handlers: {
-      handleBlur: jest.fn(),
-      handleChange: jest.fn(),
-      handleFocus: jest.fn(),
-      handleSubmit: jest.fn()
-    }
-  };
-
-  return { props };
-};
+const formComponentSetup = type => ({
+  type,
+  state: {
+    values: arrayToObject(formFields[type], ''),
+    touched: arrayToObject(formFields[type], false),
+    error: arrayToObject(formFields[type], null),
+    pristine: true,
+    formValid: false,
+    asyncValidating: false
+  },
+  handlers: {
+    handleBlur: jest.fn(),
+    handleChange: jest.fn(),
+    handleFocus: jest.fn(),
+    handleSubmit: jest.fn()
+  }
+});
 
 const mainFormSetup = (type, meta) => {
   const props = {
