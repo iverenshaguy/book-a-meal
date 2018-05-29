@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideNav renders correctly 1`] = `
+<div
+  className="sidenav"
+  id="sidenav"
+>
+  <div
+    className="sidenav-content"
+  >
+    <div
+      className="sidenav-header"
+    >
+      <div
+        className="close d-none-md"
+      >
+        <a
+          href="#"
+        >
+          ×
+        </a>
+         
+      </div>
+      <div
+        className="sidenav-title"
+      >
+        <h3>
+          <a
+            href="/"
+          >
+            BOOK-A-MEAL
+          </a>
+        </h3>
+        <div
+          className="username-circle"
+        >
+          <p>
+            F
+          </p>
+        </div>
+        <p>
+          Food Circle
+        </p>
+        <span>
+          <Link
+            className={null}
+            clickHandler={[MockFunction]}
+            id={null}
+          >
+            Logout
+          </Link>
+        </span>
+      </div>
+    </div>
+    <div
+      className="sidenav-body"
+    >
+      <a
+        className="menu-item active"
+        href="/"
+      >
+        Dashboard
+      </a>
+      <a
+        className="menu-item"
+        href="/"
+      >
+        Meals
+      </a>
+      <a
+        className="menu-item"
+        href="/"
+      >
+        Menu
+      </a>
+      <a
+        className="menu-item"
+        href="/"
+      >
+        Order History
+      </a>
+    </div>
+  </div>
+</div>
+`;

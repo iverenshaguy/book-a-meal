@@ -34,7 +34,7 @@ app.use('/api/v1/docs', express.static('server/docs'));
 app.use('/api', apiRoutes);
 
 // Serve static assets
-app.use(express.static(path.resolve(__dirname, '../../client/', 'dist')));
+app.use(express.static(path.resolve(__dirname, '../../client/', 'public')));
 
 // Serve Client File
 app.get('/*', (req, res) => {

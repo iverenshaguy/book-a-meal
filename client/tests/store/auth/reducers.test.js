@@ -1,4 +1,4 @@
-import reducer from '../../../src/app/pages/Auth/duck';
+import reducer from '../../../src/store/reducers/auth';
 
 const state = {
   isAuthenticated: false,
@@ -59,6 +59,75 @@ describe('Auth Reducers', () => {
       isAuthenticated: false,
       user: {},
       error: null,
+      loading: false
+    });
+  });
+
+  it('should handle AUTHENTICATED action', () => {
+    const newState = reducer(state, {
+      type: 'AUTHENTICATED',
+      payload: { name: 'Emily' },
+    });
+
+    expect(newState).toEqual({
+      isAuthenticated: true,
+      user: { name: 'Emily' },
+      error: null,
+      loading: false
+    });
+  });
+
+  it('should handle UNAUTHENTICATED action', () => {
+    const newState = reducer(state, {
+      type: 'UNAUTHENTICATED'
+    });
+
+    expect(newState).toEqual({
+      isAuthenticated: false,
+      user: {},
+      error: null,
+      loading: false
+    });
+  });
+
+  it('should handle SIGNUP_SUCCESS action', () => {
+    const newState = reducer(state, {
+      type: 'SIGNUP_SUCCESS',
+      payload: { name: 'Emily' },
+    });
+
+    expect(newState).toEqual({
+      isAuthenticated: true,
+      user: { name: 'Emily' },
+      error: null,
+      loading: false
+    });
+  });
+
+  it('should handle SIGNUP_ERROR action', () => {
+    const newState = reducer(state, {
+      type: 'SIGNUP_ERROR',
+      payload: 'Error',
+    });
+
+    expect(newState).toEqual({
+      isAuthenticated: false,
+      user: {},
+      error: 'Error',
+      loading: false
+    });
+  });
+
+  it('should handle AUTHENTICATION_ERROR action', () => {
+    const newState = reducer(state, {
+      type: 'AUTHENTICATION_ERROR',
+      payload: 'Error',
+    });
+
+    expect(newState).toEqual({
+      isAuthenticated: false,
+      user: {},
+      error: 'Error',
       loading: false
     });
   });

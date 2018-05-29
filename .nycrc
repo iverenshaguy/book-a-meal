@@ -9,9 +9,10 @@
   "require": ["babel-register"],
   "exclude": [
     "**/*.test.js",
+    "**/*.spec.js",
     "**/__tests__/**",
     "**/node_modules/**",
-    "client",
+    "client/",
     "server/config",
     "server/coverage/**",
     "server/tests/**",

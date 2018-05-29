@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import { Route } from 'react-router-dom';
-import { WelcomeComponent as Welcome } from './../pages/Welcome';
+import Welcome from './../pages/Welcome';
 import Auth from './../pages/Auth';
+// import requiresAuthentication from './../hoc/Authentication';
 import '../../../public/scss/style.scss';
 
 /**

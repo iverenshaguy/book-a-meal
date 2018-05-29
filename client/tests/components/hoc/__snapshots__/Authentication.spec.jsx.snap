@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HOC: requireAuthentication renders correctly 1`] = `
+<MemoryRouter>
+  <Connect(AuthenticatedComponent)
+    location={
+      Object {
+        "pathname": "/login",
+        "state": Object {
+          "from": Object {
+            "pathname": "/",
+          },
+        },
+      }
+    }
+  />
+</MemoryRouter>
+`;

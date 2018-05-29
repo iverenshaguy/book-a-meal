@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderHistoryTable renders correctly 1`] = `
+<div
+  className="table-wrapper"
+>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          ID
+        </th>
+        <th>
+          Meal Item(s)
+        </th>
+        <th>
+          Customer
+        </th>
+        <th>
+          Amount
+        </th>
+        <th>
+          Date
+        </th>
+        <th>
+          Status
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        key="fb097bde-5959-45ff-8e21-51184fa60c25"
+      >
+        <td>
+          1
+        </td>
+        <td>
+          <p
+            key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+          >
+            -
+            Vegetable Sharwama and Guava Smoothie
+          </p>
+        </td>
+        <td>
+          Emiola Olasanmi
+        </td>
+        <td>
+          ₦
+          1200
+        </td>
+        <td>
+          Friday, 6th April 2018 01.47 03
+        </td>
+        <td>
+          <span>
+            <p
+              className="success"
+            >
+              Delivered
+            </p>
+          </span>
+        </td>
+      </tr>
+      <tr
+        key="ce228787-f939-40a0-bfd3-6607ca8d2e53"
+      >
+        <td>
+          2
+        </td>
+        <td>
+          <p
+            key="baa0412a-d167-4d2b-b1d8-404cb8f02631"
+          >
+            -
+            Semo/Wheat and Egusi Soup
+          </p>
+          <p
+            key="a3c35e8f-da7a-4113-aa01-a9c0fc088539"
+          >
+            -
+            Eba and Ogbono Soup
+          </p>
+        </td>
+        <td>
+          Olisa Emodi
+        </td>
+        <td>
+          ₦
+          8000
+        </td>
+        <td>
+          Tuesday, 1st May 2018 01.47 03
+        </td>
+        <td>
+          <span>
+            <p
+              className="success"
+            >
+              Delivered
+            </p>
+          </span>
+        </td>
+      </tr>
+      <tr
+        key="fb097bde-5959-45ff-8e21-51184fa60c26"
+      >
+        <td>
+          3
+        </td>
+        <td>
+          <p
+            key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+          >
+            -
+            Vegetable Sharwama and Guava Smoothie
+          </p>
+        </td>
+        <td>
+          Emiola Olasanmi
+        </td>
+        <td>
+          ₦
+          1200
+        </td>
+        <td>
+          Tuesday, 29th May 2018 01.47 03
+        </td>
+        <td>
+          <span>
+            <React.Fragment>
+              <Link
+                className="warning"
+                clickHandler={[Function]}
+                id={null}
+              >
+                Deliver
+              </Link>
+            </React.Fragment>
+          </span>
+        </td>
+      </tr>
+      <tr
+        key="fb097bde-5959-45ff-8e21-51184fa60c35"
+      >
+        <td>
+          4
+        </td>
+        <td>
+          <p
+            key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+          >
+            -
+            Vegetable Sharwama and Guava Smoothie
+          </p>
+        </td>
+        <td>
+          Emiola Olasanmi
+        </td>
+        <td>
+          ₦
+          1200
+        </td>
+        <td>
+          Sunday, 27th May 2018 01.47 03
+        </td>
+        <td>
+          <span>
+            <p
+              className="danger"
+            >
+              Canceled
+            </p>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

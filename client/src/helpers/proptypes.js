@@ -4,23 +4,49 @@ import formHelpers from './formHelpers';
 
 const { formFields } = formHelpers;
 
-const customerPropTypes = {
+const userPropTypes = {
   user: PropTypes.shape({
-    id: PropTypes.number,
+    id: PropTypes.string,
     firstname: PropTypes.string,
     lastname: PropTypes.string,
-    email: PropTypes.string,
-  }).isRequired
-};
-
-const catererPropTypes = {
-  user: PropTypes.shape({
-    id: PropTypes.number,
     businessName: PropTypes.string,
     businessAddress: PropTypes.string,
     businessPhoneNo: PropTypes.string,
-    email: PropTypes.string
+    email: PropTypes.string,
+    role: PropTypes.string,
   }).isRequired
+};
+
+const orderMealPropTypes = PropTypes.shape({
+  id: PropTypes.string,
+  title: PropTypes.string,
+  imageURL: PropTypes.string,
+  description: PropTypes.string,
+  vegetarian: PropTypes.bool,
+  price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  quantity: PropTypes.number,
+  delivered: PropTypes.bool,
+});
+
+const catererOrderObjPropTypes = PropTypes.shape({
+  id: PropTypes.string,
+  deliveryAddress: PropTypes.string,
+  deliveryPhoneNo: PropTypes.string,
+  status: PropTypes.string,
+  createdAt: PropTypes.string,
+  updatedAt: PropTypes.string,
+  customer: PropTypes.shape({
+    firstname: PropTypes.string,
+    lastname: PropTypes.string,
+    email: PropTypes.string
+  }),
+  meals: PropTypes.arrayOf(orderMealPropTypes)
+}).isRequired;
+
+const catererOrdersObjPropTypes = {
+  orders: PropTypes.arrayOf(catererOrderObjPropTypes),
+  pendingOrders: PropTypes.number,
+  totalCashEarned: PropTypes.number
 };
 
 const authPropTypes = {
@@ -91,8 +117,10 @@ const renderFormFieldPropTypes = {
 export default {
   authPropTypes,
   formPropTypes,
-  catererPropTypes,
-  customerPropTypes,
+  userPropTypes,
   urlMatchPropTypes,
-  renderFormFieldPropTypes
+  orderMealPropTypes,
+  renderFormFieldPropTypes,
+  catererOrderObjPropTypes,
+  catererOrdersObjPropTypes
 };

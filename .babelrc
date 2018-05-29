@@ -11,6 +11,9 @@
   "env": {
     "test": {
       "plugins": ["istanbul"]
+    },
+    "jsdom": {
+      "plugins": []
     }
   }
 }

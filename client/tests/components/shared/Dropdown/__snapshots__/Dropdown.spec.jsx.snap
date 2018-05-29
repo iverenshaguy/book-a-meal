@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown renders correctly when type is admin notification 1`] = `
+<div
+  className="dropdown notification"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <Link
+    className="link"
+    clickHandler={[Function]}
+    id="dropdown-toggler"
+  >
+    <p>
+      Click Me
+    </p>
+  </Link>
+  <div
+    className="dropdown-content admin-dropdown-content"
+    id="dropdown-content"
+  >
+    <div>
+      Hey
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dropdown renders correctly when type is simple notification 1`] = `
+<div
+  className="dropdown notification"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <Link
+    className="link"
+    clickHandler={[Function]}
+    id="dropdown-toggler"
+  >
+    <p>
+      Click Me
+    </p>
+  </Link>
+  <div
+    className="dropdown-content"
+    id="dropdown-content"
+  >
+    <div>
+      Hey
+    </div>
+  </div>
+</div>
+`;

@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { AppContainer } from 'react-hot-loader';
 import rootReducer, { history } from './rootReducer';
+import refreshPage from './utils/refreshPage';
 import App from './app/App';
 
 const enhancers = [];
@@ -26,6 +27,8 @@ if (process.env.NODE_ENV === 'development') {
 const composedEnhancers = compose(applyMiddleware(...middlewares), ...enhancers);
 
 const store = createStore(rootReducer, composedEnhancers);
+
+refreshPage(store);
 
 const renderApp = (Root) => {
   render(

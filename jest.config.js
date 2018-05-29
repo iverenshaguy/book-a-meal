@@ -8,7 +8,8 @@ module.exports = {
   coveragePathIgnorePatterns: [
     '<rootDir>/node_modules/',
     '<rootDir>/server/',
-    '<rootDir>/client/src/index.jsx'
+    '<rootDir>/client/src/index.jsx',
+    '<rootDir>/client/tests/'
   ],
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy',

@@ -235,7 +235,7 @@ class FormComponent extends Component {
               {this.renderForm()}
               <button
                 className="btn btn-pri btn-block"
-                disabled={!formValid || pristine || submitting}
+                disabled={!formValid || !!pristine || !!submitting}
               >
                 {btnText}
               </button>

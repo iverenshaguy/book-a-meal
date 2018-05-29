@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter, routerReducer } from 'react-router-redux';
 import createHistory from 'history/createMemoryHistory';
 import Routes from '../../../src/app/App/Routes';
-import authReducer from '../../../src/app/pages/Auth/duck';
+import authReducer from '../../../src/store/reducers/auth';
 
 describe('Routes', () => {
   let store, history;

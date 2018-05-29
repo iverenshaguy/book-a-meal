@@ -2,7 +2,8 @@
 
 exports[`Link renders correctly 1`] = `
 <button
-  className="link-btn"
+  className="link-btn null"
+  id={null}
   onClick={[MockFunction]}
 >
   Click

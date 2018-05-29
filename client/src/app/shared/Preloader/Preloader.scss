@@ -9,19 +9,39 @@
     .ball-beat>div {
         background-color: $primary-color;
     }
-    .ball-scale-multiple {
-        // margin: 30vh 0 25vh 46vw;
-        height: 11vh;
-        width: 11vh;
-        &>div {
-            left: 0;
-        }
+    .ball-scale-multiple>div {
+        background-color: $primary-color;
     }
 }
 
-.modal-preloader {
+.modal-preloader,
+.main-preloader {
     display: flex;
-    height: 25vh;
     justify-content: center;
     align-items: center;
+}
+
+.modal-preloader {
+    height: 25vh;
+}
+
+.main-preloader {
+    height: 100vh;
+}
+
+.admin-preloader {
+    background-color: #EBEFF2;
+    .ball-scale-multiple>div {
+        background-color: $primary-color;
+    }
+}
+
+.user-preloader {
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("../../../../public/img/chicken-fajitas.jpg") no-repeat center center;
+    background-color: white;
+    background-size: cover;
+    background-attachment: fixed;
+    .ball-scale-multiple>div {
+        background-color: $primary-color;
+    }
 }

@@ -83,6 +83,7 @@ class Authorization {
       if (!foundUser) return res.status(401).json({ error: errors['401'] });
 
       req.userId = foundUser.userId;
+      req.email = foundUser.email;
       req.role = foundUser.role;
 
       return next();

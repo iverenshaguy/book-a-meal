@@ -21,8 +21,7 @@ html {
     font-size: 16px;
 }
 
-body,
-#app {
+body {
     margin: 0;
     display: flex;
     min-height: 100%;
@@ -36,6 +35,10 @@ body,
 }
 
 #app {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     min-height: 100vh;
 }
 
@@ -149,7 +152,7 @@ h6 {
 }
 
 .warning {
-    color: #ffa100;
+    color: $warning;
 }
 
 .success {
@@ -184,6 +187,16 @@ a,
     &:focus,
     &.active {
         outline: none;
+    }
+}
+
+.link-btn.warning {
+    color: $warning;
+    &:hover,
+    &:focus,
+    &.active {
+        color: darken($warning, 5%);
+        transition: color 0.5s;
     }
 }
 
@@ -337,9 +350,8 @@ hr {
         .content {
             flex-grow: 10;
             display: flex;
-            flex-direction: row;
-            min-height: 100%;
-            margin-top: 0px;
+            flex-direction: row; // min-height: 100%;
+            margin-top: 0;
             .content-wrapper {
                 flex-grow: 1;
             }
