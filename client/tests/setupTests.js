@@ -15,3 +15,8 @@ global.toJson = toJson;
 global.rrcMock = new ReactRouterEnzymeContext();
 
 window.localStorage = localStorageMock;
+
+jest.mock('moment', () => {
+  const moment = require.requireActual('moment');
+  return moment.utc;
+});

@@ -8,7 +8,7 @@ const { emiolaToken } = tokens;
 describe('Refresh Token', () => {
   it('should refresh user token based on token input', (done) => {
     request.agent(app)
-      .get('/api/v1/users/token')
+      .get('/api/v1/auth/refreshToken')
       .set('Accept', 'application/json')
       .set('authorization', emiolaToken)
       .end((err, res) => {

@@ -50,7 +50,7 @@ exports[`OrderHistoryTable renders correctly 1`] = `
           1200
         </td>
         <td>
-          Friday, 6th April 2018 01.47 03
+          Friday, 6th April 2018 12.47 03
         </td>
         <td>
           <span>
@@ -90,7 +90,7 @@ exports[`OrderHistoryTable renders correctly 1`] = `
           8000
         </td>
         <td>
-          Tuesday, 1st May 2018 01.47 03
+          Tuesday, 1st May 2018 12.47 03
         </td>
         <td>
           <span>
@@ -124,7 +124,7 @@ exports[`OrderHistoryTable renders correctly 1`] = `
           1200
         </td>
         <td>
-          Tuesday, 29th May 2018 01.47 03
+          Tuesday, 29th May 2018 12.47 03
         </td>
         <td>
           <span>
@@ -162,7 +162,7 @@ exports[`OrderHistoryTable renders correctly 1`] = `
           1200
         </td>
         <td>
-          Sunday, 27th May 2018 01.47 03
+          Sunday, 27th May 2018 12.47 03
         </td>
         <td>
           <span>
