@@ -10,7 +10,6 @@ const instance = axios.create({
 instance.interceptors.request.use((config) => {
   const token = localStorage.getItem('jwtToken');
   config.headers.authorization = `Bearer ${token}`;
-  config.validateStatus = status => status >= 200 && status < 300;
   return config;
 });
 

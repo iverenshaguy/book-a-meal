@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal does not correctly when modal is closed 1`] = `""`;
+
+exports[`Modal renders connected component correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Modal)
+    isOpen={true}
+    toggleModal={[MockFunction]}
+    type="addMeal"
+  >
+    <Modal
+      isOpen={false}
+      toggleModal={[Function]}
+      type={null}
+    />
+  </Connect(Modal)>
+</Provider>
+`;
+
+exports[`Modal renders correctly 1`] = `
+<div
+  className="modal show"
+  id="meal-modal"
+>
+  <div
+    className="modal-content"
+  >
+    <div
+      className="modal-header"
+    >
+      <div
+        className="modal-title"
+      >
+        <h3
+          id="modal-title-h3"
+        >
+          Add a Meal
+        </h3>
+      </div>
+      <div
+        className="close"
+      >
+        <Link
+          aria-hidden="true"
+          className={null}
+          clickHandler={[MockFunction]}
+          id="modal-close-icon"
+        >
+          ×
+        </Link>
+      </div>
+    </div>
+    <hr />
+    <div
+      className="modal-body"
+    >
+      <MealModal
+        isOpen={true}
+        meal={null}
+        toggleModal={[MockFunction]}
+        type="addMeal"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal renders correctly when type is editMeal 1`] = `
+<div
+  className="modal show"
+  id="meal-modal"
+>
+  <div
+    className="modal-content"
+  >
+    <div
+      className="modal-header"
+    >
+      <div
+        className="modal-title"
+      >
+        <h3
+          id="modal-title-h3"
+        >
+          Edit Meal
+        </h3>
+      </div>
+      <div
+        className="close"
+      >
+        <Link
+          aria-hidden="true"
+          className={null}
+          clickHandler={[MockFunction]}
+          id="modal-close-icon"
+        >
+          ×
+        </Link>
+      </div>
+    </div>
+    <hr />
+    <div
+      className="modal-body"
+    />
+  </div>
+</div>
+`;
+
+exports[`Modal renders correctly when type is newMealImage 1`] = `
+<div
+  className="modal show"
+  id="meal-modal"
+>
+  <div
+    className="modal-content"
+  >
+    <div
+      className="modal-header"
+    >
+      <div
+        className="modal-title"
+      >
+        <h3
+          id="modal-title-h3"
+        >
+          Add a Meal Image
+        </h3>
+      </div>
+      <div
+        className="close"
+      >
+        <Link
+          aria-hidden="true"
+          className={null}
+          clickHandler={[MockFunction]}
+          id="modal-close-icon"
+        >
+          ×
+        </Link>
+      </div>
+    </div>
+    <hr />
+    <div
+      className="modal-body"
+    >
+      <Connect(MealImageModal)
+        isOpen={true}
+        toggleModal={[MockFunction]}
+        type="newMealImage"
+      />
+    </div>
+  </div>
+</div>
+`;

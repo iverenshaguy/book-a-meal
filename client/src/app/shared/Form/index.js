@@ -1,4 +1,4 @@
 import { connect } from 'react-redux';
-import FormComponent from './FormComponent';
+import Form from './Form';
 
-export default connect()(FormComponent);
+export default connect()(Form);

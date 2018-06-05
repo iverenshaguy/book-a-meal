@@ -43,13 +43,15 @@ class Dropdown extends Component {
 
     const dropdownClass = classNames({
       dropdown: true,
-      notification: type === 'notification' || type === 'admin-notification'
+      notification: type === 'notification' || type === 'admin-notification',
+      'card-dropdown': type === 'card'
     });
 
     const dropdownContentClass = classNames({
       show: showContent,
       'dropdown-content': true,
-      'admin-dropdown-content': type === 'admin-notification'
+      'admin-dropdown-content': type === 'admin-notification',
+      meal: type === 'card'
     });
 
     return (

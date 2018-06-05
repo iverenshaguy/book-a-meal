@@ -33,27 +33,32 @@
 .modal {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     display: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: auto;
+    background: $transparent-dark;
+    transition: opacity .15s linear;
     top: 0;
     left: 0;
     z-index: 14;
-    &:before {
-        content: "";
-        display: none;
-        background: $transparent-dark;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 11;
-    }
+    // &:before {
+    //     content: "";
+    //     display: none;
+    //     background: $transparent-dark;
+    //     position: fixed;
+    //     top: 0;
+    //     left: 0;
+    //     right: 0;
+    //     bottom: 0;
+    //     z-index: 11;
+    // }
     &.show {
         display: block;
-        &:before {
-            display: block;
-        }
+        // &:before {
+        //     display: block;
+        // }
         .modal-content {
             -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
@@ -63,15 +68,15 @@
 
 .modal-content {
     z-index: 13;
-    position: absolute;
+    // position: relative;
     top: 10%;
     left: 5%;
     width: 90vw;
+    margin: 4rem auto;
     -webkit-transform: translate(0, -500%);
     transform: translate(0, -500%);
     transition: -webkit-transform 0.3s ease-out;
     transition: transform 0.3s ease-out;
-    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
     .modal-header {
         display: flex;
         justify-content: space-between;
@@ -93,7 +98,7 @@
             font-weight: bold;
             text-align: right;
             color: $grey;
-            a {
+            a, .link-btn {
                 display: block;
                 margin: 0.7em 0.7em 0.7em 0;
             }

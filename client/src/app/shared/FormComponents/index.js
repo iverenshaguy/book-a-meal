@@ -1,3 +1,4 @@
 import RenderInput from './RenderInput';
+import RenderFileInput from './RenderFileInput';
 
-export default { RenderInput };
+export default { RenderInput, RenderFileInput };

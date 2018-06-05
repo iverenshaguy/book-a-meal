@@ -269,7 +269,7 @@ exports[`Form shows error alert and disables submit button when there's a submit
 `;
 
 exports[`Form test for right input calls handleChange and handleBlur on input change and blur for email field 1`] = `
-<FormComponent
+<Form
   dispatch={
     [MockFunction] {
       "calls": Array [
@@ -504,5 +504,5 @@ exports[`Form test for right input calls handleChange and handleBlur on input ch
       something
     </p>
   </div>
-</FormComponent>
+</Form>
 `;

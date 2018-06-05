@@ -21,7 +21,7 @@ exports[`AuthComponent renders caterer's signup form correctly 1`] = `
           className="w-75"
         />
       </div>
-      <Connect(FormComponent)
+      <Connect(Form)
         changeUrl={[MockFunction]}
         isAuthenticated={false}
         location={
@@ -168,7 +168,7 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
               className="w-75"
             />
           </div>
-          <Connect(FormComponent)
+          <Connect(Form)
             changeUrl={[Function]}
             isAuthenticated={false}
             location={
@@ -223,7 +223,7 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
             submitting={false}
             type="signin"
           >
-            <FormComponent
+            <Form
               changeUrl={[Function]}
               dispatch={[Function]}
               isAuthenticated={false}
@@ -453,8 +453,8 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
                   </Link>
                 </p>
               </div>
-            </FormComponent>
-          </Connect(FormComponent)>
+            </Form>
+          </Connect(Form)>
         </div>
       </div>
       <Footer>
@@ -492,7 +492,7 @@ exports[`AuthComponent renders customer's signup form correctly 1`] = `
           className="w-75"
         />
       </div>
-      <Connect(FormComponent)
+      <Connect(Form)
         changeUrl={[MockFunction]}
         isAuthenticated={false}
         location={
@@ -574,7 +574,7 @@ exports[`AuthComponent renders signin form correctly 1`] = `
           className="w-75"
         />
       </div>
-      <Connect(FormComponent)
+      <Connect(Form)
         changeUrl={[MockFunction]}
         isAuthenticated={false}
         location={

@@ -1,5 +1,5 @@
 import React from 'react';
-import FormComponent from '../../../../src/app/shared/Form/FormComponent';
+import FormComponent from '../../../../src/app/shared/Form/Form';
 import { clearAuthError } from '../../../../src/store/operations/auth';
 import { mainFormSetup as setup, formComponentSetup } from '../../../../tests/setup/formSetup';
 

@@ -18,6 +18,14 @@ const cssPlugin = new MiniCssExtractPlugin({
 
 const hotReloader = new webpack.HotModuleReplacementPlugin();
 
+const envPlugin = new webpack.EnvironmentPlugin([
+  'NODE_ENV',
+  'REACT_APP_FIREBASE_API_KEY',
+  'REACT_APP_FIREBASE_AUTH_DOMAIN',
+  'REACT_APP_FIREBASE_DB_URL',
+  'REACT_APP_FIREBASE_STORAGE_BUCKET'
+]);
+
 module.exports = {
   entry: { app: ['react-hot-loader/patch', 'webpack-hot-middleware/client', './client/src/index.jsx'] },
   devServer: {
@@ -63,5 +71,5 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.json', '.jsx']
   },
-  plugins: [htmlPlugin, cssPlugin, hotReloader]
+  plugins: [envPlugin, htmlPlugin, cssPlugin, hotReloader]
 };

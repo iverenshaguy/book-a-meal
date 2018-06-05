@@ -1,6 +1,7 @@
 import express from 'express';
 import logger from 'morgan';
 import path from 'path';
+import cors from 'cors';
 import { config } from 'dotenv';
 import bodyParser from 'body-parser';
 import 'babel-polyfill';
@@ -16,6 +17,9 @@ config();
 
 // Set up the express app
 const app = express();
+
+// enable cors
+app.use(cors());
 
 // Log requests to the console.
 app.use(logger('dev'));

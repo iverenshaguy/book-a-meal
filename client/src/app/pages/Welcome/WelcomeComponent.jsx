@@ -9,8 +9,9 @@ import { userPropTypes } from '../../../helpers/proptypes';
 const message = 'I\'M HUNGRY';
 
 const Welcome = ({ user, isAuthenticated, authenticating }) => {
-  if (authenticating) return <Preloader type="user" />;
+  document.body.classList.remove('admin');
 
+  if (authenticating) return <Preloader type="user" />;
   if (!authenticating && isAuthenticated && user.role === 'caterer') return <Dashboard user={user} />;
 
   return (

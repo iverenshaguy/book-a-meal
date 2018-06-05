@@ -29,18 +29,9 @@ class Dashboard extends Component {
    * @memberof Dashboard
    * @returns {JSX} Dashboard Component
    */
-  componentWillMount() {
+  componentDidMount() {
     const todaysDate = moment().format('YYYY-MM-DD');
-    document.body.classList.add('admin');
     this.props.fetchOrders('caterer', todaysDate);
-  }
-
-  /**
-   * @memberof Dashboard
-   * @returns {JSX} Dashboard Component
-   */
-  componentWillUnmount() {
-    document.body.classList.remove('admin');
   }
 
   /**
@@ -88,16 +79,16 @@ class Dashboard extends Component {
     const { user, logout } = this.props;
 
     return (
-      <Fragment>
+      <div className="admin">
         <Header type="caterer" />
         <div className="content">
-          <SideNav user={user} logout={logout} />
+          <SideNav user={user} logout={logout} active="dashboard" />
           <div className="content-wrapper dashboard" id="has-modal">
             {this.renderMainDashBoard()}
           </div>
         </div>
         <Footer />
-      </Fragment>
+      </div>
     );
   }
 }

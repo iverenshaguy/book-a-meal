@@ -76,10 +76,22 @@ const urlMatchPropTypes = {
   }).isRequired,
 };
 
+const mealObjPropTypes = PropTypes.shape({
+  id: PropTypes.string,
+  title: PropTypes.string,
+  imageURL: PropTypes.string,
+  description: PropTypes.string,
+  vegetarian: PropTypes.bool,
+  price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+});
+
 const formPropTypes = type => ({
   type: PropTypes.string.isRequired,
   state: PropTypes.shape({
-    values: PropTypes.shape(arrayToObject(formFields[type], PropTypes.string)),
+    values: PropTypes.shape(arrayToObject(
+      formFields[type],
+      PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number])
+    )),
     touched: PropTypes.shape(arrayToObject(formFields[type], PropTypes.bool)),
     error: PropTypes.shape(arrayToObject(formFields[type], PropTypes.string)),
     pristine: PropTypes.bool,
@@ -120,6 +132,7 @@ export default {
   userPropTypes,
   urlMatchPropTypes,
   orderMealPropTypes,
+  mealObjPropTypes,
   renderFormFieldPropTypes,
   catererOrderObjPropTypes,
   catererOrdersObjPropTypes
