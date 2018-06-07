@@ -1,0 +1,654 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard renders Preloader when fetching 1`] = `
+<React.Fragment>
+  <Header
+    type="caterer"
+  />
+  <div
+    className="content"
+  >
+    <SideNav
+      logout={[MockFunction]}
+      user={
+        Object {
+          "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+          "businessName": "Food Circle",
+          "businessPhoneNo": "+2348166557788",
+          "email": "food@circle.com",
+          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+          "role": "caterer",
+        }
+      }
+    />
+    <div
+      className="content-wrapper dashboard"
+      id="has-modal"
+    >
+      <Preloader
+        type="admin"
+      />
+    </div>
+  </div>
+  <Footer />
+</React.Fragment>
+`;
+
+exports[`Dashboard renders connected component 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Dashboard)
+    dispatch={[MockFunction]}
+    isFetching={false}
+    orders={
+      Array [
+        Object {
+          "createdAt": "2018-04-06T00:47:03.687Z",
+          "customer": Object {
+            "email": "emiola@olasanmi.com",
+            "firstname": "Emiola",
+            "lastname": "Olasanmi",
+          },
+          "deliveryAddress": "4, Church Street, Yaba",
+          "deliveryPhoneNo": "+2348134567890",
+          "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
+          "meals": Array [
+            Object {
+              "delivered": true,
+              "description": "Sharwama contains no animal products, perfect for dieters",
+              "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+              "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "price": "1200.00",
+              "quantity": 1,
+              "title": "Vegetable Sharwama and Guava Smoothie",
+              "vegetarian": true,
+            },
+          ],
+          "status": "delivered",
+          "updatedAt": "2018-04-06T00:47:03.687Z",
+        },
+        Object {
+          "createdAt": "2018-05-01T00:47:03.687Z",
+          "customer": Object {
+            "email": "olisa@emodi.com",
+            "firstname": "Olisa",
+            "lastname": "Emodi",
+          },
+          "deliveryAddress": "4, Church Street, Yaba",
+          "deliveryPhoneNo": "+2348134567890",
+          "id": "ce228787-f939-40a0-bfd3-6607ca8d2e53",
+          "meals": Array [
+            Object {
+              "delivered": true,
+              "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
+              "id": "baa0412a-d167-4d2b-b1d8-404cb8f02631",
+              "imageURL": "https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg",
+              "price": "2000.00",
+              "quantity": 2,
+              "title": "Semo/Wheat and Egusi Soup",
+              "vegetarian": false,
+            },
+            Object {
+              "delivered": true,
+              "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
+              "id": "a3c35e8f-da7a-4113-aa01-a9c0fc088539",
+              "imageURL": "http://www.kalakutahgrills.com/wp-content/uploads/2017/02/my-pics-group-3-007.jpg",
+              "price": "2000.00",
+              "quantity": 2,
+              "title": "Eba and Ogbono Soup",
+              "vegetarian": false,
+            },
+          ],
+          "status": "delivered",
+          "updatedAt": "2018-05-01T00:47:03.687Z",
+        },
+        Object {
+          "createdAt": "2018-05-29T00:47:03.687Z",
+          "customer": Object {
+            "email": "emiola@olasanmi.com",
+            "firstname": "Emiola",
+            "lastname": "Olasanmi",
+          },
+          "deliveryAddress": "4, Church Street, Yaba",
+          "deliveryPhoneNo": "+2348134567890",
+          "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
+          "meals": Array [
+            Object {
+              "delivered": false,
+              "description": "Sharwama contains no animal products, perfect for dieters",
+              "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+              "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "price": "1200.00",
+              "quantity": 1,
+              "title": "Vegetable Sharwama and Guava Smoothie",
+              "vegetarian": true,
+            },
+          ],
+          "status": "pending",
+          "updatedAt": "2018-05-29T00:47:03.687Z",
+        },
+        Object {
+          "createdAt": "2018-05-27T00:47:03.687Z",
+          "customer": Object {
+            "email": "emiola@olasanmi.com",
+            "firstname": "Emiola",
+            "lastname": "Olasanmi",
+          },
+          "deliveryAddress": "4, Church Street, Yaba",
+          "deliveryPhoneNo": "+2348134567890",
+          "id": "fb097bde-5959-45ff-8e21-51184fa60c35",
+          "meals": Array [
+            Object {
+              "delivered": false,
+              "description": "Sharwama contains no animal products, perfect for dieters",
+              "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+              "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "price": "1200.00",
+              "quantity": 1,
+              "title": "Vegetable Sharwama and Guava Smoothie",
+              "vegetarian": true,
+            },
+          ],
+          "status": "canceled",
+          "updatedAt": "2018-05-27T00:47:03.687Z",
+        },
+      ]
+    }
+    pendingOrders={0}
+    totalCashEarned={9200}
+    user={
+      Object {
+        "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+        "businessName": "Food Circle",
+        "businessPhoneNo": "+2348166557788",
+        "email": "food@circle.com",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "role": "caterer",
+      }
+    }
+  >
+    <Dashboard
+      deliverOrder={[Function]}
+      dispatch={[MockFunction]}
+      fetchOrders={[Function]}
+      isFetching={false}
+      logout={[Function]}
+      orders={Array []}
+      pendingOrders={0}
+      totalCashEarned={0}
+      user={
+        Object {
+          "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+          "businessName": "Food Circle",
+          "businessPhoneNo": "+2348166557788",
+          "email": "food@circle.com",
+          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+          "role": "caterer",
+        }
+      }
+    >
+      <Header
+        type="caterer"
+      >
+        <div
+          className="header"
+        >
+          <div
+            className="navbar"
+          >
+            <CatererHeader>
+              <div
+                className="menu-control d-none-md"
+              >
+                <a
+                  className="d-none-md"
+                  href="#sidenav"
+                >
+                  <img
+                    alt="toggler"
+                    src="./img/toggler.png"
+                  />
+                </a>
+              </div>
+              <div
+                className="page-title d-flex-md"
+              >
+                <div
+                  className="date"
+                >
+                  <h2>
+                    Thursday, 1st January 1970
+                        
+                    00:00
+                  </h2>
+                </div>
+              </div>
+            </CatererHeader>
+          </div>
+        </div>
+      </Header>
+      <div
+        className="content"
+      >
+        <SideNav
+          logout={[Function]}
+          user={
+            Object {
+              "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+              "businessName": "Food Circle",
+              "businessPhoneNo": "+2348166557788",
+              "email": "food@circle.com",
+              "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+              "role": "caterer",
+            }
+          }
+        >
+          <div
+            className="sidenav"
+            id="sidenav"
+          >
+            <div
+              className="sidenav-content"
+            >
+              <div
+                className="sidenav-header"
+              >
+                <div
+                  className="close d-none-md"
+                >
+                  <a
+                    href="#"
+                  >
+                    ×
+                  </a>
+                   
+                </div>
+                <div
+                  className="sidenav-title"
+                >
+                  <h3>
+                    <a
+                      href="/"
+                    >
+                      BOOK-A-MEAL
+                    </a>
+                  </h3>
+                  <div
+                    className="username-circle"
+                  >
+                    <p>
+                      F
+                    </p>
+                  </div>
+                  <p>
+                    Food Circle
+                  </p>
+                  <span>
+                    <Link
+                      className={null}
+                      clickHandler={[Function]}
+                      id={null}
+                    >
+                      <button
+                        className="link-btn null"
+                        id={null}
+                        onClick={[Function]}
+                      >
+                        Logout
+                      </button>
+                    </Link>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="sidenav-body"
+              >
+                <a
+                  className="menu-item active"
+                  href="/"
+                >
+                  Dashboard
+                </a>
+                <a
+                  className="menu-item"
+                  href="/"
+                >
+                  Meals
+                </a>
+                <a
+                  className="menu-item"
+                  href="/"
+                >
+                  Menu
+                </a>
+                <a
+                  className="menu-item"
+                  href="/"
+                >
+                  Order History
+                </a>
+              </div>
+            </div>
+          </div>
+        </SideNav>
+        <div
+          className="content-wrapper dashboard"
+          id="has-modal"
+        >
+          <div
+            className="date d-none-md"
+          >
+            <h2>
+              Thursday, 1st January 1970
+                  
+              00:00
+            </h2>
+          </div>
+          <div
+            className="card-group summary"
+          >
+            <div
+              className="card total-sum"
+            >
+              <div
+                className="count"
+              >
+                0
+              </div>
+              <div>
+                Today's Orders
+              </div>
+            </div>
+            <div
+              className="card pending"
+            >
+              <div
+                className="count"
+              >
+                0
+              </div>
+              <div>
+                Pending Orders
+              </div>
+            </div>
+            <div
+              className="card total-cash"
+            >
+              <div
+                className="count"
+              >
+                ₦ 
+                0
+              </div>
+              <div>
+                Today's Revenue
+              </div>
+            </div>
+          </div>
+          <div
+            className="order-details"
+          >
+            <OrderHistoryTable
+              deliverOrder={[Function]}
+              orders={Array []}
+            >
+              <div
+                className="table-wrapper"
+              >
+                <table>
+                  <thead>
+                    <tr>
+                      <th>
+                        ID
+                      </th>
+                      <th>
+                        Meal Item(s)
+                      </th>
+                      <th>
+                        Customer
+                      </th>
+                      <th>
+                        Amount
+                      </th>
+                      <th>
+                        Date
+                      </th>
+                      <th>
+                        Status
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody />
+                </table>
+              </div>
+            </OrderHistoryTable>
+          </div>
+        </div>
+      </div>
+      <Footer>
+        <div
+          className="footer"
+        >
+          <p>
+            © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
+          </p>
+        </div>
+      </Footer>
+    </Dashboard>
+  </Connect(Dashboard)>
+</Provider>
+`;
+
+exports[`Dashboard renders correctly when not fetching 1`] = `
+<React.Fragment>
+  <Header
+    type="caterer"
+  />
+  <div
+    className="content"
+  >
+    <SideNav
+      logout={[MockFunction]}
+      user={
+        Object {
+          "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+          "businessName": "Food Circle",
+          "businessPhoneNo": "+2348166557788",
+          "email": "food@circle.com",
+          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+          "role": "caterer",
+        }
+      }
+    />
+    <div
+      className="content-wrapper dashboard"
+      id="has-modal"
+    >
+      <React.Fragment>
+        <div
+          className="date d-none-md"
+        >
+          <h2>
+            Thursday, 1st January 1970
+                
+            00:00
+          </h2>
+        </div>
+        <div
+          className="card-group summary"
+        >
+          <div
+            className="card total-sum"
+          >
+            <div
+              className="count"
+            >
+              4
+            </div>
+            <div>
+              Today's Orders
+            </div>
+          </div>
+          <div
+            className="card pending"
+          >
+            <div
+              className="count"
+            >
+              0
+            </div>
+            <div>
+              Pending Orders
+            </div>
+          </div>
+          <div
+            className="card total-cash"
+          >
+            <div
+              className="count"
+            >
+              ₦ 
+              9200
+            </div>
+            <div>
+              Today's Revenue
+            </div>
+          </div>
+        </div>
+        <div
+          className="order-details"
+        >
+          <OrderHistoryTable
+            deliverOrder={[MockFunction]}
+            orders={
+              Array [
+                Object {
+                  "createdAt": "2018-04-06T00:47:03.687Z",
+                  "customer": Object {
+                    "email": "emiola@olasanmi.com",
+                    "firstname": "Emiola",
+                    "lastname": "Olasanmi",
+                  },
+                  "deliveryAddress": "4, Church Street, Yaba",
+                  "deliveryPhoneNo": "+2348134567890",
+                  "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
+                  "meals": Array [
+                    Object {
+                      "delivered": true,
+                      "description": "Sharwama contains no animal products, perfect for dieters",
+                      "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                      "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                      "price": "1200.00",
+                      "quantity": 1,
+                      "title": "Vegetable Sharwama and Guava Smoothie",
+                      "vegetarian": true,
+                    },
+                  ],
+                  "status": "delivered",
+                  "updatedAt": "2018-04-06T00:47:03.687Z",
+                },
+                Object {
+                  "createdAt": "2018-05-01T00:47:03.687Z",
+                  "customer": Object {
+                    "email": "olisa@emodi.com",
+                    "firstname": "Olisa",
+                    "lastname": "Emodi",
+                  },
+                  "deliveryAddress": "4, Church Street, Yaba",
+                  "deliveryPhoneNo": "+2348134567890",
+                  "id": "ce228787-f939-40a0-bfd3-6607ca8d2e53",
+                  "meals": Array [
+                    Object {
+                      "delivered": true,
+                      "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
+                      "id": "baa0412a-d167-4d2b-b1d8-404cb8f02631",
+                      "imageURL": "https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg",
+                      "price": "2000.00",
+                      "quantity": 2,
+                      "title": "Semo/Wheat and Egusi Soup",
+                      "vegetarian": false,
+                    },
+                    Object {
+                      "delivered": true,
+                      "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
+                      "id": "a3c35e8f-da7a-4113-aa01-a9c0fc088539",
+                      "imageURL": "http://www.kalakutahgrills.com/wp-content/uploads/2017/02/my-pics-group-3-007.jpg",
+                      "price": "2000.00",
+                      "quantity": 2,
+                      "title": "Eba and Ogbono Soup",
+                      "vegetarian": false,
+                    },
+                  ],
+                  "status": "delivered",
+                  "updatedAt": "2018-05-01T00:47:03.687Z",
+                },
+                Object {
+                  "createdAt": "2018-05-29T00:47:03.687Z",
+                  "customer": Object {
+                    "email": "emiola@olasanmi.com",
+                    "firstname": "Emiola",
+                    "lastname": "Olasanmi",
+                  },
+                  "deliveryAddress": "4, Church Street, Yaba",
+                  "deliveryPhoneNo": "+2348134567890",
+                  "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
+                  "meals": Array [
+                    Object {
+                      "delivered": false,
+                      "description": "Sharwama contains no animal products, perfect for dieters",
+                      "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                      "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                      "price": "1200.00",
+                      "quantity": 1,
+                      "title": "Vegetable Sharwama and Guava Smoothie",
+                      "vegetarian": true,
+                    },
+                  ],
+                  "status": "pending",
+                  "updatedAt": "2018-05-29T00:47:03.687Z",
+                },
+                Object {
+                  "createdAt": "2018-05-27T00:47:03.687Z",
+                  "customer": Object {
+                    "email": "emiola@olasanmi.com",
+                    "firstname": "Emiola",
+                    "lastname": "Olasanmi",
+                  },
+                  "deliveryAddress": "4, Church Street, Yaba",
+                  "deliveryPhoneNo": "+2348134567890",
+                  "id": "fb097bde-5959-45ff-8e21-51184fa60c35",
+                  "meals": Array [
+                    Object {
+                      "delivered": false,
+                      "description": "Sharwama contains no animal products, perfect for dieters",
+                      "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                      "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                      "price": "1200.00",
+                      "quantity": 1,
+                      "title": "Vegetable Sharwama and Guava Smoothie",
+                      "vegetarian": true,
+                    },
+                  ],
+                  "status": "canceled",
+                  "updatedAt": "2018-05-27T00:47:03.687Z",
+                },
+              ]
+            }
+          />
+        </div>
+      </React.Fragment>
+    </div>
+  </div>
+  <Footer />
+</React.Fragment>
+`;

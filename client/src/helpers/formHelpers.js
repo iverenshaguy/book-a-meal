@@ -1,6 +1,4 @@
-import { operations } from '../app/pages/Auth/duck';
-
-const { auth, clearAuthError } = operations;
+import { auth, clearAuthError } from '../store/operations/auth';
 
 const clearFormError = {
   signin: clearAuthError(),

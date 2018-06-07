@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Header renders caterer header correctly 1`] = `
+<div
+  className="header"
+>
+  <div
+    className="navbar"
+  >
+    <CatererHeader />
+  </div>
+</div>
+`;
+
 exports[`Header renders correctly 1`] = `
 <div
   className="header homepage"
@@ -7,33 +19,35 @@ exports[`Header renders correctly 1`] = `
   <div
     className="navbar unauth-navbar"
   >
-    <div
-      className="page-title"
-    >
-      <h3>
+    <React.Fragment>
+      <div
+        className="page-title"
+      >
+        <h3>
+          <a
+            href="/"
+          >
+            BOOK-A-MEAL
+          </a>
+        </h3>
+      </div>
+      <div
+        className="navlinks"
+      >
         <a
-          href="/"
+          className="link"
+          href="./signin"
         >
-          BOOK-A-MEAL
+          Log In
         </a>
-      </h3>
-    </div>
-    <div
-      className="navlinks"
-    >
-      <a
-        className="link"
-        href="./signin"
-      >
-        Log In
-      </a>
-      <a
-        className="link"
-        href="./signup"
-      >
-        Sign Up
-      </a>
-    </div>
+        <a
+          className="link"
+          href="./signup"
+        >
+          Sign Up
+        </a>
+      </div>
+    </React.Fragment>
   </div>
 </div>
 `;
@@ -45,17 +59,19 @@ exports[`Header renders unauthenticated header correctly 1`] = `
   <div
     className="navbar unauth-navbar"
   >
-    <div
-      className="page-title"
-    >
-      <h3>
-        <a
-          href="/"
-        >
-          BOOK-A-MEAL
-        </a>
-      </h3>
-    </div>
+    <React.Fragment>
+      <div
+        className="page-title"
+      >
+        <h3>
+          <a
+            href="/"
+          >
+            BOOK-A-MEAL
+          </a>
+        </h3>
+      </div>
+    </React.Fragment>
   </div>
 </div>
 `;

@@ -45,9 +45,11 @@
         &.show {
             display: flex;
         }
-        a {
+        a,
+        .link-btn {
             color: $dark;
             padding: 10px;
+            font-family: $heading-font-stack;
             border-bottom: 1px solid #ddd;
             &:last-child {
                 border-bottom: 0px solid #ddd;
@@ -63,7 +65,8 @@
             margin: 0;
         }
     }
-    &.notification .dropdown-content a {
+    &.notification .dropdown-content a,
+    &.notification .dropdown-content .link-btn {
         padding: 20px 15px;
         &.read {
             background-color: $lightgrey;
@@ -71,8 +74,14 @@
     }
 }
 
+@media (max-width: 767.98px) {
+    .admin .navbar .admin-dropdown-content {
+        top: 100%;
+    }
+}
+
 @media (max-width: 470px) {
     .navbar .dropdown.notification .dropdown-content {
-        right: -520%;
+        right: 0%;
     }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import FormComponent from '../../../../src/app/shared/Form/FormComponent';
-import { clearAuthError } from '../../../../src/app/pages/Auth/duck/actions';
+import { clearAuthError } from '../../../../src/store/operations/auth';
 import { mainFormSetup as setup, formComponentSetup } from '../../../../tests/setup/formSetup';
 
 const signinState = {

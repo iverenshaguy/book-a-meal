@@ -133,6 +133,23 @@ class Users {
   }
 
   /**
+   * Resets User Token
+   * @method resetToken
+   * @memberof Users
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  static async refreshToken(req, res) {
+    return db.User.findOne({ where: { email: req.email } }).then((authUser) => {
+      const user = Users.getUserObj({ ...authUser.dataValues });
+      const token = Authorization.generateToken(user);
+
+      return res.status(200).json({ user, token });
+    });
+  }
+
+  /**
    * @method getUserObj
    * @memberof Users
    * @param {object} user
@@ -147,6 +164,7 @@ class Users {
         firstname: user.firstname,
         lastname: user.lastname,
         email: user.email,
+        role: user.role
       };
     }
 
@@ -157,6 +175,7 @@ class Users {
         businessAddress: user.businessAddress,
         businessPhoneNo: user.businessPhoneNo,
         email: user.email,
+        role: user.role
       };
     }
 

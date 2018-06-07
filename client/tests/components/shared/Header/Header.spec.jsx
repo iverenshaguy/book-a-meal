@@ -13,4 +13,10 @@ describe('Header', () => {
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
   });
+
+  it('renders caterer header correctly', () => {
+    const shallowWrapper = shallow(<Header type="caterer" />);
+
+    expect(toJson(shallowWrapper)).toMatchSnapshot();
+  });
 });

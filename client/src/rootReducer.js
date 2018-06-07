@@ -1,11 +1,15 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
-import authReducer from './app/pages/Auth/duck';
+import auth from './store/reducers/auth';
+import isFetching from './store/reducers/isFetching';
+import orders from './store/reducers/orders';
 
 export const history = createHistory();
 
 export default combineReducers({
   router: routerReducer,
-  auth: authReducer
+  auth,
+  isFetching,
+  orders
 });

@@ -254,18 +254,16 @@ class Orders {
    * @memberof Orders
    * @param {string} role
    * @param {array} orders
-   * @returns {number} Cash Earned
+   * @returns {number} Pending Orders
+   * Checks the first caterers meal to see if it is delivered
+   * Delivering one meal delivers all meals
+   * One undelivered meal means all caterers meals are undelievered
    */
   static pendingOrders(role, orders) {
     if (role === 'caterer') {
       return orders.reduce((totalPending, order) => {
-        const pendingPerOrder = order.meals.reduce((total, meal) => {
-          if (!meal.dataValues.delivered) return total + 1;
-
-          return total + 0;
-        }, 0);
-
-        return pendingPerOrder + totalPending;
+        if (!order.meals[0].dataValues.delivered) return totalPending + 1;
+        return totalPending + 0;
       }, 0);
     }
 
@@ -336,6 +334,7 @@ class Orders {
       deliveryAddress: order.getDataValue('deliveryAddress'),
       deliveryPhoneNo: order.getDataValue('deliveryPhoneNo'),
       status: order.getDataValue('status'),
+      customer: order.getDataValue('customer') ? order.getDataValue('customer') : undefined,
       createdAt: moment(order.getDataValue('createdAt')).format(),
       updatedAt: moment(order.getDataValue('updatedAt')).format(),
       meals: order.dataValues.meals

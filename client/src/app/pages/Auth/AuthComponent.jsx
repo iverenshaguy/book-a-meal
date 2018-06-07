@@ -1,7 +1,8 @@
 import React, { Fragment, Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
-import { push } from 'react-router-redux';
+
 import { urlPropTypes, authPropTypes } from '../../../helpers/proptypes';
 import Header from '../../shared/Header';
 import Footer from '../../shared/Footer';
@@ -19,7 +20,8 @@ class Auth extends Component {
   static propTypes = {
     type: PropTypes.string.isRequired,
     ...urlPropTypes,
-    ...authPropTypes
+    ...authPropTypes,
+    changeUrl: PropTypes.func.isRequired
   }
 
   /**
@@ -102,11 +104,11 @@ class Auth extends Component {
 
     switch (type) {
       case 'customerSignup':
-        return this.props.dispatch(push('/signup?role=customer'));
+        return this.props.changeUrl('/signup?role=customer');
       case 'catererSignup':
-        return this.props.dispatch(push('/signup?role=caterer'));
+        return this.props.changeUrl('/signup?role=caterer');
       default:
-        return this.props.dispatch(push('/signin'));
+        return this.props.changeUrl('/signin');
     }
   }
 
@@ -117,6 +119,12 @@ class Auth extends Component {
   render() {
     const meta = this.getMeta();
     const title = this.getFormTitle();
+    const { from } = this.props.location.state ? this.props.location.state : { from: { pathname: '/' } };
+    const newLocation = this.props.type === 'signin' ? from : '/';
+
+    if (this.props.isAuthenticated) {
+      return <Redirect to={newLocation} />;
+    }
 
     return (
       <Fragment>

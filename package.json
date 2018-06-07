@@ -29,7 +29,7 @@
     "test": "npm-run-all test:server test:client",
     "test:server": "cross-env NODE_ENV=test SECRET=mytestsecret nyc mocha ./server/tests/test.js --recursive --timeout 50000 --exit",
     "test:server:watch": "npm run test:server --watch",
-    "test:client": "jest --env=jsdom --coverage",
+    "test:client": "cross-env SECRET=mytestsecret jest --env=jsdom --coverage",
     "test:client:watch": "jest --env=jsdom --watch",
     "merge:lcov": "cat ./coverage/lcov.*.info > ./coverage/lcov.info"
   },
@@ -80,6 +80,7 @@
     "query-string": "^6.1.0",
     "random-string": "^0.2.0",
     "react": "^16.3.2",
+    "react-device-detect": "^1.3.4",
     "react-dom": "^16.3.2",
     "react-hot-loader": "^4.2.0",
     "react-loaders": "^3.0.1",
@@ -105,6 +106,7 @@
     "webpack-merge": "^4.1.2"
   },
   "devDependencies": {
+    "axios-mock-adapter": "^1.15.0",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
