@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders container correctly 1`] = `<Connect(Header) />`;
+
+exports[`Header renders correctly 1`] = `
+<div
+  className="header homepage"
+>
+  <div
+    className="navbar unauth-navbar"
+  >
+    <div
+      className="page-title"
+    >
+      <h3>
+        <a
+          href="/"
+        >
+          BOOK-A-MEAL
+        </a>
+      </h3>
+    </div>
+    <div
+      className="navlinks"
+    >
+      <a
+        className="link"
+        href="./login.html"
+      >
+        Log In
+      </a>
+      <a
+        className="link"
+        href="./signup.html"
+      >
+        Sign Up
+      </a>
+    </div>
+  </div>
+</div>
+`;

@@ -1,3 +1,6 @@
 eslint:
   enabled: true
   config_file: .hound.eslintrc
+
+scss:
+  enabled: false

@@ -1,5 +1,6 @@
 {
   "check-coverage": true,
+  "extends": "@istanbuljs/nyc-config-babel",
   "per-file": true,
   "lines": 80,
   "statements": 80,

@@ -1,0 +1,27 @@
+@import '../../../../public/scss/_variables';
+.loader {
+    &-hidden {
+        display: none;
+    }
+    &-active {
+        display: block;
+    }
+    .ball-beat>div {
+        background-color: $primary-color;
+    }
+    .ball-scale-multiple {
+        // margin: 30vh 0 25vh 46vw;
+        height: 11vh;
+        width: 11vh;
+        &>div {
+            left: 0;
+        }
+    }
+}
+
+.modal-preloader {
+    display: flex;
+    height: 25vh;
+    justify-content: center;
+    align-items: center;
+}

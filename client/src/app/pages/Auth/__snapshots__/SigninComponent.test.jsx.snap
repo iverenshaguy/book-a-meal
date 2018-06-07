@@ -1,0 +1,382 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SigninComponent renders connected component correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Signin)>
+    <Signin
+      dispatch={[Function]}
+      isAuthenticated={true}
+      submitError={null}
+      submitting={false}
+    >
+      <Connect(Header)>
+        <Header
+          dispatch={[Function]}
+          type="/home"
+        >
+          <div
+            className="header"
+          >
+            <div
+              className="navbar unauth-navbar"
+            >
+              <div
+                className="page-title"
+              >
+                <h3>
+                  <a
+                    href="/"
+                  >
+                    BOOK-A-MEAL
+                  </a>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </Header>
+      </Connect(Header)>
+      <div
+        className="main-wrapper auth-wrapper"
+      >
+        <div
+          className="auth"
+        >
+          <div
+            className="title"
+          >
+            <h2>
+              Welcome Back
+            </h2>
+            <hr
+              className="w-75"
+            />
+          </div>
+          <Connect(FormComponent)
+            dispatch={[Function]}
+            isAuthenticated={true}
+            meta={
+              Object {
+                "btnText": "SIGN IN",
+                "extra": <div
+                  className="content"
+                >
+                  <p
+                    className="form-extra-info text-center"
+                  >
+                    Don't have an account, signup
+                    <a
+                      href="./signup?role=user"
+                    >
+                       here
+                    </a>
+                  </p>
+                  <p
+                    className="text-center"
+                  >
+                    Or
+                  </p>
+                  <p
+                    className="form-extra-info text-center"
+                  >
+                    <a
+                      href="./signup?role=caterer"
+                    >
+                      Signup as a Caterer
+                    </a>
+                  </p>
+                </div>,
+              }
+            }
+            submitError={null}
+            submitting={false}
+            type="signin"
+          >
+            <FormComponent
+              dispatch={[Function]}
+              isAuthenticated={true}
+              meta={
+                Object {
+                  "btnText": "SIGN IN",
+                  "extra": <div
+                    className="content"
+                  >
+                    <p
+                      className="form-extra-info text-center"
+                    >
+                      Don't have an account, signup
+                      <a
+                        href="./signup?role=user"
+                      >
+                         here
+                      </a>
+                    </p>
+                    <p
+                      className="text-center"
+                    >
+                      Or
+                    </p>
+                    <p
+                      className="form-extra-info text-center"
+                    >
+                      <a
+                        href="./signup?role=caterer"
+                      >
+                        Signup as a Caterer
+                      </a>
+                    </p>
+                  </div>,
+                }
+              }
+              submitError={null}
+              submitting={false}
+              type="signin"
+            >
+              <div>
+                <form
+                  onSubmit={[Function]}
+                >
+                  <SigninForm
+                    handlers={
+                      Object {
+                        "handleBlur": [Function],
+                        "handleChange": [Function],
+                        "handleFocus": [Function],
+                        "handleSubmit": [Function],
+                      }
+                    }
+                    state={
+                      Object {
+                        "asyncValidating": false,
+                        "error": Object {
+                          "email": null,
+                          "password": null,
+                        },
+                        "formValid": false,
+                        "pristine": true,
+                        "touched": Object {
+                          "email": false,
+                          "password": false,
+                        },
+                        "values": Object {
+                          "email": "",
+                          "password": "",
+                        },
+                      }
+                    }
+                    type="signin"
+                  >
+                    <RenderInput
+                      handleBlur={[Function]}
+                      handleChange={[Function]}
+                      handleFocus={[Function]}
+                      id="email"
+                      label="Email Address"
+                      meta={
+                        Object {
+                          "asyncValidating": false,
+                          "error": null,
+                          "touched": false,
+                        }
+                      }
+                      name="email"
+                      placeholder=""
+                      required={true}
+                      type="email"
+                      value=""
+                    >
+                      <div
+                        className="form-input"
+                      >
+                        <label
+                          htmlFor="email"
+                        >
+                          Email Address
+                          <span
+                            className="danger"
+                          >
+                            *
+                          </span>
+                        </label>
+                        <input
+                          className=""
+                          id="email"
+                          name="email"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder=""
+                          type="email"
+                          value=""
+                        />
+                      </div>
+                    </RenderInput>
+                    <RenderInput
+                      handleBlur={[Function]}
+                      handleChange={[Function]}
+                      handleFocus={[Function]}
+                      id="password"
+                      label="Password"
+                      meta={
+                        Object {
+                          "error": null,
+                          "touched": false,
+                        }
+                      }
+                      name="password"
+                      placeholder=""
+                      required={true}
+                      type="password"
+                      value=""
+                    >
+                      <div
+                        className="form-input"
+                      >
+                        <label
+                          htmlFor="password"
+                        >
+                          Password
+                          <span
+                            className="danger"
+                          >
+                            *
+                          </span>
+                        </label>
+                        <input
+                          className=""
+                          id="password"
+                          name="password"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder=""
+                          type="password"
+                          value=""
+                        />
+                      </div>
+                    </RenderInput>
+                  </SigninForm>
+                  <button
+                    className="btn btn-pri btn-block"
+                    disabled={true}
+                  >
+                    SIGN IN
+                  </button>
+                </form>
+                <div
+                  className="content"
+                >
+                  <p
+                    className="form-extra-info text-center"
+                  >
+                    Don't have an account, signup
+                    <a
+                      href="./signup?role=user"
+                    >
+                       here
+                    </a>
+                  </p>
+                  <p
+                    className="text-center"
+                  >
+                    Or
+                  </p>
+                  <p
+                    className="form-extra-info text-center"
+                  >
+                    <a
+                      href="./signup?role=caterer"
+                    >
+                      Signup as a Caterer
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </FormComponent>
+          </Connect(FormComponent)>
+        </div>
+      </div>
+      <Footer>
+        <div
+          className="footer"
+        >
+          <p>
+            © 2018. Iveren Shaguy. All images were gottem from Google and are not mine.
+          </p>
+        </div>
+      </Footer>
+    </Signin>
+  </Connect(Signin)>
+</Provider>
+`;
+
+exports[`SigninComponent renders correctly 1`] = `
+<React.Fragment>
+  <Connect(Header) />
+  <div
+    className="main-wrapper auth-wrapper"
+  >
+    <div
+      className="auth"
+    >
+      <div
+        className="title"
+      >
+        <h2>
+          Welcome Back
+        </h2>
+        <hr
+          className="w-75"
+        />
+      </div>
+      <Connect(FormComponent)
+        meta={
+          Object {
+            "btnText": "SIGN IN",
+            "extra": <div
+              className="content"
+            >
+              <p
+                className="form-extra-info text-center"
+              >
+                Don't have an account, signup
+                <a
+                  href="./signup?role=user"
+                >
+                   here
+                </a>
+              </p>
+              <p
+                className="text-center"
+              >
+                Or
+              </p>
+              <p
+                className="form-extra-info text-center"
+              >
+                <a
+                  href="./signup?role=caterer"
+                >
+                  Signup as a Caterer
+                </a>
+              </p>
+            </div>,
+          }
+        }
+        type="signin"
+      />
+    </div>
+  </div>
+  <Footer />
+</React.Fragment>
+`;

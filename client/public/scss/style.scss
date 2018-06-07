@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,600i");
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
+@import './_variables.scss';
 @import './modules/buttons.scss';
 @import './modules/cards.scss';
 @import './modules/modals.scss';
@@ -16,7 +17,7 @@ html {
     margin: 0;
     height: 100%;
     font-weight: 400;
-    font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: $font-stack;
     font-size: 16px;
 }
 
@@ -26,7 +27,7 @@ body,
     display: flex;
     min-height: 100%;
     flex-direction: column;
-    color: #333;
+    color: $dark;
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/chicken-fajitas.jpg") no-repeat center center;
     background-color: white;
     background-size: cover;
@@ -117,7 +118,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Nunito", sans-serif;
+    font-family: $heading-font-stack;
 }
 
 .page-heading {
@@ -141,8 +142,10 @@ h6 {
     }
 }
 
-.danger {
-    color: #d50000;
+.danger,
+.is-invalid,
+.invalid-feedback {
+    color: $danger;
 }
 
 .warning {
@@ -150,7 +153,7 @@ h6 {
 }
 
 .success {
-    color: #4CAF50;
+    color: $primary-color;
 }
 
 .text-center {
@@ -158,14 +161,14 @@ h6 {
 }
 
 a {
-    color: #333;
+    color: $dark;
     text-decoration: none;
     cursor: pointer;
     &:hover,
     &:focus,
     &.active {
         transition: color 0.5s;
-        color: #4CAF50;
+        color: $primary-color;
     }
 }
 
@@ -186,7 +189,7 @@ hr {
 .footer {
     display: flex;
     height: 70px;
-    color: #FFFFFF;
+    color: $white;
     background-color: transparent;
     padding: 0 10px;
     text-align: center;
@@ -234,14 +237,14 @@ hr {
     display: block;
     background: none;
     background-color: #EBEFF2 !important;
-    color: #333;
+    color: $dark;
     margin-left: 0;
     .header {
         position: relative;
         background-color: white;
     }
     .navbar {
-        color: #333;
+        color: $dark;
         background-color: inherit;
         /* box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1); */
         .admin-nav {
@@ -255,7 +258,7 @@ hr {
     .navlinks,
     .header .navbar .navlinks .link,
     .footer p {
-        color: #333;
+        color: $dark;
     }
     &.no-date .content {
         margin-top: 0px;
@@ -342,8 +345,8 @@ hr {
     min-width: 200px;
     min-height: 200px;
     box-sizing: border-box;
-    color: #333;
-    background-color: #FFFFFF;
+    color: $dark;
+    background-color: $white;
     box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
@@ -356,7 +359,7 @@ hr {
     }
     .auth,
     .order-confirmation {
-        font-family: "Nunito", sans-serif;
+        font-family: $heading-font-stack;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -370,7 +373,7 @@ hr {
         .card,
         .auth,
         .order-confirmation {
-            font-family: "Nunito", sans-serif;
+            font-family: $heading-font-stack;
             width: 300px !important;
             display: flex;
             justify-content: center !important;
@@ -384,7 +387,7 @@ hr {
     .btn-sec {
         border: 0;
         font-size: 20px;
-        color: #333;
+        color: $dark;
     }
     #datepicker {
         position: absolute;
@@ -429,7 +432,7 @@ hr {
     .navlinks,
     .header .navbar .navlinks .link,
     .footer p {
-        color: #333;
+        color: $dark;
     }
 }
 
@@ -498,9 +501,9 @@ hr {
     margin-top: 0;
     height: 100%;
     .landing {
-        color: #FFFFFF;
+        color: $white;
         text-align: center;
-        font-family: "Nunito", sans-serif;
+        font-family: $heading-font-stack;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -518,9 +521,9 @@ hr {
             font-size: 1.5em;
         }
         button {
-            border: 2px solid #1b5e20;
-            background-color: #1b5e20;
-            color: #FFFFFF;
+            border: 2px solid $dark-green;
+            background-color: $dark-green;
+            color: $white;
             padding: 12px 50px;
             font-size: 1.3em;
             &:hover,
@@ -529,7 +532,7 @@ hr {
                 transition: background-color 0.5s, border-color 0.5s;
                 background-color: #154a19;
                 border-color: #154a19;
-                color: #FFFFFF;
+                color: $white;
             }
         }
     }
