@@ -8,7 +8,7 @@ import { userPropType } from '../../../helpers/proptypes';
  * @function SideNav
  * @returns {JSX} SideNav
  */
-const SideNav = ({ user, logout }) => (
+const SideNav = ({ user, logout, active }) => (
   <div className="sidenav" id="sidenav">
     <div className="sidenav-content">
       <div className="sidenav-header">
@@ -29,10 +29,10 @@ const SideNav = ({ user, logout }) => (
         </div>
       </div>
       <div className="sidenav-body">
-        <a href="/" className="menu-item active">Dashboard</a>
-        <a href="/" className="menu-item">Meals</a>
-        <a href="/" className="menu-item">Menu</a>
-        <a href="/" className="menu-item">Order History</a>
+        <a href="/" className={`menu-item ${active === 'dashboard' && 'active'}`}>Dashboard</a>
+        <a href="/meals" className={`menu-item ${active === 'meals' && 'active'}`}>Meals</a>
+        <a href="/" className={`menu-item ${active === 'menu' && 'active'}`}>Menu</a>
+        <a href="/" className={`menu-item ${active === 'orders' && 'active'}`}>Order History</a>
       </div>
     </div>
   </div>
@@ -40,7 +40,8 @@ const SideNav = ({ user, logout }) => (
 
 SideNav.propTypes = {
   ...userPropType,
-  logout: PropTypes.func.isRequired
+  logout: PropTypes.func.isRequired,
+  active: PropTypes.string.isRequired
 };
 
 export default SideNav;

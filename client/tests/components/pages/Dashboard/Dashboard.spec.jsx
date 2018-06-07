@@ -53,20 +53,6 @@ describe('Dashboard', () => {
     }
   });
 
-  it('calls componentWillUnmount when unmounting', () => {
-    const wrapper = shallow(<Dashboard
-      user={caterer}
-      logout={jest.fn()}
-      fetchOrders={jest.fn()}
-      deliverOrder={jest.fn()}
-      {...caterersOrdersObj}
-      isFetching={false}
-    />);
-    const componentWillUnmount = jest.spyOn(Dashboard.prototype, 'componentWillUnmount');
-    wrapper.unmount();
-    expect(componentWillUnmount).toHaveBeenCalled();
-  });
-
   it('renders connected component', () => {
     const { now } = Date;
     Date.now = jest.fn(() => 0);

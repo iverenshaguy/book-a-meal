@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MealModal renders correctly 1`] = `
+<Connect(Form)
+  meal={null}
+  meta={
+    Object {
+      "btnText": "ADD MEAL",
+    }
+  }
+  type="addMeal"
+/>
+`;

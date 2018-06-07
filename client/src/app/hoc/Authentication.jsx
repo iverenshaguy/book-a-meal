@@ -42,6 +42,7 @@ const requireAuthentication = (MyComponent) => {
   const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
     authenticating: state.auth.loading,
+    user: state.auth.user,
     MyComponent
   });
 

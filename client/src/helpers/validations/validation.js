@@ -2,12 +2,18 @@ import {
   isName,
   isAddress,
   isRequired,
+  minLength1,
   minLength5,
   minLength8,
   maxLength40,
+  maxLength50,
   maxLength60,
   maxLength255,
   isValidEmail,
+  isValidDecimal,
+  isValidBoolean,
+  isGreaterThanZero,
+  isMealName,
   isPhoneNumber,
   isBusinessName,
   isValidPasswordConfirm
@@ -33,6 +39,12 @@ const validation = {
     businessAddress: [isRequired, minLength5, maxLength255, isAddress],
     businessPhoneNo: [isRequired, isPhoneNumber],
   },
+  addMeal: {
+    title: [isRequired, minLength1, maxLength50, isMealName],
+    price: [isRequired, isValidDecimal, isGreaterThanZero],
+    description: [maxLength255, isBusinessName],
+    vegetarian: [isValidBoolean]
+  }
 };
 
 export default validation;

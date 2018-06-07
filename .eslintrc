@@ -14,7 +14,8 @@
     "expect": true,
     "render": true,
     "toJson": true,
-    "rrcMock": true
+    "rrcMock": true,
+    "mocksdk": true
   },
   "rules": {
     "one-var": 0,

@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const devMode = process.env.NODE_ENV !== 'production';
 
@@ -17,6 +18,7 @@ const cssPlugin = new MiniCssExtractPlugin({
 });
 
 const hotReloader = new webpack.HotModuleReplacementPlugin();
+const envPlugin = new Dotenv();
 
 module.exports = {
   entry: { app: ['react-hot-loader/patch', 'webpack-hot-middleware/client', './client/src/index.jsx'] },
@@ -63,5 +65,5 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.json', '.jsx']
   },
-  plugins: [htmlPlugin, cssPlugin, hotReloader]
+  plugins: [envPlugin, htmlPlugin, cssPlugin, hotReloader]
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { arrayToObject } from '../../src/utils';
 import { formHelpers } from '../../src/helpers';
-import FormComponent from '../../src/app/shared/Form/FormComponent';
+import FormComponent from '../../src/app/shared/Form/Form';
 
 const { formFields } = formHelpers;
 const dispatchMock = jest.fn();

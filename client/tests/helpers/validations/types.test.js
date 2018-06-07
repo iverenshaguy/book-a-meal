@@ -6,9 +6,13 @@ import {
   minValue,
   isValidEmail,
   isName,
+  isMealName,
   isBusinessName,
   isAddress,
   isPhoneNumber,
+  isGreaterThanZero,
+  isValidBoolean,
+  isValidDecimal,
   isValidPasswordConfirm,
 } from '../../../src/helpers/validations/types';
 
@@ -66,6 +70,12 @@ describe('Validation Types', () => {
       expect(check).toEqual(undefined);
     });
 
+    test('isMealName', () => {
+      const check = isMealName('My Meal Name');
+
+      expect(check).toEqual(undefined);
+    });
+
     test('isAddress', () => {
       const check = isAddress('3, Macaulay');
 
@@ -74,6 +84,24 @@ describe('Validation Types', () => {
 
     test('isPhoneNumber', () => {
       const check = isPhoneNumber(+2348155361655);
+
+      expect(check).toEqual(undefined);
+    });
+
+    test('isGreaterThanZero', () => {
+      const check = isGreaterThanZero(0.2);
+
+      expect(check).toEqual(undefined);
+    });
+
+    test('isValidBoolean', () => {
+      const check = isValidBoolean(true);
+
+      expect(check).toEqual(undefined);
+    });
+
+    test('isValidDecimal', () => {
+      const check = isValidDecimal(0.2);
 
       expect(check).toEqual(undefined);
     });
@@ -134,6 +162,12 @@ describe('Validation Types', () => {
       expect(check).toEqual("Only letters, numbers, spaces and the characters (,.'-) allowed!");
     });
 
+    test('isMealName', () => {
+      const check = isMealName('My Meal **Name');
+
+      expect(check).toEqual("Only letters, spaces and the characters (,.'-) allowed!");
+    });
+
     test('isAddress', () => {
       const check = isAddress('3#, Macaulay');
 
@@ -144,6 +178,24 @@ describe('Validation Types', () => {
       const check = isPhoneNumber(12345678910);
 
       expect(check).toEqual('Phone number is invalid, must be in the format +2348134567890');
+    });
+
+    test('isGreaterThanZero', () => {
+      const check = isGreaterThanZero(-5);
+
+      expect(check).toEqual('Must be greater than 0!');
+    });
+
+    test('isValidBoolean', () => {
+      const check = isValidBoolean('yes');
+
+      expect(check).toEqual('Accepts only true or false!');
+    });
+
+    test('isValidDecimal', () => {
+      const check = isValidDecimal('one thousand naira');
+
+      expect(check).toEqual('Price must be a number or decimal!');
     });
 
     test('isValidPasswordConfirm', () => {

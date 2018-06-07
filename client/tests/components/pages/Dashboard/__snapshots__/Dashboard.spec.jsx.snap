@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dashboard renders Preloader when fetching 1`] = `
-<React.Fragment>
+<div
+  className="admin"
+>
   <Header
     type="caterer"
   />
@@ -9,6 +11,7 @@ exports[`Dashboard renders Preloader when fetching 1`] = `
     className="content"
   >
     <SideNav
+      active="dashboard"
       logout={[MockFunction]}
       user={
         Object {
@@ -31,7 +34,7 @@ exports[`Dashboard renders Preloader when fetching 1`] = `
     </div>
   </div>
   <Footer />
-</React.Fragment>
+</div>
 `;
 
 exports[`Dashboard renders connected component 1`] = `
@@ -197,260 +200,267 @@ exports[`Dashboard renders connected component 1`] = `
         }
       }
     >
-      <Header
-        type="caterer"
-      >
-        <div
-          className="header"
-        >
-          <div
-            className="navbar"
-          >
-            <CatererHeader>
-              <div
-                className="menu-control d-none-md"
-              >
-                <a
-                  className="d-none-md"
-                  href="#sidenav"
-                >
-                  <img
-                    alt="toggler"
-                    src="./img/toggler.png"
-                  />
-                </a>
-              </div>
-              <div
-                className="page-title d-flex-md"
-              >
-                <div
-                  className="date"
-                >
-                  <h2>
-                    Thursday, 1st January 1970
-                        
-                    00:00
-                  </h2>
-                </div>
-              </div>
-            </CatererHeader>
-          </div>
-        </div>
-      </Header>
       <div
-        className="content"
+        className="admin"
       >
-        <SideNav
-          logout={[Function]}
-          user={
-            Object {
-              "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
-              "businessName": "Food Circle",
-              "businessPhoneNo": "+2348166557788",
-              "email": "food@circle.com",
-              "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-              "role": "caterer",
-            }
-          }
+        <Header
+          type="caterer"
         >
           <div
-            className="sidenav"
-            id="sidenav"
+            className="header"
           >
             <div
-              className="sidenav-content"
+              className="navbar"
             >
-              <div
-                className="sidenav-header"
-              >
+              <CatererHeader>
                 <div
-                  className="close d-none-md"
+                  className="menu-control d-none-md"
                 >
                   <a
-                    href="#"
+                    className="d-none-md"
+                    href="#sidenav"
                   >
-                    ×
+                    <img
+                      alt="toggler"
+                      src="./img/toggler.png"
+                    />
                   </a>
-                   
                 </div>
                 <div
-                  className="sidenav-title"
+                  className="page-title d-flex-md"
                 >
-                  <h3>
-                    <a
-                      href="/"
-                    >
-                      BOOK-A-MEAL
-                    </a>
-                  </h3>
                   <div
-                    className="username-circle"
+                    className="date"
                   >
-                    <p>
-                      F
-                    </p>
+                    <h2>
+                      Thursday, 1st January 1970
+                          
+                      00:00
+                    </h2>
                   </div>
-                  <p>
-                    Food Circle
-                  </p>
-                  <span>
-                    <Link
-                      className={null}
-                      clickHandler={[Function]}
-                      id={null}
+                </div>
+              </CatererHeader>
+            </div>
+          </div>
+        </Header>
+        <div
+          className="content"
+        >
+          <SideNav
+            active="dashboard"
+            logout={[Function]}
+            user={
+              Object {
+                "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+                "businessName": "Food Circle",
+                "businessPhoneNo": "+2348166557788",
+                "email": "food@circle.com",
+                "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                "role": "caterer",
+              }
+            }
+          >
+            <div
+              className="sidenav"
+              id="sidenav"
+            >
+              <div
+                className="sidenav-content"
+              >
+                <div
+                  className="sidenav-header"
+                >
+                  <div
+                    className="close d-none-md"
+                  >
+                    <a
+                      href="#"
                     >
-                      <button
-                        className="link-btn null"
-                        id={null}
-                        onClick={[Function]}
+                      ×
+                    </a>
+                     
+                  </div>
+                  <div
+                    className="sidenav-title"
+                  >
+                    <h3>
+                      <a
+                        href="/"
                       >
-                        Logout
-                      </button>
-                    </Link>
-                  </span>
+                        BOOK-A-MEAL
+                      </a>
+                    </h3>
+                    <div
+                      className="username-circle"
+                    >
+                      <p>
+                        F
+                      </p>
+                    </div>
+                    <p>
+                      Food Circle
+                    </p>
+                    <span>
+                      <Link
+                        className={null}
+                        clickHandler={[Function]}
+                        id={null}
+                      >
+                        <button
+                          className="link-btn null"
+                          id={null}
+                          onClick={[Function]}
+                        >
+                          Logout
+                        </button>
+                      </Link>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  className="sidenav-body"
+                >
+                  <a
+                    className="menu-item active"
+                    href="/"
+                  >
+                    Dashboard
+                  </a>
+                  <a
+                    className="menu-item false"
+                    href="/meals"
+                  >
+                    Meals
+                  </a>
+                  <a
+                    className="menu-item false"
+                    href="/"
+                  >
+                    Menu
+                  </a>
+                  <a
+                    className="menu-item false"
+                    href="/"
+                  >
+                    Order History
+                  </a>
+                </div>
+              </div>
+            </div>
+          </SideNav>
+          <div
+            className="content-wrapper dashboard"
+            id="has-modal"
+          >
+            <div
+              className="date d-none-md"
+            >
+              <h2>
+                Thursday, 1st January 1970
+                    
+                00:00
+              </h2>
+            </div>
+            <div
+              className="card-group summary"
+            >
+              <div
+                className="card total-sum"
+              >
+                <div
+                  className="count"
+                >
+                  0
+                </div>
+                <div>
+                  Today's Orders
                 </div>
               </div>
               <div
-                className="sidenav-body"
+                className="card pending"
               >
-                <a
-                  className="menu-item active"
-                  href="/"
+                <div
+                  className="count"
                 >
-                  Dashboard
-                </a>
-                <a
-                  className="menu-item"
-                  href="/"
-                >
-                  Meals
-                </a>
-                <a
-                  className="menu-item"
-                  href="/"
-                >
-                  Menu
-                </a>
-                <a
-                  className="menu-item"
-                  href="/"
-                >
-                  Order History
-                </a>
+                  0
+                </div>
+                <div>
+                  Pending Orders
+                </div>
               </div>
-            </div>
-          </div>
-        </SideNav>
-        <div
-          className="content-wrapper dashboard"
-          id="has-modal"
-        >
-          <div
-            className="date d-none-md"
-          >
-            <h2>
-              Thursday, 1st January 1970
-                  
-              00:00
-            </h2>
-          </div>
-          <div
-            className="card-group summary"
-          >
-            <div
-              className="card total-sum"
-            >
               <div
-                className="count"
+                className="card total-cash"
               >
-                0
-              </div>
-              <div>
-                Today's Orders
+                <div
+                  className="count"
+                >
+                  ₦ 
+                  0
+                </div>
+                <div>
+                  Today's Revenue
+                </div>
               </div>
             </div>
             <div
-              className="card pending"
+              className="order-details"
             >
-              <div
-                className="count"
+              <OrderHistoryTable
+                deliverOrder={[Function]}
+                orders={Array []}
               >
-                0
-              </div>
-              <div>
-                Pending Orders
-              </div>
+                <div
+                  className="table-wrapper"
+                >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          Meal Item(s)
+                        </th>
+                        <th>
+                          Customer
+                        </th>
+                        <th>
+                          Amount
+                        </th>
+                        <th>
+                          Date
+                        </th>
+                        <th>
+                          Status
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody />
+                  </table>
+                </div>
+              </OrderHistoryTable>
             </div>
-            <div
-              className="card total-cash"
-            >
-              <div
-                className="count"
-              >
-                ₦ 
-                0
-              </div>
-              <div>
-                Today's Revenue
-              </div>
-            </div>
-          </div>
-          <div
-            className="order-details"
-          >
-            <OrderHistoryTable
-              deliverOrder={[Function]}
-              orders={Array []}
-            >
-              <div
-                className="table-wrapper"
-              >
-                <table>
-                  <thead>
-                    <tr>
-                      <th>
-                        ID
-                      </th>
-                      <th>
-                        Meal Item(s)
-                      </th>
-                      <th>
-                        Customer
-                      </th>
-                      <th>
-                        Amount
-                      </th>
-                      <th>
-                        Date
-                      </th>
-                      <th>
-                        Status
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody />
-                </table>
-              </div>
-            </OrderHistoryTable>
           </div>
         </div>
+        <Footer>
+          <div
+            className="footer"
+          >
+            <p>
+              © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
+            </p>
+          </div>
+        </Footer>
       </div>
-      <Footer>
-        <div
-          className="footer"
-        >
-          <p>
-            © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
-          </p>
-        </div>
-      </Footer>
     </Dashboard>
   </Connect(Dashboard)>
 </Provider>
 `;
 
 exports[`Dashboard renders correctly when not fetching 1`] = `
-<React.Fragment>
+<div
+  className="admin"
+>
   <Header
     type="caterer"
   />
@@ -458,6 +468,7 @@ exports[`Dashboard renders correctly when not fetching 1`] = `
     className="content"
   >
     <SideNav
+      active="dashboard"
       logout={[MockFunction]}
       user={
         Object {
@@ -650,5 +661,5 @@ exports[`Dashboard renders correctly when not fetching 1`] = `
     </div>
   </div>
   <Footer />
-</React.Fragment>
+</div>
 `;

@@ -48,6 +48,14 @@ describe('Form Components: RenderInput', () => {
     mountedWrapper.unmount();
   });
 
+  it('renders checkbox correctly', () => {
+    const mountedWrapper = mount(<RenderInput {...cleanProps} type="checkbox" />);
+
+    expect(toJson(mountedWrapper)).toMatchSnapshot();
+    expect(mountedWrapper.find('.form-input-checkbox')).toBeTruthy();
+    mountedWrapper.unmount();
+  });
+
   it('shows error when found', () => {
     const mountedWrapper = mount(<RenderInput {...dirtyProps} />);
 

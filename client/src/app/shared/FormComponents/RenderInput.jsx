@@ -50,15 +50,21 @@ const RenderInput = ({
     onFocus={e => handleFocus(e)}
   />);
 
+  const formInputClass = type === 'checkbox' ? 'form-input-checkbox' : 'form-input';
+
   return (
     <Fragment>
-      <div className="form-input">
-        {label &&
+      <div className={formInputClass}>
+        {label && type !== 'checkbox' &&
           <label htmlFor={id}>
             {label}
             {required && <span className="danger">*</span>}
           </label>}
         {input}
+        {label && type === 'checkbox' &&
+          <label htmlFor={id}>
+            {label}
+          </label>}
         {touched && error && <div className={validFeedBack}>{error}</div>}
         {touched && (name === 'email' || name === 'username') &&
           asyncValidating && <small className="form-text">Checking...</small>}
@@ -69,7 +75,7 @@ const RenderInput = ({
 
 RenderInput.propTypes = {
   ...renderFormFieldPropTypes,
-  value: PropTypes.string
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number])
 };
 
 RenderInput.defaultProps = {

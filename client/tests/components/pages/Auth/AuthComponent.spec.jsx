@@ -63,15 +63,13 @@ describe('AuthComponent', () => {
 
   it('renders connected signin component correctly', () => {
     const comp = (<Provider store={unAuthStore}><Auth {...props} location={signinLocation} type="signin" /></Provider>);
-    const compWillMountSpy = jest.spyOn(AuthComponent.prototype, 'componentWillMount');
     const mountedWrapper = mount(comp, rrcMock.get());
 
     expect(toJson(mountedWrapper)).toMatchSnapshot();
-    expect(compWillMountSpy).toHaveBeenCalled();
     mountedWrapper.unmount();
   });
 
-  it('sets state on mount: siginn', () => {
+  it('sets state on mount: signin', () => {
     const comp = (<AuthComponent {...props} location={customerSignupLocation} type="signin" />);
     const wrapper = shallow(comp);
 

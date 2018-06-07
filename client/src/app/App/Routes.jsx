@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import { Route } from 'react-router-dom';
-import Welcome from './../pages/Welcome';
 import Auth from './../pages/Auth';
-// import requiresAuthentication from './../hoc/Authentication';
-import '../../../public/scss/style.scss';
+import Welcome from './../pages/Welcome';
+import Meals from './../pages/Meals';
+import requiresAuthentication from './../hoc/Authentication';
+import '../../../dist/scss/style.scss';
 
 /**
  * Represents the Routes Component
@@ -12,6 +13,7 @@ import '../../../public/scss/style.scss';
 const Routes = () => (
   <Fragment>
     <Route exact path="/" component={Welcome} />
+    <Route exact path="/meals" component={requiresAuthentication(Meals)} />
     <Route path="/signin" render={props => <Auth {...props} type="signin" />} />
     <Route path="/signup" render={props => <Auth {...props} type="signup" />} />
   </Fragment>
