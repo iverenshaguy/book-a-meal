@@ -160,7 +160,8 @@ h6 {
     text-align: center;
 }
 
-a {
+a,
+.link-btn {
     color: $dark;
     text-decoration: none;
     cursor: pointer;
@@ -169,6 +170,20 @@ a {
     &.active {
         transition: color 0.5s;
         color: $primary-color;
+    }
+}
+
+.link-btn {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    font-size: inherit;
+    &:hover,
+    &:focus,
+    &.active {
+        outline: none;
     }
 }
 

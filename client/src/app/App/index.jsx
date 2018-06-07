@@ -1,9 +1,7 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 import { history } from '../../rootReducer';
-import { WelcomeComponent as Welcome } from './../pages/Welcome';
-import Signin from './../pages/Auth';
+import Routes from './Routes';
 import '../../../public/scss/style.scss';
 
 /**
@@ -12,10 +10,7 @@ import '../../../public/scss/style.scss';
  */
 const App = () => (
   <ConnectedRouter history={history}>
-    <Switch>
-      <Route exact path="/" component={Welcome} />
-      <Route path="/signin" component={Signin} />
-    </Switch>
+    <Routes />
   </ConnectedRouter>
 );
 

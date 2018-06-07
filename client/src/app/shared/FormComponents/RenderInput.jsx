@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { renderFormFieldPropTypes } from '../../../helpers/proptypes';
 
@@ -10,6 +11,7 @@ import { renderFormFieldPropTypes } from '../../../helpers/proptypes';
  */
 const RenderInput = ({
   id,
+  rows,
   name,
   type,
   label,
@@ -39,6 +41,7 @@ const RenderInput = ({
     id={id}
     type={type}
     name={name}
+    rows={type === 'text-area' ? rows : undefined}
     placeholder={placeholder}
     className={validInput}
     value={value}
@@ -65,7 +68,12 @@ const RenderInput = ({
 };
 
 RenderInput.propTypes = {
-  ...renderFormFieldPropTypes
+  ...renderFormFieldPropTypes,
+  value: PropTypes.string
+};
+
+RenderInput.defaultProps = {
+  value: ''
 };
 
 export default RenderInput;

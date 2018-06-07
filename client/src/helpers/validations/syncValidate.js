@@ -1,3 +1,4 @@
+import { isRequired, isValidPasswordConfirm } from './types';
 import validation from './validation';
 
 /**
@@ -11,13 +12,19 @@ import validation from './validation';
 const syncValidate = type => (field, values) => {
   const value = values[field];
   const types = validation[type][field];
+  let validate;
 
   if (!types) {
     return null;
   }
 
   // map each type in types array to value
-  const validate = types.map(val => val(value));
+  if (field === 'passwordConfirm') {
+    validate = [isRequired(value), isValidPasswordConfirm(value, values)];
+  } else {
+    // map each type in types array to value
+    validate = types.map(val => val(value));
+  }
 
   // filter out undefined types i.e. types with no error
   const fieldError = validate.filter(val => val !== undefined)[0];

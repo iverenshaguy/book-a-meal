@@ -1,0 +1,712 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthComponent renders caterer's signup form correctly 1`] = `
+<React.Fragment>
+  <Header
+    type="unauth"
+  />
+  <div
+    className="main-wrapper auth-wrapper"
+  >
+    <div
+      className="auth"
+    >
+      <div
+        className="title"
+      >
+        <h2>
+          Start Serving Customers
+        </h2>
+        <hr
+          className="w-75"
+        />
+      </div>
+      <Connect(FormComponent)
+        dispatch={[MockFunction]}
+        isAuthenticated={false}
+        location={
+          Object {
+            "pathname": "/signup",
+            "search": "?role=caterer",
+            "state": Object {
+              "from": Object {
+                "pathname": "/",
+              },
+            },
+          }
+        }
+        meta={
+          Object {
+            "btnText": "SIGN UP",
+            "extra": <UNDEFINED>
+              <p
+                className="form-extra-info text-center"
+              >
+                <UNDEFINED>
+                  Already have an account? Sign in 
+                  <Link
+                    clickHandler={[Function]}
+                  >
+                    here
+                  </Link>
+                </UNDEFINED>
+              </p>
+              <p
+                className="text-center"
+              >
+                Or
+              </p>
+              <p
+                className="form-extra-info text-center"
+              >
+                <Link
+                  clickHandler={[Function]}
+                >
+                  Signup as a Customer
+                </Link>
+              </p>
+            </UNDEFINED>,
+          }
+        }
+        submitError={null}
+        submitting={false}
+        type="catererSignup"
+      />
+    </div>
+  </div>
+  <Footer />
+</React.Fragment>
+`;
+
+exports[`AuthComponent renders connected signin component correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Auth)
+    dispatch={[MockFunction]}
+    isAuthenticated={false}
+    location={
+      Object {
+        "pathname": "/signin",
+        "state": Object {
+          "from": Object {
+            "pathname": "/",
+          },
+        },
+      }
+    }
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+    submitError={null}
+    submitting={false}
+    type="signin"
+  >
+    <Auth
+      dispatch={[Function]}
+      isAuthenticated={true}
+      location={
+        Object {
+          "pathname": "/signin",
+          "state": Object {
+            "from": Object {
+              "pathname": "/",
+            },
+          },
+        }
+      }
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+      storeSubscription={
+        Subscription {
+          "listeners": Object {
+            "clear": [Function],
+            "get": [Function],
+            "notify": [Function],
+            "subscribe": [Function],
+          },
+          "onStateChange": [Function],
+          "parentSub": undefined,
+          "store": Object {
+            "clearActions": [Function],
+            "dispatch": [Function],
+            "getActions": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+          },
+          "unsubscribe": [Function],
+        }
+      }
+      submitError={null}
+      submitting={false}
+      type="signin"
+    >
+      <Header
+        type="unauth"
+      >
+        <div
+          className="header unauth"
+        >
+          <div
+            className="navbar unauth-navbar"
+          >
+            <div
+              className="page-title"
+            >
+              <h3>
+                <a
+                  href="/"
+                >
+                  BOOK-A-MEAL
+                </a>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </Header>
+      <div
+        className="main-wrapper auth-wrapper"
+      >
+        <div
+          className="auth"
+        >
+          <div
+            className="title"
+          >
+            <h2>
+              Welcome Back
+            </h2>
+            <hr
+              className="w-75"
+            />
+          </div>
+          <Connect(FormComponent)
+            dispatch={[Function]}
+            isAuthenticated={true}
+            location={
+              Object {
+                "pathname": "/signin",
+                "state": Object {
+                  "from": Object {
+                    "pathname": "/",
+                  },
+                },
+              }
+            }
+            meta={
+              Object {
+                "btnText": "SIGN IN",
+                "extra": <UNDEFINED>
+                  <p
+                    className="form-extra-info text-center"
+                  >
+                    <UNDEFINED>
+                      Don't have an account, signup
+                       
+                      <Link
+                        clickHandler={[Function]}
+                      >
+                        here
+                      </Link>
+                    </UNDEFINED>
+                  </p>
+                  <p
+                    className="text-center"
+                  >
+                    Or
+                  </p>
+                  <p
+                    className="form-extra-info text-center"
+                  >
+                    <Link
+                      clickHandler={[Function]}
+                    >
+                      Signup as a Caterer
+                    </Link>
+                  </p>
+                </UNDEFINED>,
+              }
+            }
+            store={
+              Object {
+                "clearActions": [Function],
+                "dispatch": [Function],
+                "getActions": [Function],
+                "getState": [Function],
+                "replaceReducer": [Function],
+                "subscribe": [Function],
+              }
+            }
+            storeSubscription={
+              Subscription {
+                "listeners": Object {
+                  "clear": [Function],
+                  "get": [Function],
+                  "notify": [Function],
+                  "subscribe": [Function],
+                },
+                "onStateChange": [Function],
+                "parentSub": undefined,
+                "store": Object {
+                  "clearActions": [Function],
+                  "dispatch": [Function],
+                  "getActions": [Function],
+                  "getState": [Function],
+                  "replaceReducer": [Function],
+                  "subscribe": [Function],
+                },
+                "unsubscribe": [Function],
+              }
+            }
+            submitError={null}
+            submitting={false}
+            type="signin"
+          >
+            <FormComponent
+              dispatch={[Function]}
+              isAuthenticated={true}
+              location={
+                Object {
+                  "pathname": "/signin",
+                  "state": Object {
+                    "from": Object {
+                      "pathname": "/",
+                    },
+                  },
+                }
+              }
+              meta={
+                Object {
+                  "btnText": "SIGN IN",
+                  "extra": <UNDEFINED>
+                    <p
+                      className="form-extra-info text-center"
+                    >
+                      <UNDEFINED>
+                        Don't have an account, signup
+                         
+                        <Link
+                          clickHandler={[Function]}
+                        >
+                          here
+                        </Link>
+                      </UNDEFINED>
+                    </p>
+                    <p
+                      className="text-center"
+                    >
+                      Or
+                    </p>
+                    <p
+                      className="form-extra-info text-center"
+                    >
+                      <Link
+                        clickHandler={[Function]}
+                      >
+                        Signup as a Caterer
+                      </Link>
+                    </p>
+                  </UNDEFINED>,
+                }
+              }
+              store={
+                Object {
+                  "clearActions": [Function],
+                  "dispatch": [Function],
+                  "getActions": [Function],
+                  "getState": [Function],
+                  "replaceReducer": [Function],
+                  "subscribe": [Function],
+                }
+              }
+              storeSubscription={
+                Subscription {
+                  "listeners": Object {
+                    "clear": [Function],
+                    "get": [Function],
+                    "notify": [Function],
+                    "subscribe": [Function],
+                  },
+                  "onStateChange": [Function],
+                  "parentSub": undefined,
+                  "store": Object {
+                    "clearActions": [Function],
+                    "dispatch": [Function],
+                    "getActions": [Function],
+                    "getState": [Function],
+                    "replaceReducer": [Function],
+                    "subscribe": [Function],
+                  },
+                  "unsubscribe": [Function],
+                }
+              }
+              submitError={null}
+              submitting={false}
+              type="signin"
+            >
+              <div>
+                <form
+                  onSubmit={[Function]}
+                >
+                  <SigninForm
+                    handlers={
+                      Object {
+                        "handleBlur": [Function],
+                        "handleChange": [Function],
+                        "handleFocus": [Function],
+                        "handleSubmit": [Function],
+                      }
+                    }
+                    state={
+                      Object {
+                        "asyncValidating": false,
+                        "error": Object {
+                          "email": null,
+                          "password": null,
+                        },
+                        "formValid": false,
+                        "pristine": true,
+                        "touched": Object {
+                          "email": false,
+                          "password": false,
+                        },
+                        "type": "signin",
+                        "values": Object {
+                          "email": "",
+                          "password": "",
+                        },
+                      }
+                    }
+                    type="signin"
+                  >
+                    <RenderInput
+                      handleBlur={[Function]}
+                      handleChange={[Function]}
+                      handleFocus={[Function]}
+                      id="email"
+                      label="Email Address"
+                      meta={
+                        Object {
+                          "asyncValidating": false,
+                          "error": null,
+                          "touched": false,
+                        }
+                      }
+                      name="email"
+                      placeholder=""
+                      required={true}
+                      type="email"
+                      value=""
+                    >
+                      <div
+                        className="form-input"
+                      >
+                        <label
+                          htmlFor="email"
+                        >
+                          Email Address
+                          <span
+                            className="danger"
+                          >
+                            *
+                          </span>
+                        </label>
+                        <input
+                          className=""
+                          id="email"
+                          name="email"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder=""
+                          type="email"
+                          value=""
+                        />
+                      </div>
+                    </RenderInput>
+                    <RenderInput
+                      handleBlur={[Function]}
+                      handleChange={[Function]}
+                      handleFocus={[Function]}
+                      id="password"
+                      label="Password"
+                      meta={
+                        Object {
+                          "error": null,
+                          "touched": false,
+                        }
+                      }
+                      name="password"
+                      placeholder=""
+                      required={true}
+                      type="password"
+                      value=""
+                    >
+                      <div
+                        className="form-input"
+                      >
+                        <label
+                          htmlFor="password"
+                        >
+                          Password
+                          <span
+                            className="danger"
+                          >
+                            *
+                          </span>
+                        </label>
+                        <input
+                          className=""
+                          id="password"
+                          name="password"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder=""
+                          type="password"
+                          value=""
+                        />
+                      </div>
+                    </RenderInput>
+                  </SigninForm>
+                  <button
+                    className="btn btn-pri btn-block"
+                    disabled={true}
+                  >
+                    SIGN IN
+                  </button>
+                </form>
+                <p
+                  className="form-extra-info text-center"
+                >
+                  Don't have an account, signup
+                   
+                  <Link
+                    clickHandler={[Function]}
+                  >
+                    <button
+                      className="link-btn"
+                      onClick={[Function]}
+                    >
+                      here
+                    </button>
+                  </Link>
+                </p>
+                <p
+                  className="text-center"
+                >
+                  Or
+                </p>
+                <p
+                  className="form-extra-info text-center"
+                >
+                  <Link
+                    clickHandler={[Function]}
+                  >
+                    <button
+                      className="link-btn"
+                      onClick={[Function]}
+                    >
+                      Signup as a Caterer
+                    </button>
+                  </Link>
+                </p>
+              </div>
+            </FormComponent>
+          </Connect(FormComponent)>
+        </div>
+      </div>
+      <Footer>
+        <div
+          className="footer"
+        >
+          <p>
+            © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
+          </p>
+        </div>
+      </Footer>
+    </Auth>
+  </Connect(Auth)>
+</Provider>
+`;
+
+exports[`AuthComponent renders customer's signup form correctly 1`] = `
+<React.Fragment>
+  <Header
+    type="unauth"
+  />
+  <div
+    className="main-wrapper auth-wrapper"
+  >
+    <div
+      className="auth"
+    >
+      <div
+        className="title"
+      >
+        <h2>
+          Start Filling Your Belly
+        </h2>
+        <hr
+          className="w-75"
+        />
+      </div>
+      <Connect(FormComponent)
+        dispatch={[MockFunction]}
+        isAuthenticated={false}
+        location={
+          Object {
+            "pathname": "/signup",
+            "search": "?role=customer",
+            "state": Object {
+              "from": Object {
+                "pathname": "/",
+              },
+            },
+          }
+        }
+        meta={
+          Object {
+            "btnText": "SIGN UP",
+            "extra": <UNDEFINED>
+              <p
+                className="form-extra-info text-center"
+              >
+                <UNDEFINED>
+                  Already have an account? Sign in 
+                  <Link
+                    clickHandler={[Function]}
+                  >
+                    here
+                  </Link>
+                </UNDEFINED>
+              </p>
+              <p
+                className="text-center"
+              >
+                Or
+              </p>
+              <p
+                className="form-extra-info text-center"
+              >
+                <Link
+                  clickHandler={[Function]}
+                >
+                  Signup as a Caterer
+                </Link>
+              </p>
+            </UNDEFINED>,
+          }
+        }
+        submitError={null}
+        submitting={false}
+        type="customerSignup"
+      />
+    </div>
+  </div>
+  <Footer />
+</React.Fragment>
+`;
+
+exports[`AuthComponent renders signin form correctly 1`] = `
+<React.Fragment>
+  <Header
+    type="unauth"
+  />
+  <div
+    className="main-wrapper auth-wrapper"
+  >
+    <div
+      className="auth"
+    >
+      <div
+        className="title"
+      >
+        <h2>
+          Welcome Back
+        </h2>
+        <hr
+          className="w-75"
+        />
+      </div>
+      <Connect(FormComponent)
+        dispatch={[MockFunction]}
+        isAuthenticated={false}
+        location={
+          Object {
+            "pathname": "/signin",
+            "state": Object {
+              "from": Object {
+                "pathname": "/",
+              },
+            },
+          }
+        }
+        meta={
+          Object {
+            "btnText": "SIGN IN",
+            "extra": <UNDEFINED>
+              <p
+                className="form-extra-info text-center"
+              >
+                <UNDEFINED>
+                  Don't have an account, signup
+                   
+                  <Link
+                    clickHandler={[Function]}
+                  >
+                    here
+                  </Link>
+                </UNDEFINED>
+              </p>
+              <p
+                className="text-center"
+              >
+                Or
+              </p>
+              <p
+                className="form-extra-info text-center"
+              >
+                <Link
+                  clickHandler={[Function]}
+                >
+                  Signup as a Caterer
+                </Link>
+              </p>
+            </UNDEFINED>,
+          }
+        }
+        submitError={null}
+        submitting={false}
+        type="signin"
+      />
+    </div>
+  </div>
+  <Footer />
+</React.Fragment>
+`;

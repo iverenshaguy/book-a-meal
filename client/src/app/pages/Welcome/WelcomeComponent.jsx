@@ -6,7 +6,7 @@ const message = 'I\'M HUNGRY';
 
 const Welcome = () => (
   <Fragment>
-    <Header />
+    <Header type="home" />
     <div className="main-wrapper home">
       <div className="landing">
         <h1>Delicious Meals At Your Fingertips</h1>

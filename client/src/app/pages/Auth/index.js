@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import SigninComponent from './SigninComponent';
+import AuthComponent from '../Auth/AuthComponent';
 
 const mapStateToProps = state => ({
   submitting: state.auth.loading,
@@ -8,4 +8,4 @@ const mapStateToProps = state => ({
   submitError: state.auth.error
 });
 
-export default connect(mapStateToProps)(SigninComponent);
+export default connect(mapStateToProps)(AuthComponent);

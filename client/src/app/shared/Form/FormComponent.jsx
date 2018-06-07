@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import SigninForm from './SigninForm';
+import CustomerSignupForm from './CustomerSignupForm';
+import CatererSignupForm from './CatererSignupForm';
 import MiniPreLoader from '../Preloader/MiniPreloader';
 import { formHelpers, getTouchedFields, formErrorCount } from '../../../helpers';
 import { arrayToObject } from '../../../utils';
@@ -41,6 +43,9 @@ class FormComponent extends Component {
     const { formFields } = formHelpers;
     const fields = formFields[type];
     const values = arrayToObject(fields, '');
+
+    if (type === 'catererSignup') values.role = 'caterer';
+    if (type === 'customerSignup') values.role = 'customer';
 
     this.state = {
       type,
@@ -184,18 +189,7 @@ class FormComponent extends Component {
    */
   renderForm = () => {
     const { type } = this.props;
-    const {
-      values, touched, error, pristine, formValid, asyncValidating
-    } = this.state;
-
-    const formState = {
-      error,
-      values,
-      touched,
-      pristine,
-      formValid,
-      asyncValidating
-    };
+    const formState = { ...this.state };
 
     const handlers = {
       handleChange: this.handleChange,
@@ -204,7 +198,14 @@ class FormComponent extends Component {
       handleSubmit: this.handleSubmit
     };
 
-    return <SigninForm type={type} state={formState} handlers={handlers} />;
+    switch (type) {
+      case 'customerSignup':
+        return <CustomerSignupForm type={type} state={formState} handlers={handlers} />;
+      case 'catererSignup':
+        return <CatererSignupForm type={type} state={formState} handlers={handlers} />;
+      default:
+        return <SigninForm type={type} state={formState} handlers={handlers} />;
+    }
   }
 
   /**
@@ -213,8 +214,8 @@ class FormComponent extends Component {
    */
   render() {
     const { pristine, formValid } = this.state;
-    const { submitting, submitError, meta } = this.props;
-    const { btnText, extra } = meta;
+    const { submitting, submitError, meta: { btnText, extra } } = this.props;
+    const requiredTextArray = ['catererSignup', 'customerSignup'];
 
     return (
       <div>
@@ -222,6 +223,11 @@ class FormComponent extends Component {
           <div className="modal-preloader text-center"><MiniPreLoader /></div>}
         {!submitting &&
           <Fragment>
+            {requiredTextArray.includes(this.props.type) &&
+            <p className="text-muted mx-auto text-center">
+                Fields marked
+              <span className="danger"> *</span> are required
+            </p>}
             <form onSubmit={this.handleSubmit}>
               {submitError && (
               <p className="danger text-center mb-0">{submitError}</p>

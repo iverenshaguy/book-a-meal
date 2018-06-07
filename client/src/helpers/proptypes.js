@@ -73,6 +73,7 @@ const renderFormFieldPropTypes = {
   rows: PropTypes.number,
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
+  value: PropTypes.string,
   required: PropTypes.bool.isRequired,
   label: PropTypes.string,
   labelClass: PropTypes.string,
@@ -85,7 +86,6 @@ const renderFormFieldPropTypes = {
   handleChange: PropTypes.func.isRequired,
   handleBlur: PropTypes.func.isRequired,
   handleFocus: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired
 };
 
 export default {

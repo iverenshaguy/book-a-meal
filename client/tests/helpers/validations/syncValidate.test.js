@@ -8,6 +8,7 @@ const rightSigninValues = {
 const wrongSigninValues = {
   email: 'Emiola',
   password: 'emil',
+  passwordConfirm: 'emiola'
 };
 
 describe('Sync Validation: Auth', () => {
@@ -40,6 +41,12 @@ describe('Sync Validation: Auth', () => {
       const check = syncValidate('signin')('password', { password: '' });
 
       expect(check).toEqual('Required!');
+    });
+
+    test('passwordConfirm', () => {
+      const check = syncValidate('customerSignup')('passwordConfirm', wrongSigninValues);
+
+      expect(check).toEqual('Passwords do not match');
     });
 
     test('email', () => {
