@@ -1,0 +1,400 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Meals renders Preloader when fetching 1`] = `
+<div
+  className="admin"
+>
+  <Header
+    type="caterer"
+  />
+  <div
+    className="content"
+  >
+    <SideNav
+      active="meals"
+      logout={[MockFunction]}
+      user={
+        Object {
+          "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+          "businessName": "Food Circle",
+          "businessPhoneNo": "+2348166557788",
+          "email": "food@circle.com",
+          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+          "role": "caterer",
+        }
+      }
+    />
+    <div
+      className="content-wrapper"
+      id="has-modal"
+    >
+      <Preloader
+        type="admin"
+      />
+    </div>
+  </div>
+  <Footer />
+  <Connect(Modal)
+    submitError={null}
+    submitting={false}
+    type="addMeal"
+  />
+</div>
+`;
+
+exports[`Meals renders connected component 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Meals)
+    dispatch={[MockFunction]}
+    isFetching={false}
+    meals={
+      Array [
+        Object {
+          "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+          "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+          "imageURL": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+          "price": "1500.00",
+          "title": "Jollof Rice, Beef and Plantain",
+          "vegetarian": false,
+        },
+        Object {
+          "description": "Sharwama contains no animal products, perfect for dieters",
+          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+          "price": "1200.00",
+          "title": "Vegetable Sharwama and Guava Smoothie",
+          "vegetarian": true,
+        },
+      ]
+    }
+    user={
+      Object {
+        "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+        "businessName": "Food Circle",
+        "businessPhoneNo": "+2348166557788",
+        "email": "food@circle.com",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "role": "caterer",
+      }
+    }
+  >
+    <Meals
+      dispatch={[MockFunction]}
+      fetchMeals={[Function]}
+      isFetching={false}
+      logout={[Function]}
+      meals={Array []}
+      submitError={null}
+      submitting={false}
+      toggleModal={[Function]}
+      user={
+        Object {
+          "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+          "businessName": "Food Circle",
+          "businessPhoneNo": "+2348166557788",
+          "email": "food@circle.com",
+          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+          "role": "caterer",
+        }
+      }
+    >
+      <div
+        className="admin"
+      >
+        <Header
+          type="caterer"
+        >
+          <div
+            className="header"
+          >
+            <div
+              className="navbar"
+            >
+              <CatererHeader>
+                <div
+                  className="menu-control d-none-md"
+                >
+                  <a
+                    className="d-none-md"
+                    href="#sidenav"
+                  >
+                    <img
+                      alt="toggler"
+                      src="./img/toggler.png"
+                    />
+                  </a>
+                </div>
+                <div
+                  className="page-title d-flex-md"
+                >
+                  <div
+                    className="date"
+                  >
+                    <h2>
+                      Thursday, 1st January 1970
+                          
+                      00:00
+                    </h2>
+                  </div>
+                </div>
+              </CatererHeader>
+            </div>
+          </div>
+        </Header>
+        <div
+          className="content"
+        >
+          <SideNav
+            active="meals"
+            logout={[Function]}
+            user={
+              Object {
+                "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+                "businessName": "Food Circle",
+                "businessPhoneNo": "+2348166557788",
+                "email": "food@circle.com",
+                "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                "role": "caterer",
+              }
+            }
+          >
+            <div
+              className="sidenav"
+              id="sidenav"
+            >
+              <div
+                className="sidenav-content"
+              >
+                <div
+                  className="sidenav-header"
+                >
+                  <div
+                    className="close d-none-md"
+                  >
+                    <a
+                      href="#"
+                    >
+                      ×
+                    </a>
+                     
+                  </div>
+                  <div
+                    className="sidenav-title"
+                  >
+                    <h3>
+                      <a
+                        href="/"
+                      >
+                        BOOK-A-MEAL
+                      </a>
+                    </h3>
+                    <div
+                      className="username-circle"
+                    >
+                      <p>
+                        F
+                      </p>
+                    </div>
+                    <p>
+                      Food Circle
+                    </p>
+                    <span>
+                      <Link
+                        className={null}
+                        clickHandler={[Function]}
+                        id={null}
+                      >
+                        <button
+                          className="link-btn null"
+                          id={null}
+                          onClick={[Function]}
+                        >
+                          Logout
+                        </button>
+                      </Link>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  className="sidenav-body"
+                >
+                  <a
+                    className="menu-item false"
+                    href="/"
+                  >
+                    Dashboard
+                  </a>
+                  <a
+                    className="menu-item active"
+                    href="/meals"
+                  >
+                    Meals
+                  </a>
+                  <a
+                    className="menu-item false"
+                    href="/"
+                  >
+                    Menu
+                  </a>
+                  <a
+                    className="menu-item false"
+                    href="/"
+                  >
+                    Order History
+                  </a>
+                </div>
+              </div>
+            </div>
+          </SideNav>
+          <div
+            className="content-wrapper"
+            id="has-modal"
+          >
+            <div
+              className="content-wrapper meals caterer-meals"
+            >
+              <div
+                className="top"
+              >
+                <button
+                  className="btn btn-pri"
+                  id="add-meal-btn"
+                  onClick={[Function]}
+                >
+                  Add a New Meal
+                </button>
+              </div>
+              <div
+                className="card-group meals-wrapper"
+                id="card-group"
+              />
+            </div>
+          </div>
+        </div>
+        <Footer>
+          <div
+            className="footer"
+          >
+            <p>
+              © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
+            </p>
+          </div>
+        </Footer>
+        <Connect(Modal)
+          submitError={null}
+          submitting={false}
+          type="addMeal"
+        >
+          <Modal
+            isOpen={false}
+            submitError={null}
+            submitting={false}
+            toggleModal={[Function]}
+            type={null}
+          />
+        </Connect(Modal)>
+      </div>
+    </Meals>
+  </Connect(Meals)>
+</Provider>
+`;
+
+exports[`Meals renders correctly when not fetching 1`] = `
+<div
+  className="admin"
+>
+  <Header
+    type="caterer"
+  />
+  <div
+    className="content"
+  >
+    <SideNav
+      active="meals"
+      logout={[MockFunction]}
+      user={
+        Object {
+          "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+          "businessName": "Food Circle",
+          "businessPhoneNo": "+2348166557788",
+          "email": "food@circle.com",
+          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+          "role": "caterer",
+        }
+      }
+    />
+    <div
+      className="content-wrapper"
+      id="has-modal"
+    >
+      <React.Fragment>
+        <div
+          className="content-wrapper meals caterer-meals"
+        >
+          <div
+            className="top"
+          >
+            <button
+              className="btn btn-pri"
+              id="add-meal-btn"
+              onClick={[Function]}
+            >
+              Add a New Meal
+            </button>
+          </div>
+          <div
+            className="card-group meals-wrapper"
+            id="card-group"
+          >
+            <MealCard
+              key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+              meal={
+                Object {
+                  "description": "Sharwama contains no animal products, perfect for dieters",
+                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                  "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                  "price": "1200.00",
+                  "title": "Vegetable Sharwama and Guava Smoothie",
+                  "vegetarian": true,
+                }
+              }
+              type="caterer"
+            />
+            <MealCard
+              key="81211c24-51c0-46ec-b1e0-18db55880958"
+              meal={
+                Object {
+                  "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                  "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                  "imageURL": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                  "price": "1500.00",
+                  "title": "Jollof Rice, Beef and Plantain",
+                  "vegetarian": false,
+                }
+              }
+              type="caterer"
+            />
+          </div>
+        </div>
+      </React.Fragment>
+    </div>
+  </div>
+  <Footer />
+  <Connect(Modal)
+    submitError={null}
+    submitting={false}
+    type="addMeal"
+  />
+</div>
+`;

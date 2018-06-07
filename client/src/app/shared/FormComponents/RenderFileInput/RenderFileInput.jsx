@@ -62,16 +62,16 @@ class RenderFileInput extends Component {
     const {
       id, name, label, uploading, uploadError, updating, formerImgURL
     } = this.props;
-    const { error } = this.state;
+    const error = this.state.error || uploadError;
 
     return (
       <div className="form-input form-img-input">
         {label && <label htmlFor={id}>{label}</label>}
         <div id="form-image-preview">
           {(uploading || updating) &&
-          <div className="img-overlay" id="img-overlay">
-            <MiniPreloader />
-          </div>}
+            <div className="img-overlay" id="img-overlay">
+              <MiniPreloader />
+            </div>}
           <img src={formerImgURL} alt="meal" id="meal-form-image" />
         </div>
         <input
@@ -79,13 +79,13 @@ class RenderFileInput extends Component {
           type="file"
           name={name}
           ref={(input) => {
-              this.fileInput = input;
-            }}
+            this.fileInput = input;
+          }}
           filename=""
           accept="image/*"
           onChange={this.handleChange}
         />
-        {error && <small className="file-feedback">{error || uploadError}</small>}
+        {error && <small className="file-feedback">{error}</small>}
       </div>
     );
   }

@@ -44,6 +44,11 @@ describe('Form', () => {
     expect(toJson(shallowRoot)).toMatchSnapshot();
   });
 
+  it('renders addMeal form correctly', () => {
+    const { shallowRoot } = setup('addMeal', meta);
+
+    expect(toJson(shallowRoot)).toMatchSnapshot();
+  });
 
   it('disables submit button when form is clean', () => {
     const { shallowRoot } = setup('signin', meta);
@@ -78,7 +83,7 @@ describe('Form', () => {
   });
 
   describe('test for right input', () => {
-    it('calls handleChange and handleBlur on input change and blur for email field', (done) => {
+    it('calls handleChange on input change for email field', () => {
       const { mountRoot, dispatchMock } = setup('signin', meta);
       const wrapper = mountRoot.find(FormComponent);
 
@@ -90,14 +95,7 @@ describe('Form', () => {
         pristine: false
       };
 
-      const blurState = {
-        ...changeState,
-        asyncValidating: false
-      };
-
       const event = { target: { name: 'email', value: 'iverenshaguy@gmail.com' } };
-
-      expect(toJson(wrapper)).toMatchSnapshot();
 
       wrapper.find('input[name="email"]').simulate('focus');
       expect(dispatchMock).toHaveBeenCalledWith(clearAuthError());
@@ -105,12 +103,27 @@ describe('Form', () => {
       wrapper.find('input[name="email"]').simulate('change', event);
       expect(wrapper.instance().state).toEqual(changeState);
 
-      wrapper.find('input[name="email"]').simulate('blur', event);
+      wrapper.find('input[name="email"]').simulate('blur');
+      expect(wrapper.instance().state).toEqual(changeState);
+    });
 
-      setTimeout(() => {
-        expect(wrapper.instance().state).toEqual(blurState);
-        done();
-      }, 600);
+    it('calls handleChange on checkbox change for vegetarian field', () => {
+      const { state } = formComponentSetup('addMeal');
+      const { mountRoot } = setup('addMeal', meta);
+      const wrapper = mountRoot.find(FormComponent);
+
+      const changeState = {
+        ...state,
+        type: 'addMeal',
+        values: { ...state.values, vegetarian: 'true' },
+        touched: { ...state.touched, vegetarian: true },
+        pristine: false
+      };
+
+      const event = { target: { name: 'vegetarian', type: 'checkbox', checked: 'true' } };
+
+      wrapper.find('input[name="vegetarian"]').simulate('change', event);
+      expect(wrapper.instance().state).toEqual(changeState);
     });
 
     it('submits valid form', () => {

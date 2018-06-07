@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { RenderInput, RenderFileInput } from '../../shared/FormComponents';
+import { RenderInput } from '../../shared/FormComponents';
 import { formPropTypes } from '../../../helpers/proptypes';
 
 /**
@@ -8,9 +8,7 @@ import { formPropTypes } from '../../../helpers/proptypes';
  * @param {object} props
  * @returns {JSX} MealForm
  */
-const MealForm = ({
-  type, state, handlers, meal
-}) => (
+const MealForm = ({ state, handlers }) => (
   <Fragment>
     <RenderInput
       type="text"
@@ -29,17 +27,6 @@ const MealForm = ({
         asyncValidating: state.asyncValidating
       }}
     />
-    {type === 'editMeal' && <RenderFileInput
-      name="imageURL"
-      id="imageURL"
-      mealId={meal.mealId}
-      formerImgURL={meal.imageURL}
-      label="Meal Image"
-      value={this.state.imageURL}
-      meta={{
-        error: this.state.error
-      }}
-    />}
     <RenderInput
       type="number"
       name="price"
@@ -70,9 +57,9 @@ const MealForm = ({
       handleBlur={handlers.handleBlur}
       handleFocus={handlers.handleFocus}
       meta={{
-          touched: state.touched.description,
-          error: state.error.description
-        }}
+        touched: state.touched.description,
+        error: state.error.description
+      }}
     />
     <RenderInput
       type="checkbox"
@@ -86,9 +73,9 @@ const MealForm = ({
       handleBlur={handlers.handleBlur}
       handleFocus={handlers.handleFocus}
       meta={{
-          touched: state.touched.vegetarian,
-          error: state.error.vegetarian
-        }}
+        touched: state.touched.vegetarian,
+        error: state.error.vegetarian
+      }}
     />
   </Fragment>
 );

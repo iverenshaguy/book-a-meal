@@ -23,7 +23,8 @@ class Meals extends Component {
     logout: PropTypes.func.isRequired,
     fetchMeals: PropTypes.func.isRequired,
     submitError: PropTypes.string,
-    submitting: PropTypes.bool.isRequired
+    submitting: PropTypes.bool.isRequired,
+    toggleModal: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
