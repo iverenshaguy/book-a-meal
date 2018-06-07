@@ -1,0 +1,143 @@
+.sidenav {
+  box-shadow: 3px 0 10px 1px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 11;
+  margin-top: 0px;
+}
+
+@media (max-width: 767.98px) {
+  .sidenav {
+    position: relative;
+
+    &:before {
+      content: "";
+      display: none;
+      background: rgba(0, 0, 0, 0.6);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 11;
+    }
+
+    &:target {
+      &:before {
+        display: block;
+      }
+
+      .sidenav-content {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+      }
+    }
+
+    .sidenav-content {
+      z-index: 12;
+      position: fixed;
+      top: 0;
+      left: 0;
+      -webkit-transform: translate(-100%, 0);
+      transform: translate(-100%, 0);
+      transition: -webkit-transform 0.5s ease-out;
+      transition: transform 0.5s ease-out;
+      transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
+    }
+  }
+}
+
+.sidenav-content {
+  height: 100%;
+  width: 250px;
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+
+  .sidenav-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    /* background-color: #343A40; */
+    height: 300px;
+    padding-bottom: 20px;
+    color: #333;
+
+    .sidenav-title {
+      color: #333;
+      flex-grow: 11;
+      font-size: 1.3em;
+      font-weight: bold;
+      font-family: "Nunito", sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h3 {
+        margin-top: -1em;
+      }
+
+      p {
+        margin: 0.7em 0;
+      }
+
+      span a {
+        color: #333;
+        font-size: 0.7em;
+      }
+    }
+
+    .close {
+      flex-grow: 1;
+      text-align: right;
+
+      a {
+        font-size: 1.5em;
+        font-weight: bold;
+        display: block;
+        color: #333;
+        margin: 0.7em 0.7em 0.7em 0;
+      }
+    }
+  }
+
+  .menu-item {
+    padding: 15px 15px 15px 32px;
+    text-decoration: none;
+    font-size: 1.1em;
+    display: block;
+
+    &:hover, &:focus {
+      background-color: #F1F2F2;
+      transition: background-color 0.5s;
+    }
+
+    &.active {
+      background-color: #F1F2F2;
+      transition: background-color 0.5s;
+      border-left: 3px solid #4CAF50;
+    }
+  }
+}
+
+@media (max-height: 450px) {
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidenav .menu-item {
+    padding: 15px 15px 15px 32px;
+    text-decoration: none;
+    font-size: 1.1em;
+    display: block;
+  }
+
+  .sidenav-content .sidenav-header {
+    padding-bottom: 0;
+  }
+}

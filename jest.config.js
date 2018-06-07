@@ -7,6 +7,10 @@ module.exports = {
     '<rootDir>/client/src/index.jsx',
     '<rootDir>/client/src/rootReducer.js',
   ],
+  moduleNameMapper: {
+    '\\.(css|scss)$': 'identity-obj-proxy',
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$': '<rootDir>/src/tests/__mocks__/fileMock.js'
+  },
   setupTestFrameworkScriptFile: '<rootDir>/client/setupTests.js',
   testMatch: [
     '<rootDir>/client/src/**/tests/**/*.(spec|test).{js,jsx}',
