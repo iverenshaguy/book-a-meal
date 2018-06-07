@@ -4,7 +4,7 @@ import Auth from './../pages/Auth';
 import Welcome from './../pages/Welcome';
 import Meals from './../pages/Meals';
 import requiresAuthentication from './../hoc/Authentication';
-import '../../../public/scss/style.scss';
+import '../../../dist/scss/style.scss';
 
 /**
  * Represents the Routes Component
