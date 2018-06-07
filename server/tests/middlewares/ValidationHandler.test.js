@@ -34,10 +34,10 @@ describe('Validation Handler: Orders', () => {
   });
 
   it('returns error message if shop is closed', () => {
-    process.env.OPENING_HOUR = currentHour + 1;
-    process.env.OPENING_MINUTE = currentMin;
-    process.env.CLOSING_HOUR = currentHour + 2;
-    process.env.CLOSING_MINUTE = 0;
+    process.env.OPENING_HOUR = currentHour + 0;
+    process.env.OPENING_MINUTE = currentMin + 3;
+    process.env.CLOSING_HOUR = currentHour + 0;
+    process.env.CLOSING_MINUTE = 5;
 
     ValidationHandler.isShopOpen(req, res, next);
 
@@ -45,8 +45,8 @@ describe('Validation Handler: Orders', () => {
   });
 
   it('calls next if shop is open', () => {
-    process.env.OPENING_HOUR = 0;
-    process.env.OPENING_MINUTE = currentMin;
+    process.env.OPENING_HOUR = currentHour - 1;
+    process.env.OPENING_MINUTE = 0;
     process.env.CLOSING_HOUR = currentHour + 1;
     process.env.CLOSING_MINUTE = 0;
 
