@@ -14,7 +14,8 @@
     "expect": true,
     "render": true,
     "toJson": true,
-    "rrcMock": true
+    "rrcMock": true,
+    "mocksdk": true
   },
   "rules": {
     "one-var": 0,
@@ -58,13 +59,20 @@
         }
       }
     ],
-    "jsx-a11y/label-has-for": [ 2, {
-      "components": [ "Label" ],
-      "required": {
-          "every": [ "id" ]
-      },
-      "allowChildren": false
-  }]
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "components": [
+          "Label"
+        ],
+        "required": {
+          "every": [
+            "id"
+          ]
+        },
+        "allowChildren": false
+      }
+    ]
   },
   "parser": "babel-eslint"
 }

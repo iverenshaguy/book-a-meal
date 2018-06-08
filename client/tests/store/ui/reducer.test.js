@@ -18,22 +18,22 @@ describe('UI Reducers', () => {
     const newState = reducer(
       state,
       {
-      type: 'TOGGLE_MODAL',
-      payload: 'addMeal'
-    });
+        type: 'TOGGLE_MODAL',
+        payload: 'addMeal'
+      });
 
-    expect(newState).toEqual({...state, modals: { isOpen: true, type: 'addMeal' }});
+    expect(newState).toEqual({ ...state, modals: { isOpen: true, type: 'addMeal' } });
   });
 
   it('should handle TOGGLE_MODAL action with no payload', () => {
     const newState = reducer(
       { ...state, modals: { ...state.modals, isOpen: true } },
       {
-      type: 'TOGGLE_MODAL',
-      payload: null
-    });
+        type: 'TOGGLE_MODAL',
+        payload: null
+      });
 
-    expect(newState).toEqual({...state, modals: { ...state.modals, isOpen: false }});
+    expect(newState).toEqual({ ...state, modals: { ...state.modals, isOpen: false } });
   });
 });
 
