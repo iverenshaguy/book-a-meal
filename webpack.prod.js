@@ -1,11 +1,16 @@
 const webpack = require('webpack');
 const path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const dotenv = require('dotenv');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const Dotenv = require('dotenv-webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+dotenv.config();
+
+const cleanerPlugin = new CleanWebpackPlugin('./client/dist', {});
+const optimizeCSSPlugin = new OptimizeCSSAssetsPlugin({});
 const htmlPlugin = new HtmlWebPackPlugin({
   title: 'Book A Meal',
   template: 'client/src/index.html',
@@ -13,29 +18,29 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 const cssPlugin = new MiniCssExtractPlugin({
-  filename: '[name].css',
-  chunkFilename: '[id].css',
+  filename: '[name].[hash].css',
+  chunkFilename: '[id].[hash].css',
 });
 
-const envPlugin = new Dotenv();
 const uglifyPlugin = new UglifyJsPlugin({
   cache: true,
   parallel: true,
-  sourceMap: true
+  sourceMap: true // set to true if you want JS source maps
 });
 
-const optimizeCSSPlugin = new OptimizeCSSAssetsPlugin({});
-
-const definePlugin = new webpack.DefinePlugin({
-  'process.env.NODE_ENV': JSON.stringify('production')
+const envPlugin = new webpack.DefinePlugin({
+  'process.env': {
+    NODE_ENV: JSON.stringify('production'),
+    REACT_APP_FIREBASE_API_KEY: JSON.stringify(process.env.REACT_APP_FIREBASE_API_KEY),
+    REACT_APP_FIREBASE_AUTH_DOMAIN: JSON.stringify(process.env.REACT_APP_FIREBASE_AUTH_DOMAIN),
+    REACT_APP_FIREBASE_DB_URL: JSON.stringify(process.env.REACT_APP_FIREBASE_DB_URL),
+    REACT_APP_FIREBASE_STORAGE_BUCKET: JSON.stringify(process.env.REACT_APP_FIREBASE_STORAGE_BUCKET)
+  }
 });
 
 module.exports = {
-  entry: [
-    path.resolve(__dirname, 'client/src/index.jsx')
-  ],
   mode: 'production',
-  target: 'web',
+  entry: ['./client/src/index.jsx'],
   output: {
     path: path.resolve(__dirname, './client/dist'),
     filename: 'bundle.js',
@@ -76,7 +81,11 @@ module.exports = {
     extensions: ['.js', '.json', '.jsx']
   },
   plugins: [
-    definePlugin, envPlugin, htmlPlugin,
-    cssPlugin, uglifyPlugin, optimizeCSSPlugin
-  ]
+    cleanerPlugin,
+    envPlugin,
+    cssPlugin,
+    uglifyPlugin,
+    optimizeCSSPlugin,
+    htmlPlugin,
+  ],
 };

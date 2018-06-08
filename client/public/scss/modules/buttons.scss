@@ -1,0 +1,109 @@
+@import '../_variables.scss';
+.btn {
+    border-radius: 3px;
+    border-style: none;
+    padding: 10px 50px;
+    font-family: $heading-font-stack;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    &:hover,
+    &.focus,
+    &.active {
+        outline: none;
+        cursor: pointer;
+    }
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-pri {
+    border: 2px solid $primary-color;
+    background-color: $primary-color;
+    color: $white;
+    &:hover,
+    &.focus,
+    &.active {
+        transition: background-color 0.5s, border-color 0.5s;
+        background-color: #449d48;
+        border-color: #449d48;
+        color: $white;
+    }
+}
+
+.btn-sec {
+    border: 2px solid $primary-color;
+    background-color: transparent;
+    color: $primary-color;
+    border-color: $primary-color;
+    &:hover,
+    &.focus,
+    &.active {
+        transition: background-color 0.5s, color 0.5s, border-color 0.5s;
+        background-color: #449d48;
+        border-color: #449d48;
+        color: white;
+    }
+}
+
+.btn-pri-danger {
+    border: 2px solid $danger;
+    background-color: $danger;
+    color: $white;
+    &:hover,
+    &.focus,
+    &.active {
+        transition: background-color 0.5s, border-color 0.5s;
+        background-color: #bc0000;
+        border-color: #bc0000;
+        color: $white;
+    }
+}
+
+.btn-sec-danger {
+    border: 2px solid $danger;
+    background-color: transparent;
+    color: $danger;
+    border-color: $danger;
+    &:hover,
+    &.focus,
+    &.active {
+        transition: background-color 0.5s, color 0.5s, border-color 0.5s;
+        background-color: #bc0000;
+        border-color: #bc0000;
+        color: white;
+    }
+}
+
+.control-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* .control-btns.order-history-btns .btn {
+    border: 0;
+    padding: 20px 0 0 0;
+    font-size: 1.5em;
+}
+
+*/
+
+@media (max-width: 768px) {
+    .control-btns .btn {
+        border: 0;
+        padding: 20px 0 0 0;
+        font-size: 1.5em;
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: transparent;
+            border: 0;
+            color: #449d48;
+        }
+    }
+}

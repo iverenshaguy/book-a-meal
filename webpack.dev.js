@@ -19,6 +19,8 @@ const hotReloader = new webpack.HotModuleReplacementPlugin();
 const envPlugin = new Dotenv();
 
 module.exports = {
+  mode: 'development',
+  devtool: 'eval',
   entry: { app: ['react-hot-loader/patch', 'webpack-hot-middleware/client', './client/src/index.jsx'] },
   devServer: {
     contentBase: './client/dist',

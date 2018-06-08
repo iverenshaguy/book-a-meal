@@ -2,7 +2,7 @@ import React from 'react';
 import { ConnectedRouter } from 'react-router-redux';
 import { history } from '../../rootReducer';
 import Routes from './Routes';
-import '../../../dist/scss/style.scss';
+import '../../../public/scss/style.scss';
 /**
  * Represents the App Component
  * @returns {component} App
