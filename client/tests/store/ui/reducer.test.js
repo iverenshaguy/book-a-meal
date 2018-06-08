@@ -20,7 +20,8 @@ describe('UI Reducers', () => {
       {
         type: 'TOGGLE_MODAL',
         payload: 'addMeal'
-      });
+      }
+    );
 
     expect(newState).toEqual({ ...state, modals: { isOpen: true, type: 'addMeal' } });
   });
@@ -31,7 +32,8 @@ describe('UI Reducers', () => {
       {
         type: 'TOGGLE_MODAL',
         payload: null
-      });
+      }
+    );
 
     expect(newState).toEqual({ ...state, modals: { ...state.modals, isOpen: false } });
   });
