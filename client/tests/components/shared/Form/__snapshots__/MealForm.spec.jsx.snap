@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MealForm addMeal: renders correctly 1`] = `
+<React.Fragment>
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="title"
+    label="Meal Name"
+    meta={
+      Object {
+        "asyncValidating": false,
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="title"
+    placeholder=""
+    required={true}
+    type="text"
+    value=""
+  />
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="price"
+    label="Price"
+    meta={
+      Object {
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="price"
+    placeholder=""
+    required={true}
+    type="number"
+    value=""
+  />
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="description"
+    label="Description (not more than 65 words)"
+    maxLength="65"
+    meta={
+      Object {
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="description"
+    placeholder=""
+    required={false}
+    rows={2}
+    type="textarea"
+    value=""
+  />
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="vegetarian"
+    label="Suitable for Vegetarians"
+    meta={
+      Object {
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="vegetarian"
+    placeholder=""
+    required={false}
+    type="checkbox"
+    value=""
+  />
+</React.Fragment>
+`;

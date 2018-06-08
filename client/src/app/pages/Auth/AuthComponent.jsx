@@ -25,22 +25,24 @@ class Auth extends Component {
   }
 
   /**
+   * @static
    * @memberof Auth
-   * @returns {nothin} nothing
+   * @param {object} props
+   * @returns {nothing} nothing
    */
-  componentWillMount() {
-    const query = queryString.parse(this.props.location.search);
+  static getDerivedStateFromProps(props) {
+    const query = queryString.parse(props.location.search);
     const { role } = query;
 
-    if (this.props.type === 'signup' && role === 'caterer') {
-      return this.setState({ type: 'catererSignup' });
+    if (props.type === 'signup') {
+      return { type: role === 'caterer' ? 'catererSignup' : 'customerSignup' };
     }
 
-    if (this.props.type === 'signup' && (!role || role === 'customer')) {
-      return this.setState({ type: 'customerSignup' });
-    }
+    return { type: 'signin' };
+  }
 
-    return this.setState({ type: 'signin' });
+  state = {
+    type: ''
   }
 
   /**

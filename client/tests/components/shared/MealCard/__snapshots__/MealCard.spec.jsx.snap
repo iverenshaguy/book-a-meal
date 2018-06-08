@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MealModal renders correctly when type is caterer 1`] = `
+<div
+  className="meal-card"
+  id="meal-card"
+>
+  <div
+    className="meal-card-header"
+  >
+    <img
+      alt="meal"
+      src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+    />
+    <Dropdown
+      content={
+        <UNDEFINED>
+          <Link
+            className={null}
+            clickHandler={null}
+            href="#add-edit-modal"
+            id="edit-meal"
+          >
+            Edit
+          </Link>
+          <Link
+            className={null}
+            clickHandler={null}
+            href="#add-edit-modal"
+            id="delete-meal"
+          >
+            Delete
+          </Link>
+        </UNDEFINED>
+      }
+      toggler={
+        <UNDEFINED>
+          …
+        </UNDEFINED>
+      }
+      type="card"
+    />
+    <div
+      className="menu-card-title"
+    >
+      <p>
+        Jollof Rice, Beef and Plantain
+      </p>
+    </div>
+  </div>
+  <div
+    className="meal-card-body"
+  >
+    <div>
+      <h3>
+        ₦ 
+        1500.00
+      </h3>
+      <p>
+        Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MealModal renders correctly when type is user 1`] = `
+<div
+  className="meal-card"
+  id="meal-card"
+>
+  <div
+    className="meal-card-header"
+  >
+    <img
+      alt="meal"
+      src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+    />
+    <div
+      className="menu-card-title"
+    >
+      <p>
+        Jollof Rice, Beef and Plantain
+      </p>
+    </div>
+  </div>
+  <div
+    className="meal-card-body"
+  >
+    <div>
+      <h3>
+        ₦ 
+        1500.00
+      </h3>
+      <p>
+        Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
+      </p>
+    </div>
+    <div
+      className="meal-card-action"
+    >
+      <button
+        className="btn btn-sec meal-card-btn"
+      >
+        Click to Order
+      </button>
+    </div>
+  </div>
+</div>
+`;

@@ -2,6 +2,7 @@ module.exports = {
   collectCoverageFrom: [
     '<rootDir>/client/src/**/*.{js,jsx}',
     '!<rootDir>/client/src/**/index.js',
+    '!<rootDir>/client/src/config/*.js',
     '!<rootDir>/client/tests/**/*.(spec|test).{js,jsx}'
   ],
   coverageDirectory: '<rootDir>/coverage',
@@ -9,6 +10,7 @@ module.exports = {
     '<rootDir>/node_modules/',
     '<rootDir>/server/',
     '<rootDir>/client/src/index.jsx',
+    '<rootDir>/client/config/',
     '<rootDir>/client/tests/'
   ],
   moduleNameMapper: {

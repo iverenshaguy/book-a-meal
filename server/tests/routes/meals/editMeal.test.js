@@ -18,7 +18,22 @@ describe('Meal Routes: Edit a meal option', () => {
       .put('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send({ ...newMeal, title: 'Plantain and Egg' })
+      .send({ ...newMeal, title: 'Plantain and Egg', price: undefined })
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(200);
+        expect(res.body.id).to.equal('91b6e41c-0972-4ac5-86da-4ac1f5226e83');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
+  it('should edit a meal and parse meal price for authenticated user', (done) => {
+    request(app)
+      .put('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')
+      .set('Accept', 'application/json')
+      .set('authorization', foodCircleToken)
+      .send({ ...newMeal, price: '1499.99' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
         expect(res.body.id).to.equal('91b6e41c-0972-4ac5-86da-4ac1f5226e83');

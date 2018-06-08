@@ -12,6 +12,11 @@ export const initialValues = {
       pathname: '/home'
     }
   },
+  meals: {
+    items: [],
+    working: false,
+    error: null
+  },
   orders: {
     items: [],
     pendingOrders: 0,
@@ -19,7 +24,19 @@ export const initialValues = {
     delivering: false,
     error: null
   },
-  isFetching: false
+  uploadImage: {
+    uploadTask: null,
+    uploading: false,
+    error: null,
+    url: null
+  },
+  isFetching: false,
+  ui: {
+    modals: {
+      isOpen: false,
+      type: null
+    }
+  }
 };
 
 export const caterer = {
@@ -239,4 +256,34 @@ export const deliverOrder = {
       delivered: true
     }
   ]
+};
+
+export const caterersMealsObj = {
+  meals: [
+    {
+      id: '81211c24-51c0-46ec-b1e0-18db55880958',
+      title: 'Jollof Rice, Beef and Plantain',
+      imageURL: 'http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg',
+      description: 'Jollof Rice, Beef and Plantain. 2 pieces of beef per plate',
+      vegetarian: false,
+      price: '1500.00'
+    },
+    {
+      id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
+      title: 'Vegetable Sharwama and Guava Smoothie',
+      imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+      description: 'Sharwama contains no animal products, perfect for dieters',
+      vegetarian: true,
+      price: '1200.00'
+    }
+  ]
+};
+
+export const newMeal = {
+  id: '81211c24-51c0-46ec-b1e0-18db55880954',
+  title: 'Jollof Rice and Chicken',
+  imageURL: 'http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg',
+  description: '',
+  vegetarian: false,
+  price: '2500.00'
 };

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import SigninForm from './SigninForm';
 import CustomerSignupForm from './CustomerSignupForm';
 import CatererSignupForm from './CatererSignupForm';
+import MealForm from './MealForm';
 import MiniPreLoader from '../Preloader/MiniPreloader';
 import { formHelpers, getTouchedFields, formErrorCount } from '../../../helpers';
 import { arrayToObject } from '../../../utils';
@@ -10,11 +11,11 @@ import { syncValidate, validateRequiredFields } from '../../../helpers/validatio
 
 /**
  * @exports
- * @class FormComponent
+ * @class Form
  * @extends Component
  * @returns {component} Form
  */
-class FormComponent extends Component {
+class Form extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     submitting: PropTypes.bool.isRequired,
@@ -44,6 +45,7 @@ class FormComponent extends Component {
     const fields = formFields[type];
     const values = arrayToObject(fields, '');
 
+    if (fields.includes('vegetarian')) values.vegetarian = false;
     if (type === 'catererSignup') values.role = 'caterer';
     if (type === 'customerSignup') values.role = 'customer';
 
@@ -62,7 +64,7 @@ class FormComponent extends Component {
    * @memberof Form
    * @returns {nothing} Returns nothing
    */
-  componentWillMount = () => {
+  componentDidMount = () => {
     this.clearFormErrors();
   }
 
@@ -84,7 +86,8 @@ class FormComponent extends Component {
    */
   handleChange = (event) => {
     const { target } = event;
-    const { value, name } = target;
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
 
     this.setState(prevState => ({
       values: { ...prevState.values, [name]: value },
@@ -203,6 +206,8 @@ class FormComponent extends Component {
         return <CustomerSignupForm type={type} state={formState} handlers={handlers} />;
       case 'catererSignup':
         return <CatererSignupForm type={type} state={formState} handlers={handlers} />;
+      case 'addMeal':
+        return <MealForm type={type} state={formState} handlers={handlers} />;
       default:
         return <SigninForm type={type} state={formState} handlers={handlers} />;
     }
@@ -215,7 +220,7 @@ class FormComponent extends Component {
   render() {
     const { pristine, formValid } = this.state;
     const { submitting, submitError, meta: { btnText, extra } } = this.props;
-    const requiredTextArray = ['catererSignup', 'customerSignup'];
+    const requiredTextArray = ['catererSignup', 'customerSignup', 'addMeal', 'editMeal'];
 
     return (
       <div>
@@ -246,4 +251,4 @@ class FormComponent extends Component {
   }
 }
 
-export default FormComponent;
+export default Form;

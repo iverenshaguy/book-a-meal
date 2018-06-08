@@ -98,10 +98,6 @@ const catererMealCards = cardInfo.map(card =>
         <h3>&#8358; ${card.price}</h3>
         <p>${card.desc}</p>
       </div>
-      <!--<div class="action-btns">
-        <button class="btn btn-sec" id="edit-meal">Edit</button>
-        <button class="btn btn-sec-danger" id="delete-meal">Delete</button>
-      </div>-->
     </div>
   </div>`
 );

@@ -24,13 +24,14 @@ const Link = ({
 Link.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
-  clickHandler: PropTypes.func.isRequired,
+  clickHandler: PropTypes.func,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired
 };
 
 Link.defaultProps = {
   id: null,
-  className: null
+  className: null,
+  clickHandler: null
 };
 
 export default Link;

@@ -1,6 +1,7 @@
 import express from 'express';
 import logger from 'morgan';
 import path from 'path';
+import cors from 'cors';
 import { config } from 'dotenv';
 import bodyParser from 'body-parser';
 import 'babel-polyfill';
@@ -16,6 +17,9 @@ config();
 
 // Set up the express app
 const app = express();
+
+// enable cors
+app.use(cors());
 
 // Log requests to the console.
 app.use(logger('dev'));
@@ -34,6 +38,7 @@ app.use('/api/v1/docs', express.static('server/docs'));
 app.use('/api', apiRoutes);
 
 // Serve static assets
+app.use(express.static(path.resolve(__dirname, '../../client/', 'dist')));
 app.use(express.static(path.resolve(__dirname, '../../client/', 'public')));
 
 // Serve Client File

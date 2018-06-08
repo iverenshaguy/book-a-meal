@@ -1,5 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Form Components: RenderInput renders checkbox correctly 1`] = `
+<RenderInput
+  handleBlur={[MockFunction]}
+  handleChange={[MockFunction]}
+  handleFocus={[MockFunction]}
+  id="email"
+  label="Email"
+  meta={
+    Object {
+      "asyncValidating": false,
+      "error": null,
+      "touched": false,
+    }
+  }
+  name="email"
+  placeholder="jane"
+  required={true}
+  type="checkbox"
+  value=""
+>
+  <div
+    className="form-input-checkbox"
+  >
+    <input
+      className=""
+      id="email"
+      name="email"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      placeholder="jane"
+      type="checkbox"
+      value=""
+    />
+    <label
+      htmlFor="email"
+    >
+      Email
+    </label>
+  </div>
+</RenderInput>
+`;
+
 exports[`Form Components: RenderInput renders correctly 1`] = `
 <RenderInput
   handleBlur={[MockFunction]}
