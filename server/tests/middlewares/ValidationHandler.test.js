@@ -1,10 +1,8 @@
 import sinon from 'sinon';
 import moment from 'moment';
+import mockDate from 'mockdate';
 import { assert } from 'chai';
 import ValidationHandler from '../../src/middlewares/ValidationHandler';
-
-const currentHour = moment().hour();
-const currentMin = moment().minute();
 
 // mock server response
 const res = {
@@ -20,24 +18,11 @@ const req = {
 
 const next = sinon.spy();
 const status = sinon.spy(res, 'status');
+const currentDay = moment().format('YYYY-MM-DD');
 
 describe('Validation Handler: Orders', () => {
-  let env;
-
-  // mocking an environment
-  before(() => {
-    env = process.env; // eslint-disable-line
-  });
-
-  after(() => {
-    process.env = env;
-  });
-
   it('returns error message if shop is closed', () => {
-    process.env.OPENING_HOUR = currentHour + 0;
-    process.env.OPENING_MINUTE = currentMin + 3;
-    process.env.CLOSING_HOUR = currentHour + 0;
-    process.env.CLOSING_MINUTE = 5;
+    mockDate.set(new Date(currentDay).getTime() + (60 * 60 * 18 * 1000));
 
     ValidationHandler.isShopOpen(req, res, next);
 
@@ -45,10 +30,7 @@ describe('Validation Handler: Orders', () => {
   });
 
   it('calls next if shop is open', () => {
-    process.env.OPENING_HOUR = currentHour - 1;
-    process.env.OPENING_MINUTE = 0;
-    process.env.CLOSING_HOUR = currentHour + 1;
-    process.env.CLOSING_MINUTE = 0;
+    mockDate.set(new Date(currentDay).getTime() + (60 * 60 * 13 * 1000));
 
     ValidationHandler.isShopOpen(req, res, next);
 
