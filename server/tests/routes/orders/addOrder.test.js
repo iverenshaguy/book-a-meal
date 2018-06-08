@@ -1,6 +1,7 @@
 import request from 'supertest';
 import { expect } from 'chai';
 import moment from 'moment';
+import mockDate from 'mockdate';
 import app from '../../../src/app';
 import unAuthorized from '../../utils/unAuthorized';
 import { addOrder as data } from '../../utils/data';
@@ -9,25 +10,13 @@ import { tokens } from '../../utils/setup';
 const { emiolaToken } = tokens;
 
 const { badOrder, newOrder } = data;
-const currentHour = moment().hour();
-const currentMin = moment().minute();
+const currentDay = moment().format('YYYY-MM-DD');
+
 
 describe('Order Routes: Add an Order', () => {
-  let env;
-  before(() => {
-    env = process.env; // eslint-disable-line
-
-    process.env.OPENING_HOUR = 0;
-    process.env.OPENING_MINUTE = currentMin;
-    process.env.CLOSING_HOUR = currentHour + 1;
-    process.env.CLOSING_MINUTE = 0;
-  });
-
-  after(() => {
-    process.env = env;
-  });
-
   it('should add an order for authenticated user', (done) => {
+    mockDate.set(new Date(currentDay).getTime() + (60 * 60 * 13 * 1000));
+
     request(app)
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
@@ -46,10 +35,7 @@ describe('Order Routes: Add an Order', () => {
   });
 
   it('should not add an order when office is closed', (done) => {
-    process.env.OPENING_HOUR = currentHour + 0;
-    process.env.OPENING_MINUTE = currentMin + 3;
-    process.env.CLOSING_HOUR = currentHour + 0;
-    process.env.CLOSING_MINUTE = currentMin + 5;
+    mockDate.set(new Date(currentDay).getTime() + (60 * 60 * 18 * 1000));
 
     request(app)
       .post('/api/v1/orders')
@@ -66,10 +52,7 @@ describe('Order Routes: Add an Order', () => {
   });
 
   it('should not add an order when meal isn\'t in menu for the day', (done) => {
-    process.env.OPENING_HOUR = 0;
-    process.env.OPENING_MINUTE = currentMin;
-    process.env.CLOSING_HOUR = currentHour + 1;
-    process.env.CLOSING_MINUTE = 0;
+    mockDate.set(new Date(currentDay).getTime() + (60 * 60 * 13 * 1000));
 
     request(app)
       .post('/api/v1/orders')
@@ -86,10 +69,7 @@ describe('Order Routes: Add an Order', () => {
   });
 
   it('should return errors for invalid input', (done) => {
-    process.env.OPENING_HOUR = 0;
-    process.env.OPENING_MINUTE = currentMin;
-    process.env.CLOSING_HOUR = currentHour + 1;
-    process.env.CLOSING_MINUTE = 0;
+    mockDate.set(new Date(currentDay).getTime() + (60 * 60 * 13 * 1000));
 
     request(app)
       .post('/api/v1/orders')
