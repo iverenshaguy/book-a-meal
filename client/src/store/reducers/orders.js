@@ -2,7 +2,8 @@ import {
   RECEIVE_CATERERS_ORDERS_SUCCESS, RECEIVE_CATERERS_ORDERS_FAILURE,
   DELIVER_ORDER_SUCCESS, DELIVER_ORDER_FAILURE, SET_DELIVERING, UNSET_DELIVERING
 } from '../types';
-import { calculateCashEarnedFromOrder } from '../../helpers';
+import calculateCashEarnedFromOrder from '../../helpers/calculateCashEarnedFromOrder';
+import getUpdatedItems from '../../helpers/getUpdatedItems';
 
 const initialValues = {
   items: [],
@@ -13,8 +14,6 @@ const initialValues = {
 };
 
 export default (state = initialValues, action) => {
-  const index = action.payload && state.items.findIndex(order => order.id === action.payload.id);
-
   switch (action.type) {
     case RECEIVE_CATERERS_ORDERS_SUCCESS:
       return {
@@ -26,14 +25,7 @@ export default (state = initialValues, action) => {
     case DELIVER_ORDER_SUCCESS:
       return {
         ...state,
-        items: [
-          ...state.items.slice(0, index),
-          {
-            ...state.items[index],
-            ...action.payload
-          },
-          ...state.items.slice(index + 1)
-        ],
+        items: getUpdatedItems(state.items, action.payload),
         pendingOrders: state.pendingOrders - 1,
         totalCashEarned: state.totalCashEarned +
           (calculateCashEarnedFromOrder(action.payload.meals))

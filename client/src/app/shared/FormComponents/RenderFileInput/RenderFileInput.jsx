@@ -78,10 +78,6 @@ class RenderFileInput extends Component {
           id={id}
           type="file"
           name={name}
-          ref={(input) => {
-            this.fileInput = input;
-          }}
-          filename=""
           accept="image/*"
           onChange={this.handleChange}
         />

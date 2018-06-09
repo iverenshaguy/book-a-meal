@@ -33,7 +33,7 @@ export const initialValues = {
   isFetching: false,
   ui: {
     modals: {
-      isOpen: false,
+      open: false,
       type: null
     }
   }

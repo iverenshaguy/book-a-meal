@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CatererView renders Preloader when fetching 1`] = `
+<div
+  className="admin"
+>
+  <Header
+    type="caterer"
+  />
+  <div
+    className="content"
+  >
+    <SideNav
+      active="dashboard"
+      logout={[MockFunction]}
+      user={
+        Object {
+          "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+          "businessName": "Food Circle",
+          "businessPhoneNo": "+2348166557788",
+          "email": "food@circle.com",
+          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+          "role": "caterer",
+        }
+      }
+    />
+    <div
+      className="content-wrapper dashboard"
+      id="has-modal"
+    >
+      <Preloader
+        type={null}
+      />
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`CatererView renders correctly 1`] = `
+<div
+  className="admin"
+>
+  <Header
+    type="caterer"
+  />
+  <div
+    className="content"
+  >
+    <SideNav
+      active="dashboard"
+      logout={[MockFunction]}
+      user={
+        Object {
+          "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+          "businessName": "Food Circle",
+          "businessPhoneNo": "+2348166557788",
+          "email": "food@circle.com",
+          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+          "role": "caterer",
+        }
+      }
+    />
+    <div
+      className="content-wrapper dashboard"
+      id="has-modal"
+    >
+      <p>
+        Hi
+      </p>
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
