@@ -224,24 +224,18 @@ class Form extends Component {
 
     return (
       <div>
-        {submitting &&
-          <div className="modal-preloader text-center"><MiniPreLoader /></div>}
+        {submitting && <div className="modal-preloader text-center"><MiniPreLoader /></div>}
         {!submitting &&
           <Fragment>
             {requiredTextArray.includes(this.props.type) &&
-            <p className="text-muted mx-auto text-center">
+              <p className="text-muted mx-auto text-center">
                 Fields marked
-              <span className="danger"> *</span> are required
-            </p>}
+                <span className="danger"> *</span> are required
+              </p>}
             <form onSubmit={this.handleSubmit}>
-              {submitError && (
-              <p className="danger text-center mb-0">{submitError}</p>
-              )}
+              {submitError && <p className="danger text-center mb-0">{submitError}</p>}
               {this.renderForm()}
-              <button
-                className="btn btn-pri btn-block"
-                disabled={!formValid || !!pristine || !!submitting}
-              >
+              <button className="btn btn-pri btn-block" disabled={!formValid || !!pristine || !!submitting}>
                 {btnText}
               </button>
             </form>

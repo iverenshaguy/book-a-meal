@@ -19,8 +19,7 @@ const RenderInput = ({
   placeholder,
   meta: {
     error,
-    touched,
-    asyncValidating
+    touched
   },
   handleChange,
   handleBlur,
@@ -37,19 +36,6 @@ const RenderInput = ({
     'd-none': touched && !error
   });
 
-  const input = (<input
-    id={id}
-    type={type}
-    name={name}
-    rows={type === 'text-area' ? rows : undefined}
-    placeholder={placeholder}
-    className={validInput}
-    value={value}
-    onChange={e => handleChange(e)}
-    onBlur={e => handleBlur(e)}
-    onFocus={e => handleFocus(e)}
-  />);
-
   const formInputClass = type === 'checkbox' ? 'form-input-checkbox' : 'form-input';
 
   return (
@@ -60,14 +46,23 @@ const RenderInput = ({
             {label}
             {required && <span className="danger">*</span>}
           </label>}
-        {input}
-        {label && type === 'checkbox' &&
+        <input
+          id={id}
+          type={type}
+          name={name}
+          rows={rows}
+          placeholder={placeholder}
+          className={validInput}
+          value={value}
+          onChange={e => handleChange(e)}
+          onBlur={e => handleBlur(e)}
+          onFocus={e => handleFocus(e)}
+        />
+        {type === 'checkbox' &&
           <label htmlFor={id}>
             {label}
           </label>}
         {touched && error && <div className={validFeedBack}>{error}</div>}
-        {touched && (name === 'email' || name === 'username') &&
-          asyncValidating && <small className="form-text">Checking...</small>}
       </div>
     </Fragment>
   );

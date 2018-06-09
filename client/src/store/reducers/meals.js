@@ -3,6 +3,7 @@ import {
   ADD_MEAL_FAILURE, SET_MEAL_WORKING, UNSET_MEAL_WORKING, CLEAR_MEAL_ERROR,
   EDIT_MEAL_SUCCESS, EDIT_MEAL_FAILURE,
 } from '../types';
+import getUpdatedItems from '../../helpers/getUpdatedItems';
 
 const initialValues = {
   items: [],
@@ -11,8 +12,6 @@ const initialValues = {
 };
 
 export default (state = initialValues, action) => {
-  const index = action.payload && state.items.findIndex(meal => meal.id === action.payload.id);
-
   switch (action.type) {
     case SET_MEAL_WORKING:
       return { ...state, working: true };
@@ -25,14 +24,7 @@ export default (state = initialValues, action) => {
     case EDIT_MEAL_SUCCESS:
       return {
         ...state,
-        items: [
-          ...state.items.slice(0, index),
-          {
-            ...state.items[index],
-            ...action.payload
-          },
-          ...state.items.slice(index + 1)
-        ],
+        items: getUpdatedItems(state.items, action.payload),
       };
     case RECEIVE_MEALS_SUCCESS:
       return { ...state, items: action.payload };

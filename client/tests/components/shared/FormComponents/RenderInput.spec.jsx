@@ -64,16 +64,4 @@ describe('Form Components: RenderInput', () => {
     expect(mountedWrapper.find('input').hasClass('is-invalid')).toBeTruthy();
     mountedWrapper.unmount();
   });
-
-  it('shows \'Checking\' when async validating', () => {
-    const mountedWrapper = mount(<RenderInput
-      {...cleanProps}
-      meta={{ asyncValidating: true, touched: true }}
-    />);
-
-    expect(toJson(mountedWrapper)).toMatchSnapshot();
-    expect(mountedWrapper.find('small').hasClass('form-text')).toBeTruthy();
-    expect(mountedWrapper.find('small').text()).toEqual('Checking...');
-    mountedWrapper.unmount();
-  });
 });
