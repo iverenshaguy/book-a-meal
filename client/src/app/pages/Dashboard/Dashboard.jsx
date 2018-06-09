@@ -1,10 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import Header from '../../shared/Header';
-import Footer from '../../shared/Footer';
-import SideNav from '../../shared/SideNav';
-import Preloader from '../../shared/Preloader';
+import CatererView from '../../shared/CatererView';
 import { OrderHistoryTable } from '../../shared/Tables';
 import { userPropTypes, catererOrdersObjPropTypes } from '../../../helpers/proptypes';
 
@@ -38,37 +35,33 @@ class Dashboard extends Component {
    * @memberof Dashboard
    * @returns {JSX} Board Component
    */
-  renderMainDashBoard = () => {
-    if (this.props.isFetching) return <Preloader type="admin" />;
-
-    return (
-      <Fragment>
-        <div className="date d-none-md">
-          <h2>{moment().format('dddd[,] Do MMMM YYYY')}&nbsp; &nbsp; {moment().format('HH:mm')}</h2>
+  renderDashBoard = () => (
+    <Fragment>
+      <div className="date d-none-md">
+        <h2>{moment().format('dddd[,] Do MMMM YYYY')}&nbsp; &nbsp; {moment().format('HH:mm')}</h2>
+      </div>
+      <div className="card-group summary">
+        <div className="card total-sum">
+          <div className="count">{this.props.orders.length}</div>
+          <div>{'Today\'s Orders'}</div>
         </div>
-        <div className="card-group summary">
-          <div className="card total-sum">
-            <div className="count">{this.props.orders.length}</div>
-            <div>{'Today\'s Orders'}</div>
-          </div>
-          <div className="card pending">
-            <div className="count">{this.props.pendingOrders}</div>
-            <div>Pending Orders</div>
-          </div>
-          <div className="card total-cash">
-            <div className="count">&#8358; {this.props.totalCashEarned}</div>
-            <div>{'Today\'s Revenue'}</div>
-          </div>
+        <div className="card pending">
+          <div className="count">{this.props.pendingOrders}</div>
+          <div>Pending Orders</div>
         </div>
-        <div className="order-details">
-          <OrderHistoryTable
-            orders={this.props.orders}
-            deliverOrder={this.props.deliverOrder}
-          />
+        <div className="card total-cash">
+          <div className="count">&#8358; {this.props.totalCashEarned}</div>
+          <div>{'Today\'s Revenue'}</div>
         </div>
-      </Fragment>
-    );
-  }
+      </div>
+      <div className="order-details">
+        <OrderHistoryTable
+          orders={this.props.orders}
+          deliverOrder={this.props.deliverOrder}
+        />
+      </div>
+    </Fragment>
+  )
 
 
   /**
@@ -76,19 +69,12 @@ class Dashboard extends Component {
    * @returns {JSX} Dashboard Component
    */
   render() {
-    const { user, logout } = this.props;
+    const { user, logout, isFetching } = this.props;
 
     return (
-      <div className="admin">
-        <Header type="caterer" />
-        <div className="content">
-          <SideNav user={user} logout={logout} active="dashboard" />
-          <div className="content-wrapper dashboard" id="has-modal">
-            {this.renderMainDashBoard()}
-          </div>
-        </div>
-        <Footer />
-      </div>
+      <CatererView user={user} logout={logout} type="dashboard" isFetching={isFetching}>
+        {this.renderDashBoard()}
+      </CatererView>
     );
   }
 }

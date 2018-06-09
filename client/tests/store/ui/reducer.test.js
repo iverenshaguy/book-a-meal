@@ -2,7 +2,7 @@ import reducer from '../../../src/store/reducers/ui';
 
 const state = {
   modals: {
-    isOpen: false,
+    open: false,
     type: null
   }
 };
@@ -23,19 +23,19 @@ describe('UI Reducers', () => {
       }
     );
 
-    expect(newState).toEqual({ ...state, modals: { isOpen: true, type: 'addMeal' } });
+    expect(newState).toEqual({ ...state, modals: { open: true, type: 'addMeal' } });
   });
 
   it('should handle TOGGLE_MODAL action with no payload', () => {
     const newState = reducer(
-      { ...state, modals: { ...state.modals, isOpen: true } },
+      { ...state, modals: { ...state.modals, open: true } },
       {
         type: 'TOGGLE_MODAL',
         payload: null
       }
     );
 
-    expect(newState).toEqual({ ...state, modals: { ...state.modals, isOpen: false } });
+    expect(newState).toEqual({ ...state, modals: { ...state.modals, open: false } });
   });
 });
 

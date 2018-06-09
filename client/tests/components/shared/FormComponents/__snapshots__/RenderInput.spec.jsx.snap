@@ -91,58 +91,6 @@ exports[`Form Components: RenderInput renders correctly 1`] = `
 </RenderInput>
 `;
 
-exports[`Form Components: RenderInput shows 'Checking' when async validating 1`] = `
-<RenderInput
-  handleBlur={[MockFunction]}
-  handleChange={[MockFunction]}
-  handleFocus={[MockFunction]}
-  id="email"
-  label="Email"
-  meta={
-    Object {
-      "asyncValidating": true,
-      "touched": true,
-    }
-  }
-  name="email"
-  placeholder="jane"
-  required={true}
-  type="email"
-  value=""
->
-  <div
-    className="form-input"
-  >
-    <label
-      htmlFor="email"
-    >
-      Email
-      <span
-        className="danger"
-      >
-        *
-      </span>
-    </label>
-    <input
-      className="is-valid"
-      id="email"
-      name="email"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onFocus={[Function]}
-      placeholder="jane"
-      type="email"
-      value=""
-    />
-    <small
-      className="form-text"
-    >
-      Checking...
-    </small>
-  </div>
-</RenderInput>
-`;
-
 exports[`Form Components: RenderInput shows error when found 1`] = `
 <RenderInput
   handleBlur={[MockFunction]}

@@ -4,7 +4,7 @@ import Modal from './Modal';
 import { toggleModal } from '../../../store/actions/ui';
 
 const mapStateToProps = state => ({
-  isOpen: state.ui.modals.isOpen,
+  open: state.ui.modals.open,
   type: state.ui.modals.type
 });
 

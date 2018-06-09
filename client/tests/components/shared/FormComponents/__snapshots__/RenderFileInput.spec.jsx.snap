@@ -20,7 +20,6 @@ exports[`Form Components: RenderFileInput renders correctly 1`] = `
   </div>
   <input
     accept="image/*"
-    filename=""
     id="1"
     name="image"
     onChange={[Function]}
@@ -49,7 +48,6 @@ exports[`Form Components: RenderFileInput shows error when found 1`] = `
   </div>
   <input
     accept="image/*"
-    filename=""
     id="1"
     name="image"
     onChange={[Function]}
@@ -89,7 +87,6 @@ exports[`Form Components: RenderFileInput shows preloader when uploading 1`] = `
   </div>
   <input
     accept="image/*"
-    filename=""
     id="1"
     name="image"
     onChange={[Function]}

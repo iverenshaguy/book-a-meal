@@ -2,7 +2,7 @@ import { TOGGLE_MODAL } from '../types';
 
 const initialState = {
   modals: {
-    isOpen: false,
+    open: false,
     type: null
   }
 };
@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         modals: {
-          isOpen: !state.modals.isOpen,
+          open: !state.modals.open,
           type: action.payload
         }
       };
