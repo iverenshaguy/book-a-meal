@@ -28,12 +28,37 @@ class Meals extends Component {
     submitError: null
   }
 
+  state = {
+    currentMealId: null
+  }
+
   /**
    * @memberof Meals
    * @returns {JSX} Meals Component
    */
   componentDidMount() {
     this.props.fetchMeals();
+  }
+
+  /**
+   * @memberof Meals
+   * @param {string} id
+   * @returns {JSX} Meals Component
+  */
+  getCurrentMeal = id => this.props.meals.find(item => item.id === id);
+
+
+  /**
+   * @memberof Meals
+   * @param {string} id
+   * @returns {JSX} Meals Component
+  */
+  toggleModal = (id) => {
+    this.setState({
+      currentMealId: id
+    });
+
+    return this.props.toggleModal('editMeal');
   }
 
   /**
@@ -49,7 +74,13 @@ class Meals extends Component {
           </button>
         </div>
         <div className="card-group meals-wrapper" id="card-group">
-          {[...this.props.meals].reverse().map(meal => <MealCard type="caterer" key={meal.id} meal={meal} />)}
+          {[...this.props.meals].reverse().map(meal =>
+            (<MealCard
+              type="caterer"
+              key={meal.id}
+              meal={meal}
+              toggleModal={() => this.toggleModal(meal.id)}
+            />))}
         </div>
       </div>
     </Fragment>
@@ -65,12 +96,18 @@ class Meals extends Component {
       user, logout, submitting, submitError, isFetching
     } = this.props;
 
+    const { currentMealId } = this.state;
+
     return (
       <Fragment>
         <CatererView user={user} logout={logout} type="meals" isFetching={isFetching}>
           {this.renderMeals()}
         </CatererView>
-        <Modal type="addMeal" submitting={submitting} submitError={submitError} />
+        <Modal
+          meal={this.getCurrentMeal(currentMealId)}
+          submitting={submitting}
+          submitError={submitError}
+        />
       </Fragment>
     );
   }

@@ -11,7 +11,9 @@ import { mealObjPropTypes } from '../../../helpers/proptypes';
  */
 const MealModal = (props) => {
   const { type } = props;
-  return <Form {...props} type={type} meta={{ btnText: 'ADD MEAL' }} />;
+  const btnText = type === 'addMeal' ? 'ADD MEAL' : 'SAVE MEAL';
+
+  return <Form {...props} type={type} meta={{ btnText }} />;
 };
 
 MealModal.propTypes = {

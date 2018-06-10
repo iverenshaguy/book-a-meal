@@ -8,7 +8,9 @@ import { caterer, caterersMealsObj, initialValues } from '../../../setup/data';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
-const store = mockStore(initialValues);
+const store = mockStore({
+  ...initialValues, meals: { ...initialValues.meals, items: caterersMealsObj.meals }
+});
 
 
 describe('Meals', () => {
@@ -35,7 +37,7 @@ describe('Meals', () => {
     }
   });
 
-  it('renders calls toggleModal when button is clicked', () => {
+  it('calls toggleModal when button is clicked', () => {
     const toggleMock = jest.fn();
     const wrapper = shallow(<Meals
       user={caterer}
@@ -49,6 +51,26 @@ describe('Meals', () => {
 
     wrapper.find('#add-meal-btn').simulate('click');
     expect(toggleMock).toHaveBeenCalled();
+  });
+
+  it('calls toggleModal when edit meal button is clicked', () => {
+    const comp = (
+      <Provider store={store}>
+        <ConnectedMeals
+          user={caterer}
+          logout={jest.fn()}
+          fetchMeals={jest.fn()}
+          {...caterersMealsObj}
+          isFetching={false}
+        />
+      </Provider>
+    );
+    const wrapper = mount(comp);
+
+    const toggleSpy = jest.spyOn(wrapper.find(Meals).instance(), 'toggleModal');
+
+    wrapper.find('#edit-meal').at(0).simulate('click');
+    expect(toggleSpy).toHaveBeenCalled();
   });
 
   it('renders Preloader when fetching', () => {

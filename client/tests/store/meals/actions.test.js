@@ -197,7 +197,7 @@ describe('Meals Actions', () => {
         });
       });
 
-      it('dispatches SET_MEAL_WORKING, EDIT_MEAL_SUCCESS, UNSET_MEAL_WORKING and TOGGLE_MODAL on successful meal edit', () => {
+      it('dispatches SET_MEAL_WORKING, EDIT_MEAL_SUCCESS, UNSET_MEAL_WORKING and TOGGLE_MODAL on successful meal edit when toggleEditModal is true', () => {
         const expectedActions = ['SET_MEAL_WORKING', 'EDIT_MEAL_SUCCESS', 'UNSET_MEAL_WORKING', 'TOGGLE_MODAL'];
 
         moxios.stubRequest(`${url}/meals/${newMeal.id}`, {
@@ -205,7 +205,24 @@ describe('Meals Actions', () => {
           response: { ...newMeal, price: '2300.00' }
         });
 
-        return store.dispatch(editMeal(newMeal.id, { price: '2300.00' })).then(() => {
+        return store.dispatch(editMeal(newMeal.id, { price: '2300.00' }, true)).then(() => {
+          const dispatchedActions = store.getActions();
+
+          const actionTypes = dispatchedActions.map(action => action.type);
+
+          expect(actionTypes).toEqual(expectedActions);
+        });
+      });
+
+      it('dispatches SET_MEAL_WORKING, EDIT_MEAL_SUCCESS, UNSET_MEAL_WORKING and TOGGLE_MODAL on successful meal edit when toggleEditModal is false', () => {
+        const expectedActions = ['SET_MEAL_WORKING', 'EDIT_MEAL_SUCCESS', 'UNSET_MEAL_WORKING'];
+
+        moxios.stubRequest(`${url}/meals/${newMeal.id}`, {
+          status: 200,
+          response: { ...newMeal, price: '2300.00' }
+        });
+
+        return store.dispatch(editMeal(newMeal.id, { price: '2300.00' }, false)).then(() => {
           const dispatchedActions = store.getActions();
 
           const actionTypes = dispatchedActions.map(action => action.type);

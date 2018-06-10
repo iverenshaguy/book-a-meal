@@ -41,7 +41,7 @@ const addMeal = meal => async (dispatch) => {
   }
 };
 
-const editMeal = (id, updatedMeal) => async (dispatch) => {
+const editMeal = (id, updatedMeal, toggleModalOnEdit) => async (dispatch) => {
   try {
     dispatch(setMealWorking());
 
@@ -49,7 +49,7 @@ const editMeal = (id, updatedMeal) => async (dispatch) => {
 
     dispatch(editMealSuccess(response.data));
     dispatch(unsetMealWorking());
-    dispatch(toggleModal());
+    if (toggleModalOnEdit) dispatch(toggleModal());
   } catch (error) {
     const errorResponse = errorHandler(error);
 

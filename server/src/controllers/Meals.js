@@ -67,11 +67,15 @@ class Meals {
     const { mealId } = req.params;
     const { userId } = req;
 
-    const mealExists = await db.Meal.findOne({
-      where: { title: { [Op.iLike]: req.body.title }, userId: req.userId }
+    const existingMeal = await db.Meal.findOne({
+      where: {
+        title: { [Op.iLike]: req.body.title },
+        mealId: { [Op.not]: mealId },
+        userId: req.userId
+      }
     });
 
-    if (mealExists) return res.status(409).json({ error: 'Meal already exists' });
+    if (existingMeal) return res.status(409).json({ error: 'Meal already exists' });
 
     if (req.body.price) req.body.price = parseFloat(req.body.price);
 

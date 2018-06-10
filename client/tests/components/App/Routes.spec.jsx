@@ -5,6 +5,7 @@ import { ConnectedRouter, routerReducer } from 'react-router-redux';
 import createHistory from 'history/createMemoryHistory';
 import Routes from '../../../src/app/App/Routes';
 import authReducer from '../../../src/store/reducers/auth';
+import mealsReducer from '../../../src/store/reducers/meals';
 
 describe('Routes', () => {
   let store, history;
@@ -12,7 +13,8 @@ describe('Routes', () => {
   beforeEach(() => {
     store = createStore(combineReducers({
       router: routerReducer,
-      auth: authReducer
+      auth: authReducer,
+      meals: mealsReducer
     }));
 
     history = createHistory();

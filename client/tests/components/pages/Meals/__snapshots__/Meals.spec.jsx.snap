@@ -48,6 +48,7 @@ exports[`Meals renders Preloader when fetching 1`] = `
                 "vegetarian": true,
               }
             }
+            toggleModal={[Function]}
             type="caterer"
           />
           <MealCard
@@ -62,6 +63,7 @@ exports[`Meals renders Preloader when fetching 1`] = `
                 "vegetarian": false,
               }
             }
+            toggleModal={[Function]}
             type="caterer"
           />
         </div>
@@ -71,7 +73,6 @@ exports[`Meals renders Preloader when fetching 1`] = `
   <Connect(Modal)
     submitError={null}
     submitting={false}
-    type="addMeal"
   />
 </React.Fragment>
 `;
@@ -128,7 +129,26 @@ exports[`Meals renders connected component 1`] = `
       fetchMeals={[Function]}
       isFetching={false}
       logout={[Function]}
-      meals={Array []}
+      meals={
+        Array [
+          Object {
+            "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+            "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+            "imageURL": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+            "price": "1500.00",
+            "title": "Jollof Rice, Beef and Plantain",
+            "vegetarian": false,
+          },
+          Object {
+            "description": "Sharwama contains no animal products, perfect for dieters",
+            "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+            "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+            "price": "1200.00",
+            "title": "Vegetable Sharwama and Guava Smoothie",
+            "vegetarian": true,
+          },
+        ]
+      }
       submitError={null}
       submitting={false}
       toggleModal={[Function]}
@@ -327,7 +347,268 @@ exports[`Meals renders connected component 1`] = `
                 <div
                   className="card-group meals-wrapper"
                   id="card-group"
-                />
+                >
+                  <MealCard
+                    key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                    meal={
+                      Object {
+                        "description": "Sharwama contains no animal products, perfect for dieters",
+                        "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                        "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                        "price": "1200.00",
+                        "title": "Vegetable Sharwama and Guava Smoothie",
+                        "vegetarian": true,
+                      }
+                    }
+                    toggleModal={[Function]}
+                    type="caterer"
+                  >
+                    <div
+                      className="meal-card"
+                      id="meal-card"
+                    >
+                      <div
+                        className="meal-card-header"
+                      >
+                        <img
+                          alt="meal"
+                          src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
+                        />
+                        <Dropdown
+                          content={
+                            <UNDEFINED>
+                              <Link
+                                className={null}
+                                clickHandler={[Function]}
+                                href="#add-edit-modal"
+                                id="edit-meal"
+                              >
+                                Edit
+                              </Link>
+                              <Link
+                                className={null}
+                                clickHandler={null}
+                                href="#add-edit-modal"
+                                id="delete-meal"
+                              >
+                                Delete
+                              </Link>
+                            </UNDEFINED>
+                          }
+                          toggler={
+                            <UNDEFINED>
+                              …
+                            </UNDEFINED>
+                          }
+                          type="card"
+                        >
+                          <div
+                            className="dropdown card-dropdown"
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                          >
+                            <Link
+                              className="link"
+                              clickHandler={[Function]}
+                              id="dropdown-toggler"
+                            >
+                              <button
+                                className="link-btn link"
+                                id="dropdown-toggler"
+                                onClick={[Function]}
+                              >
+                                …
+                              </button>
+                            </Link>
+                            <div
+                              className="dropdown-content meal"
+                              id="dropdown-content"
+                            >
+                              <Link
+                                className={null}
+                                clickHandler={[Function]}
+                                href="#add-edit-modal"
+                                id="edit-meal"
+                              >
+                                <button
+                                  className="link-btn null"
+                                  id="edit-meal"
+                                  onClick={[Function]}
+                                >
+                                  Edit
+                                </button>
+                              </Link>
+                              <Link
+                                className={null}
+                                clickHandler={null}
+                                href="#add-edit-modal"
+                                id="delete-meal"
+                              >
+                                <button
+                                  className="link-btn null"
+                                  id="delete-meal"
+                                  onClick={null}
+                                >
+                                  Delete
+                                </button>
+                              </Link>
+                            </div>
+                          </div>
+                        </Dropdown>
+                        <div
+                          className="menu-card-title"
+                        >
+                          <p>
+                            Vegetable Sharwama and Guava Smoothie
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        className="meal-card-body"
+                      >
+                        <div>
+                          <h3>
+                            ₦ 
+                            1200.00
+                          </h3>
+                          <p>
+                            Sharwama contains no animal products, perfect for dieters
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </MealCard>
+                  <MealCard
+                    key="81211c24-51c0-46ec-b1e0-18db55880958"
+                    meal={
+                      Object {
+                        "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                        "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                        "imageURL": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                        "price": "1500.00",
+                        "title": "Jollof Rice, Beef and Plantain",
+                        "vegetarian": false,
+                      }
+                    }
+                    toggleModal={[Function]}
+                    type="caterer"
+                  >
+                    <div
+                      className="meal-card"
+                      id="meal-card"
+                    >
+                      <div
+                        className="meal-card-header"
+                      >
+                        <img
+                          alt="meal"
+                          src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+                        />
+                        <Dropdown
+                          content={
+                            <UNDEFINED>
+                              <Link
+                                className={null}
+                                clickHandler={[Function]}
+                                href="#add-edit-modal"
+                                id="edit-meal"
+                              >
+                                Edit
+                              </Link>
+                              <Link
+                                className={null}
+                                clickHandler={null}
+                                href="#add-edit-modal"
+                                id="delete-meal"
+                              >
+                                Delete
+                              </Link>
+                            </UNDEFINED>
+                          }
+                          toggler={
+                            <UNDEFINED>
+                              …
+                            </UNDEFINED>
+                          }
+                          type="card"
+                        >
+                          <div
+                            className="dropdown card-dropdown"
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                          >
+                            <Link
+                              className="link"
+                              clickHandler={[Function]}
+                              id="dropdown-toggler"
+                            >
+                              <button
+                                className="link-btn link"
+                                id="dropdown-toggler"
+                                onClick={[Function]}
+                              >
+                                …
+                              </button>
+                            </Link>
+                            <div
+                              className="dropdown-content meal"
+                              id="dropdown-content"
+                            >
+                              <Link
+                                className={null}
+                                clickHandler={[Function]}
+                                href="#add-edit-modal"
+                                id="edit-meal"
+                              >
+                                <button
+                                  className="link-btn null"
+                                  id="edit-meal"
+                                  onClick={[Function]}
+                                >
+                                  Edit
+                                </button>
+                              </Link>
+                              <Link
+                                className={null}
+                                clickHandler={null}
+                                href="#add-edit-modal"
+                                id="delete-meal"
+                              >
+                                <button
+                                  className="link-btn null"
+                                  id="delete-meal"
+                                  onClick={null}
+                                >
+                                  Delete
+                                </button>
+                              </Link>
+                            </div>
+                          </div>
+                        </Dropdown>
+                        <div
+                          className="menu-card-title"
+                        >
+                          <p>
+                            Jollof Rice, Beef and Plantain
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        className="meal-card-body"
+                      >
+                        <div>
+                          <h3>
+                            ₦ 
+                            1500.00
+                          </h3>
+                          <p>
+                            Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </MealCard>
+                </div>
               </div>
             </div>
           </div>
@@ -345,7 +626,6 @@ exports[`Meals renders connected component 1`] = `
       <Connect(Modal)
         submitError={null}
         submitting={false}
-        type="addMeal"
       >
         <Modal
           open={false}
@@ -408,6 +688,7 @@ exports[`Meals renders correctly when not fetching 1`] = `
                 "vegetarian": true,
               }
             }
+            toggleModal={[Function]}
             type="caterer"
           />
           <MealCard
@@ -422,6 +703,7 @@ exports[`Meals renders correctly when not fetching 1`] = `
                 "vegetarian": false,
               }
             }
+            toggleModal={[Function]}
             type="caterer"
           />
         </div>
@@ -431,7 +713,6 @@ exports[`Meals renders correctly when not fetching 1`] = `
   <Connect(Modal)
     submitError={null}
     submitting={false}
-    type="addMeal"
   />
 </React.Fragment>
 `;

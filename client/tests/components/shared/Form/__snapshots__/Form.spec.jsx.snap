@@ -36,6 +36,7 @@ exports[`Form renders addMeal form correctly 1`] = `
             "handleSubmit": [Function],
           }
         }
+        meal={null}
         state={
           Object {
             "asyncValidating": false,
@@ -269,6 +270,88 @@ exports[`Form renders customer's signup form correctly 1`] = `
       <button
         className="btn btn-pri btn-block"
         disabled={true}
+      >
+        SIGN IN
+      </button>
+    </form>
+    <p>
+      something
+    </p>
+  </React.Fragment>
+</div>
+`;
+
+exports[`Form renders editMeal form correctly 1`] = `
+<div>
+  <React.Fragment>
+    <p
+      className="text-muted mx-auto text-center"
+    >
+      Fields marked
+      <span
+        className="danger"
+      >
+         *
+      </span>
+       are required
+    </p>
+    <form
+      onSubmit={[Function]}
+    >
+      <MealForm
+        editMeal={[Function]}
+        handlers={
+          Object {
+            "handleBlur": [Function],
+            "handleChange": [Function],
+            "handleFocus": [Function],
+            "handleSubmit": [Function],
+          }
+        }
+        meal={
+          Object {
+            "description": "",
+            "id": "81211c24-51c0-46ec-b1e0-18db55880954",
+            "imageURL": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+            "price": "2500.00",
+            "title": "Jollof Rice and Chicken",
+            "vegetarian": false,
+          }
+        }
+        state={
+          Object {
+            "asyncValidating": false,
+            "error": Object {
+              "description": null,
+              "price": null,
+              "title": null,
+              "vegetarian": null,
+            },
+            "formValid": true,
+            "pristine": true,
+            "touched": Object {
+              "description": false,
+              "price": false,
+              "title": false,
+              "vegetarian": false,
+            },
+            "type": "editMeal",
+            "values": Object {
+              "description": "",
+              "id": "81211c24-51c0-46ec-b1e0-18db55880954",
+              "imageURL": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+              "price": "2500.00",
+              "title": "Jollof Rice and Chicken",
+              "vegetarian": false,
+            },
+          }
+        }
+        type="editMeal"
+        updating={false}
+      />
+      <button
+        className="btn btn-pri btn-block"
+        disabled={false}
       >
         SIGN IN
       </button>

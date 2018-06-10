@@ -5,9 +5,11 @@ import CustomerSignupForm from './CustomerSignupForm';
 import CatererSignupForm from './CatererSignupForm';
 import MealForm from './MealForm';
 import MiniPreLoader from '../Preloader/MiniPreloader';
-import { formHelpers, getTouchedFields, formErrorCount } from '../../../helpers';
+import { formHelpers, formErrorCount } from '../../../helpers';
 import { arrayToObject } from '../../../utils';
 import { syncValidate, validateRequiredFields } from '../../../helpers/validations';
+import { mealObjPropTypes } from '../../../helpers/proptypes';
+import { editMeal } from '../../../store/operations/meals';
 
 /**
  * @exports
@@ -24,11 +26,13 @@ class Form extends Component {
     meta: PropTypes.shape({
       btnText: PropTypes.string,
       extra: PropTypes.element
-    }).isRequired
+    }).isRequired,
+    meal: mealObjPropTypes,
   };
 
   static defaultProps = {
-    submitError: null
+    submitError: null,
+    meal: null
   }
 
   /**
@@ -40,12 +44,14 @@ class Form extends Component {
   constructor(props) {
     super(props);
 
-    const { type } = props;
+    let values;
+    const { type, meal } = props;
     const { formFields } = formHelpers;
     const fields = formFields[type];
-    const values = arrayToObject(fields, '');
+    values = arrayToObject(fields, '');
 
     if (fields.includes('vegetarian')) values.vegetarian = false;
+    if (type === 'editMeal') values = meal;
     if (type === 'catererSignup') values.role = 'caterer';
     if (type === 'customerSignup') values.role = 'customer';
 
@@ -66,6 +72,7 @@ class Form extends Component {
    */
   componentDidMount = () => {
     this.clearFormErrors();
+    this.validateForm();
   }
 
   /**
@@ -146,7 +153,6 @@ class Form extends Component {
    */
   validateForm = () => {
     const formErrorArrayLength = formErrorCount(this.state.error);
-    const touchedFields = getTouchedFields(this.state.touched);
     const { requiredFormFields } = formHelpers;
     const { type } = this.props;
     const requiredFields = requiredFormFields[type];
@@ -156,7 +162,7 @@ class Form extends Component {
         formValid: false
       });
     } else if (!formErrorArrayLength &&
-      validateRequiredFields(touchedFields, requiredFields, this.state.values)) {
+      validateRequiredFields(requiredFields, this.state.values)) {
       this.setState({
         formValid: true
       });
@@ -168,12 +174,25 @@ class Form extends Component {
    * @returns {nothing} Returns nothing
    */
   submitter = () => {
-    const { type } = this.state;
+    const { type, values } = this.state;
     const { formSubmitMapper } = formHelpers;
-    const { values } = this.state;
+    const { meal } = this.props;
 
-    return formSubmitMapper[type](values);
+    switch (type) {
+      case 'editMeal':
+        return formSubmitMapper[type](meal.id, values, true);
+      default:
+        return formSubmitMapper[type](values);
+    }
   }
+
+  /**
+   * @memberof Form
+   * @param {string} id
+   * @param {object} mealObj
+   * @returns {nothing} Returns nothing
+   */
+  handleEditMealSubmit = (id, mealObj) => this.props.dispatch(editMeal(id, mealObj, false))
 
   /**
    * @memberof Form
@@ -191,7 +210,7 @@ class Form extends Component {
    * @returns {JSX} Form
    */
   renderForm = () => {
-    const { type } = this.props;
+    const { type, submitting, meal } = this.props;
     const formState = { ...this.state };
 
     const handlers = {
@@ -208,6 +227,15 @@ class Form extends Component {
         return <CatererSignupForm type={type} state={formState} handlers={handlers} />;
       case 'addMeal':
         return <MealForm type={type} state={formState} handlers={handlers} />;
+      case 'editMeal':
+        return (<MealForm
+          editMeal={this.handleEditMealSubmit}
+          updating={submitting}
+          meal={meal}
+          type={type}
+          state={formState}
+          handlers={handlers}
+        />);
       default:
         return <SigninForm type={type} state={formState} handlers={handlers} />;
     }
@@ -218,7 +246,7 @@ class Form extends Component {
    * @returns {component} Form
    */
   render() {
-    const { pristine, formValid } = this.state;
+    const { formValid } = this.state;
     const { submitting, submitError, meta: { btnText, extra } } = this.props;
     const requiredTextArray = ['catererSignup', 'customerSignup', 'addMeal', 'editMeal'];
 
@@ -235,7 +263,7 @@ class Form extends Component {
             <form onSubmit={this.handleSubmit}>
               {submitError && <p className="danger text-center mb-0">{submitError}</p>}
               {this.renderForm()}
-              <button className="btn btn-pri btn-block" disabled={!formValid || !!pristine || !!submitting}>
+              <button className="btn btn-pri btn-block" disabled={!formValid || !!submitting}>
                 {btnText}
               </button>
             </form>

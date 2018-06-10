@@ -24,6 +24,7 @@ exports[`Form Components: RenderInput renders checkbox correctly 1`] = `
     className="form-input-checkbox"
   >
     <input
+      checked=""
       className=""
       id="email"
       name="email"

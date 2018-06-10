@@ -7,19 +7,13 @@ const values = {
 
 describe('Validate Required Fields', () => {
   it('returns true if all required fields are filled', () => {
-    const check = validateRequiredFields(['email', 'name'], ['email'], values);
+    const check = validateRequiredFields(['email'], values);
 
     expect(check).toBeTruthy();
   });
 
   it('returns false if all required fields are not filled', () => {
-    const check = validateRequiredFields(['email', 'name'], ['name'], values);
-
-    expect(check).toBeFalsy();
-  });
-
-  it('returns false if all required fields are not touched', () => {
-    const check = validateRequiredFields(['email'], ['name'], values);
+    const check = validateRequiredFields(['name'], values);
 
     expect(check).toBeFalsy();
   });

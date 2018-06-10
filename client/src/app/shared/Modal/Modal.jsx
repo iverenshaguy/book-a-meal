@@ -44,6 +44,8 @@ class Modal extends Component {
     switch (type) {
       case 'addMeal':
         return 'Add a Meal';
+      case 'editMeal':
+        return 'Edit Meal';
       case 'newMealImage':
         return 'Add a Meal Image';
       default:
@@ -67,6 +69,8 @@ class Modal extends Component {
     switch (type) {
       case 'addMeal':
         return <MealModal {...this.props} type="addMeal" />;
+      case 'editMeal':
+        return <MealModal {...this.props} type="editMeal" />;
       case 'newMealImage':
         return <MealImageModal {...this.props} type="newMealImage" />;
       default:

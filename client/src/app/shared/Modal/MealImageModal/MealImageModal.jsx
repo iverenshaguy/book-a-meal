@@ -21,7 +21,7 @@ const MealImageModal = (props) => {
       label="Meal Image"
       updating={updating}
       formerImgURL={formerImgURL}
-      successCallBack={imageURL => editMeal(mealId, { imageURL })}
+      successCallBack={imageURL => editMeal(mealId, { imageURL }, true)}
     />
   );
 };
