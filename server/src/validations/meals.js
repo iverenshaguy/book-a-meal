@@ -16,8 +16,8 @@ export default {
     check('description')
       .trim()
       .optional({ checkFalsy: true })
-      .isLength({ max: 255 })
-      .withMessage('Text must not be more than 255 characters')
+      .isLength({ max: 50 })
+      .withMessage('Text must not be more than 50 characters')
       .matches(/^[a-z 0-9 (),.'-]+$/i)
       .withMessage('Text can only contain letters and the characters (,.\'-)'),
     check('price')
@@ -55,8 +55,8 @@ export default {
     check('description')
       .trim()
       .optional({ checkFalsy: true })
-      .isLength({ max: 255 })
-      .withMessage('Text must not be more than 255 characters')
+      .isLength({ max: 50 })
+      .withMessage('Text must not be more than 50 characters')
       .matches(/^[a-z 0-9 (),.'-]+$/i)
       .withMessage('Text can only contain letters and the characters (,.\'-)'),
     check('price')

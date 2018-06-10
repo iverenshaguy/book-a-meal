@@ -61,10 +61,10 @@ const MealForm = (props) => {
       <RenderInput
         type="textarea"
         name="description"
-        label="Description (not more than 65 words)"
+        label="Description (not more than 50 characters)"
         id="description"
         rows={2}
-        maxLength="65"
+        maxLength="50"
         required={false}
         value={state.values.description}
         placeholder=""

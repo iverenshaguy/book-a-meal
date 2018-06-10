@@ -5,7 +5,7 @@ exports[`Form disables submit button when submitting form 1`] = `
   <div
     className="modal-preloader text-center"
   >
-    <MiniPreLoader />
+    <MiniPreloader />
   </div>
 </div>
 `;

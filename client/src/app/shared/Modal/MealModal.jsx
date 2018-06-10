@@ -7,7 +7,7 @@ import { mealObjPropTypes } from '../../../helpers/proptypes';
  * @exports
  * @function MealModal
  * @param {object} props
- * @returns {component} AddMealModal
+ * @returns {component} MealModal
  */
 const MealModal = (props) => {
   const { type } = props;

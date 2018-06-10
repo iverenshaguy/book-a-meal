@@ -1,7 +1,7 @@
 import {
   RECEIVE_MEALS_SUCCESS, RECEIVE_MEALS_FAILURE, ADD_MEAL_SUCCESS,
   ADD_MEAL_FAILURE, SET_MEAL_WORKING, UNSET_MEAL_WORKING, CLEAR_MEAL_ERROR,
-  EDIT_MEAL_SUCCESS, EDIT_MEAL_FAILURE,
+  EDIT_MEAL_SUCCESS, EDIT_MEAL_FAILURE, DELETE_MEAL_SUCCESS, DELETE_MEAL_FAILURE
 } from '../types';
 import getUpdatedItems from '../../helpers/getUpdatedItems';
 
@@ -26,10 +26,16 @@ export default (state = initialValues, action) => {
         ...state,
         items: getUpdatedItems(state.items, action.payload),
       };
+    case DELETE_MEAL_SUCCESS:
+      return {
+        ...state,
+        items: state.items.filter(meal => meal.id !== action.payload),
+      };
     case RECEIVE_MEALS_SUCCESS:
       return { ...state, items: action.payload };
     case ADD_MEAL_FAILURE:
     case EDIT_MEAL_FAILURE:
+    case DELETE_MEAL_FAILURE:
     case RECEIVE_MEALS_FAILURE:
       return { ...state, error: action.payload };
     default:

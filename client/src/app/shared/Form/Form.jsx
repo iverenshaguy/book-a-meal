@@ -4,7 +4,7 @@ import SigninForm from './SigninForm';
 import CustomerSignupForm from './CustomerSignupForm';
 import CatererSignupForm from './CatererSignupForm';
 import MealForm from './MealForm';
-import MiniPreLoader from '../Preloader/MiniPreloader';
+import MiniPreloader from '../Preloader/MiniPreloader';
 import { formHelpers, formErrorCount } from '../../../helpers';
 import { arrayToObject } from '../../../utils';
 import { syncValidate, validateRequiredFields } from '../../../helpers/validations';
@@ -252,7 +252,7 @@ class Form extends Component {
 
     return (
       <div>
-        {submitting && <div className="modal-preloader text-center"><MiniPreLoader /></div>}
+        {submitting && <div className="modal-preloader text-center"><MiniPreloader /></div>}
         {!submitting &&
           <Fragment>
             {requiredTextArray.includes(this.props.type) &&

@@ -25,6 +25,18 @@ class RenderFileInput extends Component {
 
   /**
    * @memberof Form
+   * @returns {nothing} Returns nothing
+  */
+  handleClick = () => {
+    const { clearUploadError } = this.props;
+
+    this.setState({ error: null });
+
+    clearUploadError();
+  }
+
+  /**
+   * @memberof Form
    * @param {object} event
    * @param {element} preview
    * @returns {nothing} Returns nothing
@@ -33,13 +45,8 @@ class RenderFileInput extends Component {
     const file = event.target.files[0];
     const maxSize = 2 * 1024 * 1024; // 2MB max size
     const allowedTypes = ['image/gif', 'image/jpeg', 'image/png'];
-    const {
-      clearUploadError, formerImgURL, successCallBack, uploadImage
-    } = this.props;
+    const { formerImgURL, successCallBack, uploadImage } = this.props;
     const preview = document.querySelector('#meal-form-image');
-
-    this.setState({ error: null });
-    clearUploadError();
 
     if (!uploadValidation(file, maxSize, allowedTypes)) {
       fileEventAdapter(preview)(event);
@@ -79,9 +86,11 @@ class RenderFileInput extends Component {
           type="file"
           name={name}
           accept="image/*"
+          onClick={this.handleClick}
           onChange={this.handleChange}
         />
-        {error && <small className="file-feedback">{error}</small>}
+        <br />
+        {error && <small className="file-feedback danger">{error}</small>}
       </div>
     );
   }

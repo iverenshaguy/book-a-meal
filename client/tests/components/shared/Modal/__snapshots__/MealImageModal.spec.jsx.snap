@@ -69,8 +69,10 @@ exports[`MealImageModal renders connected component correctly 1`] = `
               id="imageURL"
               name="imageURL"
               onChange={[Function]}
+              onClick={[Function]}
               type="file"
             />
+            <br />
           </div>
         </RenderFileInput>
       </Connect(RenderFileInput)>

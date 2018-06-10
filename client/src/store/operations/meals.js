@@ -3,7 +3,8 @@ import errorHandler from '../../utils/errorHandler';
 import { setFetching, unsetFetching } from '../actions/isFetching';
 import {
   setMealWorking, unsetMealWorking, fetchMealsSuccess, fetchMealsFailure,
-  clearMealError, addMealSuccess, addMealFailure, editMealSuccess, editMealFailure
+  clearMealError, addMealSuccess, addMealFailure, editMealSuccess, editMealFailure,
+  deleteMealSuccess, deleteMealFailure
 } from '../actions/meals';
 import { toggleModal } from '../actions/ui';
 
@@ -58,15 +59,39 @@ const editMeal = (id, updatedMeal, toggleModalOnEdit) => async (dispatch) => {
   }
 };
 
+const deleteMeal = id => async (dispatch) => {
+  try {
+    dispatch(setMealWorking());
+
+    await instance.delete(`/meals/${id}`);
+
+    dispatch(deleteMealSuccess(id));
+    dispatch(unsetMealWorking());
+    dispatch(toggleModal());
+    dispatch(toggleModal('deleteSuccessMsg'));
+    setTimeout(() => {
+      dispatch(toggleModal());
+    }, 500);
+  } catch (error) {
+    const errorResponse = errorHandler(error);
+
+    dispatch(deleteMealFailure(errorResponse.response));
+    dispatch(unsetMealWorking());
+  }
+};
+
 export default {
   addMeal,
   editMeal,
   fetchMeals,
+  deleteMeal,
   clearMealError,
   addMealSuccess,
   addMealFailure,
   editMealSuccess,
   editMealFailure,
+  deleteMealSuccess,
+  deleteMealFailure,
   setMealWorking,
   unsetMealWorking,
   fetchMealsSuccess,
