@@ -19,8 +19,8 @@ const MealCard = ({ meal, type, toggleModal }) => (
           toggler={<Fragment>&hellip;</Fragment>}
           content={
             <Fragment>
-              <LinkBtn href="#add-edit-modal" id="edit-meal" clickHandler={toggleModal}>Edit</LinkBtn>
-              <LinkBtn href="#add-edit-modal" id="delete-meal">Delete</LinkBtn>
+              <LinkBtn href="#add-edit-modal" id="edit-meal" clickHandler={() => toggleModal('editMeal')}>Edit</LinkBtn>
+              <LinkBtn href="#add-edit-modal" id="delete-meal" clickHandler={() => toggleModal('deleteMeal')}>Delete</LinkBtn>
             </Fragment>
           }
         />}

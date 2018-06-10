@@ -9,6 +9,7 @@ const {
   addMeal,
   editMeal,
   fetchMeals,
+  deleteMeal,
   clearMealError,
   addMealSuccess,
   addMealFailure,
@@ -242,6 +243,45 @@ describe('Meals Actions', () => {
         });
 
         return store.dispatch(editMeal(newMeal.id, { price: '2300.00' })).catch(() => {
+          const dispatchedActions = store.getActions();
+
+          const actionTypes = dispatchedActions.map(action => action.type);
+
+
+          expect(actionTypes).toEqual(expectedActions);
+        });
+      });
+
+      it('dispatches SET_MEAL_WORKING, DELETE_MEAL_SUCCESS, UNSET_MEAL_WORKING and TOGGLE_MODAL on successful meal delete', () => {
+        const expectedActions = ['SET_MEAL_WORKING', 'DELETE_MEAL_SUCCESS', 'UNSET_MEAL_WORKING', 'TOGGLE_MODAL', 'TOGGLE_MODAL', 'TOGGLE_MODAL'];
+
+        moxios.stubRequest(`${url}/meals/${newMeal.id}`, {
+          status: 200
+        });
+
+        jest.useFakeTimers();
+
+        return store.dispatch(deleteMeal(newMeal.id)).then(() => {
+          setTimeout(() => {
+            const dispatchedActions = store.getActions();
+            const actionTypes = dispatchedActions.map(action => action.type);
+
+            expect(actionTypes).toEqual(expectedActions);
+          }, 1000);
+        });
+      });
+
+      it('dispatches SET_MEAL_WORKING, DELETE_MEAL_FAILURE and UNSET_MEAL_WORKING on unsuccessful meal delete', () => {
+        const expectedActions = ['SET_MEAL_WORKING', 'DELETE_MEAL_FAILURE', 'UNSET_MEAL_WORKING'];
+
+        moxios.stubRequest(`${url}/meals/${newMeal.id}`, {
+          status: 401,
+          response: {
+            error: 'Error'
+          },
+        });
+
+        return store.dispatch(deleteMeal(newMeal.id)).catch(() => {
           const dispatchedActions = store.getActions();
 
           const actionTypes = dispatchedActions.map(action => action.type);

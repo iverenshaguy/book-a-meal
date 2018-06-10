@@ -46,6 +46,22 @@ describe('Modal', () => {
     expect(shallowWrapper.find('MealImageModal')).toBeTruthy();
   });
 
+  it('renders correctly when type is deleteMeal', () => {
+    const shallowWrapper = shallow(<Modal type="deleteMeal" open toggleModal={jest.fn()} />);
+
+    expect(toJson(shallowWrapper)).toMatchSnapshot();
+    expect(shallowWrapper.find('#modal-title-h3').text()).toEqual('Delete Meal');
+    expect(shallowWrapper.find('DeleteMealModal')).toBeTruthy();
+  });
+
+  it('renders correctly when type is deleteSuccessMsg', () => {
+    const shallowWrapper = shallow(<Modal type="deleteSuccessMsg" open toggleModal={jest.fn()} />);
+
+    expect(toJson(shallowWrapper)).toMatchSnapshot();
+    expect(shallowWrapper.find('#modal-title-h3').text()).toEqual('Delete Meal');
+    expect(shallowWrapper.find('p.text-center').text()).toEqual('Meal Deleted Successfully');
+  });
+
   it('renders null when type is unknown', () => {
     const shallowWrapper = shallow(<Modal type="unknown" open toggleModal={jest.fn()} />);
 

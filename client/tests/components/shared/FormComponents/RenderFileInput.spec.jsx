@@ -45,6 +45,16 @@ describe('Form Components: RenderFileInput', () => {
     expect(wrapper.find('MiniPreloader')).toBeTruthy();
   });
 
+  it('calls handle click on click', () => {
+    const uploadImageMock = jest.fn();
+    const wrapper = shallow(<RenderFileInput {...props} uploadImage={uploadImageMock} />);
+
+    wrapper.setState({ error: 'error' });
+    wrapper.find('input').simulate('click');
+
+    expect(wrapper.state().error).toEqual(null);
+  });
+
   it('calls uploadImage if there\'s no upload error', () => {
     const uploadImageMock = jest.fn();
     const wrapper = shallow(<RenderFileInput {...props} uploadImage={uploadImageMock} />);

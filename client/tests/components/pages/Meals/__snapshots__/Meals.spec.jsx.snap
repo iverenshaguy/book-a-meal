@@ -387,7 +387,7 @@ exports[`Meals renders connected component 1`] = `
                               </Link>
                               <Link
                                 className={null}
-                                clickHandler={null}
+                                clickHandler={[Function]}
                                 href="#add-edit-modal"
                                 id="delete-meal"
                               >
@@ -440,14 +440,14 @@ exports[`Meals renders connected component 1`] = `
                               </Link>
                               <Link
                                 className={null}
-                                clickHandler={null}
+                                clickHandler={[Function]}
                                 href="#add-edit-modal"
                                 id="delete-meal"
                               >
                                 <button
                                   className="link-btn null"
                                   id="delete-meal"
-                                  onClick={null}
+                                  onClick={[Function]}
                                 >
                                   Delete
                                 </button>
@@ -517,7 +517,7 @@ exports[`Meals renders connected component 1`] = `
                               </Link>
                               <Link
                                 className={null}
-                                clickHandler={null}
+                                clickHandler={[Function]}
                                 href="#add-edit-modal"
                                 id="delete-meal"
                               >
@@ -570,14 +570,14 @@ exports[`Meals renders connected component 1`] = `
                               </Link>
                               <Link
                                 className={null}
-                                clickHandler={null}
+                                clickHandler={[Function]}
                                 href="#add-edit-modal"
                                 id="delete-meal"
                               >
                                 <button
                                   className="link-btn null"
                                   id="delete-meal"
-                                  onClick={null}
+                                  onClick={[Function]}
                                 >
                                   Delete
                                 </button>

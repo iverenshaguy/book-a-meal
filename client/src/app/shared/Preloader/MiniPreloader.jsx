@@ -8,6 +8,6 @@ import './Preloader.scss';
  * @function MiniPreloader
  * @returns {JSX} MiniPreloader
  */
-const MiniPreLoader = () => (<Loader type="ball-beat" />);
+const MiniPreloader = () => (<Loader type="ball-beat" />);
 
-export default MiniPreLoader;
+export default MiniPreloader;

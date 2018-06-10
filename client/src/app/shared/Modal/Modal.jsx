@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MealModal from './MealModal';
 import MealImageModal from './MealImageModal';
+import DeleteMealModal from './DeleteMealModal';
 import LinkBtn from '../Link';
 
 /**
@@ -46,6 +47,9 @@ class Modal extends Component {
         return 'Add a Meal';
       case 'editMeal':
         return 'Edit Meal';
+      case 'deleteMeal':
+      case 'deleteSuccessMsg':
+        return 'Delete Meal';
       case 'newMealImage':
         return 'Add a Meal Image';
       default:
@@ -68,11 +72,15 @@ class Modal extends Component {
 
     switch (type) {
       case 'addMeal':
-        return <MealModal {...this.props} type="addMeal" />;
+        return <MealModal {...this.props} />;
       case 'editMeal':
-        return <MealModal {...this.props} type="editMeal" />;
+        return <MealModal {...this.props} />;
+      case 'deleteMeal':
+        return <DeleteMealModal {...this.props} />;
+      case 'deleteSuccessMsg':
+        return <p className="text-center">Meal Deleted Successfully</p>;
       case 'newMealImage':
-        return <MealImageModal {...this.props} type="newMealImage" />;
+        return <MealImageModal {...this.props} />;
       default:
         return null;
     }
@@ -80,8 +88,8 @@ class Modal extends Component {
 
   /**
     * @memberof Modal
-    * @returns {JSX} Modal Component
-   */
+* @returns {JSX} Modal Component
+             */
   render() {
     const { open } = this.props;
 

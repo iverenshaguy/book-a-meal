@@ -23,8 +23,10 @@ exports[`Form Components: RenderFileInput renders correctly 1`] = `
     id="1"
     name="image"
     onChange={[Function]}
+    onClick={[Function]}
     type="file"
   />
+  <br />
 </div>
 `;
 
@@ -51,10 +53,12 @@ exports[`Form Components: RenderFileInput shows error when found 1`] = `
     id="1"
     name="image"
     onChange={[Function]}
+    onClick={[Function]}
     type="file"
   />
+  <br />
   <small
-    className="file-feedback"
+    className="file-feedback danger"
   >
     This is an error
   </small>
@@ -77,7 +81,7 @@ exports[`Form Components: RenderFileInput shows preloader when uploading 1`] = `
       className="img-overlay"
       id="img-overlay"
     >
-      <MiniPreLoader />
+      <MiniPreloader />
     </div>
     <img
       alt="meal"
@@ -90,7 +94,9 @@ exports[`Form Components: RenderFileInput shows preloader when uploading 1`] = `
     id="1"
     name="image"
     onChange={[Function]}
+    onClick={[Function]}
     type="file"
   />
+  <br />
 </div>
 `;
