@@ -9,21 +9,21 @@ import { mealObjPropTypes } from '../../../helpers/proptypes';
  * @function MealCard
  * @returns {JSX} MealCard
  */
-const MealCard = ({ meal, type }) => (
+const MealCard = ({ meal, type, toggleModal }) => (
   <div className="meal-card" id="meal-card">
     <div className="meal-card-header">
       <img src={meal.imageURL} alt="meal" />
       {type === 'caterer' &&
-      <Dropdown
-        type="card"
-        toggler={<Fragment>&hellip;</Fragment>}
-        content={
-          <Fragment>
-            <LinkBtn href="#add-edit-modal" id="edit-meal">Edit</LinkBtn>
-            <LinkBtn href="#add-edit-modal" id="delete-meal">Delete</LinkBtn>
-          </Fragment>
-        }
-      />}
+        <Dropdown
+          type="card"
+          toggler={<Fragment>&hellip;</Fragment>}
+          content={
+            <Fragment>
+              <LinkBtn href="#add-edit-modal" id="edit-meal" clickHandler={toggleModal}>Edit</LinkBtn>
+              <LinkBtn href="#add-edit-modal" id="delete-meal">Delete</LinkBtn>
+            </Fragment>
+          }
+        />}
       <div className="menu-card-title">
         <p>{meal.title}</p>
       </div>
@@ -34,16 +34,17 @@ const MealCard = ({ meal, type }) => (
         <p>{meal.description}</p>
       </div>
       {type === 'user' &&
-      <div className="meal-card-action">
-        <button className="btn btn-sec meal-card-btn">Click to Order</button>
-      </div>}
+        <div className="meal-card-action">
+          <button className="btn btn-sec meal-card-btn">Click to Order</button>
+        </div>}
     </div>
   </div>
 );
 
 MealCard.propTypes = {
   type: PropTypes.string.isRequired,
-  meal: mealObjPropTypes.isRequired
+  meal: mealObjPropTypes.isRequired,
+  toggleModal: PropTypes.func.isRequired,
 };
 
 export default MealCard;

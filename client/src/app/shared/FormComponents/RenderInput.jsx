@@ -54,6 +54,7 @@ const RenderInput = ({
           placeholder={placeholder}
           className={validInput}
           value={value}
+          checked={type === 'checkbox' ? value : undefined}
           onChange={e => handleChange(e)}
           onBlur={e => handleBlur(e)}
           onFocus={e => handleFocus(e)}

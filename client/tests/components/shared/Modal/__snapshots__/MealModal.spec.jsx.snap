@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MealModal renders correctly 1`] = `
+exports[`MealModal renders correctly when type is addMeal 1`] = `
 <Connect(Form)
   meal={null}
   meta={
@@ -9,5 +9,17 @@ exports[`MealModal renders correctly 1`] = `
     }
   }
   type="addMeal"
+/>
+`;
+
+exports[`MealModal renders correctly when type is editMeal 1`] = `
+<Connect(Form)
+  meal={null}
+  meta={
+    Object {
+      "btnText": "SAVE MEAL",
+    }
+  }
+  type="editMeal"
 />
 `;

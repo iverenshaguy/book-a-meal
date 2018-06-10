@@ -1,15 +1,22 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import configureStore from 'redux-mock-store';
 import { arrayToObject } from '../../src/utils';
 import { formHelpers } from '../../src/helpers';
 import FormComponent from '../../src/app/shared/Form/Form';
+import { newMeal, initialValues } from './data';
 
 const { formFields } = formHelpers;
 const dispatchMock = jest.fn();
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
+const store = mockStore(initialValues);
+
 const formComponentSetup = type => ({
   type,
   state: {
-    values: arrayToObject(formFields[type], ''),
+    values: type === 'editMeal' ? newMeal : arrayToObject(formFields[type], ''),
     touched: arrayToObject(formFields[type], false),
     error: arrayToObject(formFields[type], null),
     pristine: true,
@@ -33,11 +40,19 @@ const mainFormSetup = (type, meta) => {
   };
 
   const mountRoot = mount( //eslint-disable-line
-    <MemoryRouter>
-      <FormComponent {...props} dispatch={dispatchMock} />
-    </MemoryRouter>);
+    <Provider store={store}>
+      <FormComponent
+        {...props}
+        meal={type === 'editMeal' ? newMeal : null}
+        dispatch={dispatchMock}
+      />
+    </Provider>);
 
-  const shallowRoot = shallow(<FormComponent {...props} dispatch={dispatchMock} />);
+  const shallowRoot = shallow(<FormComponent
+    {...props}
+    meal={type === 'editMeal' ? newMeal : null}
+    dispatch={dispatchMock}
+  />);
 
   return {
     props, dispatchMock, mountRoot, shallowRoot

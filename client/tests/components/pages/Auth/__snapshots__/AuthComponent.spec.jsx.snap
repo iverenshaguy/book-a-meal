@@ -237,6 +237,7 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
                   },
                 }
               }
+              meal={null}
               meta={
                 Object {
                   "btnText": "SIGN IN",

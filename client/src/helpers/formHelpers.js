@@ -1,11 +1,12 @@
 import { auth, clearAuthError } from '../store/operations/auth';
-import { clearMealError, addMeal } from '../store/operations/meals';
+import { clearMealError, addMeal, editMeal } from '../store/operations/meals';
 
 const clearFormError = {
   signin: clearAuthError(),
   customerSignup: clearAuthError(),
   catererSignup: clearAuthError(),
-  addMeal: clearMealError()
+  addMeal: clearMealError(),
+  editMeal: clearMealError()
 };
 
 const formFields = {
@@ -13,6 +14,7 @@ const formFields = {
   customerSignup: ['firstname', 'lastname', 'email', 'password', 'passwordConfirm', 'role'],
   catererSignup: ['businessName', 'email', 'password', 'passwordConfirm', 'businessAddress', 'businessPhoneNo', 'role'],
   addMeal: ['title', 'price', 'description', 'vegetarian'],
+  editMeal: ['title', 'price', 'description', 'vegetarian'],
 };
 
 const requiredFormFields = {
@@ -20,21 +22,20 @@ const requiredFormFields = {
   customerSignup: ['firstname', 'lastname', 'email', 'password', 'passwordConfirm'],
   catererSignup: ['businessName', 'email', 'password', 'passwordConfirm', 'businessAddress', 'businessPhoneNo'],
   addMeal: ['title', 'price'],
+  editMeal: ['title', 'price'],
 };
 
 const formSubmitMapper = {
   signin: auth('signin'),
   customerSignup: auth('signup'),
   catererSignup: auth('signup'),
-  addMeal
+  addMeal,
+  editMeal
 };
-
-const asyncValidateFields = ['businessName', 'email', 'title'];
 
 export default {
   formFields,
   clearFormError,
   formSubmitMapper,
-  requiredFormFields,
-  asyncValidateFields
+  requiredFormFields
 };

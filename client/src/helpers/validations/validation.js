@@ -44,6 +44,12 @@ const validation = {
     price: [isRequired, isValidDecimal, isGreaterThanZero],
     description: [maxLength255, isBusinessName],
     vegetarian: [isValidBoolean]
+  },
+  editMeal: {
+    title: [isRequired, minLength1, maxLength50, isMealName],
+    price: [isRequired, isValidDecimal, isGreaterThanZero],
+    description: [maxLength255, isBusinessName],
+    vegetarian: [isValidBoolean]
   }
 };
 

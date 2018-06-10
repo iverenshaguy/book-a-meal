@@ -6,8 +6,14 @@ describe('MealModal', () => {
     jest.clearAllMocks();
   });
 
-  it('renders correctly', () => {
+  it('renders correctly when type is addMeal', () => {
     const shallowWrapper = shallow(<MealModal type="addMeal" />);
+
+    expect(toJson(shallowWrapper)).toMatchSnapshot();
+  });
+
+  it('renders correctly when type is editMeal', () => {
+    const shallowWrapper = shallow(<MealModal type="editMeal" />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
   });

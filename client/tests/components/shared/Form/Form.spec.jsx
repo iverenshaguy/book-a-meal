@@ -50,6 +50,12 @@ describe('Form', () => {
     expect(toJson(shallowRoot)).toMatchSnapshot();
   });
 
+  it('renders editMeal form correctly', () => {
+    const { shallowRoot } = setup('editMeal', meta);
+
+    expect(toJson(shallowRoot)).toMatchSnapshot();
+  });
+
   it('disables submit button when form is clean', () => {
     const { shallowRoot } = setup('signin', meta);
 
@@ -148,6 +154,21 @@ describe('Form', () => {
       wrapper.find('input[name="password"]').simulate('change', passwordEvent);
 
       expect(wrapper.instance().state).toEqual(newState);
+
+      wrapper.find('form').simulate('submit', { preventDefault() { } });
+      expect(dispatchMock).toHaveBeenCalled();
+
+      mountRoot.unmount();
+    });
+
+    it('submits valid editMeal form', () => {
+      const { mountRoot, dispatchMock } = setup('editMeal', meta);
+      const wrapper = mountRoot.find(FormComponent);
+
+      const titleEvent = { target: { name: 'title', value: 'Rice' } };
+
+      wrapper.find('input[name="title"]').simulate('focus');
+      wrapper.find('input[name="title"]').simulate('change', titleEvent);
 
       wrapper.find('form').simulate('submit', { preventDefault() { } });
       expect(dispatchMock).toHaveBeenCalled();

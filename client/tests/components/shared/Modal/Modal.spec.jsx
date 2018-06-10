@@ -30,14 +30,20 @@ describe('Modal', () => {
     expect(shallowWrapper.text()).toEqual('');
   });
 
+  it('renders correctly when type is editMeal', () => {
+    const shallowWrapper = shallow(<Modal type="editMeal" open toggleModal={jest.fn()} />);
+
+    expect(toJson(shallowWrapper)).toMatchSnapshot();
+    expect(shallowWrapper.find('#modal-title-h3').text()).toEqual('Edit Meal');
+    expect(shallowWrapper.find('MealModal')).toBeTruthy();
+  });
+
   it('renders correctly when type is newMealImage', () => {
     const shallowWrapper = shallow(<Modal type="newMealImage" open toggleModal={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('#modal-title-h3').text()).toEqual('Add a Meal Image');
     expect(shallowWrapper.find('MealImageModal')).toBeTruthy();
-
-    shallowWrapper.find('#modal-close-icon').simulate('click');
   });
 
   it('renders null when type is unknown', () => {

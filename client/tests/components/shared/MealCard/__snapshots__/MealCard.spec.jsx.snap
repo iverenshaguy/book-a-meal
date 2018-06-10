@@ -17,7 +17,7 @@ exports[`MealModal renders correctly when type is caterer 1`] = `
         <UNDEFINED>
           <Link
             className={null}
-            clickHandler={null}
+            clickHandler={[MockFunction]}
             href="#add-edit-modal"
             id="edit-meal"
           >

@@ -14,7 +14,6 @@ const props = {
   successCallBack: jest.fn(),
 };
 
-
 const goodFile = new Blob([''], {
   type: 'image/jpeg',
   size: '500'
