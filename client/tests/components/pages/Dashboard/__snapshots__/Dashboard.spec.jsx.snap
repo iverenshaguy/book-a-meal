@@ -2,8 +2,10 @@
 
 exports[`Dashboard renders Preloader when fetching 1`] = `
 <CatererView
+  date="Wednesday, 13th June 2018"
   isFetching={true}
   logout={[MockFunction]}
+  showTime={true}
   type="dashboard"
   user={
     Object {
@@ -356,8 +358,10 @@ exports[`Dashboard renders connected component 1`] = `
       }
     >
       <CatererView
+        date="Wednesday, 13th June 2018"
         isFetching={false}
         logout={[Function]}
+        showTime={true}
         type="dashboard"
         user={
           Object {
@@ -374,6 +378,8 @@ exports[`Dashboard renders connected component 1`] = `
           className="admin"
         >
           <Header
+            date="Wednesday, 13th June 2018"
+            showTime={true}
             type="caterer"
           >
             <div
@@ -382,7 +388,10 @@ exports[`Dashboard renders connected component 1`] = `
               <div
                 className="navbar"
               >
-                <CatererHeader>
+                <CatererHeader
+                  date="Wednesday, 13th June 2018"
+                  showTime={true}
+                >
                   <div
                     className="menu-control d-none-md"
                   >
@@ -403,7 +412,7 @@ exports[`Dashboard renders connected component 1`] = `
                       className="date"
                     >
                       <h2>
-                        Thursday, 1st January 1970
+                        Wednesday, 13th June 2018
                             
                         00:00
                       </h2>
@@ -504,7 +513,7 @@ exports[`Dashboard renders connected component 1`] = `
                     </a>
                     <a
                       className="menu-item false"
-                      href="/"
+                      href="/menu"
                     >
                       Menu
                     </a>
@@ -630,8 +639,10 @@ exports[`Dashboard renders connected component 1`] = `
 
 exports[`Dashboard renders correctly when not fetching 1`] = `
 <CatererView
+  date="Wednesday, 13th June 2018"
   isFetching={false}
   logout={[MockFunction]}
+  showTime={true}
   type="dashboard"
   user={
     Object {

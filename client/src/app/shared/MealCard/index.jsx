@@ -44,7 +44,11 @@ const MealCard = ({ meal, type, toggleModal }) => (
 MealCard.propTypes = {
   type: PropTypes.string.isRequired,
   meal: mealObjPropTypes.isRequired,
-  toggleModal: PropTypes.func.isRequired,
+  toggleModal: PropTypes.func,
+};
+
+MealCard.defaultProps = {
+  toggleModal: null
 };
 
 export default MealCard;

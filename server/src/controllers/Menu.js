@@ -113,7 +113,7 @@ class Menu {
 
     const menu = await db.Menu.findAll({
       where: { date },
-      attributes: [['menuId', 'id'], 'date'],
+      attributes: [['menuId', 'id']],
       include: [
         {
           model: db.User,
@@ -159,7 +159,7 @@ class Menu {
     });
 
     if (!menu) {
-      return res.status(200).json({ message: 'You don\'t have a menu for this day' });
+      return res.status(200).json({ date, meals: [] });
     }
 
     return res.status(200).json(menu);

@@ -39,8 +39,17 @@ const customerSignupLocation = {
   state: { from: { pathname: '/' } },
   search: '?role=customer'
 };
+const { now } = Date;
 
 describe('AuthComponent', () => {
+  beforeAll(() => {
+    Date.now = jest.fn(() => 0);
+  });
+
+  afterAll(() => {
+    Date.now = now;
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });

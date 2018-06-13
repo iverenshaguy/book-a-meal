@@ -17,6 +17,11 @@ export const initialValues = {
     working: false,
     error: null
   },
+  menu: {
+    meals: [],
+    working: false,
+    error: null
+  },
   orders: {
     items: [],
     pendingOrders: 0,

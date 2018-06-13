@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import moment from 'moment';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import CatererHeader from './CatererHeader';
@@ -27,10 +28,10 @@ class Header extends Component {
           </h3>
         </div>
         {type === 'home' &&
-        <div className="navlinks">
-          <a href="./signin" className="link">Log In</a>
-          <a href="./signup" className="link">Sign Up</a>
-        </div>}
+          <div className="navlinks">
+            <a href="./signin" className="link">Log In</a>
+            <a href="./signup" className="link">Sign Up</a>
+          </div>}
       </Fragment>
     );
   }
@@ -39,7 +40,7 @@ class Header extends Component {
    * @returns {JSX} Header Component
    */
   render() {
-    const { type } = this.props;
+    const { type, date, showTime } = this.props;
     const unauth = type === 'home' || type === 'unauth';
 
     const headerClass = classNames({
@@ -57,9 +58,9 @@ class Header extends Component {
       <div className={headerClass}>
         <div className={navbarClass}>
           {unauth &&
-          this.renderUnauthHeader()}
+            this.renderUnauthHeader()}
           {type === 'caterer' &&
-          <CatererHeader />}
+            <CatererHeader date={date} showTime={showTime} />}
         </div>
       </div>
     );
@@ -67,11 +68,15 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  type: PropTypes.string
+  type: PropTypes.string,
+  date: PropTypes.string,
+  showTime: PropTypes.bool
 };
 
 Header.defaultProps = {
-  type: null
+  type: null,
+  date: moment().format('dddd[,] Do MMMM YYYY'),
+  showTime: true
 };
 
 export default Header;

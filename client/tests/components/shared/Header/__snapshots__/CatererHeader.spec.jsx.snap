@@ -22,7 +22,7 @@ exports[`CatererHeader renders correctly 1`] = `
       className="date"
     >
       <h2>
-        Thursday, 1st January 1970
+        Wednesday, 13th June 2018
             
         00:00
       </h2>

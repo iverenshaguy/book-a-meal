@@ -1,19 +1,20 @@
 import React from 'react';
+import moment from 'moment';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import Meals from '../../../../src/app/pages/Meals/Meals';
-import ConnectedMeals from '../../../../src/app/pages/Meals';
+import CatererMenu from '../../../../src/app/pages/Menu/CatererMenu/CatererMenu';
+import ConnectedCatererMenu from '../../../../src/app/pages/Menu/CatererMenu';
 import { caterer, caterersMealsObj, initialValues } from '../../../setup/data';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({
-  ...initialValues, meals: { ...initialValues.meals, items: caterersMealsObj.meals }
+  ...initialValues, menu: { ...initialValues.menu, meals: caterersMealsObj.meals }
 });
 const { now } = Date;
 
-describe('Meals', () => {
+describe('Menu', () => {
   beforeAll(() => {
     Date.now = jest.fn(() => 0);
   });
@@ -25,10 +26,10 @@ describe('Meals', () => {
   it('renders correctly when not fetching', () => {
     const toggleMock = jest.fn();
 
-    const shallowWrapper = shallow(<Meals
+    const shallowWrapper = shallow(<CatererMenu
       user={caterer}
       logout={jest.fn()}
-      fetchMeals={jest.fn()}
+      fetchMenu={jest.fn()}
       {...caterersMealsObj}
       isFetching={false}
       submitting={false}
@@ -39,48 +40,46 @@ describe('Meals', () => {
     expect(shallowWrapper.find('MealCard')).toBeTruthy();
   });
 
-  it('calls toggleModal when button is clicked', () => {
+  it('calls toggleModal when set meal button is clicked', () => {
     const toggleMock = jest.fn();
-    const wrapper = shallow(<Meals
+    const wrapper = shallow(<CatererMenu
       user={caterer}
       logout={jest.fn()}
-      fetchMeals={jest.fn()}
+      fetchMenu={jest.fn()}
       {...caterersMealsObj}
       isFetching={false}
       submitting={false}
       toggleModal={toggleMock}
     />);
 
-    wrapper.find('#add-meal-btn').simulate('click');
+    wrapper.find('#menu-modal-btn').simulate('click');
     expect(toggleMock).toHaveBeenCalled();
   });
 
-  it('calls toggleModal when edit meal button is clicked', () => {
-    const comp = (
-      <Provider store={store}>
-        <ConnectedMeals
-          user={caterer}
-          logout={jest.fn()}
-          fetchMeals={jest.fn()}
-          {...caterersMealsObj}
-          isFetching={false}
-        />
-      </Provider>
-    );
-    const wrapper = mount(comp);
+  it('changes date when Change Date button is clicked', () => {
+    const wrapper = shallow(<CatererMenu
+      user={caterer}
+      logout={jest.fn()}
+      fetchMenu={jest.fn()}
+      {...caterersMealsObj}
+      isFetching={false}
+      submitting={false}
+      toggleModal={jest.fn()}
+    />);
 
-    const toggleSpy = jest.spyOn(wrapper.find(Meals).instance(), 'toggleModal');
+    const event = { target: { value: moment().format('YYYY-MM-DD') } };
 
-    wrapper.find('#edit-meal').at(0).simulate('click');
-    expect(toggleSpy).toHaveBeenCalled();
+    wrapper.find('DatePicker').at(0).dive().find('input')
+      .simulate('change', event);
+    expect(wrapper.state().currentDay).toEqual(moment().format('YYYY-MM-DD'));
   });
 
   it('renders Preloader when fetching', () => {
     const toggleMock = jest.fn();
-    const shallowWrapper = shallow(<Meals
+    const shallowWrapper = shallow(<CatererMenu
       user={caterer}
       logout={jest.fn()}
-      fetchMeals={jest.fn()}
+      fetchMenu={jest.fn()}
       {...caterersMealsObj}
       isFetching
       submitting={false}
@@ -95,7 +94,7 @@ describe('Meals', () => {
     const dispatchMock = jest.fn();
     const comp = (
       <Provider store={store}>
-        <ConnectedMeals
+        <ConnectedCatererMenu
           user={caterer}
           dispatch={dispatchMock}
           {...caterersMealsObj}
@@ -107,5 +106,24 @@ describe('Meals', () => {
 
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();
+  });
+
+  it('disbales button when time in state is before current time', () => {
+    const toggleMock = jest.fn();
+    const wrapper = shallow(<CatererMenu
+      user={caterer}
+      logout={jest.fn()}
+      fetchMenu={jest.fn()}
+      {...caterersMealsObj}
+      isFetching={false}
+      submitting={false}
+      toggleModal={toggleMock}
+    />);
+
+    wrapper.setState({
+      currentDay: '1969-04-27'
+    });
+
+    expect(wrapper.find('#menu-modal-btn').props('disabled')).toBeTruthy();
   });
 });

@@ -9,8 +9,17 @@ const props = {
   isFetching: false,
   children: <p>Hi</p>
 };
+const { now } = Date;
 
 describe('CatererView', () => {
+  beforeAll(() => {
+    Date.now = jest.fn(() => 0);
+  });
+
+  afterAll(() => {
+    Date.now = now;
+  });
+
   it('renders correctly', () => {
     const wrapper = shallow(<CatererView {...props} />);
 

@@ -9,72 +9,60 @@ import { caterer, caterersOrdersObj, initialValues } from '../../../setup/data';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore(initialValues);
+const { now } = Date;
 
 
 describe('Dashboard', () => {
+  beforeAll(() => {
+    Date.now = jest.fn(() => 0);
+  });
+
+  afterAll(() => {
+    Date.now = now;
+  });
+
   it('renders correctly when not fetching', () => {
-    const { now } = Date;
-    Date.now = jest.fn(() => 0); // mock Date now
+    const shallowWrapper = shallow(<Dashboard
+      user={caterer}
+      logout={jest.fn()}
+      fetchOrders={jest.fn()}
+      deliverOrder={jest.fn()}
+      {...caterersOrdersObj}
+      isFetching={false}
+    />);
 
-    try {
-      const shallowWrapper = shallow(<Dashboard
-        user={caterer}
-        logout={jest.fn()}
-        fetchOrders={jest.fn()}
-        deliverOrder={jest.fn()}
-        {...caterersOrdersObj}
-        isFetching={false}
-      />);
-
-      expect(toJson(shallowWrapper)).toMatchSnapshot();
-    } finally {
-      Date.now = now; // restore original now method on Date object
-    }
+    expect(toJson(shallowWrapper)).toMatchSnapshot();
   });
 
   it('renders Preloader when fetching', () => {
-    const { now } = Date;
-    Date.now = jest.fn(() => 0);
+    const shallowWrapper = shallow(<Dashboard
+      user={caterer}
+      logout={jest.fn()}
+      fetchOrders={jest.fn()}
+      deliverOrder={jest.fn()}
+      {...caterersOrdersObj}
+      isFetching
+    />);
 
-    try {
-      const shallowWrapper = shallow(<Dashboard
-        user={caterer}
-        logout={jest.fn()}
-        fetchOrders={jest.fn()}
-        deliverOrder={jest.fn()}
-        {...caterersOrdersObj}
-        isFetching
-      />);
-
-      expect(toJson(shallowWrapper)).toMatchSnapshot();
-      expect(shallowWrapper.find('Preloader')).toBeTruthy();
-    } finally {
-      Date.now = now;
-    }
+    expect(toJson(shallowWrapper)).toMatchSnapshot();
+    expect(shallowWrapper.find('Preloader')).toBeTruthy();
   });
 
   it('renders connected component', () => {
-    const { now } = Date;
-    Date.now = jest.fn(() => 0);
     const dispatchMock = jest.fn();
+    const comp = (
+      <Provider store={store}>
+        <ConnectedDashboard
+          user={caterer}
+          dispatch={dispatchMock}
+          {...caterersOrdersObj}
+          isFetching={false}
+        />
+      </Provider>);
 
-    try {
-      const comp = (
-        <Provider store={store}>
-          <ConnectedDashboard
-            user={caterer}
-            dispatch={dispatchMock}
-            {...caterersOrdersObj}
-            isFetching={false}
-          />
-        </Provider>);
+    const wrapper = mount(comp);
 
-      const wrapper = mount(comp);
-
-      expect(toJson(wrapper)).toMatchSnapshot();
-      wrapper.unmount();
-    } finally {
-      Date.now = now;
-    }
+    expect(toJson(wrapper)).toMatchSnapshot();
+    wrapper.unmount();
   });
 });

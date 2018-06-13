@@ -5,6 +5,7 @@ import uploadImage from './store/reducers/uploadImage';
 import isFetching from './store/reducers/isFetching';
 import orders from './store/reducers/orders';
 import meals from './store/reducers/meals';
+import menu from './store/reducers/menu';
 import auth from './store/reducers/auth';
 import ui from './store/reducers/ui';
 
@@ -16,6 +17,7 @@ export default combineReducers({
   isFetching,
   orders,
   meals,
+  menu,
   auth,
   ui
 });
