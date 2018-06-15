@@ -1,4 +1,4 @@
-import { RECEIVE_MENU_SUCCESS, RECEIVE_MENU_FAILURE } from '../types';
+import { RECEIVE_MENU_SUCCESS, RECEIVE_MENU_FAILURE, SET_CURRENT_DAY } from '../types';
 
 export const fetchMenuSuccess = payload => ({
   type: RECEIVE_MENU_SUCCESS,
@@ -7,5 +7,10 @@ export const fetchMenuSuccess = payload => ({
 
 export const fetchMenuFailure = payload => ({
   type: RECEIVE_MENU_FAILURE,
+  payload
+});
+
+export const setCurrentDay = payload => ({
+  type: SET_CURRENT_DAY,
   payload
 });

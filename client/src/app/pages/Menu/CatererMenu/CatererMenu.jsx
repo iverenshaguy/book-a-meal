@@ -21,17 +21,15 @@ class CatererMenu extends Component {
     isFetching: PropTypes.bool.isRequired,
     logout: PropTypes.func.isRequired,
     fetchMenu: PropTypes.func.isRequired,
+    currentDay: PropTypes.string.isRequired,
     submitError: PropTypes.string,
     submitting: PropTypes.bool.isRequired,
     toggleModal: PropTypes.func.isRequired,
+    setCurrentDay: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
     submitError: null
-  }
-
-  state = {
-    currentDay: moment().format('YYYY-MM-DD')
   }
 
   /**
@@ -47,14 +45,13 @@ class CatererMenu extends Component {
    * @param {string} date
    * @returns {JSX} CatererMenu Component
    */
-  updateCurrentDate = (date) => {
-    this.setState({
-      currentDay: date
-    }, () => this.fetchMenu());
+  updateCurrentDate = async (date) => {
+    await this.props.setCurrentDay(date);
+    this.fetchMenu();
   }
 
   fetchMenu = () => {
-    this.props.fetchMenu(this.state.currentDay);
+    this.props.fetchMenu(this.props.currentDay);
   }
 
   /**
@@ -63,13 +60,13 @@ class CatererMenu extends Component {
    */
   renderCatererMenu = () => {
     const now = moment().format('YYYY-MM-DD');
-    const disableAddButton = moment(now).isAfter(moment(this.state.currentDay)) ? true : null;
+    const disableAddButton = moment(now).isAfter(moment(this.props.currentDay)) ? true : null;
 
     return (
       <Fragment>
         <div className="content-wrapper meals menu-meals">
           <div className="date d-none-md">
-            <h2>{moment(this.state.currentDay).format('dddd[,] Do MMMM YYYY')}</h2>
+            <h2>{moment(this.props.currentDay).format('dddd[,] Do MMMM YYYY')}</h2>
             <DatePicker handleSelectDate={this.updateCurrentDate} />
           </div>
           <DatePicker screenSize="md" handleSelectDate={this.updateCurrentDate} />
@@ -106,7 +103,6 @@ class CatererMenu extends Component {
     return (
       <Fragment>
         <CatererView
-          date={moment(this.state.currentDay).format('dddd[,] Do MMMM YYYY')}
           showTime={false}
           user={user}
           logout={logout}

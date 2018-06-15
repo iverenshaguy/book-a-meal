@@ -1,10 +1,12 @@
+import moment from 'moment';
 import reducer from '../../../src/store/reducers/menu';
 import { caterersMealsObj } from '../../setup/data';
 
 const state = {
   meals: [],
   error: null,
-  working: false
+  working: false,
+  currentDay: moment().format('YYYY-MM-DD')
 };
 
 describe('Menu Reducers', () => {
@@ -33,5 +35,17 @@ describe('Menu Reducers', () => {
     });
 
     expect(newState).toEqual({ ...state, error: 'Error' });
+  });
+
+  it('should handle SET_CURRENT_DAY action', () => {
+    const newState = reducer(state, {
+      type: 'SET_CURRENT_DAY',
+      payload: '2018-04-25'
+    });
+
+    expect(newState).toEqual({
+      ...state,
+      currentDay: '2018-04-25'
+    });
   });
 });

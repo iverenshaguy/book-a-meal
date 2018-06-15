@@ -8,6 +8,7 @@ import { caterersMealsObj } from '../../setup/data';
 
 const {
   fetchMenu,
+  setCurrentDay,
   fetchMenuSuccess,
   fetchMenuFailure,
 } = operations;
@@ -38,6 +39,15 @@ describe('Menu Actions', () => {
     expect(action).toEqual({
       type: 'RECEIVE_MENU_FAILURE',
       payload: 'error'
+    });
+  });
+
+  test('setCurrentDay', () => {
+    const action = setCurrentDay('2018-04-25');
+
+    expect(action).toEqual({
+      type: 'SET_CURRENT_DAY',
+      payload: '2018-04-25'
     });
   });
 

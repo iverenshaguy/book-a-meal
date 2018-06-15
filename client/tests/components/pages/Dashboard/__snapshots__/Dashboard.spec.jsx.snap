@@ -2,7 +2,6 @@
 
 exports[`Dashboard renders Preloader when fetching 1`] = `
 <CatererView
-  date="Wednesday, 13th June 2018"
   isFetching={true}
   logout={[MockFunction]}
   showTime={true}
@@ -358,7 +357,6 @@ exports[`Dashboard renders connected component 1`] = `
       }
     >
       <CatererView
-        date="Wednesday, 13th June 2018"
         isFetching={false}
         logout={[Function]}
         showTime={true}
@@ -378,7 +376,7 @@ exports[`Dashboard renders connected component 1`] = `
           className="admin"
         >
           <Header
-            date="Wednesday, 13th June 2018"
+            dateType="dashboard"
             showTime={true}
             type="caterer"
           >
@@ -388,37 +386,44 @@ exports[`Dashboard renders connected component 1`] = `
               <div
                 className="navbar"
               >
-                <CatererHeader
-                  date="Wednesday, 13th June 2018"
+                <Connect(CatererHeader)
+                  dateType="dashboard"
                   showTime={true}
                 >
-                  <div
-                    className="menu-control d-none-md"
-                  >
-                    <a
-                      className="d-none-md"
-                      href="#sidenav"
-                    >
-                      <img
-                        alt="toggler"
-                        src="./img/toggler.png"
-                      />
-                    </a>
-                  </div>
-                  <div
-                    className="page-title d-flex-md"
+                  <CatererHeader
+                    currentDay="1970-01-01"
+                    dateType="dashboard"
+                    dispatch={[Function]}
+                    showTime={true}
                   >
                     <div
-                      className="date"
+                      className="menu-control d-none-md"
                     >
-                      <h2>
-                        Wednesday, 13th June 2018
-                            
-                        00:00
-                      </h2>
+                      <a
+                        className="d-none-md"
+                        href="#sidenav"
+                      >
+                        <img
+                          alt="toggler"
+                          src="./img/toggler.png"
+                        />
+                      </a>
                     </div>
-                  </div>
-                </CatererHeader>
+                    <div
+                      className="page-title d-flex-md"
+                    >
+                      <div
+                        className="date"
+                      >
+                        <h2>
+                          Thursday, 1st January 1970
+                              
+                          00:00
+                        </h2>
+                      </div>
+                    </div>
+                  </CatererHeader>
+                </Connect(CatererHeader)>
               </div>
             </div>
           </Header>
@@ -639,7 +644,6 @@ exports[`Dashboard renders connected component 1`] = `
 
 exports[`Dashboard renders correctly when not fetching 1`] = `
 <CatererView
-  date="Wednesday, 13th June 2018"
   isFetching={false}
   logout={[MockFunction]}
   showTime={true}

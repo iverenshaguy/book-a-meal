@@ -175,6 +175,42 @@ describe('Form', () => {
 
       mountRoot.unmount();
     });
+
+    it('calls dispatch on file input change', () => {
+      const { mountRoot, dispatchMock } = setup('editMeal', meta);
+      const wrapper = mountRoot.find(FormComponent);
+
+      const event = {
+        target: {
+          files: [new Blob([''], {
+            type: 'image/jpeg',
+            size: '500'
+          })]
+        }
+      };
+
+      mocksdk.storage().refFromURL = () => ({
+        delete: jest.fn()
+      });
+
+      mocksdk.storage().ref = () => ({
+        put: () => ({
+          ref: {
+            getDownloadURL: () => ({
+              then: (fn) => {
+                fn('http.url.test');
+              }
+            })
+          }
+        })
+      });
+
+      wrapper.find('input[name="imageURL"]').simulate('change', event);
+
+      expect(dispatchMock).toHaveBeenCalled();
+
+      mountRoot.unmount();
+    });
   });
 
   describe('test for wrong input', () => {

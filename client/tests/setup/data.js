@@ -20,7 +20,8 @@ export const initialValues = {
   menu: {
     meals: [],
     working: false,
-    error: null
+    error: null,
+    currentDay: '1970-01-01'
   },
   orders: {
     items: [],

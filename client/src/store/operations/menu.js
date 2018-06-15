@@ -1,7 +1,7 @@
 import instance from '../../config/axios';
 import errorHandler from '../../utils/errorHandler';
 import { setFetching, unsetFetching } from '../actions/isFetching';
-import { fetchMenuSuccess, fetchMenuFailure } from '../actions/menu';
+import { fetchMenuSuccess, fetchMenuFailure, setCurrentDay } from '../actions/menu';
 
 const fetchMenu = date => async (dispatch) => {
   try {
@@ -21,6 +21,7 @@ const fetchMenu = date => async (dispatch) => {
 
 export default {
   fetchMenu,
+  setCurrentDay,
   fetchMenuSuccess,
   fetchMenuFailure,
 };

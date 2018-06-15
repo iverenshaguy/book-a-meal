@@ -1,5 +1,5 @@
 import React from 'react';
-import CatererHeader from '../../../../src/app/shared/Header/CatererHeader';
+import CatererHeader from '../../../../src/app/shared/Header/CatererHeader/CatererHeader';
 
 const { now } = Date;
 
@@ -13,7 +13,7 @@ describe('CatererHeader', () => {
   });
 
   it('renders correctly', () => {
-    const shallowWrapper = shallow(<CatererHeader />);
+    const shallowWrapper = shallow(<CatererHeader currentDay="1970-01-01" />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
   });

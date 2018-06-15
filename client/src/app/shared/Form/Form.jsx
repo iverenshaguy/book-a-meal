@@ -192,7 +192,7 @@ class Form extends Component {
    * @param {object} mealObj
    * @returns {nothing} Returns nothing
    */
-  handleEditMealSubmit = (id, mealObj) => this.props.dispatch(editMeal(id, mealObj, false))
+  updateMealImage = (id, mealObj) => this.props.dispatch(editMeal(id, mealObj, false))
 
   /**
    * @memberof Form
@@ -229,7 +229,7 @@ class Form extends Component {
         return <MealForm type={type} state={formState} handlers={handlers} />;
       case 'editMeal':
         return (<MealForm
-          editMeal={this.handleEditMealSubmit}
+          editMeal={this.updateMealImage}
           updating={submitting}
           meal={meal}
           type={type}

@@ -33,6 +33,8 @@ describe('Menu', () => {
       {...caterersMealsObj}
       isFetching={false}
       submitting={false}
+      setCurrentDay={jest.fn()}
+      currentDay={moment().format('YYYY-MM-DD')}
       toggleModal={toggleMock}
     />);
 
@@ -49,6 +51,8 @@ describe('Menu', () => {
       {...caterersMealsObj}
       isFetching={false}
       submitting={false}
+      setCurrentDay={jest.fn()}
+      currentDay={moment().format('YYYY-MM-DD')}
       toggleModal={toggleMock}
     />);
 
@@ -56,7 +60,8 @@ describe('Menu', () => {
     expect(toggleMock).toHaveBeenCalled();
   });
 
-  it('changes date when Change Date button is clicked', () => {
+  it('calls setCurrentDay when Change Date button is clicked', () => {
+    const setCurrentDayMock = jest.fn();
     const wrapper = shallow(<CatererMenu
       user={caterer}
       logout={jest.fn()}
@@ -64,6 +69,8 @@ describe('Menu', () => {
       {...caterersMealsObj}
       isFetching={false}
       submitting={false}
+      setCurrentDay={setCurrentDayMock}
+      currentDay={moment().format('YYYY-MM-DD')}
       toggleModal={jest.fn()}
     />);
 
@@ -71,7 +78,7 @@ describe('Menu', () => {
 
     wrapper.find('DatePicker').at(0).dive().find('input')
       .simulate('change', event);
-    expect(wrapper.state().currentDay).toEqual(moment().format('YYYY-MM-DD'));
+    expect(setCurrentDayMock).toHaveBeenCalled();
   });
 
   it('renders Preloader when fetching', () => {
@@ -83,6 +90,8 @@ describe('Menu', () => {
       {...caterersMealsObj}
       isFetching
       submitting={false}
+      setCurrentDay={jest.fn()}
+      currentDay={moment().format('YYYY-MM-DD')}
       toggleModal={toggleMock}
     />);
 
@@ -117,10 +126,12 @@ describe('Menu', () => {
       {...caterersMealsObj}
       isFetching={false}
       submitting={false}
+      setCurrentDay={jest.fn()}
+      currentDay={moment().format('YYYY-MM-DD')}
       toggleModal={toggleMock}
     />);
 
-    wrapper.setState({
+    wrapper.setProps({
       currentDay: '1969-04-27'
     });
 

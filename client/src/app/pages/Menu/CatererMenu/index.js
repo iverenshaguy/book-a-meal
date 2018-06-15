@@ -1,7 +1,7 @@
 import { connect, } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import CatererMenu from './CatererMenu';
-import { fetchMenu } from '../../../../store/operations/menu';
+import { fetchMenu, setCurrentDay } from '../../../../store/operations/menu';
 import { logout } from '../../../../store/operations/auth';
 import { toggleModal } from '../../../../store/actions/ui';
 
@@ -9,11 +9,12 @@ const mapStateToProps = state => ({
   isFetching: state.isFetching,
   meals: state.menu.meals,
   submitting: state.menu.working,
-  submitError: state.menu.error
+  submitError: state.menu.error,
+  currentDay: state.menu.currentDay
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  logout, fetchMenu, toggleModal
+  logout, fetchMenu, toggleModal, setCurrentDay
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(CatererMenu);

@@ -72,7 +72,7 @@ class Dashboard extends Component {
     const { user, logout, isFetching } = this.props;
 
     return (
-      <CatererView user={user} logout={logout} type="dashboard" isFetching={isFetching}>
+      <CatererView user={user} logout={logout} type="dashboard" showTime isFetching={isFetching}>
         {this.renderDashBoard()}
       </CatererView>
     );

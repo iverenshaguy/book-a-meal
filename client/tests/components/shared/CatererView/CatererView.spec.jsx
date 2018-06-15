@@ -7,7 +7,8 @@ const props = {
   logout: jest.fn(),
   type: 'dashboard',
   isFetching: false,
-  children: <p>Hi</p>
+  children: <p>Hi</p>,
+  showTime: true
 };
 const { now } = Date;
 

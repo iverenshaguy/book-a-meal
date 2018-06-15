@@ -262,12 +262,11 @@ describe('Meals Actions', () => {
         jest.useFakeTimers();
 
         return store.dispatch(deleteMeal(newMeal.id)).then(() => {
-          setTimeout(() => {
-            const dispatchedActions = store.getActions();
-            const actionTypes = dispatchedActions.map(action => action.type);
+          jest.advanceTimersByTime(1000);
+          const dispatchedActions = store.getActions();
+          const actionTypes = dispatchedActions.map(action => action.type);
 
-            expect(actionTypes).toEqual(expectedActions);
-          }, 1000);
+          expect(actionTypes).toEqual(expectedActions);
         });
       });
 

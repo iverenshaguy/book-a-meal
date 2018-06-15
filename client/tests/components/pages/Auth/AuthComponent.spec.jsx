@@ -20,7 +20,7 @@ const props = {
   submitting: false,
   isAuthenticated: false,
   submitError: null,
-  changeUrl: jest.fn()
+  changeUrl: jest.fn(),
 };
 
 const signinLocation = {

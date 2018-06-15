@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import moment from 'moment';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import CatererHeader from './CatererHeader';
@@ -40,7 +39,7 @@ class Header extends Component {
    * @returns {JSX} Header Component
    */
   render() {
-    const { type, date, showTime } = this.props;
+    const { type, showTime, dateType } = this.props;
     const unauth = type === 'home' || type === 'unauth';
 
     const headerClass = classNames({
@@ -60,7 +59,7 @@ class Header extends Component {
           {unauth &&
             this.renderUnauthHeader()}
           {type === 'caterer' &&
-            <CatererHeader date={date} showTime={showTime} />}
+            <CatererHeader dateType={dateType} showTime={showTime} />}
         </div>
       </div>
     );
@@ -69,14 +68,14 @@ class Header extends Component {
 
 Header.propTypes = {
   type: PropTypes.string,
-  date: PropTypes.string,
-  showTime: PropTypes.bool
+  showTime: PropTypes.bool,
+  dateType: PropTypes.string
 };
 
 Header.defaultProps = {
   type: null,
-  date: moment().format('dddd[,] Do MMMM YYYY'),
-  showTime: true
+  showTime: true,
+  dateType: null
 };
 
 export default Header;
