@@ -27,10 +27,10 @@ class Header extends Component {
           </h3>
         </div>
         {type === 'home' &&
-        <div className="navlinks">
-          <a href="./signin" className="link">Log In</a>
-          <a href="./signup" className="link">Sign Up</a>
-        </div>}
+          <div className="navlinks">
+            <a href="./signin" className="link">Log In</a>
+            <a href="./signup" className="link">Sign Up</a>
+          </div>}
       </Fragment>
     );
   }
@@ -39,7 +39,7 @@ class Header extends Component {
    * @returns {JSX} Header Component
    */
   render() {
-    const { type } = this.props;
+    const { type, showTime, dateType } = this.props;
     const unauth = type === 'home' || type === 'unauth';
 
     const headerClass = classNames({
@@ -57,9 +57,9 @@ class Header extends Component {
       <div className={headerClass}>
         <div className={navbarClass}>
           {unauth &&
-          this.renderUnauthHeader()}
+            this.renderUnauthHeader()}
           {type === 'caterer' &&
-          <CatererHeader />}
+            <CatererHeader dateType={dateType} showTime={showTime} />}
         </div>
       </div>
     );
@@ -67,11 +67,15 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  type: PropTypes.string
+  type: PropTypes.string,
+  showTime: PropTypes.bool,
+  dateType: PropTypes.string
 };
 
 Header.defaultProps = {
-  type: null
+  type: null,
+  showTime: true,
+  dateType: null
 };
 
 export default Header;

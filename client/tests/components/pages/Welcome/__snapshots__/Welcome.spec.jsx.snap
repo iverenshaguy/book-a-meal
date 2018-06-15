@@ -24,6 +24,8 @@ exports[`Welcome renders correctly when authenticating 1`] = `
 exports[`Welcome renders correctly when unauthenticated 1`] = `
 <React.Fragment>
   <Header
+    dateType={null}
+    showTime={true}
     type="home"
   />
   <div

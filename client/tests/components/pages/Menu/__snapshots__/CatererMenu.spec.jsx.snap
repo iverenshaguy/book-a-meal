@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Meals renders Preloader when fetching 1`] = `
+exports[`Menu renders Preloader when fetching 1`] = `
 <React.Fragment>
   <CatererView
     isFetching={true}
     logout={[MockFunction]}
-    showTime={true}
-    type="meals"
+    showTime={false}
+    type="menu"
     user={
       Object {
         "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
@@ -20,38 +20,47 @@ exports[`Meals renders Preloader when fetching 1`] = `
   >
     <React.Fragment>
       <div
-        className="content-wrapper meals caterer-meals"
+        className="content-wrapper meals menu-meals"
       >
+        <div
+          className="date d-none-md"
+        >
+          <h2>
+            Thursday, 1st January 1970
+          </h2>
+          <DatePicker
+            handleSelectDate={[Function]}
+            screenSize={null}
+          />
+        </div>
+        <DatePicker
+          handleSelectDate={[Function]}
+          screenSize="md"
+        />
         <div
           className="top"
         >
           <button
             className="btn btn-pri"
-            id="add-meal-btn"
+            disabled={null}
+            id="menu-modal-btn"
             onClick={[Function]}
           >
-            Add a New Meal
+            Set Menu
           </button>
+        </div>
+        <div
+          className="page-heading"
+        >
+          <h2>
+            Meal Items on This Day's Menu
+          </h2>
+          <hr />
         </div>
         <div
           className="card-group meals-wrapper"
           id="card-group"
         >
-          <MealCard
-            key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-            meal={
-              Object {
-                "description": "Sharwama contains no animal products, perfect for dieters",
-                "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                "price": "1200.00",
-                "title": "Vegetable Sharwama and Guava Smoothie",
-                "vegetarian": true,
-              }
-            }
-            toggleModal={[Function]}
-            type="caterer"
-          />
           <MealCard
             key="81211c24-51c0-46ec-b1e0-18db55880958"
             meal={
@@ -64,21 +73,56 @@ exports[`Meals renders Preloader when fetching 1`] = `
                 "vegetarian": false,
               }
             }
-            toggleModal={[Function]}
-            type="caterer"
+            toggleModal={null}
+            type="menu"
+          />
+          <MealCard
+            key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+            meal={
+              Object {
+                "description": "Sharwama contains no animal products, perfect for dieters",
+                "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                "price": "1200.00",
+                "title": "Vegetable Sharwama and Guava Smoothie",
+                "vegetarian": true,
+              }
+            }
+            toggleModal={null}
+            type="menu"
           />
         </div>
       </div>
     </React.Fragment>
   </CatererView>
   <Connect(Modal)
+    meals={
+      Array [
+        Object {
+          "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+          "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+          "imageURL": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+          "price": "1500.00",
+          "title": "Jollof Rice, Beef and Plantain",
+          "vegetarian": false,
+        },
+        Object {
+          "description": "Sharwama contains no animal products, perfect for dieters",
+          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+          "price": "1200.00",
+          "title": "Vegetable Sharwama and Guava Smoothie",
+          "vegetarian": true,
+        },
+      ]
+    }
     submitError={null}
     submitting={false}
   />
 </React.Fragment>
 `;
 
-exports[`Meals renders connected component 1`] = `
+exports[`Menu renders connected component 1`] = `
 <Provider
   store={
     Object {
@@ -91,7 +135,7 @@ exports[`Meals renders connected component 1`] = `
     }
   }
 >
-  <Connect(Meals)
+  <Connect(CatererMenu)
     dispatch={[MockFunction]}
     isFetching={false}
     meals={
@@ -125,9 +169,10 @@ exports[`Meals renders connected component 1`] = `
       }
     }
   >
-    <Meals
+    <CatererMenu
+      currentDay="1970-01-01"
       dispatch={[MockFunction]}
-      fetchMeals={[Function]}
+      fetchMenu={[Function]}
       isFetching={false}
       logout={[Function]}
       meals={
@@ -150,6 +195,7 @@ exports[`Meals renders connected component 1`] = `
           },
         ]
       }
+      setCurrentDay={[Function]}
       submitError={null}
       submitting={false}
       toggleModal={[Function]}
@@ -167,8 +213,8 @@ exports[`Meals renders connected component 1`] = `
       <CatererView
         isFetching={false}
         logout={[Function]}
-        showTime={true}
-        type="meals"
+        showTime={false}
+        type="menu"
         user={
           Object {
             "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
@@ -184,8 +230,8 @@ exports[`Meals renders connected component 1`] = `
           className="admin"
         >
           <Header
-            dateType="meals"
-            showTime={true}
+            dateType="menu"
+            showTime={false}
             type="caterer"
           >
             <div
@@ -195,14 +241,14 @@ exports[`Meals renders connected component 1`] = `
                 className="navbar"
               >
                 <Connect(CatererHeader)
-                  dateType="meals"
-                  showTime={true}
+                  dateType="menu"
+                  showTime={false}
                 >
                   <CatererHeader
                     currentDay="1970-01-01"
-                    dateType="meals"
+                    dateType="menu"
                     dispatch={[Function]}
-                    showTime={true}
+                    showTime={false}
                   >
                     <div
                       className="menu-control d-none-md"
@@ -226,7 +272,6 @@ exports[`Meals renders connected component 1`] = `
                         <h2>
                           Thursday, 1st January 1970
                               
-                          00:00
                         </h2>
                       </div>
                     </div>
@@ -239,7 +284,7 @@ exports[`Meals renders connected component 1`] = `
             className="content"
           >
             <SideNav
-              active="meals"
+              active="menu"
               logout={[Function]}
               user={
                 Object {
@@ -319,13 +364,13 @@ exports[`Meals renders connected component 1`] = `
                       Dashboard
                     </a>
                     <a
-                      className="menu-item active"
+                      className="menu-item false"
                       href="/meals"
                     >
                       Meals
                     </a>
                     <a
-                      className="menu-item false"
+                      className="menu-item active"
                       href="/menu"
                     >
                       Menu
@@ -345,153 +390,77 @@ exports[`Meals renders connected component 1`] = `
               id="has-modal"
             >
               <div
-                className="content-wrapper meals caterer-meals"
+                className="content-wrapper meals menu-meals"
               >
+                <div
+                  className="date d-none-md"
+                >
+                  <h2>
+                    Thursday, 1st January 1970
+                  </h2>
+                  <DatePicker
+                    handleSelectDate={[Function]}
+                    screenSize={null}
+                  >
+                    <div
+                      className="datepicker-div"
+                    >
+                      <button
+                        className="btn btn-sec"
+                      >
+                        Change Date
+                      </button>
+                      <input
+                        id="datepicker"
+                        onChange={[Function]}
+                        type="date"
+                      />
+                    </div>
+                  </DatePicker>
+                </div>
+                <DatePicker
+                  handleSelectDate={[Function]}
+                  screenSize="md"
+                >
+                  <div
+                    className="datepicker-div d-flex-md"
+                  >
+                    <button
+                      className="btn btn-sec"
+                    >
+                      Change Date
+                    </button>
+                    <input
+                      id="datepicker"
+                      onChange={[Function]}
+                      type="date"
+                    />
+                  </div>
+                </DatePicker>
                 <div
                   className="top"
                 >
                   <button
                     className="btn btn-pri"
-                    id="add-meal-btn"
+                    disabled={null}
+                    id="menu-modal-btn"
                     onClick={[Function]}
                   >
-                    Add a New Meal
+                    Set Menu
                   </button>
+                </div>
+                <div
+                  className="page-heading"
+                >
+                  <h2>
+                    Meal Items on This Day's Menu
+                  </h2>
+                  <hr />
                 </div>
                 <div
                   className="card-group meals-wrapper"
                   id="card-group"
                 >
-                  <MealCard
-                    key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-                    meal={
-                      Object {
-                        "description": "Sharwama contains no animal products, perfect for dieters",
-                        "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                        "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                        "price": "1200.00",
-                        "title": "Vegetable Sharwama and Guava Smoothie",
-                        "vegetarian": true,
-                      }
-                    }
-                    toggleModal={[Function]}
-                    type="caterer"
-                  >
-                    <div
-                      className="meal-card"
-                      id="meal-card"
-                    >
-                      <div
-                        className="meal-card-header"
-                      >
-                        <img
-                          alt="meal"
-                          src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
-                        />
-                        <Dropdown
-                          content={
-                            <UNDEFINED>
-                              <Link
-                                className={null}
-                                clickHandler={[Function]}
-                                href="#add-edit-modal"
-                                id="edit-meal"
-                              >
-                                Edit
-                              </Link>
-                              <Link
-                                className={null}
-                                clickHandler={[Function]}
-                                href="#add-edit-modal"
-                                id="delete-meal"
-                              >
-                                Delete
-                              </Link>
-                            </UNDEFINED>
-                          }
-                          toggler={
-                            <UNDEFINED>
-                              …
-                            </UNDEFINED>
-                          }
-                          type="card"
-                        >
-                          <div
-                            className="dropdown card-dropdown"
-                            onMouseEnter={[Function]}
-                            onMouseLeave={[Function]}
-                          >
-                            <Link
-                              className="link"
-                              clickHandler={[Function]}
-                              id="dropdown-toggler"
-                            >
-                              <button
-                                className="link-btn link"
-                                id="dropdown-toggler"
-                                onClick={[Function]}
-                              >
-                                …
-                              </button>
-                            </Link>
-                            <div
-                              className="dropdown-content meal"
-                              id="dropdown-content"
-                            >
-                              <Link
-                                className={null}
-                                clickHandler={[Function]}
-                                href="#add-edit-modal"
-                                id="edit-meal"
-                              >
-                                <button
-                                  className="link-btn null"
-                                  id="edit-meal"
-                                  onClick={[Function]}
-                                >
-                                  Edit
-                                </button>
-                              </Link>
-                              <Link
-                                className={null}
-                                clickHandler={[Function]}
-                                href="#add-edit-modal"
-                                id="delete-meal"
-                              >
-                                <button
-                                  className="link-btn null"
-                                  id="delete-meal"
-                                  onClick={[Function]}
-                                >
-                                  Delete
-                                </button>
-                              </Link>
-                            </div>
-                          </div>
-                        </Dropdown>
-                        <div
-                          className="menu-card-title"
-                        >
-                          <p>
-                            Vegetable Sharwama and Guava Smoothie
-                          </p>
-                        </div>
-                      </div>
-                      <div
-                        className="meal-card-body"
-                      >
-                        <div>
-                          <h3>
-                            ₦ 
-                            1200.00
-                          </h3>
-                          <p>
-                            Sharwama contains no animal products, perfect for dieters
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </MealCard>
                   <MealCard
                     key="81211c24-51c0-46ec-b1e0-18db55880958"
                     meal={
@@ -504,8 +473,8 @@ exports[`Meals renders connected component 1`] = `
                         "vegetarian": false,
                       }
                     }
-                    toggleModal={[Function]}
-                    type="caterer"
+                    toggleModal={null}
+                    type="menu"
                   >
                     <div
                       className="meal-card"
@@ -518,87 +487,6 @@ exports[`Meals renders connected component 1`] = `
                           alt="meal"
                           src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
                         />
-                        <Dropdown
-                          content={
-                            <UNDEFINED>
-                              <Link
-                                className={null}
-                                clickHandler={[Function]}
-                                href="#add-edit-modal"
-                                id="edit-meal"
-                              >
-                                Edit
-                              </Link>
-                              <Link
-                                className={null}
-                                clickHandler={[Function]}
-                                href="#add-edit-modal"
-                                id="delete-meal"
-                              >
-                                Delete
-                              </Link>
-                            </UNDEFINED>
-                          }
-                          toggler={
-                            <UNDEFINED>
-                              …
-                            </UNDEFINED>
-                          }
-                          type="card"
-                        >
-                          <div
-                            className="dropdown card-dropdown"
-                            onMouseEnter={[Function]}
-                            onMouseLeave={[Function]}
-                          >
-                            <Link
-                              className="link"
-                              clickHandler={[Function]}
-                              id="dropdown-toggler"
-                            >
-                              <button
-                                className="link-btn link"
-                                id="dropdown-toggler"
-                                onClick={[Function]}
-                              >
-                                …
-                              </button>
-                            </Link>
-                            <div
-                              className="dropdown-content meal"
-                              id="dropdown-content"
-                            >
-                              <Link
-                                className={null}
-                                clickHandler={[Function]}
-                                href="#add-edit-modal"
-                                id="edit-meal"
-                              >
-                                <button
-                                  className="link-btn null"
-                                  id="edit-meal"
-                                  onClick={[Function]}
-                                >
-                                  Edit
-                                </button>
-                              </Link>
-                              <Link
-                                className={null}
-                                clickHandler={[Function]}
-                                href="#add-edit-modal"
-                                id="delete-meal"
-                              >
-                                <button
-                                  className="link-btn null"
-                                  id="delete-meal"
-                                  onClick={[Function]}
-                                >
-                                  Delete
-                                </button>
-                              </Link>
-                            </div>
-                          </div>
-                        </Dropdown>
                         <div
                           className="menu-card-title"
                         >
@@ -622,6 +510,55 @@ exports[`Meals renders connected component 1`] = `
                       </div>
                     </div>
                   </MealCard>
+                  <MealCard
+                    key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                    meal={
+                      Object {
+                        "description": "Sharwama contains no animal products, perfect for dieters",
+                        "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                        "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                        "price": "1200.00",
+                        "title": "Vegetable Sharwama and Guava Smoothie",
+                        "vegetarian": true,
+                      }
+                    }
+                    toggleModal={null}
+                    type="menu"
+                  >
+                    <div
+                      className="meal-card"
+                      id="meal-card"
+                    >
+                      <div
+                        className="meal-card-header"
+                      >
+                        <img
+                          alt="meal"
+                          src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
+                        />
+                        <div
+                          className="menu-card-title"
+                        >
+                          <p>
+                            Vegetable Sharwama and Guava Smoothie
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        className="meal-card-body"
+                      >
+                        <div>
+                          <h3>
+                            ₦ 
+                            1200.00
+                          </h3>
+                          <p>
+                            Sharwama contains no animal products, perfect for dieters
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </MealCard>
                 </div>
               </div>
             </div>
@@ -638,10 +575,50 @@ exports[`Meals renders connected component 1`] = `
         </div>
       </CatererView>
       <Connect(Modal)
+        meals={
+          Array [
+            Object {
+              "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+              "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+              "imageURL": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+              "price": "1500.00",
+              "title": "Jollof Rice, Beef and Plantain",
+              "vegetarian": false,
+            },
+            Object {
+              "description": "Sharwama contains no animal products, perfect for dieters",
+              "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+              "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "price": "1200.00",
+              "title": "Vegetable Sharwama and Guava Smoothie",
+              "vegetarian": true,
+            },
+          ]
+        }
         submitError={null}
         submitting={false}
       >
         <Modal
+          meals={
+            Array [
+              Object {
+                "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                "imageURL": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                "price": "1500.00",
+                "title": "Jollof Rice, Beef and Plantain",
+                "vegetarian": false,
+              },
+              Object {
+                "description": "Sharwama contains no animal products, perfect for dieters",
+                "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                "price": "1200.00",
+                "title": "Vegetable Sharwama and Guava Smoothie",
+                "vegetarian": true,
+              },
+            ]
+          }
           open={false}
           submitError={null}
           submitting={false}
@@ -649,18 +626,18 @@ exports[`Meals renders connected component 1`] = `
           type={null}
         />
       </Connect(Modal)>
-    </Meals>
-  </Connect(Meals)>
+    </CatererMenu>
+  </Connect(CatererMenu)>
 </Provider>
 `;
 
-exports[`Meals renders correctly when not fetching 1`] = `
+exports[`Menu renders correctly when not fetching 1`] = `
 <React.Fragment>
   <CatererView
     isFetching={false}
     logout={[MockFunction]}
-    showTime={true}
-    type="meals"
+    showTime={false}
+    type="menu"
     user={
       Object {
         "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
@@ -674,38 +651,47 @@ exports[`Meals renders correctly when not fetching 1`] = `
   >
     <React.Fragment>
       <div
-        className="content-wrapper meals caterer-meals"
+        className="content-wrapper meals menu-meals"
       >
+        <div
+          className="date d-none-md"
+        >
+          <h2>
+            Thursday, 1st January 1970
+          </h2>
+          <DatePicker
+            handleSelectDate={[Function]}
+            screenSize={null}
+          />
+        </div>
+        <DatePicker
+          handleSelectDate={[Function]}
+          screenSize="md"
+        />
         <div
           className="top"
         >
           <button
             className="btn btn-pri"
-            id="add-meal-btn"
+            disabled={null}
+            id="menu-modal-btn"
             onClick={[Function]}
           >
-            Add a New Meal
+            Set Menu
           </button>
+        </div>
+        <div
+          className="page-heading"
+        >
+          <h2>
+            Meal Items on This Day's Menu
+          </h2>
+          <hr />
         </div>
         <div
           className="card-group meals-wrapper"
           id="card-group"
         >
-          <MealCard
-            key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-            meal={
-              Object {
-                "description": "Sharwama contains no animal products, perfect for dieters",
-                "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                "price": "1200.00",
-                "title": "Vegetable Sharwama and Guava Smoothie",
-                "vegetarian": true,
-              }
-            }
-            toggleModal={[Function]}
-            type="caterer"
-          />
           <MealCard
             key="81211c24-51c0-46ec-b1e0-18db55880958"
             meal={
@@ -718,14 +704,49 @@ exports[`Meals renders correctly when not fetching 1`] = `
                 "vegetarian": false,
               }
             }
-            toggleModal={[Function]}
-            type="caterer"
+            toggleModal={null}
+            type="menu"
+          />
+          <MealCard
+            key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+            meal={
+              Object {
+                "description": "Sharwama contains no animal products, perfect for dieters",
+                "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                "price": "1200.00",
+                "title": "Vegetable Sharwama and Guava Smoothie",
+                "vegetarian": true,
+              }
+            }
+            toggleModal={null}
+            type="menu"
           />
         </div>
       </div>
     </React.Fragment>
   </CatererView>
   <Connect(Modal)
+    meals={
+      Array [
+        Object {
+          "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+          "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+          "imageURL": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+          "price": "1500.00",
+          "title": "Jollof Rice, Beef and Plantain",
+          "vegetarian": false,
+        },
+        Object {
+          "description": "Sharwama contains no animal products, perfect for dieters",
+          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+          "price": "1200.00",
+          "title": "Vegetable Sharwama and Guava Smoothie",
+          "vegetarian": true,
+        },
+      ]
+    }
     submitError={null}
     submitting={false}
   />

@@ -3,6 +3,8 @@
 exports[`AuthComponent renders caterer's signup form correctly 1`] = `
 <React.Fragment>
   <Header
+    dateType={null}
+    showTime={true}
     type="unauth"
   />
   <div
@@ -130,6 +132,8 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
       type="signin"
     >
       <Header
+        dateType={null}
+        showTime={true}
         type="unauth"
       >
         <div
@@ -475,6 +479,8 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
 exports[`AuthComponent renders customer's signup form correctly 1`] = `
 <React.Fragment>
   <Header
+    dateType={null}
+    showTime={true}
     type="unauth"
   />
   <div
@@ -557,6 +563,8 @@ exports[`AuthComponent renders customer's signup form correctly 1`] = `
 exports[`AuthComponent renders signin form correctly 1`] = `
 <React.Fragment>
   <Header
+    dateType={null}
+    showTime={true}
     type="unauth"
   />
   <div

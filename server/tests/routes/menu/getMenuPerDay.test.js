@@ -31,8 +31,6 @@ describe('Menu Routes: Get the menu specific day', () => {
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.include.keys('menu');
-        expect(res.body.menu[0]).to.include.keys('date');
-        expect(res.body.menu[0].date).to.equal(currentDay);
 
         if (err) return done(err);
         done();
@@ -97,7 +95,7 @@ describe('Menu Routes: Get the menu specific day', () => {
         .set('authorization', foodCircleToken)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
-          expect(res.body.message).to.equal('You don\'t have a menu for this day');
+          expect(res.body.meals.length).to.equal(0);
 
           if (err) return done(err);
           done();

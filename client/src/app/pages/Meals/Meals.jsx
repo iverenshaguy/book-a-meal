@@ -101,7 +101,7 @@ class Meals extends Component {
 
     return (
       <Fragment>
-        <CatererView user={user} logout={logout} type="meals" isFetching={isFetching}>
+        <CatererView user={user} logout={logout} type="meals" showTime isFetching={isFetching}>
           {this.renderMeals()}
         </CatererView>
         <Modal

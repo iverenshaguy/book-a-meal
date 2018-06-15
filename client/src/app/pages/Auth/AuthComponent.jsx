@@ -52,21 +52,30 @@ class Auth extends Component {
   getMeta = () => {
     let btnText, para1, para2;
 
+    const signinClick = () => this.changeForm('signin');
+    const catererSignupClick = () => this.changeForm('catererSignup');
+    const customerSignupClick = () => this.changeForm('customerSignup');
+    const catererSignupLink =
+      <LinkBtn clickHandler={catererSignupClick}>Signup as a Caterer</LinkBtn>;
+    const customerSignupLink =
+      <LinkBtn clickHandler={customerSignupClick}>Signup as a Customer</LinkBtn>;
+    const signinLink = (
+      <Fragment>
+        Already have an account? Sign in <LinkBtn clickHandler={signinClick}>here</LinkBtn>
+      </Fragment>
+    );
+
     switch (this.state.type) {
       case 'customerSignup':
-        btnText = 'SIGN UP';
-        para1 = <Fragment>Already have an account? Sign in <LinkBtn clickHandler={() => this.changeForm('signin')}>here</LinkBtn></Fragment>;
-        para2 = <LinkBtn clickHandler={() => this.changeForm('catererSignup')}>Signup as a Caterer</LinkBtn>;
+        btnText = 'SIGN UP'; para1 = signinLink; para2 = catererSignupLink;
         break;
       case 'catererSignup':
-        btnText = 'SIGN UP';
-        para1 = <Fragment>Already have an account? Sign in <LinkBtn clickHandler={() => this.changeForm('signin')}>here</LinkBtn></Fragment>;
-        para2 = <LinkBtn clickHandler={() => this.changeForm('customerSignup')}>Signup as a Customer</LinkBtn>;
+        btnText = 'SIGN UP'; para1 = signinLink; para2 = customerSignupLink;
         break;
       default:
         btnText = 'SIGN IN';
-        para1 = <Fragment>{"Don't have an account, signup"} <LinkBtn clickHandler={() => this.changeForm('customerSignup')}>here</LinkBtn></Fragment>;
-        para2 = <LinkBtn clickHandler={() => this.changeForm('catererSignup')}>Signup as a Caterer</LinkBtn>;
+        para1 = <Fragment>{"Don't have an account, signup"} <LinkBtn clickHandler={customerSignupClick}>here</LinkBtn></Fragment>;
+        para2 = catererSignupLink;
     }
 
     return {

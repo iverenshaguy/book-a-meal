@@ -17,6 +17,12 @@ export const initialValues = {
     working: false,
     error: null
   },
+  menu: {
+    meals: [],
+    working: false,
+    error: null,
+    currentDay: '1970-01-01'
+  },
   orders: {
     items: [],
     pendingOrders: 0,

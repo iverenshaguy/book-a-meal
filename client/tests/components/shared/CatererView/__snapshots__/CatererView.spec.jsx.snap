@@ -5,6 +5,8 @@ exports[`CatererView renders Preloader when fetching 1`] = `
   className="admin"
 >
   <Header
+    dateType="dashboard"
+    showTime={true}
     type="caterer"
   />
   <div
@@ -42,6 +44,8 @@ exports[`CatererView renders correctly 1`] = `
   className="admin"
 >
   <Header
+    dateType="dashboard"
+    showTime={true}
     type="caterer"
   />
   <div

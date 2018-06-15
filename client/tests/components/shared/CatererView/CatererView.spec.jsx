@@ -7,10 +7,20 @@ const props = {
   logout: jest.fn(),
   type: 'dashboard',
   isFetching: false,
-  children: <p>Hi</p>
+  children: <p>Hi</p>,
+  showTime: true
 };
+const { now } = Date;
 
 describe('CatererView', () => {
+  beforeAll(() => {
+    Date.now = jest.fn(() => 0);
+  });
+
+  afterAll(() => {
+    Date.now = now;
+  });
+
   it('renders correctly', () => {
     const wrapper = shallow(<CatererView {...props} />);
 

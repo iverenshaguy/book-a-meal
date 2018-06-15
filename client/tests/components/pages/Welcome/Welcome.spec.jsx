@@ -7,8 +7,17 @@ const props = {
   isAuthenticated: false,
   authenticating: false
 };
+const { now } = Date;
 
 describe('Welcome', () => {
+  beforeAll(() => {
+    Date.now = jest.fn(() => 0);
+  });
+
+  afterAll(() => {
+    Date.now = now;
+  });
+
   it('renders correctly when authenticating', () => {
     const shallowWrapper = shallow(<Welcome {...props} authenticating />);
 

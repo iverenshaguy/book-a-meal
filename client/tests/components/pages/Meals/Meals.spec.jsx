@@ -11,30 +11,32 @@ const mockStore = configureMockStore(middlewares);
 const store = mockStore({
   ...initialValues, meals: { ...initialValues.meals, items: caterersMealsObj.meals }
 });
-
+const { now } = Date;
 
 describe('Meals', () => {
+  beforeAll(() => {
+    Date.now = jest.fn(() => 0);
+  });
+
+  afterAll(() => {
+    Date.now = now;
+  });
+
   it('renders correctly when not fetching', () => {
     const toggleMock = jest.fn();
-    const { now } = Date;
-    Date.now = jest.fn(() => 0); // mock Date now
 
-    try {
-      const shallowWrapper = shallow(<Meals
-        user={caterer}
-        logout={jest.fn()}
-        fetchMeals={jest.fn()}
-        {...caterersMealsObj}
-        isFetching={false}
-        submitting={false}
-        toggleModal={toggleMock}
-      />);
+    const shallowWrapper = shallow(<Meals
+      user={caterer}
+      logout={jest.fn()}
+      fetchMeals={jest.fn()}
+      {...caterersMealsObj}
+      isFetching={false}
+      submitting={false}
+      toggleModal={toggleMock}
+    />);
 
-      expect(toJson(shallowWrapper)).toMatchSnapshot();
-      expect(shallowWrapper.find('MealCard')).toBeTruthy();
-    } finally {
-      Date.now = now; // restore original now method on Date object
-    }
+    expect(toJson(shallowWrapper)).toMatchSnapshot();
+    expect(shallowWrapper.find('MealCard')).toBeTruthy();
   });
 
   it('calls toggleModal when button is clicked', () => {
@@ -91,26 +93,19 @@ describe('Meals', () => {
 
   it('renders connected component', () => {
     const dispatchMock = jest.fn();
-    const { now } = Date;
-    Date.now = jest.fn(() => 0); // mock Date now
+    const comp = (
+      <Provider store={store}>
+        <ConnectedMeals
+          user={caterer}
+          dispatch={dispatchMock}
+          {...caterersMealsObj}
+          isFetching={false}
+        />
+      </Provider>);
 
-    try {
-      const comp = (
-        <Provider store={store}>
-          <ConnectedMeals
-            user={caterer}
-            dispatch={dispatchMock}
-            {...caterersMealsObj}
-            isFetching={false}
-          />
-        </Provider>);
+    const wrapper = mount(comp);
 
-      const wrapper = mount(comp);
-
-      expect(toJson(wrapper)).toMatchSnapshot();
-      wrapper.unmount();
-    } finally {
-      Date.now = now; // restore original now method on Date object
-    }
+    expect(toJson(wrapper)).toMatchSnapshot();
+    wrapper.unmount();
   });
 });
