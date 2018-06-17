@@ -118,12 +118,10 @@ describe('Menu', () => {
   });
 
   it('renders connected component', () => {
-    const dispatchMock = jest.fn();
     const comp = (
       <Provider store={store}>
         <ConnectedCatererMenu
           user={caterer}
-          dispatch={dispatchMock}
           {...caterersMealsObj}
           isFetching={false}
         />

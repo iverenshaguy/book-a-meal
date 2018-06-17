@@ -41,12 +41,12 @@ const catererOrderObjPropTypes = PropTypes.shape({
     email: PropTypes.string
   }),
   meals: PropTypes.arrayOf(orderMealPropTypes)
-}).isRequired;
+});
 
 const catererOrdersObjPropTypes = {
-  orders: PropTypes.arrayOf(catererOrderObjPropTypes),
-  pendingOrders: PropTypes.number,
-  totalCashEarned: PropTypes.number
+  orders: PropTypes.arrayOf(catererOrderObjPropTypes).isRequired,
+  pendingOrders: PropTypes.number.isRequired,
+  totalCashEarned: PropTypes.number.isRequired
 };
 
 const authPropTypes = {

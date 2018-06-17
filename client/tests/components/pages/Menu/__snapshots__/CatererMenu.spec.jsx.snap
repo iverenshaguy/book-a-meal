@@ -136,7 +136,6 @@ exports[`Menu renders connected component 1`] = `
   }
 >
   <Connect(CatererMenu)
-    dispatch={[MockFunction]}
     isFetching={false}
     meals={
       Array [
@@ -171,7 +170,6 @@ exports[`Menu renders connected component 1`] = `
   >
     <CatererMenu
       currentDay="1970-01-01"
-      dispatch={[MockFunction]}
       fetchMenu={[Function]}
       isFetching={false}
       logout={[Function]}
@@ -377,7 +375,7 @@ exports[`Menu renders connected component 1`] = `
                     </a>
                     <a
                       className="menu-item false"
-                      href="/"
+                      href="/orders"
                     >
                       Order History
                     </a>
