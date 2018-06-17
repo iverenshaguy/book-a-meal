@@ -332,7 +332,7 @@ exports[`Meals renders connected component 1`] = `
                     </a>
                     <a
                       className="menu-item false"
-                      href="/"
+                      href="/orders"
                     >
                       Order History
                     </a>

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderPill renders correctly 1`] = `
+<div
+  className="order-history-pill admin-order-history-pill"
+>
+  <Link
+    href="/orders/fb097bde-5959-45ff-8e21-51184fa60c25"
+    replace={false}
+    to="/orders/fb097bde-5959-45ff-8e21-51184fa60c25"
+  >
+    <div
+      className="order-history-header"
+    >
+      <h3>
+        #fb097bde-5959-45ff-8e21-51184fa60c25
+      </h3>
+      <h3>
+          
+        18/04/06 12:47
+      </h3>
+    </div>
+    <hr />
+    <div>
+      <p>
+        Emiola Olasanmi
+          -  
+        4, Church Street, Yaba
+          -  
+        +2348134567890
+      </p>
+    </div>
+    <div
+      className="order-history-footer"
+    >
+      <h4>
+        Status:
+        <span
+          className="success"
+          style={
+            Object {
+              "textTransform": "capitalize",
+            }
+          }
+        >
+           
+          delivered
+        </span>
+      </h4>
+      <h2>
+        ₦
+        1200
+      </h2>
+    </div>
+  </Link>
+</div>
+`;
