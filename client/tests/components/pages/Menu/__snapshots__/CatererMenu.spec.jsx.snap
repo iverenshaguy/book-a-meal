@@ -752,3 +752,76 @@ exports[`Menu renders correctly when not fetching 1`] = `
   />
 </React.Fragment>
 `;
+
+exports[`Menu renders message when not fetching and there are no meals on the menu 1`] = `
+<React.Fragment>
+  <CatererView
+    isFetching={true}
+    logout={[MockFunction]}
+    showTime={false}
+    type="menu"
+    user={
+      Object {
+        "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+        "businessName": "Food Circle",
+        "businessPhoneNo": "+2348166557788",
+        "email": "food@circle.com",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "role": "caterer",
+      }
+    }
+  >
+    <React.Fragment>
+      <div
+        className="content-wrapper meals menu-meals"
+      >
+        <div
+          className="date d-none-md"
+        >
+          <h2>
+            Thursday, 1st January 1970
+          </h2>
+          <DatePicker
+            handleSelectDate={[Function]}
+            screenSize={null}
+          />
+        </div>
+        <DatePicker
+          handleSelectDate={[Function]}
+          screenSize="md"
+        />
+        <div
+          className="top"
+        >
+          <button
+            className="btn btn-pri"
+            disabled={null}
+            id="menu-modal-btn"
+            onClick={[Function]}
+          >
+            Set Menu
+          </button>
+        </div>
+        <div
+          className="page-heading"
+        >
+          <h2>
+            Meal Items on This Day's Menu
+          </h2>
+          <hr />
+        </div>
+        <p
+          className="text-center"
+        >
+          There are no Meal Items on this Menu
+        </p>
+      </div>
+    </React.Fragment>
+  </CatererView>
+  <Connect(Modal)
+    meals={Array []}
+    submitError={null}
+    submitting={false}
+  />
+</React.Fragment>
+`;

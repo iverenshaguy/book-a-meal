@@ -1,5 +1,5 @@
 import React from 'react';
-import MealModal from '../../../../src/app/shared/Modal/MealModal';
+import MealModal from '../../../../src/components/shared/Modal/MealModal';
 
 describe('MealModal', () => {
   afterAll(() => {

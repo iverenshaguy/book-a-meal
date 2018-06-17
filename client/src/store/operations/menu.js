@@ -1,7 +1,11 @@
 import instance from '../../config/axios';
 import errorHandler from '../../utils/errorHandler';
 import { setFetching, unsetFetching } from '../actions/isFetching';
-import { fetchMenuSuccess, fetchMenuFailure, setCurrentDay } from '../actions/menu';
+import {
+  setMenuWorking, unsetMenuWorking, fetchMenuSuccess, fetchMenuFailure,
+  setCurrentDay, addMenuSuccess, addMenuFailure, clearMenuError
+} from '../actions/menu';
+import { toggleModal } from '../actions/ui';
 
 const fetchMenu = date => async (dispatch) => {
   try {
@@ -19,9 +23,32 @@ const fetchMenu = date => async (dispatch) => {
   }
 };
 
+const addMenu = menu => async (dispatch) => {
+  try {
+    dispatch(setMenuWorking());
+
+    const response = await instance.post('/menu', menu);
+
+    dispatch(addMenuSuccess(response.data));
+    dispatch(unsetMenuWorking());
+    dispatch(toggleModal());
+  } catch (error) {
+    const errorResponse = errorHandler(error);
+
+    dispatch(addMenuFailure(errorResponse.response));
+    dispatch(unsetMenuWorking());
+  }
+};
+
 export default {
+  addMenu,
   fetchMenu,
   setCurrentDay,
+  clearMenuError,
+  addMenuSuccess,
+  addMenuFailure,
+  setMenuWorking,
+  unsetMenuWorking,
   fetchMenuSuccess,
   fetchMenuFailure,
 };

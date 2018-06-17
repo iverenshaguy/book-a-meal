@@ -3,8 +3,8 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import { Redirect, MemoryRouter } from 'react-router-dom';
-import requireAuthentication from '../../../src/app/hoc/Authentication';
-import Preloader from '../../../src/app/shared/Preloader';
+import requireAuthentication from '../../../src/components/hoc/Authentication';
+import Preloader from '../../../src/components/shared/Preloader';
 import rootReducer from '../../../src/rootReducer';
 import { initialValues } from '../../setup/data';
 

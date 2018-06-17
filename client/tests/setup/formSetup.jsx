@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import { arrayToObject } from '../../src/utils';
 import { formHelpers } from '../../src/helpers';
-import FormComponent from '../../src/app/shared/Form/Form';
+import FormComponent from '../../src/components/shared/Form/Form';
 import { newMeal, initialValues } from './data';
 
 const { formFields } = formHelpers;

@@ -75,10 +75,7 @@ class RenderFileInput extends Component {
       <div className="form-input form-img-input">
         {label && <label htmlFor={id}>{label}</label>}
         <div id="form-image-preview">
-          {(uploading || updating) &&
-            <div className="img-overlay" id="img-overlay">
-              <MiniPreloader />
-            </div>}
+          {(uploading || updating) && <div className="img-overlay" id="img-overlay"><MiniPreloader /></div>}
           <img src={formerImgURL} alt="meal" id="meal-form-image" />
         </div>
         <input

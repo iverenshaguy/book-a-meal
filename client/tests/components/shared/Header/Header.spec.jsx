@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../../../../src/app/shared/Header';
+import Header from '../../../../src/components/shared/Header';
 
 const { now } = Date;
 

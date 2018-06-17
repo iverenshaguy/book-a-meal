@@ -38,20 +38,17 @@ class Dropdown extends Component {
    * @returns {JSX} Dropdown Component
    */
   render() {
-    const { type, toggler, content } = this.props;
-    const { showContent } = this.state;
-
     const dropdownClass = classNames({
       dropdown: true,
-      notification: type === 'notification' || type === 'admin-notification',
-      'card-dropdown': type === 'card'
+      notification: this.props.type === 'notification' || this.props.type === 'admin-notification',
+      'card-dropdown': this.props.type === 'card'
     });
 
     const dropdownContentClass = classNames({
-      show: showContent,
+      show: this.state.showContent,
       'dropdown-content': true,
-      'admin-dropdown-content': type === 'admin-notification',
-      meal: type === 'card'
+      'admin-dropdown-content': this.props.type === 'admin-notification',
+      meal: this.props.type === 'card'
     });
 
     return (
@@ -60,16 +57,10 @@ class Dropdown extends Component {
         onMouseEnter={this.toggleDropdownContent}
         onMouseLeave={this.toggleDropdownContent}
       >
-        <LinkBtn
-          clickHandler={this.toggleDropdownContent}
-          id="dropdown-toggler"
-          className="link"
-        >
-          {toggler}
+        <LinkBtn clickHandler={this.toggleDropdownContent} id="dropdown-toggler" className="link">
+          {this.props.toggler}
         </LinkBtn>
-        <div className={dropdownContentClass} id="dropdown-content">
-          {content}
-        </div>
+        <div className={dropdownContentClass} id="dropdown-content">{this.props.content}</div>
       </div>
     );
   }

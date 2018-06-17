@@ -2,8 +2,8 @@ import React from 'react';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import Meals from '../../../../src/app/pages/Meals/Meals';
-import ConnectedMeals from '../../../../src/app/pages/Meals';
+import Meals from '../../../../src/components/pages/Meals/Meals';
+import ConnectedMeals from '../../../../src/components/pages/Meals';
 import { caterer, caterersMealsObj, initialValues } from '../../../setup/data';
 
 const middlewares = [thunk];
@@ -89,6 +89,22 @@ describe('Meals', () => {
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('Preloader')).toBeTruthy();
+  });
+
+  it('renders message when not fetching and there are no meals', () => {
+    const toggleMock = jest.fn();
+    const shallowWrapper = shallow(<Meals
+      user={caterer}
+      logout={jest.fn()}
+      fetchMeals={jest.fn()}
+      meals={[]}
+      isFetching
+      submitting={false}
+      toggleModal={toggleMock}
+    />);
+
+    expect(toJson(shallowWrapper)).toMatchSnapshot();
+    expect(shallowWrapper.find('p').text()).toEqual('You Do Not Have Any Meals Yet');
   });
 
   it('renders connected component', () => {

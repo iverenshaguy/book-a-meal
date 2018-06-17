@@ -363,136 +363,6 @@ exports[`Meals renders connected component 1`] = `
                   id="card-group"
                 >
                   <MealCard
-                    key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-                    meal={
-                      Object {
-                        "description": "Sharwama contains no animal products, perfect for dieters",
-                        "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                        "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                        "price": "1200.00",
-                        "title": "Vegetable Sharwama and Guava Smoothie",
-                        "vegetarian": true,
-                      }
-                    }
-                    toggleModal={[Function]}
-                    type="caterer"
-                  >
-                    <div
-                      className="meal-card"
-                      id="meal-card"
-                    >
-                      <div
-                        className="meal-card-header"
-                      >
-                        <img
-                          alt="meal"
-                          src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
-                        />
-                        <Dropdown
-                          content={
-                            <UNDEFINED>
-                              <Link
-                                className={null}
-                                clickHandler={[Function]}
-                                href="#add-edit-modal"
-                                id="edit-meal"
-                              >
-                                Edit
-                              </Link>
-                              <Link
-                                className={null}
-                                clickHandler={[Function]}
-                                href="#add-edit-modal"
-                                id="delete-meal"
-                              >
-                                Delete
-                              </Link>
-                            </UNDEFINED>
-                          }
-                          toggler={
-                            <UNDEFINED>
-                              …
-                            </UNDEFINED>
-                          }
-                          type="card"
-                        >
-                          <div
-                            className="dropdown card-dropdown"
-                            onMouseEnter={[Function]}
-                            onMouseLeave={[Function]}
-                          >
-                            <Link
-                              className="link"
-                              clickHandler={[Function]}
-                              id="dropdown-toggler"
-                            >
-                              <button
-                                className="link-btn link"
-                                id="dropdown-toggler"
-                                onClick={[Function]}
-                              >
-                                …
-                              </button>
-                            </Link>
-                            <div
-                              className="dropdown-content meal"
-                              id="dropdown-content"
-                            >
-                              <Link
-                                className={null}
-                                clickHandler={[Function]}
-                                href="#add-edit-modal"
-                                id="edit-meal"
-                              >
-                                <button
-                                  className="link-btn null"
-                                  id="edit-meal"
-                                  onClick={[Function]}
-                                >
-                                  Edit
-                                </button>
-                              </Link>
-                              <Link
-                                className={null}
-                                clickHandler={[Function]}
-                                href="#add-edit-modal"
-                                id="delete-meal"
-                              >
-                                <button
-                                  className="link-btn null"
-                                  id="delete-meal"
-                                  onClick={[Function]}
-                                >
-                                  Delete
-                                </button>
-                              </Link>
-                            </div>
-                          </div>
-                        </Dropdown>
-                        <div
-                          className="menu-card-title"
-                        >
-                          <p>
-                            Vegetable Sharwama and Guava Smoothie
-                          </p>
-                        </div>
-                      </div>
-                      <div
-                        className="meal-card-body"
-                      >
-                        <div>
-                          <h3>
-                            ₦ 
-                            1200.00
-                          </h3>
-                          <p>
-                            Sharwama contains no animal products, perfect for dieters
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </MealCard>
-                  <MealCard
                     key="81211c24-51c0-46ec-b1e0-18db55880958"
                     meal={
                       Object {
@@ -622,6 +492,136 @@ exports[`Meals renders connected component 1`] = `
                       </div>
                     </div>
                   </MealCard>
+                  <MealCard
+                    key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                    meal={
+                      Object {
+                        "description": "Sharwama contains no animal products, perfect for dieters",
+                        "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                        "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                        "price": "1200.00",
+                        "title": "Vegetable Sharwama and Guava Smoothie",
+                        "vegetarian": true,
+                      }
+                    }
+                    toggleModal={[Function]}
+                    type="caterer"
+                  >
+                    <div
+                      className="meal-card"
+                      id="meal-card"
+                    >
+                      <div
+                        className="meal-card-header"
+                      >
+                        <img
+                          alt="meal"
+                          src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
+                        />
+                        <Dropdown
+                          content={
+                            <UNDEFINED>
+                              <Link
+                                className={null}
+                                clickHandler={[Function]}
+                                href="#add-edit-modal"
+                                id="edit-meal"
+                              >
+                                Edit
+                              </Link>
+                              <Link
+                                className={null}
+                                clickHandler={[Function]}
+                                href="#add-edit-modal"
+                                id="delete-meal"
+                              >
+                                Delete
+                              </Link>
+                            </UNDEFINED>
+                          }
+                          toggler={
+                            <UNDEFINED>
+                              …
+                            </UNDEFINED>
+                          }
+                          type="card"
+                        >
+                          <div
+                            className="dropdown card-dropdown"
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                          >
+                            <Link
+                              className="link"
+                              clickHandler={[Function]}
+                              id="dropdown-toggler"
+                            >
+                              <button
+                                className="link-btn link"
+                                id="dropdown-toggler"
+                                onClick={[Function]}
+                              >
+                                …
+                              </button>
+                            </Link>
+                            <div
+                              className="dropdown-content meal"
+                              id="dropdown-content"
+                            >
+                              <Link
+                                className={null}
+                                clickHandler={[Function]}
+                                href="#add-edit-modal"
+                                id="edit-meal"
+                              >
+                                <button
+                                  className="link-btn null"
+                                  id="edit-meal"
+                                  onClick={[Function]}
+                                >
+                                  Edit
+                                </button>
+                              </Link>
+                              <Link
+                                className={null}
+                                clickHandler={[Function]}
+                                href="#add-edit-modal"
+                                id="delete-meal"
+                              >
+                                <button
+                                  className="link-btn null"
+                                  id="delete-meal"
+                                  onClick={[Function]}
+                                >
+                                  Delete
+                                </button>
+                              </Link>
+                            </div>
+                          </div>
+                        </Dropdown>
+                        <div
+                          className="menu-card-title"
+                        >
+                          <p>
+                            Vegetable Sharwama and Guava Smoothie
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        className="meal-card-body"
+                      >
+                        <div>
+                          <h3>
+                            ₦ 
+                            1200.00
+                          </h3>
+                          <p>
+                            Sharwama contains no animal products, perfect for dieters
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </MealCard>
                 </div>
               </div>
             </div>
@@ -722,6 +722,54 @@ exports[`Meals renders correctly when not fetching 1`] = `
             type="caterer"
           />
         </div>
+      </div>
+    </React.Fragment>
+  </CatererView>
+  <Connect(Modal)
+    submitError={null}
+    submitting={false}
+  />
+</React.Fragment>
+`;
+
+exports[`Meals renders message when not fetching and there are no meals 1`] = `
+<React.Fragment>
+  <CatererView
+    isFetching={true}
+    logout={[MockFunction]}
+    showTime={true}
+    type="meals"
+    user={
+      Object {
+        "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+        "businessName": "Food Circle",
+        "businessPhoneNo": "+2348166557788",
+        "email": "food@circle.com",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "role": "caterer",
+      }
+    }
+  >
+    <React.Fragment>
+      <div
+        className="content-wrapper meals caterer-meals"
+      >
+        <div
+          className="top"
+        >
+          <button
+            className="btn btn-pri"
+            id="add-meal-btn"
+            onClick={[Function]}
+          >
+            Add a New Meal
+          </button>
+        </div>
+        <p
+          className="text-center"
+        >
+          You Do Not Have Any Meals Yet
+        </p>
       </div>
     </React.Fragment>
   </CatererView>

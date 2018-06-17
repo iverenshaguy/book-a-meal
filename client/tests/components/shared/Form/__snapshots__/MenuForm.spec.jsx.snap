@@ -1,0 +1,333 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuForm renders connected component correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(MenuForm)
+    addMenu={[MockFunction]}
+    clearMenuError={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+        ],
+      }
+    }
+    fetchMeals={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+        ],
+      }
+    }
+    fetchMenu={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            "2018-06-16",
+          ],
+          Array [
+            "2018-06-16",
+          ],
+          Array [
+            "2018-06-16",
+          ],
+          Array [
+            "2018-06-16",
+          ],
+          Array [
+            "2018-06-16",
+          ],
+          Array [
+            "2018-06-16",
+          ],
+          Array [
+            "2018-06-16",
+          ],
+          Array [
+            "2018-04-27",
+          ],
+          Array [
+            "2018-06-16",
+          ],
+          Array [
+            "2018-06-16",
+          ],
+        ],
+      }
+    }
+    isFetching={false}
+    meals={
+      Array [
+        Object {
+          "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+          "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+          "imageURL": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+          "price": "1500.00",
+          "title": "Jollof Rice, Beef and Plantain",
+          "vegetarian": false,
+        },
+        Object {
+          "description": "Sharwama contains no animal products, perfect for dieters",
+          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+          "price": "1200.00",
+          "title": "Vegetable Sharwama and Guava Smoothie",
+          "vegetarian": true,
+        },
+      ]
+    }
+    menu={
+      Object {
+        "date": "2018-06-16",
+        "meals": Array [
+          Object {
+            "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+            "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+            "imageURL": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+            "price": "1500.00",
+            "title": "Jollof Rice, Beef and Plantain",
+            "vegetarian": false,
+          },
+          Object {
+            "description": "Sharwama contains no animal products, perfect for dieters",
+            "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+            "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+            "price": "1200.00",
+            "title": "Vegetable Sharwama and Guava Smoothie",
+            "vegetarian": true,
+          },
+        ],
+      }
+    }
+    submitError={null}
+    submitting={false}
+  >
+    <MenuForm
+      addMenu={[Function]}
+      clearMenuError={[Function]}
+      fetchMeals={[Function]}
+      fetchMenu={[Function]}
+      isFetching={false}
+      meals={Array []}
+      menu={
+        Object {
+          "date": "1970-01-01",
+          "meals": Array [],
+        }
+      }
+      setCurrentDay={[Function]}
+      submitError={null}
+      submitting={false}
+    >
+      <p
+        className="text-center"
+      >
+        You Do Not Have Any Meals Yet
+      </p>
+    </MenuForm>
+  </Connect(MenuForm)>
+</Provider>
+`;
+
+exports[`MenuForm renders correctly 1`] = `
+<React.Fragment>
+  <React.Fragment>
+    <div
+      className="meal-options-list"
+    >
+      <div
+        className="form-input"
+      >
+        <label
+          htmlFor="date"
+        >
+          Date
+        </label>
+        <input
+          id="date"
+          name="date"
+          onChange={[Function]}
+          type="date"
+          value="2018-06-16"
+        />
+      </div>
+      <div
+        className="form-input-checkbox"
+        key="81211c24-51c0-46ec-b1e0-18db55880958"
+      >
+        <input
+          checked={true}
+          id="81211c24-51c0-46ec-b1e0-18db55880958"
+          name="81211c24-51c0-46ec-b1e0-18db55880958"
+          onChange={[Function]}
+          type="checkbox"
+        />
+          
+        <label
+          htmlFor="checkbox"
+        >
+          Jollof Rice, Beef and Plantain
+        </label>
+      </div>
+      <div
+        className="form-input-checkbox"
+        key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+      >
+        <input
+          checked={true}
+          id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+          name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+          onChange={[Function]}
+          type="checkbox"
+        />
+          
+        <label
+          htmlFor="checkbox"
+        >
+          Vegetable Sharwama and Guava Smoothie
+        </label>
+      </div>
+    </div>
+    <button
+      className="btn btn-pri btn-block"
+      onClick={[Function]}
+    >
+      ADD MEAL OPTIONS
+    </button>
+  </React.Fragment>
+</React.Fragment>
+`;
+
+exports[`MenuForm renders correctly when fetching 1`] = `
+<React.Fragment>
+  <div
+    className="text-center"
+  >
+    <MiniPreloader />
+  </div>
+</React.Fragment>
+`;
+
+exports[`MenuForm renders correctly when submitting 1`] = `
+<React.Fragment>
+  <div
+    className="text-center"
+  >
+    <MiniPreloader />
+  </div>
+</React.Fragment>
+`;
+
+exports[`MenuForm renders correctly when there are no meals 1`] = `
+<React.Fragment>
+  <p
+    className="text-center"
+  >
+    You Do Not Have Any Meals Yet
+  </p>
+</React.Fragment>
+`;
+
+exports[`MenuForm renders correctly when there is a submit error 1`] = `
+<React.Fragment>
+  <React.Fragment>
+    <p
+      className="text-center"
+    >
+      Error
+    </p>
+    <div
+      className="meal-options-list"
+    >
+      <div
+        className="form-input"
+      >
+        <label
+          htmlFor="date"
+        >
+          Date
+        </label>
+        <input
+          id="date"
+          name="date"
+          onChange={[Function]}
+          type="date"
+          value="2018-06-16"
+        />
+      </div>
+      <div
+        className="form-input-checkbox"
+        key="81211c24-51c0-46ec-b1e0-18db55880958"
+      >
+        <input
+          checked={true}
+          id="81211c24-51c0-46ec-b1e0-18db55880958"
+          name="81211c24-51c0-46ec-b1e0-18db55880958"
+          onChange={[Function]}
+          type="checkbox"
+        />
+          
+        <label
+          htmlFor="checkbox"
+        >
+          Jollof Rice, Beef and Plantain
+        </label>
+      </div>
+      <div
+        className="form-input-checkbox"
+        key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+      >
+        <input
+          checked={true}
+          id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+          name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+          onChange={[Function]}
+          type="checkbox"
+        />
+          
+        <label
+          htmlFor="checkbox"
+        >
+          Vegetable Sharwama and Guava Smoothie
+        </label>
+      </div>
+    </div>
+    <button
+      className="btn btn-pri btn-block"
+      onClick={[Function]}
+    >
+      ADD MEAL OPTIONS
+    </button>
+  </React.Fragment>
+</React.Fragment>
+`;

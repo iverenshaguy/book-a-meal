@@ -3,8 +3,8 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import { initialValues, caterersMealsObj } from '../../../setup/data';
-import MealImageModal from '../../../../src/app/shared/Modal/MealImageModal/MealImageModal';
-import ConnectedMealImageModal from '../../../../src/app/shared/Modal/MealImageModal';
+import MealImageModal from '../../../../src/components/shared/Modal/MealImageModal/MealImageModal';
+import ConnectedMealImageModal from '../../../../src/components/shared/Modal/MealImageModal';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);

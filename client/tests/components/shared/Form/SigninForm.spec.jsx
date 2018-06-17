@@ -1,5 +1,5 @@
 import React from 'react';
-import SigninForm from '../../../../src/app/shared/Form/SigninForm';
+import SigninForm from '../../../../src/components/shared/Form/SigninForm';
 import { formComponentSetup } from '../../../../tests/setup/formSetup';
 
 describe('SigninForm', () => {

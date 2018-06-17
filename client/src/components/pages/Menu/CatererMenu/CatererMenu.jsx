@@ -77,14 +77,16 @@ class CatererMenu extends Component {
             <h2>{'Meal Items on This Day\'s Menu'}</h2>
             <hr />
           </div>
-          <div className="card-group meals-wrapper" id="card-group">
-            {[...this.props.meals].map(meal =>
-              (<MealCard
-                type="menu"
-                key={meal.id}
-                meal={meal}
-              />))}
-          </div>
+          {this.props.meals.length === 0 && <p className="text-center">There are no Meal Items on this Menu</p>}
+          {this.props.meals.length !== 0 &&
+            <div className="card-group meals-wrapper" id="card-group">
+              {this.props.meals.map(meal =>
+                (<MealCard
+                  type="menu"
+                  key={meal.id}
+                  meal={meal}
+                />))}
+            </div>}
         </div>
       </Fragment>
     );

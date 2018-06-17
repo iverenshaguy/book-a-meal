@@ -2,9 +2,9 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
-import AuthComponent from '../../../../src/app/pages/Auth/AuthComponent';
-import Auth from '../../../../src/app/pages/Auth';
-import LinkBtn from '../../../../src/app/shared/Link';
+import AuthComponent from '../../../../src/components/pages/Auth/AuthComponent';
+import Auth from '../../../../src/components/pages/Auth';
+import LinkBtn from '../../../../src/components/shared/Link';
 import { initialValues } from '../../../setup/data';
 
 const middlewares = [thunk];

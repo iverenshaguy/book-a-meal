@@ -1,5 +1,5 @@
 import React from 'react';
-import LinkComp from '../../../../src/app/shared/Link';
+import LinkComp from '../../../../src/components/shared/Link';
 
 describe('Link', () => {
   it('renders correctly', () => {
