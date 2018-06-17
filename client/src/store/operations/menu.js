@@ -3,7 +3,8 @@ import errorHandler from '../../utils/errorHandler';
 import { setFetching, unsetFetching } from '../actions/isFetching';
 import {
   setMenuWorking, unsetMenuWorking, fetchMenuSuccess, fetchMenuFailure,
-  setCurrentDay, addMenuSuccess, addMenuFailure, clearMenuError
+  setCurrentDay, addMenuSuccess, addMenuFailure, clearMenuError,
+  editMenuSuccess, editMenuFailure,
 } from '../actions/menu';
 import { toggleModal } from '../actions/ui';
 
@@ -40,13 +41,33 @@ const addMenu = menu => async (dispatch) => {
   }
 };
 
+const editMenu = (id, menu) => async (dispatch) => {
+  try {
+    dispatch(setMenuWorking());
+
+    const response = await instance.put(`/menu/${id}`, menu);
+
+    dispatch(editMenuSuccess(response.data));
+    dispatch(unsetMenuWorking());
+    dispatch(toggleModal());
+  } catch (error) {
+    const errorResponse = errorHandler(error);
+
+    dispatch(editMenuFailure(errorResponse.response));
+    dispatch(unsetMenuWorking());
+  }
+};
+
 export default {
   addMenu,
+  editMenu,
   fetchMenu,
   setCurrentDay,
   clearMenuError,
   addMenuSuccess,
   addMenuFailure,
+  editMenuSuccess,
+  editMenuFailure,
   setMenuWorking,
   unsetMenuWorking,
   fetchMenuSuccess,

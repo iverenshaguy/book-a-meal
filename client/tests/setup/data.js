@@ -18,6 +18,7 @@ export const initialValues = {
     error: null
   },
   menu: {
+    id: null,
     meals: [],
     working: false,
     error: null,
