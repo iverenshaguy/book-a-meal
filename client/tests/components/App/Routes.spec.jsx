@@ -3,7 +3,7 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { ConnectedRouter, routerReducer } from 'react-router-redux';
 import createHistory from 'history/createMemoryHistory';
-import Routes from '../../../src/app/App/Routes';
+import Routes from '../../../src/components/App/Routes';
 import authReducer from '../../../src/store/reducers/auth';
 import mealsReducer from '../../../src/store/reducers/meals';
 

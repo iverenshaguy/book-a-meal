@@ -1,5 +1,5 @@
 import React from 'react';
-import CatererView from '../../../../src/app/shared/CatererView';
+import CatererView from '../../../../src/components/shared/CatererView';
 import { caterer } from '../../../setup/data';
 
 const props = {

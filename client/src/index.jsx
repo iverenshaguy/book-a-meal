@@ -8,7 +8,7 @@ import logger from 'redux-logger';
 import { AppContainer } from 'react-hot-loader';
 import rootReducer, { history } from './rootReducer';
 import refreshPage from './utils/refreshPage';
-import App from './app/App';
+import App from './components/App';
 
 const enhancers = [];
 const middlewares = [thunk, routerMiddleware(history)];
@@ -44,7 +44,7 @@ const renderApp = (Root) => {
 renderApp(App);
 
 if (module.hot && process.env.NODE_ENV !== 'production') {
-  module.hot.accept('./app/App', () => {
+  module.hot.accept('./components/App', () => {
     renderApp(App);
   });
 }

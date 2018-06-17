@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomerSignupForm from '../../../../src/app/shared/Form/CustomerSignupForm';
+import CustomerSignupForm from '../../../../src/components/shared/Form/CustomerSignupForm';
 import { formComponentSetup } from '../../../../tests/setup/formSetup';
 
 describe('CustomerSignupForm', () => {

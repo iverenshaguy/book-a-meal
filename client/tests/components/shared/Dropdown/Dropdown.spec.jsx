@@ -1,5 +1,5 @@
 import React from 'react';
-import Dropdown from '../../../../src/app/shared/Dropdown';
+import Dropdown from '../../../../src/components/shared/Dropdown';
 
 describe('Dropdown', () => {
   it('renders correctly when type is simple notification', () => {

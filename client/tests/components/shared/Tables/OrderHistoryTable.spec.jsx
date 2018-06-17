@@ -1,5 +1,5 @@
 import React from 'react';
-import OrderHistoryTable from '../../../../src/app/shared/Tables/OrderHistoryTable';
+import OrderHistoryTable from '../../../../src/components/shared/Tables/OrderHistoryTable';
 import { caterersOrdersObj } from '../../../setup/data';
 
 const { orders } = caterersOrdersObj;

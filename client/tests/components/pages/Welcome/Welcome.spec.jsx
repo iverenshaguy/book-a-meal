@@ -1,5 +1,5 @@
 import React from 'react';
-import Welcome from '../../../../src/app/pages/Welcome/WelcomeComponent';
+import Welcome from '../../../../src/components/pages/Welcome/WelcomeComponent';
 import { caterer } from '../../../setup/data';
 
 const props = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Preloader, { MiniPreloader } from '../../../../src/app/shared/Preloader';
+import Preloader, { MiniPreloader } from '../../../../src/components/shared/Preloader';
 
 describe('Preloader', () => {
   it('renders correctly', () => {

@@ -2,8 +2,8 @@ import React from 'react';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import Dashboard from '../../../../src/app/pages/Dashboard/Dashboard';
-import ConnectedDashboard from '../../../../src/app/pages/Dashboard';
+import Dashboard from '../../../../src/components/pages/Dashboard/Dashboard';
+import ConnectedDashboard from '../../../../src/components/pages/Dashboard';
 import { caterer, caterersOrdersObj, initialValues } from '../../../setup/data';
 
 const middlewares = [thunk];

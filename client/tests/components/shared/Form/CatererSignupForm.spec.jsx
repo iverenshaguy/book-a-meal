@@ -1,5 +1,5 @@
 import React from 'react';
-import CatererSignupForm from '../../../../src/app/shared/Form/CatererSignupForm';
+import CatererSignupForm from '../../../../src/components/shared/Form/CatererSignupForm';
 import { formComponentSetup } from '../../../../tests/setup/formSetup';
 
 describe('CatererSignupForm', () => {

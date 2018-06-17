@@ -3,8 +3,8 @@ import moment from 'moment';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import CatererMenu from '../../../../src/app/pages/Menu/CatererMenu/CatererMenu';
-import ConnectedCatererMenu from '../../../../src/app/pages/Menu/CatererMenu';
+import CatererMenu from '../../../../src/components/pages/Menu/CatererMenu/CatererMenu';
+import ConnectedCatererMenu from '../../../../src/components/pages/Menu/CatererMenu';
 import { caterer, caterersMealsObj, initialValues } from '../../../setup/data';
 
 const middlewares = [thunk];
@@ -97,6 +97,24 @@ describe('Menu', () => {
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('Preloader')).toBeTruthy();
+  });
+
+  it('renders message when not fetching and there are no meals on the menu', () => {
+    const toggleMock = jest.fn();
+    const shallowWrapper = shallow(<CatererMenu
+      user={caterer}
+      logout={jest.fn()}
+      fetchMenu={jest.fn()}
+      meals={[]}
+      isFetching
+      submitting={false}
+      setCurrentDay={jest.fn()}
+      currentDay={moment().format('YYYY-MM-DD')}
+      toggleModal={toggleMock}
+    />);
+
+    expect(toJson(shallowWrapper)).toMatchSnapshot();
+    expect(shallowWrapper.find('p').text()).toEqual('There are no Meal Items on this Menu');
   });
 
   it('renders connected component', () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { RenderInput } from '../../../../src/app/shared/FormComponents';
+import { RenderInput } from '../../../../src/components/shared/FormComponents';
 
 const functionMock = jest.fn();
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import MealCard from '../../../../src/app/shared/MealCard';
+import MealCard from '../../../../src/components/shared/MealCard';
 import { caterersMealsObj } from '../../../setup/data';
 
 describe('MealModal', () => {

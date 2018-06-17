@@ -3,8 +3,8 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import { initialValues } from '../../../setup/data';
-import Modal from '../../../../src/app/shared/Modal/Modal';
-import ConnectedModal from '../../../../src/app/shared/Modal';
+import Modal from '../../../../src/components/shared/Modal/Modal';
+import ConnectedModal from '../../../../src/components/shared/Modal';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -60,6 +60,14 @@ describe('Modal', () => {
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('#modal-title-h3').text()).toEqual('Delete Meal');
     expect(shallowWrapper.find('p.text-center').text()).toEqual('Meal Deleted Successfully');
+  });
+
+  it('renders correctly when type is menu', () => {
+    const shallowWrapper = shallow(<Modal type="menu" open toggleModal={jest.fn()} />);
+
+    expect(toJson(shallowWrapper)).toMatchSnapshot();
+    expect(shallowWrapper.find('#modal-title-h3').text()).toEqual('Select Meal Options');
+    expect(shallowWrapper.find('MenuModal')).toBeTruthy();
   });
 
   it('renders null when type is unknown', () => {

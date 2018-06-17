@@ -1,5 +1,5 @@
 import React from 'react';
-import MealForm from '../../../../src/app/shared/Form/MealForm';
+import MealForm from '../../../../src/components/shared/Form/MealForm';
 import { formComponentSetup } from '../../../../tests/setup/formSetup';
 import { caterersMealsObj } from '../../../setup/data';
 

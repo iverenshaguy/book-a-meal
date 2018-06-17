@@ -74,15 +74,17 @@ class Meals extends Component {
             Add a New Meal
           </button>
         </div>
-        <div className="card-group meals-wrapper" id="card-group">
-          {[...this.props.meals].reverse().map(meal =>
-            (<MealCard
-              type="caterer"
-              key={meal.id}
-              meal={meal}
-              toggleModal={type => this.toggleModal(meal.id, type)}
-            />))}
-        </div>
+        {this.props.meals.length === 0 && <p className="text-center">You Do Not Have Any Meals Yet</p>}
+        {this.props.meals.length !== 0 &&
+          <div className="card-group meals-wrapper" id="card-group">
+            {this.props.meals.reverse().map(meal =>
+              (<MealCard
+                type="caterer"
+                key={meal.id}
+                meal={meal}
+                toggleModal={type => this.toggleModal(meal.id, type)}
+              />))}
+          </div>}
       </div>
     </Fragment>
   )

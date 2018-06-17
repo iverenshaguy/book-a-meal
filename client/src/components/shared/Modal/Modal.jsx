@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MealModal from './MealModal';
+import MenuModal from './MenuModal';
 import MealImageModal from './MealImageModal';
 import DeleteMealModal from './DeleteMealModal';
 import LinkBtn from '../Link';
@@ -43,6 +44,8 @@ class Modal extends Component {
     const { type } = this.props;
 
     switch (type) {
+      case 'menu':
+        return 'Select Meal Options';
       case 'addMeal':
         return 'Add a Meal';
       case 'editMeal':
@@ -71,6 +74,8 @@ class Modal extends Component {
     const { type } = this.props;
 
     switch (type) {
+      case 'menu':
+        return <MenuModal />;
       case 'addMeal':
         return <MealModal {...this.props} />;
       case 'editMeal':
