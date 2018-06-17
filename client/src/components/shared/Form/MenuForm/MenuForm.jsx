@@ -105,38 +105,43 @@ class MenuForm extends Component {
    * @memberof MenuForm
    * @returns {JSX} MenuForm
    */
+  renderMenuForm = () => (
+    <Fragment>
+      {this.props.submitError && <p className="text-center">{this.props.submitError}</p>}
+      <div className="meal-options-list">
+        <div className="form-input">
+          <label htmlFor="date">Date</label>
+          <input type="date" id="date" name="date" value={this.state.date} onChange={this.handleChangeDate} />
+        </div>
+        {this.props.meals.map(meal => (
+          <div className="form-input-checkbox" key={meal.id}>
+            <input
+              type="checkbox"
+              id={meal.id}
+              name={meal.id}
+              checked={this.state.meals.includes(meal.id)}
+              onChange={this.handleSelectMeal}
+            />
+            &nbsp;&nbsp;
+            <label htmlFor="checkbox">{meal.title}</label>
+          </div>))}
+      </div>
+      <button className="btn btn-pri btn-block" onClick={this.submitMenu}>ADD MEAL OPTIONS</button>
+    </Fragment>
+  )
+
+  /**
+   * @memberof MenuForm
+   * @returns {JSX} MenuForm
+   */
   render() {
-    const {
-      meals, isFetching, submitError, submitting
-    } = this.props;
+    const { meals, isFetching, submitting } = this.props;
 
     return (
       <Fragment>
         {(isFetching || submitting) && <div className="text-center"><MiniPreloader /></div>}
         {!isFetching && meals.length === 0 && <p className="text-center">You Do Not Have Any Meals Yet</p>}
-        {!isFetching && !submitting && meals.length !== 0 &&
-          <Fragment>
-            {submitError && <p className="text-center">{submitError}</p>}
-            <div className="meal-options-list">
-              <div className="form-input">
-                <label htmlFor="date">Date</label>
-                <input type="date" id="date" name="date" value={this.state.date} onChange={this.handleChangeDate} />
-              </div>
-              {meals.map(meal => (
-                <div className="form-input-checkbox" key={meal.id}>
-                  <input
-                    type="checkbox"
-                    id={meal.id}
-                    name={meal.id}
-                    checked={this.state.meals.includes(meal.id)}
-                    onChange={this.handleSelectMeal}
-                  />
-                  &nbsp;&nbsp;
-                  <label htmlFor="checkbox">{meal.title}</label>
-                </div>))}
-            </div>
-            <button className="btn btn-pri btn-block" onClick={this.submitMenu}>ADD MEAL OPTIONS</button>
-          </Fragment>}
+        {!isFetching && !submitting && meals.length !== 0 && this.renderMenuForm()}
       </Fragment>
     );
   }
