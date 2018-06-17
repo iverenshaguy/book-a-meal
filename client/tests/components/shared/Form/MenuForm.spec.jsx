@@ -13,6 +13,7 @@ const store = mockStore(initialValues);
 const props = {
   meals: caterersMealsObj.meals,
   menu: {
+    id: '1234',
     date: '2018-06-16',
     meals: caterersMealsObj.meals,
   },
@@ -21,6 +22,7 @@ const props = {
   fetchMenu: jest.fn(),
   clearMenuError: jest.fn(),
   addMenu: jest.fn(),
+  editMenu: jest.fn(),
   submitting: false,
   submitError: null
 };
@@ -92,13 +94,36 @@ describe('MenuForm', () => {
     expect(wrapper.state().date).toEqual('2018-04-27');
   });
 
-  it('submits Menu Form', () => {
+  it('submits Menu Form when adding menu', () => {
+    const menu = { id: null, date: '2018-06-16', meals: [] };
     const addMenuMock = jest.fn();
-    const wrapper = mount(<MenuForm {...props} addMenu={addMenuMock} />);
+    const wrapper = mount(<MenuForm {...props} menu={menu} addMenu={addMenuMock} />);
+
+    wrapper.setState({ meals: caterersMealsObj.meals });
 
     wrapper.find('button').simulate('click');
 
     expect(addMenuMock).toHaveBeenCalled();
+  });
+
+  it('submits Menu Form when editing', () => {
+    const editMenuMock = jest.fn();
+    const wrapper = mount(<MenuForm {...props} editMenu={editMenuMock} />);
+
+    wrapper.find('button').simulate('click');
+
+    expect(editMenuMock).toHaveBeenCalled();
+  });
+
+  it('does not submit Menu Form when meal state is empty', () => {
+    const menu = { id: null, date: '2018-06-16', meals: [] };
+    const addMenuMock = jest.fn();
+    const wrapper = mount(<MenuForm {...props} menu={menu} addMenu={addMenuMock} />);
+
+    wrapper.find('button').simulate('click');
+
+    expect(addMenuMock).not.toHaveBeenCalled();
+    expect(wrapper.find('p.danger')).toBeTruthy();
   });
 
   it('renders connected component correctly', () => {

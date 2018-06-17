@@ -31,12 +31,17 @@ exports[`MenuForm renders connected component correctly 1`] = `
           Array [],
           Array [],
           Array [],
+          Array [],
+          Array [],
         ],
       }
     }
+    editMenu={[MockFunction]}
     fetchMeals={
       [MockFunction] {
         "calls": Array [
+          Array [],
+          Array [],
           Array [],
           Array [],
           Array [],
@@ -82,6 +87,12 @@ exports[`MenuForm renders connected component correctly 1`] = `
           Array [
             "2018-06-16",
           ],
+          Array [
+            "2018-06-16",
+          ],
+          Array [
+            "2018-06-16",
+          ],
         ],
       }
     }
@@ -109,6 +120,7 @@ exports[`MenuForm renders connected component correctly 1`] = `
     menu={
       Object {
         "date": "2018-06-16",
+        "id": "1234",
         "meals": Array [
           Object {
             "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
@@ -135,6 +147,7 @@ exports[`MenuForm renders connected component correctly 1`] = `
     <MenuForm
       addMenu={[Function]}
       clearMenuError={[Function]}
+      editMenu={[Function]}
       fetchMeals={[Function]}
       fetchMenu={[Function]}
       isFetching={false}
@@ -142,6 +155,7 @@ exports[`MenuForm renders connected component correctly 1`] = `
       menu={
         Object {
           "date": "1970-01-01",
+          "id": null,
           "meals": Array [],
         }
       }
@@ -222,7 +236,7 @@ exports[`MenuForm renders correctly 1`] = `
       className="btn btn-pri btn-block"
       onClick={[Function]}
     >
-      ADD MEAL OPTIONS
+      SAVE MEAL OPTIONS
     </button>
   </React.Fragment>
 </React.Fragment>
@@ -262,7 +276,7 @@ exports[`MenuForm renders correctly when there is a submit error 1`] = `
 <React.Fragment>
   <React.Fragment>
     <p
-      className="text-center"
+      className="text-center danger"
     >
       Error
     </p>
@@ -326,7 +340,7 @@ exports[`MenuForm renders correctly when there is a submit error 1`] = `
       className="btn btn-pri btn-block"
       onClick={[Function]}
     >
-      ADD MEAL OPTIONS
+      SAVE MEAL OPTIONS
     </button>
   </React.Fragment>
 </React.Fragment>

@@ -7,11 +7,14 @@ import { caterersMealsObj } from '../../setup/data';
 
 const {
   addMenu,
+  editMenu,
   fetchMenu,
   setCurrentDay,
   clearMenuError,
   addMenuSuccess,
   addMenuFailure,
+  editMenuSuccess,
+  editMenuFailure,
   setMenuWorking,
   unsetMenuWorking,
   fetchMenuSuccess,
@@ -92,6 +95,24 @@ describe('Menu Actions', () => {
     });
   });
 
+  test('editMenuSuccess', () => {
+    const action = editMenuSuccess(newMenu);
+
+    expect(action).toEqual({
+      type: 'EDIT_MENU_SUCCESS',
+      payload: newMenu
+    });
+  });
+
+  test('editMenuFailure', () => {
+    const action = editMenuFailure('error');
+
+    expect(action).toEqual({
+      type: 'EDIT_MENU_FAILURE',
+      payload: 'error'
+    });
+  });
+
   test('clearMenuError', () => {
     const action = clearMenuError();
 
@@ -149,12 +170,41 @@ describe('Menu Actions', () => {
         });
       });
 
-      it('dispatches SET_MENU_WORKING, ADD_MENU_SUCCESS and UNSET_MENU_WORKING on unsuccessful meal addition', () => {
+      it('dispatches SET_MENU_WORKING, ADD_MENU_FAILURE and UNSET_MENU_WORKING on unsuccessful meal addition', () => {
         const expectedActions = ['SET_MENU_WORKING', 'ADD_MENU_FAILURE', 'UNSET_MENU_WORKING'];
 
         mockReq.onPost(`${url}/menu`).reply(401, { error: 'Error' });
 
         return store.dispatch(addMenu(newMenu)).catch(() => {
+          const dispatchedActions = store.getActions();
+
+          const actionTypes = dispatchedActions.map(action => action.type);
+
+
+          expect(actionTypes).toEqual(expectedActions);
+        });
+      });
+
+      it('dispatches SET_MENU_WORKING, EDIT_MENU_SUCCESS, UNSET_MENU_WORKING and TOGGLE_MODAL on successful meal addition', () => {
+        const expectedActions = ['SET_MENU_WORKING', 'EDIT_MENU_SUCCESS', 'UNSET_MENU_WORKING', 'TOGGLE_MODAL'];
+
+        mockReq.onPut(`${url}/menu/1234`).reply(200, newMenu);
+
+        return store.dispatch(editMenu('1234', newMenu)).then(() => {
+          const dispatchedActions = store.getActions();
+
+          const actionTypes = dispatchedActions.map(action => action.type);
+
+          expect(actionTypes).toEqual(expectedActions);
+        });
+      });
+
+      it('dispatches SET_MENU_WORKING, EDIT_MENU_FAILURE and UNSET_MENU_WORKING on unsuccessful meal addition', () => {
+        const expectedActions = ['SET_MENU_WORKING', 'EDIT_MENU_FAILURE', 'UNSET_MENU_WORKING'];
+
+        mockReq.onPut(`${url}/menu/1234`).reply(401, { error: 'Error' });
+
+        return store.dispatch(editMenu('1234', newMenu)).catch(() => {
           const dispatchedActions = store.getActions();
 
           const actionTypes = dispatchedActions.map(action => action.type);

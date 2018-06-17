@@ -21,18 +21,25 @@ class MenuForm extends Component {
     fetchMeals: PropTypes.func.isRequired,
     fetchMenu: PropTypes.func.isRequired,
     addMenu: PropTypes.func.isRequired,
+    editMenu: PropTypes.func.isRequired,
     clearMenuError: PropTypes.func.isRequired,
     submitting: PropTypes.bool.isRequired,
-    submitError: PropTypes.string
   }
 
-  static defaultProps = {
-    submitError: null
+  /**
+   * @static
+   * @memberof MenuForm
+   * @param {object} props
+   * @returns {JSX} MenuForm
+   */
+  static getDerivedStateFromProps(props) {
+    return { error: props.submitError };
   }
 
   state = {
     date: this.props.menu.date,
-    meals: this.props.menu.meals.map(meal => meal.id)
+    meals: this.props.menu.meals.map(meal => meal.id),
+    error: null
   }
 
   /**
@@ -50,8 +57,19 @@ class MenuForm extends Component {
    * @param {object} event
    * @returns {JSX} MenuForm
    */
-  handleChangeDate = (event) => {
+  clearFormError = () => {
+    this.setState({ error: null });
     this.props.clearMenuError();
+  }
+
+  /**
+   * @memberof MenuForm
+   * @param {object} event
+   * @returns {JSX} MenuForm
+   */
+  handleChangeDate = (event) => {
+    this.clearFormError();
+
     const date = moment(event.target.value).format('YYYY-MM-DD');
 
     this.setState({ date }, () => this.props.fetchMenu(date));
@@ -63,11 +81,12 @@ class MenuForm extends Component {
    * @returns {JSX} MenuForm
    */
   handleSelectMeal = (event) => {
-    this.props.clearMenuError();
+    this.clearFormError();
+
     const { target } = event;
     const { name } = target;
 
-    return target.checked ? this.addMeal(name) : this.removeMeal(name);
+    return target.checked ? this.addMealToState(name) : this.removeMealToState(name);
   }
 
   /**
@@ -75,7 +94,7 @@ class MenuForm extends Component {
    * @param {object} meal
    * @returns {JSX} MenuForm
    */
-  addMeal = (meal) => {
+  addMealToState = (meal) => {
     this.setState(prevState => ({
       meals: [...prevState.meals, meal]
     }));
@@ -86,7 +105,7 @@ class MenuForm extends Component {
    * @param {object} meal
    * @returns {JSX} MenuForm
    */
-  removeMeal = (meal) => {
+  removeMealToState = (meal) => {
     this.setState(prevState => ({
       meals: prevState.meals.filter(item => item !== meal)
     }));
@@ -98,7 +117,12 @@ class MenuForm extends Component {
    * @returns {JSX} MenuForm
    */
   submitMenu = () => {
-    this.props.addMenu(this.state);
+    const { menu, addMenu, editMenu } = this.props;
+    const { meals } = this.state;
+
+    if (meals.length === 0) return this.setState({ error: 'You Cannot Set Empty Meals as a Menu' });
+
+    return !menu.id ? addMenu(this.state) : editMenu(menu.id, { meals: this.state.meals });
   }
 
   /**
@@ -107,7 +131,7 @@ class MenuForm extends Component {
    */
   renderMenuForm = () => (
     <Fragment>
-      {this.props.submitError && <p className="text-center">{this.props.submitError}</p>}
+      {this.state.error && <p className="text-center danger">{this.state.error}</p>}
       <div className="meal-options-list">
         <div className="form-input">
           <label htmlFor="date">Date</label>
@@ -126,7 +150,7 @@ class MenuForm extends Component {
             <label htmlFor="checkbox">{meal.title}</label>
           </div>))}
       </div>
-      <button className="btn btn-pri btn-block" onClick={this.submitMenu}>ADD MEAL OPTIONS</button>
+      <button className="btn btn-pri btn-block" onClick={this.submitMenu}>SAVE MEAL OPTIONS</button>
     </Fragment>
   )
 

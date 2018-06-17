@@ -3,6 +3,7 @@ import reducer from '../../../src/store/reducers/menu';
 import { caterersMealsObj } from '../../setup/data';
 
 const state = {
+  id: null,
   meals: [],
   error: null,
   working: false,
@@ -43,11 +44,12 @@ describe('Menu Reducers', () => {
   it('should handle RECEIVE_MENU_SUCCESS action', () => {
     const newState = reducer(state, {
       type: 'RECEIVE_MENU_SUCCESS',
-      payload: { meals: caterersMealsObj.meals, date: moment().format('YYYY-MM-DD') }
+      payload: { id: '1234', meals: caterersMealsObj.meals, date: moment().format('YYYY-MM-DD') }
     });
 
     expect(newState).toEqual({
       ...state,
+      id: '1234',
       meals: caterersMealsObj.meals,
       currentDay: moment().format('YYYY-MM-DD')
     });
@@ -65,11 +67,12 @@ describe('Menu Reducers', () => {
   it('should handle ADD_MENU_SUCCESS action', () => {
     const newState = reducer(state, {
       type: 'ADD_MENU_SUCCESS',
-      payload: { meals: caterersMealsObj.meals, date: moment().format('YYYY-MM-DD') }
+      payload: { id: '1234', meals: caterersMealsObj.meals, date: moment().format('YYYY-MM-DD') }
     });
 
     expect(newState).toEqual({
       ...state,
+      id: '1234',
       meals: caterersMealsObj.meals,
       currentDay: moment().format('YYYY-MM-DD')
     });
@@ -84,6 +87,28 @@ describe('Menu Reducers', () => {
     expect(newState).toEqual({ ...state, error: 'Error' });
   });
 
+  it('should handle EDIT_MENU_SUCCESS action', () => {
+    const newState = reducer(state, {
+      type: 'EDIT_MENU_SUCCESS',
+      payload: { id: '1234', meals: caterersMealsObj.meals, date: moment().format('YYYY-MM-DD') }
+    });
+
+    expect(newState).toEqual({
+      ...state,
+      id: '1234',
+      meals: caterersMealsObj.meals,
+      currentDay: moment().format('YYYY-MM-DD')
+    });
+  });
+
+  it('should handle EDIT_MENU_FAILURE action', () => {
+    const newState = reducer(state, {
+      type: 'EDIT_MENU_FAILURE',
+      payload: 'Error',
+    });
+
+    expect(newState).toEqual({ ...state, error: 'Error' });
+  });
 
   it('should handle SET_CURRENT_DAY action', () => {
     const newState = reducer(state, {
