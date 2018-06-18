@@ -264,7 +264,7 @@ exports[`Orders renders connected component 1`] = `
                       >
                         <img
                           alt="toggler"
-                          src="./img/toggler.png"
+                          src="/img/toggler.png"
                         />
                       </a>
                     </div>
@@ -385,7 +385,7 @@ exports[`Orders renders connected component 1`] = `
                       className="menu-item active"
                       href="/orders"
                     >
-                      Order History
+                      Orders
                     </a>
                   </div>
                 </div>

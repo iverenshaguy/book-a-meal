@@ -1,0 +1,803 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderDetails renders MiniPreloader when delivering 1`] = `
+<React.Fragment>
+  <CatererView
+    isFetching={false}
+    logout={[MockFunction]}
+    showTime={true}
+    type="orders"
+    user={
+      Object {
+        "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+        "businessName": "Food Circle",
+        "businessPhoneNo": "+2348166557788",
+        "email": "food@circle.com",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "role": "caterer",
+      }
+    }
+  >
+    <React.Fragment>
+      <div
+        className="main-wrapper"
+      >
+        <div
+          className="order-confirmation order-details"
+        >
+          <h3
+            className="text-center"
+            style={
+              Object {
+                "paddingTop": "1em",
+              }
+            }
+          >
+            Order #
+            fb097bde-5959-45ff-8e21-51184fa60c25
+          </h3>
+          <div
+            className="text-center"
+          >
+            <MiniPreloader />
+          </div>
+        </div>
+      </div>
+    </React.Fragment>
+  </CatererView>
+</React.Fragment>
+`;
+
+exports[`OrderDetails renders Preloader when fetching 1`] = `
+<React.Fragment>
+  <CatererView
+    isFetching={true}
+    logout={[MockFunction]}
+    showTime={true}
+    type="orders"
+    user={
+      Object {
+        "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+        "businessName": "Food Circle",
+        "businessPhoneNo": "+2348166557788",
+        "email": "food@circle.com",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "role": "caterer",
+      }
+    }
+  >
+    <React.Fragment />
+  </CatererView>
+</React.Fragment>
+`;
+
+exports[`OrderDetails renders connected component 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(CatererOrderDetails)
+    isFetching={false}
+    match={
+      Object {
+        "params": Object {
+          "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
+        },
+      }
+    }
+    user={
+      Object {
+        "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+        "businessName": "Food Circle",
+        "businessPhoneNo": "+2348166557788",
+        "email": "food@circle.com",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "role": "caterer",
+      }
+    }
+  >
+    <CatererOrderDetails
+      deliverOrder={[Function]}
+      delivering={false}
+      fetchOrders={[Function]}
+      isFetching={false}
+      logout={[Function]}
+      match={
+        Object {
+          "params": Object {
+            "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
+          },
+        }
+      }
+      order={
+        Object {
+          "createdAt": "2018-04-06T00:47:03.687Z",
+          "customer": Object {
+            "email": "emiola@olasanmi.com",
+            "firstname": "Emiola",
+            "lastname": "Olasanmi",
+          },
+          "deliveryAddress": "4, Church Street, Yaba",
+          "deliveryPhoneNo": "+2348134567890",
+          "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
+          "meals": Array [
+            Object {
+              "delivered": true,
+              "description": "Sharwama contains no animal products, perfect for dieters",
+              "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+              "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "price": "1200.00",
+              "quantity": 1,
+              "title": "Vegetable Sharwama and Guava Smoothie",
+              "vegetarian": true,
+            },
+          ],
+          "status": "delivered",
+          "updatedAt": "2018-04-06T00:47:03.687Z",
+        }
+      }
+      user={
+        Object {
+          "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+          "businessName": "Food Circle",
+          "businessPhoneNo": "+2348166557788",
+          "email": "food@circle.com",
+          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+          "role": "caterer",
+        }
+      }
+    >
+      <CatererView
+        isFetching={false}
+        logout={[Function]}
+        showTime={true}
+        type="orders"
+        user={
+          Object {
+            "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+            "businessName": "Food Circle",
+            "businessPhoneNo": "+2348166557788",
+            "email": "food@circle.com",
+            "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+            "role": "caterer",
+          }
+        }
+      >
+        <div
+          className="admin"
+        >
+          <Header
+            dateType="orders"
+            showTime={true}
+            type="caterer"
+          >
+            <div
+              className="header"
+            >
+              <div
+                className="navbar"
+              >
+                <Connect(CatererHeader)
+                  dateType="orders"
+                  showTime={true}
+                >
+                  <CatererHeader
+                    currentDay="1970-01-01"
+                    dateType="orders"
+                    dispatch={[Function]}
+                    showTime={true}
+                  >
+                    <div
+                      className="menu-control d-none-md"
+                    >
+                      <a
+                        className="d-none-md"
+                        href="#sidenav"
+                      >
+                        <img
+                          alt="toggler"
+                          src="/img/toggler.png"
+                        />
+                      </a>
+                    </div>
+                    <div
+                      className="page-title d-flex-md"
+                    >
+                      <div
+                        className="date"
+                      >
+                        <h2>
+                          Thursday, 1st January 1970
+                              
+                          00:00
+                        </h2>
+                      </div>
+                    </div>
+                  </CatererHeader>
+                </Connect(CatererHeader)>
+              </div>
+            </div>
+          </Header>
+          <div
+            className="content"
+          >
+            <SideNav
+              active="orders"
+              logout={[Function]}
+              user={
+                Object {
+                  "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+                  "businessName": "Food Circle",
+                  "businessPhoneNo": "+2348166557788",
+                  "email": "food@circle.com",
+                  "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                  "role": "caterer",
+                }
+              }
+            >
+              <div
+                className="sidenav"
+                id="sidenav"
+              >
+                <div
+                  className="sidenav-content"
+                >
+                  <div
+                    className="sidenav-header"
+                  >
+                    <div
+                      className="close d-none-md"
+                    >
+                      <a
+                        href="#"
+                      >
+                        ×
+                      </a>
+                       
+                    </div>
+                    <div
+                      className="sidenav-title"
+                    >
+                      <h3>
+                        <a
+                          href="/"
+                        >
+                          BOOK-A-MEAL
+                        </a>
+                      </h3>
+                      <div
+                        className="username-circle"
+                      >
+                        <p>
+                          F
+                        </p>
+                      </div>
+                      <p>
+                        Food Circle
+                      </p>
+                      <span>
+                        <Link
+                          className={null}
+                          clickHandler={[Function]}
+                          id={null}
+                        >
+                          <button
+                            className="link-btn null"
+                            id={null}
+                            onClick={[Function]}
+                          >
+                            Logout
+                          </button>
+                        </Link>
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    className="sidenav-body"
+                  >
+                    <a
+                      className="menu-item false"
+                      href="/"
+                    >
+                      Dashboard
+                    </a>
+                    <a
+                      className="menu-item false"
+                      href="/meals"
+                    >
+                      Meals
+                    </a>
+                    <a
+                      className="menu-item false"
+                      href="/menu"
+                    >
+                      Menu
+                    </a>
+                    <a
+                      className="menu-item active"
+                      href="/orders"
+                    >
+                      Orders
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </SideNav>
+            <div
+              className="content-wrapper"
+              id="has-modal"
+            >
+              <div
+                className="main-wrapper"
+              >
+                <div
+                  className="order-confirmation order-details"
+                >
+                  <h3
+                    className="text-center"
+                    style={
+                      Object {
+                        "paddingTop": "1em",
+                      }
+                    }
+                  >
+                    Order #
+                    fb097bde-5959-45ff-8e21-51184fa60c25
+                  </h3>
+                  <div
+                    className="order-misc"
+                  >
+                    <p
+                      className="order-date"
+                    >
+                      Order Date: 
+                      18/04/06 12:47
+                    </p>
+                    <p>
+                      Status: 
+                      <span
+                        className="success"
+                      >
+                        Delivered
+                      </span>
+                    </p>
+                    <p>
+                      Customer: 
+                      Emiola Olasanmi
+                    </p>
+                    <p>
+                      Address Provided: 
+                      4, Church Street, Yaba
+                    </p>
+                    <p>
+                      Number Provided: 
+                      +2348134567890
+                    </p>
+                  </div>
+                  <div
+                    className="order-summary"
+                  >
+                    <div
+                      key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                    >
+                      <p>
+                        1
+                        x
+                      </p>
+                      <p>
+                        Vegetable Sharwama and Guava Smoothie
+                      </p>
+                      <p>
+                        ₦
+                        1200.00
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    className="order-amount admin-order-total"
+                  >
+                    <div>
+                      <p>
+                        Total
+                      </p>
+                      <h2>
+                        ₦
+                        1200
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <Footer>
+            <div
+              className="footer"
+            >
+              <p>
+                © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
+              </p>
+            </div>
+          </Footer>
+        </div>
+      </CatererView>
+    </CatererOrderDetails>
+  </Connect(CatererOrderDetails)>
+</Provider>
+`;
+
+exports[`OrderDetails renders correctly when not fetching 1`] = `
+<React.Fragment>
+  <CatererView
+    isFetching={false}
+    logout={[MockFunction]}
+    showTime={true}
+    type="orders"
+    user={
+      Object {
+        "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+        "businessName": "Food Circle",
+        "businessPhoneNo": "+2348166557788",
+        "email": "food@circle.com",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "role": "caterer",
+      }
+    }
+  >
+    <React.Fragment>
+      <div
+        className="main-wrapper"
+      >
+        <div
+          className="order-confirmation order-details"
+        >
+          <h3
+            className="text-center"
+            style={
+              Object {
+                "paddingTop": "1em",
+              }
+            }
+          >
+            Order #
+            fb097bde-5959-45ff-8e21-51184fa60c25
+          </h3>
+          <React.Fragment>
+            <div
+              className="order-misc"
+            >
+              <p
+                className="order-date"
+              >
+                Order Date: 
+                18/04/06 12:47
+              </p>
+              <p>
+                Status: 
+                <span
+                  className="success"
+                >
+                  Delivered
+                </span>
+              </p>
+              <p>
+                Customer: 
+                Emiola Olasanmi
+              </p>
+              <p>
+                Address Provided: 
+                4, Church Street, Yaba
+              </p>
+              <p>
+                Number Provided: 
+                +2348134567890
+              </p>
+            </div>
+            <div
+              className="order-summary"
+            >
+              <div
+                key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+              >
+                <p>
+                  1
+                  x
+                </p>
+                <p>
+                  Vegetable Sharwama and Guava Smoothie
+                </p>
+                <p>
+                  ₦
+                  1200.00
+                </p>
+              </div>
+            </div>
+            <div
+              className="order-amount admin-order-total"
+            >
+              <div>
+                <p>
+                  Total
+                </p>
+                <h2>
+                  ₦
+                  1200
+                </h2>
+              </div>
+            </div>
+          </React.Fragment>
+        </div>
+      </div>
+    </React.Fragment>
+  </CatererView>
+</React.Fragment>
+`;
+
+exports[`OrderDetails renders message when not fetching and that order doesn't exist 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(CatererOrderDetails)
+    isFetching={false}
+    match={
+      Object {
+        "params": Object {
+          "id": "fb097bde-5959-45ff",
+        },
+      }
+    }
+    user={
+      Object {
+        "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+        "businessName": "Food Circle",
+        "businessPhoneNo": "+2348166557788",
+        "email": "food@circle.com",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "role": "caterer",
+      }
+    }
+  >
+    <CatererOrderDetails
+      deliverOrder={[Function]}
+      delivering={false}
+      fetchOrders={[Function]}
+      isFetching={false}
+      logout={[Function]}
+      match={
+        Object {
+          "params": Object {
+            "id": "fb097bde-5959-45ff",
+          },
+        }
+      }
+      order={null}
+      user={
+        Object {
+          "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+          "businessName": "Food Circle",
+          "businessPhoneNo": "+2348166557788",
+          "email": "food@circle.com",
+          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+          "role": "caterer",
+        }
+      }
+    >
+      <CatererView
+        isFetching={false}
+        logout={[Function]}
+        showTime={true}
+        type="orders"
+        user={
+          Object {
+            "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+            "businessName": "Food Circle",
+            "businessPhoneNo": "+2348166557788",
+            "email": "food@circle.com",
+            "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+            "role": "caterer",
+          }
+        }
+      >
+        <div
+          className="admin"
+        >
+          <Header
+            dateType="orders"
+            showTime={true}
+            type="caterer"
+          >
+            <div
+              className="header"
+            >
+              <div
+                className="navbar"
+              >
+                <Connect(CatererHeader)
+                  dateType="orders"
+                  showTime={true}
+                >
+                  <CatererHeader
+                    currentDay="1970-01-01"
+                    dateType="orders"
+                    dispatch={[Function]}
+                    showTime={true}
+                  >
+                    <div
+                      className="menu-control d-none-md"
+                    >
+                      <a
+                        className="d-none-md"
+                        href="#sidenav"
+                      >
+                        <img
+                          alt="toggler"
+                          src="/img/toggler.png"
+                        />
+                      </a>
+                    </div>
+                    <div
+                      className="page-title d-flex-md"
+                    >
+                      <div
+                        className="date"
+                      >
+                        <h2>
+                          Thursday, 1st January 1970
+                              
+                          00:00
+                        </h2>
+                      </div>
+                    </div>
+                  </CatererHeader>
+                </Connect(CatererHeader)>
+              </div>
+            </div>
+          </Header>
+          <div
+            className="content"
+          >
+            <SideNav
+              active="orders"
+              logout={[Function]}
+              user={
+                Object {
+                  "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+                  "businessName": "Food Circle",
+                  "businessPhoneNo": "+2348166557788",
+                  "email": "food@circle.com",
+                  "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                  "role": "caterer",
+                }
+              }
+            >
+              <div
+                className="sidenav"
+                id="sidenav"
+              >
+                <div
+                  className="sidenav-content"
+                >
+                  <div
+                    className="sidenav-header"
+                  >
+                    <div
+                      className="close d-none-md"
+                    >
+                      <a
+                        href="#"
+                      >
+                        ×
+                      </a>
+                       
+                    </div>
+                    <div
+                      className="sidenav-title"
+                    >
+                      <h3>
+                        <a
+                          href="/"
+                        >
+                          BOOK-A-MEAL
+                        </a>
+                      </h3>
+                      <div
+                        className="username-circle"
+                      >
+                        <p>
+                          F
+                        </p>
+                      </div>
+                      <p>
+                        Food Circle
+                      </p>
+                      <span>
+                        <Link
+                          className={null}
+                          clickHandler={[Function]}
+                          id={null}
+                        >
+                          <button
+                            className="link-btn null"
+                            id={null}
+                            onClick={[Function]}
+                          >
+                            Logout
+                          </button>
+                        </Link>
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    className="sidenav-body"
+                  >
+                    <a
+                      className="menu-item false"
+                      href="/"
+                    >
+                      Dashboard
+                    </a>
+                    <a
+                      className="menu-item false"
+                      href="/meals"
+                    >
+                      Meals
+                    </a>
+                    <a
+                      className="menu-item false"
+                      href="/menu"
+                    >
+                      Menu
+                    </a>
+                    <a
+                      className="menu-item active"
+                      href="/orders"
+                    >
+                      Orders
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </SideNav>
+            <div
+              className="content-wrapper"
+              id="has-modal"
+            >
+              <p
+                className="text-center"
+              >
+                This Order Does Not Exist
+              </p>
+            </div>
+          </div>
+          <Footer>
+            <div
+              className="footer"
+            >
+              <p>
+                © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
+              </p>
+            </div>
+          </Footer>
+        </div>
+      </CatererView>
+    </CatererOrderDetails>
+  </Connect(CatererOrderDetails)>
+</Provider>
+`;

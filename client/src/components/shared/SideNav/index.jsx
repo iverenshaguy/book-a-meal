@@ -32,7 +32,7 @@ const SideNav = ({ user, logout, active }) => (
         <a href="/" className={`menu-item ${active === 'dashboard' && 'active'}`}>Dashboard</a>
         <a href="/meals" className={`menu-item ${active === 'meals' && 'active'}`}>Meals</a>
         <a href="/menu" className={`menu-item ${active === 'menu' && 'active'}`}>Menu</a>
-        <a href="/orders" className={`menu-item ${active === 'orders' && 'active'}`}>Order History</a>
+        <a href="/orders" className={`menu-item ${active === 'orders' && 'active'}`}>Orders</a>
       </div>
     </div>
   </div>

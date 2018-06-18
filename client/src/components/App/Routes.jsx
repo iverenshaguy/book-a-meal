@@ -5,6 +5,7 @@ import Welcome from './../pages/Welcome';
 import Meals from './../pages/Meals';
 import CatererMenu from './../pages/Menu/CatererMenu';
 import CatererOrders from './../pages/Orders/CatererOrders';
+import CatererOrderDetails from './../pages/OrderDetails/CatererOrderDetails';
 import requiresAuthentication from './../hoc/Authentication';
 import '../../../public/scss/style.scss';
 
@@ -18,6 +19,7 @@ const Routes = () => (
     <Route exact path="/meals" component={requiresAuthentication(Meals)} />
     <Route exact path="/menu" component={requiresAuthentication(CatererMenu)} />
     <Route exact path="/orders" component={requiresAuthentication(CatererOrders)} />
+    <Route path="/orders/:id" component={requiresAuthentication(CatererOrderDetails)} />
     <Route path="/signin" render={props => <Auth {...props} type="signin" />} />
     <Route path="/signup" render={props => <Auth {...props} type="signup" />} />
   </Fragment>

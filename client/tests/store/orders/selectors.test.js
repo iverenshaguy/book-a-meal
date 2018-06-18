@@ -1,0 +1,11 @@
+import { getOrderItem } from '../../../src/store/selectors/orders';
+import { caterersOrdersObj } from '../../setup/data';
+
+describe('Orders Selectors', () => {
+  it('should get the last item', () => {
+    const orderItem = getOrderItem('fb097bde-5959-45ff-8e21-51184fa60c25', caterersOrdersObj.orders);
+
+    expect(orderItem).toEqual(caterersOrdersObj.orders[0]);
+  });
+});
+

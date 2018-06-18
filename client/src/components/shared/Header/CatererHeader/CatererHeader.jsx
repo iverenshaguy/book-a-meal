@@ -15,7 +15,7 @@ const CatererHeader = ({ currentDay, showTime, dateType }) => {
     <Fragment>
       <div className="menu-control d-none-md">
         <a href="#sidenav" className="d-none-md">
-          <img src="./img/toggler.png" alt="toggler" />
+          <img src="/img/toggler.png" alt="toggler" />
         </a>
       </div>
       <div className="page-title d-flex-md">
