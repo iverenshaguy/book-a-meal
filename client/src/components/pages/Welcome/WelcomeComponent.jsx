@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Header from '../../shared/Header';
 import Footer from '../../shared/Footer';
 import Dashboard from '../Dashboard';
+import Menu from '../Menu';
 import Preloader from '../../shared/Preloader';
 import { userPropTypes } from '../../../helpers/proptypes';
 
@@ -13,6 +14,7 @@ const Welcome = ({ user, isAuthenticated, authenticating }) => {
 
   if (authenticating) return <Preloader type="user" />;
   if (!authenticating && isAuthenticated && user.role === 'caterer') return <Dashboard user={user} />;
+  if (!authenticating && isAuthenticated && user.role === 'customer') return <Menu user={user} />;
 
   return (
     <Fragment>

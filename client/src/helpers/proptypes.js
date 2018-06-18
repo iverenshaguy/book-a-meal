@@ -4,17 +4,19 @@ import formHelpers from './formHelpers';
 
 const { formFields } = formHelpers;
 
+const userPropType = PropTypes.shape({
+  id: PropTypes.string,
+  firstname: PropTypes.string,
+  lastname: PropTypes.string,
+  businessName: PropTypes.string,
+  businessAddress: PropTypes.string,
+  businessPhoneNo: PropTypes.string,
+  email: PropTypes.string,
+  role: PropTypes.string,
+});
+
 const userPropTypes = {
-  user: PropTypes.shape({
-    id: PropTypes.string,
-    firstname: PropTypes.string,
-    lastname: PropTypes.string,
-    businessName: PropTypes.string,
-    businessAddress: PropTypes.string,
-    businessPhoneNo: PropTypes.string,
-    email: PropTypes.string,
-    role: PropTypes.string,
-  }).isRequired
+  user: userPropType.isRequired
 };
 
 const orderMealPropTypes = PropTypes.shape({
@@ -129,6 +131,7 @@ const renderFormFieldPropTypes = {
 export default {
   authPropTypes,
   formPropTypes,
+  userPropType,
   userPropTypes,
   urlMatchPropTypes,
   orderMealPropTypes,

@@ -23,7 +23,7 @@ const CatererView = ({
 
   return (
     <div className="admin">
-      <Header type="caterer" dateType={type} showTime={showTime} />
+      <Header type="caterer" dateType={type} showTime={showTime} user={user} logout={logout} />
       <div className="content">
         <SideNav user={user} logout={logout} active={type} />
         <div className={mainClass} id="has-modal">

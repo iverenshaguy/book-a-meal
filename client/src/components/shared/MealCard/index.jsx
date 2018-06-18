@@ -10,7 +10,7 @@ import { mealObjPropTypes } from '../../../helpers/proptypes';
  * @returns {JSX} MealCard
  */
 const MealCard = ({ meal, type, toggleModal }) => (
-  <div className="meal-card" id="meal-card">
+  <div className={`meal-card ${type === 'customer' && 'order-meal-card'}`} id="meal-card">
     <div className="meal-card-header">
       <img src={meal.imageURL} alt="meal" />
       {type === 'caterer' &&
@@ -33,7 +33,7 @@ const MealCard = ({ meal, type, toggleModal }) => (
         <h3>&#8358; {meal.price}</h3>
         <p>{meal.description}</p>
       </div>
-      {type === 'user' &&
+      {type === 'customer' &&
         <div className="meal-card-action">
           <button className="btn btn-sec meal-card-btn">Click to Order</button>
         </div>}

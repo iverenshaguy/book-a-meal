@@ -207,6 +207,61 @@ export const caterersOrdersObj = {
   pendingOrders: 0
 };
 
+export const customersMenuObj = {
+  menu: [
+    {
+      id: '6f27c0fb-19a9-4d9e-b5a1-d97c2d426ab5',
+      date: '2018-05-18',
+      caterer: {
+        id: '8356954a-9a42-4616-8079-887a73455a7f',
+        businessName: 'FoodCircle',
+        businessPhoneNo: '+2348134567890',
+        businessAddress: '4, Church Street, Yaba',
+        email: 'food@circle.com'
+      },
+      meals: [
+        {
+          id: '81211c24-51c0-46ec-b1e0-18db55880958',
+          title: 'Jollof Rice, Beef and Plantain',
+          imageURL: 'http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg',
+          description: 'Jollof Rice, Beef and Plantain. 2 pieces of beef per plate',
+          vegetarian: false,
+          price: '1500.00'
+        },
+        {
+          id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
+          title: 'Vegetable Sharwama and Guava Smoothie',
+          imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+          description: 'Sharwama contains no animal products, perfect for dieters',
+          vegetarian: true,
+          price: '1200.00'
+        }
+      ]
+    },
+    {
+      id: '6f27c0fb-19a9-4d9e-b5a1-d97c2d426ab6',
+      date: '2018-05-18',
+      caterer: {
+        id: '8356954a-9a42-4616-8079-887a73455a7g',
+        businessName: 'FoodTri',
+        businessPhoneNo: '+2348134567891',
+        businessAddress: '4, Church Street, Yaba',
+        email: 'food@tri.com'
+      },
+      meals: [
+        {
+          id: '81211c24-51c0-46ec-b1e0-18db55880959',
+          title: 'Jollof Rice',
+          imageURL: 'http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg',
+          description: 'Jollof Rice, Beef and Plantain. 2 pieces of beef per plate',
+          vegetarian: false,
+          price: '1500.00'
+        },
+      ]
+    }
+  ]
+};
+
 export const caterersOrdersObjPerDay = {
   orders: [
     {

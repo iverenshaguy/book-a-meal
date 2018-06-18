@@ -2,7 +2,7 @@
 
 exports[`MealModal renders correctly when type is caterer 1`] = `
 <div
-  className="meal-card"
+  className="meal-card false"
   id="meal-card"
 >
   <div
@@ -64,9 +64,9 @@ exports[`MealModal renders correctly when type is caterer 1`] = `
 </div>
 `;
 
-exports[`MealModal renders correctly when type is user 1`] = `
+exports[`MealModal renders correctly when type is customer 1`] = `
 <div
-  className="meal-card"
+  className="meal-card order-meal-card"
   id="meal-card"
 >
   <div

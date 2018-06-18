@@ -15,6 +15,20 @@ exports[`Welcome renders correctly when authenticated and user role is caterer 1
 />
 `;
 
+exports[`Welcome renders correctly when authenticated and user role is customer 1`] = `
+<Menu
+  user={
+    Object {
+      "email": "emiola@olasanmi.com",
+      "firstname": "Emiola",
+      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+      "lastname": "Olasanmi",
+      "role": "customer",
+    }
+  }
+/>
+`;
+
 exports[`Welcome renders correctly when authenticating 1`] = `
 <Preloader
   type="user"
@@ -25,8 +39,10 @@ exports[`Welcome renders correctly when unauthenticated 1`] = `
 <React.Fragment>
   <Header
     dateType={null}
+    logout={null}
     showTime={true}
     type="home"
+    user={null}
   />
   <div
     className="main-wrapper home"
