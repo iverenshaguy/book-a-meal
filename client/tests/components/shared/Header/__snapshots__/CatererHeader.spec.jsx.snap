@@ -11,7 +11,7 @@ exports[`CatererHeader renders correctly 1`] = `
     >
       <img
         alt="toggler"
-        src="./img/toggler.png"
+        src="/img/toggler.png"
       />
     </a>
   </div>

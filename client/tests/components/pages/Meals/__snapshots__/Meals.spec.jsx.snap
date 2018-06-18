@@ -213,7 +213,7 @@ exports[`Meals renders connected component 1`] = `
                       >
                         <img
                           alt="toggler"
-                          src="./img/toggler.png"
+                          src="/img/toggler.png"
                         />
                       </a>
                     </div>
@@ -334,7 +334,7 @@ exports[`Meals renders connected component 1`] = `
                       className="menu-item false"
                       href="/orders"
                     >
-                      Order History
+                      Orders
                     </a>
                   </div>
                 </div>

@@ -77,7 +77,7 @@ exports[`SideNav renders correctly 1`] = `
         className="menu-item false"
         href="/orders"
       >
-        Order History
+        Orders
       </a>
     </div>
   </div>
@@ -161,7 +161,7 @@ exports[`SideNav renders correctly when meals tab is active 1`] = `
         className="menu-item false"
         href="/orders"
       >
-        Order History
+        Orders
       </a>
     </div>
   </div>
@@ -245,7 +245,7 @@ exports[`SideNav renders correctly when menu tab is active 1`] = `
         className="menu-item false"
         href="/orders"
       >
-        Order History
+        Orders
       </a>
     </div>
   </div>
@@ -329,7 +329,7 @@ exports[`SideNav renders correctly when orders tab is active 1`] = `
         className="menu-item active"
         href="/orders"
       >
-        Order History
+        Orders
       </a>
     </div>
   </div>
