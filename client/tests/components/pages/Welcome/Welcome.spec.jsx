@@ -1,6 +1,6 @@
 import React from 'react';
 import Welcome from '../../../../src/components/pages/Welcome/WelcomeComponent';
-import { caterer } from '../../../setup/data';
+import { caterer, customer } from '../../../setup/data';
 
 const props = {
   user: caterer,
@@ -37,5 +37,12 @@ describe('Welcome', () => {
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('Dashboard')).toBeTruthy();
+  });
+
+  it('renders correctly when authenticated and user role is customer', () => {
+    const shallowWrapper = shallow(<Welcome {...props} user={customer} isAuthenticated />);
+
+    expect(toJson(shallowWrapper)).toMatchSnapshot();
+    expect(shallowWrapper.find('CustomerMenu')).toBeTruthy();
   });
 });

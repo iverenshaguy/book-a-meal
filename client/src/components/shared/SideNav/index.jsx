@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LinkBtn from '../../shared/Link';
-import { userPropType } from '../../../helpers/proptypes';
+import LinkBtn from '../Link';
+import { userPropTypes } from '../../../helpers/proptypes';
 
 /**
  * @exports
@@ -39,7 +39,7 @@ const SideNav = ({ user, logout, active }) => (
 );
 
 SideNav.propTypes = {
-  ...userPropType,
+  ...userPropTypes,
   logout: PropTypes.func.isRequired,
   active: PropTypes.string.isRequired
 };

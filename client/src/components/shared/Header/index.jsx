@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import CatererHeader from './CatererHeader';
+import CustomerHeader from './CustomerHeader';
+import { userPropType } from '../../../helpers/proptypes';
 
 /**
  * @exports
@@ -13,8 +15,8 @@ import CatererHeader from './CatererHeader';
 class Header extends Component {
   /**
    * Renders the Home Header
-   * @memberof Dashboard
-   * @returns {JSX} Dashboard Component
+   * @memberofHeader
+   * @returns {JSX}Header Component
    */
   renderUnauthHeader = () => {
     const { type } = this.props;
@@ -51,6 +53,7 @@ class Header extends Component {
     const navbarClass = classNames({
       navbar: true,
       'unauth-navbar': unauth,
+      'white-navbar': type === 'customer'
     });
 
     return (
@@ -60,6 +63,8 @@ class Header extends Component {
             this.renderUnauthHeader()}
           {type === 'caterer' &&
             <CatererHeader dateType={dateType} showTime={showTime} />}
+          {type === 'customer' &&
+            <CustomerHeader {...this.props} />}
         </div>
       </div>
     );
@@ -67,15 +72,19 @@ class Header extends Component {
 }
 
 Header.propTypes = {
+  user: userPropType,
   type: PropTypes.string,
   showTime: PropTypes.bool,
-  dateType: PropTypes.string
+  dateType: PropTypes.string,
+  logout: PropTypes.func,
 };
 
 Header.defaultProps = {
+  user: null,
   type: null,
   showTime: true,
-  dateType: null
+  dateType: null,
+  logout: null
 };
 
 export default Header;

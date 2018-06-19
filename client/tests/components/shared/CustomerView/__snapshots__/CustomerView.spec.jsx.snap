@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomerView renders Preloader when fetching 1`] = `
+<div
+  className="admin user"
+>
+  <Header
+    active="menu"
+    dateType={null}
+    logout={[MockFunction]}
+    showTime={true}
+    type="customer"
+    user={
+      Object {
+        "email": "emiola@olasanmi.com",
+        "firstname": "Emiola",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "lastname": "Olasanmi",
+        "role": "customer",
+      }
+    }
+  />
+  <div
+    className="content"
+  >
+    <div
+      className="content-wrapper"
+      id="has-modal"
+    >
+      <Preloader
+        type={null}
+      />
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`CustomerView renders correctly 1`] = `
+<div
+  className="admin user"
+>
+  <Header
+    active="menu"
+    dateType={null}
+    logout={[MockFunction]}
+    showTime={true}
+    type="customer"
+    user={
+      Object {
+        "email": "emiola@olasanmi.com",
+        "firstname": "Emiola",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "lastname": "Olasanmi",
+        "role": "customer",
+      }
+    }
+  />
+  <div
+    className="content"
+  >
+    <div
+      className="content-wrapper"
+      id="has-modal"
+    >
+      <p>
+        Hi
+      </p>
+    </div>
+  </div>
+  <Footer />
+</div>
+`;

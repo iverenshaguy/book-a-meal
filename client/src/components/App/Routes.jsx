@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import Auth from './../pages/Auth';
 import Welcome from './../pages/Welcome';
 import Meals from './../pages/Meals';
-import CatererMenu from './../pages/Menu/CatererMenu';
+import Menu from './../pages/Menu';
 import CatererOrders from './../pages/Orders/CatererOrders';
 import CatererOrderDetails from './../pages/OrderDetails/CatererOrderDetails';
 import requiresAuthentication from './../hoc/Authentication';
@@ -17,7 +17,7 @@ const Routes = () => (
   <Fragment>
     <Route exact path="/" component={Welcome} />
     <Route exact path="/meals" component={requiresAuthentication(Meals)} />
-    <Route exact path="/menu" component={requiresAuthentication(CatererMenu)} />
+    <Route exact path="/menu" component={requiresAuthentication(Menu)} />
     <Route exact path="/orders" component={requiresAuthentication(CatererOrders)} />
     <Route path="/orders/:id" component={requiresAuthentication(CatererOrderDetails)} />
     <Route path="/signin" render={props => <Auth {...props} type="signin" />} />

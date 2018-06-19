@@ -236,8 +236,19 @@ exports[`Orders renders connected component 1`] = `
         >
           <Header
             dateType="orders"
+            logout={[Function]}
             showTime={true}
             type="caterer"
+            user={
+              Object {
+                "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+                "businessName": "Food Circle",
+                "businessPhoneNo": "+2348166557788",
+                "email": "food@circle.com",
+                "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                "role": "caterer",
+              }
+            }
           >
             <div
               className="header"

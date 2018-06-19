@@ -1,3 +1,4 @@
+import moment from 'moment';
 import instance from '../../config/axios';
 import errorHandler from '../../utils/errorHandler';
 import { setFetching, unsetFetching } from '../actions/isFetching';
@@ -7,14 +8,22 @@ import {
   editMenuSuccess, editMenuFailure,
 } from '../actions/menu';
 import { toggleModal } from '../actions/ui';
+import { flattenMealsIntoSingleArray } from '../selectors/menu';
 
 const fetchMenu = date => async (dispatch) => {
   try {
     dispatch(setFetching());
 
-    const response = await instance.get(`/menu?date=${date}`);
+    const menuDate = date || moment().format('YYYY-MM-DD');
 
-    dispatch(fetchMenuSuccess(response.data));
+    const response = await instance.get(`/menu?date=${menuDate}`);
+
+    if (response.data.menu) {
+      dispatch(fetchMenuSuccess(flattenMealsIntoSingleArray(response.data.menu)));
+    } else {
+      dispatch(fetchMenuSuccess(response.data));
+    }
+
     dispatch(unsetFetching());
   } catch (error) {
     const errorResponse = errorHandler(error);
@@ -29,6 +38,7 @@ const addMenu = menu => async (dispatch) => {
     dispatch(setMenuWorking());
 
     const response = await instance.post('/menu', menu);
+
 
     dispatch(addMenuSuccess(response.data));
     dispatch(unsetMenuWorking());

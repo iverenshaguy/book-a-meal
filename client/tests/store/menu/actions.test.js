@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import MockAdapter from 'axios-mock-adapter';
 import instance from '../../../src/config/axios';
 import operations from '../../../src/store/operations/menu';
-import { caterersMealsObj } from '../../setup/data';
+import { caterersMealsObj, customersMenuObj } from '../../setup/data';
 
 const {
   addMenu,
@@ -131,6 +131,20 @@ describe('Menu Actions', () => {
         const expectedActions = ['SET_FETCHING', 'RECEIVE_MENU_SUCCESS', 'UNSET_FETCHING'];
 
         mockReq.onGet(`${url}/menu?date=2018-06-07`).reply(200, caterersMealsObj);
+
+        return store.dispatch(fetchMenu('2018-06-07')).then(() => {
+          const dispatchedActions = store.getActions();
+
+          const actionTypes = dispatchedActions.map(action => action.type);
+
+          expect(actionTypes).toEqual(expectedActions);
+        });
+      });
+
+      it('dispatches SET_FETCHING, RECEIVE_MENU_SUCCESS and UNSET_FETCHING on successful fetching of customer menu', () => {
+        const expectedActions = ['SET_FETCHING', 'RECEIVE_MENU_SUCCESS', 'UNSET_FETCHING'];
+
+        mockReq.onGet(`${url}/menu?date=2018-06-07`).reply(200, customersMenuObj);
 
         return store.dispatch(fetchMenu('2018-06-07')).then(() => {
           const dispatchedActions = store.getActions();

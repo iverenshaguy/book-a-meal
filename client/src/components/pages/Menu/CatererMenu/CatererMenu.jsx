@@ -50,6 +50,10 @@ class CatererMenu extends Component {
     this.fetchMenu();
   }
 
+  /**
+   * @memberof CatererMenu
+   * @returns {JSX} CatererMenu Component
+  */
   fetchMenu = () => {
     this.props.fetchMenu(this.props.currentDay);
   }
