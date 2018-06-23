@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
-// import { Redirect } from 'react-router-dom';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import MealCard from '../../../shared/MealCard';
 import Cart from '../../../shared/Cart';
 import { userPropTypes, mealObjPropTypes } from '../../../../helpers/proptypes';
-import CustomerView from '../../../shared/CustomerView';
+import View from '../../../shared/View';
 import Notification from '../../../shared/Notification';
 import checkShopOpen from '../../../../helpers/checkShopOpen';
+import './CustomerMenu.scss';
 
 /**
  * @exports
@@ -217,16 +217,10 @@ class CustomerMenu extends Component {
   */
   render() {
     const { user, logout, isFetching } = this.props;
-    const { order } = this.state;
     const isShopOpen = checkShopOpen();
 
     return (
-      <CustomerView
-        user={user}
-        logout={logout}
-        type="menu"
-        isFetching={isFetching}
-      >
+      <View user={user} logout={logout} type="menu" isFetching={isFetching} >
         <div className="content-wrapper meals user-meals">
           <div className="user-menu">
             <div className="main-menu">
@@ -238,13 +232,13 @@ class CustomerMenu extends Component {
               {this.renderMenu()}
             </div>
             <Cart
-              order={order}
+              order={this.state.order}
               handleQuantityInputChange={this.handleQuantityInputChange}
               removeOrderItem={this.removeOrderItem}
             />
           </div>
         </div>
-      </CustomerView>
+      </View>
     );
   }
 }

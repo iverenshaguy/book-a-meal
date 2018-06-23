@@ -5,6 +5,8 @@ import LinkBtn from '../Link';
 import { orderItemPropTypes } from '../../../helpers/proptypes';
 import checkShopOpen from '../../../helpers/checkShopOpen';
 import calculateCashEarnedFromOrder from '../../../helpers/calculateCashEarnedFromOrder';
+import CloseIcon from '../CloseIcon';
+import './Cart.scss';
 
 /**
  * @exports
@@ -109,13 +111,11 @@ class Cart extends Component {
     return (
       <Fragment>
         {this.renderCartToggle()}
-        <div className={`side-cart ${this.state.show && 'show'}`} id="side-cart">
+        <div className={`side-cart ${this.state.show ? 'show' : null}`} id="side-cart">
           <div className="cart">
             <div className="cart-header">
               <h2>Your Cart</h2>
-              <div className="close d-none-xl">
-                <LinkBtn aria-hidden="true" id="side-cart-close-icon" clickHandler={this.toggleCart}>&times;</LinkBtn>
-              </div>
+              <CloseIcon divClass="d-none-xl" btnID="side-cart-close-icon" clickHandler={this.toggleCart} />
             </div>
             <hr />
             {order.length === 0 &&

@@ -42,6 +42,9 @@ export const initialValues = {
     modals: {
       open: false,
       type: null
+    },
+    sideNav: {
+      open: false
     }
   }
 };

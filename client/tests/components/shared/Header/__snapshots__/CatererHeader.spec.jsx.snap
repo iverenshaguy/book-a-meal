@@ -5,15 +5,16 @@ exports[`CatererHeader renders correctly 1`] = `
   <div
     className="menu-control d-none-md"
   >
-    <a
+    <Link
       className="d-none-md"
-      href="#sidenav"
+      clickHandler={[MockFunction]}
+      id={null}
     >
       <img
         alt="toggler"
         src="/img/toggler.png"
       />
-    </a>
+    </Link>
   </div>
   <div
     className="page-title d-flex-md"

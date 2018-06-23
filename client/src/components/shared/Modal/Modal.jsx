@@ -4,7 +4,8 @@ import MealModal from './MealModal';
 import MenuModal from './MenuModal';
 import MealImageModal from './MealImageModal';
 import DeleteMealModal from './DeleteMealModal';
-import LinkBtn from '../Link';
+import CloseIcon from '../CloseIcon';
+import './Modal.scss';
 
 /**
  * @exports
@@ -92,9 +93,9 @@ class Modal extends Component {
   }
 
   /**
-    * @memberof Modal
-* @returns {JSX} Modal Component
-             */
+   * @memberof Modal
+   * @returns {JSX} Modal Component
+  */
   render() {
     const { open } = this.props;
 
@@ -108,9 +109,7 @@ class Modal extends Component {
               <div className="modal-title">
                 <h3 id="modal-title-h3">{this.getModalTitle()}</h3>
               </div>
-              <div className="close">
-                <LinkBtn aria-hidden="true" id="modal-close-icon" clickHandler={this.handleToggleModalClick}>&times;</LinkBtn>
-              </div>
+              <CloseIcon btnID="modal-close-icon" clickHandler={this.handleToggleModalClick} />
             </div>
             <hr />
             <div className="modal-body">{this.renderModalType()}</div>

@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import CustomerMenu from './CustomerMenu';
 import { logout } from '../../../../store/operations/auth';
 import { fetchMenu } from '../../../../store/operations/menu';
-// import { createOrder } from '../../../../store/operations/orders';
 
 const mapStateToProps = state => ({
   isFetching: state.isFetching,

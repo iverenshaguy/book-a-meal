@@ -3,7 +3,7 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import LinkBtn from '../../../shared/Link';
 import MiniPreloader from '../../../shared/Preloader/MiniPreloader';
-import CatererView from '../../../shared/CatererView';
+import View from '../../../shared/View';
 import { calculateCashEarnedFromOrder } from '../../../../helpers';
 import { userPropTypes, catererOrderObjPropTypes } from '../../../../helpers/proptypes';
 
@@ -151,12 +151,12 @@ class CatererOrderDetails extends Component {
 
     return (
       <Fragment>
-        <CatererView user={user} logout={logout} type="orders" showTime isFetching={isFetching}>
+        <View user={user} logout={logout} type="orders" showTime isFetching={isFetching}>
           <Fragment>
             {!isFetching && !this.props.order && <p className="text-center">This Order Does Not Exist</p>}
             {!isFetching && this.props.order && this.renderCatererOrderDetails()}
           </Fragment>
-        </CatererView>
+        </View>
       </Fragment>
     );
   }

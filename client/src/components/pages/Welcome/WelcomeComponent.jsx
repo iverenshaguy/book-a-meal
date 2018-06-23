@@ -7,6 +7,7 @@ import Dashboard from '../Dashboard';
 import Menu from '../Menu';
 import Preloader from '../../shared/Preloader';
 import { userPropTypes } from '../../../helpers/proptypes';
+import './Welcome.scss';
 
 const message = 'I\'M HUNGRY';
 

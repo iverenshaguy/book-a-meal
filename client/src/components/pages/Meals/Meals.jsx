@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import Redirect from 'react-router-dom/Redirect';
 import Modal from '../../shared/Modal';
 import MealCard from '../../shared/MealCard';
-import CatererView from '../../shared/CatererView';
+import View from '../../shared/View';
 import { userPropTypes, mealObjPropTypes } from '../../../helpers/proptypes';
 
 /**
@@ -101,11 +102,13 @@ class Meals extends Component {
 
     const { currentMealId } = this.state;
 
+    if (user.role === 'customer') return <Redirect to="/" />;
+
     return (
       <Fragment>
-        <CatererView user={user} logout={logout} type="meals" showTime isFetching={isFetching}>
+        <View user={user} logout={logout} type="meals" showTime isFetching={isFetching}>
           {this.renderMeals()}
-        </CatererView>
+        </View>
         <Modal
           meal={this.getCurrentMeal(currentMealId)}
           submitting={submitting}

@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CustomerMenu renders Preloader when fetching 1`] = `
-<CustomerView
+<View
   isFetching={true}
   logout={[MockFunction]}
+  showTime={true}
   type="menu"
   user={
     Object {
@@ -79,7 +80,7 @@ exports[`CustomerMenu renders Preloader when fetching 1`] = `
       />
     </div>
   </div>
-</CustomerView>
+</View>
 `;
 
 exports[`CustomerMenu renders connected component 1`] = `
@@ -160,9 +161,10 @@ exports[`CustomerMenu renders connected component 1`] = `
         }
       }
     >
-      <CustomerView
+      <View
         isFetching={false}
         logout={[Function]}
+        showTime={true}
         type="menu"
         user={
           Object {
@@ -179,7 +181,7 @@ exports[`CustomerMenu renders connected component 1`] = `
         >
           <Header
             active="menu"
-            dateType={null}
+            dateType="menu"
             logout={[Function]}
             showTime={true}
             type="customer"
@@ -201,7 +203,7 @@ exports[`CustomerMenu renders connected component 1`] = `
               >
                 <CustomerHeader
                   active="menu"
-                  dateType={null}
+                  dateType="menu"
                   logout={[Function]}
                   showTime={true}
                   type="customer"
@@ -568,7 +570,7 @@ exports[`CustomerMenu renders connected component 1`] = `
                       </span>
                     </div>
                     <div
-                      className="side-cart false"
+                      className="side-cart null"
                       id="side-cart"
                     >
                       <div
@@ -580,24 +582,30 @@ exports[`CustomerMenu renders connected component 1`] = `
                           <h2>
                             Your Cart
                           </h2>
-                          <div
-                            className="close d-none-xl"
+                          <CloseIcon
+                            btnID="side-cart-close-icon"
+                            clickHandler={[Function]}
+                            divClass="d-none-xl"
                           >
-                            <Link
-                              aria-hidden="true"
-                              className={null}
-                              clickHandler={[Function]}
-                              id="side-cart-close-icon"
+                            <div
+                              className="close d-none-xl"
                             >
-                              <button
-                                className="link-btn null"
+                              <Link
+                                aria-hidden="true"
+                                className={null}
+                                clickHandler={[Function]}
                                 id="side-cart-close-icon"
-                                onClick={[Function]}
                               >
-                                ×
-                              </button>
-                            </Link>
-                          </div>
+                                <button
+                                  className="link-btn null"
+                                  id="side-cart-close-icon"
+                                  onClick={[Function]}
+                                >
+                                  ×
+                                </button>
+                              </Link>
+                            </div>
+                          </CloseIcon>
                         </div>
                         <hr />
                         <div
@@ -641,16 +649,17 @@ exports[`CustomerMenu renders connected component 1`] = `
             </div>
           </Footer>
         </div>
-      </CustomerView>
+      </View>
     </CustomerMenu>
   </Connect(CustomerMenu)>
 </Provider>
 `;
 
 exports[`CustomerMenu renders correctly when not fetching 1`] = `
-<CustomerView
+<View
   isFetching={false}
   logout={[MockFunction]}
+  showTime={true}
   type="menu"
   user={
     Object {
@@ -726,13 +735,14 @@ exports[`CustomerMenu renders correctly when not fetching 1`] = `
       />
     </div>
   </div>
-</CustomerView>
+</View>
 `;
 
 exports[`CustomerMenu renders message when not fetching and there are no meals on the menu 1`] = `
-<CustomerView
+<View
   isFetching={true}
   logout={[MockFunction]}
+  showTime={true}
   type="menu"
   user={
     Object {
@@ -776,7 +786,7 @@ exports[`CustomerMenu renders message when not fetching and there are no meals o
       />
     </div>
   </div>
-</CustomerView>
+</View>
 `;
 
 exports[`CustomerMenu renders message when shop is closed 1`] = `
@@ -822,9 +832,10 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
     }
   }
 >
-  <CustomerView
+  <View
     isFetching={false}
     logout={[MockFunction]}
+    showTime={true}
     type="menu"
     user={
       Object {
@@ -841,7 +852,7 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
     >
       <Header
         active="menu"
-        dateType={null}
+        dateType="menu"
         logout={[MockFunction]}
         showTime={true}
         type="customer"
@@ -863,7 +874,7 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
           >
             <CustomerHeader
               active="menu"
-              dateType={null}
+              dateType="menu"
               logout={[MockFunction]}
               showTime={true}
               type="customer"
@@ -1203,7 +1214,7 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                   </span>
                 </div>
                 <div
-                  className="side-cart false"
+                  className="side-cart null"
                   id="side-cart"
                 >
                   <div
@@ -1215,24 +1226,30 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                       <h2>
                         Your Cart
                       </h2>
-                      <div
-                        className="close d-none-xl"
+                      <CloseIcon
+                        btnID="side-cart-close-icon"
+                        clickHandler={[Function]}
+                        divClass="d-none-xl"
                       >
-                        <Link
-                          aria-hidden="true"
-                          className={null}
-                          clickHandler={[Function]}
-                          id="side-cart-close-icon"
+                        <div
+                          className="close d-none-xl"
                         >
-                          <button
-                            className="link-btn null"
+                          <Link
+                            aria-hidden="true"
+                            className={null}
+                            clickHandler={[Function]}
                             id="side-cart-close-icon"
-                            onClick={[Function]}
                           >
-                            ×
-                          </button>
-                        </Link>
-                      </div>
+                            <button
+                              className="link-btn null"
+                              id="side-cart-close-icon"
+                              onClick={[Function]}
+                            >
+                              ×
+                            </button>
+                          </Link>
+                        </div>
+                      </CloseIcon>
                     </div>
                     <hr />
                     <div
@@ -1260,6 +1277,6 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
         </div>
       </Footer>
     </div>
-  </CustomerView>
+  </View>
 </CustomerMenu>
 `;

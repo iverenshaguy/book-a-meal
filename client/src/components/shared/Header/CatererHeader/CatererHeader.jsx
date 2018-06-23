@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
+import LinkBtn from '../../Link';
 
 /**
  * @exports
@@ -8,15 +9,17 @@ import PropTypes from 'prop-types';
  * @param {object} props
  * @returns {JSX} CatererHeader
  */
-const CatererHeader = ({ currentDay, showTime, dateType }) => {
+const CatererHeader = ({
+  currentDay, showTime, dateType, toggleSideNav
+}) => {
   const date = dateType === 'menu' ? moment(currentDay).format('dddd[,] Do MMMM YYYY') : moment().format('dddd[,] Do MMMM YYYY');
 
   return (
     <Fragment>
       <div className="menu-control d-none-md">
-        <a href="#sidenav" className="d-none-md">
+        <LinkBtn className="d-none-md" clickHandler={toggleSideNav}>
           <img src="/img/toggler.png" alt="toggler" />
-        </a>
+        </LinkBtn>
       </div>
       <div className="page-title d-flex-md">
         <div className="date">
@@ -30,7 +33,8 @@ const CatererHeader = ({ currentDay, showTime, dateType }) => {
 CatererHeader.propTypes = {
   currentDay: PropTypes.string.isRequired,
   showTime: PropTypes.bool,
-  dateType: PropTypes.string
+  dateType: PropTypes.string,
+  toggleSideNav: PropTypes.func.isRequired
 };
 
 CatererHeader.defaultProps = {

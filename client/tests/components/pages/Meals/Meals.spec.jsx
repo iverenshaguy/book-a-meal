@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import Meals from '../../../../src/components/pages/Meals/Meals';
 import ConnectedMeals from '../../../../src/components/pages/Meals';
-import { caterer, caterersMealsObj, initialValues } from '../../../setup/data';
+import { caterer, customer, caterersMealsObj, initialValues } from '../../../setup/data';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -73,6 +73,21 @@ describe('Meals', () => {
 
     wrapper.find('#edit-meal').at(0).simulate('click');
     expect(toggleSpy).toHaveBeenCalled();
+  });
+
+  it('redirects User to homepage if user role is customer', () => {
+    const toggleMock = jest.fn();
+    const shallowWrapper = shallow(<Meals
+      user={customer}
+      logout={jest.fn()}
+      fetchMeals={jest.fn()}
+      {...caterersMealsObj}
+      isFetching
+      submitting={false}
+      toggleModal={toggleMock}
+    />);
+
+    expect(shallowWrapper.find('Redirect')).toBeTruthy();
   });
 
   it('renders Preloader when fetching', () => {

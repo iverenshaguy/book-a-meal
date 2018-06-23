@@ -2,7 +2,7 @@
 
 exports[`SideNav renders correctly 1`] = `
 <div
-  className="sidenav"
+  className="sidenav null"
   id="sidenav"
 >
   <div
@@ -11,16 +11,11 @@ exports[`SideNav renders correctly 1`] = `
     <div
       className="sidenav-header"
     >
-      <div
-        className="close d-none-md"
-      >
-        <a
-          href="#"
-        >
-          ×
-        </a>
-         
-      </div>
+      <CloseIcon
+        btnID={null}
+        clickHandler={[Function]}
+        divClass="d-none-md"
+      />
       <div
         className="sidenav-title"
       >
@@ -96,7 +91,7 @@ exports[`SideNav renders correctly 1`] = `
 
 exports[`SideNav renders correctly when meals tab is active 1`] = `
 <div
-  className="sidenav"
+  className="sidenav null"
   id="sidenav"
 >
   <div
@@ -105,16 +100,11 @@ exports[`SideNav renders correctly when meals tab is active 1`] = `
     <div
       className="sidenav-header"
     >
-      <div
-        className="close d-none-md"
-      >
-        <a
-          href="#"
-        >
-          ×
-        </a>
-         
-      </div>
+      <CloseIcon
+        btnID={null}
+        clickHandler={[Function]}
+        divClass="d-none-md"
+      />
       <div
         className="sidenav-title"
       >
@@ -190,7 +180,7 @@ exports[`SideNav renders correctly when meals tab is active 1`] = `
 
 exports[`SideNav renders correctly when menu tab is active 1`] = `
 <div
-  className="sidenav"
+  className="sidenav null"
   id="sidenav"
 >
   <div
@@ -199,16 +189,11 @@ exports[`SideNav renders correctly when menu tab is active 1`] = `
     <div
       className="sidenav-header"
     >
-      <div
-        className="close d-none-md"
-      >
-        <a
-          href="#"
-        >
-          ×
-        </a>
-         
-      </div>
+      <CloseIcon
+        btnID={null}
+        clickHandler={[Function]}
+        divClass="d-none-md"
+      />
       <div
         className="sidenav-title"
       >
@@ -284,7 +269,7 @@ exports[`SideNav renders correctly when menu tab is active 1`] = `
 
 exports[`SideNav renders correctly when orders tab is active 1`] = `
 <div
-  className="sidenav"
+  className="sidenav null"
   id="sidenav"
 >
   <div
@@ -293,16 +278,11 @@ exports[`SideNav renders correctly when orders tab is active 1`] = `
     <div
       className="sidenav-header"
     >
-      <div
-        className="close d-none-md"
-      >
-        <a
-          href="#"
-        >
-          ×
-        </a>
-         
-      </div>
+      <CloseIcon
+        btnID={null}
+        clickHandler={[Function]}
+        divClass="d-none-md"
+      />
       <div
         className="sidenav-title"
       >

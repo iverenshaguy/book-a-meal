@@ -13,7 +13,7 @@ describe('CatererHeader', () => {
   });
 
   it('renders correctly', () => {
-    const shallowWrapper = shallow(<CatererHeader currentDay="1970-01-01" />);
+    const shallowWrapper = shallow(<CatererHeader currentDay="1970-01-01" toggleSideNav={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
   });

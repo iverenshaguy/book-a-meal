@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dashboard renders Preloader when fetching 1`] = `
-<CatererView
+<View
   isFetching={true}
   logout={[MockFunction]}
   showTime={true}
@@ -190,7 +190,7 @@ exports[`Dashboard renders Preloader when fetching 1`] = `
       />
     </div>
   </React.Fragment>
-</CatererView>
+</View>
 `;
 
 exports[`Dashboard renders connected component 1`] = `
@@ -356,7 +356,7 @@ exports[`Dashboard renders connected component 1`] = `
         }
       }
     >
-      <CatererView
+      <View
         isFetching={false}
         logout={[Function]}
         showTime={true}
@@ -373,9 +373,10 @@ exports[`Dashboard renders connected component 1`] = `
         }
       >
         <div
-          className="admin"
+          className="admin null"
         >
           <Header
+            active="dashboard"
             dateType="dashboard"
             logout={[Function]}
             showTime={true}
@@ -404,21 +405,28 @@ exports[`Dashboard renders connected component 1`] = `
                   <CatererHeader
                     currentDay="1970-01-01"
                     dateType="dashboard"
-                    dispatch={[Function]}
                     showTime={true}
+                    toggleSideNav={[Function]}
                   >
                     <div
                       className="menu-control d-none-md"
                     >
-                      <a
+                      <Link
                         className="d-none-md"
-                        href="#sidenav"
+                        clickHandler={[Function]}
+                        id={null}
                       >
-                        <img
-                          alt="toggler"
-                          src="/img/toggler.png"
-                        />
-                      </a>
+                        <button
+                          className="link-btn d-none-md"
+                          id={null}
+                          onClick={[Function]}
+                        >
+                          <img
+                            alt="toggler"
+                            src="/img/toggler.png"
+                          />
+                        </button>
+                      </Link>
                     </div>
                     <div
                       className="page-title d-flex-md"
@@ -441,7 +449,7 @@ exports[`Dashboard renders connected component 1`] = `
           <div
             className="content"
           >
-            <SideNav
+            <Connect(SideNav)
               active="dashboard"
               logout={[Function]}
               user={
@@ -455,133 +463,164 @@ exports[`Dashboard renders connected component 1`] = `
                 }
               }
             >
-              <div
-                className="sidenav"
-                id="sidenav"
+              <SideNav
+                active="dashboard"
+                logout={[Function]}
+                open={false}
+                toggleSideNav={[Function]}
+                user={
+                  Object {
+                    "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+                    "businessName": "Food Circle",
+                    "businessPhoneNo": "+2348166557788",
+                    "email": "food@circle.com",
+                    "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                    "role": "caterer",
+                  }
+                }
               >
                 <div
-                  className="sidenav-content"
+                  className="sidenav null"
+                  id="sidenav"
                 >
                   <div
-                    className="sidenav-header"
+                    className="sidenav-content"
                   >
                     <div
-                      className="close d-none-md"
+                      className="sidenav-header"
                     >
-                      <a
-                        href="#"
+                      <CloseIcon
+                        btnID={null}
+                        clickHandler={[Function]}
+                        divClass="d-none-md"
                       >
-                        ×
-                      </a>
-                       
-                    </div>
-                    <div
-                      className="sidenav-title"
-                    >
-                      <h3>
-                        <Link
-                          href="/"
-                          replace={false}
-                          to="/"
+                        <div
+                          className="close d-none-md"
                         >
-                          <a
-                            href="/"
-                            onClick={[Function]}
-                          >
-                            BOOK-A-MEAL
-                          </a>
-                        </Link>
-                      </h3>
-                      <div
-                        className="username-circle"
-                      >
-                        <p>
-                          F
-                        </p>
-                      </div>
-                      <p>
-                        Food Circle
-                      </p>
-                      <span>
-                        <Link
-                          className={null}
-                          clickHandler={[Function]}
-                          id={null}
-                        >
-                          <button
-                            className="link-btn null"
+                          <Link
+                            aria-hidden="true"
+                            className={null}
+                            clickHandler={[Function]}
                             id={null}
-                            onClick={[Function]}
                           >
-                            Logout
-                          </button>
-                        </Link>
-                      </span>
+                            <button
+                              className="link-btn null"
+                              id={null}
+                              onClick={[Function]}
+                            >
+                              ×
+                            </button>
+                          </Link>
+                        </div>
+                      </CloseIcon>
+                      <div
+                        className="sidenav-title"
+                      >
+                        <h3>
+                          <Link
+                            href="/"
+                            replace={false}
+                            to="/"
+                          >
+                            <a
+                              href="/"
+                              onClick={[Function]}
+                            >
+                              BOOK-A-MEAL
+                            </a>
+                          </Link>
+                        </h3>
+                        <div
+                          className="username-circle"
+                        >
+                          <p>
+                            F
+                          </p>
+                        </div>
+                        <p>
+                          Food Circle
+                        </p>
+                        <span>
+                          <Link
+                            className={null}
+                            clickHandler={[Function]}
+                            id={null}
+                          >
+                            <button
+                              className="link-btn null"
+                              id={null}
+                              onClick={[Function]}
+                            >
+                              Logout
+                            </button>
+                          </Link>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  <div
-                    className="sidenav-body"
-                  >
-                    <Link
-                      className="menu-item active"
-                      href="/"
-                      replace={false}
-                      to="/"
+                    <div
+                      className="sidenav-body"
                     >
-                      <a
+                      <Link
                         className="menu-item active"
                         href="/"
-                        onClick={[Function]}
+                        replace={false}
+                        to="/"
                       >
-                        Dashboard
-                      </a>
-                    </Link>
-                    <Link
-                      className="menu-item false"
-                      href="/meals"
-                      replace={false}
-                      to="/meals"
-                    >
-                      <a
+                        <a
+                          className="menu-item active"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          Dashboard
+                        </a>
+                      </Link>
+                      <Link
                         className="menu-item false"
                         href="/meals"
-                        onClick={[Function]}
+                        replace={false}
+                        to="/meals"
                       >
-                        Meals
-                      </a>
-                    </Link>
-                    <Link
-                      className="menu-item false"
-                      href="/menu"
-                      replace={false}
-                      to="/menu"
-                    >
-                      <a
+                        <a
+                          className="menu-item false"
+                          href="/meals"
+                          onClick={[Function]}
+                        >
+                          Meals
+                        </a>
+                      </Link>
+                      <Link
                         className="menu-item false"
                         href="/menu"
-                        onClick={[Function]}
+                        replace={false}
+                        to="/menu"
                       >
-                        Menu
-                      </a>
-                    </Link>
-                    <Link
-                      className="menu-item false"
-                      href="/orders"
-                      replace={false}
-                      to="/orders"
-                    >
-                      <a
+                        <a
+                          className="menu-item false"
+                          href="/menu"
+                          onClick={[Function]}
+                        >
+                          Menu
+                        </a>
+                      </Link>
+                      <Link
                         className="menu-item false"
                         href="/orders"
-                        onClick={[Function]}
+                        replace={false}
+                        to="/orders"
                       >
-                        Orders
-                      </a>
-                    </Link>
+                        <a
+                          className="menu-item false"
+                          href="/orders"
+                          onClick={[Function]}
+                        >
+                          Orders
+                        </a>
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </SideNav>
+              </SideNav>
+            </Connect(SideNav)>
             <div
               className="content-wrapper dashboard"
               id="has-modal"
@@ -686,14 +725,14 @@ exports[`Dashboard renders connected component 1`] = `
             </div>
           </Footer>
         </div>
-      </CatererView>
+      </View>
     </Dashboard>
   </Connect(Dashboard)>
 </Provider>
 `;
 
 exports[`Dashboard renders correctly when not fetching 1`] = `
-<CatererView
+<View
   isFetching={false}
   logout={[MockFunction]}
   showTime={true}
@@ -882,5 +921,5 @@ exports[`Dashboard renders correctly when not fetching 1`] = `
       />
     </div>
   </React.Fragment>
-</CatererView>
+</View>
 `;

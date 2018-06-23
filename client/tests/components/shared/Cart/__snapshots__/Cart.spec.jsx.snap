@@ -44,7 +44,7 @@ exports[`Cart hides checkout button when shop is closed 1`] = `
     </span>
   </div>
   <div
-    className="side-cart false"
+    className="side-cart null"
     id="side-cart"
   >
     <div
@@ -56,24 +56,30 @@ exports[`Cart hides checkout button when shop is closed 1`] = `
         <h2>
           Your Cart
         </h2>
-        <div
-          className="close d-none-xl"
+        <CloseIcon
+          btnID="side-cart-close-icon"
+          clickHandler={[Function]}
+          divClass="d-none-xl"
         >
-          <Link
-            aria-hidden="true"
-            className={null}
-            clickHandler={[Function]}
-            id="side-cart-close-icon"
+          <div
+            className="close d-none-xl"
           >
-            <button
-              className="link-btn null"
+            <Link
+              aria-hidden="true"
+              className={null}
+              clickHandler={[Function]}
               id="side-cart-close-icon"
-              onClick={[Function]}
             >
-              ×
-            </button>
-          </Link>
-        </div>
+              <button
+                className="link-btn null"
+                id="side-cart-close-icon"
+                onClick={[Function]}
+              >
+                ×
+              </button>
+            </Link>
+          </div>
+        </CloseIcon>
       </div>
       <hr />
       <div
@@ -177,7 +183,7 @@ exports[`Cart renders correctly 1`] = `
     </span>
   </div>
   <div
-    className="side-cart false"
+    className="side-cart null"
     id="side-cart"
   >
     <div
@@ -189,18 +195,11 @@ exports[`Cart renders correctly 1`] = `
         <h2>
           Your Cart
         </h2>
-        <div
-          className="close d-none-xl"
-        >
-          <Link
-            aria-hidden="true"
-            className={null}
-            clickHandler={[Function]}
-            id="side-cart-close-icon"
-          >
-            ×
-          </Link>
-        </div>
+        <CloseIcon
+          btnID="side-cart-close-icon"
+          clickHandler={[Function]}
+          divClass="d-none-xl"
+        />
       </div>
       <hr />
       <div
@@ -309,7 +308,7 @@ exports[`Cart renders message when there is no order 1`] = `
     </span>
   </div>
   <div
-    className="side-cart false"
+    className="side-cart null"
     id="side-cart"
   >
     <div
@@ -321,18 +320,11 @@ exports[`Cart renders message when there is no order 1`] = `
         <h2>
           Your Cart
         </h2>
-        <div
-          className="close d-none-xl"
-        >
-          <Link
-            aria-hidden="true"
-            className={null}
-            clickHandler={[Function]}
-            id="side-cart-close-icon"
-          >
-            ×
-          </Link>
-        </div>
+        <CloseIcon
+          btnID="side-cart-close-icon"
+          clickHandler={[Function]}
+          divClass="d-none-xl"
+        />
       </div>
       <hr />
       <div

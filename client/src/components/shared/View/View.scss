@@ -1,0 +1,147 @@
+@import '../../../../public/scss/_variables';
+.admin {
+  display: flex;
+  flex-direction: column;
+  background: none;
+  background-color: #EBEFF2 !important;
+  color: $dark;
+  margin-left: 0;
+  min-height: 100vh;
+  .header {
+    flex: 1;
+    position: relative;
+    background-color: white;
+  }
+  .content {
+    flex: 10;
+  }
+  .footer {
+    flex: 1;
+  }
+  .navbar {
+    color: $dark;
+    background-color: inherit;
+    /* box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1); */
+    .admin-nav {
+      flex-grow: 0;
+      .dropdown.notification .dropdown-content {
+        margin-right: 0;
+      }
+    }
+  }
+  &.user {
+    margin-left: 0;
+    .content {
+      display: block;
+      flex-direction: row;
+      min-height: 100%;
+      margin-top: 0;
+    }
+  }
+  .header .navbar .page-title a,
+  .navlinks,
+  .header .navbar .navlinks .link,
+  .footer p {
+    color: $dark;
+  }
+  &.no-date .content {
+    margin-top: 0;
+  }
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+  }
+  .main-wrapper {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0;
+  }
+  .navbar .date {
+    margin: 0;
+  }
+  .date {
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 40px;
+  }
+  .page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 40px;
+  }
+  .date hr,
+  .page-heading hr {
+    color: #a1a1a1;
+    width: 55%;
+  }
+  .date {
+    flex-direction: row;
+    h2 {
+      font-size: 20px;
+    }
+  }
+  .header-date {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (min-width: 767.98px) {
+  .admin {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: 250px;
+    .header {
+      background-color: #EBEFF2;
+    }
+    &.user {
+      margin-left: 0;
+    }
+    .content {
+      flex-grow: 10;
+      display: flex;
+      flex-direction: row; // min-height: 100%;
+      margin-top: 0;
+      .content-wrapper {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .admin .date {
+    text-align: center;
+    flex-direction: column;
+  }
+}
+
+.user {
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("../../../../public/img/chicken-fajitas.jpg") no-repeat center center;
+  background-color: white;
+  background-size: cover;
+  background-attachment: fixed;
+  .header {
+    left: 0%;
+    width: 100%;
+    position: fixed;
+  }
+  .content-wrapper {
+    margin-top: 70px;
+  }
+  .navbar {
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1);
+  }
+  .header .navbar .page-title a,
+  .navlinks,
+  .header .navbar .navlinks .link,
+  .footer p {
+    color: $dark;
+  }
+}

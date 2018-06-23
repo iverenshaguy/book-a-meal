@@ -4,6 +4,9 @@ const state = {
   modals: {
     open: false,
     type: null
+  },
+  sideNav: {
+    open: false
   }
 };
 
@@ -36,6 +39,15 @@ describe('UI Reducers', () => {
     );
 
     expect(newState).toEqual({ ...state, modals: { ...state.modals, open: false } });
+  });
+
+  it('should handle TOGGLE_SIDENAV action', () => {
+    const newState = reducer(
+      state,
+      { type: 'TOGGLE_SIDENAV' }
+    );
+
+    expect(newState).toEqual({ ...state, sideNav: { open: true } });
   });
 });
 
