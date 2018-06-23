@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomerView from '../../../../src/components/shared/CustomerView';
+import CustomerView from '../../../../src/components/shared/View';
 import { customer } from '../../../setup/data';
 
 const props = {

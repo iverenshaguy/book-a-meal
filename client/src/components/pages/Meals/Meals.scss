@@ -1,7 +1,6 @@
-@import '../_variables.scss';
+@import '../../../../public/scss/_variables';
 .meals .meal-card {
   min-width: 200px;
-  max-width: 350px;
   min-height: 300px;
   box-sizing: border-box;
   color: $dark;
@@ -13,6 +12,12 @@
   position: relative;
   &.order-meal-card {
     min-height: 380px;
+  }
+}
+
+@media (min-width: 500) {
+  .meals .meal-card {
+    max-width: 350px;
   }
 }
 

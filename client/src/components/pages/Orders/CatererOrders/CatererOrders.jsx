@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import OrderPill from '../../../shared/OrderPill';
-import CatererView from '../../../shared/CatererView';
+import View from '../../../shared/View';
 import { userPropTypes, catererOrderObjPropTypes } from '../../../../helpers/proptypes';
+import './Orders.scss';
 
 /**
  * @exports
@@ -63,9 +64,9 @@ class CatererOrders extends Component {
 
     return (
       <Fragment>
-        <CatererView user={user} logout={logout} type="orders" showTime isFetching={isFetching}>
+        <View user={user} logout={logout} type="orders" showTime isFetching={isFetching}>
           {this.renderCatererOrders()}
-        </CatererView>
+        </View>
       </Fragment>
     );
   }

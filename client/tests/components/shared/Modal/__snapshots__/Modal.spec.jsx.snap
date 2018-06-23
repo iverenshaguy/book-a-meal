@@ -49,18 +49,11 @@ exports[`Modal renders correctly 1`] = `
           Add a Meal
         </h3>
       </div>
-      <div
-        className="close"
-      >
-        <Link
-          aria-hidden="true"
-          className={null}
-          clickHandler={[Function]}
-          id="modal-close-icon"
-        >
-          ×
-        </Link>
-      </div>
+      <CloseIcon
+        btnID="modal-close-icon"
+        clickHandler={[Function]}
+        divClass={null}
+      />
     </div>
     <hr />
     <div
@@ -69,6 +62,7 @@ exports[`Modal renders correctly 1`] = `
       <MealModal
         meal={null}
         open={true}
+        submitting={false}
         toggleModal={[MockFunction]}
         type="addMeal"
       />
@@ -97,18 +91,11 @@ exports[`Modal renders correctly when type is deleteMeal 1`] = `
           Delete Meal
         </h3>
       </div>
-      <div
-        className="close"
-      >
-        <Link
-          aria-hidden="true"
-          className={null}
-          clickHandler={[Function]}
-          id="modal-close-icon"
-        >
-          ×
-        </Link>
-      </div>
+      <CloseIcon
+        btnID="modal-close-icon"
+        clickHandler={[Function]}
+        divClass={null}
+      />
     </div>
     <hr />
     <div
@@ -116,6 +103,7 @@ exports[`Modal renders correctly when type is deleteMeal 1`] = `
     >
       <Connect(DeleteMealModal)
         open={true}
+        submitting={false}
         toggleModal={[MockFunction]}
         type="deleteMeal"
       />
@@ -144,18 +132,11 @@ exports[`Modal renders correctly when type is deleteSuccessMsg 1`] = `
           Delete Meal
         </h3>
       </div>
-      <div
-        className="close"
-      >
-        <Link
-          aria-hidden="true"
-          className={null}
-          clickHandler={[Function]}
-          id="modal-close-icon"
-        >
-          ×
-        </Link>
-      </div>
+      <CloseIcon
+        btnID="modal-close-icon"
+        clickHandler={[Function]}
+        divClass={null}
+      />
     </div>
     <hr />
     <div
@@ -191,18 +172,11 @@ exports[`Modal renders correctly when type is editMeal 1`] = `
           Edit Meal
         </h3>
       </div>
-      <div
-        className="close"
-      >
-        <Link
-          aria-hidden="true"
-          className={null}
-          clickHandler={[Function]}
-          id="modal-close-icon"
-        >
-          ×
-        </Link>
-      </div>
+      <CloseIcon
+        btnID="modal-close-icon"
+        clickHandler={[Function]}
+        divClass={null}
+      />
     </div>
     <hr />
     <div
@@ -211,6 +185,7 @@ exports[`Modal renders correctly when type is editMeal 1`] = `
       <MealModal
         meal={null}
         open={true}
+        submitting={false}
         toggleModal={[MockFunction]}
         type="editMeal"
       />
@@ -239,18 +214,11 @@ exports[`Modal renders correctly when type is menu 1`] = `
           Select Meal Options
         </h3>
       </div>
-      <div
-        className="close"
-      >
-        <Link
-          aria-hidden="true"
-          className={null}
-          clickHandler={[Function]}
-          id="modal-close-icon"
-        >
-          ×
-        </Link>
-      </div>
+      <CloseIcon
+        btnID="modal-close-icon"
+        clickHandler={[Function]}
+        divClass={null}
+      />
     </div>
     <hr />
     <div
@@ -282,18 +250,11 @@ exports[`Modal renders correctly when type is newMealImage 1`] = `
           Add a Meal Image
         </h3>
       </div>
-      <div
-        className="close"
-      >
-        <Link
-          aria-hidden="true"
-          className={null}
-          clickHandler={[Function]}
-          id="modal-close-icon"
-        >
-          ×
-        </Link>
-      </div>
+      <CloseIcon
+        btnID="modal-close-icon"
+        clickHandler={[Function]}
+        divClass={null}
+      />
     </div>
     <hr />
     <div
@@ -301,6 +262,7 @@ exports[`Modal renders correctly when type is newMealImage 1`] = `
     >
       <Connect(MealImageModal)
         open={true}
+        submitting={false}
         toggleModal={[MockFunction]}
         type="newMealImage"
       />
@@ -327,18 +289,11 @@ exports[`Modal renders null when type is unknown 1`] = `
           id="modal-title-h3"
         />
       </div>
-      <div
-        className="close"
-      >
-        <Link
-          aria-hidden="true"
-          className={null}
-          clickHandler={[Function]}
-          id="modal-close-icon"
-        >
-          ×
-        </Link>
-      </div>
+      <CloseIcon
+        btnID="modal-close-icon"
+        clickHandler={[Function]}
+        divClass={null}
+      />
     </div>
     <hr />
     <div

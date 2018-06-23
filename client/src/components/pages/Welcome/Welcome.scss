@@ -1,0 +1,75 @@
+@import '../../../../public/scss/_variables';
+.home {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  height: 100%;
+  .landing {
+    color: $white;
+    text-align: center;
+    font-family: $heading-font-stack;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    h1 {
+      margin: 0 0 10%;
+      font-size: 2.0em;
+      padding: 0 1em;
+      margin-bottom: 8.33333%;
+      -webkit-animation: pop-in .6s ease-out;
+      animation: pop-in .6s ease-out;
+    }
+    p {
+      font-size: 1.5em;
+    }
+    button {
+      border: 2px solid $dark-green;
+      background-color: $dark-green;
+      color: $white;
+      padding: 12px 50px;
+      font-size: 1.3em;
+      &:hover,
+      &.focus,
+      &.active {
+        transition: background-color 0.5s, border-color 0.5s;
+        background-color: #154a19;
+        border-color: #154a19;
+        color: $white;
+      }
+    }
+  }
+  .meals {
+    background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url("../../../../public/img/chicken-fajitas.jpg") no-repeat center center;
+    background-color: white;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}
+
+@-webkit-keyframes pop-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-4rem);
+    transform: translateY(-4rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-4rem);
+    transform: translateY(-4rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}

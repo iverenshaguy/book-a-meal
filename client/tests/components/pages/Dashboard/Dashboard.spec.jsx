@@ -60,7 +60,7 @@ describe('Dashboard', () => {
         />
       </Provider>);
 
-    const wrapper = mount(comp);
+    const wrapper = mount(comp, rrcMock.get());
 
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();

@@ -4,6 +4,7 @@ import Meals from './Meals';
 import { fetchMeals } from '../../../store/operations/meals';
 import { logout } from '../../../store/operations/auth';
 import { toggleModal } from '../../../store/actions/ui';
+import './Meals.scss';
 
 const mapStateToProps = state => ({
   isFetching: state.isFetching,

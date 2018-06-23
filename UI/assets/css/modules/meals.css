@@ -1,214 +1,221 @@
 .meals .meal-card {
-    min-width: 200px;
-    min-height: 300px;
-    box-sizing: border-box;
-    color: #333;
-    background-color: #FFFFFF;
-    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    position: relative;
+  min-width: 200px;
+  min-height: 300px;
+  box-sizing: border-box;
+  color: #333;
+  background-color: #FFFFFF;
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  position: relative;
+}
+
+@media (min-width: 500) {
+  .meals .meal-card {
+    max-width: 350px;
+  }
 }
 
 .meals .meal-card.order-meal-card {
-    min-height: 380px;
+  min-height: 380px;
 }
 
 .card-group .card,
 .card-group .meals .meal-card,
 .meals .card-group .meal-card {
-    font-family: "Nunito", sans-serif;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+  font-family: "Nunito", sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 @media (min-width: 576px) {
-    .card-group .card,
-    .card-group .meals .meal-card,
-    .meals .card-group .meal-card {
-        font-family: "Nunito", sans-serif;
-        display: flex;
-        justify-content: center !important;
-        align-items: center !important;
-    }
+  .card-group .card,
+  .card-group .meals .meal-card,
+  .meals .card-group .meal-card {
+    font-family: "Nunito", sans-serif;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+  }
 }
 
 .meals {
-    display: flex;
-    flex-direction: column;
-    align-content: space-around;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
 }
 
 .meals .top {
-    text-align: center;
-    padding: 40px;
+  text-align: center;
+  padding: 40px;
 }
 
 .meals .top .btn {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .meals .meal-card {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .meals .meal-card.no-content .meal-card-header img,
 .meals .meal-card.no-content .meal-card-header .menu-card-title {
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .meals .meal-card .menu-card-title {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .meals .meal-card .meal-card-header {
-    position: relative;
-    height: 200px;
+  position: relative;
+  height: 200px;
+  width: 100%;
 }
 
 .meals .meal-card .meal-card-header img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .meals .meal-card .meal-card-header img,
 .meals .meal-card .meal-card-header .menu-card-title {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .meals .meal-card .meal-card-header .card-dropdown,
 .meals .meal-card .meal-card-header .menu-card-title {
-    position: absolute;
-    font-family: "Nunito", sans-serif;
-    color: #FFFFFF;
-    font-size: 1.5em;
-    top: 0;
-    right: 0;
+  position: absolute;
+  font-family: "Nunito", sans-serif;
+  color: #FFFFFF;
+  font-size: 1.5em;
+  top: 0;
+  right: 0;
 }
 
 .meals .meal-card .meal-card-header .menu-card-title {
-    background-color: rgba(0, 0, 0, 0.55);
-    z-index: 8;
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 8;
 }
 
 .meals .meal-card .meal-card-header .menu-card-title p {
-    padding: 0 10px;
-    text-align: center;
+  padding: 0 10px;
+  text-align: center;
 }
 
 .meals .meal-card .meal-card-header .card-dropdown {
-    z-index: 9;
-    font-size: 1em;
-    top: -7%;
-    right: 5%;
+  z-index: 9;
+  font-size: 1em;
+  top: -7%;
+  right: 5%;
 }
 
 .meals .meal-card .meal-card-header .card-dropdown>a {
-    color: #FFFFFF;
-    cursor: pointer;
-    margin-top: 0;
-    font-size: 2em;
+  color: #FFFFFF;
+  cursor: pointer;
+  margin-top: 0;
+  font-size: 2em;
 }
 
 .meals .meal-card .meal-card-header .card-dropdown>a:active,
 .meals .meal-card .meal-card-header .card-dropdown>a:hover,
 .meals .meal-card .meal-card-header .card-dropdown>a:focus {
-    transition: color 0.5s;
-    color: #FFFFFF;
+  transition: color 0.5s;
+  color: #FFFFFF;
 }
 
 .meals .meal-card .meal-card-header .menu-card-title {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .meals .meal-card .meal-card-body {
-    height: 100px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding-bottom: 10px;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-bottom: 10px;
 }
 
 .meals .meal-card.order-meal-card .meal-card-body {
-    height: 150px;
-    /* padding-bottom: 0; */
+  height: 150px;
+  /* padding-bottom: 0; */
 }
 
 .meals .meal-card .meal-card-body h3,
 .meals .meal-card .meal-card-body p {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 
 .meals .meal-card .meal-card-body p {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .meals .meal-card .meal-card-action {
-    /* margin-bottom: 30px; */
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  /* margin-bottom: 30px; */
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .meals .meal-card .meal-card-action .btn {
-    padding: 7px 20px;
-    border-radius: 2px;
+  padding: 7px 20px;
+  border-radius: 2px;
 }
 
 .meals .meal-card .action-btns {
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
-    padding: 0 20px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  padding: 0 20px 20px;
 }
 
 .meals .meal-card .action-btns .btn {
-    padding: 0;
-    border: none;
+  padding: 0;
+  border: none;
 }
 
 .meals .meal-card .action-btns .btn:hover,
 .meals .meal-card .action-btns .btn:focus,
 .meals .meal-card .action-btns .btn:active {
-    background-color: inherit;
+  background-color: inherit;
 }
 
 .meals .meal-card .action-btns .btn.btn-sec:hover,
 .meals .meal-card .action-btns .btn.btn-sec:focus,
 .meals .meal-card .action-btns .btn.btn-sec:active {
-    color: #419645;
+  color: #419645;
 }
 
 .meals .meal-card .action-btns .btn.btn-sec-danger:hover,
 .meals .meal-card .action-btns .btn.btn-sec-danger:focus,
 .meals .meal-card .action-btns .btn.btn-sec-danger:active {
-    color: #b10000;
+  color: #b10000;
 }
 
 .meal-card.order-meal-card .meal-card-body {
-    flex-direction: column;
-    flex: 1;
+  flex-direction: column;
+  flex: 1;
 }
 
 .meal-card.order-meal-card .meal-card-body div:first-child {
-    height: 120px;
+  height: 120px;
 }
 
 .meal-card.order-meal-card .meal-card-body div:first-child h3 {
-    margin: 0.5em 15px 0.3em;
+  margin: 0.5em 15px 0.3em;
 }

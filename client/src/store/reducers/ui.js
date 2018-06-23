@@ -1,10 +1,13 @@
-import { TOGGLE_MODAL } from '../types';
+import { TOGGLE_MODAL, TOGGLE_SIDENAV } from '../types';
 
 const initialState = {
   modals: {
     open: false,
     type: null
-  }
+  },
+  sideNav: {
+    open: false
+  },
 };
 
 export default (state = initialState, action) => {
@@ -15,6 +18,13 @@ export default (state = initialState, action) => {
         modals: {
           open: !state.modals.open,
           type: action.payload
+        }
+      };
+    case TOGGLE_SIDENAV:
+      return {
+        ...state,
+        sideNav: {
+          open: !state.sideNav.open,
         }
       };
     default:

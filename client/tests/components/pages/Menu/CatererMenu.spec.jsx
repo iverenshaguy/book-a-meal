@@ -14,7 +14,7 @@ const store = mockStore({
 });
 const { now } = Date;
 
-describe('Menu', () => {
+describe('CatererMenu', () => {
   beforeAll(() => {
     Date.now = jest.fn(() => 0);
   });
@@ -127,7 +127,7 @@ describe('Menu', () => {
         />
       </Provider>);
 
-    const wrapper = mount(comp);
+    const wrapper = mount(comp, rrcMock.get());
 
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();

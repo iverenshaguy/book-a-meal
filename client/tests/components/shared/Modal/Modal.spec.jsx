@@ -16,7 +16,7 @@ describe('Modal', () => {
   });
 
   it('renders correctly', () => {
-    const shallowWrapper = shallow(<Modal type="addMeal" open toggleModal={jest.fn()} />);
+    const shallowWrapper = shallow(<Modal type="addMeal" open submitting={false} toggleModal={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('#modal-title-h3').text()).toEqual('Add a Meal');
@@ -24,14 +24,14 @@ describe('Modal', () => {
   });
 
   it('does not correctly when modal is closed', () => {
-    const shallowWrapper = shallow(<Modal type="addMeal" open={false} toggleModal={jest.fn()} />);
+    const shallowWrapper = shallow(<Modal type="addMeal" open={false} submitting={false} toggleModal={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.text()).toEqual('');
   });
 
   it('renders correctly when type is editMeal', () => {
-    const shallowWrapper = shallow(<Modal type="editMeal" open toggleModal={jest.fn()} />);
+    const shallowWrapper = shallow(<Modal type="editMeal" open submitting={false} toggleModal={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('#modal-title-h3').text()).toEqual('Edit Meal');
@@ -39,7 +39,7 @@ describe('Modal', () => {
   });
 
   it('renders correctly when type is newMealImage', () => {
-    const shallowWrapper = shallow(<Modal type="newMealImage" open toggleModal={jest.fn()} />);
+    const shallowWrapper = shallow(<Modal type="newMealImage" open submitting={false} toggleModal={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('#modal-title-h3').text()).toEqual('Add a Meal Image');
@@ -47,7 +47,7 @@ describe('Modal', () => {
   });
 
   it('renders correctly when type is deleteMeal', () => {
-    const shallowWrapper = shallow(<Modal type="deleteMeal" open toggleModal={jest.fn()} />);
+    const shallowWrapper = shallow(<Modal type="deleteMeal" open submitting={false} toggleModal={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('#modal-title-h3').text()).toEqual('Delete Meal');
@@ -63,7 +63,7 @@ describe('Modal', () => {
   });
 
   it('renders correctly when type is menu', () => {
-    const shallowWrapper = shallow(<Modal type="menu" open toggleModal={jest.fn()} />);
+    const shallowWrapper = shallow(<Modal type="menu" open submitting={false} toggleModal={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('#modal-title-h3').text()).toEqual('Select Meal Options');
@@ -78,11 +78,13 @@ describe('Modal', () => {
 
   it('calls toggleModal function prop when close modal icon is clicked', () => {
     const toggleMock = jest.fn();
-    const shallowWrapper = shallow(<Modal type="addMeal" open toggleModal={toggleMock} />);
+    const comp = (<Modal store={store} type="addMeal" open submitting={false} toggleModal={toggleMock} />);
+    const wrapper = mount(comp);
 
-    shallowWrapper.find('Link#modal-close-icon').dive('button').simulate('click');
+    wrapper.find('button.link-btn').simulate('click');
 
     expect(toggleMock).toHaveBeenCalled();
+    wrapper.unmount();
   });
 
   it('renders connected component correctly', () => {

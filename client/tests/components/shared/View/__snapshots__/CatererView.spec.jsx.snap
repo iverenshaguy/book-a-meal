@@ -2,9 +2,10 @@
 
 exports[`CatererView renders Preloader when fetching 1`] = `
 <div
-  className="admin"
+  className="admin null"
 >
   <Header
+    active="dashboard"
     dateType="dashboard"
     logout={[MockFunction]}
     showTime={true}
@@ -23,7 +24,7 @@ exports[`CatererView renders Preloader when fetching 1`] = `
   <div
     className="content"
   >
-    <SideNav
+    <Connect(SideNav)
       active="dashboard"
       logout={[MockFunction]}
       user={
@@ -52,9 +53,10 @@ exports[`CatererView renders Preloader when fetching 1`] = `
 
 exports[`CatererView renders correctly 1`] = `
 <div
-  className="admin"
+  className="admin null"
 >
   <Header
+    active="dashboard"
     dateType="dashboard"
     logout={[MockFunction]}
     showTime={true}
@@ -73,7 +75,7 @@ exports[`CatererView renders correctly 1`] = `
   <div
     className="content"
   >
-    <SideNav
+    <Connect(SideNav)
       active="dashboard"
       logout={[MockFunction]}
       user={

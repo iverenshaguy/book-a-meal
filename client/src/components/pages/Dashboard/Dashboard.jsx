@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import CatererView from '../../shared/CatererView';
+import View from '../../shared/View';
 import { OrderHistoryTable } from '../../shared/Tables';
 import { userPropTypes, catererOrdersObjPropTypes } from '../../../helpers/proptypes';
+import './Dashboard.scss';
 
 /**
  * @exports
@@ -72,9 +73,9 @@ class Dashboard extends Component {
     const { user, logout, isFetching } = this.props;
 
     return (
-      <CatererView user={user} logout={logout} type="dashboard" showTime isFetching={isFetching}>
+      <View user={user} logout={logout} type="dashboard" showTime isFetching={isFetching}>
         {this.renderDashBoard()}
-      </CatererView>
+      </View>
     );
   }
 }

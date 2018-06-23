@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import LinkBtn from '../Link';
 import { userPropTypes } from '../../../helpers/proptypes';
 import Dropdown from '../Dropdown';
 
@@ -15,13 +15,10 @@ const CustomerHeader = ({ logout, user, active }) => (
   <Fragment>
     <div className="page-title">
       <h3>
-        <a href="/">BOOK-A-MEAL</a>
+        <Link href="/" to="/">BOOK-A-MEAL</Link>
       </h3>
     </div>
     <div className="navlinks">
-      <LinkBtn href="#" className="link">
-        <img src="/img/cart.png" alt="cart" />
-      </LinkBtn>
       <div className="user-info">
         <Dropdown
           type="customer"
@@ -32,13 +29,13 @@ const CustomerHeader = ({ logout, user, active }) => (
           }
           content={
             <Fragment>
-              <a href="/" className={`${active === 'menu' && 'active'}`}>Menu</a>
-              <a href="/">Order History</a>
-              <a href="/" onClick={logout}>Logout</a>
+              <Link href="/" to="/" className={`${active === 'menu' && 'active'}`}>Menu</Link>
+              <Link href="/" to="/">Order History</Link>
+              <Link href="/" to="/" onClick={logout}>Logout</Link>
             </Fragment>
           }
         />
-        <p className="hide d-lg">{user.firstname}</p>
+        <p>&nbsp;&nbsp;{user.firstname}</p>
       </div>
     </div>
   </Fragment>

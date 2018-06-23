@@ -37,18 +37,22 @@ exports[`Header renders correctly 1`] = `
       <div
         className="navlinks"
       >
-        <a
+        <Link
           className="link"
-          href="./signin"
+          href="/signin"
+          replace={false}
+          to="/signin"
         >
           Log In
-        </a>
-        <a
+        </Link>
+        <Link
           className="link"
-          href="./signup"
+          href="/signup"
+          replace={false}
+          to="/signup"
         >
           Sign Up
-        </a>
+        </Link>
       </div>
     </React.Fragment>
   </div>

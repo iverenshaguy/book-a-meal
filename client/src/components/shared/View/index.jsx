@@ -6,26 +6,31 @@ import Footer from '../../shared/Footer';
 import SideNav from '../../shared/SideNav';
 import Preloader from '../../shared/Preloader';
 import { userPropTypes, } from '../../../helpers/proptypes';
+import './View.scss';
 
 /**
  * @exports
- * @function CatererView
- * @desc Creates CatererView Component
- * @returns {JSX} CatererView Component
+ * @function View
+ * @desc Creates View Component
+ * @returns {JSX} View Component
  */
-const CatererView = ({
+const View = ({
   user, logout, type, isFetching, children, showTime
 }) => {
-  const mainClass = classNames({
-    'content-wrapper': true,
-    dashboard: type === 'dashboard'
-  });
+  const mainClass = classNames({ 'content-wrapper': true, dashboard: type === 'dashboard' });
 
   return (
-    <div className="admin">
-      <Header type="caterer" dateType={type} showTime={showTime} user={user} logout={logout} />
+    <div className={`admin ${user.role === 'customer' ? 'user' : null}`}>
+      <Header
+        type={user.role}
+        dateType={type}
+        showTime={showTime}
+        user={user}
+        logout={logout}
+        active={type}
+      />
       <div className="content">
-        <SideNav user={user} logout={logout} active={type} />
+        {user.role === 'caterer' && <SideNav user={user} logout={logout} active={type} />}
         <div className={mainClass} id="has-modal">
           {isFetching && <Preloader />}
           {!isFetching && children}
@@ -36,13 +41,17 @@ const CatererView = ({
   );
 };
 
-CatererView.propTypes = {
+View.propTypes = {
   ...userPropTypes,
   isFetching: PropTypes.bool.isRequired,
   logout: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired,
   children: PropTypes.element.isRequired,
-  showTime: PropTypes.bool.isRequired
+  showTime: PropTypes.bool
 };
 
-export default CatererView;
+View.defaultProps = {
+  showTime: true
+};
+
+export default View;

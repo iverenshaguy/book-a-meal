@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Modal from '../../../shared/Modal';
 import MealCard from '../../../shared/MealCard';
 import DatePicker from '../../../shared/DatePicker';
-import CatererView from '../../../shared/CatererView';
+import View from '../../../shared/View';
 import { userPropTypes, mealObjPropTypes } from '../../../../helpers/proptypes';
 
 /**
@@ -108,7 +108,7 @@ class CatererMenu extends Component {
 
     return (
       <Fragment>
-        <CatererView
+        <View
           showTime={false}
           user={user}
           logout={logout}
@@ -116,7 +116,7 @@ class CatererMenu extends Component {
           isFetching={isFetching}
         >
           {this.renderCatererMenu()}
-        </CatererView>
+        </View>
         <Modal
           meals={meals}
           submitting={submitting}

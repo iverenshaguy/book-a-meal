@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import CatererMenu from './CatererMenu';
 import CustomerMenu from './CustomerMenu';
 import { userPropTypes } from '../../../helpers/proptypes';
+import './Menu.scss';
 
 /**
  * @exports

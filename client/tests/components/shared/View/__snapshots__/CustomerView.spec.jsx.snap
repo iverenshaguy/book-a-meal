@@ -6,7 +6,7 @@ exports[`CustomerView renders Preloader when fetching 1`] = `
 >
   <Header
     active="menu"
-    dateType={null}
+    dateType="menu"
     logout={[MockFunction]}
     showTime={true}
     type="customer"
@@ -42,7 +42,7 @@ exports[`CustomerView renders correctly 1`] = `
 >
   <Header
     active="menu"
-    dateType={null}
+    dateType="menu"
     logout={[MockFunction]}
     showTime={true}
     type="customer"

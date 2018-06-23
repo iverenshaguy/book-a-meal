@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import LinkBtn from '../Link';
 import { calculateCashEarnedFromOrder } from '../../../helpers';
 import { catererOrderObjPropTypes } from '../../../helpers/proptypes';
+import './Table.scss';
 
 /**
  * @exports
@@ -36,13 +37,13 @@ const OrderHistoryTable = ({ orders, deliverOrder }) => (
                 {item.status === 'canceled' && <p className="danger">Canceled</p>}
                 {item.meals[0].delivered && <p className="success">Delivered</p>}
                 {!item.meals[0].delivered && item.status !== 'canceled' &&
-                <Fragment>
-                  <LinkBtn className="warning" clickHandler={() => deliverOrder(item.id)}>Deliver</LinkBtn>
-                </Fragment>}
+                  <Fragment>
+                    <LinkBtn className="warning" clickHandler={() => deliverOrder(item.id)}>Deliver</LinkBtn>
+                  </Fragment>}
               </span>
             </td>
           </tr>
-      ))}
+        ))}
       </tbody>
     </table>
   </div>
