@@ -15,6 +15,10 @@ global.render = render;
 global.toJson = toJson;
 global.mocksdk = mocksdk;
 global.rrcMock = new ReactRouterEnzymeContext();
+process.env.OPENING_HOUR = 8;
+process.env.OPENING_MINUTE = 30;
+process.env.CLOSING_HOUR = 16;
+process.env.CLOSING_MINUTE = 0;
 
 window.localStorage = localStorageMock;
 

@@ -30,6 +30,13 @@ const orderMealPropTypes = PropTypes.shape({
   delivered: PropTypes.bool,
 });
 
+const orderItemPropTypes = PropTypes.shape({
+  id: PropTypes.string,
+  title: PropTypes.string,
+  price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  quantity: PropTypes.number,
+});
+
 const catererOrderObjPropTypes = PropTypes.shape({
   id: PropTypes.string,
   deliveryAddress: PropTypes.string,
@@ -133,9 +140,10 @@ export default {
   formPropTypes,
   userPropType,
   userPropTypes,
+  mealObjPropTypes,
   urlMatchPropTypes,
   orderMealPropTypes,
-  mealObjPropTypes,
+  orderItemPropTypes,
   renderFormFieldPropTypes,
   catererOrderObjPropTypes,
   catererOrdersObjPropTypes

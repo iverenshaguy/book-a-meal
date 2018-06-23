@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Menu renders Preloader when fetching 1`] = `
+exports[`CatererMenu renders Preloader when fetching 1`] = `
 <React.Fragment>
   <CatererView
     isFetching={true}
@@ -73,6 +73,7 @@ exports[`Menu renders Preloader when fetching 1`] = `
                 "vegetarian": false,
               }
             }
+            orderMeal={null}
             toggleModal={null}
             type="menu"
           />
@@ -88,6 +89,7 @@ exports[`Menu renders Preloader when fetching 1`] = `
                 "vegetarian": true,
               }
             }
+            orderMeal={null}
             toggleModal={null}
             type="menu"
           />
@@ -122,7 +124,7 @@ exports[`Menu renders Preloader when fetching 1`] = `
 </React.Fragment>
 `;
 
-exports[`Menu renders connected component 1`] = `
+exports[`CatererMenu renders connected component 1`] = `
 <Provider
   store={
     Object {
@@ -330,11 +332,18 @@ exports[`Menu renders connected component 1`] = `
                       className="sidenav-title"
                     >
                       <h3>
-                        <a
+                        <Link
                           href="/"
+                          replace={false}
+                          to="/"
                         >
-                          BOOK-A-MEAL
-                        </a>
+                          <a
+                            href="/"
+                            onClick={[Function]}
+                          >
+                            BOOK-A-MEAL
+                          </a>
+                        </Link>
                       </h3>
                       <div
                         className="username-circle"
@@ -366,30 +375,62 @@ exports[`Menu renders connected component 1`] = `
                   <div
                     className="sidenav-body"
                   >
-                    <a
+                    <Link
                       className="menu-item false"
                       href="/"
+                      replace={false}
+                      to="/"
                     >
-                      Dashboard
-                    </a>
-                    <a
+                      <a
+                        className="menu-item false"
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        Dashboard
+                      </a>
+                    </Link>
+                    <Link
                       className="menu-item false"
                       href="/meals"
+                      replace={false}
+                      to="/meals"
                     >
-                      Meals
-                    </a>
-                    <a
+                      <a
+                        className="menu-item false"
+                        href="/meals"
+                        onClick={[Function]}
+                      >
+                        Meals
+                      </a>
+                    </Link>
+                    <Link
                       className="menu-item active"
                       href="/menu"
+                      replace={false}
+                      to="/menu"
                     >
-                      Menu
-                    </a>
-                    <a
+                      <a
+                        className="menu-item active"
+                        href="/menu"
+                        onClick={[Function]}
+                      >
+                        Menu
+                      </a>
+                    </Link>
+                    <Link
                       className="menu-item false"
                       href="/orders"
+                      replace={false}
+                      to="/orders"
                     >
-                      Orders
-                    </a>
+                      <a
+                        className="menu-item false"
+                        href="/orders"
+                        onClick={[Function]}
+                      >
+                        Orders
+                      </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -482,6 +523,7 @@ exports[`Menu renders connected component 1`] = `
                         "vegetarian": false,
                       }
                     }
+                    orderMeal={null}
                     toggleModal={null}
                     type="menu"
                   >
@@ -531,6 +573,7 @@ exports[`Menu renders connected component 1`] = `
                         "vegetarian": true,
                       }
                     }
+                    orderMeal={null}
                     toggleModal={null}
                     type="menu"
                   >
@@ -640,7 +683,7 @@ exports[`Menu renders connected component 1`] = `
 </Provider>
 `;
 
-exports[`Menu renders correctly when not fetching 1`] = `
+exports[`CatererMenu renders correctly when not fetching 1`] = `
 <React.Fragment>
   <CatererView
     isFetching={false}
@@ -713,6 +756,7 @@ exports[`Menu renders correctly when not fetching 1`] = `
                 "vegetarian": false,
               }
             }
+            orderMeal={null}
             toggleModal={null}
             type="menu"
           />
@@ -728,6 +772,7 @@ exports[`Menu renders correctly when not fetching 1`] = `
                 "vegetarian": true,
               }
             }
+            orderMeal={null}
             toggleModal={null}
             type="menu"
           />
@@ -762,7 +807,7 @@ exports[`Menu renders correctly when not fetching 1`] = `
 </React.Fragment>
 `;
 
-exports[`Menu renders message when not fetching and there are no meals on the menu 1`] = `
+exports[`CatererMenu renders message when not fetching and there are no meals on the menu 1`] = `
 <React.Fragment>
   <CatererView
     isFetching={true}

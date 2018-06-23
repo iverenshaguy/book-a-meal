@@ -53,15 +53,17 @@ exports[`Welcome renders correctly when unauthenticated 1`] = `
       <h1>
         Delicious Meals At Your Fingertips
       </h1>
-      <a
+      <Link
         href="/signin"
+        replace={false}
+        to="/signin"
       >
         <button
           className="btn btn-pri"
         >
           I'M HUNGRY
         </button>
-      </a>
+      </Link>
     </div>
   </div>
   <Footer />

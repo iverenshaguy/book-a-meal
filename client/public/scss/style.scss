@@ -14,105 +14,123 @@
 @import './modules/meals.scss';
 @import './modules/order-history-pills.scss';
 html {
-    margin: 0;
-    height: 100%;
-    font-weight: 400;
-    font-family: $font-stack;
-    font-size: 16px;
+  margin: 0;
+  height: 100%;
+  font-weight: 400;
+  font-family: $font-stack;
+  font-size: 16px;
 }
 
 body {
-    margin: 0;
-    display: flex;
-    min-height: 100%;
-    flex-direction: column;
-    color: $dark;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/chicken-fajitas.jpg") no-repeat center center;
-    background-color: white;
-    background-size: cover;
-    background-attachment: fixed;
-    justify-content: space-between;
+  margin: 0;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  color: $dark;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/chicken-fajitas.jpg") no-repeat center center;
+  background-color: white;
+  background-size: cover;
+  background-attachment: fixed;
+  justify-content: space-between;
 }
 
 #app {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 .show {
-    display: block;
+  display: block;
 }
 
 .d-flex-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .d-flex-col {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .text-small {
-    font-size: 0.83em;
+  font-size: 0.83em;
 }
 
 .d-flex {
-    display: flex;
+  display: flex;
 }
 
 @media (min-width: 768px) {
-    .d-md {
-        display: block;
-    }
+  .d-md {
+    display: block;
+  }
 }
 
 @media (max-width: 767.98px) {
-    .d-flex-md {
-        display: none !important;
-    }
+  .d-flex-md {
+    display: none !important;
+  }
 }
 
 @media (min-width: 768px) {
-    .d-flex-md {
-        display: flex;
-    }
+  .d-flex-md {
+    display: flex;
+  }
 }
 
 @media (min-width: 992px) {
-    .d-lg {
-        display: block;
-    }
+  .d-lg {
+    display: block;
+  }
 }
 
 @media (min-width: 992px) {
-    .d-flex-lg {
-        display: flex;
-    }
+  .d-flex-lg {
+    display: flex;
+  }
+}
+
+@media (min-width: 1200px) {
+  .d-xl {
+    display: block;
+  }
+}
+
+@media (min-width: 1200px) {
+  .d-flex-xl {
+    display: flex !important;
+  }
 }
 
 @media (min-width: 768px) {
-    .d-none-md {
-        display: none;
-    }
+  .d-none-md {
+    display: none;
+  }
 }
 
 @media (min-width: 992px) {
-    .d-none-lg {
-        display: none;
-    }
+  .d-none-lg {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .d-none-xl {
+    display: none !important;
+  }
 }
 
 .text-right {
-    text-align: right;
+  text-align: right;
 }
 
 h1,
@@ -121,250 +139,274 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $heading-font-stack;
+  font-family: $heading-font-stack;
 }
 
 .page-heading {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin: 0 40px;
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin-bottom: 10px;
-    }
-    hr {
-        color: #a1a1a1;
-        width: 55%;
-    }
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 40px;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 10px;
+  }
+  hr {
+    color: #a1a1a1;
+    width: 55%;
+  }
 }
 
 .danger,
 .is-invalid,
 .invalid-feedback {
-    color: $danger;
+  color: $danger;
 }
 
 .warning {
-    color: $warning;
+  color: $warning;
 }
 
 .success {
-    color: $primary-color;
+  color: $primary-color;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 a,
 .link-btn {
-    color: $dark;
-    text-decoration: none;
-    cursor: pointer;
-    &:hover,
-    &:focus,
-    &.active {
-        transition: color 0.5s;
-        color: $primary-color;
-    }
+  color: $dark;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover,
+  &:focus,
+  &.active {
+    transition: color 0.5s;
+    color: $primary-color;
+  }
 }
 
 .link-btn {
-    margin: 0;
-    padding: 0;
-    border: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-size: inherit;
+  &:hover,
+  &:focus,
+  &.active {
     outline: none;
-    background: transparent;
-    font-size: inherit;
-    &:hover,
-    &:focus,
-    &.active {
-        outline: none;
-    }
+  }
 }
 
 .link-btn.warning {
-    color: $warning;
-    &:hover,
-    &:focus,
-    &.active {
-        color: darken($warning, 5%);
-        transition: color 0.5s;
-    }
+  color: $warning;
+  &:hover,
+  &:focus,
+  &.active {
+    color: darken($warning, 5%);
+    transition: color 0.5s;
+  }
 }
 
 hr {
-    color: #ddd;
-    box-sizing: content-box;
-    height: 0;
-    width: 99.9%;
-    overflow: hidden;
-    border-style: solid;
-    border-width: 0.5px;
+  color: #ddd;
+  box-sizing: content-box;
+  height: 0;
+  width: 99.9%;
+  overflow: hidden;
+  border-style: solid;
+  border-width: 0.5px;
 }
 
 .w-90 {
-    width: 90%;
+  width: 90%;
 }
 
 .footer {
-    display: flex;
-    height: 70px;
-    color: $white;
-    background-color: transparent;
-    padding: 0 10px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    p {
-        font-size: 12px;
-    }
+  display: flex;
+  height: 70px;
+  color: $white;
+  background-color: transparent;
+  padding: 0 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-size: 12px;
+  }
 }
 
 .main-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 70px;
-    flex-grow: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+  flex-grow: 10;
 }
 
 .auth,
 .order-confirmation {
-    border-radius: 0px;
-    padding: 10px 30px;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 0px;
+  padding: 10px 30px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.side-cart {
+  border-radius: 0px;
 }
 
 .auth hr,
+.side-cart hr,
 .order-confirmation hr {
-    color: darkgray;
+  color: darkgray;
 }
 
 .auth .title,
+.side-cart .title,
 .order-confirmation .title {
-    text-align: center;
+  text-align: center;
 }
 
 @media (min-width: 451px) {
-    .auth,
-    .order-confirmation {
-        border-radius: 5px;
-    }
+  .auth,
+  .side-cart,
+  .order-confirmation {
+    border-radius: 5px;
+  }
 }
 
 .admin {
-    display: block;
-    background: none;
-    background-color: #EBEFF2 !important;
+  display: flex;
+  flex-direction: column;
+  background: none;
+  background-color: #EBEFF2 !important;
+  color: $dark;
+  margin-left: 0;
+  min-height: 100vh;
+  .header {
+    flex: 1;
+    position: relative;
+    background-color: white;
+  }
+  .content {
+    flex: 10;
+  }
+  .footer {
+    flex: 1;
+  }
+  .navbar {
     color: $dark;
+    background-color: inherit;
+    /* box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1); */
+    .admin-nav {
+      flex-grow: 0;
+      .dropdown.notification .dropdown-content {
+        margin-right: 0;
+      }
+    }
+  }
+  &.user {
     margin-left: 0;
-    min-height: 100vh;
-    .header {
-        position: relative;
-        background-color: white;
+    .content {
+      display: block;
+      flex-direction: row;
+      min-height: 100%;
+      margin-top: 0;
     }
-    .navbar {
-        color: $dark;
-        background-color: inherit;
-        /* box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1); */
-        .admin-nav {
-            flex-grow: 0;
-            .dropdown.notification .dropdown-content {
-                margin-right: 0;
-            }
-        }
+  }
+  .header .navbar .page-title a,
+  .navlinks,
+  .header .navbar .navlinks .link,
+  .footer p {
+    color: $dark;
+  }
+  &.no-date .content {
+    margin-top: 0;
+  }
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+  }
+  .main-wrapper {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0;
+  }
+  .navbar .date {
+    margin: 0;
+  }
+  .date {
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 40px;
+  }
+  .page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 40px;
+  }
+  .date hr,
+  .page-heading hr {
+    color: #a1a1a1;
+    width: 55%;
+  }
+  .date {
+    flex-direction: row;
+    h2 {
+      font-size: 20px;
     }
-    .header .navbar .page-title a,
-    .navlinks,
-    .header .navbar .navlinks .link,
-    .footer p {
-        color: $dark;
-    }
-    &.no-date .content {
-        margin-top: 0px;
-    }
-    .content-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-content: space-around;
-    }
-    .main-wrapper {
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        margin-top: 0;
-    }
-    .navbar .date {
-        margin: 0;
-    }
-    .date {
-        justify-content: space-between;
-        align-items: center;
-        margin: 0 40px;
-    }
-    .page-heading {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0 40px;
-    }
-    .date hr,
-    .page-heading hr {
-        color: #a1a1a1;
-        width: 55%;
-    }
-    .date {
-        flex-direction: row;
-        h2 {
-            font-size: 20px;
-        }
-    }
-    .header-date {
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-    }
+  }
+  .header-date {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 @media (min-width: 767.98px) {
-    .admin {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        margin-left: 250px;
-        .header {
-            background-color: #EBEFF2;
-        }
-        &.user {
-            margin-left: 0;
-        }
-        .content {
-            flex-grow: 10;
-            display: flex;
-            flex-direction: row; // min-height: 100%;
-            margin-top: 0;
-            .content-wrapper {
-                flex-grow: 1;
-            }
-        }
+  .admin {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: 250px;
+    .header {
+      background-color: #EBEFF2;
     }
+    &.user {
+      margin-left: 0;
+    }
+    .content {
+      flex-grow: 10;
+      display: flex;
+      flex-direction: row; // min-height: 100%;
+      margin-top: 0;
+      .content-wrapper {
+        flex-grow: 1;
+      }
+    }
+  }
 }
 
 @media (max-width: 767.98px) {
-    .admin .date {
-        text-align: center;
-        flex-direction: column;
-    }
+  .admin .date {
+    text-align: center;
+    flex-direction: column;
+  }
 }
 
 /* .card,
@@ -382,289 +424,516 @@ hr {
 } */
 
 .card-group {
-    .card {
-        margin-bottom: 20px;
-    }
-    .auth,
-    .order-confirmation {
-        font-family: $heading-font-stack;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 50px;
-    }
+  .card {
+    margin-bottom: 20px;
+  }
+  .auth,
+  .order-confirmation {
+    font-family: $heading-font-stack;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+  }
 }
 
 @media (min-width: 576px) {
-    .card-group {
-        .card,
-        .auth,
-        .order-confirmation {
-            font-family: $heading-font-stack;
-            width: 300px !important;
-            display: flex;
-            justify-content: center !important;
-            align-items: center !important;
-        }
+  .card-group {
+    .card,
+    .auth,
+    .order-confirmation {
+      font-family: $heading-font-stack;
+      width: 300px !important;
+      display: flex;
+      justify-content: center !important;
+      align-items: center !important;
     }
+  }
 }
 
 .datepicker-div {
-    position: relative;
-    .btn-sec {
-        border: 0;
-        font-size: 20px;
-        color: $dark;
+  position: relative;
+  .btn-sec {
+    border: 0;
+    font-size: 20px;
+    color: $dark;
+  }
+  #datepicker {
+    position: absolute;
+    width: 99%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    &::-webkit-calendar-picker-indicator {
+      position: absolute;
+      width: auto;
+      height: auto;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      color: transparent;
+      background: transparent;
+      opacity: 1;
+      cursor: pointer;
     }
-    #datepicker {
-        position: absolute;
-        width: 99%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        opacity: 0;
-        &::-webkit-calendar-picker-indicator {
-            position: absolute;
-            width: auto;
-            height: auto;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            color: transparent;
-            background: transparent;
-            opacity: 1;
-            cursor: pointer;
-        }
-    }
+  }
 }
 
 .user {
-    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("../img/chicken-fajitas.jpg") no-repeat center center;
-    background-color: white;
-    background-size: cover;
-    background-attachment: fixed;
-    .header {
-        left: 0%;
-        width: 100%;
-        position: fixed;
-    }
-    .content-wrapper {
-        margin-top: 70px;
-    }
-    .navbar {
-        box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1);
-    }
-    .header .navbar .page-title a,
-    .navlinks,
-    .header .navbar .navlinks .link,
-    .footer p {
-        color: $dark;
-    }
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("../img/chicken-fajitas.jpg") no-repeat center center;
+  background-color: white;
+  background-size: cover;
+  background-attachment: fixed;
+  .header {
+    left: 0%;
+    width: 100%;
+    position: fixed;
+  }
+  .content-wrapper {
+    margin-top: 70px;
+  }
+  .navbar {
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1);
+  }
+  .header .navbar .page-title a,
+  .navlinks,
+  .header .navbar .navlinks .link,
+  .footer p {
+    color: $dark;
+  }
+}
+
+.side-cart h2 {
+  text-align: center;
+}
+
+.side-cart .order-summary,
+.side-cart .order-amount:not(.admin-order-total),
+.side-cart .customer-details,
+.side-cart .order-misc {
+  border-bottom: 1px solid #ddd;
+}
+
+.side-cart .order-summary>div {
+  display: flex;
+}
+
+.side-cart .order-summary>div {
+  justify-content: center;
+  align-items: center;
+}
+
+.side-cart .order-summary>div p:nth-child(1),
+.side-cart .order-summary>div p:nth-child(3),
+.side-cart .order-summary>div a,
+.side-cart .order-summary>div .link-btn {
+  flex-grow: 1;
+}
+
+.side-cart .order-summary>div p:nth-child(2) {
+  font-size: 0.8em;
+}
+
+.side-cart .order-summary>div a,
+.side-cart .order-summary>div .link-btn,
+  {
+  padding-left: 5px;
+}
+
+.side-cart .order-summary>div select {
+  flex-grow: 2;
+}
+
+.side-cart .order-summary>div p:nth-child(3),
+.side-cart .order-summary>div a,
+.side-cart .order-summary>div .link-btn {
+  text-align: right;
+}
+
+.side-cart .order-amount>div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.side-cart .order-amount>div:last-child {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #ddd;
 }
 
 .order-confirmation {
-    /* border-radius: 5px; */
-    margin-top: 50px;
-    padding-bottom: 40px !important;
-    background-color: rgba(255, 255, 255, 0.8);
-    h2 {
-        text-align: center;
+  /* border-radius: 5px; */
+  margin-top: 50px;
+  padding-bottom: 40px !important;
+  background-color: rgba(255, 255, 255, 0.8);
+  h2 {
+    text-align: center;
+  }
+  .order-summary,
+  .order-amount:not(.admin-order-total),
+  .customer-details,
+  .order-misc {
+    border-bottom: 1px solid #ddd;
+  }
+  .order-summary>div {
+    display: flex;
+    p {
+      &:nth-child(1),
+      &:nth-child(3) {
+        flex-grow: 1;
+      }
     }
-    .order-summary,
-    .order-amount:not(.admin-order-total),
-    .customer-details,
-    .order-misc {
-        border-bottom: 1px solid #ddd;
+    select {
+      flex-grow: 2;
     }
-    .order-summary>div {
-        display: flex;
-        p {
-            &:nth-child(1),
-            &:nth-child(3) {
-                flex-grow: 1;
-            }
-        }
-        select {
-            flex-grow: 2;
-        }
-        p:nth-child(3) {
-            text-align: right;
-        }
+    p:nth-child(3) {
+      text-align: right;
     }
-    .order-amount>div {
-        display: flex;
-        justify-content: space-between;
-        &:last-child {
-            display: flex;
-            align-items: center;
-            border-top: 1px solid #ddd;
-        }
+  }
+  .order-amount>div {
+    display: flex;
+    justify-content: space-between;
+    &:last-child {
+      display: flex;
+      align-items: center;
+      border-top: 1px solid #ddd;
     }
+  }
 }
 
 .order-history {
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    width: 100%;
-    .pills {
-        padding: 20px;
-    }
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  width: 100%;
+  .pills {
+    padding: 20px;
+  }
 }
 
 .order-details {
-    &.order-details-btn:first-child {
-        padding: 10px 57px;
-    }
-    .order-date {
-        margin: 0;
-    }
+  &.order-details-btn:first-child {
+    padding: 10px 57px;
+  }
+  .order-date {
+    margin: 0;
+  }
 }
 
 .home {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  height: 100%;
+  .landing {
+    color: $white;
+    text-align: center;
+    font-family: $heading-font-stack;
     display: flex;
     flex-direction: column;
-    margin-top: 0;
-    height: 100%;
-    .landing {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    h1 {
+      margin: 0 0 10%;
+      font-size: 2.0em;
+      padding: 0 1em;
+      margin-bottom: 8.33333%;
+      -webkit-animation: pop-in .6s ease-out;
+      animation: pop-in .6s ease-out;
+    }
+    p {
+      font-size: 1.5em;
+    }
+    button {
+      border: 2px solid $dark-green;
+      background-color: $dark-green;
+      color: $white;
+      padding: 12px 50px;
+      font-size: 1.3em;
+      &:hover,
+      &.focus,
+      &.active {
+        transition: background-color 0.5s, border-color 0.5s;
+        background-color: #154a19;
+        border-color: #154a19;
         color: $white;
-        text-align: center;
-        font-family: $heading-font-stack;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        h1 {
-            margin: 0 0 10%;
-            font-size: 2.0em;
-            padding: 0 1em;
-            margin-bottom: 8.33333%;
-            -webkit-animation: pop-in .6s ease-out;
-            animation: pop-in .6s ease-out;
-        }
-        p {
-            font-size: 1.5em;
-        }
-        button {
-            border: 2px solid $dark-green;
-            background-color: $dark-green;
-            color: $white;
-            padding: 12px 50px;
-            font-size: 1.3em;
-            &:hover,
-            &.focus,
-            &.active {
-                transition: background-color 0.5s, border-color 0.5s;
-                background-color: #154a19;
-                border-color: #154a19;
-                color: $white;
-            }
-        }
+      }
     }
-    .meals {
-        background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url("../img/chicken-fajitas.jpg") no-repeat center center;
-        background-color: white;
-        background-size: cover;
-        background-attachment: fixed;
-    }
+  }
+  .meals {
+    background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url("../img/chicken-fajitas.jpg") no-repeat center center;
+    background-color: white;
+    background-size: cover;
+    background-attachment: fixed;
+  }
 }
 
 @-webkit-keyframes pop-in {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(-4rem);
-        transform: translateY(-4rem);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: none;
-        transform: none;
-    }
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-4rem);
+    transform: translateY(-4rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
 }
 
 @keyframes pop-in {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(-4rem);
-        transform: translateY(-4rem);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: none;
-        transform: none;
-    }
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-4rem);
+    transform: translateY(-4rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
 }
 
 .auth-wrapper {
-    margin-top: 0;
+  margin-top: 0;
 }
 
-@media (min-width: 451px) and (max-width: 575.98px) {
-    .auth,
-    .order-confirmation {
-        width: 75%;
-        padding: 10px 35px;
-    }
-    .order-history {
-        margin: 30px;
-        width: 100%;
-    }
+/* USER MENU PAGE */
+
+.user-menu {
+  display: flex;
+  padding: 30px 50px;
 }
 
-@media (min-width: 576px) and (max-width: 767.98px) {
-    .auth,
-    .order-confirmation {
-        width: 60%;
-        padding: 10px 35px;
-    }
-    .order-history {
-        margin: 40px;
-        width: 80%;
-    }
-    .home .landing h1 {
-        font-size: 2.2em;
-    }
+.user-menu .main-menu {
+  flex: 3;
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) {
-    .auth,
-    .order-confirmation {
-        width: 60%;
-        padding: 20px 50px;
-    }
-    .order-history {
-        margin: 50px;
-        width: 60%;
-    }
-    .home .landing h1 {
-        font-size: 2.2em;
-    }
+.user-menu .side-cart-toggle {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 20;
+  height: 55px;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px -5px 8px 0px rgba(0, 0, 0, 0.1);
 }
 
-@media (min-width: 992px) {
-    .order-history {
-        margin: 50px;
-        width: 60%;
-    }
-    .home .landing h1 {
-        font-size: 3em;
-    }
+.user-menu .side-cart-toggle #cart-toggler {
+  display: flex;
 }
 
-@media (min-width: 992px) and (max-width: 1199.98px) {
-    .auth,
-    .order-confirmation {
-        width: 50%;
-        padding: 10px 50px;
-    }
+.user-menu .side-cart-toggle #cart-toggler p {
+  flex: 2;
+}
+
+.user-menu .side-cart-toggle #cart-toggler div {
+  display: flex;
+  flex: 1;
+  border-right: 1px solid #ddd;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-menu .side-cart-toggle img {
+  width: 25px;
+}
+
+.user-menu .side-cart-toggle sup {
+  font-size: 1.1em;
+}
+
+.user-menu .side-cart-toggle p {
+  color: #5C9A52;
+}
+
+.user-menu .side-cart-toggle span {
+  height: 100%;
+  cursor: pointer;
+  flex: 3;
+}
+
+.user-menu .side-cart-toggle .cart-btn {
+  flex: 1;
+}
+
+.user-menu .side-cart-toggle span .btn {
+  height: 100%;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 0;
+  box-shadow: 0px -5px 8px 0px rgba(0, 0, 0, 0.05);
+}
+
+.user-menu .side-cart {
+  flex: 1;
+  position: relative;
+  min-height: 1px;
+}
+
+.user-menu .side-cart .cart {
+  margin-left: 20px;
+  width: 250px;
+  top: 110px;
+  right: 70px;
+  position: fixed;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1);
+}
+
+.user-menu .side-cart .cart-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.user-menu .side-cart .cart-header .close {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-menu .side-cart .cart-header .close a,
+.user-menu .side-cart .cart-header .close .link-btn {
+  font-size: 2em;
+}
+
+.user-menu .side-cart .empty-cart {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+.user-menu .side-cart .empty-cart p {
+  font-size: 1.2em;
+  color: $grey;
+}
+
+@media (max-width: 1199.98px) {
+  .user-menu {
+    display: block;
+    width: 100%;
+    padding: 0;
+  }
+  .user-menu .side-cart {
+    width: 100%;
+    z-index: 20;
+    position: fixed;
+  }
+  .user-menu .side-cart .cart {
+    margin: 0;
+    /* padding: 0; */
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transform: translate(0, 100%);
+    transform: translate(0, 100%);
+    transition: -webkit-transform 0.5s ease-out;
+    transition: transform 0.5s ease-out;
+    background-color: rgb(255, 255, 255);
+  }
+  .user-menu .side-cart.show .cart,
+  .user-menu .side-cart:target .cart {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  .side-cart .order-summary>div p:nth-child(1),
+  .side-cart .order-summary>div p:nth-child(3),
+  .side-cart .order-summary>div a,
+  .side-cart .order-summary>div .link-btn {
+    flex: 1;
+  }
+  .side-cart .order-summary>div p:nth-child(2) {
+    font-size: 0.8em;
+    flex: 2;
+  }
 }
 
 @media (min-width: 1200px) {
-    .auth,
-    .order-confirmation {
-        width: 40%;
-    }
+  .user-menu .side-cart .cart-header {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (min-width: 451px) and (max-width: 575.98px) {
+  .auth,
+  .order-confirmation {
+    width: 75%;
+    padding: 10px 35px;
+  }
+  .order-history {
+    margin: 30px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .auth,
+  .order-confirmation {
+    width: 60%;
+    padding: 10px 35px;
+  }
+  .order-history {
+    margin: 40px;
+    width: 80%;
+  }
+  .home .landing h1 {
+    font-size: 2.2em;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .auth,
+  .order-confirmation {
+    width: 60%;
+    padding: 20px 50px;
+  }
+  .order-history {
+    margin: 50px;
+    width: 60%;
+  }
+  .home .landing h1 {
+    font-size: 2.2em;
+  }
+}
+
+@media (min-width: 992px) {
+  .order-history {
+    margin: 50px;
+    width: 60%;
+  }
+  .home .landing h1 {
+    font-size: 3em;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .auth,
+  .order-confirmation {
+    width: 50%;
+    padding: 10px 50px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .auth,
+  .order-confirmation {
+    width: 40%;
+  }
 }

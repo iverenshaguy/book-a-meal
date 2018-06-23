@@ -349,3 +349,10 @@ export const newMeal = {
   vegetarian: false,
   price: '2500.00'
 };
+
+export const order = [{
+  id: '81211c24-51c0-46ec-b1e0-18db55880958',
+  title: 'Jollof Rice, Beef and Plantain',
+  price: '1500.00',
+  quantity: 1
+}];

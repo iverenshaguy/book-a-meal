@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import LinkBtn from '../Link';
 import { userPropTypes } from '../../../helpers/proptypes';
@@ -17,7 +18,7 @@ const SideNav = ({ user, logout, active }) => (
         </div>
         <div className="sidenav-title">
           <h3>
-            <a href="/">BOOK-A-MEAL</a>
+            <Link href="/" to="/">BOOK-A-MEAL</Link>
           </h3>
           <div className="username-circle">
             <p>{user.businessName.substring(0, 1)}</p>
@@ -29,10 +30,10 @@ const SideNav = ({ user, logout, active }) => (
         </div>
       </div>
       <div className="sidenav-body">
-        <a href="/" className={`menu-item ${active === 'dashboard' && 'active'}`}>Dashboard</a>
-        <a href="/meals" className={`menu-item ${active === 'meals' && 'active'}`}>Meals</a>
-        <a href="/menu" className={`menu-item ${active === 'menu' && 'active'}`}>Menu</a>
-        <a href="/orders" className={`menu-item ${active === 'orders' && 'active'}`}>Orders</a>
+        <Link href="/" to="/" className={`menu-item ${active === 'dashboard' && 'active'}`}>Dashboard</Link>
+        <Link href="/meals" to="/meals" className={`menu-item ${active === 'meals' && 'active'}`}>Meals</Link>
+        <Link href="/menu" to="/menu" className={`menu-item ${active === 'menu' && 'active'}`}>Menu</Link>
+        <Link href="/orders" to="/orders" className={`menu-item ${active === 'orders' && 'active'}`}>Orders</Link>
       </div>
     </div>
   </div>

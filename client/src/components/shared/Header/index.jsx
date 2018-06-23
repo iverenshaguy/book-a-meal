@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import CatererHeader from './CatererHeader';
@@ -30,8 +31,8 @@ class Header extends Component {
         </div>
         {type === 'home' &&
           <div className="navlinks">
-            <a href="./signin" className="link">Log In</a>
-            <a href="./signup" className="link">Sign Up</a>
+            <Link href="/signin" to="/signin" className="link">Log In</Link>
+            <Link href="/signup" to="/signup" className="link">Sign Up</Link>
           </div>}
       </Fragment>
     );

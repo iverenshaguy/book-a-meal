@@ -67,7 +67,7 @@ describe('Meals', () => {
         />
       </Provider>
     );
-    const wrapper = mount(comp);
+    const wrapper = mount(comp, rrcMock.get());
 
     const toggleSpy = jest.spyOn(wrapper.find(Meals).instance(), 'toggleModal');
 
@@ -119,7 +119,7 @@ describe('Meals', () => {
         />
       </Provider>);
 
-    const wrapper = mount(comp);
+    const wrapper = mount(comp, rrcMock.get());
 
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();

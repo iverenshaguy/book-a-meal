@@ -84,7 +84,7 @@ describe('OrderDetails', () => {
         />
       </Provider>);
 
-    const wrapper = mount(comp);
+    const wrapper = mount(comp, rrcMock.get());
 
     expect(toJson(wrapper)).toMatchSnapshot();
     expect(wrapper.find('p.text-center').text()).toEqual('This Order Does Not Exist');
@@ -99,7 +99,7 @@ describe('OrderDetails', () => {
         />
       </Provider>);
 
-    const wrapper = mount(comp).find(CatererOrderDetails);
+    const wrapper = mount(comp, rrcMock.get()).find(CatererOrderDetails);
 
     expect(wrapper.find('.success').text()).toEqual('Delivered');
   });
@@ -113,7 +113,7 @@ describe('OrderDetails', () => {
         />
       </Provider>);
 
-    const wrapper = mount(comp).find(CatererOrderDetails);
+    const wrapper = mount(comp, rrcMock.get()).find(CatererOrderDetails);
 
     expect(wrapper.find('.danger').text()).toEqual('Canceled');
   });
@@ -127,7 +127,7 @@ describe('OrderDetails', () => {
         />
       </Provider>);
 
-    const wrapper = mount(comp).find(CatererOrderDetails);
+    const wrapper = mount(comp, rrcMock.get()).find(CatererOrderDetails);
 
     wrapper.find('button.warning').simulate('click');
 
@@ -144,7 +144,7 @@ describe('OrderDetails', () => {
         />
       </Provider>);
 
-    const wrapper = mount(comp);
+    const wrapper = mount(comp, rrcMock.get());
 
     expect(toJson(wrapper)).toMatchSnapshot();
     wrapper.unmount();

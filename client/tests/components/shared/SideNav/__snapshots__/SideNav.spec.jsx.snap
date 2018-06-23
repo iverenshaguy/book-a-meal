@@ -25,11 +25,13 @@ exports[`SideNav renders correctly 1`] = `
         className="sidenav-title"
       >
         <h3>
-          <a
+          <Link
             href="/"
+            replace={false}
+            to="/"
           >
             BOOK-A-MEAL
-          </a>
+          </Link>
         </h3>
         <div
           className="username-circle"
@@ -55,30 +57,38 @@ exports[`SideNav renders correctly 1`] = `
     <div
       className="sidenav-body"
     >
-      <a
+      <Link
         className="menu-item active"
         href="/"
+        replace={false}
+        to="/"
       >
         Dashboard
-      </a>
-      <a
+      </Link>
+      <Link
         className="menu-item false"
         href="/meals"
+        replace={false}
+        to="/meals"
       >
         Meals
-      </a>
-      <a
+      </Link>
+      <Link
         className="menu-item false"
         href="/menu"
+        replace={false}
+        to="/menu"
       >
         Menu
-      </a>
-      <a
+      </Link>
+      <Link
         className="menu-item false"
         href="/orders"
+        replace={false}
+        to="/orders"
       >
         Orders
-      </a>
+      </Link>
     </div>
   </div>
 </div>
@@ -109,11 +119,13 @@ exports[`SideNav renders correctly when meals tab is active 1`] = `
         className="sidenav-title"
       >
         <h3>
-          <a
+          <Link
             href="/"
+            replace={false}
+            to="/"
           >
             BOOK-A-MEAL
-          </a>
+          </Link>
         </h3>
         <div
           className="username-circle"
@@ -139,30 +151,38 @@ exports[`SideNav renders correctly when meals tab is active 1`] = `
     <div
       className="sidenav-body"
     >
-      <a
+      <Link
         className="menu-item false"
         href="/"
+        replace={false}
+        to="/"
       >
         Dashboard
-      </a>
-      <a
+      </Link>
+      <Link
         className="menu-item active"
         href="/meals"
+        replace={false}
+        to="/meals"
       >
         Meals
-      </a>
-      <a
+      </Link>
+      <Link
         className="menu-item false"
         href="/menu"
+        replace={false}
+        to="/menu"
       >
         Menu
-      </a>
-      <a
+      </Link>
+      <Link
         className="menu-item false"
         href="/orders"
+        replace={false}
+        to="/orders"
       >
         Orders
-      </a>
+      </Link>
     </div>
   </div>
 </div>
@@ -193,11 +213,13 @@ exports[`SideNav renders correctly when menu tab is active 1`] = `
         className="sidenav-title"
       >
         <h3>
-          <a
+          <Link
             href="/"
+            replace={false}
+            to="/"
           >
             BOOK-A-MEAL
-          </a>
+          </Link>
         </h3>
         <div
           className="username-circle"
@@ -223,30 +245,38 @@ exports[`SideNav renders correctly when menu tab is active 1`] = `
     <div
       className="sidenav-body"
     >
-      <a
+      <Link
         className="menu-item false"
         href="/"
+        replace={false}
+        to="/"
       >
         Dashboard
-      </a>
-      <a
+      </Link>
+      <Link
         className="menu-item false"
         href="/meals"
+        replace={false}
+        to="/meals"
       >
         Meals
-      </a>
-      <a
+      </Link>
+      <Link
         className="menu-item active"
         href="/menu"
+        replace={false}
+        to="/menu"
       >
         Menu
-      </a>
-      <a
+      </Link>
+      <Link
         className="menu-item false"
         href="/orders"
+        replace={false}
+        to="/orders"
       >
         Orders
-      </a>
+      </Link>
     </div>
   </div>
 </div>
@@ -277,11 +307,13 @@ exports[`SideNav renders correctly when orders tab is active 1`] = `
         className="sidenav-title"
       >
         <h3>
-          <a
+          <Link
             href="/"
+            replace={false}
+            to="/"
           >
             BOOK-A-MEAL
-          </a>
+          </Link>
         </h3>
         <div
           className="username-circle"
@@ -307,30 +339,38 @@ exports[`SideNav renders correctly when orders tab is active 1`] = `
     <div
       className="sidenav-body"
     >
-      <a
+      <Link
         className="menu-item false"
         href="/"
+        replace={false}
+        to="/"
       >
         Dashboard
-      </a>
-      <a
+      </Link>
+      <Link
         className="menu-item false"
         href="/meals"
+        replace={false}
+        to="/meals"
       >
         Meals
-      </a>
-      <a
+      </Link>
+      <Link
         className="menu-item false"
         href="/menu"
+        replace={false}
+        to="/menu"
       >
         Menu
-      </a>
-      <a
+      </Link>
+      <Link
         className="menu-item active"
         href="/orders"
+        replace={false}
+        to="/orders"
       >
         Orders
-      </a>
+      </Link>
     </div>
   </div>
 </div>

@@ -1,0 +1,360 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cart hides checkout button when shop is closed 1`] = `
+<Cart
+  handleQuantityInputChange={[MockFunction]}
+  order={
+    Array [
+      Object {
+        "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+        "price": "1500.00",
+        "quantity": 1,
+        "title": "Jollof Rice, Beef and Plantain",
+      },
+    ]
+  }
+  removeOrderItem={[MockFunction]}
+>
+  <div
+    className="side-cart-toggle d-none-xl"
+  >
+    <span
+      aria-hidden="true"
+      id="cart-toggler"
+      onClick={[Function]}
+    >
+      <div
+        className="text-center"
+      >
+        <img
+          alt="cart"
+          src="/img/cart.png"
+        />
+          
+        <sup>
+          1
+        </sup>
+      </div>
+      <p
+        className="text-center"
+      >
+        Total: ₦
+        1500
+      </p>
+    </span>
+  </div>
+  <div
+    className="side-cart false"
+    id="side-cart"
+  >
+    <div
+      className="cart"
+    >
+      <div
+        className="cart-header"
+      >
+        <h2>
+          Your Cart
+        </h2>
+        <div
+          className="close d-none-xl"
+        >
+          <Link
+            aria-hidden="true"
+            className={null}
+            clickHandler={[Function]}
+            id="side-cart-close-icon"
+          >
+            <button
+              className="link-btn null"
+              id="side-cart-close-icon"
+              onClick={[Function]}
+            >
+              ×
+            </button>
+          </Link>
+        </div>
+      </div>
+      <hr />
+      <div
+        className="order-summary"
+      >
+        <div
+          key="81211c24-51c0-46ec-b1e0-18db55880958"
+        >
+          <p>
+            <input
+              className="order-input"
+              min="1"
+              onChange={[Function]}
+              type="number"
+              value={1}
+            />
+          </p>
+          <p>
+            Jollof Rice, Beef and Plantain
+          </p>
+          <p>
+            1500.00
+          </p>
+          <Link
+            className="remove-order"
+            clickHandler={[Function]}
+            id={null}
+          >
+            <button
+              className="link-btn remove-order"
+              id={null}
+              onClick={[Function]}
+            >
+              ×
+            </button>
+          </Link>
+        </div>
+        <div
+          className="order-amount"
+        >
+          <div>
+            <p>
+              Total:
+            </p>
+            <h2>
+              ₦
+              1500
+            </h2>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+</Cart>
+`;
+
+exports[`Cart renders correctly 1`] = `
+<React.Fragment>
+  <div
+    className="side-cart-toggle d-none-xl"
+  >
+    <span
+      aria-hidden="true"
+      id="cart-toggler"
+      onClick={[Function]}
+    >
+      <div
+        className="text-center"
+      >
+        <img
+          alt="cart"
+          src="/img/cart.png"
+        />
+          
+        <sup>
+          1
+        </sup>
+      </div>
+      <p
+        className="text-center"
+      >
+        Total: ₦
+        1500
+      </p>
+    </span>
+    <span
+      className="cart-btn"
+    >
+      <Link
+        href="/order-confirmation"
+        replace={false}
+        to="/order-confirmation"
+      >
+        <button
+          className="btn btn-pri btn-block checkout-btn"
+        >
+          Checkout
+        </button>
+      </Link>
+    </span>
+  </div>
+  <div
+    className="side-cart false"
+    id="side-cart"
+  >
+    <div
+      className="cart"
+    >
+      <div
+        className="cart-header"
+      >
+        <h2>
+          Your Cart
+        </h2>
+        <div
+          className="close d-none-xl"
+        >
+          <Link
+            aria-hidden="true"
+            className={null}
+            clickHandler={[Function]}
+            id="side-cart-close-icon"
+          >
+            ×
+          </Link>
+        </div>
+      </div>
+      <hr />
+      <div
+        className="order-summary"
+      >
+        <div
+          key="81211c24-51c0-46ec-b1e0-18db55880958"
+        >
+          <p>
+            <input
+              className="order-input"
+              min="1"
+              onChange={[Function]}
+              type="number"
+              value={1}
+            />
+          </p>
+          <p>
+            Jollof Rice, Beef and Plantain
+          </p>
+          <p>
+            1500.00
+          </p>
+          <Link
+            className="remove-order"
+            clickHandler={[Function]}
+            id={null}
+          >
+            ×
+          </Link>
+        </div>
+        <div
+          className="order-amount"
+        >
+          <div>
+            <p>
+              Total:
+            </p>
+            <h2>
+              ₦
+              1500
+            </h2>
+          </div>
+        </div>
+      </div>
+      <br />
+      <Link
+        href="/order-confirmation"
+        replace={false}
+        to="/order-confirmation"
+      >
+        <button
+          className="btn btn-pri btn-block checkout-btn"
+        >
+          Checkout
+        </button>
+      </Link>
+    </div>
+  </div>
+</React.Fragment>
+`;
+
+exports[`Cart renders message when there is no order 1`] = `
+<React.Fragment>
+  <div
+    className="side-cart-toggle d-none-xl"
+  >
+    <span
+      aria-hidden="true"
+      id="cart-toggler"
+      onClick={[Function]}
+    >
+      <div
+        className="text-center"
+      >
+        <img
+          alt="cart"
+          src="/img/cart.png"
+        />
+          
+        <sup>
+          0
+        </sup>
+      </div>
+      <p
+        className="text-center"
+      >
+        Total: ₦
+        0
+      </p>
+    </span>
+    <span
+      className="cart-btn"
+    >
+      <Link
+        href="/order-confirmation"
+        replace={false}
+        to="/order-confirmation"
+      >
+        <button
+          className="btn btn-pri btn-block checkout-btn"
+        >
+          Checkout
+        </button>
+      </Link>
+    </span>
+  </div>
+  <div
+    className="side-cart false"
+    id="side-cart"
+  >
+    <div
+      className="cart"
+    >
+      <div
+        className="cart-header"
+      >
+        <h2>
+          Your Cart
+        </h2>
+        <div
+          className="close d-none-xl"
+        >
+          <Link
+            aria-hidden="true"
+            className={null}
+            clickHandler={[Function]}
+            id="side-cart-close-icon"
+          >
+            ×
+          </Link>
+        </div>
+      </div>
+      <hr />
+      <div
+        className="empty-cart"
+      >
+        <p>
+          Your Cart is Empty
+        </p>
+      </div>
+      <br />
+      <Link
+        href="/order-confirmation"
+        replace={false}
+        to="/order-confirmation"
+      >
+        <button
+          className="btn btn-pri btn-block checkout-btn"
+        >
+          Checkout
+        </button>
+      </Link>
+    </div>
+  </div>
+</React.Fragment>
+`;
