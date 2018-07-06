@@ -1,6 +1,7 @@
 {
   "name": "book-a-meal",
   "scripts": {
+    "postdeploy": "yarn migrate"
   },
   "env": {
     "BASE_URL": {
