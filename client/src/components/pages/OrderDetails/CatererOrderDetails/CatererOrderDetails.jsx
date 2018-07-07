@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import LinkBtn from '../../../shared/Link';
 import MiniPreloader from '../../../shared/Preloader/MiniPreloader';
 import View from '../../../shared/View';
-import { calculateCashEarnedFromOrder } from '../../../../helpers';
 import { userPropTypes, catererOrderObjPropTypes } from '../../../../helpers/proptypes';
+import OrderSummary from '../../../shared/OrderSummary';
+import OrderAmount from '../../../shared/OrderAmount';
 
 /**
  * @exports
@@ -56,37 +57,6 @@ class CatererOrderDetails extends Component {
   /**
    * @memberof CatererOrderDetails
    * @param {object} order
-   * @returns {JSX} CatererOrderDetails Component
-   */
-  renderOrderSummary = order => (
-    <div className="order-summary">
-      {order.meals.map(meal => (
-        <div key={meal.id}>
-          <p>{meal.quantity}x</p>
-          <p>{meal.title}</p>
-          <p>₦{meal.price}</p>
-        </div>
-      ))}
-    </div>
-  )
-
-  /**
-   * @memberof CatererOrderDetails
-   * @param {object} order
-   * @returns {JSX} CatererOrderDetails Component
-   */
-  renderOrderAmount = order => (
-    <div className="order-amount admin-order-total">
-      <div>
-        <p>Total</p>
-        <h2>₦{calculateCashEarnedFromOrder(order.meals)}</h2>
-      </div>
-    </div>
-  )
-
-  /**
-   * @memberof CatererOrderDetails
-   * @param {object} order
    * @param {func} deliverOrder
    * @returns {JSX} CatererOrderDetails Component
    */
@@ -118,8 +88,8 @@ class CatererOrderDetails extends Component {
     return (
       <Fragment>
         {this.renderOrderMisc(order)}
-        {this.renderOrderSummary(order)}
-        {this.renderOrderAmount(order)}
+        <OrderSummary meals={order.meals} />
+        <OrderAmount meals={order.meals} type="admin" />
       </Fragment>
     );
   }
@@ -150,14 +120,12 @@ class CatererOrderDetails extends Component {
     const { user, logout, isFetching } = this.props;
 
     return (
-      <Fragment>
-        <View user={user} logout={logout} type="orders" showTime isFetching={isFetching}>
-          <Fragment>
-            {!isFetching && !this.props.order && <p className="text-center">This Order Does Not Exist</p>}
-            {!isFetching && this.props.order && this.renderCatererOrderDetails()}
-          </Fragment>
-        </View>
-      </Fragment>
+      <View user={user} logout={logout} type="orders" showTime isFetching={isFetching}>
+        <Fragment>
+          {!isFetching && !this.props.order && <p className="text-center">This Order Does Not Exist</p>}
+          {!isFetching && this.props.order && this.renderCatererOrderDetails()}
+        </Fragment>
+      </View>
     );
   }
 }

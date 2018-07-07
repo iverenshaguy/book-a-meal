@@ -12,7 +12,7 @@ const store = mockStore({ ...initialValues });
 
 const { now } = Date;
 
-describe('Orders', () => {
+describe('Caterers Orders', () => {
   beforeAll(() => {
     Date.now = jest.fn(() => 0);
   });

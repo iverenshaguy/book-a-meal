@@ -1,0 +1,516 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Customer Orders Order Review renders connected component 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(OrderReview)
+    isFetching={false}
+    user={
+      Object {
+        "email": "emiola@olasanmi.com",
+        "firstname": "Emiola",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "lastname": "Olasanmi",
+        "role": "customer",
+      }
+    }
+  >
+    <OrderReview
+      isFetching={false}
+      logout={[Function]}
+      user={
+        Object {
+          "email": "emiola@olasanmi.com",
+          "firstname": "Emiola",
+          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+          "lastname": "Olasanmi",
+          "role": "customer",
+        }
+      }
+    >
+      <View
+        isFetching={false}
+        logout={[Function]}
+        showTime={true}
+        type="orderReview"
+        user={
+          Object {
+            "email": "emiola@olasanmi.com",
+            "firstname": "Emiola",
+            "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+            "lastname": "Olasanmi",
+            "role": "customer",
+          }
+        }
+      >
+        <div
+          className="user"
+        >
+          <Header
+            active="orderReview"
+            dateType="orderReview"
+            logout={[Function]}
+            showTime={true}
+            type="customer"
+            user={
+              Object {
+                "email": "emiola@olasanmi.com",
+                "firstname": "Emiola",
+                "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                "lastname": "Olasanmi",
+                "role": "customer",
+              }
+            }
+          >
+            <div
+              className="header"
+            >
+              <div
+                className="navbar white-navbar"
+              >
+                <CustomerHeader
+                  active="orderReview"
+                  dateType="orderReview"
+                  logout={[Function]}
+                  showTime={true}
+                  type="customer"
+                  user={
+                    Object {
+                      "email": "emiola@olasanmi.com",
+                      "firstname": "Emiola",
+                      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                      "lastname": "Olasanmi",
+                      "role": "customer",
+                    }
+                  }
+                >
+                  <div
+                    className="page-title"
+                  >
+                    <h3>
+                      <Link
+                        href="/"
+                        replace={false}
+                        to="/"
+                      >
+                        <a
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          BOOK-A-MEAL
+                        </a>
+                      </Link>
+                    </h3>
+                  </div>
+                  <div
+                    className="navlinks"
+                  >
+                    <div
+                      className="user-info"
+                    >
+                      <Dropdown
+                        content={
+                          <UNDEFINED>
+                            <Link
+                              className="false"
+                              href="/"
+                              replace={false}
+                              to="/"
+                            >
+                              Menu
+                            </Link>
+                            <Link
+                              href="/"
+                              replace={false}
+                              to="/"
+                            >
+                              Order History
+                            </Link>
+                            <Link
+                              href="/"
+                              onClick={[Function]}
+                              replace={false}
+                              to="/"
+                            >
+                              Logout
+                            </Link>
+                          </UNDEFINED>
+                        }
+                        toggler={
+                          <div
+                            className="username-circle circle-click"
+                          >
+                            <p
+                              className="circle-click"
+                            >
+                              E
+                              ▿
+                            </p>
+                          </div>
+                        }
+                        type="customer"
+                      >
+                        <div
+                          className="dropdown"
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                        >
+                          <Link
+                            className="link"
+                            clickHandler={[Function]}
+                            id="dropdown-toggler"
+                          >
+                            <button
+                              className="link-btn link"
+                              id="dropdown-toggler"
+                              onClick={[Function]}
+                            >
+                              <div
+                                className="username-circle circle-click"
+                              >
+                                <p
+                                  className="circle-click"
+                                >
+                                  E
+                                  ▿
+                                </p>
+                              </div>
+                            </button>
+                          </Link>
+                          <div
+                            className="dropdown-content"
+                            id="dropdown-content"
+                          >
+                            <Link
+                              className="false"
+                              href="/"
+                              replace={false}
+                              to="/"
+                            >
+                              <a
+                                className="false"
+                                href="/"
+                                onClick={[Function]}
+                              >
+                                Menu
+                              </a>
+                            </Link>
+                            <Link
+                              href="/"
+                              replace={false}
+                              to="/"
+                            >
+                              <a
+                                href="/"
+                                onClick={[Function]}
+                              >
+                                Order History
+                              </a>
+                            </Link>
+                            <Link
+                              href="/"
+                              onClick={[Function]}
+                              replace={false}
+                              to="/"
+                            >
+                              <a
+                                href="/"
+                                onClick={[Function]}
+                              >
+                                Logout
+                              </a>
+                            </Link>
+                          </div>
+                        </div>
+                      </Dropdown>
+                      <p>
+                          
+                        Emiola
+                      </p>
+                    </div>
+                  </div>
+                </CustomerHeader>
+              </div>
+            </div>
+          </Header>
+          <div
+            className="main-wrapper"
+            id="has-modal"
+          >
+            <div
+              className="order-confirmation"
+            >
+              <div>
+                <h2>
+                  Delivery Details
+                </h2>
+                <hr />
+                <div
+                  className="delivery-details"
+                >
+                  <p
+                    className="text-center"
+                    style={
+                      Object {
+                        "marginBottom": "30px",
+                      }
+                    }
+                  >
+                    Please fill in your details below. Both fields are required.
+                  </p>
+                  <RenderInput
+                    handleBlur={[Function]}
+                    handleChange={[Function]}
+                    handleFocus={[Function]}
+                    id="number"
+                    label="Phone Number"
+                    meta={
+                      Object {
+                        "error": null,
+                        "touched": true,
+                      }
+                    }
+                    name="number"
+                    placeholder=""
+                    required={true}
+                    type="number"
+                    value="+2348134567891"
+                  >
+                    <div
+                      className="form-input"
+                    >
+                      <label
+                        htmlFor="number"
+                      >
+                        Phone Number
+                        <span
+                          className="danger"
+                        >
+                          *
+                        </span>
+                      </label>
+                      <input
+                        className="is-valid"
+                        id="number"
+                        name="number"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder=""
+                        type="number"
+                        value="+2348134567891"
+                      />
+                    </div>
+                  </RenderInput>
+                  <RenderInput
+                    handleBlur={[Function]}
+                    handleChange={[Function]}
+                    handleFocus={[Function]}
+                    id="address"
+                    label="Delivery Address"
+                    meta={
+                      Object {
+                        "error": null,
+                        "touched": true,
+                      }
+                    }
+                    name="address"
+                    placeholder=""
+                    required={true}
+                    type="address"
+                    value="4, Church Street, Yaba"
+                  >
+                    <div
+                      className="form-input"
+                    >
+                      <label
+                        htmlFor="address"
+                      >
+                        Delivery Address
+                        <span
+                          className="danger"
+                        >
+                          *
+                        </span>
+                      </label>
+                      <input
+                        className="is-valid"
+                        id="address"
+                        name="address"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder=""
+                        type="address"
+                        value="4, Church Street, Yaba"
+                      />
+                    </div>
+                  </RenderInput>
+                </div>
+                <div
+                  className="control-btns"
+                >
+                  <Link
+                    href="/"
+                    replace={false}
+                    to="/"
+                  >
+                    <a
+                      href="/"
+                      onClick={[Function]}
+                    >
+                      <button
+                        className="btn btn-sec"
+                        type="button"
+                      >
+                        Back
+                      </button>
+                    </a>
+                  </Link>
+                  <button
+                    className="btn btn-sec"
+                    onClick={[Function]}
+                    type="submit"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <Connect(Modal)>
+            <Modal
+              open={false}
+              toggleModal={[Function]}
+              type={null}
+            />
+          </Connect(Modal)>
+          <Footer>
+            <div
+              className="footer"
+            >
+              <p>
+                © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
+              </p>
+            </div>
+          </Footer>
+        </div>
+      </View>
+    </OrderReview>
+  </Connect(OrderReview)>
+</Provider>
+`;
+
+exports[`Customer Orders Order Review renders correctly 1`] = `
+<View
+  isFetching={false}
+  logout={[MockFunction]}
+  showTime={true}
+  type="orderReview"
+  user={
+    Object {
+      "email": "emiola@olasanmi.com",
+      "firstname": "Emiola",
+      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+      "lastname": "Olasanmi",
+      "role": "customer",
+    }
+  }
+>
+  <div
+    className="order-confirmation"
+  >
+    <div>
+      <h2>
+        Delivery Details
+      </h2>
+      <hr />
+      <div
+        className="delivery-details"
+      >
+        <p
+          className="text-center"
+          style={
+            Object {
+              "marginBottom": "30px",
+            }
+          }
+        >
+          Please fill in your details below. Both fields are required.
+        </p>
+        <React.Fragment>
+          <RenderInput
+            handleBlur={[Function]}
+            handleChange={[Function]}
+            handleFocus={[Function]}
+            id="number"
+            label="Phone Number"
+            meta={
+              Object {
+                "error": null,
+                "touched": true,
+              }
+            }
+            name="number"
+            placeholder=""
+            required={true}
+            type="number"
+            value="+2348134567891"
+          />
+          <RenderInput
+            handleBlur={[Function]}
+            handleChange={[Function]}
+            handleFocus={[Function]}
+            id="address"
+            label="Delivery Address"
+            meta={
+              Object {
+                "error": null,
+                "touched": true,
+              }
+            }
+            name="address"
+            placeholder=""
+            required={true}
+            type="address"
+            value="4, Church Street, Yaba"
+          />
+        </React.Fragment>
+      </div>
+      <div
+        className="control-btns"
+      >
+        <Link
+          href="/"
+          replace={false}
+          to="/"
+        >
+          <button
+            className="btn btn-sec"
+            type="button"
+          >
+            Back
+          </button>
+        </Link>
+        <button
+          className="btn btn-sec"
+          onClick={[Function]}
+          type="submit"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+</View>
+`;

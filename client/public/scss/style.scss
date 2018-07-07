@@ -58,12 +58,12 @@ body {
 }
 
 .d-flex {
-  display: flex;
+  display: flex !important;
 }
 
 @media (min-width: 768px) {
   .d-md {
-    display: block;
+    display: block !important;
   }
 }
 
@@ -75,25 +75,25 @@ body {
 
 @media (min-width: 768px) {
   .d-flex-md {
-    display: flex;
+    display: flex !important;
   }
 }
 
 @media (min-width: 992px) {
   .d-lg {
-    display: block;
+    display: block !important;
   }
 }
 
 @media (min-width: 992px) {
   .d-flex-lg {
-    display: flex;
+    display: flex !important;
   }
 }
 
 @media (min-width: 1200px) {
   .d-xl {
-    display: block;
+    display: block !important;
   }
 }
 
@@ -105,13 +105,13 @@ body {
 
 @media (min-width: 768px) {
   .d-none-md {
-    display: none;
+    display: none !important;
   }
 }
 
 @media (min-width: 992px) {
   .d-none-lg {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -246,6 +246,9 @@ hr {
   flex-grow: 10;
 }
 
+// .delivery-details {
+//   padding-top: 30px;
+// }
 .auth,
 .order-confirmation,
 .order-confirmation.order-details {
@@ -261,6 +264,33 @@ hr {
 
 .side-cart {
   border-radius: 0px;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("../../public/img/chicken-fajitas.jpg") no-repeat center center;
+  background-color: white;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  .header {
+    left: 0%;
+    width: 100%;
+    position: fixed;
+  }
+  .content-wrapper {
+    margin-top: 70px;
+  }
+  .navbar {
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1);
+  }
+  .header .navbar .page-title a,
+  .navlinks,
+  .header .navbar .navlinks .link,
+  .footer p {
+    color: $dark;
+  }
 }
 
 .auth hr,
@@ -320,6 +350,14 @@ hr {
   h2 {
     text-align: center;
   }
+  hr {
+    width: 75%;
+  }
+  &.order-details {
+    hr {
+      width: 99.9%;
+    }
+  }
   .order-summary,
   .order-amount:not(.admin-order-total),
   .customer-details,
@@ -347,7 +385,6 @@ hr {
     &:last-child {
       display: flex;
       align-items: center;
-      border-top: 1px solid #ddd;
     }
   }
 }
@@ -432,6 +469,27 @@ hr {
   .order-confirmation {
     width: 50%;
     padding: 10px 50px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .order-confirmation {
+    h2 {
+      font-size: 1.2em;
+    }
+    .order-summary>div {
+      display: flex;
+      p {
+        &:nth-child(1),
+        &:nth-child(3) {
+          flex: 1;
+        }
+        &:nth-child(2) {
+          font-size: 0.8em;
+          flex: 2;
+        }
+      }
+    }
   }
 }
 

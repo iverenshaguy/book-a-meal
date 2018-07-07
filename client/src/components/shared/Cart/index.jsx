@@ -40,7 +40,7 @@ class Cart extends Component {
    * @returns {JSX} Checkout Btn
    */
   renderCheckoutBtn = () => (
-    <Link to="/order-confirmation" href="/order-confirmation">
+    <Link to="/order-review" href="/order-review">
       <button className="btn btn-pri btn-block checkout-btn">Checkout</button>
     </Link>);
 

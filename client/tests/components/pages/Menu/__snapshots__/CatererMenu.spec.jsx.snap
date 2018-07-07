@@ -227,7 +227,7 @@ exports[`CatererMenu renders connected component 1`] = `
         }
       >
         <div
-          className="admin null"
+          className="admin"
         >
           <Header
             active="menu"
@@ -320,6 +320,7 @@ exports[`CatererMenu renders connected component 1`] = `
                 active="menu"
                 logout={[Function]}
                 open={false}
+                push={[Function]}
                 toggleSideNav={[Function]}
                 user={
                   Object {
@@ -415,59 +416,55 @@ exports[`CatererMenu renders connected component 1`] = `
                     >
                       <Link
                         className="menu-item false"
-                        href="/"
-                        replace={false}
-                        to="/"
+                        clickHandler={[Function]}
+                        id={null}
                       >
-                        <a
-                          className="menu-item false"
-                          href="/"
+                        <button
+                          className="link-btn menu-item false"
+                          id={null}
                           onClick={[Function]}
                         >
                           Dashboard
-                        </a>
+                        </button>
                       </Link>
                       <Link
                         className="menu-item false"
-                        href="/meals"
-                        replace={false}
-                        to="/meals"
+                        clickHandler={[Function]}
+                        id={null}
                       >
-                        <a
-                          className="menu-item false"
-                          href="/meals"
+                        <button
+                          className="link-btn menu-item false"
+                          id={null}
                           onClick={[Function]}
                         >
                           Meals
-                        </a>
+                        </button>
                       </Link>
                       <Link
                         className="menu-item active"
-                        href="/menu"
-                        replace={false}
-                        to="/menu"
+                        clickHandler={[Function]}
+                        id={null}
                       >
-                        <a
-                          className="menu-item active"
-                          href="/menu"
+                        <button
+                          className="link-btn menu-item active"
+                          id={null}
                           onClick={[Function]}
                         >
                           Menu
-                        </a>
+                        </button>
                       </Link>
                       <Link
                         className="menu-item false"
-                        href="/orders"
-                        replace={false}
-                        to="/orders"
+                        clickHandler={[Function]}
+                        id={null}
                       >
-                        <a
-                          className="menu-item false"
-                          href="/orders"
+                        <button
+                          className="link-btn menu-item false"
+                          id={null}
                           onClick={[Function]}
                         >
                           Orders
-                        </a>
+                        </button>
                       </Link>
                     </div>
                   </div>
@@ -654,6 +651,13 @@ exports[`CatererMenu renders connected component 1`] = `
               </div>
             </div>
           </div>
+          <Connect(Modal)>
+            <Modal
+              open={false}
+              toggleModal={[Function]}
+              type={null}
+            />
+          </Connect(Modal)>
           <Footer>
             <div
               className="footer"

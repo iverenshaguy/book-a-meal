@@ -170,9 +170,9 @@ exports[`Cart renders correctly 1`] = `
       className="cart-btn"
     >
       <Link
-        href="/order-confirmation"
+        href="/order-review"
         replace={false}
-        to="/order-confirmation"
+        to="/order-review"
       >
         <button
           className="btn btn-pri btn-block checkout-btn"
@@ -247,9 +247,9 @@ exports[`Cart renders correctly 1`] = `
       </div>
       <br />
       <Link
-        href="/order-confirmation"
+        href="/order-review"
         replace={false}
-        to="/order-confirmation"
+        to="/order-review"
       >
         <button
           className="btn btn-pri btn-block checkout-btn"
@@ -295,9 +295,9 @@ exports[`Cart renders message when there is no order 1`] = `
       className="cart-btn"
     >
       <Link
-        href="/order-confirmation"
+        href="/order-review"
         replace={false}
-        to="/order-confirmation"
+        to="/order-review"
       >
         <button
           className="btn btn-pri btn-block checkout-btn"
@@ -336,9 +336,9 @@ exports[`Cart renders message when there is no order 1`] = `
       </div>
       <br />
       <Link
-        href="/order-confirmation"
+        href="/order-review"
         replace={false}
-        to="/order-confirmation"
+        to="/order-review"
       >
         <button
           className="btn btn-pri btn-block checkout-btn"

@@ -17,11 +17,13 @@ describe('Menu', () => {
     const shallowWrapper = shallow(<Menu type="caterer" user={caterer} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
+    expect(shallowWrapper.find('CatererMenu')).toBeTruthy();
   });
 
   it('renders correctly: Customer Menu', () => {
     const shallowWrapper = shallow(<Menu type="customer" user={customer} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
+    expect(shallowWrapper.find('CustomerMenu')).toBeTruthy();
   });
 });

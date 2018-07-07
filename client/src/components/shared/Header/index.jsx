@@ -27,7 +27,7 @@ class Header extends Component {
       <Fragment>
         <div className="page-title">
           <h3>
-            <a href="/">BOOK-A-MEAL</a>
+            <Link to="/" href="/">BOOK-A-MEAL</Link>
           </h3>
         </div>
         {type === 'home' &&

@@ -22,10 +22,10 @@ module.exports = {
   mode: 'development',
   devtool: 'eval',
   entry: { app: ['react-hot-loader/patch', 'webpack-hot-middleware/client', './client/src/index.jsx'] },
-  devServer: {
-    contentBase: './client/dist',
-    hot: true
-  },
+  // devServer: {
+  //   contentBase: './client/dist',
+  //   hot: true
+  // },
   output: {
     path: path.resolve(__dirname, './client/dist'),
     filename: 'bundle.js',

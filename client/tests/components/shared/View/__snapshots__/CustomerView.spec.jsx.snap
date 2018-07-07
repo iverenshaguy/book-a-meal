@@ -21,17 +21,14 @@ exports[`CustomerView renders Preloader when fetching 1`] = `
     }
   />
   <div
-    className="content"
+    className="content-wrapper"
+    id="has-modal"
   >
-    <div
-      className="content-wrapper"
-      id="has-modal"
-    >
-      <Preloader
-        type={null}
-      />
-    </div>
+    <Preloader
+      type={null}
+    />
   </div>
+  <Connect(Modal) />
   <Footer />
 </div>
 `;
@@ -57,17 +54,14 @@ exports[`CustomerView renders correctly 1`] = `
     }
   />
   <div
-    className="content"
+    className="content-wrapper"
+    id="has-modal"
   >
-    <div
-      className="content-wrapper"
-      id="has-modal"
-    >
-      <p>
-        Hi
-      </p>
-    </div>
+    <p>
+      Hi
+    </p>
   </div>
+  <Connect(Modal) />
   <Footer />
 </div>
 `;

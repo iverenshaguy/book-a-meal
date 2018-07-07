@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderSummary renders correctly 1`] = `
+<div
+  className="order-summary"
+>
+  <div
+    key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+  >
+    <p>
+      1
+      x
+    </p>
+    <p>
+      Vegetable Sharwama and Guava Smoothie
+    </p>
+    <p>
+      ₦
+      1200
+    </p>
+  </div>
+</div>
+`;

@@ -8,7 +8,7 @@ const flattenMealsIntoSingleArray = (menu) => {
 
   return {
     id: null,
-    date: moment().format('YYYY-MM_DD'),
+    date: moment().format('YYYY-MM-DD'),
     meals
   };
 };

@@ -62,6 +62,13 @@ describe('Modal', () => {
     expect(shallowWrapper.find('p.text-center').text()).toEqual('Meal Deleted Successfully');
   });
 
+  it('renders correctly when type is orderSuccessMsg', () => {
+    const shallowWrapper = shallow(<Modal type="orderSuccessMsg" open toggleModal={jest.fn()} />);
+
+    expect(toJson(shallowWrapper)).toMatchSnapshot();
+    expect(shallowWrapper.find('OrderSuccessModal')).toBeTruthy();
+  });
+
   it('renders correctly when type is menu', () => {
     const shallowWrapper = shallow(<Modal type="menu" open submitting={false} toggleModal={jest.fn()} />);
 

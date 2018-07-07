@@ -27,11 +27,13 @@ exports[`Header renders correctly 1`] = `
         className="page-title"
       >
         <h3>
-          <a
+          <Link
             href="/"
+            replace={false}
+            to="/"
           >
             BOOK-A-MEAL
-          </a>
+          </Link>
         </h3>
       </div>
       <div
@@ -71,11 +73,13 @@ exports[`Header renders unauthenticated header correctly 1`] = `
         className="page-title"
       >
         <h3>
-          <a
+          <Link
             href="/"
+            replace={false}
+            to="/"
           >
             BOOK-A-MEAL
-          </a>
+          </Link>
         </h3>
       </div>
     </React.Fragment>

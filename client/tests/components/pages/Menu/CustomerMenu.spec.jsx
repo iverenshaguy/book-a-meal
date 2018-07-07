@@ -5,7 +5,8 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import CustomerMenu from '../../../../src/components/pages/Menu/CustomerMenu/CustomerMenu';
 import ConnectedCustomerMenu from '../../../../src/components/pages/Menu/CustomerMenu';
-import { customer, caterersMealsObj, initialValues } from '../../../setup/data';
+import { customer, caterersMealsObj, orderItems, initialValues } from '../../../setup/data';
+import updateLocalStorageOrder from '../../../../src/helpers/updateLocalStorageOrder';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -14,6 +15,8 @@ const store = mockStore({
 });
 const { now } = Date;
 const currentDay = moment().format('YYYY-MM-DD');
+
+updateLocalStorageOrder('a09a5570-a3b2-4e21-94c3-5cf483dbd1ac', orderItems, { number: '2348167719888', address: 'A Place' });
 
 describe('CustomerMenu', () => {
   beforeAll(() => {
@@ -80,16 +83,20 @@ describe('CustomerMenu', () => {
 
   it('renders message when shop is closed', () => {
     const dateNowSpy = jest.spyOn(Date, 'now').mockImplementation(() => new Date(currentDay).getTime() + (60 * 60 * 18 * 1000));
-    const wrapper = mount(<CustomerMenu
-      user={customer}
-      logout={jest.fn()}
-      fetchMenu={jest.fn()}
-      isFetching={false}
-      {...caterersMealsObj}
-    />, rrcMock.get());
+    const comp = (
+      <Provider store={store}>
+        <CustomerMenu
+          user={customer}
+          logout={jest.fn()}
+          fetchMenu={jest.fn()}
+          isFetching={false}
+          {...caterersMealsObj}
+        />
+      </Provider>);
+    const wrapper = mount(comp, rrcMock.get());
 
     expect(toJson(wrapper)).toMatchSnapshot();
-    expect(wrapper.find('p.notif').text()).toEqual('Ordering is not available between 4:00pm and 8:30am. Please check back later.');
+    expect(wrapper.find('p.notif').text()).toEqual('Ordering is only available between 4:00pm and 8:30am. Please check back later.');
     dateNowSpy.mockReset();
     dateNowSpy.mockRestore();
   });
@@ -100,12 +107,14 @@ describe('CustomerMenu', () => {
 
       localStorage.setItem('bookamealorder', JSON.stringify({
         userId: 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac',
-        order: [{
-          id: '81211c24-51c0-46ec-b1e0-18db55880958',
-          title: 'Jollof Rice, Beef and Plantain',
-          price: '1500.00',
-          quantity: 1
-        }],
+        order: {
+          items: [{
+            id: '81211c24-51c0-46ec-b1e0-18db55880958',
+            title: 'Jollof Rice, Beef and Plantain',
+            price: '1500.00',
+            quantity: 1
+          }]
+        },
         date: moment().format('YYYY-MM-DD')
       }));
     });
@@ -116,20 +125,23 @@ describe('CustomerMenu', () => {
 
     it('adds an order', () => {
       const comp = (
-        <CustomerMenu
-          user={customer}
-          logout={jest.fn()}
-          fetchMenu={jest.fn()}
-          isFetching={false}
-          {...caterersMealsObj}
-        />);
+        <Provider store={store}>
+          <CustomerMenu
+            user={customer}
+            logout={jest.fn()}
+            fetchMenu={jest.fn()}
+            isFetching={false}
+            {...caterersMealsObj}
+          />
+        </Provider>);
 
 
-      const wrapper = mount(comp, rrcMock.get());
+      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenu).dive();
       const addOrderSpy = jest.spyOn(wrapper.instance(), 'addOrderItem');
       const handleOrderMealClickSpy = jest.spyOn(wrapper.instance(), 'handleOrderMealClick');
 
-      wrapper.find('.meal-card-btn').at(1).simulate('click');
+      wrapper.find('MealCard').at(1).dive().find('.meal-card-btn')
+        .simulate('click');
 
       expect(handleOrderMealClickSpy).toHaveBeenCalled();
       expect(addOrderSpy).toHaveBeenCalled();
@@ -141,19 +153,22 @@ describe('CustomerMenu', () => {
 
     it('updates orderItem on reorder', () => {
       const comp = (
-        <CustomerMenu
-          user={customer}
-          logout={jest.fn()}
-          fetchMenu={jest.fn()}
-          isFetching={false}
-          {...caterersMealsObj}
-        />);
+        <Provider store={store}>
+          <CustomerMenu
+            user={customer}
+            logout={jest.fn()}
+            fetchMenu={jest.fn()}
+            isFetching={false}
+            {...caterersMealsObj}
+          />
+        </Provider>);
 
-      const wrapper = mount(comp, rrcMock.get());
+      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenu).dive();
       const updateOrderItemSpy = jest.spyOn(wrapper.instance(), 'updateOrderItem');
       const handleOrderMealClickSpy = jest.spyOn(wrapper.instance(), 'handleOrderMealClick');
 
-      wrapper.find('.meal-card-btn').at(0).simulate('click');
+      wrapper.find('MealCard').at(0).dive().find('.meal-card-btn')
+        .simulate('click');
 
       expect(updateOrderItemSpy).toHaveBeenCalled();
       expect(handleOrderMealClickSpy).toHaveBeenCalled();
@@ -164,18 +179,21 @@ describe('CustomerMenu', () => {
 
     it('changes order quantity on input change', () => {
       const comp = (
-        <CustomerMenu
-          user={customer}
-          logout={jest.fn()}
-          fetchMenu={jest.fn()}
-          isFetching={false}
-          {...caterersMealsObj}
-        />);
+        <Provider store={store}>
+          <CustomerMenu
+            user={customer}
+            logout={jest.fn()}
+            fetchMenu={jest.fn()}
+            isFetching={false}
+            {...caterersMealsObj}
+          />
+        </Provider>);
 
-      const wrapper = mount(comp, rrcMock.get());
+      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenu).dive();
       const changeOrderQuantitySpy = jest.spyOn(wrapper.instance(), 'changeOrderQuantity');
 
-      wrapper.find('input').at(0).simulate('change', { target: { value: 3 } });
+      wrapper.find('Cart').dive().find('input').at(0)
+        .simulate('change', { target: { value: 3 } });
 
       expect(changeOrderQuantitySpy).toHaveBeenCalled();
       expect(wrapper.state().order[0].quantity).toEqual(3);
@@ -185,20 +203,24 @@ describe('CustomerMenu', () => {
 
     it('sets quantity input back to one if set to 0 or negative value', () => {
       const comp = (
-        <CustomerMenu
-          user={customer}
-          logout={jest.fn()}
-          fetchMenu={jest.fn()}
-          isFetching={false}
-          {...caterersMealsObj}
-        />);
+        <Provider store={store}>
+          <CustomerMenu
+            user={customer}
+            logout={jest.fn()}
+            fetchMenu={jest.fn()}
+            isFetching={false}
+            {...caterersMealsObj}
+          />
+        </Provider>);
 
-      const wrapper = mount(comp, rrcMock.get());
+      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenu).dive();
 
-      wrapper.find('input').at(0).simulate('change', { target: { value: 0 } });
+      wrapper.find('Cart').dive().find('input').at(0)
+        .simulate('change', { target: { value: 0 } });
       expect(wrapper.state().order[0].quantity).toEqual(1);
 
-      wrapper.find('input').at(0).simulate('change', { target: { value: -8 } });
+      wrapper.find('Cart').dive().find('input').at(0)
+        .simulate('change', { target: { value: -8 } });
       expect(wrapper.state().order[0].quantity).toEqual(1);
 
       wrapper.unmount();
@@ -206,56 +228,66 @@ describe('CustomerMenu', () => {
 
     it('sets empty array as state order when local storage date is not today', () => {
       const comp = (
-        <CustomerMenu
-          user={customer}
-          logout={jest.fn()}
-          fetchMenu={jest.fn()}
-          isFetching={false}
-          {...caterersMealsObj}
-        />);
+        <Provider store={store}>
+          <CustomerMenu
+            user={customer}
+            logout={jest.fn()}
+            fetchMenu={jest.fn()}
+            isFetching={false}
+            {...caterersMealsObj}
+          />
+        </Provider>);
 
       localStorage.setItem('bookamealorder', JSON.stringify({
         userId: 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac',
-        order: [{
-          id: '81211c24-51c0-46ec-b1e0-18db55880958',
-          title: 'Jollof Rice, Beef and Plantain',
-          price: '1500.00',
-          quantity: 1
-        }],
+        order: {
+          items: [{
+            id: '81211c24-51c0-46ec-b1e0-18db55880958',
+            title: 'Jollof Rice, Beef and Plantain',
+            price: '1500.00',
+            quantity: 1
+          }]
+        },
         date: '2017-06-20'
       }));
 
-      const wrapper = mount(comp, rrcMock.get());
+      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenu).dive();
 
       expect(wrapper.state().order.length).toEqual(0);
 
       wrapper.unmount();
     });
 
-    it('removes orderItem when delete icon is click', () => {
+    it('removes orderItem when delete icon is clicked', () => {
       const comp = (
-        <CustomerMenu
-          user={customer}
-          logout={jest.fn()}
-          fetchMenu={jest.fn()}
-          isFetching={false}
-          {...caterersMealsObj}
-        />);
+        <Provider store={store}>
+          <CustomerMenu
+            user={customer}
+            logout={jest.fn()}
+            fetchMenu={jest.fn()}
+            isFetching={false}
+            {...caterersMealsObj}
+          />
+        </Provider>);
 
       localStorage.setItem('bookamealorder', JSON.stringify({
         userId: 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac',
-        order: [{
-          id: '81211c24-51c0-46ec-b1e0-18db55880958',
-          title: 'Jollof Rice, Beef and Plantain',
-          price: '1500.00',
-          quantity: 1
-        }],
+        order: {
+          items: [{
+            id: '81211c24-51c0-46ec-b1e0-18db55880958',
+            title: 'Jollof Rice, Beef and Plantain',
+            price: '1500.00',
+            quantity: 1
+          }]
+        },
         date: moment().format('YYYY-MM-DD')
       }));
 
-      const wrapper = mount(comp, rrcMock.get());
+      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenu).dive();
 
-      wrapper.find('button.remove-order').simulate('click');
+      wrapper.find('Cart').dive().find('Link.remove-order').dive()
+        .find('button.remove-order')
+        .simulate('click');
 
       expect(wrapper.state().order.length).toEqual(0);
 

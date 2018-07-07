@@ -47,7 +47,7 @@ describe('Routes', () => {
     expect(wrapper.find('Auth')).toBeTruthy();
   });
 
-  it('should render signup page', () => {
+  it('should render default signup page', () => {
     const comp = (
       <ConnectedRouter store={store} history={history}>
         <Provider store={store}>
@@ -56,7 +56,35 @@ describe('Routes', () => {
       </ConnectedRouter>
     );
     const wrapper = mount(comp);
-    history.push('/signup?role=customer');
+    history.push('/signup');
+
+    expect(wrapper.find('Auth')).toBeTruthy();
+  });
+
+  it('should render customer signup page', () => {
+    const comp = (
+      <ConnectedRouter store={store} history={history}>
+        <Provider store={store}>
+          <Routes dispatch={jest.fn()} />
+        </Provider>
+      </ConnectedRouter>
+    );
+    const wrapper = mount(comp);
+    history.push('/signup/customer');
+
+    expect(wrapper.find('Auth')).toBeTruthy();
+  });
+
+  it('should render caterer signup page', () => {
+    const comp = (
+      <ConnectedRouter store={store} history={history}>
+        <Provider store={store}>
+          <Routes dispatch={jest.fn()} />
+        </Provider>
+      </ConnectedRouter>
+    );
+    const wrapper = mount(comp);
+    history.push('/signup/caterer');
 
     expect(wrapper.find('Auth')).toBeTruthy();
   });
