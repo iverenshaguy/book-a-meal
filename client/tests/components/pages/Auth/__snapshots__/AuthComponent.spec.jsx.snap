@@ -19,7 +19,7 @@ exports[`AuthComponent renders caterer's signup form correctly 1`] = `
         className="title"
       >
         <h2>
-          Start Serving Customers
+          Start Filling Your Belly
         </h2>
         <hr
           className="w-75"
@@ -49,9 +49,9 @@ exports[`AuthComponent renders caterer's signup form correctly 1`] = `
                 <UNDEFINED>
                   Already have an account? Sign in 
                   <Link
-                    className={null}
-                    clickHandler={[Function]}
-                    id={null}
+                    href="/signin"
+                    replace={false}
+                    to="/signin"
                   >
                     here
                   </Link>
@@ -66,11 +66,11 @@ exports[`AuthComponent renders caterer's signup form correctly 1`] = `
                 className="form-extra-info text-center"
               >
                 <Link
-                  className={null}
-                  clickHandler={[Function]}
-                  id={null}
+                  href="/signup/caterer"
+                  replace={false}
+                  to="/signup/caterer"
                 >
-                  Signup as a Customer
+                  Signup as a Caterer
                 </Link>
               </p>
             </UNDEFINED>,
@@ -78,7 +78,7 @@ exports[`AuthComponent renders caterer's signup form correctly 1`] = `
         }
         submitError={null}
         submitting={false}
-        type="catererSignup"
+        type="customerSignup"
       />
     </div>
   </div>
@@ -117,7 +117,8 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
     type="signin"
   >
     <Auth
-      changeUrl={[Function]}
+      changeUrl={[MockFunction]}
+      dispatch={[Function]}
       isAuthenticated={false}
       location={
         Object {
@@ -150,11 +151,18 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
               className="page-title"
             >
               <h3>
-                <a
+                <Link
                   href="/"
+                  replace={false}
+                  to="/"
                 >
-                  BOOK-A-MEAL
-                </a>
+                  <a
+                    href="/"
+                    onClick={[Function]}
+                  >
+                    BOOK-A-MEAL
+                  </a>
+                </Link>
               </h3>
             </div>
           </div>
@@ -177,7 +185,8 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
             />
           </div>
           <Connect(Form)
-            changeUrl={[Function]}
+            changeUrl={[MockFunction]}
+            dispatch={[Function]}
             isAuthenticated={false}
             location={
               Object {
@@ -200,9 +209,9 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
                       Don't have an account, signup
                        
                       <Link
-                        className={null}
-                        clickHandler={[Function]}
-                        id={null}
+                        href="/signup/customer"
+                        replace={false}
+                        to="/signup/customer"
                       >
                         here
                       </Link>
@@ -217,9 +226,9 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
                     className="form-extra-info text-center"
                   >
                     <Link
-                      className={null}
-                      clickHandler={[Function]}
-                      id={null}
+                      href="/signup/caterer"
+                      replace={false}
+                      to="/signup/caterer"
                     >
                       Signup as a Caterer
                     </Link>
@@ -232,7 +241,7 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
             type="signin"
           >
             <Form
-              changeUrl={[Function]}
+              changeUrl={[MockFunction]}
               dispatch={[Function]}
               isAuthenticated={false}
               location={
@@ -257,9 +266,9 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
                         Don't have an account, signup
                          
                         <Link
-                          className={null}
-                          clickHandler={[Function]}
-                          id={null}
+                          href="/signup/customer"
+                          replace={false}
+                          to="/signup/customer"
                         >
                           here
                         </Link>
@@ -274,9 +283,9 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
                       className="form-extra-info text-center"
                     >
                       <Link
-                        className={null}
-                        clickHandler={[Function]}
-                        id={null}
+                        href="/signup/caterer"
+                        replace={false}
+                        to="/signup/caterer"
                       >
                         Signup as a Caterer
                       </Link>
@@ -426,17 +435,16 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
                   Don't have an account, signup
                    
                   <Link
-                    className={null}
-                    clickHandler={[Function]}
-                    id={null}
+                    href="/signup/customer"
+                    replace={false}
+                    to="/signup/customer"
                   >
-                    <button
-                      className="link-btn null"
-                      id={null}
+                    <a
+                      href="/signup/customer"
                       onClick={[Function]}
                     >
                       here
-                    </button>
+                    </a>
                   </Link>
                 </p>
                 <p
@@ -448,17 +456,16 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
                   className="form-extra-info text-center"
                 >
                   <Link
-                    className={null}
-                    clickHandler={[Function]}
-                    id={null}
+                    href="/signup/caterer"
+                    replace={false}
+                    to="/signup/caterer"
                   >
-                    <button
-                      className="link-btn null"
-                      id={null}
+                    <a
+                      href="/signup/caterer"
                       onClick={[Function]}
                     >
                       Signup as a Caterer
-                    </button>
+                    </a>
                   </Link>
                 </p>
               </div>
@@ -529,9 +536,9 @@ exports[`AuthComponent renders customer's signup form correctly 1`] = `
                 <UNDEFINED>
                   Already have an account? Sign in 
                   <Link
-                    className={null}
-                    clickHandler={[Function]}
-                    id={null}
+                    href="/signin"
+                    replace={false}
+                    to="/signin"
                   >
                     here
                   </Link>
@@ -546,9 +553,9 @@ exports[`AuthComponent renders customer's signup form correctly 1`] = `
                 className="form-extra-info text-center"
               >
                 <Link
-                  className={null}
-                  clickHandler={[Function]}
-                  id={null}
+                  href="/signup/caterer"
+                  replace={false}
+                  to="/signup/caterer"
                 >
                   Signup as a Caterer
                 </Link>
@@ -615,9 +622,9 @@ exports[`AuthComponent renders signin form correctly 1`] = `
                   Don't have an account, signup
                    
                   <Link
-                    className={null}
-                    clickHandler={[Function]}
-                    id={null}
+                    href="/signup/customer"
+                    replace={false}
+                    to="/signup/customer"
                   >
                     here
                   </Link>
@@ -632,9 +639,9 @@ exports[`AuthComponent renders signin form correctly 1`] = `
                 className="form-extra-info text-center"
               >
                 <Link
-                  className={null}
-                  clickHandler={[Function]}
-                  id={null}
+                  href="/signup/caterer"
+                  replace={false}
+                  to="/signup/caterer"
                 >
                   Signup as a Caterer
                 </Link>

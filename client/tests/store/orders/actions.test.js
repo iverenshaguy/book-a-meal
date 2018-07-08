@@ -4,9 +4,10 @@ import moxios from 'moxios';
 import MockAdapter from 'axios-mock-adapter';
 import instance from '../../../src/config/axios';
 import operations from '../../../src/store/operations/orders';
-import { deliverOrder as deliverOrderData, caterersOrdersObj, caterersOrdersObjPerDay } from '../../setup/data';
+import { deliverOrder as deliverOrderData, caterersOrdersObj, caterersOrdersObjPerDay, customerOrder, orderRequest } from '../../setup/data';
 
 const {
+  addOrder,
   fetchOrders,
   fetchOrdersSuccess,
   fetchOrdersFailure,
@@ -160,7 +161,7 @@ describe('Orders Actions', () => {
         });
       });
 
-      it('dispatches SET_DELIVERING, DELIVER_ORDER_FAILURE and UNSET_DELIVERING on successful order delivery', () => {
+      it('dispatches SET_DELIVERING, DELIVER_ORDER_FAILURE and UNSET_DELIVERING on unsuccessful order delivery', () => {
         const expectedActions = ['SET_DELIVERING', 'DELIVER_ORDER_FAILURE', 'UNSET_DELIVERING'];
 
         moxios.stubRequest(`${url}/orders/fb097bde-5959-45ff-8e21-51184fa60c26/deliver`, {
@@ -171,6 +172,45 @@ describe('Orders Actions', () => {
         });
 
         return store.dispatch(deliverOrder('fb097bde-5959-45ff-8e21-51184fa60c26')).then(() => {
+          const dispatchedActions = store.getActions();
+
+          const actionTypes = dispatchedActions.map(action => action.type);
+
+          expect(actionTypes).toEqual(expectedActions);
+        });
+      });
+
+      it('dispatches SET_ORDER_WORKING, ADD_ORDER_SUCCESS and UNSET_ORDER_WORKING on successful order addition', () => {
+        const expectedActions = ['SET_ORDER_WORKING', 'ADD_ORDER_SUCCESS', 'UNSET_ORDER_WORKING', 'TOGGLE_MODAL', 'TOGGLE_MODAL', '@@router/CALL_HISTORY_METHOD'];
+
+        moxios.stubRequest(`${url}/orders`, {
+          status: 200,
+          response: customerOrder
+        });
+
+        jest.useFakeTimers();
+
+        return store.dispatch(addOrder(orderRequest)).then(() => {
+          jest.advanceTimersByTime(1000);
+          const dispatchedActions = store.getActions();
+
+          const actionTypes = dispatchedActions.map(action => action.type);
+
+          expect(actionTypes).toEqual(expectedActions);
+        });
+      });
+
+      it('dispatches SET_ORDER_WORKING, ADD_ORDER_FAILURE and UNSET_ORDER_WORKING on usuccessful order addition', () => {
+        const expectedActions = ['SET_ORDER_WORKING', 'ADD_ORDER_FAILURE', 'UNSET_ORDER_WORKING'];
+
+        moxios.stubRequest(`${url}/orders`, {
+          status: 401,
+          response: {
+            error: 'An Error'
+          }
+        });
+
+        return store.dispatch(addOrder(orderRequest)).then(() => {
           const dispatchedActions = store.getActions();
 
           const actionTypes = dispatchedActions.map(action => action.type);

@@ -20,6 +20,16 @@ class SideNav extends Component {
 
   /**
    * @memberof SideNav
+   * @param {string} location
+   * @returns {nothing} nothing
+   */
+  handleLinkClick = (location) => {
+    this.props.toggleSideNav();
+    this.props.push(location);
+  }
+
+  /**
+   * @memberof SideNav
    * @returns {nothing} nothing
    */
   handleToggleSideNavClick = () => this.props.toggleSideNav()
@@ -33,10 +43,10 @@ class SideNav extends Component {
 
     return (
       <div className="sidenav-body">
-        <Link href="/" to="/" className={`menu-item ${active === 'dashboard' && 'active'}`}>Dashboard</Link>
-        <Link href="/meals" to="/meals" className={`menu-item ${active === 'meals' && 'active'}`}>Meals</Link>
-        <Link href="/menu" to="/menu" className={`menu-item ${active === 'menu' && 'active'}`}>Menu</Link>
-        <Link href="/orders" to="/orders" className={`menu-item ${active === 'orders' && 'active'}`}>Orders</Link>
+        <LinkBtn clickHandler={() => this.handleLinkClick('/')} className={`menu-item ${active === 'dashboard' && 'active'}`}>Dashboard</LinkBtn>
+        <LinkBtn clickHandler={() => this.handleLinkClick('/meals')} className={`menu-item ${active === 'meals' && 'active'}`}>Meals</LinkBtn>
+        <LinkBtn clickHandler={() => this.handleLinkClick('/menu')} className={`menu-item ${active === 'menu' && 'active'}`}>Menu</LinkBtn>
+        <LinkBtn clickHandler={() => this.handleLinkClick('/orders')} className={`menu-item ${active === 'orders' && 'active'}`}>Orders</LinkBtn>
       </div>
     );
   }

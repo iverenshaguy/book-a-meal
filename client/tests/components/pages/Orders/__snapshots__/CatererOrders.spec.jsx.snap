@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Orders renders Preloader when fetching 1`] = `
+exports[`Caterers Orders renders Preloader when fetching 1`] = `
 <React.Fragment>
   <View
     isFetching={true}
@@ -172,7 +172,7 @@ exports[`Orders renders Preloader when fetching 1`] = `
 </React.Fragment>
 `;
 
-exports[`Orders renders connected component 1`] = `
+exports[`Caterers Orders renders connected component 1`] = `
 <Provider
   store={
     Object {
@@ -232,7 +232,7 @@ exports[`Orders renders connected component 1`] = `
         }
       >
         <div
-          className="admin null"
+          className="admin"
         >
           <Header
             active="orders"
@@ -326,6 +326,7 @@ exports[`Orders renders connected component 1`] = `
                 active="orders"
                 logout={[Function]}
                 open={false}
+                push={[Function]}
                 toggleSideNav={[Function]}
                 user={
                   Object {
@@ -421,59 +422,55 @@ exports[`Orders renders connected component 1`] = `
                     >
                       <Link
                         className="menu-item false"
-                        href="/"
-                        replace={false}
-                        to="/"
+                        clickHandler={[Function]}
+                        id={null}
                       >
-                        <a
-                          className="menu-item false"
-                          href="/"
+                        <button
+                          className="link-btn menu-item false"
+                          id={null}
                           onClick={[Function]}
                         >
                           Dashboard
-                        </a>
+                        </button>
                       </Link>
                       <Link
                         className="menu-item false"
-                        href="/meals"
-                        replace={false}
-                        to="/meals"
+                        clickHandler={[Function]}
+                        id={null}
                       >
-                        <a
-                          className="menu-item false"
-                          href="/meals"
+                        <button
+                          className="link-btn menu-item false"
+                          id={null}
                           onClick={[Function]}
                         >
                           Meals
-                        </a>
+                        </button>
                       </Link>
                       <Link
                         className="menu-item false"
-                        href="/menu"
-                        replace={false}
-                        to="/menu"
+                        clickHandler={[Function]}
+                        id={null}
                       >
-                        <a
-                          className="menu-item false"
-                          href="/menu"
+                        <button
+                          className="link-btn menu-item false"
+                          id={null}
                           onClick={[Function]}
                         >
                           Menu
-                        </a>
+                        </button>
                       </Link>
                       <Link
                         className="menu-item active"
-                        href="/orders"
-                        replace={false}
-                        to="/orders"
+                        clickHandler={[Function]}
+                        id={null}
                       >
-                        <a
-                          className="menu-item active"
-                          href="/orders"
+                        <button
+                          className="link-btn menu-item active"
+                          id={null}
                           onClick={[Function]}
                         >
                           Orders
-                        </a>
+                        </button>
                       </Link>
                     </div>
                   </div>
@@ -507,6 +504,13 @@ exports[`Orders renders connected component 1`] = `
               </div>
             </div>
           </div>
+          <Connect(Modal)>
+            <Modal
+              open={false}
+              toggleModal={[Function]}
+              type={null}
+            />
+          </Connect(Modal)>
           <Footer>
             <div
               className="footer"
@@ -523,7 +527,7 @@ exports[`Orders renders connected component 1`] = `
 </Provider>
 `;
 
-exports[`Orders renders correctly when not fetching 1`] = `
+exports[`Caterers Orders renders correctly when not fetching 1`] = `
 <React.Fragment>
   <View
     isFetching={false}
@@ -695,7 +699,7 @@ exports[`Orders renders correctly when not fetching 1`] = `
 </React.Fragment>
 `;
 
-exports[`Orders renders message when not fetching and there are no orders 1`] = `
+exports[`Caterers Orders renders message when not fetching and there are no orders 1`] = `
 <React.Fragment>
   <View
     isFetching={true}

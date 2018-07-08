@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { push } from 'react-router-redux';
 import SideNav from './SideNav';
 import { toggleSideNav } from '../../../store/actions/ui';
 
@@ -8,7 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  toggleSideNav
+  toggleSideNav, push
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideNav);

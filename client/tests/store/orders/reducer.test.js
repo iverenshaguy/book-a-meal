@@ -1,5 +1,5 @@
 import reducer from '../../../src/store/reducers/orders';
-import { deliverOrder as deliverOrderData, caterersOrdersObj } from '../../setup/data';
+import { deliverOrder as deliverOrderData, caterersOrdersObj, customerOrder } from '../../setup/data';
 
 
 const state = {
@@ -7,7 +7,8 @@ const state = {
   delivering: false,
   pendingOrders: 0,
   totalCashEarned: 0,
-  error: null
+  error: null,
+  working: false
 };
 
 describe('Orders Reducers', () => {
@@ -60,6 +61,18 @@ describe('Orders Reducers', () => {
     });
   });
 
+  it('should handle ADD_ORDER_SUCCESS action', () => {
+    const newState = reducer(state, {
+      type: 'ADD_ORDER_SUCCESS',
+      payload: customerOrder
+    });
+
+    expect(newState).toEqual({
+      ...state,
+      items: customerOrder,
+    });
+  });
+
   it('should handle RECEIVE_CATERERS_ORDERS_FAILURE action', () => {
     const newState = reducer(state, {
       type: 'RECEIVE_CATERERS_ORDERS_FAILURE',
@@ -72,6 +85,15 @@ describe('Orders Reducers', () => {
   it('should handle DELIVER_ORDER_FAILURE action', () => {
     const newState = reducer(state, {
       type: 'DELIVER_ORDER_FAILURE',
+      payload: 'Error',
+    });
+
+    expect(newState).toEqual({ ...state, error: 'Error' });
+  });
+
+  it('should handle ADD_ORDER_FAILURE action', () => {
+    const newState = reducer(state, {
+      type: 'ADD_ORDER_FAILURE',
       payload: 'Error',
     });
 
@@ -92,5 +114,21 @@ describe('Orders Reducers', () => {
     });
 
     expect(newState).toEqual({ ...state, delivering: false });
+  });
+
+  it('should handle SET_WORKING action', () => {
+    const newState = reducer(state, {
+      type: 'SET_ORDER_WORKING'
+    });
+
+    expect(newState).toEqual({ ...state, working: true });
+  });
+
+  it('should handle UNSET_WORKING action', () => {
+    const newState = reducer({ ...state, working: true }, {
+      type: 'UNSET_ORDER_WORKING'
+    });
+
+    expect(newState).toEqual({ ...state, working: false });
   });
 });

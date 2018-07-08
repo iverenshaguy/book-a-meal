@@ -1,7 +1,13 @@
+import { push } from 'react-router-redux';
 import instance from '../../config/axios';
 import errorHandler from '../../utils/errorHandler';
 import { setFetching, unsetFetching } from '../actions/isFetching';
-import { fetchOrdersSuccess, fetchOrdersFailure, deliverOrderSuccess, deliverOrderFailure, setDelivering, unsetDelivering } from '../actions/orders';
+import {
+  fetchOrdersSuccess, fetchOrdersFailure, deliverOrderSuccess, deliverOrderFailure,
+  setDelivering, unsetDelivering, addOrderSuccess, addOrderFailure, setOrderWorking,
+  unsetOrderWorking,
+} from '../actions/orders';
+import { toggleModal } from '../actions/ui';
 import { RECEIVE_CATERERS_ORDERS_SUCCESS, RECEIVE_CATERERS_ORDERS_FAILURE } from '../types';
 
 const fetchOrders = (type, date) => async (dispatch) => {
@@ -36,13 +42,39 @@ const deliverOrder = id => async (dispatch) => {
   }
 };
 
+const addOrder = order => async (dispatch) => {
+  try {
+    dispatch(setOrderWorking());
+
+    const response = await instance.post('/orders', order);
+
+    dispatch(addOrderSuccess([response.data]));
+    dispatch(unsetOrderWorking());
+    dispatch(toggleModal('orderSuccessMsg'));
+    setTimeout(() => {
+      dispatch(toggleModal());
+      dispatch(push(`/orders/${response.data.id}`));
+    }, 500);
+  } catch (error) {
+    const errorResponse = errorHandler(error);
+
+    dispatch(addOrderFailure(errorResponse.response));
+    dispatch(unsetOrderWorking());
+  }
+};
+
 export default {
+  addOrder,
   fetchOrders,
-  fetchOrdersSuccess,
-  fetchOrdersFailure,
   deliverOrder,
   setDelivering,
   unsetDelivering,
+  addOrderSuccess,
+  addOrderFailure,
+  setOrderWorking,
+  unsetOrderWorking,
+  fetchOrdersSuccess,
+  fetchOrdersFailure,
   deliverOrderSuccess,
   deliverOrderFailure,
 };

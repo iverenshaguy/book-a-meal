@@ -4,7 +4,6 @@ import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import AuthComponent from '../../../../src/components/pages/Auth/AuthComponent';
 import Auth from '../../../../src/components/pages/Auth';
-import LinkBtn from '../../../../src/components/shared/Link';
 import { initialValues } from '../../../setup/data';
 
 const middlewares = [thunk];
@@ -85,41 +84,31 @@ describe('AuthComponent', () => {
     expect(wrapper.state().type).toEqual('signin');
   });
 
-  it('sets state on mount: customerSignup', () => {
+  it('sets state on mount: signup', () => {
     const comp = (<AuthComponent {...props} location={customerSignupLocation} type="signup" />);
     const wrapper = shallow(comp);
 
     expect(wrapper.state().type).toEqual('customerSignup');
   });
 
+  it('sets state on mount: customerSignup', () => {
+    const comp = (<AuthComponent {...props} location={customerSignupLocation} type="customerSignup" />);
+    const wrapper = shallow(comp);
+
+    expect(wrapper.state().type).toEqual('customerSignup');
+  });
+
   it('sets state on mount: catererSignup', () => {
-    const comp = (<AuthComponent {...props} location={catererSignupLocation} type="signup" />);
+    const comp = (<AuthComponent {...props} location={catererSignupLocation} type="catererSignup" />);
     const wrapper = shallow(comp);
 
     expect(wrapper.state().type).toEqual('catererSignup');
   });
 
   it('sets state on mount: catererSignup', () => {
-    const comp = (<Auth store={store} {...props} location={catererSignupLocation} type="signup" />);
+    const comp = (<Auth store={store} {...props} location={catererSignupLocation} type="catererSignup" />);
     const wrapper = mount(comp, rrcMock.get());
 
     expect(wrapper.find('Redirect')).toBeTruthy();
-  });
-
-  it('changes form correctly', () => {
-    const comp = (<Provider store={unAuthStore}><Auth {...props} isAuthenticated={false} location={customerSignupLocation} type="signup" /></Provider>);
-    const mountedWrapper = mount(comp, rrcMock.get());
-    const changeFormSpy = jest.spyOn(mountedWrapper.find(AuthComponent).instance(), 'changeForm');
-
-    mountedWrapper.find(LinkBtn).at(1).simulate('click');
-    expect(changeFormSpy).toHaveBeenCalled();
-
-    mountedWrapper.find(LinkBtn).at(0).simulate('click');
-    expect(changeFormSpy).toHaveBeenCalled();
-
-    mountedWrapper.find(LinkBtn).at(0).simulate('click');
-    expect(changeFormSpy).toHaveBeenCalled();
-
-    mountedWrapper.unmount();
   });
 });

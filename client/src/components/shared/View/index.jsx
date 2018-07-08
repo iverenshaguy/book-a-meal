@@ -1,57 +1,89 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import Header from '../../shared/Header';
-import Footer from '../../shared/Footer';
-import SideNav from '../../shared/SideNav';
-import Preloader from '../../shared/Preloader';
+import Modal from '../Modal';
+import Header from '..//Header';
+import Footer from '../Footer';
+import SideNav from '../SideNav';
+import Preloader from '../Preloader';
 import { userPropTypes, } from '../../../helpers/proptypes';
 import './View.scss';
 
 /**
  * @exports
- * @function View
+ * @class View
  * @desc Creates View Component
  * @returns {JSX} View Component
  */
-const View = ({
-  user, logout, type, isFetching, children, showTime
-}) => {
-  const mainClass = classNames({ 'content-wrapper': true, dashboard: type === 'dashboard' });
+class View extends Component {
+  static propTypes = {
+    ...userPropTypes,
+    isFetching: PropTypes.bool.isRequired,
+    logout: PropTypes.func.isRequired,
+    type: PropTypes.string.isRequired,
+    children: PropTypes.element.isRequired,
+    showTime: PropTypes.bool
+  };
 
-  return (
-    <div className={`admin ${user.role === 'customer' ? 'user' : null}`}>
-      <Header
-        type={user.role}
-        dateType={type}
-        showTime={showTime}
-        user={user}
-        logout={logout}
-        active={type}
-      />
-      <div className="content">
-        {user.role === 'caterer' && <SideNav user={user} logout={logout} active={type} />}
-        <div className={mainClass} id="has-modal">
-          {isFetching && <Preloader />}
-          {!isFetching && children}
-        </div>
+  static defaultProps = {
+    showTime: true
+  };
+
+  customerOrderTypes = ['orderReview', 'orderConfirm', 'customerOrderDetails'];
+  /**
+   * @memberof View
+   * @returns {JSX} ViewContent Component
+   */
+  renderContent = () => {
+    const { type, isFetching, children } = this.props;
+    const contentClass = classNames({
+      'content-wrapper': !this.customerOrderTypes.includes(type),
+      dashboard: type === 'dashboard',
+      'main-wrapper': this.customerOrderTypes.includes(type)
+    });
+
+    return (
+      <div className={contentClass} id="has-modal">
+        {isFetching && <Preloader />}
+        {!isFetching && children}
       </div>
-      <Footer />
-    </div>
-  );
-};
+    );
+  }
 
-View.propTypes = {
-  ...userPropTypes,
-  isFetching: PropTypes.bool.isRequired,
-  logout: PropTypes.func.isRequired,
-  type: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired,
-  showTime: PropTypes.bool
-};
+  /**
+   * @memberof View
+   * @returns {JSX} View Component
+   */
+  render() {
+    const {
+      user, logout, type, showTime
+    } = this.props;
+    const mainClass = classNames({
+      admin: !this.customerOrderTypes.includes(type),
+      user: user.role === 'customer'
+    });
 
-View.defaultProps = {
-  showTime: true
-};
+    return (
+      <div className={mainClass}>
+        <Header
+          type={user.role}
+          dateType={type}
+          showTime={showTime}
+          user={user}
+          logout={logout}
+          active={type}
+        />
+        {user.role === 'caterer' &&
+          <div className="content">
+            <SideNav user={user} logout={logout} active={type} />
+            {this.renderContent()}
+          </div>}
+        {user.role === 'customer' && this.renderContent()}
+        <Modal />
+        <Footer />
+      </div>
+    );
+  }
+}
 
 export default View;

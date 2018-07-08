@@ -27,6 +27,50 @@ describe('SideNav', () => {
     expect(toJson(shallowWrapper)).toMatchSnapshot();
   });
 
+  it('toggles sidenav and handles link click when dashboard link is clicked', () => {
+    const toggleSideNavMock = jest.fn();
+    const pushMock = jest.fn();
+
+    const wrapper = mount(<SideNav user={caterer} logout={jest.fn()} open active="orders" toggleSideNav={toggleSideNavMock} push={pushMock} />, rrcMock.get());
+
+    wrapper.find('div.sidenav-body>Link>button').at(0).simulate('click');
+    expect(toggleSideNavMock).toHaveBeenCalled();
+    expect(pushMock).toHaveBeenCalledWith('/');
+  });
+
+  it('toggles sidenav and handles link click when meals link is clicked', () => {
+    const toggleSideNavMock = jest.fn();
+    const pushMock = jest.fn();
+
+    const wrapper = mount(<SideNav user={caterer} logout={jest.fn()} open active="orders" toggleSideNav={toggleSideNavMock} push={pushMock} />, rrcMock.get());
+
+    wrapper.find('div.sidenav-body>Link>button').at(1).simulate('click');
+    expect(toggleSideNavMock).toHaveBeenCalled();
+    expect(pushMock).toHaveBeenCalledWith('/meals');
+  });
+
+  it('toggles sidenav and handles link click when menu link is clicked', () => {
+    const toggleSideNavMock = jest.fn();
+    const pushMock = jest.fn();
+
+    const wrapper = mount(<SideNav user={caterer} logout={jest.fn()} open active="orders" toggleSideNav={toggleSideNavMock} push={pushMock} />, rrcMock.get());
+
+    wrapper.find('div.sidenav-body>Link>button').at(2).simulate('click');
+    expect(toggleSideNavMock).toHaveBeenCalled();
+    expect(pushMock).toHaveBeenCalledWith('/menu');
+  });
+
+  it('toggles sidenav and handles link click when orders link is clicked', () => {
+    const toggleSideNavMock = jest.fn();
+    const pushMock = jest.fn();
+
+    const wrapper = mount(<SideNav user={caterer} logout={jest.fn()} open active="menu" toggleSideNav={toggleSideNavMock} push={pushMock} />, rrcMock.get());
+
+    wrapper.find('div.sidenav-body>Link>button').at(3).simulate('click');
+    expect(toggleSideNavMock).toHaveBeenCalled();
+    expect(pushMock).toHaveBeenCalledWith('/orders');
+  });
+
   it('closes SideNav when open and close icon is clicked', () => {
     const toggleSideNavMock = jest.fn();
     const wrapper = mount(<SideNav user={caterer} logout={jest.fn()} open active="orders" toggleSideNav={toggleSideNavMock} />, rrcMock.get());

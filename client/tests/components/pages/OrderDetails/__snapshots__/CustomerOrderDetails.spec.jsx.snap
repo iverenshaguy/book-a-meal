@@ -1,0 +1,967 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderDetails renders Preloader when fetching 1`] = `
+<View
+  isFetching={true}
+  logout={[MockFunction]}
+  showTime={true}
+  type="customerOrderDetails"
+  user={
+    Object {
+      "email": "emiola@olasanmi.com",
+      "firstname": "Emiola",
+      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+      "lastname": "Olasanmi",
+      "role": "customer",
+    }
+  }
+>
+  <React.Fragment>
+    <React.Fragment>
+      <div
+        className="order-confirmation order-details"
+      >
+        <h2
+          className="text-center"
+          style={
+            Object {
+              "paddingTop": "1em",
+            }
+          }
+        >
+          Order #
+          fb097bde-5959-45ff-8e21-51184fa70c25
+        </h2>
+        <p
+          className="order-date text-center"
+        >
+          70/01/01 12:00 am
+        </p>
+        <hr />
+        <React.Fragment>
+          <OrderSummary
+            meals={
+              Array [
+                Object {
+                  "caterer": Object {
+                    "businessAddress": "4, Church Street, Yaba",
+                    "businessName": "BellyFill",
+                    "businessPhoneNo": "+2348134567890",
+                    "email": "belly@fill.com",
+                  },
+                  "delivered": false,
+                  "description": "",
+                  "id": "46ced7aa-eed5-4462-b2c0-153f31589bdd",
+                  "imageURL": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
+                  "price": "2000.00",
+                  "quantity": 2,
+                  "title": "Adalu (Beans and Corn) and Local Fish ",
+                  "vegetarian": false,
+                },
+              ]
+            }
+          />
+          <OrderAmount
+            meals={
+              Array [
+                Object {
+                  "caterer": Object {
+                    "businessAddress": "4, Church Street, Yaba",
+                    "businessName": "BellyFill",
+                    "businessPhoneNo": "+2348134567890",
+                    "email": "belly@fill.com",
+                  },
+                  "delivered": false,
+                  "description": "",
+                  "id": "46ced7aa-eed5-4462-b2c0-153f31589bdd",
+                  "imageURL": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
+                  "price": "2000.00",
+                  "quantity": 2,
+                  "title": "Adalu (Beans and Corn) and Local Fish ",
+                  "vegetarian": false,
+                },
+              ]
+            }
+            type="user"
+          />
+          <div
+            className="customer-details"
+          >
+            <p>
+              Status:
+              <span
+                className="danger"
+                style={
+                  Object {
+                    "textTransform": "capitalize",
+                  }
+                }
+              >
+                 
+                canceled
+              </span>
+            </p>
+            <p>
+              Address Provided: 
+              4, Church Street, Yaba
+            </p>
+            <p>
+              Number Provided: 
+              +2348134567890
+            </p>
+          </div>
+        </React.Fragment>
+      </div>
+    </React.Fragment>
+  </React.Fragment>
+</View>
+`;
+
+exports[`OrderDetails renders connected component 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(CustomerOrderDetails)
+    isFetching={false}
+    match={
+      Object {
+        "params": Object {
+          "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
+        },
+      }
+    }
+    user={
+      Object {
+        "email": "emiola@olasanmi.com",
+        "firstname": "Emiola",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "lastname": "Olasanmi",
+        "role": "customer",
+      }
+    }
+  >
+    <CustomerOrderDetails
+      fetchOrders={[Function]}
+      isFetching={false}
+      logout={[Function]}
+      match={
+        Object {
+          "params": Object {
+            "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
+          },
+        }
+      }
+      order={
+        Object {
+          "createdAt": "2018-04-06T00:47:03.687Z",
+          "deliveryAddress": "4, Church Street, Yaba",
+          "deliveryPhoneNo": "+2348134567890",
+          "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
+          "meals": Array [
+            Object {
+              "caterer": Object {
+                "businessAddress": "4, Church Street, Yaba",
+                "businessName": "FoodCircle",
+                "businessPhoneNo": "+2348134567890",
+                "email": "food@circle.com",
+              },
+              "delivered": true,
+              "description": "Sharwama contains no animal products, perfect for dieters",
+              "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+              "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "price": "1200.00",
+              "quantity": 1,
+              "title": "Vegetable Sharwama and Guava Smoothie",
+              "vegetarian": true,
+            },
+          ],
+          "status": "delivered",
+          "updatedAt": "2018-04-06T00:47:03.687Z",
+        }
+      }
+      user={
+        Object {
+          "email": "emiola@olasanmi.com",
+          "firstname": "Emiola",
+          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+          "lastname": "Olasanmi",
+          "role": "customer",
+        }
+      }
+    >
+      <View
+        isFetching={false}
+        logout={[Function]}
+        showTime={true}
+        type="customerOrderDetails"
+        user={
+          Object {
+            "email": "emiola@olasanmi.com",
+            "firstname": "Emiola",
+            "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+            "lastname": "Olasanmi",
+            "role": "customer",
+          }
+        }
+      >
+        <div
+          className="user"
+        >
+          <Header
+            active="customerOrderDetails"
+            dateType="customerOrderDetails"
+            logout={[Function]}
+            showTime={true}
+            type="customer"
+            user={
+              Object {
+                "email": "emiola@olasanmi.com",
+                "firstname": "Emiola",
+                "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                "lastname": "Olasanmi",
+                "role": "customer",
+              }
+            }
+          >
+            <div
+              className="header"
+            >
+              <div
+                className="navbar white-navbar"
+              >
+                <CustomerHeader
+                  active="customerOrderDetails"
+                  dateType="customerOrderDetails"
+                  logout={[Function]}
+                  showTime={true}
+                  type="customer"
+                  user={
+                    Object {
+                      "email": "emiola@olasanmi.com",
+                      "firstname": "Emiola",
+                      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                      "lastname": "Olasanmi",
+                      "role": "customer",
+                    }
+                  }
+                >
+                  <div
+                    className="page-title"
+                  >
+                    <h3>
+                      <Link
+                        href="/"
+                        replace={false}
+                        to="/"
+                      >
+                        <a
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          BOOK-A-MEAL
+                        </a>
+                      </Link>
+                    </h3>
+                  </div>
+                  <div
+                    className="navlinks"
+                  >
+                    <div
+                      className="user-info"
+                    >
+                      <Dropdown
+                        content={
+                          <UNDEFINED>
+                            <Link
+                              className="false"
+                              href="/"
+                              replace={false}
+                              to="/"
+                            >
+                              Menu
+                            </Link>
+                            <Link
+                              href="/"
+                              replace={false}
+                              to="/"
+                            >
+                              Order History
+                            </Link>
+                            <Link
+                              href="/"
+                              onClick={[Function]}
+                              replace={false}
+                              to="/"
+                            >
+                              Logout
+                            </Link>
+                          </UNDEFINED>
+                        }
+                        toggler={
+                          <div
+                            className="username-circle circle-click"
+                          >
+                            <p
+                              className="circle-click"
+                            >
+                              E
+                              ▿
+                            </p>
+                          </div>
+                        }
+                        type="customer"
+                      >
+                        <div
+                          className="dropdown"
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                        >
+                          <Link
+                            className="link"
+                            clickHandler={[Function]}
+                            id="dropdown-toggler"
+                          >
+                            <button
+                              className="link-btn link"
+                              id="dropdown-toggler"
+                              onClick={[Function]}
+                            >
+                              <div
+                                className="username-circle circle-click"
+                              >
+                                <p
+                                  className="circle-click"
+                                >
+                                  E
+                                  ▿
+                                </p>
+                              </div>
+                            </button>
+                          </Link>
+                          <div
+                            className="dropdown-content"
+                            id="dropdown-content"
+                          >
+                            <Link
+                              className="false"
+                              href="/"
+                              replace={false}
+                              to="/"
+                            >
+                              <a
+                                className="false"
+                                href="/"
+                                onClick={[Function]}
+                              >
+                                Menu
+                              </a>
+                            </Link>
+                            <Link
+                              href="/"
+                              replace={false}
+                              to="/"
+                            >
+                              <a
+                                href="/"
+                                onClick={[Function]}
+                              >
+                                Order History
+                              </a>
+                            </Link>
+                            <Link
+                              href="/"
+                              onClick={[Function]}
+                              replace={false}
+                              to="/"
+                            >
+                              <a
+                                href="/"
+                                onClick={[Function]}
+                              >
+                                Logout
+                              </a>
+                            </Link>
+                          </div>
+                        </div>
+                      </Dropdown>
+                      <p>
+                          
+                        Emiola
+                      </p>
+                    </div>
+                  </div>
+                </CustomerHeader>
+              </div>
+            </div>
+          </Header>
+          <div
+            className="main-wrapper"
+            id="has-modal"
+          >
+            <div
+              className="order-confirmation order-details"
+            >
+              <h2
+                className="text-center"
+                style={
+                  Object {
+                    "paddingTop": "1em",
+                  }
+                }
+              >
+                Order #
+                fb097bde-5959-45ff-8e21-51184fa60c25
+              </h2>
+              <p
+                className="order-date text-center"
+              >
+                70/01/01 12:00 am
+              </p>
+              <hr />
+              <OrderSummary
+                meals={
+                  Array [
+                    Object {
+                      "caterer": Object {
+                        "businessAddress": "4, Church Street, Yaba",
+                        "businessName": "FoodCircle",
+                        "businessPhoneNo": "+2348134567890",
+                        "email": "food@circle.com",
+                      },
+                      "delivered": true,
+                      "description": "Sharwama contains no animal products, perfect for dieters",
+                      "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                      "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                      "price": "1200.00",
+                      "quantity": 1,
+                      "title": "Vegetable Sharwama and Guava Smoothie",
+                      "vegetarian": true,
+                    },
+                  ]
+                }
+              >
+                <div
+                  className="order-summary"
+                >
+                  <div
+                    key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                  >
+                    <p>
+                      1
+                      x
+                    </p>
+                    <p>
+                      Vegetable Sharwama and Guava Smoothie
+                    </p>
+                    <p>
+                      ₦
+                      1200
+                    </p>
+                  </div>
+                </div>
+              </OrderSummary>
+              <OrderAmount
+                meals={
+                  Array [
+                    Object {
+                      "caterer": Object {
+                        "businessAddress": "4, Church Street, Yaba",
+                        "businessName": "FoodCircle",
+                        "businessPhoneNo": "+2348134567890",
+                        "email": "food@circle.com",
+                      },
+                      "delivered": true,
+                      "description": "Sharwama contains no animal products, perfect for dieters",
+                      "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                      "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                      "price": "1200.00",
+                      "quantity": 1,
+                      "title": "Vegetable Sharwama and Guava Smoothie",
+                      "vegetarian": true,
+                    },
+                  ]
+                }
+                type="user"
+              >
+                <div
+                  className="order-amount false"
+                >
+                  <div>
+                    <p>
+                      Total
+                    </p>
+                    <h2>
+                      ₦
+                      1200
+                    </h2>
+                  </div>
+                </div>
+              </OrderAmount>
+              <div
+                className="customer-details"
+              >
+                <p>
+                  Status:
+                  <span
+                    className="success"
+                    style={
+                      Object {
+                        "textTransform": "capitalize",
+                      }
+                    }
+                  >
+                     
+                    delivered
+                  </span>
+                </p>
+                <p>
+                  Address Provided: 
+                  4, Church Street, Yaba
+                </p>
+                <p>
+                  Number Provided: 
+                  +2348134567890
+                </p>
+              </div>
+            </div>
+          </div>
+          <Connect(Modal)>
+            <Modal
+              open={false}
+              toggleModal={[Function]}
+              type={null}
+            />
+          </Connect(Modal)>
+          <Footer>
+            <div
+              className="footer"
+            >
+              <p>
+                © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
+              </p>
+            </div>
+          </Footer>
+        </div>
+      </View>
+    </CustomerOrderDetails>
+  </Connect(CustomerOrderDetails)>
+</Provider>
+`;
+
+exports[`OrderDetails renders correctly when not fetching 1`] = `
+<View
+  isFetching={false}
+  logout={[MockFunction]}
+  showTime={true}
+  type="customerOrderDetails"
+  user={
+    Object {
+      "email": "emiola@olasanmi.com",
+      "firstname": "Emiola",
+      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+      "lastname": "Olasanmi",
+      "role": "customer",
+    }
+  }
+>
+  <React.Fragment>
+    <React.Fragment>
+      <div
+        className="order-confirmation order-details"
+      >
+        <h2
+          className="text-center"
+          style={
+            Object {
+              "paddingTop": "1em",
+            }
+          }
+        >
+          Order #
+          fb097bde-5959-45ff-8e21-51184fa70c25
+        </h2>
+        <p
+          className="order-date text-center"
+        >
+          70/01/01 12:00 am
+        </p>
+        <hr />
+        <React.Fragment>
+          <OrderSummary
+            meals={
+              Array [
+                Object {
+                  "caterer": Object {
+                    "businessAddress": "4, Church Street, Yaba",
+                    "businessName": "BellyFill",
+                    "businessPhoneNo": "+2348134567890",
+                    "email": "belly@fill.com",
+                  },
+                  "delivered": false,
+                  "description": "",
+                  "id": "46ced7aa-eed5-4462-b2c0-153f31589bdd",
+                  "imageURL": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
+                  "price": "2000.00",
+                  "quantity": 2,
+                  "title": "Adalu (Beans and Corn) and Local Fish ",
+                  "vegetarian": false,
+                },
+              ]
+            }
+          />
+          <OrderAmount
+            meals={
+              Array [
+                Object {
+                  "caterer": Object {
+                    "businessAddress": "4, Church Street, Yaba",
+                    "businessName": "BellyFill",
+                    "businessPhoneNo": "+2348134567890",
+                    "email": "belly@fill.com",
+                  },
+                  "delivered": false,
+                  "description": "",
+                  "id": "46ced7aa-eed5-4462-b2c0-153f31589bdd",
+                  "imageURL": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
+                  "price": "2000.00",
+                  "quantity": 2,
+                  "title": "Adalu (Beans and Corn) and Local Fish ",
+                  "vegetarian": false,
+                },
+              ]
+            }
+            type="user"
+          />
+          <div
+            className="customer-details"
+          >
+            <p>
+              Status:
+              <span
+                className="danger"
+                style={
+                  Object {
+                    "textTransform": "capitalize",
+                  }
+                }
+              >
+                 
+                canceled
+              </span>
+            </p>
+            <p>
+              Address Provided: 
+              4, Church Street, Yaba
+            </p>
+            <p>
+              Number Provided: 
+              +2348134567890
+            </p>
+          </div>
+        </React.Fragment>
+      </div>
+    </React.Fragment>
+  </React.Fragment>
+</View>
+`;
+
+exports[`OrderDetails renders message when not fetching and that order doesn't exist 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(CustomerOrderDetails)
+    isFetching={false}
+    match={
+      Object {
+        "params": Object {
+          "id": "fb097bde-5959-45ff-8e21-51184fa61c25",
+        },
+      }
+    }
+    user={
+      Object {
+        "email": "emiola@olasanmi.com",
+        "firstname": "Emiola",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "lastname": "Olasanmi",
+        "role": "customer",
+      }
+    }
+  >
+    <CustomerOrderDetails
+      fetchOrders={[Function]}
+      isFetching={false}
+      logout={[Function]}
+      match={
+        Object {
+          "params": Object {
+            "id": "fb097bde-5959-45ff-8e21-51184fa61c25",
+          },
+        }
+      }
+      order={null}
+      user={
+        Object {
+          "email": "emiola@olasanmi.com",
+          "firstname": "Emiola",
+          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+          "lastname": "Olasanmi",
+          "role": "customer",
+        }
+      }
+    >
+      <View
+        isFetching={false}
+        logout={[Function]}
+        showTime={true}
+        type="customerOrderDetails"
+        user={
+          Object {
+            "email": "emiola@olasanmi.com",
+            "firstname": "Emiola",
+            "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+            "lastname": "Olasanmi",
+            "role": "customer",
+          }
+        }
+      >
+        <div
+          className="user"
+        >
+          <Header
+            active="customerOrderDetails"
+            dateType="customerOrderDetails"
+            logout={[Function]}
+            showTime={true}
+            type="customer"
+            user={
+              Object {
+                "email": "emiola@olasanmi.com",
+                "firstname": "Emiola",
+                "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                "lastname": "Olasanmi",
+                "role": "customer",
+              }
+            }
+          >
+            <div
+              className="header"
+            >
+              <div
+                className="navbar white-navbar"
+              >
+                <CustomerHeader
+                  active="customerOrderDetails"
+                  dateType="customerOrderDetails"
+                  logout={[Function]}
+                  showTime={true}
+                  type="customer"
+                  user={
+                    Object {
+                      "email": "emiola@olasanmi.com",
+                      "firstname": "Emiola",
+                      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                      "lastname": "Olasanmi",
+                      "role": "customer",
+                    }
+                  }
+                >
+                  <div
+                    className="page-title"
+                  >
+                    <h3>
+                      <Link
+                        href="/"
+                        replace={false}
+                        to="/"
+                      >
+                        <a
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          BOOK-A-MEAL
+                        </a>
+                      </Link>
+                    </h3>
+                  </div>
+                  <div
+                    className="navlinks"
+                  >
+                    <div
+                      className="user-info"
+                    >
+                      <Dropdown
+                        content={
+                          <UNDEFINED>
+                            <Link
+                              className="false"
+                              href="/"
+                              replace={false}
+                              to="/"
+                            >
+                              Menu
+                            </Link>
+                            <Link
+                              href="/"
+                              replace={false}
+                              to="/"
+                            >
+                              Order History
+                            </Link>
+                            <Link
+                              href="/"
+                              onClick={[Function]}
+                              replace={false}
+                              to="/"
+                            >
+                              Logout
+                            </Link>
+                          </UNDEFINED>
+                        }
+                        toggler={
+                          <div
+                            className="username-circle circle-click"
+                          >
+                            <p
+                              className="circle-click"
+                            >
+                              E
+                              ▿
+                            </p>
+                          </div>
+                        }
+                        type="customer"
+                      >
+                        <div
+                          className="dropdown"
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                        >
+                          <Link
+                            className="link"
+                            clickHandler={[Function]}
+                            id="dropdown-toggler"
+                          >
+                            <button
+                              className="link-btn link"
+                              id="dropdown-toggler"
+                              onClick={[Function]}
+                            >
+                              <div
+                                className="username-circle circle-click"
+                              >
+                                <p
+                                  className="circle-click"
+                                >
+                                  E
+                                  ▿
+                                </p>
+                              </div>
+                            </button>
+                          </Link>
+                          <div
+                            className="dropdown-content"
+                            id="dropdown-content"
+                          >
+                            <Link
+                              className="false"
+                              href="/"
+                              replace={false}
+                              to="/"
+                            >
+                              <a
+                                className="false"
+                                href="/"
+                                onClick={[Function]}
+                              >
+                                Menu
+                              </a>
+                            </Link>
+                            <Link
+                              href="/"
+                              replace={false}
+                              to="/"
+                            >
+                              <a
+                                href="/"
+                                onClick={[Function]}
+                              >
+                                Order History
+                              </a>
+                            </Link>
+                            <Link
+                              href="/"
+                              onClick={[Function]}
+                              replace={false}
+                              to="/"
+                            >
+                              <a
+                                href="/"
+                                onClick={[Function]}
+                              >
+                                Logout
+                              </a>
+                            </Link>
+                          </div>
+                        </div>
+                      </Dropdown>
+                      <p>
+                          
+                        Emiola
+                      </p>
+                    </div>
+                  </div>
+                </CustomerHeader>
+              </div>
+            </div>
+          </Header>
+          <div
+            className="main-wrapper"
+            id="has-modal"
+          >
+            <p
+              className="text-center"
+            >
+              This Order Does Not Exist
+            </p>
+          </div>
+          <Connect(Modal)>
+            <Modal
+              open={false}
+              toggleModal={[Function]}
+              type={null}
+            />
+          </Connect(Modal)>
+          <Footer>
+            <div
+              className="footer"
+            >
+              <p>
+                © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
+              </p>
+            </div>
+          </Footer>
+        </div>
+      </View>
+    </CustomerOrderDetails>
+  </Connect(CustomerOrderDetails)>
+</Provider>
+`;

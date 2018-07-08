@@ -2,7 +2,7 @@
 
 exports[`CatererView renders Preloader when fetching 1`] = `
 <div
-  className="admin null"
+  className="admin"
 >
   <Header
     active="dashboard"
@@ -47,13 +47,14 @@ exports[`CatererView renders Preloader when fetching 1`] = `
       />
     </div>
   </div>
+  <Connect(Modal) />
   <Footer />
 </div>
 `;
 
 exports[`CatererView renders correctly 1`] = `
 <div
-  className="admin null"
+  className="admin"
 >
   <Header
     active="dashboard"
@@ -98,6 +99,7 @@ exports[`CatererView renders correctly 1`] = `
       </p>
     </div>
   </div>
+  <Connect(Modal) />
   <Footer />
 </div>
 `;

@@ -1,74 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OrderDetails renders MiniPreloader when delivering 1`] = `
-<React.Fragment>
-  <View
-    isFetching={false}
-    logout={[MockFunction]}
-    showTime={true}
-    type="orders"
-    user={
-      Object {
-        "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
-        "businessName": "Food Circle",
-        "businessPhoneNo": "+2348166557788",
-        "email": "food@circle.com",
-        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-        "role": "caterer",
-      }
+<View
+  isFetching={false}
+  logout={[MockFunction]}
+  showTime={true}
+  type="orders"
+  user={
+    Object {
+      "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+      "businessName": "Food Circle",
+      "businessPhoneNo": "+2348166557788",
+      "email": "food@circle.com",
+      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+      "role": "caterer",
     }
-  >
-    <React.Fragment>
+  }
+>
+  <React.Fragment>
+    <div
+      className="main-wrapper"
+    >
       <div
-        className="main-wrapper"
+        className="order-confirmation order-details"
       >
-        <div
-          className="order-confirmation order-details"
-        >
-          <h3
-            className="text-center"
-            style={
-              Object {
-                "paddingTop": "1em",
-              }
+        <h3
+          className="text-center"
+          style={
+            Object {
+              "paddingTop": "1em",
             }
-          >
-            Order #
-            fb097bde-5959-45ff-8e21-51184fa60c25
-          </h3>
-          <div
-            className="text-center"
-          >
-            <MiniPreloader />
-          </div>
+          }
+        >
+          Order #
+          fb097bde-5959-45ff-8e21-51184fa60c25
+        </h3>
+        <div
+          className="text-center"
+        >
+          <MiniPreloader />
         </div>
       </div>
-    </React.Fragment>
-  </View>
-</React.Fragment>
+    </div>
+  </React.Fragment>
+</View>
 `;
 
 exports[`OrderDetails renders Preloader when fetching 1`] = `
-<React.Fragment>
-  <View
-    isFetching={true}
-    logout={[MockFunction]}
-    showTime={true}
-    type="orders"
-    user={
-      Object {
-        "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
-        "businessName": "Food Circle",
-        "businessPhoneNo": "+2348166557788",
-        "email": "food@circle.com",
-        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-        "role": "caterer",
-      }
+<View
+  isFetching={true}
+  logout={[MockFunction]}
+  showTime={true}
+  type="orders"
+  user={
+    Object {
+      "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+      "businessName": "Food Circle",
+      "businessPhoneNo": "+2348166557788",
+      "email": "food@circle.com",
+      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+      "role": "caterer",
     }
-  >
-    <React.Fragment />
-  </View>
-</React.Fragment>
+  }
+>
+  <React.Fragment />
+</View>
 `;
 
 exports[`OrderDetails renders connected component 1`] = `
@@ -172,7 +168,7 @@ exports[`OrderDetails renders connected component 1`] = `
         }
       >
         <div
-          className="admin null"
+          className="admin"
         >
           <Header
             active="orders"
@@ -266,6 +262,7 @@ exports[`OrderDetails renders connected component 1`] = `
                 active="orders"
                 logout={[Function]}
                 open={false}
+                push={[Function]}
                 toggleSideNav={[Function]}
                 user={
                   Object {
@@ -361,59 +358,55 @@ exports[`OrderDetails renders connected component 1`] = `
                     >
                       <Link
                         className="menu-item false"
-                        href="/"
-                        replace={false}
-                        to="/"
+                        clickHandler={[Function]}
+                        id={null}
                       >
-                        <a
-                          className="menu-item false"
-                          href="/"
+                        <button
+                          className="link-btn menu-item false"
+                          id={null}
                           onClick={[Function]}
                         >
                           Dashboard
-                        </a>
+                        </button>
                       </Link>
                       <Link
                         className="menu-item false"
-                        href="/meals"
-                        replace={false}
-                        to="/meals"
+                        clickHandler={[Function]}
+                        id={null}
                       >
-                        <a
-                          className="menu-item false"
-                          href="/meals"
+                        <button
+                          className="link-btn menu-item false"
+                          id={null}
                           onClick={[Function]}
                         >
                           Meals
-                        </a>
+                        </button>
                       </Link>
                       <Link
                         className="menu-item false"
-                        href="/menu"
-                        replace={false}
-                        to="/menu"
+                        clickHandler={[Function]}
+                        id={null}
                       >
-                        <a
-                          className="menu-item false"
-                          href="/menu"
+                        <button
+                          className="link-btn menu-item false"
+                          id={null}
                           onClick={[Function]}
                         >
                           Menu
-                        </a>
+                        </button>
                       </Link>
                       <Link
                         className="menu-item active"
-                        href="/orders"
-                        replace={false}
-                        to="/orders"
+                        clickHandler={[Function]}
+                        id={null}
                       >
-                        <a
-                          className="menu-item active"
-                          href="/orders"
+                        <button
+                          className="link-btn menu-item active"
+                          id={null}
                           onClick={[Function]}
                         >
                           Orders
-                        </a>
+                        </button>
                       </Link>
                     </div>
                   </div>
@@ -471,42 +464,84 @@ exports[`OrderDetails renders connected component 1`] = `
                       +2348134567890
                     </p>
                   </div>
-                  <div
-                    className="order-summary"
+                  <OrderSummary
+                    meals={
+                      Array [
+                        Object {
+                          "delivered": true,
+                          "description": "Sharwama contains no animal products, perfect for dieters",
+                          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "price": "1200.00",
+                          "quantity": 1,
+                          "title": "Vegetable Sharwama and Guava Smoothie",
+                          "vegetarian": true,
+                        },
+                      ]
+                    }
                   >
                     <div
-                      key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                      className="order-summary"
                     >
-                      <p>
-                        1
-                        x
-                      </p>
-                      <p>
-                        Vegetable Sharwama and Guava Smoothie
-                      </p>
-                      <p>
-                        ₦
-                        1200.00
-                      </p>
+                      <div
+                        key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                      >
+                        <p>
+                          1
+                          x
+                        </p>
+                        <p>
+                          Vegetable Sharwama and Guava Smoothie
+                        </p>
+                        <p>
+                          ₦
+                          1200
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                  <div
-                    className="order-amount admin-order-total"
+                  </OrderSummary>
+                  <OrderAmount
+                    meals={
+                      Array [
+                        Object {
+                          "delivered": true,
+                          "description": "Sharwama contains no animal products, perfect for dieters",
+                          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "price": "1200.00",
+                          "quantity": 1,
+                          "title": "Vegetable Sharwama and Guava Smoothie",
+                          "vegetarian": true,
+                        },
+                      ]
+                    }
+                    type="admin"
                   >
-                    <div>
-                      <p>
-                        Total
-                      </p>
-                      <h2>
-                        ₦
-                        1200
-                      </h2>
+                    <div
+                      className="order-amount admin-order-total"
+                    >
+                      <div>
+                        <p>
+                          Total
+                        </p>
+                        <h2>
+                          ₦
+                          1200
+                        </h2>
+                      </div>
                     </div>
-                  </div>
+                  </OrderAmount>
                 </div>
               </div>
             </div>
           </div>
+          <Connect(Modal)>
+            <Modal
+              open={false}
+              toggleModal={[Function]}
+              type={null}
+            />
+          </Connect(Modal)>
           <Footer>
             <div
               className="footer"
@@ -524,110 +559,109 @@ exports[`OrderDetails renders connected component 1`] = `
 `;
 
 exports[`OrderDetails renders correctly when not fetching 1`] = `
-<React.Fragment>
-  <View
-    isFetching={false}
-    logout={[MockFunction]}
-    showTime={true}
-    type="orders"
-    user={
-      Object {
-        "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
-        "businessName": "Food Circle",
-        "businessPhoneNo": "+2348166557788",
-        "email": "food@circle.com",
-        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-        "role": "caterer",
-      }
+<View
+  isFetching={false}
+  logout={[MockFunction]}
+  showTime={true}
+  type="orders"
+  user={
+    Object {
+      "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+      "businessName": "Food Circle",
+      "businessPhoneNo": "+2348166557788",
+      "email": "food@circle.com",
+      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+      "role": "caterer",
     }
-  >
-    <React.Fragment>
+  }
+>
+  <React.Fragment>
+    <div
+      className="main-wrapper"
+    >
       <div
-        className="main-wrapper"
+        className="order-confirmation order-details"
       >
-        <div
-          className="order-confirmation order-details"
-        >
-          <h3
-            className="text-center"
-            style={
-              Object {
-                "paddingTop": "1em",
-              }
+        <h3
+          className="text-center"
+          style={
+            Object {
+              "paddingTop": "1em",
             }
+          }
+        >
+          Order #
+          fb097bde-5959-45ff-8e21-51184fa60c25
+        </h3>
+        <React.Fragment>
+          <div
+            className="order-misc"
           >
-            Order #
-            fb097bde-5959-45ff-8e21-51184fa60c25
-          </h3>
-          <React.Fragment>
-            <div
-              className="order-misc"
+            <p
+              className="order-date"
             >
-              <p
-                className="order-date"
+              Order Date: 
+              18/04/06 12:47
+            </p>
+            <p>
+              Status: 
+              <span
+                className="success"
               >
-                Order Date: 
-                18/04/06 12:47
-              </p>
-              <p>
-                Status: 
-                <span
-                  className="success"
-                >
-                  Delivered
-                </span>
-              </p>
-              <p>
-                Customer: 
-                Emiola Olasanmi
-              </p>
-              <p>
-                Address Provided: 
-                4, Church Street, Yaba
-              </p>
-              <p>
-                Number Provided: 
-                +2348134567890
-              </p>
-            </div>
-            <div
-              className="order-summary"
-            >
-              <div
-                key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-              >
-                <p>
-                  1
-                  x
-                </p>
-                <p>
-                  Vegetable Sharwama and Guava Smoothie
-                </p>
-                <p>
-                  ₦
-                  1200.00
-                </p>
-              </div>
-            </div>
-            <div
-              className="order-amount admin-order-total"
-            >
-              <div>
-                <p>
-                  Total
-                </p>
-                <h2>
-                  ₦
-                  1200
-                </h2>
-              </div>
-            </div>
-          </React.Fragment>
-        </div>
+                Delivered
+              </span>
+            </p>
+            <p>
+              Customer: 
+              Emiola Olasanmi
+            </p>
+            <p>
+              Address Provided: 
+              4, Church Street, Yaba
+            </p>
+            <p>
+              Number Provided: 
+              +2348134567890
+            </p>
+          </div>
+          <OrderSummary
+            meals={
+              Array [
+                Object {
+                  "delivered": true,
+                  "description": "Sharwama contains no animal products, perfect for dieters",
+                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                  "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                  "price": "1200.00",
+                  "quantity": 1,
+                  "title": "Vegetable Sharwama and Guava Smoothie",
+                  "vegetarian": true,
+                },
+              ]
+            }
+          />
+          <OrderAmount
+            meals={
+              Array [
+                Object {
+                  "delivered": true,
+                  "description": "Sharwama contains no animal products, perfect for dieters",
+                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                  "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                  "price": "1200.00",
+                  "quantity": 1,
+                  "title": "Vegetable Sharwama and Guava Smoothie",
+                  "vegetarian": true,
+                },
+              ]
+            }
+            type="admin"
+          />
+        </React.Fragment>
       </div>
-    </React.Fragment>
-  </View>
-</React.Fragment>
+    </div>
+  </React.Fragment>
+</View>
 `;
 
 exports[`OrderDetails renders message when not fetching and that order doesn't exist 1`] = `
@@ -705,7 +739,7 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
         }
       >
         <div
-          className="admin null"
+          className="admin"
         >
           <Header
             active="orders"
@@ -799,6 +833,7 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                 active="orders"
                 logout={[Function]}
                 open={false}
+                push={[Function]}
                 toggleSideNav={[Function]}
                 user={
                   Object {
@@ -894,59 +929,55 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                     >
                       <Link
                         className="menu-item false"
-                        href="/"
-                        replace={false}
-                        to="/"
+                        clickHandler={[Function]}
+                        id={null}
                       >
-                        <a
-                          className="menu-item false"
-                          href="/"
+                        <button
+                          className="link-btn menu-item false"
+                          id={null}
                           onClick={[Function]}
                         >
                           Dashboard
-                        </a>
+                        </button>
                       </Link>
                       <Link
                         className="menu-item false"
-                        href="/meals"
-                        replace={false}
-                        to="/meals"
+                        clickHandler={[Function]}
+                        id={null}
                       >
-                        <a
-                          className="menu-item false"
-                          href="/meals"
+                        <button
+                          className="link-btn menu-item false"
+                          id={null}
                           onClick={[Function]}
                         >
                           Meals
-                        </a>
+                        </button>
                       </Link>
                       <Link
                         className="menu-item false"
-                        href="/menu"
-                        replace={false}
-                        to="/menu"
+                        clickHandler={[Function]}
+                        id={null}
                       >
-                        <a
-                          className="menu-item false"
-                          href="/menu"
+                        <button
+                          className="link-btn menu-item false"
+                          id={null}
                           onClick={[Function]}
                         >
                           Menu
-                        </a>
+                        </button>
                       </Link>
                       <Link
                         className="menu-item active"
-                        href="/orders"
-                        replace={false}
-                        to="/orders"
+                        clickHandler={[Function]}
+                        id={null}
                       >
-                        <a
-                          className="menu-item active"
-                          href="/orders"
+                        <button
+                          className="link-btn menu-item active"
+                          id={null}
                           onClick={[Function]}
                         >
                           Orders
-                        </a>
+                        </button>
                       </Link>
                     </div>
                   </div>
@@ -964,6 +995,13 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
               </p>
             </div>
           </div>
+          <Connect(Modal)>
+            <Modal
+              open={false}
+              toggleModal={[Function]}
+              type={null}
+            />
+          </Connect(Modal)>
           <Footer>
             <div
               className="footer"

@@ -54,33 +54,29 @@ exports[`SideNav renders correctly 1`] = `
     >
       <Link
         className="menu-item active"
-        href="/"
-        replace={false}
-        to="/"
+        clickHandler={[Function]}
+        id={null}
       >
         Dashboard
       </Link>
       <Link
         className="menu-item false"
-        href="/meals"
-        replace={false}
-        to="/meals"
+        clickHandler={[Function]}
+        id={null}
       >
         Meals
       </Link>
       <Link
         className="menu-item false"
-        href="/menu"
-        replace={false}
-        to="/menu"
+        clickHandler={[Function]}
+        id={null}
       >
         Menu
       </Link>
       <Link
         className="menu-item false"
-        href="/orders"
-        replace={false}
-        to="/orders"
+        clickHandler={[Function]}
+        id={null}
       >
         Orders
       </Link>
@@ -143,33 +139,29 @@ exports[`SideNav renders correctly when meals tab is active 1`] = `
     >
       <Link
         className="menu-item false"
-        href="/"
-        replace={false}
-        to="/"
+        clickHandler={[Function]}
+        id={null}
       >
         Dashboard
       </Link>
       <Link
         className="menu-item active"
-        href="/meals"
-        replace={false}
-        to="/meals"
+        clickHandler={[Function]}
+        id={null}
       >
         Meals
       </Link>
       <Link
         className="menu-item false"
-        href="/menu"
-        replace={false}
-        to="/menu"
+        clickHandler={[Function]}
+        id={null}
       >
         Menu
       </Link>
       <Link
         className="menu-item false"
-        href="/orders"
-        replace={false}
-        to="/orders"
+        clickHandler={[Function]}
+        id={null}
       >
         Orders
       </Link>
@@ -232,33 +224,29 @@ exports[`SideNav renders correctly when menu tab is active 1`] = `
     >
       <Link
         className="menu-item false"
-        href="/"
-        replace={false}
-        to="/"
+        clickHandler={[Function]}
+        id={null}
       >
         Dashboard
       </Link>
       <Link
         className="menu-item false"
-        href="/meals"
-        replace={false}
-        to="/meals"
+        clickHandler={[Function]}
+        id={null}
       >
         Meals
       </Link>
       <Link
         className="menu-item active"
-        href="/menu"
-        replace={false}
-        to="/menu"
+        clickHandler={[Function]}
+        id={null}
       >
         Menu
       </Link>
       <Link
         className="menu-item false"
-        href="/orders"
-        replace={false}
-        to="/orders"
+        clickHandler={[Function]}
+        id={null}
       >
         Orders
       </Link>
@@ -321,33 +309,29 @@ exports[`SideNav renders correctly when orders tab is active 1`] = `
     >
       <Link
         className="menu-item false"
-        href="/"
-        replace={false}
-        to="/"
+        clickHandler={[Function]}
+        id={null}
       >
         Dashboard
       </Link>
       <Link
         className="menu-item false"
-        href="/meals"
-        replace={false}
-        to="/meals"
+        clickHandler={[Function]}
+        id={null}
       >
         Meals
       </Link>
       <Link
         className="menu-item false"
-        href="/menu"
-        replace={false}
-        to="/menu"
+        clickHandler={[Function]}
+        id={null}
       >
         Menu
       </Link>
       <Link
         className="menu-item active"
-        href="/orders"
-        replace={false}
-        to="/orders"
+        clickHandler={[Function]}
+        id={null}
       >
         Orders
       </Link>

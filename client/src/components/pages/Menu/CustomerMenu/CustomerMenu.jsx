@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import moment from 'moment';
 import PropTypes from 'prop-types';
 import MealCard from '../../../shared/MealCard';
 import Cart from '../../../shared/Cart';
@@ -7,6 +6,8 @@ import { userPropTypes, mealObjPropTypes } from '../../../../helpers/proptypes';
 import View from '../../../shared/View';
 import Notification from '../../../shared/Notification';
 import checkShopOpen from '../../../../helpers/checkShopOpen';
+import getOrderFromLocalStorage from '../../../../helpers/getOrderFromLocalStorage';
+import updateLocalStorageOrder from '../../../../helpers/updateLocalStorageOrder';
 import './CustomerMenu.scss';
 
 /**
@@ -34,8 +35,14 @@ class CustomerMenu extends Component {
   constructor(props) {
     super();
 
+    const storedOrder = JSON.parse(localStorage.getItem('bookamealorder'));
+
     this.state = {
-      order: this.getOrderFromLocalStorage(props.user)
+      order: getOrderFromLocalStorage(props.user),
+      deliveryDetails: {
+        number: (storedOrder && storedOrder.order.number) || '',
+        address: (storedOrder && storedOrder.order.address) || '',
+      }
     };
   }
 
@@ -53,39 +60,6 @@ class CustomerMenu extends Component {
    * @returns {nothing} nothing
    */
   getItemIndex = itemId => this.state.order.findIndex(item => item.id === itemId)
-
-  /**
-   * @memberof CustomerMenu
-   * @param {object} user
-   * @returns {array} orderItem
-  */
-  getOrderFromLocalStorage = (user) => {
-    if (localStorage.getItem('bookamealorder')) {
-      const storedObj = JSON.parse(localStorage.getItem('bookamealorder'));
-
-      if (storedObj.userId === user.id && moment().format('YYYY-MM-DD') === storedObj.date) {
-        return storedObj.order;
-      }
-
-      return [];
-    }
-
-    return [];
-  }
-
-  /**
-   * @memberof CustomerMenu
-   * @returns {nothing} nothing
-  */
-  updateLocalStorage = () => {
-    const { order } = this.state;
-
-    localStorage.setItem('bookamealorder', JSON.stringify({
-      userId: this.props.user.id,
-      order,
-      date: moment().format('YYYY-MM-DD')
-    }));
-  }
 
   /**
    * @memberof CustomerMenu
@@ -121,7 +95,8 @@ class CustomerMenu extends Component {
 
     this.setState(prevState => ({
       order: [...prevState.order, item]
-    }), this.updateLocalStorage);
+    }), () =>
+      updateLocalStorageOrder(this.props.user.id, this.state.order, this.state.deliveryDetails));
   }
 
   /**
@@ -132,7 +107,8 @@ class CustomerMenu extends Component {
   removeOrderItem = (itemId) => {
     this.setState(prevState => ({
       order: prevState.order.filter(orderItem => orderItem.id !== itemId)
-    }), this.updateLocalStorage);
+    }), () =>
+      updateLocalStorageOrder(this.props.user.id, this.state.order, this.state.deliveryDetails));
   }
 
   /**
@@ -179,7 +155,8 @@ class CustomerMenu extends Component {
         },
         ...prevState.order.slice(itemIndex + 1)
       ]
-    }), this.updateLocalStorage);
+    }), () =>
+      updateLocalStorageOrder(this.props.user.id, this.state.order, this.state.deliveryDetails));
   }
 
   /**
@@ -220,15 +197,15 @@ class CustomerMenu extends Component {
     const isShopOpen = checkShopOpen();
 
     return (
-      <View user={user} logout={logout} type="menu" isFetching={isFetching} >
-        <div className="content-wrapper meals user-meals">
+      <View user={user} logout={logout} type="menu" isFetching={isFetching}>
+        <div className="meals user-meals">
           <div className="user-menu">
             <div className="main-menu">
               <div className="page-heading">
                 <h2>{'Today\'s Menu'}</h2>
                 <hr />
               </div>
-              {!isShopOpen && <Notification message="Ordering is not available between 4:00pm and 8:30am. Please check back later." />}
+              {!isShopOpen && <Notification message="Ordering is only available between 4:00pm and 8:30am. Please check back later." />}
               {this.renderMenu()}
             </div>
             <Cart

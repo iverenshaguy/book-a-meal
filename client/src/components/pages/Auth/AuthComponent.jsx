@@ -1,13 +1,10 @@
 import React, { Fragment, Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import queryString from 'query-string';
-
 import { urlPropTypes, authPropTypes } from '../../../helpers/proptypes';
 import Header from '../../shared/Header';
 import Footer from '../../shared/Footer';
 import Form from '../../shared/Form';
-import LinkBtn from '../../shared/Link';
 
 /**
  * @exports
@@ -31,14 +28,7 @@ class Auth extends Component {
    * @returns {nothing} nothing
    */
   static getDerivedStateFromProps(props) {
-    const query = queryString.parse(props.location.search);
-    const { role } = query;
-
-    if (props.type === 'signup') {
-      return { type: role === 'caterer' ? 'catererSignup' : 'customerSignup' };
-    }
-
-    return { type: 'signin' };
+    return { type: props.type === 'signup' ? 'customerSignup' : props.type };
   }
 
   state = {
@@ -52,16 +42,13 @@ class Auth extends Component {
   getMeta = () => {
     let btnText, para1, para2;
 
-    const signinClick = () => this.changeForm('signin');
-    const catererSignupClick = () => this.changeForm('catererSignup');
-    const customerSignupClick = () => this.changeForm('customerSignup');
     const catererSignupLink =
-      <LinkBtn clickHandler={catererSignupClick}>Signup as a Caterer</LinkBtn>;
+      <Link href="/signup/caterer" to="/signup/caterer">Signup as a Caterer</Link>;
     const customerSignupLink =
-      <LinkBtn clickHandler={customerSignupClick}>Signup as a Customer</LinkBtn>;
+      <Link href="/signup/customer" to="/signup/customer">Signup as a Customer</Link>;
     const signinLink = (
       <Fragment>
-        Already have an account? Sign in <LinkBtn clickHandler={signinClick}>here</LinkBtn>
+        Already have an account? Sign in <Link href="/signin" to="/signin">here</Link>
       </Fragment>
     );
 
@@ -74,7 +61,7 @@ class Auth extends Component {
         break;
       default:
         btnText = 'SIGN IN';
-        para1 = <Fragment>{"Don't have an account, signup"} <LinkBtn clickHandler={customerSignupClick}>here</LinkBtn></Fragment>;
+        para1 = <Fragment>{"Don't have an account, signup"} <Link href="/signup/customer" to="/signup/customer">here</Link></Fragment>;
         para2 = catererSignupLink;
     }
 
@@ -101,25 +88,6 @@ class Auth extends Component {
         return 'Start Serving Customers';
       default:
         return 'Welcome Back';
-    }
-  }
-
-  /**
-   * @memberof Auth
-   * @param {string} type auth type
-   * @desc changes active form
-   * @returns {nothing} returns nothing
-   */
-  changeForm = (type) => {
-    this.setState({ type });
-
-    switch (type) {
-      case 'customerSignup':
-        return this.props.changeUrl('/signup?role=customer');
-      case 'catererSignup':
-        return this.props.changeUrl('/signup?role=caterer');
-      default:
-        return this.props.changeUrl('/signin');
     }
   }
 

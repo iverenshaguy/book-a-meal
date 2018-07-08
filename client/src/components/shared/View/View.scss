@@ -127,12 +127,14 @@
   background-color: white;
   background-size: cover;
   background-attachment: fixed;
+  min-height: 100vh;
   .header {
     left: 0%;
     width: 100%;
     position: fixed;
   }
   .content-wrapper {
+    flex-grow: 10;
     margin-top: 70px;
   }
   .navbar {
@@ -145,3 +147,11 @@
     color: $dark;
   }
 }
+
+// .main-wrapper {
+//       display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     margin-top: 70px;
+//     flex-grow: 10;
+// }

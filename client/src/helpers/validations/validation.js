@@ -50,6 +50,10 @@ const validation = {
     price: [isRequired, isValidDecimal, isGreaterThanZero],
     description: [maxLength50, isBusinessName],
     vegetarian: [isValidBoolean]
+  },
+  reviewOrder: {
+    address: [isRequired, minLength5, maxLength255, isAddress],
+    number: [isRequired, isPhoneNumber],
   }
 };
 

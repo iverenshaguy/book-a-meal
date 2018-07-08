@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import moment from 'moment';
 
 export const initialValues = {
   auth: {
@@ -29,7 +30,8 @@ export const initialValues = {
     pendingOrders: 0,
     totalCashEarned: 0,
     delivering: false,
-    error: null
+    error: null,
+    working: false
   },
   uploadImage: {
     uploadTask: null,
@@ -323,6 +325,21 @@ export const deliverOrder = {
   ]
 };
 
+export const orderItems = [
+  {
+    id: 'fb097bde-5959-45ff-8e21-51184fa60c26',
+    title: 'Meat Soup',
+    price: '2500',
+    quantity: 1
+  },
+  {
+    id: 'fb097bde-5959-45ff-8e21-51184fa60f36',
+    title: 'Fish Soup',
+    price: '2200',
+    quantity: 3
+  }
+];
+
 export const caterersMealsObj = {
   meals: [
     {
@@ -359,3 +376,166 @@ export const order = [{
   price: '1500.00',
   quantity: 1
 }];
+
+export const orderRequest = {
+  deliveryAddress: '4, Church Street, Yaba',
+  deliveryPhoneNo: '+2348134567891',
+  meals: [
+    { id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3', quantity: 3 },
+    { id: 'baa0412a-d167-4d2b-b1d8-404cb8f02631', quantity: 10 }
+  ]
+};
+
+export const customerOrder = {
+  id: 'f7247d3a-de8a-43e2-90f6-b126cd4c491c',
+  deliveryAddress: '4, Church Street, Yaba',
+  deliveryPhoneNo: '+2348134567891',
+  status: 'started',
+  createdAt: '2018-05-18T16:18:25.303Z',
+  updatedAt: '2018-05-18T16:18:25.303Z',
+  meals: [
+    {
+      id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
+      title: 'Vegetable Sharwama and Guava Smoothie',
+      imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+      description: 'Sharwama contains no animal products, perfect for dieters',
+      vegetarian: true,
+      price: '1200.00',
+      quantity: 1,
+      delivered: false
+    },
+    {
+      id: 'baa0412a-d167-4d2b-b1d8-404cb8f02631',
+      title: 'Semo/Wheat and Egusi Soup',
+      imageURL: 'https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg',
+      description: 'Meal contains 2 pieces of beef and other assorted meat and fish products',
+      vegetarian: false,
+      price: '2000.00',
+      quantity: 100,
+      delivered: false
+    }
+  ]
+};
+
+export const localStorageOrder = {
+  userId: 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac',
+  date: moment().format('YYYY-MM-DD'),
+  order: {
+    address: '4, Church Street, Yaba',
+    number: '+2348134567891',
+    items: [
+      { id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3', quantity: 3 },
+      { id: 'baa0412a-d167-4d2b-b1d8-404cb8f02631', quantity: 10 }
+    ]
+  }
+};
+
+export const customersOrdersObj = {
+  orders: [
+    {
+      id: 'fb097bde-5959-45ff-8e21-51184fa70c25',
+      deliveryAddress: '4, Church Street, Yaba',
+      deliveryPhoneNo: '+2348134567890',
+      status: 'canceled',
+      createdAt: '2018-04-06T00:47:03.687Z',
+      updatedAt: '2018-04-06T00:47:03.687Z',
+      meals: [
+        {
+          id: '46ced7aa-eed5-4462-b2c0-153f31589bdd',
+          title: 'Adalu (Beans and Corn) and Local Fish ',
+          imageURL: 'http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg',
+          description: '',
+          vegetarian: false,
+          price: '2000.00',
+          caterer: {
+            businessName: 'BellyFill',
+            businessAddress: '4, Church Street, Yaba',
+            businessPhoneNo: '+2348134567890',
+            email: 'belly@fill.com'
+          },
+          quantity: 2,
+          delivered: false
+        },
+      ],
+    },
+    {
+      id: 'fb097bde-5959-45ff-8e21-51184fa60c25',
+      deliveryAddress: '4, Church Street, Yaba',
+      deliveryPhoneNo: '+2348134567890',
+      status: 'delivered',
+      createdAt: '2018-04-06T00:47:03.687Z',
+      updatedAt: '2018-04-06T00:47:03.687Z',
+      meals: [
+        {
+          id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
+          title: 'Vegetable Sharwama and Guava Smoothie',
+          imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+          description: 'Sharwama contains no animal products, perfect for dieters',
+          vegetarian: true,
+          price: '1200.00',
+          caterer: {
+            businessName: 'FoodCircle',
+            businessAddress: '4, Church Street, Yaba',
+            businessPhoneNo: '+2348134567890',
+            email: 'food@circle.com'
+          },
+          quantity: 1,
+          delivered: true
+        }
+      ],
+    },
+    {
+      id: 'fb097bde-5959-45ff-8e21-51184fa80c25',
+      deliveryAddress: '4, Church Street, Yaba',
+      deliveryPhoneNo: '+2348134567890',
+      status: 'pending',
+      createdAt: '2018-04-06T00:47:03.687Z',
+      updatedAt: '2018-04-06T00:47:03.687Z',
+      meals: [
+        {
+          id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
+          title: 'Vegetable Sharwama and Guava Smoothie',
+          imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+          description: 'Sharwama contains no animal products, perfect for dieters',
+          vegetarian: true,
+          price: '1200.00',
+          caterer: {
+            businessName: 'FoodCircle',
+            businessAddress: '4, Church Street, Yaba',
+            businessPhoneNo: '+2348134567890',
+            email: 'food@circle.com'
+          },
+          quantity: 1,
+          delivered: true
+        }
+      ],
+    },
+    {
+      id: 'fb097bde-5959-45ff-8e21-51184fa90c25',
+      deliveryAddress: '4, Church Street, Yaba',
+      deliveryPhoneNo: '+2348134567890',
+      status: 'started',
+      createdAt: '2018-04-06T00:47:03.687Z',
+      updatedAt: '2018-04-06T00:47:03.687Z',
+      meals: [
+        {
+          id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
+          title: 'Vegetable Sharwama and Guava Smoothie',
+          imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+          description: 'Sharwama contains no animal products, perfect for dieters',
+          vegetarian: true,
+          price: '1200.00',
+          caterer: {
+            businessName: 'FoodCircle',
+            businessAddress: '4, Church Street, Yaba',
+            businessPhoneNo: '+2348134567890',
+            email: 'food@circle.com'
+          },
+          quantity: 1,
+          delivered: false
+        }
+      ],
+    }
+  ],
+  pendingOrders: 0
+};

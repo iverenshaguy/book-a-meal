@@ -1,7 +1,7 @@
 {
   "name": "book-a-meal",
   "scripts": {
-    "postdeploy": "yarn migrate"
+    "postdeploy": "npm run migrate && npm run seed"
   },
   "env": {
     "BASE_URL": {
