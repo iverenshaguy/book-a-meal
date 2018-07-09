@@ -11,21 +11,21 @@ describe('Get Order From Local Storage', () => {
   it('returns an array of order items', () => {
     const order = getOrderFromLocalStorage(customer);
 
-    expect(order.length).toEqual(2);
-    expect(order[0].id).toEqual('36d525d1-efc9-4b75-9999-3e3d8dc64ce3');
+    expect(order.meals.length).toEqual(2);
+    expect(order.meals[0].id).toEqual('36d525d1-efc9-4b75-9999-3e3d8dc64ce3');
   });
 
   it('returns an empty array when user is not the user stored', () => {
     const order = getOrderFromLocalStorage({ ...customer, id: '5678904546789' });
 
-    expect(order.length).toEqual(0);
+    expect(order.meals.length).toEqual(0);
   });
 
   it('returns an empty array when the stored item is not today\'s date', () => {
     Date.now = jest.fn(() => 0);
     const order = getOrderFromLocalStorage(customer);
 
-    expect(order.length).toEqual(0);
+    expect(order.meals.length).toEqual(0);
     Date.now = now;
   });
 
@@ -33,6 +33,6 @@ describe('Get Order From Local Storage', () => {
     localStorage.removeItem('bookamealorder');
     const order = getOrderFromLocalStorage(customer);
 
-    expect(order.length).toEqual(0);
+    expect(order.meals.length).toEqual(0);
   });
 });

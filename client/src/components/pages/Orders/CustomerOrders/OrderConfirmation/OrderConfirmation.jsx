@@ -32,12 +32,8 @@ class OrderConfirmation extends Component {
   constructor(props) {
     super();
 
-    const storedOrder = JSON.parse(localStorage.getItem('bookamealorder'));
-
     this.state = {
-      order: getOrderFromLocalStorage(props.user),
-      number: (storedOrder && storedOrder.order.number) || '',
-      address: (storedOrder && storedOrder.order.address) || '',
+      order: getOrderFromLocalStorage(props.user)
     };
   }
 
@@ -46,17 +42,18 @@ class OrderConfirmation extends Component {
    * @returns {func} addOrder
   */
   handleSubmit = () => {
-    const { order, number, address } = this.state;
+    const { order } = this.state;
+    const { deliveryAddress, deliveryPhoneNo } = order;
 
     const newOrder = {
-      deliveryAddress: address,
-      deliveryPhoneNo: number,
-      meals: [...order.map(meal => ({ mealId: meal.id, quantity: meal.quantity }))]
+      deliveryAddress,
+      deliveryPhoneNo,
+      meals: [...order.meals.map(meal => ({ mealId: meal.id, quantity: meal.quantity }))]
     };
 
     localStorage.removeItem('bookamealorder');
 
-    return this.props.addOrder(newOrder);
+    return order.id ? this.props.editOrder(order.id, newOrder) : this.props.addOrder(newOrder);
   }
 
   /**
@@ -67,8 +64,8 @@ class OrderConfirmation extends Component {
     <div className="customer-details">
       <p>{moment().format('dddd, Do MMMM YYYY  h:mm a')}</p>
       <p>Customer: {this.props.user.firstname}&nbsp;{this.props.user.lastname}</p>
-      <p>Phone Number: {this.state.number}</p>
-      <p>Address: {this.state.address}</p>
+      <p>Phone Number: {this.state.order.deliveryPhoneNo}</p>
+      <p>Address: {this.state.order.deliveryAddress}</p>
     </div>
   );
 
@@ -80,7 +77,7 @@ class OrderConfirmation extends Component {
     const { user, logout, isFetching } = this.props;
     const msg = 'Please note that orders CANNOT be modified or canceled after 15 minutes of order placement.';
 
-    if (this.state.order.length === 0) return <Redirect to="/" />;
+    if (this.state.order.meals.length === 0) return <Redirect to="/" />;
 
     return (
       <View user={user} logout={logout} type="orderConfirm" isFetching={isFetching}>
@@ -90,8 +87,8 @@ class OrderConfirmation extends Component {
             <br />
             <h2>Please Confirm Your Order Details</h2>
             <hr />
-            <OrderSummary meals={this.state.order} />
-            <OrderAmount meals={this.state.order} />
+            <OrderSummary meals={this.state.order.meals} />
+            <OrderAmount meals={this.state.order.meals} />
             {this.renderCustomerDetails()}
             <br />
             <Link to="/" href="/"><button className="btn btn-sec btn-block">Edit Order</button></Link>

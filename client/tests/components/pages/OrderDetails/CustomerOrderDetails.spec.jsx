@@ -31,6 +31,7 @@ describe('OrderDetails', () => {
       user={customer}
       logout={jest.fn()}
       fetchOrders={jest.fn()}
+      push={jest.fn()}
       order={customersOrdersObj.orders[0]}
       isFetching={false}
       match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }}
@@ -44,6 +45,7 @@ describe('OrderDetails', () => {
       user={customer}
       logout={jest.fn()}
       fetchOrders={jest.fn()}
+      push={jest.fn()}
       order={customersOrdersObj.orders[0]}
       isFetching
       match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }}
@@ -137,6 +139,27 @@ describe('OrderDetails', () => {
     const wrapper = mount(comp, rrcMock.get());
 
     expect(toJson(wrapper)).toMatchSnapshot();
+    wrapper.unmount();
+  });
+
+  it('edits order method on edit button click', () => {
+    const comp = (
+      <Provider store={store}>
+        <ConnectedCustomerOrderDetails
+          user={customer}
+          isFetching={false}
+          match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa90c25' } }}
+        />
+      </Provider>);
+
+    const wrapper = mount(comp, rrcMock.get());
+
+    wrapper.find(CustomerOrderDetails).find('.control-btns>a').at(0).simulate('click');
+
+    const storedOrder = JSON.parse(localStorage.getItem('bookamealorder'));
+
+    expect(storedOrder.order.id).toEqual('fb097bde-5959-45ff-8e21-51184fa90c25');
+
     wrapper.unmount();
   });
 });

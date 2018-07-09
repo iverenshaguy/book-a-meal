@@ -35,14 +35,8 @@ class CustomerMenu extends Component {
   constructor(props) {
     super();
 
-    const storedOrder = JSON.parse(localStorage.getItem('bookamealorder'));
-
     this.state = {
-      order: getOrderFromLocalStorage(props.user),
-      deliveryDetails: {
-        number: (storedOrder && storedOrder.order.number) || '',
-        address: (storedOrder && storedOrder.order.address) || '',
-      }
+      order: getOrderFromLocalStorage(props.user)
     };
   }
 
@@ -59,7 +53,7 @@ class CustomerMenu extends Component {
    * @param {string} itemId
    * @returns {nothing} nothing
    */
-  getItemIndex = itemId => this.state.order.findIndex(item => item.id === itemId)
+  getItemIndex = itemId => this.state.order.meals.findIndex(item => item.id === itemId)
 
   /**
    * @memberof CustomerMenu
@@ -70,7 +64,7 @@ class CustomerMenu extends Component {
     const itemIndex = this.getItemIndex(meal.id);
 
     if (itemIndex !== -1) {
-      const newQuantity = this.state.order[itemIndex].quantity + 1;
+      const newQuantity = this.state.order.meals[itemIndex].quantity + 1;
 
       const orderItem = this.changeOrderQuantity(meal.id, newQuantity);
 
@@ -94,9 +88,36 @@ class CustomerMenu extends Component {
     };
 
     this.setState(prevState => ({
-      order: [...prevState.order, item]
+      order: {
+        ...prevState.order,
+        meals: [...prevState.order.meals, item]
+      }
     }), () =>
-      updateLocalStorageOrder(this.props.user.id, this.state.order, this.state.deliveryDetails));
+      updateLocalStorageOrder(this.props.user.id, this.state.order));
+  }
+
+  /**
+   * @memberof CustomerMenu
+   * @param {object} orderItem
+   * @returns {nothing} nothing
+   */
+  updateOrderItem = (orderItem) => {
+    const itemIndex = this.getItemIndex(orderItem.id);
+
+    this.setState(prevState => ({
+      order: {
+        ...prevState.order,
+        meals: [
+          ...prevState.order.meals.slice(0, itemIndex),
+          {
+            ...prevState.order.meals[itemIndex],
+            ...orderItem
+          },
+          ...prevState.order.meals.slice(itemIndex + 1)
+        ]
+      }
+    }), () =>
+      updateLocalStorageOrder(this.props.user.id, this.state.order));
   }
 
   /**
@@ -106,9 +127,12 @@ class CustomerMenu extends Component {
    */
   removeOrderItem = (itemId) => {
     this.setState(prevState => ({
-      order: prevState.order.filter(orderItem => orderItem.id !== itemId)
+      order: {
+        ...prevState.order,
+        meals: prevState.order.meals.filter(orderItem => orderItem.id !== itemId)
+      }
     }), () =>
-      updateLocalStorageOrder(this.props.user.id, this.state.order, this.state.deliveryDetails));
+      updateLocalStorageOrder(this.props.user.id, this.state.order));
   }
 
   /**
@@ -131,32 +155,11 @@ class CustomerMenu extends Component {
    * @returns {object} orderItem
    */
   changeOrderQuantity = (itemId, quantity) => {
-    const orderItem = this.state.order.find(item => item.id === itemId);
+    const orderItem = this.state.order.meals.find(item => item.id === itemId);
 
     orderItem.quantity = quantity;
 
     return orderItem;
-  }
-
-  /**
-   * @memberof CustomerMenu
-   * @param {object} orderItem
-   * @returns {nothing} nothing
-   */
-  updateOrderItem = (orderItem) => {
-    const itemIndex = this.getItemIndex(orderItem.id);
-
-    this.setState(prevState => ({
-      order: [
-        ...prevState.order.slice(0, itemIndex),
-        {
-          ...prevState.order[itemIndex],
-          ...orderItem
-        },
-        ...prevState.order.slice(itemIndex + 1)
-      ]
-    }), () =>
-      updateLocalStorageOrder(this.props.user.id, this.state.order, this.state.deliveryDetails));
   }
 
   /**
@@ -209,7 +212,7 @@ class CustomerMenu extends Component {
               {this.renderMenu()}
             </div>
             <Cart
-              order={this.state.order}
+              order={this.state.order.meals}
               handleQuantityInputChange={this.handleQuantityInputChange}
               removeOrderItem={this.removeOrderItem}
             />

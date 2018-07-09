@@ -17,8 +17,7 @@ class Auth extends Component {
   static propTypes = {
     type: PropTypes.string.isRequired,
     ...urlPropTypes,
-    ...authPropTypes,
-    changeUrl: PropTypes.func.isRequired
+    ...authPropTypes
   }
 
   /**

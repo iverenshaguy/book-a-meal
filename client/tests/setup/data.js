@@ -421,12 +421,13 @@ export const localStorageOrder = {
   userId: 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac',
   date: moment().format('YYYY-MM-DD'),
   order: {
-    address: '4, Church Street, Yaba',
-    number: '+2348134567891',
-    items: [
+    id: null,
+    meals: [
       { id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3', quantity: 3 },
       { id: 'baa0412a-d167-4d2b-b1d8-404cb8f02631', quantity: 10 }
-    ]
+    ],
+    deliveryAddress: '4, Church Street, Yaba',
+    deliveryPhoneNo: '+2348134567891',
   }
 };
 

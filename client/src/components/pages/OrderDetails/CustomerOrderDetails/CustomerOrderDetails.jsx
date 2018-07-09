@@ -6,6 +6,7 @@ import { userPropTypes, catererOrderObjPropTypes } from '../../../../helpers/pro
 import View from '../../../shared/View';
 import OrderSummary from '../../../shared/OrderSummary';
 import OrderAmount from '../../../shared/OrderAmount';
+import updateLocalStorageOrder from '../../../../helpers/updateLocalStorageOrder';
 
 /**
  * @exports
@@ -20,6 +21,7 @@ class CustomerOrderDetails extends Component {
     order: catererOrderObjPropTypes,
     isFetching: PropTypes.bool.isRequired,
     logout: PropTypes.func.isRequired,
+    push: PropTypes.func.isRequired,
     fetchOrders: PropTypes.func.isRequired,
   }
 
@@ -45,8 +47,29 @@ class CustomerOrderDetails extends Component {
 
   /**
    * @memberof CustomerOrderDetails
+   * @param {object} e
+   * @returns {JSX} CustomerOrderDetails Component
+  */
+  editOrder = (e) => {
+    e.preventDefault();
+
+    const { user, order } = this.props;
+    const { id, meals } = order;
+    const { deliveryAddress, deliveryPhoneNo } = order;
+
+    updateLocalStorageOrder(
+      user.id,
+      {
+        id, meals, deliveryAddress, deliveryPhoneNo
+      }
+    );
+
+    this.props.push('/');
+  }
+
+  /**
+   * @memberof CustomerOrderDetails
    * @param {object} order
-   * @param {func} deliverOrder
    * @returns {JSX} CustomerOrderDetails Component
    */
   renderCustomerDetails = (order) => {
@@ -77,7 +100,7 @@ class CustomerOrderDetails extends Component {
     <Fragment>
       <br />
       <div className="d-flex-row control-btns">
-        <a href="./order-confirmation.html">
+        <a onClick={this.editOrder} href="/">
           <button className="btn btn-sec order-details-btn">Edit</button>
         </a>
         <a href="./user-menu.html">

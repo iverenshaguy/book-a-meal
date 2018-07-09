@@ -5,7 +5,7 @@ import { setFetching, unsetFetching } from '../actions/isFetching';
 import {
   fetchOrdersSuccess, fetchOrdersFailure, deliverOrderSuccess, deliverOrderFailure,
   setDelivering, unsetDelivering, addOrderSuccess, addOrderFailure, setOrderWorking,
-  unsetOrderWorking,
+  unsetOrderWorking, editOrderSuccess, editOrderFailure,
 } from '../actions/orders';
 import { toggleModal } from '../actions/ui';
 import { RECEIVE_CATERERS_ORDERS_SUCCESS, RECEIVE_CATERERS_ORDERS_FAILURE } from '../types';
@@ -63,14 +63,38 @@ const addOrder = order => async (dispatch) => {
   }
 };
 
+const editOrder = (orderId, order) => async (dispatch) => {
+  try {
+    dispatch(setOrderWorking());
+
+    const response = await instance.put(`/orders/${orderId}`, order);
+
+    dispatch(editOrderSuccess([response.data]));
+    dispatch(unsetOrderWorking());
+    dispatch(toggleModal('orderSuccessMsg'));
+    setTimeout(() => {
+      dispatch(toggleModal());
+      dispatch(push(`/orders/${response.data.id}`));
+    }, 500);
+  } catch (error) {
+    const errorResponse = errorHandler(error);
+
+    dispatch(editOrderFailure(errorResponse.response));
+    dispatch(unsetOrderWorking());
+  }
+};
+
 export default {
   addOrder,
+  editOrder,
   fetchOrders,
   deliverOrder,
   setDelivering,
   unsetDelivering,
   addOrderSuccess,
   addOrderFailure,
+  editOrderSuccess,
+  editOrderFailure,
   setOrderWorking,
   unsetOrderWorking,
   fetchOrdersSuccess,
