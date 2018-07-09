@@ -23,6 +23,7 @@ describe('Customer Orders', () => {
         user={customer}
         logout={jest.fn()}
         addOrder={jest.fn()}
+        editOrder={jest.fn()}
         isFetching={false}
       />);
 
@@ -36,6 +37,7 @@ describe('Customer Orders', () => {
         user={customer}
         logout={jest.fn()}
         addOrder={jest.fn()}
+        editOrder={jest.fn()}
         isFetching
       />);
 
@@ -57,11 +59,17 @@ describe('Customer Orders', () => {
       wrapper.unmount();
     });
 
-    it('calls handle submit on checkout', () => {
+    it('calls handle submit on checkout when creating a new order', () => {
+      const addOrderMock = jest.fn();
+      const editOrderMock = jest.fn();
+
       const comp = (
         <Provider store={store}>
-          <ConnectedOrderConfirmation
+          <OrderConfirmation
             user={customer}
+            logout={jest.fn()}
+            addOrder={addOrderMock}
+            editOrder={editOrderMock}
             isFetching={false}
           />
         </Provider>);
@@ -73,6 +81,42 @@ describe('Customer Orders', () => {
       const storedOrder = localStorage.getItem('bookamealorder');
 
       expect(storedOrder).toBe(undefined);
+      expect(addOrderMock).toHaveBeenCalled();
+      expect(editOrderMock).not.toHaveBeenCalled();
+    });
+
+    it('calls handle submit on checkout when updating an order', () => {
+      localStorage.setItem('bookamealorder', JSON.stringify({
+        ...localStorageOrder,
+        order: {
+          ...localStorageOrder.order,
+          id: 'f7247d3a-de8a-43e2-90f6-b126cd4c491c'
+        }
+      }));
+
+      const addOrderMock = jest.fn();
+      const editOrderMock = jest.fn();
+
+      const comp = (
+        <Provider store={store}>
+          <OrderConfirmation
+            user={customer}
+            logout={jest.fn()}
+            addOrder={addOrderMock}
+            editOrder={editOrderMock}
+            isFetching={false}
+          />
+        </Provider>);
+
+      const wrapper = mount(comp, rrcMock.get()).find(OrderConfirmation);
+
+      wrapper.find('#checkout').simulate('click');
+
+      const storedOrder = localStorage.getItem('bookamealorder');
+
+      expect(storedOrder).toBe(undefined);
+      expect(editOrderMock).toHaveBeenCalled();
+      expect(addOrderMock).not.toHaveBeenCalled();
     });
   });
 
@@ -128,12 +172,12 @@ describe('Customer Orders', () => {
 
       const handleInputChange = jest.spyOn(wrapper.instance(), 'handleInputChange');
 
-      wrapper.find('input#number').simulate('focus');
-      wrapper.find('input#address').simulate('focus');
-      wrapper.find('input#number').simulate('change', { target: { name: 'number', value: '08122334455' } });
-      wrapper.find('input#address').simulate('change', { target: { name: 'address', value: '2, Chruch Street, Place' } });
-      wrapper.find('input#number').simulate('blur');
-      wrapper.find('input#address').simulate('blur');
+      wrapper.find('input#deliveryPhoneNo').simulate('focus');
+      wrapper.find('input#deliveryAddress').simulate('focus');
+      wrapper.find('input#deliveryPhoneNo').simulate('change', { target: { name: 'number', value: '08122334455' } });
+      wrapper.find('input#deliveryAddress').simulate('change', { target: { name: 'address', value: '2, Chruch Street, Place' } });
+      wrapper.find('input#deliveryPhoneNo').simulate('blur');
+      wrapper.find('input#deliveryAddress').simulate('blur');
 
       const storedOrder = JSON.parse(localStorage.getItem('bookamealorder'));
 
@@ -157,12 +201,12 @@ describe('Customer Orders', () => {
       const handleOrderDetailsSubmitMock = jest.spyOn(wrapper.instance(), 'handleOrderDetailsSubmit');
       const toggleOrderSummaryMock = jest.spyOn(wrapper.instance(), 'toggleOrderSummary');
 
-      wrapper.find('input#number').simulate('focus');
-      wrapper.find('input#address').simulate('focus');
-      wrapper.find('input#number').simulate('change', { target: { name: 'number', value: '+2348122334455' } });
-      wrapper.find('input#address').simulate('change', { target: { name: 'address', value: '2, Chruch Street, Place' } });
-      wrapper.find('input#number').simulate('blur');
-      wrapper.find('input#address').simulate('blur');
+      wrapper.find('input#deliveryPhoneNo').simulate('focus');
+      wrapper.find('input#deliveryAddress').simulate('focus');
+      wrapper.find('input#deliveryPhoneNo').simulate('change', { target: { name: 'number', value: '+2348122334455' } });
+      wrapper.find('input#deliveryAddress').simulate('change', { target: { name: 'address', value: '2, Chruch Street, Place' } });
+      wrapper.find('input#deliveryPhoneNo').simulate('blur');
+      wrapper.find('input#deliveryAddress').simulate('blur');
 
       wrapper.find('button[type="submit"]').simulate('click');
 
@@ -185,12 +229,12 @@ describe('Customer Orders', () => {
       const handleOrderDetailsSubmitMock = jest.spyOn(wrapper.instance(), 'handleOrderDetailsSubmit');
       const toggleOrderSummaryMock = jest.spyOn(wrapper.instance(), 'toggleOrderSummary');
 
-      wrapper.find('input#number').simulate('focus');
-      wrapper.find('input#address').simulate('focus');
-      wrapper.find('input#number').simulate('change', { target: { name: 'number', value: '8122334455' } });
-      wrapper.find('input#address').simulate('change', { target: { name: 'address', value: '2, Chruch Street, Place' } });
-      wrapper.find('input#number').simulate('blur');
-      wrapper.find('input#address').simulate('blur');
+      wrapper.find('input#deliveryPhoneNo').simulate('focus');
+      wrapper.find('input#deliveryAddress').simulate('focus');
+      wrapper.find('input#deliveryPhoneNo').simulate('change', { target: { name: 'deliveryPhoneNo', value: '8122334455' } });
+      wrapper.find('input#deliveryAddress').simulate('change', { target: { name: 'deliveryAddress', value: '2, Chruch Street, Place' } });
+      wrapper.find('input#deliveryPhoneNo').simulate('blur');
+      wrapper.find('input#deliveryAddress').simulate('blur');
 
       wrapper.find('button[type="submit"]').simulate('click');
 

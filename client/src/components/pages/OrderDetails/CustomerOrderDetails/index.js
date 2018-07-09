@@ -1,4 +1,5 @@
-import { connect, } from 'react-redux';
+import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
 import { bindActionCreators } from 'redux';
 import CustomerOrderDetails from './CustomerOrderDetails';
 import { fetchOrders } from '../../../../store/operations/orders';
@@ -11,7 +12,7 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchOrders, logout
+  fetchOrders, logout, push
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(CustomerOrderDetails);

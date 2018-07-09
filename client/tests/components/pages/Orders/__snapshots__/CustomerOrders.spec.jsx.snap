@@ -272,7 +272,7 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                     handleBlur={[Function]}
                     handleChange={[Function]}
                     handleFocus={[Function]}
-                    id="number"
+                    id="deliveryPhoneNo"
                     label="Phone Number"
                     meta={
                       Object {
@@ -280,7 +280,7 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                         "touched": true,
                       }
                     }
-                    name="number"
+                    name="deliveryPhoneNo"
                     placeholder=""
                     required={true}
                     type="number"
@@ -290,7 +290,7 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                       className="form-input"
                     >
                       <label
-                        htmlFor="number"
+                        htmlFor="deliveryPhoneNo"
                       >
                         Phone Number
                         <span
@@ -301,8 +301,8 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                       </label>
                       <input
                         className="is-valid"
-                        id="number"
-                        name="number"
+                        id="deliveryPhoneNo"
+                        name="deliveryPhoneNo"
                         onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
@@ -316,7 +316,7 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                     handleBlur={[Function]}
                     handleChange={[Function]}
                     handleFocus={[Function]}
-                    id="address"
+                    id="deliveryAddress"
                     label="Delivery Address"
                     meta={
                       Object {
@@ -324,17 +324,17 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                         "touched": true,
                       }
                     }
-                    name="address"
+                    name="deliveryAddress"
                     placeholder=""
                     required={true}
-                    type="address"
+                    type="textarea"
                     value="4, Church Street, Yaba"
                   >
                     <div
                       className="form-input"
                     >
                       <label
-                        htmlFor="address"
+                        htmlFor="deliveryAddress"
                       >
                         Delivery Address
                         <span
@@ -345,13 +345,13 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                       </label>
                       <input
                         className="is-valid"
-                        id="address"
-                        name="address"
+                        id="deliveryAddress"
+                        name="deliveryAddress"
                         onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
                         placeholder=""
-                        type="address"
+                        type="textarea"
                         value="4, Church Street, Yaba"
                       />
                     </div>
@@ -453,7 +453,7 @@ exports[`Customer Orders Order Review renders correctly 1`] = `
             handleBlur={[Function]}
             handleChange={[Function]}
             handleFocus={[Function]}
-            id="number"
+            id="deliveryPhoneNo"
             label="Phone Number"
             meta={
               Object {
@@ -461,7 +461,7 @@ exports[`Customer Orders Order Review renders correctly 1`] = `
                 "touched": true,
               }
             }
-            name="number"
+            name="deliveryPhoneNo"
             placeholder=""
             required={true}
             type="number"
@@ -471,7 +471,7 @@ exports[`Customer Orders Order Review renders correctly 1`] = `
             handleBlur={[Function]}
             handleChange={[Function]}
             handleFocus={[Function]}
-            id="address"
+            id="deliveryAddress"
             label="Delivery Address"
             meta={
               Object {
@@ -479,10 +479,10 @@ exports[`Customer Orders Order Review renders correctly 1`] = `
                 "touched": true,
               }
             }
-            name="address"
+            name="deliveryAddress"
             placeholder=""
             required={true}
-            type="address"
+            type="textarea"
             value="4, Church Street, Yaba"
           />
         </React.Fragment>

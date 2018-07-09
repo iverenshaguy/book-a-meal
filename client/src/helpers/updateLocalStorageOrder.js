@@ -4,14 +4,13 @@ import moment from 'moment';
  * Update User Order in Local Storage
  * @function updateLocalStorageOrder
  * @param {string} userId
- * @param {array} items
- * @param {object} deliveryDetails
+ * @param {object} order
  * @returns {nothing} nothing
 */
-const updateLocalStorageOrder = (userId, items, { number, address }) => {
+const updateLocalStorageOrder = (userId, order) => {
   localStorage.setItem('bookamealorder', JSON.stringify({
     userId,
-    order: { items, number, address },
+    order,
     date: moment().format('YYYY-MM-DD')
   }));
 };

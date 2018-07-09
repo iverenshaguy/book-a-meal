@@ -52,8 +52,8 @@ const validation = {
     vegetarian: [isValidBoolean]
   },
   reviewOrder: {
-    address: [isRequired, minLength5, maxLength255, isAddress],
-    number: [isRequired, isPhoneNumber],
+    deliveryAddress: [isRequired, minLength5, maxLength255, isAddress],
+    deliveryPhoneNo: [isRequired, isPhoneNumber],
   }
 };
 

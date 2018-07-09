@@ -16,7 +16,9 @@ const store = mockStore({
 const { now } = Date;
 const currentDay = moment().format('YYYY-MM-DD');
 
-updateLocalStorageOrder('a09a5570-a3b2-4e21-94c3-5cf483dbd1ac', orderItems, { number: '2348167719888', address: 'A Place' });
+updateLocalStorageOrder('a09a5570-a3b2-4e21-94c3-5cf483dbd1ac', {
+  id: null, meals: orderItems, deliveryPhoneNo: '2348167719888', deliveryAddress: 'A Place'
+});
 
 describe('CustomerMenu', () => {
   beforeAll(() => {
@@ -108,7 +110,7 @@ describe('CustomerMenu', () => {
       localStorage.setItem('bookamealorder', JSON.stringify({
         userId: 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac',
         order: {
-          items: [{
+          meals: [{
             id: '81211c24-51c0-46ec-b1e0-18db55880958',
             title: 'Jollof Rice, Beef and Plantain',
             price: '1500.00',
@@ -145,8 +147,8 @@ describe('CustomerMenu', () => {
 
       expect(handleOrderMealClickSpy).toHaveBeenCalled();
       expect(addOrderSpy).toHaveBeenCalled();
-      expect(wrapper.state().order[1].title).toEqual('Vegetable Sharwama and Guava Smoothie');
-      expect(wrapper.state().order[1].quantity).toEqual(1);
+      expect(wrapper.state().order.meals[1].title).toEqual('Vegetable Sharwama and Guava Smoothie');
+      expect(wrapper.state().order.meals[1].quantity).toEqual(1);
 
       wrapper.unmount();
     });
@@ -172,7 +174,7 @@ describe('CustomerMenu', () => {
 
       expect(updateOrderItemSpy).toHaveBeenCalled();
       expect(handleOrderMealClickSpy).toHaveBeenCalled();
-      expect(wrapper.state().order[0].quantity).toEqual(2);
+      expect(wrapper.state().order.meals[0].quantity).toEqual(2);
 
       wrapper.unmount();
     });
@@ -196,7 +198,7 @@ describe('CustomerMenu', () => {
         .simulate('change', { target: { value: 3 } });
 
       expect(changeOrderQuantitySpy).toHaveBeenCalled();
-      expect(wrapper.state().order[0].quantity).toEqual(3);
+      expect(wrapper.state().order.meals[0].quantity).toEqual(3);
 
       wrapper.unmount();
     });
@@ -217,11 +219,11 @@ describe('CustomerMenu', () => {
 
       wrapper.find('Cart').dive().find('input').at(0)
         .simulate('change', { target: { value: 0 } });
-      expect(wrapper.state().order[0].quantity).toEqual(1);
+      expect(wrapper.state().order.meals[0].quantity).toEqual(1);
 
       wrapper.find('Cart').dive().find('input').at(0)
         .simulate('change', { target: { value: -8 } });
-      expect(wrapper.state().order[0].quantity).toEqual(1);
+      expect(wrapper.state().order.meals[0].quantity).toEqual(1);
 
       wrapper.unmount();
     });
@@ -241,7 +243,7 @@ describe('CustomerMenu', () => {
       localStorage.setItem('bookamealorder', JSON.stringify({
         userId: 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac',
         order: {
-          items: [{
+          meals: [{
             id: '81211c24-51c0-46ec-b1e0-18db55880958',
             title: 'Jollof Rice, Beef and Plantain',
             price: '1500.00',
@@ -253,7 +255,7 @@ describe('CustomerMenu', () => {
 
       const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenu).dive();
 
-      expect(wrapper.state().order.length).toEqual(0);
+      expect(wrapper.state().order.meals.length).toEqual(0);
 
       wrapper.unmount();
     });
@@ -273,7 +275,7 @@ describe('CustomerMenu', () => {
       localStorage.setItem('bookamealorder', JSON.stringify({
         userId: 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac',
         order: {
-          items: [{
+          meals: [{
             id: '81211c24-51c0-46ec-b1e0-18db55880958',
             title: 'Jollof Rice, Beef and Plantain',
             price: '1500.00',
@@ -289,7 +291,7 @@ describe('CustomerMenu', () => {
         .find('button.remove-order')
         .simulate('click');
 
-      expect(wrapper.state().order.length).toEqual(0);
+      expect(wrapper.state().order.meals.length).toEqual(0);
 
       wrapper.unmount();
     });

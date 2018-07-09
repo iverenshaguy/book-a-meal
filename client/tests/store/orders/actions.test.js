@@ -8,12 +8,17 @@ import { deliverOrder as deliverOrderData, caterersOrdersObj, caterersOrdersObjP
 
 const {
   addOrder,
+  editOrder,
   fetchOrders,
   fetchOrdersSuccess,
   fetchOrdersFailure,
   deliverOrder,
   setDelivering,
   unsetDelivering,
+  addOrderSuccess,
+  addOrderFailure,
+  editOrderSuccess,
+  editOrderFailure,
   deliverOrderSuccess,
   deliverOrderFailure,
 } = operations;
@@ -72,6 +77,42 @@ describe('Orders Actions', () => {
 
     expect(action).toEqual({
       type: 'DELIVER_ORDER_FAILURE',
+      payload: 'error'
+    });
+  });
+
+  test('addOrderSuccess', () => {
+    const action = addOrderSuccess(customerOrder);
+
+    expect(action).toEqual({
+      type: 'ADD_ORDER_SUCCESS',
+      payload: customerOrder
+    });
+  });
+
+  test('addOrderFailure', () => {
+    const action = addOrderFailure('error');
+
+    expect(action).toEqual({
+      type: 'ADD_ORDER_FAILURE',
+      payload: 'error'
+    });
+  });
+
+  test('editOrderSuccess', () => {
+    const action = editOrderSuccess(customerOrder);
+
+    expect(action).toEqual({
+      type: 'EDIT_ORDER_SUCCESS',
+      payload: customerOrder
+    });
+  });
+
+  test('editOrderFailure', () => {
+    const action = editOrderFailure('error');
+
+    expect(action).toEqual({
+      type: 'EDIT_ORDER_FAILURE',
       payload: 'error'
     });
   });
@@ -184,7 +225,7 @@ describe('Orders Actions', () => {
         const expectedActions = ['SET_ORDER_WORKING', 'ADD_ORDER_SUCCESS', 'UNSET_ORDER_WORKING', 'TOGGLE_MODAL', 'TOGGLE_MODAL', '@@router/CALL_HISTORY_METHOD'];
 
         moxios.stubRequest(`${url}/orders`, {
-          status: 200,
+          status: 201,
           response: customerOrder
         });
 
@@ -211,6 +252,45 @@ describe('Orders Actions', () => {
         });
 
         return store.dispatch(addOrder(orderRequest)).then(() => {
+          const dispatchedActions = store.getActions();
+
+          const actionTypes = dispatchedActions.map(action => action.type);
+
+          expect(actionTypes).toEqual(expectedActions);
+        });
+      });
+
+      it('dispatches SET_ORDER_WORKING, EDIT_ORDER_SUCCESS and UNSET_ORDER_WORKING on successful order addition', () => {
+        const expectedActions = ['SET_ORDER_WORKING', 'EDIT_ORDER_SUCCESS', 'UNSET_ORDER_WORKING', 'TOGGLE_MODAL', 'TOGGLE_MODAL', '@@router/CALL_HISTORY_METHOD'];
+
+        moxios.stubRequest(`${url}/orders/${customerOrder.id}`, {
+          status: 200,
+          response: customerOrder
+        });
+
+        jest.useFakeTimers();
+
+        return store.dispatch(editOrder(customerOrder.id, customerOrder)).then(() => {
+          jest.advanceTimersByTime(1000);
+          const dispatchedActions = store.getActions();
+
+          const actionTypes = dispatchedActions.map(action => action.type);
+
+          expect(actionTypes).toEqual(expectedActions);
+        });
+      });
+
+      it('dispatches SET_ORDER_WORKING, EDIT_ORDER_FAILURE and UNSET_ORDER_WORKING on usuccessful order addition', () => {
+        const expectedActions = ['SET_ORDER_WORKING', 'EDIT_ORDER_FAILURE', 'UNSET_ORDER_WORKING'];
+
+        moxios.stubRequest(`${url}/orders/${customerOrder.id}`, {
+          status: 401,
+          response: {
+            error: 'An Error'
+          }
+        });
+
+        return store.dispatch(editOrder(customerOrder.id, customerOrder)).then(() => {
           const dispatchedActions = store.getActions();
 
           const actionTypes = dispatchedActions.map(action => action.type);
