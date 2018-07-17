@@ -25,7 +25,6 @@ describe('CatererView', () => {
     const wrapper = shallow(<CatererView {...props} />);
 
     expect(toJson(wrapper)).toMatchSnapshot();
-    expect(wrapper.find('p').length).toEqual(1);
     expect(wrapper.find('Preloader').length).toBeFalsy();
   });
 
@@ -34,6 +33,5 @@ describe('CatererView', () => {
 
     expect(toJson(wrapper)).toMatchSnapshot();
     expect(wrapper.find('Preloader').length).toEqual(1);
-    expect(wrapper.find('p').length).toBeFalsy();
   });
 });

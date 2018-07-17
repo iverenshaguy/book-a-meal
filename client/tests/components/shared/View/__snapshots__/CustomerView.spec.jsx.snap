@@ -28,7 +28,25 @@ exports[`CustomerView renders Preloader when fetching 1`] = `
       type={null}
     />
   </div>
-  <Connect(Modal) />
+  <Connect(Modal)
+    isFetching={true}
+    logout={[MockFunction]}
+    showTime={true}
+    type="menu"
+    user={
+      Object {
+        "email": "emiola@olasanmi.com",
+        "firstname": "Emiola",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "lastname": "Olasanmi",
+        "role": "customer",
+      }
+    }
+  >
+    <p>
+      Hi
+    </p>
+  </Connect(Modal)>
   <Footer />
 </div>
 `;
@@ -61,7 +79,25 @@ exports[`CustomerView renders correctly 1`] = `
       Hi
     </p>
   </div>
-  <Connect(Modal) />
+  <Connect(Modal)
+    isFetching={false}
+    logout={[MockFunction]}
+    showTime={true}
+    type="menu"
+    user={
+      Object {
+        "email": "emiola@olasanmi.com",
+        "firstname": "Emiola",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "lastname": "Olasanmi",
+        "role": "customer",
+      }
+    }
+  >
+    <p>
+      Hi
+    </p>
+  </Connect(Modal)>
   <Footer />
 </div>
 `;

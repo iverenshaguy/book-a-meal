@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Redirect from 'react-router-dom/Redirect';
-import Modal from '../../shared/Modal';
 import MealCard from '../../shared/MealCard';
 import View from '../../shared/View';
 import { userPropTypes, mealObjPropTypes } from '../../../helpers/proptypes';
@@ -106,14 +105,18 @@ class Meals extends Component {
 
     return (
       <Fragment>
-        <View user={user} logout={logout} type="meals" showTime isFetching={isFetching}>
-          {this.renderMeals()}
-        </View>
-        <Modal
+        <View
+          user={user}
+          logout={logout}
+          type="meals"
+          showTime
+          isFetching={isFetching}
           meal={this.getCurrentMeal(currentMealId)}
           submitting={submitting}
           submitError={submitError}
-        />
+        >
+          {this.renderMeals()}
+        </View>
       </Fragment>
     );
   }

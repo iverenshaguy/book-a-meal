@@ -16,7 +16,6 @@ describe('CustomerView', () => {
     const wrapper = shallow(<CustomerView {...props} />);
 
     expect(toJson(wrapper)).toMatchSnapshot();
-    expect(wrapper.find('p').length).toEqual(1);
     expect(wrapper.find('Preloader').length).toBeFalsy();
   });
 
@@ -25,6 +24,5 @@ describe('CustomerView', () => {
 
     expect(toJson(wrapper)).toMatchSnapshot();
     expect(wrapper.find('Preloader').length).toEqual(1);
-    expect(wrapper.find('p').length).toBeFalsy();
   });
 });

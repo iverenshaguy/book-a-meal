@@ -5,12 +5,12 @@ import {
   RECEIVE_ORDERS_SUCCESS, RECEIVE_ORDERS_FAILURE
 } from '../types';
 
-export const fetchOrdersSuccess = (type, payload) => ({
+export const fetchOrdersSuccess = payload => ({
   type: RECEIVE_ORDERS_SUCCESS,
   payload
 });
 
-export const fetchOrdersFailure = (type, payload) => ({
+export const fetchOrdersFailure = payload => ({
   type: RECEIVE_ORDERS_FAILURE,
   payload
 });
