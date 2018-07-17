@@ -1,8 +1,8 @@
 import {
-  RECEIVE_CATERERS_ORDERS_SUCCESS, RECEIVE_CATERERS_ORDERS_FAILURE,
+  RECEIVE_ORDERS_SUCCESS, RECEIVE_ORDERS_FAILURE,
   DELIVER_ORDER_SUCCESS, DELIVER_ORDER_FAILURE, SET_DELIVERING, UNSET_DELIVERING,
   ADD_ORDER_SUCCESS, ADD_ORDER_FAILURE, SET_ORDER_WORKING, UNSET_ORDER_WORKING,
-  EDIT_ORDER_SUCCESS, EDIT_ORDER_FAILURE,
+  EDIT_ORDER_SUCCESS, EDIT_ORDER_FAILURE, CANCEL_ORDER_SUCCESS, CANCEL_ORDER_FAILURE
 } from '../types';
 import calculateCashEarnedFromOrder from '../../helpers/calculateCashEarnedFromOrder';
 import getUpdatedItems from '../../helpers/getUpdatedItems';
@@ -19,12 +19,17 @@ const initialValues = {
 export default (state = initialValues, action) => {
   switch (action.type) {
     case ADD_ORDER_SUCCESS:
-    case EDIT_ORDER_SUCCESS:
       return {
         ...state,
-        items: action.payload,
+        items: [...state.items, action.payload],
       };
-    case RECEIVE_CATERERS_ORDERS_SUCCESS:
+    case EDIT_ORDER_SUCCESS:
+    case CANCEL_ORDER_SUCCESS:
+      return {
+        ...state,
+        items: getUpdatedItems(state.items, action.payload),
+      };
+    case RECEIVE_ORDERS_SUCCESS:
       return {
         ...state,
         items: action.payload.orders,
@@ -47,10 +52,11 @@ export default (state = initialValues, action) => {
       return { ...state, working: true };
     case UNSET_ORDER_WORKING:
       return { ...state, working: false };
-    case RECEIVE_CATERERS_ORDERS_FAILURE:
+    case RECEIVE_ORDERS_FAILURE:
     case DELIVER_ORDER_FAILURE:
     case ADD_ORDER_FAILURE:
     case EDIT_ORDER_FAILURE:
+    case CANCEL_ORDER_FAILURE:
       return { ...state, error: action.payload };
     default:
       return state;

@@ -5,23 +5,23 @@ import { setFetching, unsetFetching } from '../actions/isFetching';
 import {
   fetchOrdersSuccess, fetchOrdersFailure, deliverOrderSuccess, deliverOrderFailure,
   setDelivering, unsetDelivering, addOrderSuccess, addOrderFailure, setOrderWorking,
-  unsetOrderWorking, editOrderSuccess, editOrderFailure,
+  unsetOrderWorking, editOrderSuccess, editOrderFailure, cancelOrderSuccess, cancelOrderFailure,
 } from '../actions/orders';
 import { toggleModal } from '../actions/ui';
-import { RECEIVE_CATERERS_ORDERS_SUCCESS, RECEIVE_CATERERS_ORDERS_FAILURE } from '../types';
+import reloadOrderPage from '../../utils/reloadOrderPage';
 
-const fetchOrders = (type, date) => async (dispatch) => {
+const fetchOrders = date => async (dispatch) => {
   try {
     dispatch(setFetching());
 
     const response = date ? await instance.get(`/orders?date=${date}`) : await instance.get('/orders');
 
-    dispatch(fetchOrdersSuccess(RECEIVE_CATERERS_ORDERS_SUCCESS, response.data));
+    dispatch(fetchOrdersSuccess(response.data));
     dispatch(unsetFetching());
   } catch (error) {
     const errorResponse = errorHandler(error);
 
-    dispatch(fetchOrdersFailure(RECEIVE_CATERERS_ORDERS_FAILURE, errorResponse.response));
+    dispatch(fetchOrdersFailure(errorResponse.response));
     dispatch(unsetFetching());
   }
 };
@@ -48,13 +48,16 @@ const addOrder = order => async (dispatch) => {
 
     const response = await instance.post('/orders', order);
 
-    dispatch(addOrderSuccess([response.data]));
+    dispatch(addOrderSuccess(response.data));
     dispatch(unsetOrderWorking());
     dispatch(toggleModal('orderSuccessMsg'));
+
     setTimeout(() => {
       dispatch(toggleModal());
       dispatch(push(`/orders/${response.data.id}`));
     }, 500);
+
+    reloadOrderPage(dispatch, `/orders/${response.data.id}`);
   } catch (error) {
     const errorResponse = errorHandler(error);
 
@@ -69,13 +72,16 @@ const editOrder = (orderId, order) => async (dispatch) => {
 
     const response = await instance.put(`/orders/${orderId}`, order);
 
-    dispatch(editOrderSuccess([response.data]));
+    dispatch(editOrderSuccess(response.data));
     dispatch(unsetOrderWorking());
     dispatch(toggleModal('orderSuccessMsg'));
+
     setTimeout(() => {
       dispatch(toggleModal());
       dispatch(push(`/orders/${response.data.id}`));
     }, 500);
+
+    reloadOrderPage(dispatch, `/orders/${response.data.id}`);
   } catch (error) {
     const errorResponse = errorHandler(error);
 
@@ -84,9 +90,32 @@ const editOrder = (orderId, order) => async (dispatch) => {
   }
 };
 
+const cancelOrder = id => async (dispatch) => {
+  try {
+    dispatch(setOrderWorking());
+
+    const response = await instance.put(`/orders/${id}`, { status: 'canceled' });
+
+    dispatch(cancelOrderSuccess(response.data));
+    dispatch(unsetOrderWorking());
+    dispatch(push('/'));
+    dispatch(toggleModal('orderCanceledMsg'));
+
+    setTimeout(() => {
+      dispatch(toggleModal());
+    }, 500);
+  } catch (error) {
+    const errorResponse = errorHandler(error);
+
+    dispatch(cancelOrderFailure(errorResponse.response));
+    dispatch(unsetOrderWorking());
+  }
+};
+
 export default {
   addOrder,
   editOrder,
+  cancelOrder,
   fetchOrders,
   deliverOrder,
   setDelivering,
@@ -95,6 +124,8 @@ export default {
   addOrderFailure,
   editOrderSuccess,
   editOrderFailure,
+  cancelOrderSuccess,
+  cancelOrderFailure,
   setOrderWorking,
   unsetOrderWorking,
   fetchOrdersSuccess,

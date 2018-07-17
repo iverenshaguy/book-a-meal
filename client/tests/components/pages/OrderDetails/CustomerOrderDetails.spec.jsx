@@ -31,6 +31,8 @@ describe('OrderDetails', () => {
       user={customer}
       logout={jest.fn()}
       fetchOrders={jest.fn()}
+      editOrder={jest.fn()}
+      cancelOrder={jest.fn()}
       push={jest.fn()}
       order={customersOrdersObj.orders[0]}
       isFetching={false}
@@ -45,6 +47,8 @@ describe('OrderDetails', () => {
       user={customer}
       logout={jest.fn()}
       fetchOrders={jest.fn()}
+      editOrder={jest.fn()}
+      cancelOrder={jest.fn()}
       push={jest.fn()}
       order={customersOrdersObj.orders[0]}
       isFetching
@@ -142,7 +146,7 @@ describe('OrderDetails', () => {
     wrapper.unmount();
   });
 
-  it('edits order method on edit button click', () => {
+  it('calls edit order method on edit button click', () => {
     const comp = (
       <Provider store={store}>
         <ConnectedCustomerOrderDetails
@@ -159,6 +163,32 @@ describe('OrderDetails', () => {
     const storedOrder = JSON.parse(localStorage.getItem('bookamealorder'));
 
     expect(storedOrder.order.id).toEqual('fb097bde-5959-45ff-8e21-51184fa90c25');
+
+    wrapper.unmount();
+  });
+
+  it('calls cancel order method on cancel button click', () => {
+    const cancelOrderMock = jest.fn();
+
+    const comp = (
+      <Provider store={store}>
+        <CustomerOrderDetails
+          user={customer}
+          logout={jest.fn()}
+          fetchOrders={jest.fn()}
+          editOrder={jest.fn()}
+          cancelOrder={cancelOrderMock}
+          push={jest.fn()}
+          order={customersOrdersObj.orders[3]}
+          isFetching={false}
+        />
+      </Provider>);
+
+    const wrapper = mount(comp, rrcMock.get());
+
+    wrapper.find(CustomerOrderDetails).find('.control-btns>a').at(1).simulate('click');
+
+    expect(cancelOrderMock).toHaveBeenCalled();
 
     wrapper.unmount();
   });

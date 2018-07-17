@@ -6,7 +6,6 @@ import MealImageModal from './MealImageModal';
 import DeleteMealModal from './DeleteMealModal';
 import CloseIcon from '../CloseIcon';
 import './Modal.scss';
-import OrderSuccessModal from './OrderSuccessModal';
 
 /**
  * @exports
@@ -56,6 +55,7 @@ class Modal extends Component {
       case 'deleteSuccessMsg':
         return 'Delete Meal';
       case 'orderSuccessMsg':
+      case 'orderCanceledMsg':
         return null;
       case 'newMealImage':
         return 'Add a Meal Image';
@@ -87,7 +87,9 @@ class Modal extends Component {
       case 'deleteMeal':
         return <DeleteMealModal {...this.props} />;
       case 'orderSuccessMsg':
-        return <OrderSuccessModal {...this.props} />;
+        return <p className="text-center">Thank you for your order. Your belly will be filled up shortly</p>;
+      case 'orderCanceledMsg':
+        return <p className="text-center">Order Canceled Successfully</p>;
       case 'deleteSuccessMsg':
         return <p className="text-center">Meal Deleted Successfully</p>;
       case 'newMealImage':

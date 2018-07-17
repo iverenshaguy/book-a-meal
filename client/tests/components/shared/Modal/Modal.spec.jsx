@@ -66,7 +66,14 @@ describe('Modal', () => {
     const shallowWrapper = shallow(<Modal type="orderSuccessMsg" open toggleModal={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
-    expect(shallowWrapper.find('OrderSuccessModal')).toBeTruthy();
+    expect(shallowWrapper.find('p.text-center').text()).toEqual('Thank you for your order. Your belly will be filled up shortly');
+  });
+
+  it('renders correctly when type is orderCanceledMsg', () => {
+    const shallowWrapper = shallow(<Modal type="orderCanceledMsg" open toggleModal={jest.fn()} />);
+
+    expect(toJson(shallowWrapper)).toMatchSnapshot();
+    expect(shallowWrapper.find('p.text-center').text()).toEqual('Order Canceled Successfully');
   });
 
   it('renders correctly when type is menu', () => {

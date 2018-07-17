@@ -150,6 +150,8 @@ exports[`OrderDetails renders connected component 1`] = `
     }
   >
     <CustomerOrderDetails
+      cancelOrder={[Function]}
+      editOrder={[Function]}
       fetchOrders={[Function]}
       isFetching={false}
       logout={[Function]}
@@ -708,6 +710,8 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
     }
   >
     <CustomerOrderDetails
+      cancelOrder={[Function]}
+      editOrder={[Function]}
       fetchOrders={[Function]}
       isFetching={false}
       logout={[Function]}

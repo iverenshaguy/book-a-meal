@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`OrderSuccessModal renders correctly 1`] = `
-<p
-  className="text-center"
->
-  Thank you for your order. Your belly will be filled up shortly
-</p>
-`;

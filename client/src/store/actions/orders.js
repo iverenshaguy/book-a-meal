@@ -1,16 +1,17 @@
 import {
   DELIVER_ORDER_SUCCESS, DELIVER_ORDER_FAILURE, SET_DELIVERING, UNSET_DELIVERING,
   ADD_ORDER_SUCCESS, ADD_ORDER_FAILURE, SET_ORDER_WORKING, UNSET_ORDER_WORKING,
-  EDIT_ORDER_SUCCESS, EDIT_ORDER_FAILURE,
+  EDIT_ORDER_SUCCESS, EDIT_ORDER_FAILURE, CANCEL_ORDER_SUCCESS, CANCEL_ORDER_FAILURE,
+  RECEIVE_ORDERS_SUCCESS, RECEIVE_ORDERS_FAILURE
 } from '../types';
 
 export const fetchOrdersSuccess = (type, payload) => ({
-  type,
+  type: RECEIVE_ORDERS_SUCCESS,
   payload
 });
 
 export const fetchOrdersFailure = (type, payload) => ({
-  type,
+  type: RECEIVE_ORDERS_FAILURE,
   payload
 });
 
@@ -57,5 +58,15 @@ export const editOrderSuccess = payload => ({
 
 export const editOrderFailure = payload => ({
   type: EDIT_ORDER_FAILURE,
+  payload
+});
+
+export const cancelOrderSuccess = payload => ({
+  type: CANCEL_ORDER_SUCCESS,
+  payload
+});
+
+export const cancelOrderFailure = payload => ({
+  type: CANCEL_ORDER_FAILURE,
   payload
 });
