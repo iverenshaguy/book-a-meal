@@ -23,6 +23,8 @@ class CustomerOrderDetails extends Component {
     logout: PropTypes.func.isRequired,
     push: PropTypes.func.isRequired,
     fetchOrders: PropTypes.func.isRequired,
+    editOrder: PropTypes.func.isRequired,
+    cancelOrder: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
@@ -31,7 +33,7 @@ class CustomerOrderDetails extends Component {
 
   /**
    * @memberof CustomerOrderDetails
-   * @returns {JSX} CustomerOrderDetails Component
+   * @returns {func} fetchOrders
   */
   componentDidMount() {
     this.fetchOrders();
@@ -39,7 +41,7 @@ class CustomerOrderDetails extends Component {
 
   /**
    * @memberof CustomerOrderDetails
-   * @returns {JSX} CustomerOrderDetails Component
+   * @returns {func} fetchOrders
   */
   fetchOrders = () => {
     this.props.fetchOrders();
@@ -48,7 +50,7 @@ class CustomerOrderDetails extends Component {
   /**
    * @memberof CustomerOrderDetails
    * @param {object} e
-   * @returns {JSX} CustomerOrderDetails Component
+   * @returns {func} push
   */
   editOrder = (e) => {
     e.preventDefault();
@@ -66,6 +68,17 @@ class CustomerOrderDetails extends Component {
 
     this.props.push('/');
   }
+
+  /**
+   * @memberof CustomerOrderDetails
+   * @param {object} e
+   * @returns {func} editOrder
+  */
+ cancelOrder = (e) => {
+   e.preventDefault();
+
+   this.props.cancelOrder(this.props.order.id);
+ }
 
   /**
    * @memberof CustomerOrderDetails
@@ -103,7 +116,7 @@ class CustomerOrderDetails extends Component {
         <a onClick={this.editOrder} href="/">
           <button className="btn btn-sec order-details-btn">Edit</button>
         </a>
-        <a href="./user-menu.html">
+        <a onClick={this.cancelOrder} href="./user-menu.html">
           <button className="btn btn-sec-danger order-details-btn">Cancel</button>
         </a>
       </div>
