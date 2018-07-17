@@ -56,8 +56,9 @@ class View extends Component {
    */
   render() {
     const {
-      user, logout, type, showTime
+      user, logout, type, showTime,
     } = this.props;
+
     const mainClass = classNames({
       admin: !this.customerOrderTypes.includes(type),
       user: user.role === 'customer'
@@ -79,7 +80,7 @@ class View extends Component {
             {this.renderContent()}
           </div>}
         {user.role === 'customer' && this.renderContent()}
-        <Modal />
+        <Modal {...this.props} />
         <Footer />
       </div>
     );

@@ -739,11 +739,37 @@ exports[`CustomerMenu renders connected component 1`] = `
               </div>
             </div>
           </div>
-          <Connect(Modal)>
+          <Connect(Modal)
+            isFetching={false}
+            logout={[Function]}
+            showTime={true}
+            type="menu"
+            user={
+              Object {
+                "email": "emiola@olasanmi.com",
+                "firstname": "Emiola",
+                "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                "lastname": "Olasanmi",
+                "role": "customer",
+              }
+            }
+          >
             <Modal
+              isFetching={false}
+              logout={[Function]}
               open={false}
+              showTime={true}
               toggleModal={[Function]}
               type={null}
+              user={
+                Object {
+                  "email": "emiola@olasanmi.com",
+                  "firstname": "Emiola",
+                  "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                  "lastname": "Olasanmi",
+                  "role": "customer",
+                }
+              }
             />
           </Connect(Modal)>
           <Footer>
@@ -1501,11 +1527,37 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
             </div>
           </div>
         </div>
-        <Connect(Modal)>
+        <Connect(Modal)
+          isFetching={false}
+          logout={[MockFunction]}
+          showTime={true}
+          type="menu"
+          user={
+            Object {
+              "email": "emiola@olasanmi.com",
+              "firstname": "Emiola",
+              "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+              "lastname": "Olasanmi",
+              "role": "customer",
+            }
+          }
+        >
           <Modal
+            isFetching={false}
+            logout={[MockFunction]}
             open={false}
+            showTime={true}
             toggleModal={[Function]}
             type={null}
+            user={
+              Object {
+                "email": "emiola@olasanmi.com",
+                "firstname": "Emiola",
+                "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                "lastname": "Olasanmi",
+                "role": "customer",
+              }
+            }
           />
         </Connect(Modal)>
         <Footer>

@@ -6,6 +6,8 @@ exports[`Meals renders Preloader when fetching 1`] = `
     isFetching={true}
     logout={[MockFunction]}
     showTime={true}
+    submitError={null}
+    submitting={false}
     type="meals"
     user={
       Object {
@@ -73,10 +75,6 @@ exports[`Meals renders Preloader when fetching 1`] = `
       </div>
     </React.Fragment>
   </View>
-  <Connect(Modal)
-    submitError={null}
-    submitting={false}
-  />
 </React.Fragment>
 `;
 
@@ -170,6 +168,8 @@ exports[`Meals renders connected component 1`] = `
         isFetching={false}
         logout={[Function]}
         showTime={true}
+        submitError={null}
+        submitting={false}
         type="meals"
         user={
           Object {
@@ -716,11 +716,43 @@ exports[`Meals renders connected component 1`] = `
               </div>
             </div>
           </div>
-          <Connect(Modal)>
+          <Connect(Modal)
+            isFetching={false}
+            logout={[Function]}
+            showTime={true}
+            submitError={null}
+            submitting={false}
+            type="meals"
+            user={
+              Object {
+                "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+                "businessName": "Food Circle",
+                "businessPhoneNo": "+2348166557788",
+                "email": "food@circle.com",
+                "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                "role": "caterer",
+              }
+            }
+          >
             <Modal
+              isFetching={false}
+              logout={[Function]}
               open={false}
+              showTime={true}
+              submitError={null}
+              submitting={false}
               toggleModal={[Function]}
               type={null}
+              user={
+                Object {
+                  "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+                  "businessName": "Food Circle",
+                  "businessPhoneNo": "+2348166557788",
+                  "email": "food@circle.com",
+                  "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                  "role": "caterer",
+                }
+              }
             />
           </Connect(Modal)>
           <Footer>
@@ -734,18 +766,6 @@ exports[`Meals renders connected component 1`] = `
           </Footer>
         </div>
       </View>
-      <Connect(Modal)
-        submitError={null}
-        submitting={false}
-      >
-        <Modal
-          open={false}
-          submitError={null}
-          submitting={false}
-          toggleModal={[Function]}
-          type={null}
-        />
-      </Connect(Modal)>
     </Meals>
   </Connect(Meals)>
 </Provider>
@@ -757,6 +777,8 @@ exports[`Meals renders correctly when not fetching 1`] = `
     isFetching={false}
     logout={[MockFunction]}
     showTime={true}
+    submitError={null}
+    submitting={false}
     type="meals"
     user={
       Object {
@@ -824,10 +846,6 @@ exports[`Meals renders correctly when not fetching 1`] = `
       </div>
     </React.Fragment>
   </View>
-  <Connect(Modal)
-    submitError={null}
-    submitting={false}
-  />
 </React.Fragment>
 `;
 
@@ -837,6 +855,8 @@ exports[`Meals renders message when not fetching and there are no meals 1`] = `
     isFetching={true}
     logout={[MockFunction]}
     showTime={true}
+    submitError={null}
+    submitting={false}
     type="meals"
     user={
       Object {
@@ -872,9 +892,5 @@ exports[`Meals renders message when not fetching and there are no meals 1`] = `
       </div>
     </React.Fragment>
   </View>
-  <Connect(Modal)
-    submitError={null}
-    submitting={false}
-  />
 </React.Fragment>
 `;

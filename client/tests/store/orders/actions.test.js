@@ -39,7 +39,7 @@ const store = mockStore({
 process.env.EXPIRY = 2000;
 describe('Orders Actions', () => {
   test('fetchOrdersSuccess', () => {
-    const action = fetchOrdersSuccess('RECEIVE_ORDERS_SUCCESS', caterersOrdersObj);
+    const action = fetchOrdersSuccess(caterersOrdersObj);
 
     expect(action).toEqual({
       type: 'RECEIVE_ORDERS_SUCCESS',
@@ -48,7 +48,7 @@ describe('Orders Actions', () => {
   });
 
   test('fetchOrdersFailure', () => {
-    const action = fetchOrdersFailure('RECEIVE_ORDERS_FAILURE', 'error');
+    const action = fetchOrdersFailure('error');
 
     expect(action).toEqual({
       type: 'RECEIVE_ORDERS_FAILURE',
