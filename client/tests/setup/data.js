@@ -482,6 +482,22 @@ export const customersOrdersObj = {
           },
           quantity: 1,
           delivered: true
+        },
+        {
+          id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce4',
+          title: 'Vegetable Sharwama and Guava Smoothie',
+          imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+          description: 'Sharwama contains no animal products, perfect for dieters',
+          vegetarian: true,
+          price: '1200.00',
+          caterer: {
+            businessName: 'FoodCircle',
+            businessAddress: '4, Church Street, Yaba',
+            businessPhoneNo: '+2348134567890',
+            email: 'food@circle.com'
+          },
+          quantity: 1,
+          delivered: true
         }
       ],
     },

@@ -3,19 +3,21 @@ import moment from 'moment';
 import className from 'classnames';
 import { Link } from 'react-router-dom';
 import { calculateCashEarnedFromOrder } from '../../../helpers';
-import { catererOrderObjPropTypes } from '../../../helpers/proptypes';
+import { userPropTypes, catererOrderObjPropTypes } from '../../../helpers/proptypes';
 
 /**
  * @exports
  * @function OrderPill
  * @returns {JSX} OrderPill
  */
-const OrderPill = ({ order }) => {
+const OrderPill = ({ order, user }) => {
   const statusClass = className({
     danger: order.status === 'canceled',
-    warning: order.status === 'pending',
+    warning: order.status === 'pending' || order.status === 'started',
     success: order.status === 'delivered',
   });
+
+  const status = order.status === 'started' ? 'Pending' : order.status;
 
   return (
     <div className="order-history-pill admin-order-history-pill">
@@ -26,11 +28,16 @@ const OrderPill = ({ order }) => {
         </div>
         <hr />
         <div>
-          <p>{`${order.customer.firstname} ${order.customer.lastname}`}&nbsp; - &nbsp;{`${order.deliveryAddress}`}&nbsp; - &nbsp;{`${order.deliveryPhoneNo}`}</p>
+          {user.role === 'caterer' &&
+            <p>{`${order.customer.firstname} ${order.customer.lastname}`}&nbsp; - &nbsp;{`${order.deliveryAddress}`}&nbsp; - &nbsp;{`${order.deliveryPhoneNo}`}</p>}
+          {user.role === 'customer' &&
+            <p key={order.meals[0].id}>
+              {`${order.meals[0].quantity}x ${order.meals[0].title}`}{order.meals.length > 1 ? '...' : null}
+            </p>}
         </div>
         <div className="order-history-footer">
-          <h4>Status:
-            <span style={{ textTransform: 'capitalize' }} className={statusClass}> {order.status}</span>
+          <h4 style={{ textTransform: 'capitalize' }}>Status:
+            <span style={{ textTransform: 'capitalize' }} className={statusClass}> {status}</span>
           </h4>
           <h2>&#8358;{calculateCashEarnedFromOrder(order.meals)}</h2>
         </div>
@@ -40,7 +47,12 @@ const OrderPill = ({ order }) => {
 };
 
 OrderPill.propTypes = {
-  order: catererOrderObjPropTypes.isRequired
+  ...userPropTypes,
+  order: catererOrderObjPropTypes
+};
+
+OrderPill.defaultProps = {
+  order: {}
 };
 
 export default OrderPill;

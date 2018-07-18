@@ -130,9 +130,9 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                               Menu
                             </Link>
                             <Link
-                              href="/"
+                              href="/orders"
                               replace={false}
-                              to="/"
+                              to="/orders"
                             >
                               Order History
                             </Link>
@@ -206,12 +206,12 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                               </a>
                             </Link>
                             <Link
-                              href="/"
+                              href="/orders"
                               replace={false}
-                              to="/"
+                              to="/orders"
                             >
                               <a
-                                href="/"
+                                href="/orders"
                                 onClick={[Function]}
                               >
                                 Order History

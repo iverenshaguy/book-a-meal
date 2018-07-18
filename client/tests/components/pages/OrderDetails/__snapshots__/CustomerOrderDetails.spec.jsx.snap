@@ -185,6 +185,22 @@ exports[`OrderDetails renders connected component 1`] = `
               "title": "Vegetable Sharwama and Guava Smoothie",
               "vegetarian": true,
             },
+            Object {
+              "caterer": Object {
+                "businessAddress": "4, Church Street, Yaba",
+                "businessName": "FoodCircle",
+                "businessPhoneNo": "+2348134567890",
+                "email": "food@circle.com",
+              },
+              "delivered": true,
+              "description": "Sharwama contains no animal products, perfect for dieters",
+              "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce4",
+              "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "price": "1200.00",
+              "quantity": 1,
+              "title": "Vegetable Sharwama and Guava Smoothie",
+              "vegetarian": true,
+            },
           ],
           "status": "delivered",
           "updatedAt": "2018-04-06T00:47:03.687Z",
@@ -293,9 +309,9 @@ exports[`OrderDetails renders connected component 1`] = `
                               Menu
                             </Link>
                             <Link
-                              href="/"
+                              href="/orders"
                               replace={false}
-                              to="/"
+                              to="/orders"
                             >
                               Order History
                             </Link>
@@ -369,12 +385,12 @@ exports[`OrderDetails renders connected component 1`] = `
                               </a>
                             </Link>
                             <Link
-                              href="/"
+                              href="/orders"
                               replace={false}
-                              to="/"
+                              to="/orders"
                             >
                               <a
-                                href="/"
+                                href="/orders"
                                 onClick={[Function]}
                               >
                                 Order History
@@ -449,6 +465,22 @@ exports[`OrderDetails renders connected component 1`] = `
                       "title": "Vegetable Sharwama and Guava Smoothie",
                       "vegetarian": true,
                     },
+                    Object {
+                      "caterer": Object {
+                        "businessAddress": "4, Church Street, Yaba",
+                        "businessName": "FoodCircle",
+                        "businessPhoneNo": "+2348134567890",
+                        "email": "food@circle.com",
+                      },
+                      "delivered": true,
+                      "description": "Sharwama contains no animal products, perfect for dieters",
+                      "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce4",
+                      "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                      "price": "1200.00",
+                      "quantity": 1,
+                      "title": "Vegetable Sharwama and Guava Smoothie",
+                      "vegetarian": true,
+                    },
                   ]
                 }
               >
@@ -457,6 +489,21 @@ exports[`OrderDetails renders connected component 1`] = `
                 >
                   <div
                     key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                  >
+                    <p>
+                      1
+                      x
+                    </p>
+                    <p>
+                      Vegetable Sharwama and Guava Smoothie
+                    </p>
+                    <p>
+                      ₦
+                      1200
+                    </p>
+                  </div>
+                  <div
+                    key="36d525d1-efc9-4b75-9999-3e3d8dc64ce4"
                   >
                     <p>
                       1
@@ -491,6 +538,22 @@ exports[`OrderDetails renders connected component 1`] = `
                       "title": "Vegetable Sharwama and Guava Smoothie",
                       "vegetarian": true,
                     },
+                    Object {
+                      "caterer": Object {
+                        "businessAddress": "4, Church Street, Yaba",
+                        "businessName": "FoodCircle",
+                        "businessPhoneNo": "+2348134567890",
+                        "email": "food@circle.com",
+                      },
+                      "delivered": true,
+                      "description": "Sharwama contains no animal products, perfect for dieters",
+                      "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce4",
+                      "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                      "price": "1200.00",
+                      "quantity": 1,
+                      "title": "Vegetable Sharwama and Guava Smoothie",
+                      "vegetarian": true,
+                    },
                   ]
                 }
                 type="user"
@@ -504,7 +567,7 @@ exports[`OrderDetails renders connected component 1`] = `
                     </p>
                     <h2>
                       ₦
-                      1200
+                      2400
                     </h2>
                   </div>
                 </div>
@@ -852,9 +915,9 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                               Menu
                             </Link>
                             <Link
-                              href="/"
+                              href="/orders"
                               replace={false}
-                              to="/"
+                              to="/orders"
                             >
                               Order History
                             </Link>
@@ -928,12 +991,12 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                               </a>
                             </Link>
                             <Link
-                              href="/"
+                              href="/orders"
                               replace={false}
-                              to="/"
+                              to="/orders"
                             >
                               <a
-                                href="/"
+                                href="/orders"
                                 onClick={[Function]}
                               >
                                 Order History
