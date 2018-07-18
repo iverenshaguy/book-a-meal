@@ -29,7 +29,7 @@ class Dashboard extends Component {
    */
   componentDidMount() {
     const todaysDate = moment().format('YYYY-MM-DD');
-    this.props.fetchOrders('caterer', todaysDate);
+    this.props.fetchOrders(todaysDate);
   }
 
   /**

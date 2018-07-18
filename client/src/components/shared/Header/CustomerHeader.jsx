@@ -30,7 +30,7 @@ const CustomerHeader = ({ logout, user, active }) => (
           content={
             <Fragment>
               <Link href="/" to="/" className={`${active === 'menu' && 'active'}`}>Menu</Link>
-              <Link href="/" to="/">Order History</Link>
+              <Link href="/orders" to="/orders">Order History</Link>
               <Link href="/" to="/" onClick={logout}>Logout</Link>
             </Fragment>
           }
