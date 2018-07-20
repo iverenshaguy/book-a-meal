@@ -6,6 +6,7 @@ import MealCard from '../../../shared/MealCard';
 import DatePicker from '../../../shared/DatePicker';
 import View from '../../../shared/View';
 import { userPropTypes, mealObjPropTypes } from '../../../../helpers/proptypes';
+import InfiniteLoading from '../../../shared/InfiniteLoading';
 
 /**
  * @exports
@@ -65,6 +66,12 @@ class CatererMenu extends Component {
   renderCatererMenu = () => {
     const now = moment().format('YYYY-MM-DD');
     const disableAddButton = moment(now).isAfter(moment(this.props.currentDay)) ? true : null;
+    const menu = this.props.meals.map(meal =>
+      (<MealCard
+        type="menu"
+        key={meal.id}
+        meal={meal}
+      />));
 
     return (
       <Fragment>
@@ -84,12 +91,7 @@ class CatererMenu extends Component {
           {this.props.meals.length === 0 && <p className="text-center">There are no Meal Items on this Menu</p>}
           {this.props.meals.length !== 0 &&
             <div className="card-group meals-wrapper" id="card-group">
-              {this.props.meals.map(meal =>
-                (<MealCard
-                  type="menu"
-                  key={meal.id}
-                  meal={meal}
-                />))}
+              <InfiniteLoading items={menu} limit={8} />
             </div>}
         </div>
       </Fragment>
@@ -99,8 +101,8 @@ class CatererMenu extends Component {
 
   /**
    * @memberof CatererMenu
-* @returns {JSX} CatererMenu Component
-  */
+   * @returns {JSX} CatererMenu Component
+   */
   render() {
     const {
       user, meals, logout, submitting, submitError, isFetching

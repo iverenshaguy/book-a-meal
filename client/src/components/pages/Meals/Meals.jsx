@@ -4,6 +4,7 @@ import Redirect from 'react-router-dom/Redirect';
 import MealCard from '../../shared/MealCard';
 import View from '../../shared/View';
 import { userPropTypes, mealObjPropTypes } from '../../../helpers/proptypes';
+import InfiniteLoading from '../../shared/InfiniteLoading';
 
 /**
  * @exports
@@ -66,28 +67,33 @@ class Meals extends Component {
    * @memberof Meals
    * @returns {JSX} Board Component
    */
-  renderMeals = () => (
-    <Fragment>
-      <div className="content-wrapper meals caterer-meals">
-        <div className="top">
-          <button className="btn btn-pri" id="add-meal-btn" onClick={() => this.props.toggleModal('addMeal')}>
+  renderMeals = () => {
+    const mealItems = this.props.meals.map(meal =>
+      (<MealCard
+        type="caterer"
+        key={meal.id}
+        meal={meal}
+        toggleModal={type => this.toggleModal(meal.id, type)}
+      />));
+
+
+    return (
+      <Fragment>
+        <div className="content-wrapper meals caterer-meals">
+          <div className="top">
+            <button className="btn btn-pri" id="add-meal-btn" onClick={() => this.props.toggleModal('addMeal')}>
             Add a New Meal
-          </button>
-        </div>
-        {this.props.meals.length === 0 && <p className="text-center">You Do Not Have Any Meals Yet</p>}
-        {this.props.meals.length !== 0 &&
+            </button>
+          </div>
+          {this.props.meals.length === 0 && <p className="text-center">You Do Not Have Any Meals Yet</p>}
+          {this.props.meals.length !== 0 &&
           <div className="card-group meals-wrapper" id="card-group">
-            {this.props.meals.reverse().map(meal =>
-              (<MealCard
-                type="caterer"
-                key={meal.id}
-                meal={meal}
-                toggleModal={type => this.toggleModal(meal.id, type)}
-              />))}
+            <InfiniteLoading items={mealItems.reverse()} limit={8} />
           </div>}
-      </div>
-    </Fragment>
-  )
+        </div>
+      </Fragment>
+    );
+  }
 
 
   /**

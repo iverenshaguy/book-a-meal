@@ -9,6 +9,7 @@ import checkShopOpen from '../../../../helpers/checkShopOpen';
 import getOrderFromLocalStorage from '../../../../helpers/getOrderFromLocalStorage';
 import updateLocalStorageOrder from '../../../../helpers/updateLocalStorageOrder';
 import './CustomerMenu.scss';
+import InfiniteLoading from '../../../shared/InfiniteLoading';
 
 /**
  * @exports
@@ -51,7 +52,7 @@ class CustomerMenu extends Component {
   /**
    * @memberof CustomerMenu
    * @param {string} itemId
-   * @returns {nothing} nothing
+   * @returns {void}
    */
   getItemIndex = itemId => this.state.order.meals.findIndex(item => item.id === itemId)
 
@@ -77,7 +78,7 @@ class CustomerMenu extends Component {
   /**
    * @memberof CustomerMenu
    * @param {object} meal
-   * @returns {nothing} nothing
+   * @returns {void}
    */
   addOrderItem = (meal) => {
     const item = {
@@ -99,7 +100,7 @@ class CustomerMenu extends Component {
   /**
    * @memberof CustomerMenu
    * @param {object} orderItem
-   * @returns {nothing} nothing
+   * @returns {void}
    */
   updateOrderItem = (orderItem) => {
     const itemIndex = this.getItemIndex(orderItem.id);
@@ -123,7 +124,7 @@ class CustomerMenu extends Component {
   /**
    * @memberof CustomerMenu
    * @param {string} itemId
-   * @returns {nothing} nothing
+   * @returns {void}
    */
   removeOrderItem = (itemId) => {
     this.setState(prevState => ({
@@ -174,18 +175,20 @@ class CustomerMenu extends Component {
   */
   renderMenu = () => {
     const { meals } = this.props;
+    const mealItems = meals.map(meal =>
+      (<MealCard
+        type="customer"
+        key={meal.id}
+        meal={meal}
+        orderMeal={() => this.handleOrderMealClick(meal)}
+      />));
+
     return (
       <Fragment>
         {meals.length === 0 && <p className="text-center">{'There are no Meals on Today\'s Menu'}</p>}
         {meals.length !== 0 &&
           <div className="card-group meals-wrapper" id="card-group">
-            {meals.map(meal =>
-              (<MealCard
-                type="customer"
-                key={meal.id}
-                meal={meal}
-                orderMeal={() => this.handleOrderMealClick(meal)}
-              />))}
+            <InfiniteLoading items={mealItems} limit={9} />
           </div>}
       </Fragment>
     );

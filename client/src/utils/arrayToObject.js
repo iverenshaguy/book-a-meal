@@ -3,7 +3,7 @@
  * @function arrayToObject
  * @param {array} array - array
  * @param {any} value - value
- * @returns {nothing} returns nothing
+ * @returns {void}
  */
 const arrayToObject = (array, value) => array.reduce((obj, item) => {
   obj[item] = value;

@@ -66,7 +66,7 @@ class Modal extends Component {
 
   /**
    * @memberof Modal
-   * @returns {nothing} nothing
+   * @returns {void}
    */
   handleToggleModalClick = () => this.props.toggleModal()
 

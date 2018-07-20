@@ -14,7 +14,7 @@ class Notifications {
    * @memberof Notifications
    * @param {object} menu
    * @param {string} catererId
-   * @returns {nothing} returns nothing
+   * @returns {void}
    */
   static notifyAllUsers(menu, catererId) {
     return db.User.findOne({ where: { userId: catererId } }).then((user) => {
@@ -32,7 +32,7 @@ class Notifications {
    * @memberof Notifications
    * @param {object} order
    * @param {string} userId
-   * @returns {nothing} returns nothing
+   * @returns {void}
    */
   static notifyCaterer(order, userId) {
     db.User.findOne({ where: { userId } }).then((user) => {

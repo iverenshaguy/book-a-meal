@@ -68,7 +68,7 @@ class Form extends Component {
 
   /**
    * @memberof Form
-   * @returns {nothing} Returns nothing
+   * @returns {void}
    */
   componentDidMount = () => {
     this.clearFormErrors();
@@ -77,7 +77,7 @@ class Form extends Component {
 
   /**
    * @memberof Form
-   * @returns {nothing} Returns nothing
+   * @returns {void}
    */
   clearFormErrors = () => {
     const { type } = this.state;
@@ -89,7 +89,7 @@ class Form extends Component {
   /**
    * @memberof Form
    * @param {object} event
-   * @returns {nothing} Returns nothing
+   * @returns {void}
    */
   handleChange = (event) => {
     const { target } = event;
@@ -106,7 +106,7 @@ class Form extends Component {
   /**
    * @memberof Form
    * @param {object} event
-   * @returns {nothing} Returns nothing
+   * @returns {void}
    */
   handleFocus = (event) => {
     const { target } = event;
@@ -120,7 +120,7 @@ class Form extends Component {
   /**
    * @memberof Form
    * @param {object} event
-   * @returns {nothing} Returns nothing
+   * @returns {void}
    */
   handleBlur = (event) => {
     const { target } = event;
@@ -135,7 +135,7 @@ class Form extends Component {
    * @memberof Form
    * @param {string} name
    * @param {string} value
-   * @returns {nothing} Returns nothing
+   * @returns {void}
    */
   validateField = (name) => {
     const { type } = this.state;
@@ -149,7 +149,7 @@ class Form extends Component {
 
   /**
    * @memberof Form
-   * @returns {nothing} Returns nothing
+   * @returns {void}
    */
   validateForm = () => {
     const formErrorArrayLength = formErrorCount(this.state.error);
@@ -171,7 +171,7 @@ class Form extends Component {
 
   /**
    * @memberof Form
-   * @returns {nothing} Returns nothing
+   * @returns {void}
    */
   submitter = () => {
     const { type, values } = this.state;
@@ -180,6 +180,7 @@ class Form extends Component {
 
     switch (type) {
       case 'editMeal':
+        delete values.imageURL;
         return formSubmitMapper[type](meal.id, values, true);
       default:
         return formSubmitMapper[type](values);
@@ -190,14 +191,14 @@ class Form extends Component {
    * @memberof Form
    * @param {string} id
    * @param {object} mealObj
-   * @returns {nothing} Returns nothing
+   * @returns {void}
    */
   updateMealImage = (id, mealObj) => this.props.dispatch(editMeal(id, mealObj, false))
 
   /**
    * @memberof Form
    * @param {object} event
-   * @returns {nothing} Returns nothing
+   * @returns {void}
    */
   handleSubmit = (event) => {
     event.preventDefault();
