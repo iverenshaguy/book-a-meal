@@ -12,7 +12,7 @@ class Notifications {
    * @method create
    * @memberof Notifications
    * @param {object} messageBody
-   * @returns {nothing} Returns nothing
+   * @returns {void}
    * Generated automatically when some actions are taken
    */
   static async create(messageBody) {

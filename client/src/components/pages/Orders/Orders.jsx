@@ -4,6 +4,7 @@ import OrderPill from '../../shared/OrderPill';
 import View from '../../shared/View';
 import { userPropTypes, catererOrderObjPropTypes, customerOrderObjPropTypes } from '../../../helpers/proptypes';
 import './Orders.scss';
+import InfiniteLoading from '../../shared/InfiniteLoading';
 
 /**
  * @exports
@@ -39,22 +40,26 @@ class Orders extends Component {
    * @memberof Orders
    * @returns {JSX} Orders Component
    */
-  renderOrders = () => (
-    <div className={`main-wrapper ${this.props.user.role === 'caterer' ? 'dashboard' : null}`}>
-      <div className="order-history">
-        <div className="page-heading">
-          <h2>Order History</h2>
-          <hr />
-        </div>
-        {this.props.orders.length === 0 && <p className="text-center">You Have No Orders</p>}
-        {this.props.orders.length !== 0 &&
+  renderOrders = () => {
+    const orders = this.props.orders.map(order =>
+      <OrderPill key={order.id} order={order} user={this.props.user} />);
+
+    return (
+      <div className={`main-wrapper ${this.props.user.role === 'caterer' ? 'dashboard' : null}`}>
+        <div className="order-history">
+          <div className="page-heading">
+            <h2>Order History</h2>
+            <hr />
+          </div>
+          {this.props.orders.length === 0 && <p className="text-center">You Have No Orders</p>}
+          {this.props.orders.length !== 0 &&
           <div className="pills">
-            {this.props.orders.map(order =>
-              <OrderPill key={order.id} order={order} user={this.props.user} />)}
+            <InfiniteLoading items={orders} limit={8} />
           </div>}
+        </div>
       </div>
-    </div>
-  )
+    );
+  }
 
 
   /**

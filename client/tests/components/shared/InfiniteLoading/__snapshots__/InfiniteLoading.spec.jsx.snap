@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfiniteLoading renders correctly 1`] = `
+<InfiniteLoading
+  items={
+    Array [
+      <p>
+        Heya!
+      </p>,
+      <p>
+        Heya!
+      </p>,
+      <p>
+        Heya!
+      </p>,
+      <p>
+        Heya!
+      </p>,
+      <p>
+        Heya!
+      </p>,
+      <p>
+        Heya!
+      </p>,
+      <p>
+        Heya!
+      </p>,
+      <p>
+        Heya!
+      </p>,
+      <p>
+        Heya!
+      </p>,
+      <p>
+        Heya!
+      </p>,
+    ]
+  }
+  limit={3}
+>
+  <InfiniteScroll
+    dataLength={3}
+    disableBrowserPullToRefresh={true}
+    hasMore={true}
+    loader={
+      <div
+        className="text-center"
+      >
+        <MiniPreloader />
+      </div>
+    }
+    next={[Function]}
+    pullDownToRefreshContent={
+      <h3>
+        Pull down to refresh
+      </h3>
+    }
+    pullDownToRefreshThreshold={100}
+    releaseToRefreshContent={
+      <h3>
+        Release to refresh
+      </h3>
+    }
+  >
+    <div
+      style={Object {}}
+    >
+      <div
+        className="infinite-scroll-component"
+        style={
+          Object {
+            "WebkitOverflowScrolling": "touch",
+            "height": "auto",
+            "overflow": "auto",
+          }
+        }
+      >
+        <div
+          className="scroller"
+        >
+          <p
+            key="0"
+          >
+            Heya!
+          </p>
+          <p
+            key="1"
+          >
+            Heya!
+          </p>
+          <p
+            key="2"
+          >
+            Heya!
+          </p>
+        </div>
+        <div
+          className="text-center"
+        >
+          <MiniPreloader>
+            <Loader
+              active={true}
+              type="ball-beat"
+            >
+              <div
+                className="loader loader-undefined loader-active"
+              >
+                <div
+                  className="loader-inner ball-beat"
+                >
+                  <div
+                    key="0"
+                    style={Object {}}
+                  />
+                  <div
+                    key="1"
+                    style={Object {}}
+                  />
+                  <div
+                    key="2"
+                    style={Object {}}
+                  />
+                </div>
+              </div>
+            </Loader>
+          </MiniPreloader>
+        </div>
+      </div>
+    </div>
+  </InfiniteScroll>
+</InfiniteLoading>
+`;

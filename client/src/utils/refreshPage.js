@@ -5,7 +5,7 @@ import { resetUser, authenticateUser } from '../store/operations/auth';
  * Refreshes and reauthenticates page with token in local storage
  * @function refreshPage
  * @param {store} store - store
- * @returns {nothing} returns nothing
+ * @returns {void}
  */
 const refreshPage = (store) => {
   if (localStorage.getItem('jwtToken')) {

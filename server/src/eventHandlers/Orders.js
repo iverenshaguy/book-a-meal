@@ -15,7 +15,7 @@ class Orders {
    * @memberof Orders
    * @param {object} order
    * @param {string} userId
-   * @returns {nothing} returns nothing
+   * @returns {void}
    */
   static startOrderProcess(order, userId) {
     // expiry is 15 minutes
@@ -36,7 +36,7 @@ class Orders {
    * @method markOrderAsDelivered
    * @memberof Orders
    * @param {object} order
-   * @returns {nothing} returns nothing
+   * @returns {void}
    */
   static markOrderAsDelivered(order) {
     order.reload();

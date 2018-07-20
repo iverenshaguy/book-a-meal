@@ -21,7 +21,7 @@ class SideNav extends Component {
   /**
    * @memberof SideNav
    * @param {string} location
-   * @returns {nothing} nothing
+   * @returns {void}
    */
   handleLinkClick = (location) => {
     this.props.toggleSideNav();
@@ -30,7 +30,7 @@ class SideNav extends Component {
 
   /**
    * @memberof SideNav
-   * @returns {nothing} nothing
+   * @returns {void}
    */
   handleToggleSideNavClick = () => this.props.toggleSideNav()
 

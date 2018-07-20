@@ -24,7 +24,7 @@ class Auth extends Component {
    * @static
    * @memberof Auth
    * @param {object} props
-   * @returns {nothing} nothing
+   * @returns {void}
    */
   static getDerivedStateFromProps(props) {
     return { type: props.type === 'signup' ? 'customerSignup' : props.type };

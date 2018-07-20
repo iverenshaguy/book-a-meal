@@ -142,7 +142,9 @@ describe('CustomerMenu', () => {
       const addOrderSpy = jest.spyOn(wrapper.instance(), 'addOrderItem');
       const handleOrderMealClickSpy = jest.spyOn(wrapper.instance(), 'handleOrderMealClick');
 
-      wrapper.find('MealCard').at(1).dive().find('.meal-card-btn')
+      wrapper.find('InfiniteLoading').dive().find('MealCard').at(1)
+        .dive()
+        .find('.meal-card-btn')
         .simulate('click');
 
       expect(handleOrderMealClickSpy).toHaveBeenCalled();
@@ -169,7 +171,9 @@ describe('CustomerMenu', () => {
       const updateOrderItemSpy = jest.spyOn(wrapper.instance(), 'updateOrderItem');
       const handleOrderMealClickSpy = jest.spyOn(wrapper.instance(), 'handleOrderMealClick');
 
-      wrapper.find('MealCard').at(0).dive().find('.meal-card-btn')
+      wrapper.find('InfiniteLoading').dive().find('MealCard').at(0)
+        .dive()
+        .find('.meal-card-btn')
         .simulate('click');
 
       expect(updateOrderItemSpy).toHaveBeenCalled();

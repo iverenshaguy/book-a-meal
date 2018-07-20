@@ -5,7 +5,7 @@ import moment from 'moment';
  * @function updateLocalStorageOrder
  * @param {string} userId
  * @param {object} order
- * @returns {nothing} nothing
+ * @returns {void}
 */
 const updateLocalStorageOrder = (userId, order) => {
   localStorage.setItem('bookamealorder', JSON.stringify({

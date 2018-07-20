@@ -25,7 +25,7 @@ class RenderFileInput extends Component {
 
   /**
    * @memberof Form
-   * @returns {nothing} Returns nothing
+   * @returns {void}
   */
   handleClick = () => {
     const { clearUploadError } = this.props;
@@ -39,7 +39,7 @@ class RenderFileInput extends Component {
    * @memberof Form
    * @param {object} event
    * @param {element} preview
-   * @returns {nothing} Returns nothing
+   * @returns {void}
    */
   handleChange = (event) => {
     const file = event.target.files[0];

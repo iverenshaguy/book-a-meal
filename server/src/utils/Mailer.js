@@ -19,7 +19,7 @@ class Mailer {
    * @param {string} to
    * @param {string} subject
    * @param {string} message
-   * @returns {nothing} returns nothing
+   * @returns {void}
    */
   static sendMail({ to, subject, message }) {
     const transporter = nodemailer.createTransport({
@@ -47,7 +47,7 @@ class Mailer {
    * @memberof Mailer
    * @param {array} meals
    * @param {string} businessName
-   * @returns {nothing} returns nothing
+   * @returns {void}
    */
   static menuMail(meals, businessName) {
     return db.User.findAll({ where: { role: 'customer' }, attributes: ['firstname', 'email'] })
@@ -81,7 +81,7 @@ class Mailer {
    * @param {object} order
    * @param {object} customer
    * @param {string} catererId
-   * @returns {nothing} returns nothing
+   * @returns {void}
    */
   static catererOrderMail(order, customer, catererId) {
     return db.User.findOne({ where: { userId: catererId }, attributes: ['userId', 'businessName', 'email'] })
@@ -120,7 +120,7 @@ class Mailer {
    * @memberof Mailer
    * @param {string} token
    * @param {string} email
-   * @returns {nothing} returns nothing
+   * @returns {void}
    */
   static forgotPasswordMail(token, email) {
     const message =
@@ -145,7 +145,7 @@ class Mailer {
    * @method resetPasswordMail
    * @memberof Mailer
    * @param {string} email
-   * @returns {nothing} returns nothing
+   * @returns {void}
    */
   static resetPasswordMail(email) {
     const message =
