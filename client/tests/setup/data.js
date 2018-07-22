@@ -13,6 +13,10 @@ export const initialValues = {
       pathname: '/home'
     }
   },
+  toastr: {
+    toastrs: [],
+    confirm: null
+  },
   meals: {
     items: [],
     working: false,

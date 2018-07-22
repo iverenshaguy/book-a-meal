@@ -5,6 +5,7 @@
 @import './modules/cards.scss';
 @import './modules/form_elements.scss';
 @import './modules/username_circle.scss';
+
 html {
   margin: 0;
   height: 100%;
@@ -497,5 +498,44 @@ hr {
   .auth,
   .order-confirmation {
     width: 40%;
+  }
+}
+
+// toastr
+.toastr {
+  border-radius: 2px !important;
+
+  &.rrt-success {
+    background-color: $primary-color !important;
+  }
+
+  .rrt-left-container {
+    display: none;
+  }
+
+  .rrt-middle-container {
+    margin-left: 0px !important;
+    height: 70px;
+    width: 90% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+      font-weight: 400 !important;
+    }
+  }
+
+  .toastr-icon {
+    font-weight: 400;
+  }
+
+  .close-toastr {
+    color: white;
+    opacity: 0.8 !important;
+  }
+
+  .rrt-title {
+    font-weight: 400;
   }
 }

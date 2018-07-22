@@ -1,4 +1,5 @@
 import { push } from 'react-router-redux';
+import { toastr } from 'react-redux-toastr';
 import instance from '../../config/axios';
 import errorHandler from '../../utils/errorHandler';
 import { setFetching, unsetFetching } from '../actions/isFetching';
@@ -7,7 +8,6 @@ import {
   setDelivering, unsetDelivering, addOrderSuccess, addOrderFailure, setOrderWorking,
   unsetOrderWorking, editOrderSuccess, editOrderFailure, cancelOrderSuccess, cancelOrderFailure,
 } from '../actions/orders';
-import { toggleModal } from '../actions/ui';
 import reloadOrderPage from '../../utils/reloadOrderPage';
 
 const fetchOrders = date => async (dispatch) => {
@@ -33,6 +33,7 @@ const deliverOrder = id => async (dispatch) => {
     const response = await instance.post(`/orders/${id}/deliver`, { delivered: true });
 
     dispatch(deliverOrderSuccess(response.data));
+    toastr.success('Order Delivered Successfully');
     dispatch(unsetDelivering());
   } catch (error) {
     const errorResponse = errorHandler(error);
@@ -49,11 +50,10 @@ const addOrder = order => async (dispatch) => {
     const response = await instance.post('/orders', order);
 
     dispatch(addOrderSuccess(response.data));
+    toastr.success('Order Made Successfully');
     dispatch(unsetOrderWorking());
-    dispatch(toggleModal('orderSuccessMsg'));
 
     setTimeout(() => {
-      dispatch(toggleModal());
       dispatch(push(`/orders/${response.data.id}`));
     }, 500);
 
@@ -73,11 +73,10 @@ const editOrder = (orderId, order) => async (dispatch) => {
     const response = await instance.put(`/orders/${orderId}`, order);
 
     dispatch(editOrderSuccess(response.data));
+    toastr.success('Order Modified Successfully');
     dispatch(unsetOrderWorking());
-    dispatch(toggleModal('orderSuccessMsg'));
 
     setTimeout(() => {
-      dispatch(toggleModal());
       dispatch(push(`/orders/${response.data.id}`));
     }, 500);
 
@@ -97,13 +96,9 @@ const cancelOrder = id => async (dispatch) => {
     const response = await instance.put(`/orders/${id}`, { status: 'canceled' });
 
     dispatch(cancelOrderSuccess(response.data));
+    toastr.success('Order Canceled Successfully');
     dispatch(unsetOrderWorking());
     dispatch(push('/'));
-    dispatch(toggleModal('orderCanceledMsg'));
-
-    setTimeout(() => {
-      dispatch(toggleModal());
-    }, 500);
   } catch (error) {
     const errorResponse = errorHandler(error);
 

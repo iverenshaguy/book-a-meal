@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { toastr } from 'react-redux-toastr';
 import instance from '../../config/axios';
 import errorHandler from '../../utils/errorHandler';
 import { setFetching, unsetFetching } from '../actions/isFetching';
@@ -39,8 +40,8 @@ const addMenu = menu => async (dispatch) => {
 
     const response = await instance.post('/menu', menu);
 
-
     dispatch(addMenuSuccess(response.data));
+    toastr.success('Menu Set Successfully');
     dispatch(unsetMenuWorking());
     dispatch(toggleModal());
   } catch (error) {
@@ -58,6 +59,7 @@ const editMenu = (id, menu) => async (dispatch) => {
     const response = await instance.put(`/menu/${id}`, menu);
 
     dispatch(editMenuSuccess(response.data));
+    toastr.success('Menu Set Successfully');
     dispatch(unsetMenuWorking());
     dispatch(toggleModal());
   } catch (error) {
