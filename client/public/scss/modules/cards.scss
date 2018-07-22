@@ -11,11 +11,15 @@
   border-radius: 5px;
 }
 
-.card-group, .card-group .scroller {
-  display: grid;
-  padding: 40px 25px;
-  grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+.card-group {
+
+  .scroller, &.summary {
+    display: grid;
+    padding: 40px 25px;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-items: center;
+  }
 
   &>div:not(.meal-card), .card-group .scroller {
     padding: 0;

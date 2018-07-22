@@ -1,3 +1,4 @@
+import { toastr } from 'react-redux-toastr';
 import instance from '../../config/axios';
 import errorHandler from '../../utils/errorHandler';
 import { setFetching, unsetFetching } from '../actions/isFetching';
@@ -31,6 +32,7 @@ const addMeal = meal => async (dispatch) => {
     const response = await instance.post('/meals', meal);
 
     dispatch(addMealSuccess(response.data));
+    toastr.success('Meal Added Successfully');
     dispatch(unsetMealWorking());
     dispatch(toggleModal());
     dispatch(toggleModal('newMealImage'));
@@ -50,7 +52,10 @@ const editMeal = (id, updatedMeal, toggleModalOnEdit) => async (dispatch) => {
 
     dispatch(editMealSuccess(response.data));
     dispatch(unsetMealWorking());
-    if (toggleModalOnEdit) dispatch(toggleModal());
+    if (toggleModalOnEdit) {
+      dispatch(toggleModal());
+      toastr.success('Meal Modified Successfully');
+    }
   } catch (error) {
     const errorResponse = errorHandler(error);
 
@@ -66,12 +71,9 @@ const deleteMeal = id => async (dispatch) => {
     await instance.delete(`/meals/${id}`);
 
     dispatch(deleteMealSuccess(id));
+    toastr.success('Meal Deleted Successfully');
     dispatch(unsetMealWorking());
     dispatch(toggleModal());
-    dispatch(toggleModal('deleteSuccessMsg'));
-    setTimeout(() => {
-      dispatch(toggleModal());
-    }, 500);
   } catch (error) {
     const errorResponse = errorHandler(error);
 

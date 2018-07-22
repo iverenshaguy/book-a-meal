@@ -253,7 +253,7 @@ describe('Meals Actions', () => {
       });
 
       it('dispatches SET_MEAL_WORKING, DELETE_MEAL_SUCCESS, UNSET_MEAL_WORKING and TOGGLE_MODAL on successful meal delete', () => {
-        const expectedActions = ['SET_MEAL_WORKING', 'DELETE_MEAL_SUCCESS', 'UNSET_MEAL_WORKING', 'TOGGLE_MODAL', 'TOGGLE_MODAL', 'TOGGLE_MODAL'];
+        const expectedActions = ['SET_MEAL_WORKING', 'DELETE_MEAL_SUCCESS', 'UNSET_MEAL_WORKING', 'TOGGLE_MODAL'];
 
         moxios.stubRequest(`${url}/meals/${newMeal.id}`, {
           status: 200

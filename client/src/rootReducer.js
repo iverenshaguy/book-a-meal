@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
+import { reducer as toastrReducer } from 'react-redux-toastr';
 import createHistory from 'history/createBrowserHistory';
 import { UNAUTHENTICATED } from './store/types';
 import uploadImage from './store/reducers/uploadImage';
@@ -14,6 +15,7 @@ export const history = createHistory();
 
 const appReducer = combineReducers({
   router: routerReducer,
+  toastr: toastrReducer,
   uploadImage,
   isFetching,
   orders,

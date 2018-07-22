@@ -92,6 +92,7 @@
     "react-infinite-scroll-component": "^4.1.0",
     "react-loaders": "^3.0.1",
     "react-redux": "^5.0.7",
+    "react-redux-toastr": "^7.3.0",
     "react-router-dom": "^4.2.2",
     "react-router-enzyme-context": "^1.2.0",
     "react-router-redux": "^5.0.0-alpha.9",

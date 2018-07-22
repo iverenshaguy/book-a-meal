@@ -224,7 +224,7 @@ describe('Orders Actions', () => {
       });
 
       it('dispatches SET_ORDER_WORKING, ADD_ORDER_SUCCESS, TOGGLE_MODAL, @@router/CALL_HISTORY_METHOD,  and UNSET_ORDER_WORKING on successful order addition', () => {
-        const expectedActions = ['SET_ORDER_WORKING', 'ADD_ORDER_SUCCESS', 'UNSET_ORDER_WORKING', 'TOGGLE_MODAL', 'TOGGLE_MODAL', '@@router/CALL_HISTORY_METHOD'];
+        const expectedActions = ['SET_ORDER_WORKING', 'ADD_ORDER_SUCCESS', 'UNSET_ORDER_WORKING', '@@router/CALL_HISTORY_METHOD'];
 
         moxios.stubRequest(`${url}/orders`, {
           status: 201,
@@ -263,7 +263,7 @@ describe('Orders Actions', () => {
       });
 
       it('dispatches SET_ORDER_WORKING, EDIT_ORDER_SUCCESS, TOGGLE_MODAL, @@router/CALL_HISTORY_METHOD,  and UNSET_ORDER_WORKING on successful order edit', () => {
-        const expectedActions = ['SET_ORDER_WORKING', 'EDIT_ORDER_SUCCESS', 'UNSET_ORDER_WORKING', 'TOGGLE_MODAL', 'TOGGLE_MODAL', '@@router/CALL_HISTORY_METHOD'];
+        const expectedActions = ['SET_ORDER_WORKING', 'EDIT_ORDER_SUCCESS', 'UNSET_ORDER_WORKING', '@@router/CALL_HISTORY_METHOD'];
 
         moxios.stubRequest(`${url}/orders/${customerOrder.id}`, {
           status: 200,
@@ -302,7 +302,7 @@ describe('Orders Actions', () => {
       });
 
       it('dispatches SET_ORDER_WORKING,CANCEL_ORDER_SUCCESS, TOGGLE_MODAL, @@router/CALL_HISTORY_METHOD, and UNSET_ORDER_WORKING on successful order cancelation', () => {
-        const expectedActions = ['SET_ORDER_WORKING', 'CANCEL_ORDER_SUCCESS', 'UNSET_ORDER_WORKING', '@@router/CALL_HISTORY_METHOD', 'TOGGLE_MODAL', 'TOGGLE_MODAL'];
+        const expectedActions = ['SET_ORDER_WORKING', 'CANCEL_ORDER_SUCCESS', 'UNSET_ORDER_WORKING', '@@router/CALL_HISTORY_METHOD'];
 
         moxios.stubRequest(`${url}/orders/${customerOrder.id}`, {
           status: 200,
