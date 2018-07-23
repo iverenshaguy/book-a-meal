@@ -1,0 +1,111 @@
+@import '../../../../public/scss/_variables';
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.4);
+
+  .content {
+    flex: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      font-family: $heading-font-stack;
+      font-size: 1.2em;
+      color: white;
+      
+      a {
+        // color: darken($primary-color, 15%);
+        color: white;
+        text-decoration: underline;
+        font-size: 0.8em;
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: darken($primary-color, 15%);
+        }
+      }
+    }
+
+    .smiley {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      border: 5px solid white;
+      height: 100px;
+      width: 100px;
+      box-sizing: border-box;
+
+      p, .eyes {
+        font-size: 2em;
+        color: white;
+        font-weight: 700;
+        height: 60px;
+      }
+
+      .eyes {
+        span:first-child {
+          margin-right: 20px;
+        }
+
+        span:last-child {
+          margin-left: 20px;
+        }
+      }
+
+      .sad {
+        margin-top: 25px;
+        height: 40px;
+        width: 40%;
+        border-top: 3px solid white;
+        border-radius: 50%;
+        box-sizing: border-box;
+      }
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .content {
+      p {
+        font-size: 2em;
+      }
+  
+      .smiley {
+        border: 5px solid white;
+        height: 200px;
+        width: 200px;
+        box-sizing: border-box;
+  
+        p, .eyes {
+          font-size: 4em;
+          height: 120px;
+        }
+  
+        .eyes {
+          span:first-child {
+            margin-right: 40px;
+          }
+  
+          span:last-child {
+            margin-left: 40px;
+          }
+        }
+  
+        .sad {
+          margin-top: 50px;
+          height: 80px;
+          border-top: 4px solid white;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+}

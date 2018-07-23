@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
-import { Route } from 'react-router-dom';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import NotFound from './../pages/NotFound';
 import Auth from './../pages/Auth';
 import Welcome from './../pages/Welcome';
 import Meals from './../pages/Meals';
@@ -16,7 +17,7 @@ import '../../../public/scss/style.scss';
  * @returns {component} Routes
  */
 const Routes = () => (
-  <Fragment>
+  <Switch>
     <Route exact path="/" component={Welcome} />
     <Route exact path="/meals" component={requiresAuthentication(Meals)} />
     <Route exact path="/menu" component={requiresAuthentication(Menu)} />
@@ -25,10 +26,9 @@ const Routes = () => (
     <Route exact path="/order-confirmation" component={requiresAuthentication(OrderConfirmation)} />
     <Route exact path="/orders/:id" component={requiresAuthentication(OrderDetails)} />
     <Route exact path="/signin" render={props => <Auth {...props} type="signin" />} />
-    <Route exact path="/signup" render={props => <Auth {...props} type="customerSignup" />} />
-    <Route exact path="/signup/customer" render={props => <Auth {...props} type="customerSignup" />} />
-    <Route exact path="/signup/caterer" render={props => <Auth {...props} type="catererSignup" />} />
-  </Fragment>
+    <Route exact path="/signup" render={props => <Auth {...props} type="signup" />} />
+    <Route path="/*" component={NotFound} />
+  </Switch>
 );
 
 export default Routes;

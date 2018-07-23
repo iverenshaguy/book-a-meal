@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import queryString from 'query-string';
 import { urlPropTypes, authPropTypes } from '../../../helpers/proptypes';
 import Header from '../../shared/Header';
 import Footer from '../../shared/Footer';
@@ -24,10 +25,17 @@ class Auth extends Component {
    * @static
    * @memberof Auth
    * @param {object} props
-   * @returns {void}
+   * @returns {nothing} nothing
    */
   static getDerivedStateFromProps(props) {
-    return { type: props.type === 'signup' ? 'customerSignup' : props.type };
+    const query = queryString.parse(props.location.search);
+    const { role } = query;
+
+    if (props.type === 'signup') {
+      return { type: role === 'caterer' ? 'catererSignup' : 'customerSignup' };
+    }
+
+    return { type: 'signin' };
   }
 
   state = {
@@ -42,9 +50,9 @@ class Auth extends Component {
     let btnText, para1, para2;
 
     const catererSignupLink =
-      <Link href="/signup/caterer" to="/signup/caterer">Signup as a Caterer</Link>;
+      <Link href="/signup?role=caterer" to="/signup?role=caterer">Signup as a Caterer</Link>;
     const customerSignupLink =
-      <Link href="/signup/customer" to="/signup/customer">Signup as a Customer</Link>;
+      <Link href="/signup?role=customer" to="/signup?role=customer">Signup as a Customer</Link>;
     const signinLink = (
       <Fragment>
         Already have an account? Sign in <Link href="/signin" to="/signin">here</Link>
@@ -60,7 +68,7 @@ class Auth extends Component {
         break;
       default:
         btnText = 'SIGN IN';
-        para1 = <Fragment>{"Don't have an account, signup"} <Link href="/signup/customer" to="/signup/customer">here</Link></Fragment>;
+        para1 = <Fragment>{"Don't have an account, signup"} <Link href="/signup?role=customer" to="/signup?role=customer">here</Link></Fragment>;
         para2 = catererSignupLink;
     }
 

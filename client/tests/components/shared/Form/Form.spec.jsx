@@ -88,6 +88,37 @@ describe('Form', () => {
     expect(shallowRoot.find('button[disabled=true]')).toBeTruthy();
   });
 
+  it('changes form state when prop: type changes', () => {
+    const { props, dispatchMock } = setup('signin', meta);
+
+    const shallowRoot = shallow(<FormComponent {...props} dispatch={dispatchMock} />);
+
+    shallowRoot.setProps({
+      type: 'editMeal'
+    });
+
+    shallowRoot.update();
+
+    expect(shallowRoot.state().type).toEqual('editMeal');
+  });
+
+  it('does not change form state when prop: type does not change but props update', () => {
+    const { props, dispatchMock } = setup('signin', meta);
+
+    const shallowRoot = shallow(<FormComponent {...props} dispatch={dispatchMock} />);
+
+    shallowRoot.setProps({
+      type: 'signin',
+      test: 'test'
+    });
+
+
+    shallowRoot.update();
+
+    expect(shallowRoot.state().type).toEqual('signin');
+    expect(shallowRoot.state().test).toEqual(undefined);
+  });
+
   describe('test for right input', () => {
     it('calls handleChange on input change for email field', () => {
       const { mountRoot, dispatchMock } = setup('signin', meta);

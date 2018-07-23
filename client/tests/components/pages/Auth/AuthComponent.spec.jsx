@@ -84,22 +84,15 @@ describe('AuthComponent', () => {
     expect(wrapper.state().type).toEqual('signin');
   });
 
-  it('sets state on mount: signup', () => {
+  it('sets state on mount: customerSignup', () => {
     const comp = (<AuthComponent {...props} location={customerSignupLocation} type="signup" />);
     const wrapper = shallow(comp);
 
     expect(wrapper.state().type).toEqual('customerSignup');
   });
 
-  it('sets state on mount: customerSignup', () => {
-    const comp = (<AuthComponent {...props} location={customerSignupLocation} type="customerSignup" />);
-    const wrapper = shallow(comp);
-
-    expect(wrapper.state().type).toEqual('customerSignup');
-  });
-
   it('sets state on mount: catererSignup', () => {
-    const comp = (<AuthComponent {...props} location={catererSignupLocation} type="catererSignup" />);
+    const comp = (<AuthComponent {...props} location={catererSignupLocation} type="signup" />);
     const wrapper = shallow(comp);
 
     expect(wrapper.state().type).toEqual('catererSignup');
