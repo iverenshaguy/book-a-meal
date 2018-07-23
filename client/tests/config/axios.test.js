@@ -25,7 +25,7 @@ describe('Axios Instance', () => {
   it('reloads page for expired token', () => {
     window.location.reload = jest.fn();
 
-    moxios.stubRequest('/api/v1/auth/refreshToken', {
+    moxios.stubRequest('/api/v1/auth/refresh_token', {
       status: 403,
       response: {
         error: 'User authorization token is expired'

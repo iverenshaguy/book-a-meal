@@ -217,7 +217,7 @@ describe('Auth Actions', () => {
       it('dispatches AUTHENTICATING and AUTHENTICATION_SUCCESS on successful authentication', () => {
         const expectedActions = ['AUTHENTICATING', 'AUTHENTICATED'];
 
-        moxios.stubRequest(`${url}/auth/refreshToken`, {
+        moxios.stubRequest(`${url}/auth/refresh_token`, {
           status: 200,
           response: { token, newCustomer }
         }, 5);
@@ -235,7 +235,7 @@ describe('Auth Actions', () => {
       it('dispatches AUTHENTICATING and AUTHENTICATION_ERROR on unsuccessful authentication', () => {
         const expectedActions = ['AUTHENTICATING', 'AUTHENTICATION_ERROR'];
 
-        moxios.stubRequest(`${url}/auth/refreshToken`, {
+        moxios.stubRequest(`${url}/auth/refresh_token`, {
           status: 500
         }, 5);
 
@@ -243,7 +243,6 @@ describe('Auth Actions', () => {
           const dispatchedActions = store.getActions();
 
           const actionTypes = dispatchedActions.map(action => action.type);
-
 
           expect(actionTypes).toEqual(expectedActions);
           expect(localStorage.getItem('jwtToken')).toEqual(undefined);

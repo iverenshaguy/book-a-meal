@@ -39,19 +39,19 @@ class Meals {
     req.body.userId = req.userId;
     req.body.price = parseFloat(req.body.price);
 
-    const mealExists = await db.Meal.findOne({
-      where: { title: { [Op.iLike]: req.body.title }, userId: req.userId }
-    });
+    await db.Meal
+      .findOrCreate({
+        where: { title: { [Op.iLike]: req.body.title }, userId: req.userId },
+        defaults: req.body,
+        include: [{
+          model: db.User, as: 'caterer'
+        }]
+      })
+      .spread((meal, created) => {
+        if (!created) return res.status(409).json({ error: 'Meal already exists' });
 
-    if (mealExists) return res.status(409).json({ error: 'Meal already exists' });
-
-    const meal = await db.Meal.create(req.body, {
-      include: [{
-        model: db.User, as: 'caterer'
-      }]
-    });
-
-    return res.status(201).json(Meals.getMealObject(meal));
+        return res.status(201).json(Meals.getMealObject(meal));
+      });
   }
 
   /**
@@ -62,12 +62,13 @@ class Meals {
    * @param {object} res
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
+   * First checks db to ensure another meal doesnt have the new meal title
    */
   static async update(req, res) {
     const { mealId } = req.params;
     const { userId } = req;
 
-    const existingMeal = await db.Meal.findOne({
+    const existingMealWithTitle = await db.Meal.findOne({
       where: {
         title: { [Op.iLike]: req.body.title },
         mealId: { [Op.not]: mealId },
@@ -75,7 +76,7 @@ class Meals {
       }
     });
 
-    if (existingMeal) return res.status(409).json({ error: 'Meal already exists' });
+    if (existingMealWithTitle) return res.status(409).json({ error: 'Meal already exists' });
 
     if (req.body.price) req.body.price = parseFloat(req.body.price);
 

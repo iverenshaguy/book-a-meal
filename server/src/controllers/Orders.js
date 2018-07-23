@@ -155,14 +155,7 @@ class Orders {
    * @returns {(function|object)} Function next() or JSON object
    */
   static async update(req, res) {
-    const { orderId } = req.params;
-    const order = await db.Order.findOne({ where: { orderId, userId: req.userId } });
-
-    if (!order) return res.status(404).json({ error: errors[404] });
-    if (order.status === 'pending') return res.status(400).json({ error: 'Order is being processed and cannot be edited' });
-    if (order.status === 'canceled') return res.status(400).json({ error: 'Order has been canceled' });
-    if (order.status === 'delivered') return res.status(400).json({ error: 'Order is expired' });
-
+    const { order } = req;
     const updatedOrder = await order.update({ ...order, ...req.body }).then(async () => {
       if (req.body.meals) {
         await order.setMeals([]);
@@ -181,6 +174,28 @@ class Orders {
     });
 
     return res.status(200).json(updatedOrder);
+  }
+
+  /**
+   * Checks Order status before updating order
+   * @method checkOrderStatus
+   * @memberof Orders
+   * @param {object} req
+   * @param {object} res
+   * @param {func} next
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  static async checkOrderStatus(req, res, next) {
+    const { orderId } = req.params;
+    const order = await db.Order.findOne({ where: { orderId, userId: req.userId } });
+
+    if (!order) return res.status(404).json({ error: errors[404] });
+    if (order.status === 'pending') return res.status(400).json({ error: 'Order is being processed and cannot be edited' });
+    if (order.status === 'canceled') return res.status(400).json({ error: 'Order has been canceled' });
+    if (order.status === 'delivered') return res.status(400).json({ error: 'Order is expired' });
+
+    req.order = order;
+    return next();
   }
 
   /**
@@ -255,18 +270,41 @@ class Orders {
    * @param {string} role
    * @param {array} orders
    * @returns {number} Pending Orders
-   * Checks the first caterers meal to see if it is delivered
-   * Delivering one meal delivers all meals
-   * One undelivered meal means all caterers meals are undelievered
    */
   static pendingOrders(role, orders) {
     if (role === 'caterer') {
-      return orders.reduce((totalPending, order) => {
-        if (!order.meals[0].dataValues.delivered) return totalPending + 1;
-        return totalPending + 0;
-      }, 0);
+      return Orders.catererPendingOrders(orders);
     }
 
+    return Orders.customerPendingOrders(orders);
+  }
+
+  /**
+   * Gets number of caterer's pending orders
+   * @method catererPendingOrders
+   * @memberof Orders
+   * @param {array} orders
+   * @returns {number} Pending Orders
+   * Checks the first caterers meal to see if it is delivered
+   * Delivering one meal delivers all meals
+   * One undelivered meal means all caterers meals are undelivered
+   */
+  static catererPendingOrders(orders) {
+    return orders.reduce((totalPending, order) => {
+      if (!order.meals[0].dataValues.delivered) return totalPending + 1;
+      return totalPending + 0;
+    }, 0);
+  }
+
+  /**
+   * Gets number of caterer's pending orders
+   * @method customerPendingOrders
+   * @memberof Orders
+   * @param {array} orders
+   * @returns {number} Pending Orders
+   * returns number of orders with status started or pending
+   */
+  static customerPendingOrders(orders) {
     return orders.reduce((total, order) => {
       if (order.status === 'pending' || order.status === 'started') {
         return total + 1;

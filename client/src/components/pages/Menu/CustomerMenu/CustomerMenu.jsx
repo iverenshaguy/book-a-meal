@@ -211,7 +211,7 @@ class CustomerMenu extends Component {
                 <h2>{'Today\'s Menu'}</h2>
                 <hr />
               </div>
-              {!isShopOpen && <Notification message="Ordering is only available between 4:00pm and 8:30am. Please check back later." />}
+              {!isShopOpen && <Notification message="Ordering is only available between 8:30am and 4:00pm. Please check back later." />}
               {this.renderMenu()}
             </div>
             <Cart

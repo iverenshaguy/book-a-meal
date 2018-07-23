@@ -28,7 +28,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Use webpack dev middleware
+// Use webpack dev middleware for frontend
 webpackDev(app, process.env.NODE_ENV);
 
 // Documentation

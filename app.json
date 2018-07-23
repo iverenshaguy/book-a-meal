@@ -42,6 +42,9 @@
     },
     "SECRET": {
       "required": true
+    },
+    "TZ": {
+      "required": true
     }
   },
   "formation": {

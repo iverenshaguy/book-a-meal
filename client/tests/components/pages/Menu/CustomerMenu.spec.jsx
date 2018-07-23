@@ -98,7 +98,7 @@ describe('CustomerMenu', () => {
     const wrapper = mount(comp, rrcMock.get());
 
     expect(toJson(wrapper)).toMatchSnapshot();
-    expect(wrapper.find('p.notif').text()).toEqual('Ordering is only available between 4:00pm and 8:30am. Please check back later.');
+    expect(wrapper.find('p.notif').text()).toEqual('Ordering is only available between 8:30am and 4:00pm. Please check back later.');
     dateNowSpy.mockReset();
     dateNowSpy.mockRestore();
   });

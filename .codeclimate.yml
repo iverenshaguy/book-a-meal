@@ -1,15 +1,5 @@
 version: "2"
 
-# checks:
-#  return-statements:
-#    enabled: false
-#  similar-code:
-#    enabled: false
-#  identical-code:
-#    enabled: false
-#  file-lines:
-#    enabled: false
-
 exclude_paths:
 - "UI/"
 - "server/docs"
@@ -23,4 +13,3 @@ exclude_paths:
 - "server/src/seeders"
 - "server/src/migrations"
 - "server/src/validations"
-- "server/src/dummyControllers"

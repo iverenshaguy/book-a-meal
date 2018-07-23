@@ -25,6 +25,7 @@ class Orders {
       if (order.status !== 'canceled') {
         order.update({ status: 'pending' }).then(async () => {
           const mappedOrder = await mapCaterersOrder(order);
+
           return NotificationHandler.notifyCaterer(mappedOrder, userId);
         });
       }

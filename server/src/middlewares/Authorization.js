@@ -16,7 +16,6 @@ class Authorization {
    */
   constructor(type) {
     this.type = type;
-    this.authorizeRole = this.authorizeRole.bind(this);
   }
 
   /**
@@ -100,7 +99,7 @@ class Authorization {
    * @returns {(function|object)} Function next() or JSON object
    * return 403 forbidden error if user doesn't have required role
    */
-  authorizeRole(req, res, next) {
+  authorizeRole = (req, res, next) => {
     const { type } = this;
 
     if (type !== req.role) {

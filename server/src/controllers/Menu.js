@@ -26,28 +26,28 @@ class Menu {
     req.body.date = req.body.date || defaultDate;
     req.body.meals = [...(new Set(req.body.meals))];
 
-    const doesMenuExist = await db.Menu.findOne({ where: { date: req.body.date, userId } });
-
-    if (doesMenuExist) return res.status(400).json({ error: 'Menu already exists for this day' });
-
-    const newMenu = await db.Menu.create({ date: req.body.date, userId }, {
+    await db.Menu.findOrCreate({
+      where: { date: req.body.date, userId },
+      defaults: { date: req.body.date, userId },
       attributes: [['menuId', 'id'], 'date'],
       include: [{
         model: db.User,
         as: 'caterer'
       }]
-    }).then(async (menu) => {
+    }).spread(async (menu, created) => {
+      if (!created) return res.status(400).json({ error: 'Menu already exists for this day' });
+
       await menu.setMeals(req.body.meals, { through: db.MenuMeal });
       await Menu.getArrayOfMeals(menu);
 
-      return Menu.getMenuObject(menu);
+      const newMenu = Menu.getMenuObject(menu);
+
+      if (req.body.date === moment().format('YYYY-MM-DD')) {
+        notifEmitter.emit('createMenu', newMenu, req.userId);
+      }
+
+      return res.status(201).json(newMenu);
     });
-
-    if (req.body.date === moment().format('YYYY-MM-DD')) {
-      notifEmitter.emit('createMenu', newMenu, req.userId);
-    }
-
-    return res.status(201).json(newMenu);
   }
 
 
@@ -175,7 +175,7 @@ class Menu {
   static getMenuObject(menu) {
     return {
       id: menu.getDataValue('menuId'),
-      date: menu.getDataValue('date'),
+      date: moment(menu.getDataValue('date')).format('YYYY-MM-DD'),
       meals: menu.dataValues.meals
     };
   }

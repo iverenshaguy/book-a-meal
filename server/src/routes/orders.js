@@ -20,6 +20,6 @@ ordersRoutes.post('/:orderId/deliver', catererAuth, ordersValidation.deliver, re
 ordersRoutes.use(userAuth);
 
 ordersRoutes.post('/', ValidationHandler.isShopOpen, ordersValidation.create, reqBodyValidation, asyncWrapper(Orders.create));
-ordersRoutes.put('/:orderId', ordersValidation.update, reqBodyValidation, asyncWrapper(Orders.update));
+ordersRoutes.put('/:orderId', ordersValidation.update, reqBodyValidation, asyncWrapper(Orders.checkOrderStatus), asyncWrapper(Orders.update));
 
 export default ordersRoutes;

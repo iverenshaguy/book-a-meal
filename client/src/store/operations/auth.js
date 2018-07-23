@@ -37,7 +37,7 @@ const authenticateUser = () => async (dispatch) => {
   try {
     dispatch(authenticating());
 
-    const res = await instance.get('/auth/refreshToken');
+    const res = await instance.get('/auth/refresh_token');
 
     localStorage.setItem('jwtToken', res.data.token);
 
