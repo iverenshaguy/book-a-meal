@@ -23,8 +23,6 @@
     "migrate:test": "sequelize db:migrate:undo:all --env=test && sequelize db:migrate --env=test",
     "seed": "sequelize db:seed:all",
     "seed:test": "sequelize db:seed:all --env=test",
-    "test:e2e": "cross-env NODE_ENV=test nightwatch",
-    "e2e:setup": "selenium-standalone install --config=./selenium.config.js",
     "coverage": "npm run merge:lcov && cat ./coverage/lcov.info | coveralls",
     "test": "npm-run-all test:server test:client",
     "test:server": "cross-env NODE_ENV=test SECRET=mytestsecret nyc mocha ./server/tests/test.js --recursive --timeout 50000 --exit",

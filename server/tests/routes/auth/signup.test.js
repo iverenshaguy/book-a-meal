@@ -207,7 +207,7 @@ describe('Signup Routes', () => {
     it('returns error for already taken email address', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
-        .send({ ...rightCatererData, email: 'food@circle.com' })
+        .send({ ...rightCatererData, email: 'food@circle.com', businessName: 'A Business' })
         .end((err, res) => {
           expect(res.statusCode).to.equal(409);
           expect(res.body).to.be.an('object');

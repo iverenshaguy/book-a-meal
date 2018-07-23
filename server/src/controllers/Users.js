@@ -19,29 +19,34 @@ class Users {
    * @returns {(function|object)} Function next() or JSON object
    */
   static async register(req, res) {
-    const userExists = await db.User.findOne({ where: { email: { [Op.iLike]: req.body.email } } });
-    if (userExists) return res.status(409).send({ error: 'Email already in use' });
+    if (req.body.role === 'caterer') {
+      const businessNameExists = await db.User.findOne({
+        where: { businessName: { [Op.iLike]: req.body.businessName } }
+      });
 
-    const businessNameExists = await db.User.findOne({
-      where: { businessName: { [Op.iLike]: req.body.businessName } }
+      if (businessNameExists) return res.status(409).send({ error: 'Business name already in use' });
+    }
+
+    db.User.findOrCreate({
+      where: { email: { [Op.iLike]: req.body.email } },
+      defaults: {
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        businessName: req.body.businessName,
+        email: req.body.email.toLowerCase(),
+        password: req.body.password,
+        businessPhoneNo: req.body.businessPhoneNo,
+        businessAddress: req.body.businessAddress,
+        role: req.body.role
+      }
+    }).spread((newUser, created) => {
+      if (!created) return res.status(409).send({ error: 'Email already in use' });
+
+      const user = Users.getUserObj({ ...newUser.dataValues });
+      const token = Authorization.generateToken(user);
+
+      return res.status(201).json({ user, token });
     });
-    if (businessNameExists) return res.status(409).send({ error: 'Business name already in use' });
-
-    const newUser = await db.User.create({
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      businessName: req.body.businessName,
-      email: req.body.email.toLowerCase(),
-      password: req.body.password,
-      businessPhoneNo: req.body.businessPhoneNo,
-      businessAddress: req.body.businessAddress,
-      role: req.body.role
-    });
-
-    const user = Users.getUserObj({ ...newUser.dataValues });
-    const token = Authorization.generateToken(user);
-
-    res.status(201).json({ user, token });
   }
 
   /**

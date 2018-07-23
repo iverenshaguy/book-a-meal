@@ -101,7 +101,7 @@ class Mailer {
             </tbody>
             <tfoot><tr><th></th><th>&#8358;${totalPrice}</th></tr></tfoot>
             </table>
-            <p>See your <a href='http://${url}/${caterer.userId}/orders'>order details</a></p>
+            <p>See your <a href='http://${url}/orders/${order.orderId}'>order details</a></p>
             <p>Remember that a happy customer keeps coming back.</p>
             <p>Have a great day filling bellies.</p>
             </div>`;

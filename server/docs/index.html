@@ -1,420 +1,340 @@
+
 <!doctype html>
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>Book A Meal API Documentation</title>
-
-  <style>
-    .highlight table td {
-      padding: 5px;
-    }
-
-    .highlight table pre {
-      margin: 0;
-    }
-
-    .highlight .gh {
-      color: #999999;
-    }
-
-    .highlight .sr {
-      color: #f6aa11;
-    }
-
-    .highlight .go {
-      color: #888888;
-    }
-
-    .highlight .gp {
-      color: #555555;
-    }
-
-    .highlight .gs {}
-
-    .highlight .gu {
-      color: #aaaaaa;
-    }
-
-    .highlight .nb {
-      color: #f6aa11;
-    }
-
-    .highlight .cm {
-      color: #75715e;
-    }
-
-    .highlight .cp {
-      color: #75715e;
-    }
-
-    .highlight .c1 {
-      color: #75715e;
-    }
-
-    .highlight .cs {
-      color: #75715e;
-    }
-
-    .highlight .c,
-    .highlight .cd {
-      color: #75715e;
-    }
-
-    .highlight .err {
-      color: #960050;
-    }
-
-    .highlight .gr {
-      color: #960050;
-    }
-
-    .highlight .gt {
-      color: #960050;
-    }
-
-    .highlight .gd {
-      color: #49483e;
-    }
-
-    .highlight .gi {
-      color: #49483e;
-    }
-
-    .highlight .ge {
-      color: #49483e;
-    }
-
-    .highlight .kc {
-      color: #66d9ef;
-    }
-
-    .highlight .kd {
-      color: #66d9ef;
-    }
-
-    .highlight .kr {
-      color: #66d9ef;
-    }
-
-    .highlight .no {
-      color: #66d9ef;
-    }
-
-    .highlight .kt {
-      color: #66d9ef;
-    }
-
-    .highlight .mf {
-      color: #ae81ff;
-    }
-
-    .highlight .mh {
-      color: #ae81ff;
-    }
-
-    .highlight .il {
-      color: #ae81ff;
-    }
-
-    .highlight .mi {
-      color: #ae81ff;
-    }
-
-    .highlight .mo {
-      color: #ae81ff;
-    }
-
-    .highlight .m,
-    .highlight .mb,
-    .highlight .mx {
-      color: #ae81ff;
-    }
-
-    .highlight .sc {
-      color: #ae81ff;
-    }
-
-    .highlight .se {
-      color: #ae81ff;
-    }
-
-    .highlight .ss {
-      color: #ae81ff;
-    }
-
-    .highlight .sd {
-      color: #e6db74;
-    }
-
-    .highlight .s2 {
-      color: #e6db74;
-    }
-
-    .highlight .sb {
-      color: #e6db74;
-    }
-
-    .highlight .sh {
-      color: #e6db74;
-    }
-
-    .highlight .si {
-      color: #e6db74;
-    }
-
-    .highlight .sx {
-      color: #e6db74;
-    }
-
-    .highlight .s1 {
-      color: #e6db74;
-    }
-
-    .highlight .s {
-      color: #e6db74;
-    }
-
-    .highlight .na {
-      color: #a6e22e;
-    }
-
-    .highlight .nc {
-      color: #a6e22e;
-    }
-
-    .highlight .nd {
-      color: #a6e22e;
-    }
-
-    .highlight .ne {
-      color: #a6e22e;
-    }
-
-    .highlight .nf {
-      color: #a6e22e;
-    }
-
-    .highlight .vc {
-      color: #ffffff;
-    }
-
-    .highlight .nn {
-      color: #ffffff;
-    }
-
-    .highlight .nl {
-      color: #ffffff;
-    }
-
-    .highlight .ni {
-      color: #ffffff;
-    }
-
-    .highlight .bp {
-      color: #ffffff;
-    }
-
-    .highlight .vg {
-      color: #ffffff;
-    }
-
-    .highlight .vi {
-      color: #ffffff;
-    }
-
-    .highlight .nv {
-      color: #ffffff;
-    }
-
-    .highlight .w {
-      color: #ffffff;
-    }
-
-    .highlight {
-      color: #ffffff;
-    }
-
-    .highlight .n,
-    .highlight .py,
-    .highlight .nx {
-      color: #ffffff;
-    }
-
-    .highlight .ow {
-      color: #f92672;
-    }
-
-    .highlight .nt {
-      color: #f92672;
-    }
-
-    .highlight .k,
-    .highlight .kv {
-      color: #f92672;
-    }
-
-    .highlight .kn {
-      color: #f92672;
-    }
-
-    .highlight .kp {
-      color: #f92672;
-    }
-
-    .highlight .o {
-      color: #f92672;
-    }
-  </style>
-  <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-  <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-  <script src="javascripts/all.js"></script>
-</head>
-
-<body class="index" data-languages="[&quot;javascript&quot;]">
-  <a href="#" id="nav-button">
-    <span>
-      NAV
-      <img src="images/navbar.png" alt="Navbar" />
-    </span>
-  </a>
-  <div class="toc-wrapper">
-    <h1 style="color:white; padding:10px">Book A Meal API</h1>
-    <div class="lang-selector">
-      <a href="#" data-language-name="javascript">javascript</a>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Book A Meal API Documentation</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;javascript&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <h2 style="color: white; text-align: center">Book A Meal</h2>
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#users" class="toc-h1 toc-link" data-title="users">Users</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#signup" class="toc-h2 toc-link" data-title="signup">Signup</a>
+                  </li>
+                  <li>
+                    <a href="#signin" class="toc-h2 toc-link" data-title="signin">Signin</a>
+                  </li>
+                  <li>
+                    <a href="#password-reset-forgot-password" class="toc-h2 toc-link" data-title="password-reset-forgot-password">Password Reset - Forgot Password</a>
+                  </li>
+                  <li>
+                    <a href="#password-reset-reset-password" class="toc-h2 toc-link" data-title="password-reset-reset-password">Password Reset - Reset Password</a>
+                  </li>
+                  <li>
+                    <a href="#refresh-token" class="toc-h2 toc-link" data-title="refresh-token">Refresh Token</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#meals" class="toc-h1 toc-link" data-title="meals">Meals</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-meal-options" class="toc-h2 toc-link" data-title="get-all-meal-options">Get All Meal Options</a>
+                  </li>
+                  <li>
+                    <a href="#add-a-meal-option" class="toc-h2 toc-link" data-title="add-a-meal-option">Add a Meal Option</a>
+                  </li>
+                  <li>
+                    <a href="#modify-an-existing-meal-option" class="toc-h2 toc-link" data-title="modify-an-existing-meal-option">Modify an Existing Meal Option</a>
+                  </li>
+                  <li>
+                    <a href="#delete-an-existing-meal" class="toc-h2 toc-link" data-title="delete-an-existing-meal">Delete an Existing Meal</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#menu" class="toc-h1 toc-link" data-title="menu">Menu</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-menu-per-day" class="toc-h2 toc-link" data-title="get-menu-per-day">Get Menu Per Day</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-menu" class="toc-h2 toc-link" data-title="create-a-menu">Create a Menu</a>
+                  </li>
+                  <li>
+                    <a href="#modify-a-menu" class="toc-h2 toc-link" data-title="modify-a-menu">Modify a Menu</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#orders" class="toc-h1 toc-link" data-title="orders">Orders</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-orders" class="toc-h2 toc-link" data-title="get-all-orders">Get All Orders</a>
+                  </li>
+                  <li>
+                    <a href="#create-an-order" class="toc-h2 toc-link" data-title="create-an-order">Create an Order</a>
+                  </li>
+                  <li>
+                    <a href="#modify-an-open-order" class="toc-h2 toc-link" data-title="modify-an-open-order">Modify an Open Order</a>
+                  </li>
+                  <li>
+                    <a href="#mark-order-item-as-delivered" class="toc-h2 toc-link" data-title="mark-order-item-as-delivered">Mark Order Item as Delivered</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#notifications" class="toc-h1 toc-link" data-title="notifications">Notifications</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-notifications" class="toc-h2 toc-link" data-title="get-notifications">Get Notifications</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+        </ul>
     </div>
-    <div class="search">
-      <input type="text" class="search" id="input-search" placeholder="Search">
-    </div>
-    <ul class="search-results"></ul>
-    <div id="toc" class="toc-list-h1">
-      <li>
-        <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
-      </li>
-      <li>
-        <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
-      </li>
-      <li>
-        <a href="#users" class="toc-h1 toc-link" data-title="users">Users</a>
-        <ul class="toc-list-h2">
-          <li>
-            <a href="#signup" class="toc-h2 toc-link" data-title="signup">Signup</a>
-          </li>
-          <li>
-            <a href="#signin" class="toc-h2 toc-link" data-title="signin">Signin</a>
-          </li>
-          <li>
-            <a href="#password-reset-forgot-password" class="toc-h2 toc-link" data-title="password-reset-forgot-password">Password Reset - Forgot Password</a>
-          </li>
-          <li>
-            <a href="#password-reset-reset-password" class="toc-h2 toc-link" data-title="password-reset-reset-password">Password Reset - Reset Password</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#meals" class="toc-h1 toc-link" data-title="meals">Meals</a>
-        <ul class="toc-list-h2">
-          <li>
-            <a href="#get-all-meal-options" class="toc-h2 toc-link" data-title="get-all-meal-options">Get All Meal Options</a>
-          </li>
-          <li>
-            <a href="#add-a-meal-option" class="toc-h2 toc-link" data-title="add-a-meal-option">Add a Meal Option</a>
-          </li>
-          <li>
-            <a href="#modify-an-existing-meal-option" class="toc-h2 toc-link" data-title="modify-an-existing-meal-option">Modify an Existing Meal Option</a>
-          </li>
-          <li>
-            <a href="#delete-an-existing-meal" class="toc-h2 toc-link" data-title="delete-an-existing-meal">Delete an Existing Meal</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#menu" class="toc-h1 toc-link" data-title="menu">Menu</a>
-        <ul class="toc-list-h2">
-          <li>
-            <a href="#get-menu-per-day" class="toc-h2 toc-link" data-title="get-menu-per-day">Get Menu Per Day</a>
-          </li>
-          <li>
-            <a href="#create-a-menu" class="toc-h2 toc-link" data-title="create-a-menu">Create a Menu</a>
-          </li>
-          <li>
-            <a href="#modify-a-menu" class="toc-h2 toc-link" data-title="modify-a-menu">Modify a Menu</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#orders" class="toc-h1 toc-link" data-title="orders">Orders</a>
-        <ul class="toc-list-h2">
-          <li>
-            <a href="#get-all-orders" class="toc-h2 toc-link" data-title="get-all-orders">Get All Orders</a>
-          </li>
-          <li>
-            <a href="#create-an-order" class="toc-h2 toc-link" data-title="create-an-order">Create an Order</a>
-          </li>
-          <li>
-            <a href="#modify-an-open-order" class="toc-h2 toc-link" data-title="modify-an-open-order">Modify an Open Order</a>
-          </li>
-          <li>
-            <a href="#mark-order-item-as-delivered" class="toc-h2 toc-link" data-title="mark-order-item-as-delivered">Mark Order Item as Delivered</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#notifications" class="toc-h1 toc-link" data-title="notifications">Notifications</a>
-        <ul class="toc-list-h2">
-          <li>
-            <a href="#get-notifications" class="toc-h2 toc-link" data-title="get-notifications">Get Notifications</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
-      </li>
-    </div>
-    <ul class="toc-footer">
-      <li>
-        <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
-      </li>
-    </ul>
-  </div>
-  <div class="page-wrapper">
-    <div class="dark-box"></div>
-    <div class="content">
-      <h1 id='introduction'>Introduction</h1>
-      <p>Welcome to the Book A Meal API documentation! This is the API used by the Book A Meal web interface. This is version
-        1 of the API.</p>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to the Book A Meal API documentation! This is the API used by the Book A Meal web interface.
+This is version 1 of the API.</p>
 
-      <p>
-        <code>BASE URL: https://book-a-meal-sivy.herokuapp.com/api/v1/</code>
-      </p>
-      <h1 id='authentication'>Authentication</h1>
-      <p>An authorization token is required to access all protected endpoints. Only the Login and Signup endpoints do not require
-        an authorization token. The Login and Signup endpoints are used to generate Authorization Tokens.</p>
+<p><code>BASE URL: https://book-a-meal-sivy.herokuapp.com/api/v1/</code></p>
+<h1 id='authentication'>Authentication</h1>
+<p>An authorization token is required to access all protected endpoints. Only the Login and Signup endpoints do not require an authorization token. The Login and Signup endpoints are used to generate Authorization Tokens.</p>
 
-      <p>Authorization tokens expire after 48 hours after they are generated.</p>
+<p>Authorization tokens expire after 48 hours after they are generated.</p>
 
-      <p>BookAMeal expects a token to be included in all protected API requests to the server in a header that looks like the
-        following:
-      </p>
+<p>BookAMeal expects a token to be included in all protected API requests to the server in a header that looks like the following:</p>
 
-      <p>
-        <code>Authorization: averyveryverylong.jsonwebtoken.requiredforauthentication</code>
-      </p>
+<p><code>Authorization: averyveryverylong.jsonwebtoken.requiredforauthentication</code></p>
 
-      <aside class="notice">
-        You must replace
-        <code>averylong.jsonwebtoken.requiredforauthentication</code> with your personal Authorization Token.
-      </aside>
-      <h1 id='users'>Users</h1>
-      <h2 id='signup'>Signup</h2>
-      <p>Registers a New User</p>
+<aside class="notice">
+You must replace <code>averylong.jsonwebtoken.requiredforauthentication</code> with your personal Authorization Token.
+</aside>
+<h1 id='users'>Users</h1><h2 id='signup'>Signup</h2>
+<p>Registers a New User</p>
 
-      <blockquote>
-        <p>Request Body - User</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Request Body - User</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emiola"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olasanmi"</span><span class="p">,</span><span class="w">
@@ -423,10 +343,10 @@
   </span><span class="s2">"passwordConfirm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emiolaolasanmi"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <blockquote>
-        <p>Request Body - Caterer</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Request Body - Caterer</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"caterer"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"businessName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Food Circle"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"food@circle.com"</span><span class="p">,</span><span class="w">
@@ -435,136 +355,123 @@
   </span><span class="s2">"businessPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348166557788"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"businessAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$, Herbert Macaulay Way, Yaba, Lagos"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-request'>HTTP Request</h3>
-      <ul>
-        <li>Endpoint:
-          <code>/auth/signup</code>
-        </li>
-        <li>Verb:
-          <code>POST</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
-      <h3 id='request-body-parameters'>Request Body Parameters</h3>
-      <ul>
-        <li>User</li>
-      </ul>
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<ul>
+<li>Endpoint: <code>/auth/signup</code></li>
+<li>Verb: <code>POST</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
+<h3 id='request-body-parameters'>Request Body Parameters</h3>
+<ul>
+<li>User</li>
+</ul>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Format</th>
-            <th>Details</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>role</td>
-            <td>string</td>
-            <td>Required</td>
-            <td>User role. Should be user</td>
-          </tr>
-          <tr>
-            <td>firstname</td>
-            <td>string</td>
-            <td>Required</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>lastname</td>
-            <td>string</td>
-            <td>Required</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>email</td>
-            <td>string</td>
-            <td>Required. Unique</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>password</td>
-            <td>string</td>
-            <td>Required</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>passwordConfirm</td>
-            <td>string</td>
-            <td>Required</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Details</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>role</td>
+<td>string</td>
+<td>Required</td>
+<td>User role. Should be user</td>
+</tr>
+<tr>
+<td>firstname</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>lastname</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>Required. Unique</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>passwordConfirm</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+</tbody></table>
 
-      <ul>
-        <li>Caterer</li>
-      </ul>
+<ul>
+<li>Caterer</li>
+</ul>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Format</th>
-            <th>Details</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>role</td>
-            <td>string</td>
-            <td>Required</td>
-            <td>User role. Should be caterer</td>
-          </tr>
-          <tr>
-            <td>businessName</td>
-            <td>string</td>
-            <td>Required. Unique</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>businessAddress</td>
-            <td>string</td>
-            <td>Required</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>businessPhoneNo</td>
-            <td>string</td>
-            <td>Required</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>email</td>
-            <td>string</td>
-            <td>Required. Unique</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>password</td>
-            <td>string</td>
-            <td>Required</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>passwordConfirm</td>
-            <td>string</td>
-            <td>Required</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Details</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>role</td>
+<td>string</td>
+<td>Required</td>
+<td>User role. Should be caterer</td>
+</tr>
+<tr>
+<td>businessName</td>
+<td>string</td>
+<td>Required. Unique</td>
+<td></td>
+</tr>
+<tr>
+<td>businessAddress</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>businessPhoneNo</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>Required. Unique</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>passwordConfirm</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+</tbody></table>
 
-      <blockquote>
-        <p>Response Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="err">User</span><span class="w">
+<blockquote>
+<p>Response Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">User</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a09a5570-a3b2-4e21-94c3-5cf483dbd1ac"</span><span class="p">,</span><span class="w">
@@ -586,73 +493,58 @@
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyOX0sImlhdCI6MTUxNTc1MzExNCwiZXhwIjoxNTE1NzU2NzE0fQ.sG-zNYLLSMTm6MtuhQ3XGZuTzsMqykeZSSzROkUvkNw"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-response'>HTTP Response</h3>
-      <ul>
-        <li>Status Code:
-          <code>201</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
+</span></code></pre><h3 id='http-response'>HTTP Response</h3>
+<ul>
+<li>Status Code: <code>201</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
 
-      <aside class="notice">
-        Users and Caterers have the same route with different data and roles
-      </aside>
-      <h2 id='signin'>Signin</h2>
-      <p>Logs in an existing User</p>
+<aside class="notice">
+Users and Caterers have the same route with different data and roles
+</aside>
+<h2 id='signin'>Signin</h2>
+<p>Logs in an existing User</p>
 
-      <blockquote>
-        <p>Request Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Request Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emiola@olasanmi.com"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emiolaolasanmi"</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-request-2'>HTTP Request</h3>
-      <ul>
-        <li>Endpoint:
-          <code>/auth/signin</code>
-        </li>
-        <li>Verb:
-          <code>POST</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
-      <h3 id='request-body-parameters-2'>Request Body Parameters</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Format</th>
-            <th>Details</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>email</td>
-            <td>string</td>
-            <td>Required</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>password</td>
-            <td>string</td>
-            <td>Required</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<ul>
+<li>Endpoint: <code>/auth/signin</code></li>
+<li>Verb: <code>POST</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
+<h3 id='request-body-parameters-2'>Request Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Details</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+</tbody></table>
 
-      <blockquote>
-        <p>Response Body - Customer</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Response Body - Customer</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a09a5570-a3b2-4e21-94c3-5cf483dbd1ac"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emiola"</span><span class="p">,</span><span class="w">
@@ -662,175 +554,162 @@
   </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyOX0sImlhdCI6MTUxNTc1MzExNCwiZXhwIjoxNTE1NzU2NzE0fQ.sG-zNYLLSMTm6MtuhQ3XGZuTzsMqykeZSSzROkUvkNw"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <blockquote>
-        <p>Response Body - Caterer
-          <code>json
-{
-  &quot;user&quot;: {
-    &quot;id&quot;: &quot;a09a5570-a3b2-4e21-94c3-5cf483dbd1ac&quot;,
-    &quot;businessName&quot;: &quot;Food Circle&quot;,
-    &quot;businessPhoneNo&quot;: &quot;+2348166557788&quot;,
-    &quot;businessAddress&quot;: &quot;$, Herbert Macaulay Way, Yaba, Lagos&quot;,
-    &quot;email&quot;: &quot;food@circle.com&quot;
-  },
-  &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyOX0sImlhdCI6MTUxNTc1MzExNCwiZXhwIjoxNTE1NzU2NzE0fQ.sG-zNYLLSMTm6MtuhQ3XGZuTzsMqykeZSSzROkUvkNw&quot;
-}
-</code>
-        </p>
-      </blockquote>
-      <h3 id='http-response-2'>HTTP Response</h3>
-      <ul>
-        <li>Status Code:
-          <code>200</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
-      <h2 id='password-reset-forgot-password'>Password Reset - Forgot Password</h2>
-      <p>Sends a link to user&#39;s email to reset password.</p>
+<blockquote>
+<p>Response Body - Caterer</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a09a5570-a3b2-4e21-94c3-5cf483dbd1ac"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"businessName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Food Circle"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"businessPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348166557788"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"businessAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$, Herbert Macaulay Way, Yaba, Lagos"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"food@circle.com"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyOX0sImlhdCI6MTUxNTc1MzExNCwiZXhwIjoxNTE1NzU2NzE0fQ.sG-zNYLLSMTm6MtuhQ3XGZuTzsMqykeZSSzROkUvkNw"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-response-2'>HTTP Response</h3>
+<ul>
+<li>Status Code: <code>200</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
+<h2 id='password-reset-forgot-password'>Password Reset - Forgot Password</h2>
+<p>Sends a link to user&#39;s email to reset password.</p>
 
-      <blockquote>
-        <p>Request Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Request Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emiola@olasanmi.com"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-request-3'>HTTP Request</h3>
-      <ul>
-        <li>Endpoint:
-          <code>/auth/forgot_password</code>
-        </li>
-        <li>Verb:
-          <code>POST</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
-      <h3 id='request-body-parameters-3'>Request Body Parameters</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Format</th>
-            <th>Details</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>email</td>
-            <td>string</td>
-            <td>Required</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<ul>
+<li>Endpoint: <code>/auth/forgot_password</code></li>
+<li>Verb: <code>POST</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
+<h3 id='request-body-parameters-3'>Request Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Details</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+</tbody></table>
 
-      <blockquote>
-        <p>Response Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Response Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A reset token has been sent to your email address"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-response-3'>HTTP Response</h3>
-      <ul>
-        <li>Status Code:
-          <code>200</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
-      <h2 id='password-reset-reset-password'>Password Reset - Reset Password</h2>
-      <p>Resets a user&#39;s password.</p>
+</span></code></pre><h3 id='http-response-3'>HTTP Response</h3>
+<ul>
+<li>Status Code: <code>200</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
+<h2 id='password-reset-reset-password'>Password Reset - Reset Password</h2>
+<p>Resets a user&#39;s password.</p>
 
-      <blockquote>
-        <p>Request Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Request Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"newPassword"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-request-4'>HTTP Request</h3>
-      <ul>
-        <li>Endpoint:
-          <code>/auth/reset_password</code>
-        </li>
-        <li>Verb:
-          <code>POST</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
-      <h3 id='request-body-parameters-4'>Request Body Parameters</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Format</th>
-            <th>Details</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>password</td>
-            <td>string</td>
-            <td>Required</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-      <h3 id='query-parameters'>Query Parameters</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Format</th>
-            <th>Details</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>token</td>
-            <td>string</td>
-            <td>Required</td>
-            <td>The token attached to the email sent to the user</td>
-          </tr>
-        </tbody>
-      </table>
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<ul>
+<li>Endpoint: <code>/auth/reset_password</code></li>
+<li>Verb: <code>POST</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
+<h3 id='request-body-parameters-4'>Request Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Details</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Required</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Details</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>Required</td>
+<td>The token attached to the email sent to the user</td>
+</tr>
+</tbody></table>
 
-      <blockquote>
-        <p>Response Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Response Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Password reset successful"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-response-4'>HTTP Response</h3>
-      <ul>
-        <li>Status Code:
-          <code>200</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
-      <h1 id='meals'>Meals</h1>
-      <aside class="notice">Only caterers are authorised to access all meals endpoints</aside>
-      <h2 id='get-all-meal-options'>Get All Meal Options</h2>
-      <p>Get all meals that beong to the Caterer. Only the caterers can interact with this endpoint</p>
+</span></code></pre><h3 id='http-response-4'>HTTP Response</h3>
+<ul>
+<li>Status Code: <code>200</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
+<h2 id='refresh-token'>Refresh Token</h2>
+<p>Refreshes a user&#39;s token. This is a protected route and requires the authorization header.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<ul>
+<li>Endpoint: <code>/auth/refresh_token</code></li>
+<li>Verb: <code>GET</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
 
-      <blockquote>
-        <p>Response Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Response Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e42c7ce0-958e-4368-adcb-e5d97dbbe5b7"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olisa"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emodi"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"olisa@emodi.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiY3VzdG9tZXIiLCJlbWFpbCI6Im9saXNhQGVtb2RpLmNvbSIsImlhdCI6MTUzMjM2MDc0MSwiZXhwIjoxNTMyNTMzNTQxfQ.QzSPYg8yoxyw6MR0nkK7pRefiqdDYy9HqY9OqK1WBG8"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-response-5'>HTTP Response</h3>
+<ul>
+<li>Status Code: <code>200</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
+<h1 id='meals'>Meals</h1>
+<aside class="notice">Only caterers are authorised to access all meals endpoints</aside>
+<h2 id='get-all-meal-options'>Get All Meal Options</h2>
+<p>Get all meals that beong to the Caterer. Only the caterers can interact with this endpoint</p>
+
+<blockquote>
+<p>Response Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81211c24-51c0-46ec-b1e0-18db55880958"</span><span class="p">,</span><span class="w">
@@ -851,102 +730,81 @@
         </span><span class="err">...</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-request-5'>HTTP Request</h3>
-      <ul>
-        <li>Endpoint:
-          <code>/meals</code>
-        </li>
-        <li>Verb:
-          <code>GET</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
-      <h3 id='http-response-5'>HTTP Response</h3>
-      <ul>
-        <li>Status Code:
-          <code>200</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
-      <h2 id='add-a-meal-option'>Add a Meal Option</h2>
-      <p>Adds a new meal option</p>
+</span></code></pre><h3 id='http-request-6'>HTTP Request</h3>
+<ul>
+<li>Endpoint: <code>/meals</code></li>
+<li>Verb: <code>GET</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
+<h3 id='http-response-6'>HTTP Response</h3>
+<ul>
+<li>Status Code: <code>200</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
+<h2 id='add-a-meal-option'>Add a Meal Option</h2>
+<p>Adds a new meal option</p>
 
-      <blockquote>
-        <p>Request Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Request Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wheat and Ogbono"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meal contains 2 pieces of beef and other assorted meat and fish products"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w">
   </span><span class="s2">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://koalaghana.com/wp-content/uploads/DSC02053.jpg"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-request-6'>HTTP Request</h3>
-      <ul>
-        <li>Endpoint:
-          <code>/meals</code>
-        </li>
-        <li>Verb:
-          <code>POST</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
-      <h3 id='request-body-parameters-5'>Request Body Parameters</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Format</th>
-            <th>Details</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>title</td>
-            <td>string</td>
-            <td>Required. Unique</td>
-            <td>Meal title</td>
-          </tr>
-          <tr>
-            <td>description</td>
-            <td>string</td>
-            <td>Optional</td>
-            <td>Meal description. Maximum of 65 characters</td>
-          </tr>
-          <tr>
-            <td>imageURL</td>
-            <td>string</td>
-            <td>Optional</td>
-            <td>Meal image URL.</td>
-          </tr>
-          <tr>
-            <td>vegetarian</td>
-            <td>boolean</td>
-            <td>Optional. Default is false</td>
-            <td>Meal vegetarian suitability</td>
-          </tr>
-          <tr>
-            <td>price</td>
-            <td>float</td>
-            <td>Required</td>
-            <td>Meal price. Must be greater than 0.</td>
-          </tr>
-        </tbody>
-      </table>
+</span></code></pre><h3 id='http-request-7'>HTTP Request</h3>
+<ul>
+<li>Endpoint: <code>/meals</code></li>
+<li>Verb: <code>POST</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
+<h3 id='request-body-parameters-5'>Request Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Details</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>Required. Unique</td>
+<td>Meal title</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>Optional</td>
+<td>Meal description. Maximum of 65 characters</td>
+</tr>
+<tr>
+<td>imageURL</td>
+<td>string</td>
+<td>Optional</td>
+<td>Meal image URL.</td>
+</tr>
+<tr>
+<td>vegetarian</td>
+<td>boolean</td>
+<td>Optional. Default is false</td>
+<td>Meal vegetarian suitability</td>
+</tr>
+<tr>
+<td>price</td>
+<td>float</td>
+<td>Required</td>
+<td>Meal price. Must be greater than 0.</td>
+</tr>
+</tbody></table>
 
-      <blockquote>
-        <p>Response Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Response Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ba25e554-6f66-4a94-abb4-53531da1ac89"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wheat and Ogbono"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://koalaghana.com/wp-content/uploads/DSC02053.jpg"</span><span class="p">,</span><span class="w">
@@ -954,58 +812,43 @@
     </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-response-6'>HTTP Response</h3>
-      <ul>
-        <li>Status Code:
-          <code>201</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
-      <h2 id='modify-an-existing-meal-option'>Modify an Existing Meal Option</h2>
-      <p>Modifies an exisiting meal option</p>
+</span></code></pre><h3 id='http-response-7'>HTTP Response</h3>
+<ul>
+<li>Status Code: <code>201</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
+<h2 id='modify-an-existing-meal-option'>Modify an Existing Meal Option</h2>
+<p>Modifies an exisiting meal option</p>
 
-      <blockquote>
-        <p>Request Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Request Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meal contains no beef"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-request-7'>HTTP Request</h3>
-      <ul>
-        <li>Endpoint:
-          <code>/meals/</code>
-        </li>
-        <li>Verb:
-          <code>PUT</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
-      <h3 id='url-parameters'>URL Parameters</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>mealId</td>
-            <td>The ID of the meal to be modified</td>
-          </tr>
-        </tbody>
-      </table>
+</span></code></pre><h3 id='http-request-8'>HTTP Request</h3>
+<ul>
+<li>Endpoint: <code>/meals/</code></li>
+<li>Verb: <code>PUT</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>mealId</td>
+<td>The ID of the meal to be modified</td>
+</tr>
+</tbody></table>
 
-      <blockquote>
-        <p>Response Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Response Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ba25e554-6f66-4a94-abb4-53531da1ac89"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wheat and Ogbono"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://koalaghana.com/wp-content/uploads/DSC02053.jpg"</span><span class="p">,</span><span class="w">
@@ -1013,69 +856,51 @@
     </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-response-7'>HTTP Response</h3>
-      <ul>
-        <li>Status Code:
-          <code>200</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
+</span></code></pre><h3 id='http-response-8'>HTTP Response</h3>
+<ul>
+<li>Status Code: <code>200</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
 
-      <aside class="warning">Empty PUT requests are not allowed and will return an error</aside>
-      <h2 id='delete-an-existing-meal'>Delete an Existing Meal</h2>
-      <p>Deletes an existing meal.</p>
+<aside class="warning">Empty PUT requests are not allowed and will return an error</aside>
+<h2 id='delete-an-existing-meal'>Delete an Existing Meal</h2>
+<p>Deletes an existing meal.</p>
 
-      <blockquote>
-        <p>Response Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Response Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meal deleted succesfully"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-request-8'>HTTP Request</h3>
-      <ul>
-        <li>Endpoint:
-          <code>/meals/</code>
-        </li>
-        <li>Verb:
-          <code>DELETE</code>
-        </li>
-      </ul>
-      <h3 id='url-parameters-2'>URL Parameters</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>mealId</td>
-            <td>The ID of the meal to be deleted</td>
-          </tr>
-        </tbody>
-      </table>
-      <h3 id='http-response-8'>HTTP Response</h3>
-      <ul>
-        <li>Status Code:
-          <code>200</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
-      <h1 id='menu'>Menu</h1>
-      <h2 id='get-menu-per-day'>Get Menu Per Day</h2>
-      <p>Gets the menu for the day for Caterer and User.</p>
+</span></code></pre><h3 id='http-request-9'>HTTP Request</h3>
+<ul>
+<li>Endpoint: <code>/meals/</code></li>
+<li>Verb: <code>DELETE</code></li>
+</ul>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>mealId</td>
+<td>The ID of the meal to be deleted</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-9'>HTTP Response</h3>
+<ul>
+<li>Status Code: <code>200</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
+<h1 id='menu'>Menu</h1><h2 id='get-menu-per-day'>Get Menu Per Day</h2>
+<p>Gets the menu for the day for Caterer and User.</p>
 
-      <blockquote>
-        <p>Response Body - Caterer</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Response Body - Caterer</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f27c0fb-19a9-4d9e-b5a1-d97c2d426ab5"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-18"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1098,14 +923,13 @@
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <blockquote>
-        <p>Response Body - Customer</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Response Body - Customer</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"menu"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f27c0fb-19a9-4d9e-b5a1-d97c2d426ab5"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-18"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"caterer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8356954a-9a42-4616-8079-887a73455a7f"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"businessName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FoodCircle"</span><span class="p">,</span><span class="w">
@@ -1127,101 +951,77 @@
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-request-9'>HTTP Request</h3>
-      <ul>
-        <li>Endpoint:
-          <code>/menu/</code>
-        </li>
-        <li>Verb:
-          <code>GET</code>
-        </li>
-      </ul>
-      <h3 id='query-parameters-2'>Query Parameters</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Format</th>
-            <th>Default</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>date</td>
-            <td>YYYY-MM-DD</td>
-            <td>Today&#39;s date</td>
-            <td>If set, returns the menu for that particular day.
-              <em>Can ony be accessed by caterers</em>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <h3 id='http-response-9'>HTTP Response</h3>
-      <ul>
-        <li>Status Code:
-          <code>200</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
+</span></code></pre><h3 id='http-request-10'>HTTP Request</h3>
+<ul>
+<li>Endpoint: <code>/menu/</code></li>
+<li>Verb: <code>GET</code></li>
+</ul>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>YYYY-MM-DD</td>
+<td>Today&#39;s date</td>
+<td>If set, returns the menu for that particular day. <em>Can ony be accessed by caterers</em></td>
+</tr>
+</tbody></table>
+<h3 id='http-response-10'>HTTP Response</h3>
+<ul>
+<li>Status Code: <code>200</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
 
-      <aside class="notice">Users can only get the menu for the day. Caterers can get the menu for anyday</aside>
-      <h2 id='create-a-menu'>Create a Menu</h2>
-      <p>Creates a new menu.</p>
+<aside class="notice">Users can only get the menu for the day. Caterers can get the menu for anyday</aside>
+<h2 id='create-a-menu'>Create a Menu</h2>
+<p>Creates a new menu.</p>
 
-      <blockquote>
-        <p>Request Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Request Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-30"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"baa0412a-d167-4d2b-b1d8-404cb8f02631"</span><span class="p">,</span><span class="s2">"36d525d1-efc9-4b75-9999-3e3d8dc64ce3"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-request-10'>HTTP Request</h3>
-      <ul>
-        <li>Endpoint:
-          <code>/menu/</code>
-        </li>
-        <li>Verb:
-          <code>POST</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
-      <h3 id='request-body-parameters-6'>Request Body Parameters</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Format</th>
-            <th>Details</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>date</td>
-            <td>string: YYYY-MM-DD</td>
-            <td>Unique. Optional. Default is today&#39;s date</td>
-            <td>Date for which menu is being created. Must be today or a date in the future.</td>
-          </tr>
-          <tr>
-            <td>meals</td>
-            <td>array</td>
-            <td>Required</td>
-            <td>Array of Meal Ids that belong to Caterer</td>
-          </tr>
-        </tbody>
-      </table>
+</span></code></pre><h3 id='http-request-11'>HTTP Request</h3>
+<ul>
+<li>Endpoint: <code>/menu/</code></li>
+<li>Verb: <code>POST</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
+<h3 id='request-body-parameters-6'>Request Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Details</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>string: YYYY-MM-DD</td>
+<td>Unique. Optional. Default is today&#39;s date</td>
+<td>Date for which menu is being created. Must be today or a date in the future.</td>
+</tr>
+<tr>
+<td>meals</td>
+<td>array</td>
+<td>Required</td>
+<td>Array of Meal Ids that belong to Caterer</td>
+</tr>
+</tbody></table>
 
-      <blockquote>
-        <p>Response Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Response Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0837eac2-d2f4-42d6-9425-659eac610336"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-30"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1243,58 +1043,43 @@
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-response-10'>HTTP Response</h3>
-      <ul>
-        <li>Status Code:
-          <code>201</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
-      <h2 id='modify-a-menu'>Modify a Menu</h2>
-      <p>Modifies an existing menu belonging to caterer.</p>
+</span></code></pre><h3 id='http-response-11'>HTTP Response</h3>
+<ul>
+<li>Status Code: <code>201</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
+<h2 id='modify-a-menu'>Modify a Menu</h2>
+<p>Modifies an existing menu belonging to caterer.</p>
 
-      <blockquote>
-        <p>Request Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Request Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"baa0412a-d167-4d2b-b1d8-404cb8f02631"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-request-11'>HTTP Request</h3>
-      <ul>
-        <li>Endpoint:
-          <code>/menu/</code>
-        </li>
-        <li>Verb:
-          <code>PUT</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
-      <h3 id='url-parameters-3'>URL Parameters</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>menuId</td>
-            <td>The ID of the menu to be modified</td>
-          </tr>
-        </tbody>
-      </table>
+</span></code></pre><h3 id='http-request-12'>HTTP Request</h3>
+<ul>
+<li>Endpoint: <code>/menu/</code></li>
+<li>Verb: <code>PUT</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>menuId</td>
+<td>The ID of the menu to be modified</td>
+</tr>
+</tbody></table>
 
-      <blockquote>
-        <p>Response Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Response Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0837eac2-d2f4-42d6-9425-659eac610336"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-30"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1308,27 +1093,21 @@
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-response-11'>HTTP Response</h3>
-      <ul>
-        <li>Status Code:
-          <code>200</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
+</span></code></pre><h3 id='http-response-12'>HTTP Response</h3>
+<ul>
+<li>Status Code: <code>200</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
 
-      <aside class="notice">Menu date cannot be changed. Only menu for the current day or future date can be modified</aside>
-      <h1 id='orders'>Orders</h1>
-      <h2 id='get-all-orders'>Get All Orders</h2>
-      <p>Returns all User/Caterer&#39;s Orders in the App. Also returns the sum of pending orders for the caterers/users and
-        the total cash earned per day for the caterer</p>
+<aside class="notice">Menu date cannot be changed. Only menu for the current day or future date can be modified</aside>
+<h1 id='orders'>Orders</h1><h2 id='get-all-orders'>Get All Orders</h2>
+<p>Returns all User/Caterer&#39;s Orders in the App.
+Also returns the sum of pending orders for the caterers/users and the total cash earned per day for the caterer</p>
 
-      <blockquote>
-        <p>Response Body - Caterer</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Response Body - Caterer</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fb097bde-5959-45ff-8e21-51184fa60c25"</span><span class="p">,</span><span class="w">
@@ -1395,10 +1174,10 @@
     </span><span class="s2">"pendingOrders"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <blockquote>
-        <p>Response Body - Customer</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Response Body - Customer</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
         </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fb097bde-5959-45ff-8e21-51184fa60c25"</span><span class="p">,</span><span class="w">
@@ -1461,55 +1240,41 @@
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"pendingOrders"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-request-12'>HTTP Request</h3>
-      <ul>
-        <li>Endpoint:
-          <code>/orders/</code>
-        </li>
-        <li>Verb:
-          <code>GET</code>
-        </li>
-      </ul>
-      <h3 id='query-parameters-3'>Query Parameters</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Format</th>
-            <th>Default</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>date</td>
-            <td>YYYY-MM-DD</td>
-            <td>Today&#39;s date</td>
-            <td>If set, returns the orders for that particular day.
-              <em>Can ony be accessed by caterers</em>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <h3 id='http-response-12'>HTTP Response</h3>
-      <ul>
-        <li>Status Code:
-          <code>200</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
+</span></code></pre><h3 id='http-request-13'>HTTP Request</h3>
+<ul>
+<li>Endpoint: <code>/orders/</code></li>
+<li>Verb: <code>GET</code></li>
+</ul>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>YYYY-MM-DD</td>
+<td>Today&#39;s date</td>
+<td>If set, returns the orders for that particular day. <em>Can ony be accessed by caterers</em></td>
+</tr>
+</tbody></table>
+<h3 id='http-response-13'>HTTP Response</h3>
+<ul>
+<li>Status Code: <code>200</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
 
-      <aside class="notice">Both Caterers and Users can get their orders. Only Caterers can get the order for a particular day</aside>
-      <h2 id='create-an-order'>Create an Order</h2>
-      <p>Creates an order for meals present in the menu for the day. Only users can order meals.</p>
+<aside class="notice">Both Caterers and Users can get their orders. Only Caterers can get the order for a particular day</aside>
+<h2 id='create-an-order'>Create an Order</h2>
+<p>Creates an order for meals present in the menu for the day. Only users can order meals.</p>
 
-      <blockquote>
-        <p>Request Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Request Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"deliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4, Church Street, Yaba"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"deliveryPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348134567891"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1517,64 +1282,56 @@
     </span><span class="p">{</span><span class="w"> </span><span class="s2">"mealId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"baa0412a-d167-4d2b-b1d8-404cb8f02631"</span><span class="p">,</span><span class="w"> </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-request-13'>HTTP Request</h3>
-      <ul>
-        <li>Endpoint:
-          <code>/orders/</code>
-        </li>
-        <li>Verb:
-          <code>POST</code>
-        </li>
-      </ul>
-      <h3 id='request-body-parameters-7'>Request Body Parameters</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Format</th>
-            <th>Details</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>deliveryAddress</td>
-            <td>string</td>
-            <td>Required</td>
-            <td>Address to deliver meal to</td>
-          </tr>
-          <tr>
-            <td>deliveryPhoneNo</td>
-            <td>string</td>
-            <td>Required</td>
-            <td>Customer Phone Number</td>
-          </tr>
-          <tr>
-            <td>meals</td>
-            <td>array</td>
-            <td>Required</td>
-            <td>Array of Meal Objects of MealId and Quantity</td>
-          </tr>
-          <tr>
-            <td>mealId</td>
-            <td>UUID</td>
-            <td>Required</td>
-            <td>Meal ID</td>
-          </tr>
-          <tr>
-            <td>quantity</td>
-            <td>integer</td>
-            <td>Required</td>
-            <td>Integer greater than 0. Must be explicity provided. No default</td>
-          </tr>
-        </tbody>
-      </table>
+</span></code></pre><h3 id='http-request-14'>HTTP Request</h3>
+<ul>
+<li>Endpoint: <code>/orders/</code></li>
+<li>Verb: <code>POST</code></li>
+</ul>
+<h3 id='request-body-parameters-7'>Request Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Details</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>deliveryAddress</td>
+<td>string</td>
+<td>Required</td>
+<td>Address to deliver meal to</td>
+</tr>
+<tr>
+<td>deliveryPhoneNo</td>
+<td>string</td>
+<td>Required</td>
+<td>Customer Phone Number</td>
+</tr>
+<tr>
+<td>meals</td>
+<td>array</td>
+<td>Required</td>
+<td>Array of Meal Objects of MealId and Quantity</td>
+</tr>
+<tr>
+<td>mealId</td>
+<td>UUID</td>
+<td>Required</td>
+<td>Meal ID</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>integer</td>
+<td>Required</td>
+<td>Integer greater than 0. Must be explicity provided. No default</td>
+</tr>
+</tbody></table>
 
-      <blockquote>
-        <p>Response Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Response Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7247d3a-de8a-43e2-90f6-b126cd4c491c"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"deliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4, Church Street, Yaba"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"deliveryPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348134567891"</span><span class="p">,</span><span class="w">
@@ -1604,58 +1361,44 @@
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-response-13'>HTTP Response</h3>
-      <ul>
-        <li>Status Code:
-          <code>201</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
+</span></code></pre><h3 id='http-response-14'>HTTP Response</h3>
+<ul>
+<li>Status Code: <code>201</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
 
-      <aside class="notice">Orders can only be made from 8:30 am to 4:00 pm. Caterers are notified of a new order after 15 minutes of no action
-        by the user on that order</aside>
-      <h2 id='modify-an-open-order'>Modify an Open Order</h2>
-      <p>Modifies any open user orders in the app. An order starts being processed after 15 minutes and cannot be modified.</p>
+<aside class="notice">Orders can only be made from 8:30 am to 4:00 pm. Caterers are notified of a new order after 15 minutes of no action by the user on that order</aside>
+<h2 id='modify-an-open-order'>Modify an Open Order</h2>
+<p>Modifies any open user orders in the app. An order starts being processed after 15 minutes and cannot be modified.</p>
 
-      <blockquote>
-        <p>Request Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Request Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="s2">"mealId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36d525d1-efc9-4b75-9999-3e3d8dc64ce3"</span><span class="p">,</span><span class="w"> </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-request-14'>HTTP Request</h3>
-      <ul>
-        <li>Endpoint:
-          <code>/orders/</code>
-        </li>
-        <li>Verb:
-          <code>PUT</code>
-        </li>
-      </ul>
-      <h3 id='url-parameters-4'>URL Parameters</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>orderId</td>
-            <td>The ID of the order to be modified</td>
-          </tr>
-        </tbody>
-      </table>
+</span></code></pre><h3 id='http-request-15'>HTTP Request</h3>
+<ul>
+<li>Endpoint: <code>/orders/</code></li>
+<li>Verb: <code>PUT</code></li>
+</ul>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderId</td>
+<td>The ID of the order to be modified</td>
+</tr>
+</tbody></table>
 
-      <blockquote>
-        <p>Response Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Response Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7247d3a-de8a-43e2-90f6-b126cd4c491c"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"deliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4, Church Street, Yaba"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"deliveryPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348134567891"</span><span class="p">,</span><span class="w">
@@ -1675,78 +1418,60 @@
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-response-14'>HTTP Response</h3>
-      <ul>
-        <li>Status Code:
-          <code>200</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
+</span></code></pre><h3 id='http-response-15'>HTTP Response</h3>
+<ul>
+<li>Status Code: <code>200</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
 
-      <aside class="notice">Orders can be canceled or modified within the first 15 minutes of ordering.</aside>
-      <h2 id='mark-order-item-as-delivered'>Mark Order Item as Delivered</h2>
-      <p>Marks order item(s) belonging to caterer as delivered by the caterer. Once an order item is marked as delivered, the
-        system checks all order items under that order to see if they have been delivered. If yes, the system changes the
-        order status to delivered else, order status is left as pending</p>
+<aside class="notice">Orders can be canceled or modified within the first 15 minutes of ordering.</aside>
+<h2 id='mark-order-item-as-delivered'>Mark Order Item as Delivered</h2>
+<p>Marks order item(s) belonging to caterer as delivered by the caterer. Once an order item is marked as delivered, the system checks all order items under that order to see if they have been delivered. If yes, the system changes the order status to delivered else, order status is left as pending</p>
 
-      <blockquote>
-        <p>Request Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Request Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"delivered"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-request-15'>HTTP Request</h3>
-      <ul>
-        <li>Endpoint:
-          <code>/orders/:orderId/deliver</code>
-        </li>
-        <li>Verb:
-          <code>POST</code>
-        </li>
-      </ul>
-      <h3 id='url-parameters-5'>URL Parameters</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>orderId</td>
-            <td>The ID of the order to be modified</td>
-          </tr>
-        </tbody>
-      </table>
-      <h3 id='request-body-parameters-8'>Request Body Parameters</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Format</th>
-            <th>Details</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>delivered</td>
-            <td>boolean</td>
-            <td>Required</td>
-            <td>Notifies system that all order items belonging to that caterer in the order have been delivered</td>
-          </tr>
-        </tbody>
-      </table>
+</span></code></pre><h3 id='http-request-16'>HTTP Request</h3>
+<ul>
+<li>Endpoint: <code>/orders/:orderId/deliver</code></li>
+<li>Verb: <code>POST</code></li>
+</ul>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderId</td>
+<td>The ID of the order to be modified</td>
+</tr>
+</tbody></table>
+<h3 id='request-body-parameters-8'>Request Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Details</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>delivered</td>
+<td>boolean</td>
+<td>Required</td>
+<td>Notifies system that all order items belonging to that caterer in the order have been delivered</td>
+</tr>
+</tbody></table>
 
-      <blockquote>
-        <p>Response Body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Response Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7247d3a-de8a-43e2-90f6-b126cd4c491c"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"deliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4, Church Street, Yaba"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"deliveryPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348134567891"</span><span class="p">,</span><span class="w">
@@ -1766,26 +1491,20 @@
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-response-15'>HTTP Response</h3>
-      <ul>
-        <li>Status Code:
-          <code>200</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
+</span></code></pre><h3 id='http-response-16'>HTTP Response</h3>
+<ul>
+<li>Status Code: <code>200</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
 
-      <aside class="notice">Endpoint can only be accessed by the caterers</aside>
-      <h1 id='notifications'>Notifications</h1>
-      <h2 id='get-notifications'>Get Notifications</h2>
-      <p>Gets all notifications for Caterers and Users.</p>
+<aside class="notice">Endpoint can only be accessed by the caterers</aside>
+<h1 id='notifications'>Notifications</h1><h2 id='get-notifications'>Get Notifications</h2>
+<p>Gets all notifications for Caterers and Users.</p>
 
-      <blockquote>
-        <p>Response Body - Caterer</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Response Body - Caterer</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"notifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87a311b7-898b-4a6b-81c2-619417c96432"</span><span class="p">,</span><span class="w">
@@ -1803,10 +1522,10 @@
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-      <blockquote>
-        <p>Response Body - Customer</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>Response Body - Customer</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"notifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3dc9cc9b-179b-4f0d-ac60-7ca6f4659d79"</span><span class="p">,</span><span class="w">
@@ -1823,70 +1542,57 @@
         </span><span class="err">...</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-      <h3 id='http-request-16'>HTTP Request</h3>
-      <ul>
-        <li>Endpoint:
-          <code>/notifications/</code>
-        </li>
-        <li>Verb:
-          <code>GET</code>
-        </li>
-      </ul>
-      <h3 id='http-response-16'>HTTP Response</h3>
-      <ul>
-        <li>Status Code:
-          <code>200</code>
-        </li>
-        <li>Body:
-          <code>(application/json)</code>
-        </li>
-      </ul>
-      <h1 id='errors'>Errors</h1>
-      <p>The Book A Meal API uses the following error codes:</p>
+</span></code></pre><h3 id='http-request-17'>HTTP Request</h3>
+<ul>
+<li>Endpoint: <code>/notifications/</code></li>
+<li>Verb: <code>GET</code></li>
+</ul>
+<h3 id='http-response-17'>HTTP Response</h3>
+<ul>
+<li>Status Code: <code>200</code></li>
+<li>Body: <code>(application/json)</code></li>
+</ul>
+<h1 id='errors'>Errors</h1>
+<p>The Book A Meal API uses the following error codes:</p>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Error Code</th>
-            <th>Meaning</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>400</td>
-            <td>Bad Request -- Your request is invalid.</td>
-          </tr>
-          <tr>
-            <td>401</td>
-            <td>Unauthorized</td>
-          </tr>
-          <tr>
-            <td>403</td>
-            <td>You are not authorized to perform this action</td>
-          </tr>
-          <tr>
-            <td>404</td>
-            <td>Item Not Found</td>
-          </tr>
-          <tr>
-            <td>409</td>
-            <td>Conflict</td>
-          </tr>
-          <tr>
-            <td>500</td>
-            <td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-          </tr>
-        </tbody>
-      </table>
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>You are not authorized to perform this action</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Item Not Found</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Conflict</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+</tbody></table>
 
-    </div>
-    <div class="dark-box">
-      <div class="lang-selector">
-        <a href="#" data-language-name="javascript">javascript</a>
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
+          </div>
       </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>

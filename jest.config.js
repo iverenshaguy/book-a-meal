@@ -22,7 +22,6 @@ module.exports = {
     '<rootDir>/client/tests/**/*.(spec|test).{js,jsx}',
     '<rootDir>/client/src/**/?(*.)(spec|test).{js,jsx}'
   ],
-  // verbose: true,
   testEnvironment: 'node',
   testURL: 'http://localhost',
   testPathIgnorePatterns: [

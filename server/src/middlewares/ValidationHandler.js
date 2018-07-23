@@ -69,7 +69,7 @@ class ValidationHandler {
 
     if (!errors.isEmpty()) {
       const mappedErrors = errors.mapped();
-      // delete mappedErrors[/a-zA-Z/g].value;
+
       return res.status(400).json({ errors: mappedErrors });
     }
 

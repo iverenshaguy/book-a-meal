@@ -6,7 +6,7 @@ export default {
       title: 'Jollof Rice, Beef and Plantain',
       description: 'Jollof Rice, Beef and Plantain. 2 pieces of beef per plate',
       price: 1500,
-      imageURL: 'http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg',
+      imageURL: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
       vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
@@ -15,9 +15,9 @@ export default {
       userId: '8356954a-9a42-4616-8079-887a73455a7f',
       mealId: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
       title: 'Vegetable Sharwama and Guava Smoothie',
-      description: 'Sharwama contains no animal products, perfect for dieters',
+      description: 'Sharwama contains no animal products',
       price: 1200,
-      imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+      imageURL: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
       vegetarian: true,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
@@ -26,9 +26,9 @@ export default {
       userId: '8356954a-9a42-4616-8079-887a73455a7f',
       mealId: 'baa0412a-d167-4d2b-b1d8-404cb8f02631',
       title: 'Semo/Wheat and Egusi Soup',
-      description: 'Meal contains 2 pieces of beef and other assorted meat and fish products',
+      description: 'Meal contains 2 pieces of beef',
       price: 2000,
-      imageURL: 'https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg',
+      imageURL: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
       vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
@@ -39,7 +39,7 @@ export default {
       title: 'Ewa Agoyin, Plantain and Local Fish',
       description: '',
       price: 1200,
-      imageURL: 'http://sisijemimah.com/wp-content/uploads/2015/08/IMG_8335.jpg',
+      imageURL: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
       vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
@@ -50,7 +50,7 @@ export default {
       title: 'Adalu (Beans and Corn) and Local Fish ',
       description: '',
       price: 2000,
-      imageURL: 'http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg',
+      imageURL: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
       vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
@@ -61,7 +61,7 @@ export default {
       title: 'Chicken Sharwama and Banana Smoothie',
       description: '',
       price: 1200,
-      imageURL: 'http://www.ndtv.com/cooks/images/shawarma%20new.jpg',
+      imageURL: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
       vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
@@ -70,9 +70,9 @@ export default {
       userId: '8356954a-9a42-4616-8079-887a73455a7f',
       mealId: 'a3c35e8f-da7a-4113-aa01-a9c0fc088539',
       title: 'Eba and Ogbono Soup',
-      description: 'Meal contains 2 pieces of beef and other assorted meat and fish products',
+      description: 'Meal contains 2 pieces of beef',
       price: 2000,
-      imageURL: 'http://www.kalakutahgrills.com/wp-content/uploads/2017/02/my-pics-group-3-007.jpg',
+      imageURL: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
       vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
@@ -83,7 +83,7 @@ export default {
       title: 'Yam and Platain Pottage',
       description: 'Meal come with Fish',
       price: 1200,
-      imageURL: 'https://i0.wp.com/www.eatingnigerian.com/wp-content/uploads/2016/08/Yam-and-Plantain-Pottage-21.jpg',
+      imageURL: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
       vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
@@ -92,9 +92,9 @@ export default {
       userId: 'ac1b253c-6b33-439b-ab6f-805a4fdd2e05',
       mealId: '72a3417e-45c8-4559-8b74-8b5a61be8614',
       title: 'Wheat and Okro Soup',
-      description: 'Meal contains 2 pieces of beef and other assorted meat and fish products',
+      description: 'Meal contains 2 pieces of beef',
       price: 2000,
-      imageURL: 'http://koalaghana.com/wp-content/uploads/DSC02053.jpg',
+      imageURL: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
       vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
@@ -105,7 +105,7 @@ export default {
       title: 'Jollof Spaghetti, Plantain and Turkey',
       description: '',
       price: 1200,
-      imageURL: 'https://lagosmums.com/wp-content/uploads/2015/06/Jollof-Spaghetti.jpeg',
+      imageURL: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
       vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'

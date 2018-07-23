@@ -1326,7 +1326,7 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                   <hr />
                 </div>
                 <Notification
-                  message="Ordering is only available between 4:00pm and 8:30am. Please check back later."
+                  message="Ordering is only available between 8:30am and 4:00pm. Please check back later."
                 >
                   <div
                     className="notification-pill"
@@ -1334,7 +1334,7 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                     <p
                       className="text-center notif"
                     >
-                      Ordering is only available between 4:00pm and 8:30am. Please check back later.
+                      Ordering is only available between 8:30am and 4:00pm. Please check back later.
                     </p>
                   </div>
                 </Notification>
