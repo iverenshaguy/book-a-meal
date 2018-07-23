@@ -19,7 +19,7 @@ exports[`AuthComponent renders caterer's signup form correctly 1`] = `
         className="title"
       >
         <h2>
-          Start Filling Your Belly
+          Start Serving Customers
         </h2>
         <hr
           className="w-75"
@@ -66,11 +66,11 @@ exports[`AuthComponent renders caterer's signup form correctly 1`] = `
                 className="form-extra-info text-center"
               >
                 <Link
-                  href="/signup/caterer"
+                  href="/signup?role=customer"
                   replace={false}
-                  to="/signup/caterer"
+                  to="/signup?role=customer"
                 >
-                  Signup as a Caterer
+                  Signup as a Customer
                 </Link>
               </p>
             </UNDEFINED>,
@@ -78,7 +78,7 @@ exports[`AuthComponent renders caterer's signup form correctly 1`] = `
         }
         submitError={null}
         submitting={false}
-        type="customerSignup"
+        type="catererSignup"
       />
     </div>
   </div>
@@ -209,9 +209,9 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
                       Don't have an account, signup
                        
                       <Link
-                        href="/signup/customer"
+                        href="/signup?role=customer"
                         replace={false}
-                        to="/signup/customer"
+                        to="/signup?role=customer"
                       >
                         here
                       </Link>
@@ -226,9 +226,9 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
                     className="form-extra-info text-center"
                   >
                     <Link
-                      href="/signup/caterer"
+                      href="/signup?role=caterer"
                       replace={false}
-                      to="/signup/caterer"
+                      to="/signup?role=caterer"
                     >
                       Signup as a Caterer
                     </Link>
@@ -266,9 +266,9 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
                         Don't have an account, signup
                          
                         <Link
-                          href="/signup/customer"
+                          href="/signup?role=customer"
                           replace={false}
-                          to="/signup/customer"
+                          to="/signup?role=customer"
                         >
                           here
                         </Link>
@@ -283,9 +283,9 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
                       className="form-extra-info text-center"
                     >
                       <Link
-                        href="/signup/caterer"
+                        href="/signup?role=caterer"
                         replace={false}
-                        to="/signup/caterer"
+                        to="/signup?role=caterer"
                       >
                         Signup as a Caterer
                       </Link>
@@ -435,12 +435,12 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
                   Don't have an account, signup
                    
                   <Link
-                    href="/signup/customer"
+                    href="/signup?role=customer"
                     replace={false}
-                    to="/signup/customer"
+                    to="/signup?role=customer"
                   >
                     <a
-                      href="/signup/customer"
+                      href="/signup?role=customer"
                       onClick={[Function]}
                     >
                       here
@@ -456,12 +456,12 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
                   className="form-extra-info text-center"
                 >
                   <Link
-                    href="/signup/caterer"
+                    href="/signup?role=caterer"
                     replace={false}
-                    to="/signup/caterer"
+                    to="/signup?role=caterer"
                   >
                     <a
-                      href="/signup/caterer"
+                      href="/signup?role=caterer"
                       onClick={[Function]}
                     >
                       Signup as a Caterer
@@ -553,9 +553,9 @@ exports[`AuthComponent renders customer's signup form correctly 1`] = `
                 className="form-extra-info text-center"
               >
                 <Link
-                  href="/signup/caterer"
+                  href="/signup?role=caterer"
                   replace={false}
-                  to="/signup/caterer"
+                  to="/signup?role=caterer"
                 >
                   Signup as a Caterer
                 </Link>
@@ -622,9 +622,9 @@ exports[`AuthComponent renders signin form correctly 1`] = `
                   Don't have an account, signup
                    
                   <Link
-                    href="/signup/customer"
+                    href="/signup?role=customer"
                     replace={false}
-                    to="/signup/customer"
+                    to="/signup?role=customer"
                   >
                     here
                   </Link>
@@ -639,9 +639,9 @@ exports[`AuthComponent renders signin form correctly 1`] = `
                 className="form-extra-info text-center"
               >
                 <Link
-                  href="/signup/caterer"
+                  href="/signup?role=caterer"
                   replace={false}
-                  to="/signup/caterer"
+                  to="/signup?role=caterer"
                 >
                   Signup as a Caterer
                 </Link>

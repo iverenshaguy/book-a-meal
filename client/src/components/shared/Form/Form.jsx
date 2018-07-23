@@ -36,34 +36,42 @@ class Form extends Component {
   }
 
   /**
-   * @constructor
-   * @memberof Form
-   * @param {object} props - props
-   * @returns {nothing} Return nothing
+   * @static
+   * @memberof Auth
+   * @param {object} props
+   * @param {object} state
+   * @returns {nothing} nothing
    */
-  constructor(props) {
-    super(props);
+  static getDerivedStateFromProps(props, state) {
+    if (props.type !== state.type) {
+      let values;
+      const { type, meal } = props;
+      const { formFields } = formHelpers;
+      const fields = formFields[type];
+      values = arrayToObject(fields, '');
 
-    let values;
-    const { type, meal } = props;
-    const { formFields } = formHelpers;
-    const fields = formFields[type];
-    values = arrayToObject(fields, '');
 
-    if (fields.includes('vegetarian')) values.vegetarian = false;
-    if (type === 'editMeal') values = meal;
-    if (type === 'catererSignup') values.role = 'caterer';
-    if (type === 'customerSignup') values.role = 'customer';
+      if (fields.includes('vegetarian')) values.vegetarian = false;
+      if (type === 'editMeal') values = meal;
+      if (type === 'catererSignup') values.role = 'caterer';
+      if (type === 'customerSignup') values.role = 'customer';
 
-    this.state = {
-      type,
-      values,
-      touched: arrayToObject(fields, false),
-      error: arrayToObject(fields, null),
-      pristine: true,
-      formValid: false,
-      asyncValidating: false
-    };
+      return {
+        type,
+        values,
+        touched: arrayToObject(fields, false),
+        error: arrayToObject(fields, null),
+        pristine: true,
+        formValid: false,
+        asyncValidating: false
+      };
+    }
+
+    return state;
+  }
+
+  state = {
+    type: ''
   }
 
   /**
@@ -80,7 +88,7 @@ class Form extends Component {
    * @returns {void}
    */
   clearFormErrors = () => {
-    const { type } = this.state;
+    const { type } = this.props;
     const { clearFormError } = formHelpers;
 
     this.props.dispatch(clearFormError[type]);
@@ -138,7 +146,7 @@ class Form extends Component {
    * @returns {void}
    */
   validateField = (name) => {
-    const { type } = this.state;
+    const { type } = this.props;
     const error = syncValidate(type)(name, this.state.values);
     const errorValue = error || null;
 
@@ -174,7 +182,8 @@ class Form extends Component {
    * @returns {void}
    */
   submitter = () => {
-    const { type, values } = this.state;
+    const { values } = this.state;
+    const { type } = this.props;
     const { formSubmitMapper } = formHelpers;
     const { meal } = this.props;
 

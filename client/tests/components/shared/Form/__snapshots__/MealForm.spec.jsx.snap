@@ -45,7 +45,7 @@ exports[`MealForm renders correctly when type is addMeal 1`] = `
     handleFocus={[MockFunction]}
     id="description"
     label="Description (not more than 50 characters)"
-    maxLength="50"
+    maxLength={50}
     meta={
       Object {
         "error": null,
@@ -133,7 +133,7 @@ exports[`MealForm renders correctly when type is editMeal 1`] = `
     handleFocus={[MockFunction]}
     id="description"
     label="Description (not more than 50 characters)"
-    maxLength="50"
+    maxLength={50}
     meta={
       Object {
         "error": null,

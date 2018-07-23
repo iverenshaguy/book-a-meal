@@ -64,7 +64,7 @@ const MealForm = (props) => {
         label="Description (not more than 50 characters)"
         id="description"
         rows={2}
-        maxLength="50"
+        maxLength={50}
         required={false}
         value={state.values.description}
         placeholder=""

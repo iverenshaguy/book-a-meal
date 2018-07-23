@@ -16,6 +16,7 @@ const store = mockStore(initialValues);
 const formComponentSetup = type => ({
   type,
   state: {
+    type: '',
     values: type === 'editMeal' ? newMeal : arrayToObject(formFields[type], ''),
     touched: arrayToObject(formFields[type], false),
     error: arrayToObject(formFields[type], null),
