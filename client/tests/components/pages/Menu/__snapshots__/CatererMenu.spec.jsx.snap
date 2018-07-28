@@ -10,11 +10,11 @@ exports[`CatererMenu renders Preloader when fetching 1`] = `
     updateCurrentDate={[Function]}
     user={
       Object {
-        "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+        "address": "$, Herbert Macaulay Way, Yaba, Lagos",
         "businessName": "Food Circle",
-        "businessPhoneNo": "08166557788",
         "email": "food@circle.com",
         "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "phoneNo": "08166557788",
         "role": "caterer",
       }
     }
@@ -169,11 +169,11 @@ exports[`CatererMenu renders connected component 1`] = `
     }
     user={
       Object {
-        "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+        "address": "$, Herbert Macaulay Way, Yaba, Lagos",
         "businessName": "Food Circle",
-        "businessPhoneNo": "08166557788",
         "email": "food@circle.com",
         "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "phoneNo": "08166557788",
         "role": "caterer",
       }
     }
@@ -209,11 +209,11 @@ exports[`CatererMenu renders connected component 1`] = `
       toggleModal={[Function]}
       user={
         Object {
-          "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+          "address": "$, Herbert Macaulay Way, Yaba, Lagos",
           "businessName": "Food Circle",
-          "businessPhoneNo": "08166557788",
           "email": "food@circle.com",
           "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+          "phoneNo": "08166557788",
           "role": "caterer",
         }
       }
@@ -226,11 +226,11 @@ exports[`CatererMenu renders connected component 1`] = `
         updateCurrentDate={[Function]}
         user={
           Object {
-            "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+            "address": "$, Herbert Macaulay Way, Yaba, Lagos",
             "businessName": "Food Circle",
-            "businessPhoneNo": "08166557788",
             "email": "food@circle.com",
             "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+            "phoneNo": "08166557788",
             "role": "caterer",
           }
         }
@@ -247,11 +247,11 @@ exports[`CatererMenu renders connected component 1`] = `
             updateCurrentDate={[Function]}
             user={
               Object {
-                "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+                "address": "$, Herbert Macaulay Way, Yaba, Lagos",
                 "businessName": "Food Circle",
-                "businessPhoneNo": "08166557788",
                 "email": "food@circle.com",
                 "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                "phoneNo": "08166557788",
                 "role": "caterer",
               }
             }
@@ -361,11 +361,11 @@ exports[`CatererMenu renders connected component 1`] = `
               logout={[Function]}
               user={
                 Object {
-                  "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+                  "address": "$, Herbert Macaulay Way, Yaba, Lagos",
                   "businessName": "Food Circle",
-                  "businessPhoneNo": "08166557788",
                   "email": "food@circle.com",
                   "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                  "phoneNo": "08166557788",
                   "role": "caterer",
                 }
               }
@@ -378,11 +378,11 @@ exports[`CatererMenu renders connected component 1`] = `
                 toggleSideNav={[Function]}
                 user={
                   Object {
-                    "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+                    "address": "$, Herbert Macaulay Way, Yaba, Lagos",
                     "businessName": "Food Circle",
-                    "businessPhoneNo": "08166557788",
                     "email": "food@circle.com",
                     "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                    "phoneNo": "08166557788",
                     "role": "caterer",
                   }
                 }
@@ -877,11 +877,11 @@ exports[`CatererMenu renders connected component 1`] = `
             updateCurrentDate={[Function]}
             user={
               Object {
-                "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+                "address": "$, Herbert Macaulay Way, Yaba, Lagos",
                 "businessName": "Food Circle",
-                "businessPhoneNo": "08166557788",
                 "email": "food@circle.com",
                 "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                "phoneNo": "08166557788",
                 "role": "caterer",
               }
             }
@@ -896,11 +896,11 @@ exports[`CatererMenu renders connected component 1`] = `
               updateCurrentDate={[Function]}
               user={
                 Object {
-                  "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+                  "address": "$, Herbert Macaulay Way, Yaba, Lagos",
                   "businessName": "Food Circle",
-                  "businessPhoneNo": "08166557788",
                   "email": "food@circle.com",
                   "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                  "phoneNo": "08166557788",
                   "role": "caterer",
                 }
               }
@@ -984,11 +984,11 @@ exports[`CatererMenu renders correctly when not fetching 1`] = `
     updateCurrentDate={[Function]}
     user={
       Object {
-        "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+        "address": "$, Herbert Macaulay Way, Yaba, Lagos",
         "businessName": "Food Circle",
-        "businessPhoneNo": "08166557788",
         "email": "food@circle.com",
         "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "phoneNo": "08166557788",
         "role": "caterer",
       }
     }
@@ -1116,11 +1116,11 @@ exports[`CatererMenu renders message when not fetching and there are no meals on
     updateCurrentDate={[Function]}
     user={
       Object {
-        "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+        "address": "$, Herbert Macaulay Way, Yaba, Lagos",
         "businessName": "Food Circle",
-        "businessPhoneNo": "08166557788",
         "email": "food@circle.com",
         "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "phoneNo": "08166557788",
         "role": "caterer",
       }
     }

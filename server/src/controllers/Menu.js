@@ -118,7 +118,7 @@ class Menu {
         {
           model: db.User,
           as: 'caterer',
-          attributes: [['userId', 'id'], 'businessName', 'businessPhoneNo', 'businessAddress', 'email'],
+          attributes: [['userId', 'id'], 'businessName', 'phoneNo', 'address', 'email'],
         },
         {
           model: db.Meal,

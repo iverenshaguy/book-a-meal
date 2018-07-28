@@ -58,8 +58,8 @@ export const initialValues = {
 export const caterer = {
   id: 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac',
   businessName: 'Food Circle',
-  businessPhoneNo: '08166557788',
-  businessAddress: '$, Herbert Macaulay Way, Yaba, Lagos',
+  phoneNo: '08166557788',
+  address: '$, Herbert Macaulay Way, Yaba, Lagos',
   role: 'caterer',
   email: 'food@circle.com'
 };
@@ -224,8 +224,8 @@ export const customersMenuObj = {
       caterer: {
         id: '8356954a-9a42-4616-8079-887a73455a7f',
         businessName: 'FoodCircle',
-        businessPhoneNo: '08134567890',
-        businessAddress: '4, Church Street, Yaba',
+        phoneNo: '08134567890',
+        address: '4, Church Street, Yaba',
         email: 'food@circle.com'
       },
       meals: [
@@ -253,8 +253,8 @@ export const customersMenuObj = {
       caterer: {
         id: '8356954a-9a42-4616-8079-887a73455a7g',
         businessName: 'FoodTri',
-        businessPhoneNo: '08134567891',
-        businessAddress: '4, Church Street, Yaba',
+        phoneNo: '08134567891',
+        address: '4, Church Street, Yaba',
         email: 'food@tri.com'
       },
       meals: [
@@ -454,8 +454,8 @@ export const customersOrdersObj = {
           price: '2000.00',
           caterer: {
             businessName: 'BellyFill',
-            businessAddress: '4, Church Street, Yaba',
-            businessPhoneNo: '08134567890',
+            address: '4, Church Street, Yaba',
+            phoneNo: '08134567890',
             email: 'belly@fill.com'
           },
           quantity: 2,
@@ -480,8 +480,8 @@ export const customersOrdersObj = {
           price: '1200.00',
           caterer: {
             businessName: 'FoodCircle',
-            businessAddress: '4, Church Street, Yaba',
-            businessPhoneNo: '08134567890',
+            address: '4, Church Street, Yaba',
+            phoneNo: '08134567890',
             email: 'food@circle.com'
           },
           quantity: 1,
@@ -496,8 +496,8 @@ export const customersOrdersObj = {
           price: '1200.00',
           caterer: {
             businessName: 'FoodCircle',
-            businessAddress: '4, Church Street, Yaba',
-            businessPhoneNo: '08134567890',
+            address: '4, Church Street, Yaba',
+            phoneNo: '08134567890',
             email: 'food@circle.com'
           },
           quantity: 1,
@@ -522,8 +522,8 @@ export const customersOrdersObj = {
           price: '1200.00',
           caterer: {
             businessName: 'FoodCircle',
-            businessAddress: '4, Church Street, Yaba',
-            businessPhoneNo: '08134567890',
+            address: '4, Church Street, Yaba',
+            phoneNo: '08134567890',
             email: 'food@circle.com'
           },
           quantity: 1,
@@ -548,8 +548,8 @@ export const customersOrdersObj = {
           price: '1200.00',
           caterer: {
             businessName: 'FoodCircle',
-            businessAddress: '4, Church Street, Yaba',
-            businessPhoneNo: '08134567890',
+            address: '4, Church Street, Yaba',
+            phoneNo: '08134567890',
             email: 'food@circle.com'
           },
           quantity: 1,

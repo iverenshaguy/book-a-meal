@@ -1,4 +1,5 @@
 import reducer from '../../../src/store/reducers/auth';
+import { customerOrder } from '../../setup/data';
 
 const state = {
   isAuthenticated: false,
@@ -129,6 +130,22 @@ describe('Auth Reducers', () => {
       user: {},
       error: 'Error',
       loading: false
+    });
+  });
+
+  it('should handle ADD_ORDER_SUCCESS action', () => {
+    const newState = reducer(state, {
+      type: 'ADD_ORDER_SUCCESS',
+      payload: customerOrder
+    });
+
+    expect(newState).toEqual({
+      ...state,
+      user: {
+        ...state.user,
+        phoneNo: customerOrder.deliveryPhoneNo,
+        address: customerOrder.deliveryAddress,
+      },
     });
   });
 });

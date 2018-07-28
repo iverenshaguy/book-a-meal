@@ -40,12 +40,12 @@ export default (sequelize, DataTypes) => {
         allowNull: true,
         defaultValue: null,
       },
-      businessAddress: {
+      address: {
         type: DataTypes.STRING,
         allowNull: true,
         defaultValue: null,
       },
-      businessPhoneNo: {
+      phoneNo: {
         type: DataTypes.STRING,
         allowNull: true,
         defaultValue: null,

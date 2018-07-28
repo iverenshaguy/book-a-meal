@@ -134,8 +134,8 @@ describe('Signup Routes', () => {
           expect(res.body).to.be.an('object');
           expect(res.body).to.include.keys('token');
           expect(res.body.user).to.include.keys('businessName');
-          expect(res.body.user).to.include.keys('businessAddress');
-          expect(res.body.user).to.include.keys('businessPhoneNo');
+          expect(res.body.user).to.include.keys('address');
+          expect(res.body.user).to.include.keys('phoneNo');
           expect(res.body.user).to.include.keys('id');
           expect(res.body.user.email).to.equal('wecook@cook.com');
           expect(res.body.user.businessName).to.equal('We Cook');
@@ -158,8 +158,8 @@ describe('Signup Routes', () => {
           expect(res.body.errors.email.msg).to.equal('Email is invalid');
           expect(res.body.errors.password.msg).to.equal('Password must be at least 8 characters');
           expect(res.body.errors.passwordConfirm.msg).to.equal('Passwords don\'t match');
-          expect(res.body.errors.businessAddress.msg).to.equal('Business Address must be specified');
-          expect(res.body.errors.businessPhoneNo.msg).to.equal('Business Phone Number must be in the format 08134567890');
+          expect(res.body.errors.address.msg).to.equal('Business Address must be specified');
+          expect(res.body.errors.phoneNo.msg).to.equal('Business Phone Number must be in the format 08134567890');
 
           if (err) return done(err);
           done();
@@ -175,8 +175,8 @@ describe('Signup Routes', () => {
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body.errors.businessName.msg).to.equal('Business name must not be more than 60 characters');
-          expect(res.body.errors.businessAddress.msg).to.equal('Business Address must be between 5 and 255 characters');
-          expect(res.body.errors.businessPhoneNo.msg)
+          expect(res.body.errors.address.msg).to.equal('Business Address must be between 5 and 255 characters');
+          expect(res.body.errors.phoneNo.msg)
             .to.equal('Business Phone Number must be specified');
 
           if (err) return done(err);
@@ -194,9 +194,9 @@ describe('Signup Routes', () => {
           expect(res.body).to.be.an('object');
           expect(res.body.errors.businessName.msg)
             .to.equal('Business name can only contain letters, spaces, and the characters (,.\'-)');
-          expect(res.body.errors.businessAddress.msg)
+          expect(res.body.errors.address.msg)
             .to.equal('Business Address can only contain letters, numbers, spaces, and the characters (,.\'-)');
-          expect(res.body.errors.businessPhoneNo.msg)
+          expect(res.body.errors.phoneNo.msg)
             .to.equal('Business Phone Number must be in the format 08134567890');
 
           if (err) return done(err);

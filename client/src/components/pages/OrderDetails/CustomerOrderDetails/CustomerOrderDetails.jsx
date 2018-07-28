@@ -134,7 +134,7 @@ class CustomerOrderDetails extends Component {
 
     return (
       <Fragment>
-        <OrderSummary meals={order.meals} />
+        <OrderSummary meals={order.meals} status={order.status} />
         <OrderAmount meals={order.meals} />
         {this.renderCustomerDetails(order)}
         {order.status === 'started' && this.renderControlBtns()}

@@ -105,7 +105,7 @@ describe('UploadImage Actions', () => {
         expect(deleteMock).not.toHaveBeenCalled();
       }));
 
-      it('doesn\'t call delete method if former meal image is the default image', () => store.dispatch(uploadImage('image', 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62', 'images/imagePath.jpg', uploadSuccesCallback)).then(() => {
+      it('doesn\'t call delete method if former meal image is the default image', () => store.dispatch(uploadImage('image', 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg', 'images/imagePath.jpg', uploadSuccesCallback)).then(() => {
         const deleteMock = jest.fn(() => 'third');
 
         mocksdk.storage().refFromURL = () => ({

@@ -77,37 +77,37 @@ const CatererSignupForm = ({ state, handlers }) => (
         }}
     />
     <RenderInput
-      type="text"
-      name="businessPhoneNo"
-      id="businessPhoneNo"
+      type="tel"
+      name="phoneNo"
+      id="phoneNo"
       label="Business Phone Number (e.g. 08123456789)"
       required
-      value={state.values.businessPhoneNo}
+      value={state.values.phoneNo}
       placeholder=""
       handleChange={handlers.handleChange}
       handleBlur={handlers.handleBlur}
       handleFocus={handlers.handleFocus}
       meta={{
-        touched: state.touched.businessPhoneNo,
-        error: state.error.businessPhoneNo,
+        touched: state.touched.phoneNo,
+        error: state.error.phoneNo,
         asyncValidating: state.asyncValidating
       }}
     />
     <RenderInput
       type="text-area"
       row={2}
-      name="businessAddress"
-      id="businessAddress"
+      name="address"
+      id="address"
       label="Business Address"
       required
-      value={state.values.businessAddress}
+      value={state.values.address}
       placeholder=""
       handleChange={handlers.handleChange}
       handleBlur={handlers.handleBlur}
       handleFocus={handlers.handleFocus}
       meta={{
-        touched: state.touched.businessAddress,
-        error: state.error.businessAddress,
+        touched: state.touched.address,
+        error: state.error.address,
         asyncValidating: state.asyncValidating
       }}
     />

@@ -45,7 +45,7 @@ class Orders {
         attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
         include: [{
           model: db.User,
-          attributes: ['businessName', 'businessAddress', 'businessPhoneNo', 'email'],
+          attributes: ['businessName', 'address', 'phoneNo', 'email'],
           as: 'caterer'
         }],
         paranoid: false,
@@ -75,12 +75,13 @@ class Orders {
    * extract order details using OrderItem join table
    */
   static async getCaterersOrders(req, res) {
-    let where = { status: { [Op.not]: 'started' } };
+    let where = { [Op.and]: [{ status: { [Op.not]: 'started' } }, { status: { [Op.not]: 'canceled' } }] };
 
     if (req.query.date) {
       where = {
         [Op.and]: [
           { status: { [Op.not]: 'started' } },
+          { status: { [Op.not]: 'canceled' } },
           sequelize.where(sequelize.fn('DATE', sequelize.col('Order.createdAt')), req.query.date)
         ]
       };
@@ -132,6 +133,7 @@ class Orders {
   static async create(req, res) {
     req.body.meals = [...(new Set(req.body.meals))];
     req.body.userId = req.userId;
+    const { deliveryAddress, deliveryPhoneNo } = req.body;
 
     const newOrder = await db.Order.create(req.body, { include: [{ model: db.User, as: 'customer' }] })
       .then(async (order) => {
@@ -139,6 +141,7 @@ class Orders {
 
         await Promise.all(promises);
         await Orders.getOrderMeals(order);
+        await Orders.updateCustomerContact(req.userId, { deliveryAddress, deliveryPhoneNo });
 
         orderEmitter.emit('create', order, req.userId);
 
@@ -160,6 +163,7 @@ class Orders {
    */
   static async update(req, res) {
     const { order } = req;
+    const { deliveryAddress, deliveryPhoneNo } = order;
     const updatedOrder = await order.update({ ...order, ...req.body }).then(async () => {
       if (req.body.meals) {
         await order.setMeals([]);
@@ -169,6 +173,9 @@ class Orders {
       }
 
       await Orders.getOrderMeals(order);
+      if (req.body.status !== 'canceled') {
+        await Orders.updateCustomerContact(req.userId, { deliveryAddress, deliveryPhoneNo });
+      }
 
       orderEmitter.emit('create', order);
 
@@ -331,6 +338,21 @@ class Orders {
   static addMeals(order, mealItems) {
     return mealItems.map(item =>
       order.addMeal(item.mealId, { through: { quantity: item.quantity } }).then(() => order));
+  }
+
+  /**
+   * Updates Customer's contact details
+   * @method updateCustomerContact
+   * @memberof Orders
+   * @param {string} userId
+   * @param {object} contact
+   * @returns {void}
+   */
+  static async updateCustomerContact(userId, contact) {
+    await db.User.update(
+      { phoneNo: contact.deliveryPhoneNo, address: contact.deliveryAddress },
+      { where: { userId } }
+    );
   }
 
   /**

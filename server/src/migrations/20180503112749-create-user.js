@@ -39,12 +39,12 @@ export default {
       allowNull: true,
       defaultValue: null,
     },
-    businessAddress: {
+    address: {
       type: Sequelize.STRING,
       allowNull: true,
       defaultValue: null,
     },
-    businessPhoneNo: {
+    phoneNo: {
       type: Sequelize.STRING,
       allowNull: true,
       defaultValue: null,

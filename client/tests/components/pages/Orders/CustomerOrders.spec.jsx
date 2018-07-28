@@ -203,8 +203,8 @@ describe('Customer Orders', () => {
 
       wrapper.find('input#deliveryPhoneNo').simulate('focus');
       wrapper.find('input#deliveryAddress').simulate('focus');
-      wrapper.find('input#deliveryPhoneNo').simulate('change', { target: { name: 'number', value: '08122334455' } });
-      wrapper.find('input#deliveryAddress').simulate('change', { target: { name: 'address', value: '2, Chruch Street, Place' } });
+      wrapper.find('input#deliveryPhoneNo').simulate('change', { target: { name: 'deliveryPhoneNo', value: '08122334455' } });
+      wrapper.find('input#deliveryAddress').simulate('change', { target: { name: 'deliveryAddress', value: '2, Chruch Street, Place' } });
       wrapper.find('input#deliveryPhoneNo').simulate('blur');
       wrapper.find('input#deliveryAddress').simulate('blur');
 
@@ -214,7 +214,7 @@ describe('Customer Orders', () => {
       expect(toggleOrderSummaryMock).toHaveBeenCalled();
     });
 
-    it('validates form and doesnt submits valid form', () => {
+    it('validates form and doesnt submits invalid form', () => {
       const comp = (
         <Provider store={store}>
           <OrderReview

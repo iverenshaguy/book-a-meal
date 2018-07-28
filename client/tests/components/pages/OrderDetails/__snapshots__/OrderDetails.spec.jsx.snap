@@ -6,11 +6,11 @@ exports[`OrderDetails renders correctly: Caterer OrderDetails 1`] = `
     type="caterer"
     user={
       Object {
-        "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+        "address": "$, Herbert Macaulay Way, Yaba, Lagos",
         "businessName": "Food Circle",
-        "businessPhoneNo": "08166557788",
         "email": "food@circle.com",
         "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "phoneNo": "08166557788",
         "role": "caterer",
       }
     }

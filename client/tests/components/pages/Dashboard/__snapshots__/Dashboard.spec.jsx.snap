@@ -9,11 +9,11 @@ exports[`Dashboard renders Preloader when fetching 1`] = `
   updateCurrentDate={null}
   user={
     Object {
-      "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+      "address": "$, Herbert Macaulay Way, Yaba, Lagos",
       "businessName": "Food Circle",
-      "businessPhoneNo": "08166557788",
       "email": "food@circle.com",
       "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+      "phoneNo": "08166557788",
       "role": "caterer",
     }
   }
@@ -328,11 +328,11 @@ exports[`Dashboard renders connected component 1`] = `
     totalCashEarned={9200}
     user={
       Object {
-        "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+        "address": "$, Herbert Macaulay Way, Yaba, Lagos",
         "businessName": "Food Circle",
-        "businessPhoneNo": "08166557788",
         "email": "food@circle.com",
         "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "phoneNo": "08166557788",
         "role": "caterer",
       }
     }
@@ -348,11 +348,11 @@ exports[`Dashboard renders connected component 1`] = `
       totalCashEarned={0}
       user={
         Object {
-          "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+          "address": "$, Herbert Macaulay Way, Yaba, Lagos",
           "businessName": "Food Circle",
-          "businessPhoneNo": "08166557788",
           "email": "food@circle.com",
           "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+          "phoneNo": "08166557788",
           "role": "caterer",
         }
       }
@@ -365,11 +365,11 @@ exports[`Dashboard renders connected component 1`] = `
         updateCurrentDate={null}
         user={
           Object {
-            "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+            "address": "$, Herbert Macaulay Way, Yaba, Lagos",
             "businessName": "Food Circle",
-            "businessPhoneNo": "08166557788",
             "email": "food@circle.com",
             "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+            "phoneNo": "08166557788",
             "role": "caterer",
           }
         }
@@ -386,11 +386,11 @@ exports[`Dashboard renders connected component 1`] = `
             updateCurrentDate={null}
             user={
               Object {
-                "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+                "address": "$, Herbert Macaulay Way, Yaba, Lagos",
                 "businessName": "Food Circle",
-                "businessPhoneNo": "08166557788",
                 "email": "food@circle.com",
                 "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                "phoneNo": "08166557788",
                 "role": "caterer",
               }
             }
@@ -495,11 +495,11 @@ exports[`Dashboard renders connected component 1`] = `
               logout={[Function]}
               user={
                 Object {
-                  "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+                  "address": "$, Herbert Macaulay Way, Yaba, Lagos",
                   "businessName": "Food Circle",
-                  "businessPhoneNo": "08166557788",
                   "email": "food@circle.com",
                   "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                  "phoneNo": "08166557788",
                   "role": "caterer",
                 }
               }
@@ -512,11 +512,11 @@ exports[`Dashboard renders connected component 1`] = `
                 toggleSideNav={[Function]}
                 user={
                   Object {
-                    "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+                    "address": "$, Herbert Macaulay Way, Yaba, Lagos",
                     "businessName": "Food Circle",
-                    "businessPhoneNo": "08166557788",
                     "email": "food@circle.com",
                     "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                    "phoneNo": "08166557788",
                     "role": "caterer",
                   }
                 }
@@ -775,11 +775,11 @@ exports[`Dashboard renders connected component 1`] = `
             updateCurrentDate={null}
             user={
               Object {
-                "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+                "address": "$, Herbert Macaulay Way, Yaba, Lagos",
                 "businessName": "Food Circle",
-                "businessPhoneNo": "08166557788",
                 "email": "food@circle.com",
                 "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                "phoneNo": "08166557788",
                 "role": "caterer",
               }
             }
@@ -794,11 +794,11 @@ exports[`Dashboard renders connected component 1`] = `
               updateCurrentDate={null}
               user={
                 Object {
-                  "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+                  "address": "$, Herbert Macaulay Way, Yaba, Lagos",
                   "businessName": "Food Circle",
-                  "businessPhoneNo": "08166557788",
                   "email": "food@circle.com",
                   "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                  "phoneNo": "08166557788",
                   "role": "caterer",
                 }
               }
@@ -829,11 +829,11 @@ exports[`Dashboard renders correctly when not fetching 1`] = `
   updateCurrentDate={null}
   user={
     Object {
-      "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
+      "address": "$, Herbert Macaulay Way, Yaba, Lagos",
       "businessName": "Food Circle",
-      "businessPhoneNo": "08166557788",
       "email": "food@circle.com",
       "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+      "phoneNo": "08166557788",
       "role": "caterer",
     }
   }

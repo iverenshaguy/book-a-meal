@@ -6,6 +6,8 @@ import {
   SIGNIN_ERROR,
   SIGNUP_SUCCESS,
   SIGNUP_ERROR,
+  ADD_ORDER_SUCCESS,
+  EDIT_ORDER_SUCCESS,
   CLEAR_AUTH_ERROR,
   AUTHENTICATION_ERROR,
 } from '../types';
@@ -48,6 +50,16 @@ export default (state = initialState, action) => {
         user: {},
         error: action.payload,
         loading: false
+      };
+    case ADD_ORDER_SUCCESS:
+    case EDIT_ORDER_SUCCESS:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          address: action.payload.deliveryAddress,
+          phoneNo: action.payload.deliveryPhoneNo
+        }
       };
     default:
       return state;

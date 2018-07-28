@@ -53,9 +53,9 @@ class Orders extends Component {
           </div>
           {this.props.orders.length === 0 && <p className="text-center">You Have No Orders</p>}
           {this.props.orders.length !== 0 &&
-          <div className="pills">
-            <InfiniteLoader items={orders} limit={8} />
-          </div>}
+            <div className="pills">
+              <InfiniteLoader items={orders} limit={8} />
+            </div>}
         </div>
       </div>
     );
@@ -64,8 +64,8 @@ class Orders extends Component {
 
   /**
    * @memberof Orders
-* @returns {JSX} Orders Component
-      */
+   * @returns {JSX} Orders Component
+   */
   render() {
     const { user, logout, isFetching } = this.props;
 
