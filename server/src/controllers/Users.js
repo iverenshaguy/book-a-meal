@@ -35,8 +35,8 @@ class Users {
         businessName: req.body.businessName,
         email: req.body.email.toLowerCase(),
         password: req.body.password,
-        businessPhoneNo: req.body.businessPhoneNo,
-        businessAddress: req.body.businessAddress,
+        phoneNo: req.body.phoneNo,
+        address: req.body.address,
         role: req.body.role
       }
     }).spread((newUser, created) => {
@@ -168,6 +168,8 @@ class Users {
         id: user.userId,
         firstname: user.firstname,
         lastname: user.lastname,
+        address: user.address,
+        phoneNo: user.phoneNo,
         email: user.email,
         role: user.role
       };
@@ -177,8 +179,8 @@ class Users {
       userObj = {
         id: user.userId,
         businessName: user.businessName,
-        businessAddress: user.businessAddress,
-        businessPhoneNo: user.businessPhoneNo,
+        address: user.address,
+        phoneNo: user.phoneNo,
         email: user.email,
         role: user.role
       };

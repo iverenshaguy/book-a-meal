@@ -35,7 +35,7 @@ describe('Order Routes: Get All Orders', () => {
         .set('authorization', foodCircleToken)
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
-          expect(res.body.orders.length).to.equal(5);
+          expect(res.body.orders.length).to.equal(3);
 
           if (err) return done(err);
           done();

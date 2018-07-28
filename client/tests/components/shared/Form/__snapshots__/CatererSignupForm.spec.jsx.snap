@@ -80,7 +80,7 @@ exports[`CatererSignupForm renders correctly 1`] = `
     handleBlur={[MockFunction]}
     handleChange={[MockFunction]}
     handleFocus={[MockFunction]}
-    id="businessPhoneNo"
+    id="phoneNo"
     label="Business Phone Number (e.g. 08123456789)"
     meta={
       Object {
@@ -89,17 +89,17 @@ exports[`CatererSignupForm renders correctly 1`] = `
         "touched": false,
       }
     }
-    name="businessPhoneNo"
+    name="phoneNo"
     placeholder=""
     required={true}
-    type="text"
+    type="tel"
     value=""
   />
   <RenderInput
     handleBlur={[MockFunction]}
     handleChange={[MockFunction]}
     handleFocus={[MockFunction]}
-    id="businessAddress"
+    id="address"
     label="Business Address"
     meta={
       Object {
@@ -108,7 +108,7 @@ exports[`CatererSignupForm renders correctly 1`] = `
         "touched": false,
       }
     }
-    name="businessAddress"
+    name="address"
     placeholder=""
     required={true}
     row={2}

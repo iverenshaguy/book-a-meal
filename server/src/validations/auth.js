@@ -53,12 +53,11 @@ export default {
         }
         return true;
       }),
-    check('businessAddress')
+    check('address')
       .trim()
-      .custom((value, { req }) => unacceptedField('customer', req.body.role, value))
       .custom((value, { req }) => {
         if (req.body.role && req.body.role === 'caterer') {
-          if (!req.body.businessAddress) throw new Error('Business Address must be specified');
+          if (!req.body.address) throw new Error('Business Address must be specified');
           if (value.length < 5 || value.length > 255) {
             throw new Error('Business Address must be between 5 and 255 characters');
           }
@@ -69,12 +68,11 @@ export default {
         }
         return true;
       }),
-    check('businessPhoneNo')
+    check('phoneNo')
       .trim()
-      .custom((value, { req }) => unacceptedField('customer', req.body.role, value))
       .custom((value, { req }) => {
         if (req.body.role && req.body.role === 'caterer') {
-          if (!req.body.businessPhoneNo) throw new Error('Business Phone Number must be specified');
+          if (!req.body.phoneNo) throw new Error('Business Phone Number must be specified');
           if (!validator.matches(value, /^\+?(0)[7-9]([0-9]{9})$/)) {
             throw new Error('Business Phone Number must be in the format 08134567890');
           }

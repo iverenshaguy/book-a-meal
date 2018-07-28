@@ -9,8 +9,8 @@ const userPropType = PropTypes.shape({
   firstname: PropTypes.string,
   lastname: PropTypes.string,
   businessName: PropTypes.string,
-  businessAddress: PropTypes.string,
-  businessPhoneNo: PropTypes.string,
+  address: PropTypes.string,
+  phoneNo: PropTypes.string,
   email: PropTypes.string,
   role: PropTypes.string,
 });
@@ -39,8 +39,8 @@ const customerOrderMealPropTypes = PropTypes.shape({
   price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   caterer: PropTypes.shape({
     businessName: PropTypes.string,
-    businessAddress: PropTypes.string,
-    businessPhoneNo: PropTypes.string,
+    address: PropTypes.string,
+    phoneNo: PropTypes.string,
     email: PropTypes.string
   }),
   quantity: PropTypes.number,

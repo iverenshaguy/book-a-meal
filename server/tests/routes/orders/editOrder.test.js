@@ -64,6 +64,23 @@ describe('Order Routes: Modify an Order', () => {
       });
   });
 
+  it('should not modify user details for an order that is being canceled', (done) => {
+    request(app)
+      .put(`/api/v1/orders/${newOrderId}`)
+      .set('Accept', 'application/json')
+      .set('authorization', emiolaToken)
+      .send({ deliveryPhoneNo: '08134567891', status: 'canceled' })
+      .end((err, res) => {
+        db.User.findOne({ where: { phoneNo: '08134567891' } }).then((user) => {
+          expect(user).to.equal(null);
+          expect(res.body.status).to.equal('canceled');
+
+          if (err) return done(err);
+          done();
+        });
+      });
+  });
+
   it('should not modify an expired order', (done) => {
     request(app)
       .put('/api/v1/orders/fb097bde-5959-45ff-8e21-51184fa60c25')

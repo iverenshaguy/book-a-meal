@@ -12,7 +12,7 @@ const clearFormError = {
 const formFields = {
   signin: ['email', 'password'],
   customerSignup: ['firstname', 'lastname', 'email', 'password', 'passwordConfirm', 'role'],
-  catererSignup: ['businessName', 'email', 'password', 'passwordConfirm', 'businessAddress', 'businessPhoneNo', 'role'],
+  catererSignup: ['businessName', 'email', 'password', 'passwordConfirm', 'address', 'phoneNo', 'role'],
   addMeal: ['title', 'price', 'imageUrl', 'description', 'vegetarian'],
   editMeal: ['title', 'price', 'imageUrl', 'description', 'vegetarian'],
 };
@@ -20,7 +20,7 @@ const formFields = {
 const requiredFormFields = {
   signin: ['email', 'password'],
   customerSignup: ['firstname', 'lastname', 'email', 'password', 'passwordConfirm'],
-  catererSignup: ['businessName', 'email', 'password', 'passwordConfirm', 'businessAddress', 'businessPhoneNo'],
+  catererSignup: ['businessName', 'email', 'password', 'passwordConfirm', 'address', 'phoneNo'],
   addMeal: ['title', 'price'],
   editMeal: ['title', 'price'],
 };

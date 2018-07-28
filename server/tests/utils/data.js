@@ -41,8 +41,8 @@ export default {
       email: 'wecook@cook.com',
       password: 'wecookgoofood',
       passwordConfirm: 'wecookgoofood',
-      businessPhoneNo: '08134567890',
-      businessAddress: '4, Church Street, Yaba',
+      phoneNo: '08134567890',
+      address: '4, Church Street, Yaba',
     },
 
     wrongUserData: {
@@ -52,8 +52,8 @@ export default {
       password: 'favou',
       passwordConfirm: 'favourshaguy',
       businessName: 'Foodie',
-      businessPhoneNo: '08134567890',
-      businessAddress: '4, Church Street, Yaba',
+      phoneNo: '08134567890',
+      address: '4, Church Street, Yaba',
     },
 
     wrongCatererData: {
@@ -63,7 +63,7 @@ export default {
       email: 'food@circle',
       password: 'foodc',
       passwordConfirm: 'foodcircle',
-      businessPhoneNo: '0813456',
+      phoneNo: '0813456',
     },
 
     wrongRoleUserData: {
@@ -82,7 +82,7 @@ export default {
       email: 'wecook@cook.com',
       password: 'wecookgoofood',
       passwordConfirm: 'wecookgoofood',
-      businessAddress: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+      address: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
       Aenean malesuada lorem non elit cursus, non sodales orci volutpat. 
       Suspendisse eleifend sed libero dignissim mollis. Nullam imperdiet 
       lorem dui, at ultrices purus lacinia in. Integer consequat eros consequat, 
@@ -95,8 +95,8 @@ export default {
       role: 'caterer',
       firstname: 'Favour',
       businessName: 'ijjjk8987&&&7jjjk',
-      businessPhoneNo: 'ijjjk89877jjjk',
-      businessAddress: 'uiiowe,ksdyuil&9jk',
+      phoneNo: 'ijjjk89877jjjk',
+      address: 'uiiowe,ksdyuil&9jk',
     },
 
     longusername: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 

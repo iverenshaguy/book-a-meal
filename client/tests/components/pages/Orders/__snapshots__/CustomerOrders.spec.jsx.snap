@@ -348,8 +348,8 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                     name="deliveryPhoneNo"
                     placeholder=""
                     required={true}
-                    type="number"
-                    value="08134567891"
+                    type="tel"
+                    value=""
                   >
                     <div
                       className="form-input"
@@ -372,9 +372,10 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                         onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
+                        pattern="[0-9]{4}[0-9]{3}[0-9]{4}"
                         placeholder=""
-                        type="number"
-                        value="08134567891"
+                        type="tel"
+                        value=""
                       />
                     </div>
                   </RenderInput>
@@ -394,7 +395,7 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                     placeholder=""
                     required={true}
                     type="textarea"
-                    value="4, Church Street, Yaba"
+                    value=""
                   >
                     <div
                       className="form-input"
@@ -419,7 +420,7 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                         onFocus={[Function]}
                         placeholder=""
                         type="textarea"
-                        value="4, Church Street, Yaba"
+                        value=""
                       />
                     </div>
                   </RenderInput>
@@ -560,8 +561,8 @@ exports[`Customer Orders Order Review renders correctly 1`] = `
             name="deliveryPhoneNo"
             placeholder=""
             required={true}
-            type="number"
-            value="08134567891"
+            type="tel"
+            value=""
           />
           <RenderInput
             handleBlur={[Function]}
@@ -579,7 +580,7 @@ exports[`Customer Orders Order Review renders correctly 1`] = `
             placeholder=""
             required={true}
             type="textarea"
-            value="4, Church Street, Yaba"
+            value=""
           />
         </React.Fragment>
       </div>

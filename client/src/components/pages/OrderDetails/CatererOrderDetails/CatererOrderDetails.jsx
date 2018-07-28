@@ -89,7 +89,7 @@ class CatererOrderDetails extends Component {
     return (
       <Fragment>
         {this.renderOrderMisc(order)}
-        <OrderSummary meals={order.meals} />
+        <OrderSummary meals={order.meals} status={order.status} />
         <OrderAmount meals={order.meals} type="admin" />
       </Fragment>
     );

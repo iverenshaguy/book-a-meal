@@ -6,7 +6,7 @@ export default {
       title: 'Jollof Rice, Beef and Plantain',
       description: 'Jollof Rice, Beef and Plantain. 2 pieces of beef per plate',
       price: 1500,
-      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
+      imageUrl: 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg',
       vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
@@ -17,7 +17,7 @@ export default {
       title: 'Vegetable Sharwama and Guava Smoothie',
       description: 'Sharwama contains no animal products',
       price: 1200,
-      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
+      imageUrl: 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg',
       vegetarian: true,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
@@ -28,7 +28,7 @@ export default {
       title: 'Semo/Wheat and Egusi Soup',
       description: 'Meal contains 2 pieces of beef',
       price: 2000,
-      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
+      imageUrl: 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg',
       vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
@@ -39,7 +39,7 @@ export default {
       title: 'Ewa Agoyin, Plantain and Local Fish',
       description: '',
       price: 1200,
-      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
+      imageUrl: 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg',
       vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
@@ -50,7 +50,7 @@ export default {
       title: 'Adalu (Beans and Corn) and Local Fish ',
       description: '',
       price: 2000,
-      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
+      imageUrl: 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg',
       vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
@@ -61,7 +61,7 @@ export default {
       title: 'Chicken Sharwama and Banana Smoothie',
       description: '',
       price: 1200,
-      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
+      imageUrl: 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg',
       vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
@@ -72,7 +72,7 @@ export default {
       title: 'Eba and Ogbono Soup',
       description: 'Meal contains 2 pieces of beef',
       price: 2000,
-      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
+      imageUrl: 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg',
       vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
@@ -83,7 +83,7 @@ export default {
       title: 'Yam and Platain Pottage',
       description: 'Meal come with Fish',
       price: 1200,
-      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
+      imageUrl: 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg',
       vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
@@ -94,7 +94,7 @@ export default {
       title: 'Wheat and Okro Soup',
       description: 'Meal contains 2 pieces of beef',
       price: 2000,
-      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
+      imageUrl: 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg',
       vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'
@@ -105,7 +105,7 @@ export default {
       title: 'Jollof Spaghetti, Plantain and Turkey',
       description: '',
       price: 1200,
-      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62',
+      imageUrl: 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg',
       vegetarian: false,
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z'

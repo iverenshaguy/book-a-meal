@@ -42,8 +42,8 @@ class OrderReview extends Component {
         deliveryAddress: null
       },
       values: {
-        deliveryPhoneNo: storedOrder.deliveryPhoneNo,
-        deliveryAddress: storedOrder.deliveryAddress,
+        deliveryPhoneNo: props.user.phoneNo,
+        deliveryAddress: props.user.address,
       }
     };
   }
@@ -145,6 +145,12 @@ class OrderReview extends Component {
    * @returns {func} this.toggleOrderSummary
   */
   handleOrderDetailsSubmit = () => {
+    const { order, values } = this.state;
+
+    updateLocalStorageOrder(this.props.user.id, {
+      ...order, ...values
+    });
+
     const formValid = this.validateForm();
     if (formValid) return this.toggleOrderSummary();
     return null;
@@ -157,7 +163,7 @@ class OrderReview extends Component {
   renderInputFields = () => (
     <Fragment>
       <RenderInput
-        type="number"
+        type="tel"
         name="deliveryPhoneNo"
         id="deliveryPhoneNo"
         label="Phone Number (e.g. 08123456789)"

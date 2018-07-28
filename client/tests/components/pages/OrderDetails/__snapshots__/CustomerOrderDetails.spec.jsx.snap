@@ -48,10 +48,10 @@ exports[`OrderDetails renders Preloader when fetching 1`] = `
               Array [
                 Object {
                   "caterer": Object {
-                    "businessAddress": "4, Church Street, Yaba",
+                    "address": "4, Church Street, Yaba",
                     "businessName": "BellyFill",
-                    "businessPhoneNo": "08134567890",
                     "email": "belly@fill.com",
+                    "phoneNo": "08134567890",
                   },
                   "delivered": false,
                   "description": "",
@@ -64,16 +64,17 @@ exports[`OrderDetails renders Preloader when fetching 1`] = `
                 },
               ]
             }
+            status="canceled"
           />
           <OrderAmount
             meals={
               Array [
                 Object {
                   "caterer": Object {
-                    "businessAddress": "4, Church Street, Yaba",
+                    "address": "4, Church Street, Yaba",
                     "businessName": "BellyFill",
-                    "businessPhoneNo": "08134567890",
                     "email": "belly@fill.com",
+                    "phoneNo": "08134567890",
                   },
                   "delivered": false,
                   "description": "",
@@ -175,10 +176,10 @@ exports[`OrderDetails renders connected component 1`] = `
           "meals": Array [
             Object {
               "caterer": Object {
-                "businessAddress": "4, Church Street, Yaba",
+                "address": "4, Church Street, Yaba",
                 "businessName": "FoodCircle",
-                "businessPhoneNo": "08134567890",
                 "email": "food@circle.com",
+                "phoneNo": "08134567890",
               },
               "delivered": true,
               "description": "Sharwama contains no animal products, perfect for dieters",
@@ -191,10 +192,10 @@ exports[`OrderDetails renders connected component 1`] = `
             },
             Object {
               "caterer": Object {
-                "businessAddress": "4, Church Street, Yaba",
+                "address": "4, Church Street, Yaba",
                 "businessName": "FoodCircle",
-                "businessPhoneNo": "08134567890",
                 "email": "food@circle.com",
+                "phoneNo": "08134567890",
               },
               "delivered": true,
               "description": "Sharwama contains no animal products, perfect for dieters",
@@ -529,10 +530,10 @@ exports[`OrderDetails renders connected component 1`] = `
                   Array [
                     Object {
                       "caterer": Object {
-                        "businessAddress": "4, Church Street, Yaba",
+                        "address": "4, Church Street, Yaba",
                         "businessName": "FoodCircle",
-                        "businessPhoneNo": "08134567890",
                         "email": "food@circle.com",
+                        "phoneNo": "08134567890",
                       },
                       "delivered": true,
                       "description": "Sharwama contains no animal products, perfect for dieters",
@@ -545,10 +546,10 @@ exports[`OrderDetails renders connected component 1`] = `
                     },
                     Object {
                       "caterer": Object {
-                        "businessAddress": "4, Church Street, Yaba",
+                        "address": "4, Church Street, Yaba",
                         "businessName": "FoodCircle",
-                        "businessPhoneNo": "08134567890",
                         "email": "food@circle.com",
+                        "phoneNo": "08134567890",
                       },
                       "delivered": true,
                       "description": "Sharwama contains no animal products, perfect for dieters",
@@ -561,6 +562,7 @@ exports[`OrderDetails renders connected component 1`] = `
                     },
                   ]
                 }
+                status="delivered"
               >
                 <div
                   className="order-summary"
@@ -622,10 +624,10 @@ exports[`OrderDetails renders connected component 1`] = `
                   Array [
                     Object {
                       "caterer": Object {
-                        "businessAddress": "4, Church Street, Yaba",
+                        "address": "4, Church Street, Yaba",
                         "businessName": "FoodCircle",
-                        "businessPhoneNo": "08134567890",
                         "email": "food@circle.com",
+                        "phoneNo": "08134567890",
                       },
                       "delivered": true,
                       "description": "Sharwama contains no animal products, perfect for dieters",
@@ -638,10 +640,10 @@ exports[`OrderDetails renders connected component 1`] = `
                     },
                     Object {
                       "caterer": Object {
-                        "businessAddress": "4, Church Street, Yaba",
+                        "address": "4, Church Street, Yaba",
                         "businessName": "FoodCircle",
-                        "businessPhoneNo": "08134567890",
                         "email": "food@circle.com",
+                        "phoneNo": "08134567890",
                       },
                       "delivered": true,
                       "description": "Sharwama contains no animal products, perfect for dieters",
@@ -797,10 +799,10 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
               Array [
                 Object {
                   "caterer": Object {
-                    "businessAddress": "4, Church Street, Yaba",
+                    "address": "4, Church Street, Yaba",
                     "businessName": "BellyFill",
-                    "businessPhoneNo": "08134567890",
                     "email": "belly@fill.com",
+                    "phoneNo": "08134567890",
                   },
                   "delivered": false,
                   "description": "",
@@ -813,16 +815,17 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
                 },
               ]
             }
+            status="canceled"
           />
           <OrderAmount
             meals={
               Array [
                 Object {
                   "caterer": Object {
-                    "businessAddress": "4, Church Street, Yaba",
+                    "address": "4, Church Street, Yaba",
                     "businessName": "BellyFill",
-                    "businessPhoneNo": "08134567890",
                     "email": "belly@fill.com",
+                    "phoneNo": "08134567890",
                   },
                   "delivered": false,
                   "description": "",

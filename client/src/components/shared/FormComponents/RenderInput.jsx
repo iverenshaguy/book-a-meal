@@ -69,6 +69,7 @@ class RenderInput extends Component {
             onChange={e => this.props.handleChange(e)}
             onBlur={e => this.props.handleBlur(e)}
             onFocus={e => this.props.handleFocus(e)}
+            pattern={this.props.type === 'tel' ? '[0-9]{4}[0-9]{3}[0-9]{4}' : undefined}
           />
           {this.props.type === 'checkbox' &&
             <label htmlFor={this.props.id}>

@@ -37,8 +37,8 @@ const validation = {
     email: [isRequired, isValidEmail],
     password: [isRequired, minLength8],
     passwordConfirm: [isRequired, isValidPasswordConfirm],
-    businessAddress: [isRequired, minLength5, maxLength255, isAddress],
-    businessPhoneNo: [isRequired, isPhoneNumber],
+    address: [isRequired, minLength5, maxLength255, isAddress],
+    phoneNo: [isRequired, isPhoneNumber],
   },
   addMeal: {
     title: [isRequired, minLength1, maxLength50, isMealName],
