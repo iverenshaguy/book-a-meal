@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InfiniteLoading renders correctly 1`] = `
-<InfiniteLoading
+exports[`InfiniteLoader renders correctly 1`] = `
+<InfiniteLoader
   items={
     Array [
       <p>
@@ -128,5 +128,5 @@ exports[`InfiniteLoading renders correctly 1`] = `
       </div>
     </div>
   </InfiniteScroll>
-</InfiniteLoading>
+</InfiniteLoader>
 `;

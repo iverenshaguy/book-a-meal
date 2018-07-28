@@ -24,18 +24,19 @@ describe('Dropdown', () => {
     expect(toJson(shallowWrapper)).toMatchSnapshot();
   });
 
-  it('toggles showContent state to true on click', () => {
+  it('toggles showContent state to true on hover', () => {
     const wrapper = mount(<Dropdown
       type="notification"
-      toggler={<p>Click Me</p>}
+      toggler={<p>Hover over Me</p>}
       content={<div>Hey</div>}
     />);
 
-    wrapper.find('button#dropdown-toggler').simulate('click');
+    wrapper.find('.dropdown').simulate('mouseEnter');
     expect(wrapper.state('showContent')).toEqual(true);
 
-    wrapper.find('button#dropdown-toggler').simulate('click');
+    wrapper.find('.dropdown').simulate('mouseLeave');
     expect(wrapper.state('showContent')).toEqual(false);
+
     wrapper.unmount();
   });
 });

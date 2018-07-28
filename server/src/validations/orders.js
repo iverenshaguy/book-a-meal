@@ -32,8 +32,8 @@ export default {
       .trim()
       .exists().withMessage('Delivery Phone Number must be specified')
       .custom(value => notEmpty(value, 'Delivery Phone Number field cannot be left blank'))
-      .matches(/^\+?(234)([0-9]{10})$/)
-      .withMessage('Delivery Phone Number must be in the format +2348134567890')
+      .matches(/^\+?(0)[7-9]([0-9]{9})$/)
+      .withMessage('Delivery Phone Number must be in the format 08134567890')
       .isLength({ min: 10, max: 15 })
       .withMessage('Delivery Phone Number must be between 10 and 15 characters'),
   ],
@@ -68,8 +68,8 @@ export default {
       .trim()
       .optional()
       .custom(value => notEmpty(value, 'If provided, delivery phone number field cannot be left blank'))
-      .matches(/^\+?(234)([0-9]{10})$/)
-      .withMessage('Delivery Phone Number must be in the format +2348134567890')
+      .matches(/^\+?(0)[7-9]([0-9]{9})$/)
+      .withMessage('Delivery Phone Number must be in the format 08134567890')
       .isLength({ min: 10, max: 15 })
       .withMessage('Delivery Phone Number must be between 5 and 15 characters'),
   ],

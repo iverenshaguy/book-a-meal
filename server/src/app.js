@@ -48,7 +48,7 @@ app.get('/*', (req, res) => {
 
 orderEmitter.on('create', OrderHandler.startOrderProcess);
 orderEmitter.on('deliver', OrderHandler.markOrderAsDelivered);
-notifEmitter.on('createMenu', NotifHandler.notifyAllUsers);
+notifEmitter.on('createMenu', NotifHandler.menuForTheDay);
 
 // Handle App Errors
 app.use(ErrorHandler.sendError);

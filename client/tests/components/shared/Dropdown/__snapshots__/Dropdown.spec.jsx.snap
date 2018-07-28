@@ -8,7 +8,8 @@ exports[`Dropdown renders correctly when type is admin notification 1`] = `
 >
   <Link
     className="link"
-    clickHandler={[Function]}
+    clickHandler={null}
+    dataTip={null}
     id="dropdown-toggler"
   >
     <p>
@@ -34,7 +35,8 @@ exports[`Dropdown renders correctly when type is simple notification 1`] = `
 >
   <Link
     className="link"
-    clickHandler={[Function]}
+    clickHandler={null}
+    dataTip={null}
     id="dropdown-toggler"
   >
     <p>

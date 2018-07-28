@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -89,6 +90,7 @@ class CustomerOrderDetails extends Component {
     const status = order.status === 'started' ? 'pending' : order.status;
 
     const statusClass = classNames({
+      'order-status': true,
       warning: status === 'pending',
       success: status === 'delivered',
       danger: status === 'canceled'
@@ -96,7 +98,7 @@ class CustomerOrderDetails extends Component {
 
     return (
       <div className="customer-details">
-        <p>Status:
+        <p>Order Status:
           <span className={statusClass} style={{ textTransform: 'capitalize' }}> {status}</span>
         </p>
         <p>Address Provided: {order.deliveryAddress}</p>
@@ -142,7 +144,7 @@ class CustomerOrderDetails extends Component {
 
   /**
    * @memberof CustomerOrderDetails
-* @returns {JSX} CustomerOrderDetails Component
+   * @returns {JSX} CustomerOrderDetails Component
     */
   renderCustomerOrderDetails = () => {
     const { order } = this.props;
@@ -150,7 +152,7 @@ class CustomerOrderDetails extends Component {
     return (
       <Fragment>
         <div className="order-confirmation order-details">
-          <h2 className="text-center" style={{ paddingTop: '1em' }}>Order #{order.id}</h2>
+          <h2 className="text-center">Order #{order.id}</h2>
           <p className="order-date text-center">{moment().format('YY/MM/DD h:mm a')}</p>
           <hr />
           {this.renderDetails()}
@@ -169,6 +171,7 @@ class CustomerOrderDetails extends Component {
     return (
       <View user={user} logout={logout} type="customerOrderDetails" isFetching={isFetching}>
         <Fragment>
+          <Link href="/orders" to="/orders" className="orders-back-link">&#8592; Back To Orders</Link>
           {!this.props.order && <p className="text-center">This Order Does Not Exist</p>}
           {this.props.order && this.renderCustomerOrderDetails()}
         </Fragment>

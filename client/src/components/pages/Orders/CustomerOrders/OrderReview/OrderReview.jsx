@@ -160,7 +160,7 @@ class OrderReview extends Component {
         type="number"
         name="deliveryPhoneNo"
         id="deliveryPhoneNo"
-        label="Phone Number"
+        label="Phone Number (e.g. 08123456789)"
         required
         value={this.state.values.deliveryPhoneNo}
         placeholder=""

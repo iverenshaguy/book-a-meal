@@ -39,13 +39,20 @@ exports[`MealForm renders correctly when type is addMeal 1`] = `
     type="number"
     value=""
   />
+  <Connect(RenderFileInput)
+    formerImgUrl="http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg"
+    id="imageUrl"
+    label="Meal Image"
+    name="imageUrl"
+    successCallBack={[Function]}
+  />
   <RenderInput
     handleBlur={[MockFunction]}
     handleChange={[MockFunction]}
     handleFocus={[MockFunction]}
     id="description"
     label="Description (not more than 50 characters)"
-    maxLength={50}
+    maxLength={100}
     meta={
       Object {
         "error": null,
@@ -120,11 +127,10 @@ exports[`MealForm renders correctly when type is editMeal 1`] = `
     value="2500.00"
   />
   <Connect(RenderFileInput)
-    formerImgURL="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
-    id="imageURL"
+    formerImgUrl="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+    id="imageUrl"
     label="Meal Image"
-    mealId="81211c24-51c0-46ec-b1e0-18db55880958"
-    name="imageURL"
+    name="imageUrl"
     successCallBack={[Function]}
   />
   <RenderInput
@@ -133,7 +139,7 @@ exports[`MealForm renders correctly when type is editMeal 1`] = `
     handleFocus={[MockFunction]}
     id="description"
     label="Description (not more than 50 characters)"
-    maxLength={50}
+    maxLength={100}
     meta={
       Object {
         "error": null,

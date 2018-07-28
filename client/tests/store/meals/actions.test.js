@@ -162,7 +162,7 @@ describe('Meals Actions', () => {
       });
 
       it('dispatches SET_MEAL_WORKING, ADD_MEAL_SUCCESS, UNSET_MEAL_WORKING and TOGGLE_MODAL on successful meal addition', () => {
-        const expectedActions = ['SET_MEAL_WORKING', 'ADD_MEAL_SUCCESS', 'UNSET_MEAL_WORKING', 'TOGGLE_MODAL', 'TOGGLE_MODAL'];
+        const expectedActions = ['SET_MEAL_WORKING', 'ADD_MEAL_SUCCESS', 'UNSET_MEAL_WORKING', 'TOGGLE_MODAL'];
 
         moxios.stubRequest(`${url}/meals`, {
           status: 200,
@@ -216,7 +216,7 @@ describe('Meals Actions', () => {
       });
 
       it('dispatches SET_MEAL_WORKING, EDIT_MEAL_SUCCESS, UNSET_MEAL_WORKING and TOGGLE_MODAL on successful meal edit when toggleEditModal is false', () => {
-        const expectedActions = ['SET_MEAL_WORKING', 'EDIT_MEAL_SUCCESS', 'UNSET_MEAL_WORKING'];
+        const expectedActions = ['SET_MEAL_WORKING', 'EDIT_MEAL_SUCCESS', 'UNSET_MEAL_WORKING', 'TOGGLE_MODAL'];
 
         moxios.stubRequest(`${url}/meals/${newMeal.id}`, {
           status: 200,

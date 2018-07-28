@@ -10,6 +10,7 @@ exports[`Header renders caterer header correctly 1`] = `
     <Connect(CatererHeader)
       dateType={null}
       showTime={true}
+      updateCurrentDate={null}
     />
   </div>
 </div>

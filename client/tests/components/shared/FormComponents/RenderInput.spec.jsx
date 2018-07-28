@@ -64,4 +64,13 @@ describe('Form Components: RenderInput', () => {
     expect(mountedWrapper.find('input').hasClass('is-invalid')).toBeTruthy();
     mountedWrapper.unmount();
   });
+
+  it('changes field state to open', () => {
+    const mountedWrapper = mount(<RenderInput {...cleanProps} />);
+
+    mountedWrapper.find('label').simulate('click');
+
+    expect(mountedWrapper.state().openField).toEqual(true);
+    mountedWrapper.unmount();
+  });
 });

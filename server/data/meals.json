@@ -5,7 +5,7 @@
      "title": "Jollof Rice, Beef and Plantain",
      "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
      "price": 1500,
-     "imageURL": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+     "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
      "vegetarian": false,
      "createdAt": "2018-05-06T14:34:90.000",
      "updatedAt": "2018-05-06T14:34:90.000"
@@ -16,7 +16,7 @@
      "title": "Vegetable Sharwama and Guava Smoothie",
      "description": "Sharwama contains no animal products, perfect for dieters",
      "price": 1200,
-     "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+     "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
      "vegetarian": true,
      "createdAt": "2018-05-06T14:34:90.000",
      "updatedAt": "2018-05-06T14:34:90.000"
@@ -27,7 +27,7 @@
      "title": "Semo/Wheat and Egusi Soup",
      "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
      "price": 2000,
-     "imageURL": "https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg",
+     "imageUrl": "https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg",
      "vegetarian": false,
      "createdAt": "2018-05-06T14:34:90.000",
      "updatedAt": "2018-05-06T14:34:90.000"
@@ -38,7 +38,7 @@
      "title": "Ewa Agoyin, Plantain and Local Fish",
      "description": "",
      "price": 1200,
-     "imageURL": "http://sisijemimah.com/wp-content/uploads/2015/08/IMG_8335.jpg",
+     "imageUrl": "http://sisijemimah.com/wp-content/uploads/2015/08/IMG_8335.jpg",
      "vegetarian": false,
      "createdAt": "2018-05-06T14:34:90.000",
      "updatedAt": "2018-05-06T14:34:90.000"
@@ -49,7 +49,7 @@
      "title": "Adalu (Beans and Corn) and Local Fish ",
      "description": "",
      "price": 2000,
-     "imageURL": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
+     "imageUrl": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
      "vegetarian": false,
      "createdAt": "2018-05-06T14:34:90.000",
      "updatedAt": "2018-05-06T14:34:90.000"
@@ -60,7 +60,7 @@
      "title": "Chicken Sharwama and Banana Smoothie",
      "description": "",
      "price": 1200,
-     "imageURL": "http://www.ndtv.com/cooks/images/shawarma%20new.jpg",
+     "imageUrl": "http://www.ndtv.com/cooks/images/shawarma%20new.jpg",
      "vegetarian": false,
      "createdAt": "2018-05-06T14:34:90.000",
      "updatedAt": "2018-05-06T14:34:90.000"
@@ -71,7 +71,7 @@
      "title": "Eba and Ogbono Soup",
      "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
      "price": 2000,
-     "imageURL": "http://www.kalakutahgrills.com/wp-content/uploads/2017/02/my-pics-group-3-007.jpg",
+     "imageUrl": "http://www.kalakutahgrills.com/wp-content/uploads/2017/02/my-pics-group-3-007.jpg",
      "vegetarian": false,
      "createdAt": "2018-05-06T14:34:90.000",
      "updatedAt": "2018-05-06T14:34:90.000"
@@ -82,7 +82,7 @@
      "title": "Yam and Platain Pottage",
      "description": "Meal come with Fish",
      "price": 1200,
-     "imageURL": "https://i0.wp.com/www.eatingnigerian.com/wp-content/uploads/2016/08/Yam-and-Plantain-Pottage-21.jpg",
+     "imageUrl": "https://i0.wp.com/www.eatingnigerian.com/wp-content/uploads/2016/08/Yam-and-Plantain-Pottage-21.jpg",
      "vegetarian": false,
      "createdAt": "2018-05-06T14:34:90.000",
      "updatedAt": "2018-05-06T14:34:90.000"
@@ -93,7 +93,7 @@
      "title": "Wheat and Okro Soup",
      "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
      "price": 2000,
-     "imageURL": "http://koalaghana.com/wp-content/uploads/DSC02053.jpg",
+     "imageUrl": "http://koalaghana.com/wp-content/uploads/DSC02053.jpg",
      "vegetarian": false,
      "createdAt": "2018-05-06T14:34:90.000",
      "updatedAt": "2018-05-06T14:34:90.000"
@@ -104,7 +104,7 @@
      "title": "Jollof Spaghetti, Plantain and Turkey",
      "description": "",
      "price": 1200,
-     "imageURL": "https://lagosmums.com/wp-content/uploads/2015/06/Jollof-Spaghetti.jpeg",
+     "imageUrl": "https://lagosmums.com/wp-content/uploads/2015/06/Jollof-Spaghetti.jpeg",
      "vegetarian": false,
      "createdAt": "2018-05-06T14:34:90.000",
      "updatedAt": "2018-05-06T14:34:90.000"

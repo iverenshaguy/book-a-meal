@@ -18,7 +18,7 @@ import {
  * @returns {function} success callback
  */
 const uploadImage = (image, formerImagePath, imagePath, successCallBack) => async (dispatch) => {
-  const defaultImage = 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62';
+  const defaultImage = 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg';
 
   const storage = app.storage();
 
@@ -35,10 +35,10 @@ const uploadImage = (image, formerImagePath, imagePath, successCallBack) => asyn
       formerStorageRef.delete();
     }
 
-    return snapshot.ref.getDownloadURL().then((downloadURL) => {
-      dispatch(uploadSuccess(downloadURL));
+    return snapshot.ref.getDownloadURL().then((downloadUrl) => {
+      dispatch(uploadSuccess(downloadUrl));
       dispatch(unsetUploading());
-      return successCallBack(downloadURL);
+      return successCallBack(downloadUrl);
     });
   } catch (error) {
     const errorResponse = errorHandler(error);

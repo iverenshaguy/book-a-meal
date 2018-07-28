@@ -151,6 +151,6 @@ describe('CatererMenu', () => {
       currentDay: '1969-04-27'
     });
 
-    expect(wrapper.find('#menu-modal-btn').props('disabled')).toBeTruthy();
+    expect(wrapper.find('#menu-modal-btn').length).toBeFalsy();
   });
 });

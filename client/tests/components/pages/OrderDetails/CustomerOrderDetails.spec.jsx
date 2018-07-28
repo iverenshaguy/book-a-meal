@@ -86,7 +86,7 @@ describe('OrderDetails', () => {
 
     const wrapper = mount(comp, rrcMock.get()).find(CustomerOrderDetails);
 
-    expect(wrapper.find('.success').text()).toEqual(' delivered');
+    expect(wrapper.find('.order-status').text()).toEqual(' delivered');
   });
 
   it('renders canceled order', () => {
@@ -126,7 +126,7 @@ describe('OrderDetails', () => {
       </Provider>);
 
     const wrapper = mount(comp, rrcMock.get()).find(CustomerOrderDetails);
-    expect(wrapper.find('.warning').text()).toEqual(' pending');
+    expect(wrapper.find('.order-status').text()).toEqual(' pending');
     expect(wrapper.find('.d-flex-row.control-btns').length).toBeTruthy();
   });
 

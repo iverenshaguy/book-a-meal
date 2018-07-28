@@ -5,7 +5,7 @@ exports[`Footer renders correctly 1`] = `
   className="footer"
 >
   <p>
-    © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
+    © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
   </p>
 </div>
 `;

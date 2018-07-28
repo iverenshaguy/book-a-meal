@@ -27,11 +27,22 @@
 
 .side-cart .order-summary>div p:nth-child(2) {
   font-size: 0.8em;
+
+  @media (min-width: 1200px) {
+    width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
-.side-cart .order-summary>div a,
-.side-cart .order-summary>div .link-btn,
-  {
+.side-cart .order-summary input[type=number] {
+  @media (max-width: 1199.98px) {
+    border: 1px solid #333;
+  }
+}
+
+.side-cart .order-summary>div a {
   padding-left: 5px;
 }
 

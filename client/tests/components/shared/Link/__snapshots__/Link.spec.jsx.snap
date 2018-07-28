@@ -3,6 +3,7 @@
 exports[`Link renders correctly 1`] = `
 <button
   className="link-btn null"
+  data-tip={null}
   id={null}
   onClick={[MockFunction]}
 >

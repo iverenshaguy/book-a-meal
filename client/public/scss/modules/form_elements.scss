@@ -32,7 +32,8 @@ label {
         }
         &:focus,
         &:active,
-        &:not([value=""]) {
+        &:not([value=""]),
+        &.open {
             height: 30px;
             outline: none;
             transition: height 0.3s;
@@ -164,4 +165,10 @@ option {
             height: 250px !important;
         }
     }
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  opacity: 1 !important;
+  margin: 0; 
 }

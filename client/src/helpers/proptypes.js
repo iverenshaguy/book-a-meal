@@ -22,7 +22,7 @@ const userPropTypes = {
 const orderMealPropTypes = PropTypes.shape({
   id: PropTypes.string,
   title: PropTypes.string,
-  imageURL: PropTypes.string,
+  imageUrl: PropTypes.string,
   description: PropTypes.string,
   vegetarian: PropTypes.bool,
   price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -33,7 +33,7 @@ const orderMealPropTypes = PropTypes.shape({
 const customerOrderMealPropTypes = PropTypes.shape({
   id: PropTypes.string,
   title: PropTypes.string,
-  imageURL: PropTypes.string,
+  imageUrl: PropTypes.string,
   description: PropTypes.string,
   vegetarian: PropTypes.bool,
   price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -120,7 +120,7 @@ const urlMatchPropTypes = {
 const mealObjPropTypes = PropTypes.shape({
   id: PropTypes.string,
   title: PropTypes.string,
-  imageURL: PropTypes.string,
+  imageUrl: PropTypes.string,
   description: PropTypes.string,
   vegetarian: PropTypes.bool,
   price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

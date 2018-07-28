@@ -16,8 +16,8 @@ export default {
     check('description')
       .trim()
       .optional({ checkFalsy: true })
-      .isLength({ max: 50 })
-      .withMessage('Text must not be more than 50 characters')
+      .isLength({ max: 100 })
+      .withMessage('Text must not be more than 100 characters')
       .matches(/^[a-z 0-9 (),.'-]+$/i)
       .withMessage('Text can only contain letters and the characters (,.\'-)'),
     check('price')
@@ -28,11 +28,11 @@ export default {
       .withMessage('Price must be a number or decimal')
       .custom(value => parseFloat(value).toFixed(2) > 0)
       .withMessage('Price must be greater than 0'),
-    check('imageURL')
+    check('imageUrl')
       .trim()
       .optional({ checkFalsy: true })
       .isURL()
-      .withMessage('imageURL must be a url'),
+      .withMessage('imageUrl must be a url'),
     check('vegetarian')
       .trim()
       .optional({ checkFalsy: true })
@@ -55,8 +55,8 @@ export default {
     check('description')
       .trim()
       .optional({ checkFalsy: true })
-      .isLength({ max: 50 })
-      .withMessage('Text must not be more than 50 characters')
+      .isLength({ max: 100 })
+      .withMessage('Text must not be more than 100 characters')
       .matches(/^[a-z 0-9 (),.'-]+$/i)
       .withMessage('Text can only contain letters and the characters (,.\'-)'),
     check('price')
@@ -67,11 +67,11 @@ export default {
       .withMessage('Price must be a number or decimal')
       .custom(value => parseFloat(value).toFixed(2) > 0)
       .withMessage('Price must be greater than 0'),
-    check('imageURL')
+    check('imageUrl')
       .trim()
       .optional({ checkFalsy: true })
       .isURL()
-      .withMessage('imageURL must be a url'),
+      .withMessage('imageUrl must be a url'),
     check('vegetarian')
       .trim()
       .optional({ checkFalsy: true })

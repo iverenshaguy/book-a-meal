@@ -5,10 +5,10 @@ import { MiniPreloader } from '../Preloader';
 
 /**
  * @exports
- * @function InfiniteLoading
- * @returns {JSX} InfiniteLoading
+ * @function InfiniteLoader
+ * @returns {JSX} InfiniteLoader
  */
-class InfiniteLoading extends Component {
+class InfiniteLoader extends Component {
   static propTypes = {
     items: PropTypes.arrayOf(PropTypes.any).isRequired,
     limit: PropTypes.number.isRequired
@@ -16,7 +16,7 @@ class InfiniteLoading extends Component {
 
   /**
    * @static
-   * @memberof InfiniteLoading
+   * @memberof InfiniteLoader
    * @param {object} props
    * @param {object} state
    * @return {object} new state
@@ -26,7 +26,7 @@ class InfiniteLoading extends Component {
   }
 
   /**
-   * @memberof InfiniteLoading
+   * @memberof InfiniteLoader
    * @constructor
    * @param {object} props
    * @returns {void}
@@ -43,7 +43,7 @@ class InfiniteLoading extends Component {
   }
 
   /**
-   * @memberof InfiniteLoading
+   * @memberof InfiniteLoader
    * @returns {void}
    */
   loadMore = () => {
@@ -58,7 +58,7 @@ class InfiniteLoading extends Component {
   }
 
   /**
-   * @memberof InfiniteLoading
+   * @memberof InfiniteLoader
    * @returns {void}
    */
   loadItems = () => {
@@ -71,7 +71,7 @@ class InfiniteLoading extends Component {
 
   /**
    * @memberof InifinteScroll
-   * @returns {JSX} InfiniteLoading
+   * @returns {JSX} InfiniteLoader
    */
   render() {
     return (
@@ -89,4 +89,4 @@ class InfiniteLoading extends Component {
   }
 }
 
-export default InfiniteLoading;
+export default InfiniteLoader;

@@ -97,8 +97,6 @@ describe('Form', () => {
       type: 'editMeal'
     });
 
-    shallowRoot.update();
-
     expect(shallowRoot.state().type).toEqual('editMeal');
   });
 
@@ -111,9 +109,6 @@ describe('Form', () => {
       type: 'signin',
       test: 'test'
     });
-
-
-    shallowRoot.update();
 
     expect(shallowRoot.state().type).toEqual('signin');
     expect(shallowRoot.state().test).toEqual(undefined);
@@ -152,7 +147,7 @@ describe('Form', () => {
       const changeState = {
         ...state,
         type: 'addMeal',
-        values: { ...state.values, vegetarian: 'true' },
+        values: { ...state.values, vegetarian: 'true', imageUrl: 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg' },
         touched: { ...state.touched, vegetarian: true },
         pristine: false
       };
@@ -188,8 +183,6 @@ describe('Form', () => {
 
       wrapper.find('form').simulate('submit', { preventDefault() { } });
       expect(dispatchMock).toHaveBeenCalled();
-
-      mountRoot.unmount();
     });
 
     it('submits valid editMeal form', () => {
@@ -203,8 +196,6 @@ describe('Form', () => {
 
       wrapper.find('form').simulate('submit', { preventDefault() { } });
       expect(dispatchMock).toHaveBeenCalled();
-
-      mountRoot.unmount();
     });
 
     it('calls dispatch on file input change', () => {
@@ -236,11 +227,9 @@ describe('Form', () => {
         })
       });
 
-      wrapper.find('input[name="imageURL"]').simulate('change', event);
+      wrapper.find('input[name="imageUrl"]').simulate('change', event);
 
       expect(dispatchMock).toHaveBeenCalled();
-
-      mountRoot.unmount();
     });
   });
 
@@ -292,8 +281,6 @@ describe('Form', () => {
         touched: { ...changeState.touched, email: true, password: true },
         values: { ...changeState.values, email: 'emiolaolasanmi', password: '' }
       }));
-
-      mountRoot.unmount();
     });
   });
 });

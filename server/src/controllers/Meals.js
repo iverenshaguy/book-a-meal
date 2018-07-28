@@ -20,7 +20,8 @@ class Meals {
     const mealList = await db.Meal.findAll({
       where: { userId },
       paranoid: true,
-      attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price']
+      attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
+      order: [['createdAt', 'DESC']]
     });
     return res.status(200).json({ meals: mealList });
   }
@@ -120,7 +121,7 @@ class Meals {
     return {
       id: meal.getDataValue('mealId'),
       title: meal.getDataValue('title'),
-      imageURL: meal.getDataValue('imageURL'),
+      imageUrl: meal.getDataValue('imageUrl'),
       description: meal.getDataValue('description'),
       vegetarian: meal.getDataValue('vegetarian'),
       price: meal.getDataValue('price')

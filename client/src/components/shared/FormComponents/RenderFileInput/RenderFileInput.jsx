@@ -45,7 +45,7 @@ class RenderFileInput extends Component {
     const file = event.target.files[0];
     const maxSize = 2 * 1024 * 1024; // 2MB max size
     const allowedTypes = ['image/gif', 'image/jpeg', 'image/png'];
-    const { formerImgURL, successCallBack, uploadImage } = this.props;
+    const { formerImgUrl, successCallBack, uploadImage } = this.props;
     const preview = document.querySelector('#meal-form-image');
 
     if (!uploadValidation(file, maxSize, allowedTypes)) {
@@ -53,7 +53,7 @@ class RenderFileInput extends Component {
       const fileType = file.type;
       const fileExt = fileType.split('/')[1];
 
-      return uploadImage(file, formerImgURL, `images/${Date.now()}.${fileExt}`, successCallBack);
+      return uploadImage(file, formerImgUrl, `images/${Date.now()}.${fileExt}`, successCallBack);
     }
 
     this.setState({ error: uploadValidation(file, maxSize, allowedTypes) });
@@ -67,7 +67,7 @@ class RenderFileInput extends Component {
    */
   render() {
     const {
-      id, name, label, uploading, uploadError, updating, formerImgURL
+      id, name, label, uploading, uploadError, updating, formerImgUrl
     } = this.props;
     const error = this.state.error || uploadError;
 
@@ -76,7 +76,7 @@ class RenderFileInput extends Component {
         {label && <label htmlFor={id}>{label}</label>}
         <div id="form-image-preview">
           {(uploading || updating) && <div className="img-overlay" id="img-overlay"><MiniPreloader /></div>}
-          <img src={formerImgURL} alt="meal" id="meal-form-image" />
+          <img src={formerImgUrl} alt="meal" id="meal-form-image" />
         </div>
         <input
           id={id}
@@ -97,17 +97,18 @@ RenderFileInput.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  updating: PropTypes.bool.isRequired,
+  updating: PropTypes.bool,
   uploading: PropTypes.bool.isRequired,
   uploadImage: PropTypes.func.isRequired,
   uploadError: PropTypes.string,
-  formerImgURL: PropTypes.string.isRequired,
+  formerImgUrl: PropTypes.string.isRequired,
   clearUploadError: PropTypes.func.isRequired,
   successCallBack: PropTypes.func.isRequired,
 };
 
 RenderFileInput.defaultProps = {
   uploadError: null,
+  updating: null
 };
 
 export default RenderFileInput;

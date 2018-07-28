@@ -43,7 +43,9 @@ class Header extends Component {
    * @returns {JSX} Header Component
    */
   render() {
-    const { type, showTime, dateType } = this.props;
+    const {
+      type, showTime, dateType, updateCurrentDate
+    } = this.props;
     const unauth = type === 'home' || type === 'unauth';
 
     const headerClass = classNames({
@@ -64,7 +66,11 @@ class Header extends Component {
           {unauth &&
             this.renderUnauthHeader()}
           {type === 'caterer' &&
-            <CatererHeader dateType={dateType} showTime={showTime} />}
+            <CatererHeader
+              dateType={dateType}
+              showTime={showTime}
+              updateCurrentDate={updateCurrentDate}
+            />}
           {type === 'customer' &&
             <CustomerHeader {...this.props} />}
         </div>
@@ -79,6 +85,7 @@ Header.propTypes = {
   showTime: PropTypes.bool,
   dateType: PropTypes.string,
   logout: PropTypes.func,
+  updateCurrentDate: PropTypes.func
 };
 
 Header.defaultProps = {
@@ -86,7 +93,8 @@ Header.defaultProps = {
   type: null,
   showTime: true,
   dateType: null,
-  logout: null
+  logout: null,
+  updateCurrentDate: null
 };
 
 export default Header;

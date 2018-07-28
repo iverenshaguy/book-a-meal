@@ -10,7 +10,7 @@ import { formPropTypes, mealObjPropTypes } from '../../../helpers/proptypes';
  */
 const MealForm = (props) => {
   const {
-    state, handlers, meal, type, updating, editMeal
+    state, handlers, meal, updating
   } = props;
 
   return (
@@ -48,23 +48,21 @@ const MealForm = (props) => {
           error: state.error.price
         }}
       />
-      {type === 'editMeal' &&
-        <RenderFileInput
-          id="imageURL"
-          name="imageURL"
-          mealId={meal.id}
-          label="Meal Image"
-          updating={updating}
-          formerImgURL={meal.imageURL}
-          successCallBack={imageURL => editMeal(meal.id, { imageURL })}
-        />}
+      <RenderFileInput
+        id="imageUrl"
+        name="imageUrl"
+        label="Meal Image"
+        updating={updating}
+        formerImgUrl={meal ? meal.imageUrl : 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg'}
+        successCallBack={imageUrl => handlers.handleChange({ target: { name: 'imageUrl', value: imageUrl } })}
+      />
       <RenderInput
         type="textarea"
         name="description"
         label="Description (not more than 50 characters)"
         id="description"
         rows={2}
-        maxLength={50}
+        maxLength={100}
         required={false}
         value={state.values.description}
         placeholder=""

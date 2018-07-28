@@ -26,7 +26,7 @@ class Orders {
         order.update({ status: 'pending' }).then(async () => {
           const mappedOrder = await mapCaterersOrder(order);
 
-          return NotificationHandler.notifyCaterer(mappedOrder, userId);
+          return NotificationHandler.catererOrder(mappedOrder, userId);
         });
       }
     }), process.env.EXPIRY);
@@ -45,16 +45,14 @@ class Orders {
     order.getMeals().then((meals) => {
       let delivered = true;
 
-      meals.forEach((meal) => {
-        if (!meal.OrderItem.delivered) delivered = false;
-      });
+      meals.forEach((meal) => { if (!meal.OrderItem.delivered) delivered = false; });
 
-      if (!delivered) {
-        order.update({ status: 'pending' }).then(() => order);
-      }
+      if (!delivered) order.update({ status: 'pending' }).then(() => order);
 
       if (delivered) {
         order.update({ status: 'delivered' }).then(() => order);
+
+        NotificationHandler.orderSuccess(order, meals);
       }
     });
   }

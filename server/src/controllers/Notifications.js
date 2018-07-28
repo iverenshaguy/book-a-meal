@@ -35,7 +35,7 @@ class Notifications {
       { userId: req.userId } :
       { menuId: { [Op.not]: null } };
 
-    let notifications = await db.Notification.findAll({ where });
+    let notifications = await db.Notification.findAll({ where, order: [['createdAt', 'DESC']] });
 
     notifications = notifications.map(order => Notifications.getNotifObject(order, role));
 

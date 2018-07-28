@@ -42,14 +42,15 @@ class Orders {
       include: [{
         model: db.Meal,
         as: 'meals',
-        attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price'],
+        attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
         include: [{
           model: db.User,
           attributes: ['businessName', 'businessAddress', 'businessPhoneNo', 'email'],
           as: 'caterer'
         }],
         paranoid: false,
-      }]
+      }],
+      order: [['createdAt', 'DESC']]
     });
 
     orders = orders.map((order) => {
@@ -92,15 +93,18 @@ class Orders {
         {
           model: db.Meal,
           as: 'meals',
-          attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price'],
+          attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
           paranoid: false,
           include: [{
             model: db.User,
             as: 'caterer',
             where: { userId: req.userId },
             attributes: []
-          }]
-        }]
+          }],
+          required: true
+        }
+      ],
+      order: [['createdAt', 'DESC']]
     });
 
     orders = orders.map((order) => {
@@ -217,14 +221,16 @@ class Orders {
           model: db.Meal,
           as: 'meals',
           attributes: [],
-          where: { userId }
+          where: { userId },
+          paranoid: false,
+          required: true
         }
       ]
     });
 
     if (!order) return res.status(404).json({ error: errors[404] });
 
-    const meals = await order.getMeals({ where: { userId } });
+    const meals = await order.getMeals({ where: { userId }, paranoid: false });
 
     const promises = meals.map((meal) => {
       meal.OrderItem.delivered = req.body.delivered;
@@ -233,7 +239,7 @@ class Orders {
     });
 
     await Promise.all(promises);
-    await Orders.getOrderMeals(order);
+    await Orders.getOrderMeals(order, userId);
 
     orderEmitter.emit('deliver', order);
 
@@ -291,7 +297,7 @@ class Orders {
    */
   static catererPendingOrders(orders) {
     return orders.reduce((totalPending, order) => {
-      if (!order.meals[0].dataValues.delivered) return totalPending + 1;
+      if (order.status === 'pending' && !order.meals[0].dataValues.delivered) return totalPending + 1;
       return totalPending + 0;
     }, 0);
   }
@@ -332,14 +338,21 @@ class Orders {
    * @method getOrderMeals
    * @memberof Orders
    * @param {object} order
+   * @param {string} userId
    * @returns {object} JSON object
    */
-  static async getOrderMeals(order) {
-    order.dataValues.meals = await order.getMeals({
-      attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price'],
+  static async getOrderMeals(order, userId) {
+    const options = {
+      attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
       joinTableAttributes: ['quantity', 'delivered'],
-      paranoid: false
-    });
+      paranoid: false,
+      required: true,
+      order: [['createdAt', 'DESC']]
+    };
+
+    if (userId) options.where = { userId };
+
+    order.dataValues.meals = await order.getMeals(options);
   }
 
   /**
@@ -365,13 +378,19 @@ class Orders {
    * @memberof Controller
    * @param {object} order
    * @returns {object} Order object
+   * If order has a customer property, order is for a caterer
+   * order status for caterer is Delivered when all his meals
+   * have been delivered even if other caterers havent deliverd
    */
   static getOrderObject(order) {
+    const caterersOrderStatus = order.dataValues.meals[0].dataValues.delivered ? 'delivered' : order.getDataValue('status');
+    const status = order.getDataValue('customer') ? caterersOrderStatus : order.getDataValue('status');
+
     return {
       id: order.getDataValue('orderId'),
       deliveryAddress: order.getDataValue('deliveryAddress'),
       deliveryPhoneNo: order.getDataValue('deliveryPhoneNo'),
-      status: order.getDataValue('status'),
+      status,
       customer: order.getDataValue('customer') ? order.getDataValue('customer') : undefined,
       createdAt: moment(order.getDataValue('createdAt')).format(),
       updatedAt: moment(order.getDataValue('updatedAt')).format(),

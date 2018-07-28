@@ -58,7 +58,7 @@ export const initialValues = {
 export const caterer = {
   id: 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac',
   businessName: 'Food Circle',
-  businessPhoneNo: '+2348166557788',
+  businessPhoneNo: '08166557788',
   businessAddress: '$, Herbert Macaulay Way, Yaba, Lagos',
   role: 'caterer',
   email: 'food@circle.com'
@@ -104,7 +104,7 @@ export const caterersOrdersObj = {
     {
       id: 'fb097bde-5959-45ff-8e21-51184fa60c25',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '+2348134567890',
+      deliveryPhoneNo: '08134567890',
       status: 'delivered',
       createdAt: '2018-04-06T00:47:03.687Z',
       updatedAt: '2018-04-06T00:47:03.687Z',
@@ -117,7 +117,7 @@ export const caterersOrdersObj = {
         {
           id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
           title: 'Vegetable Sharwama and Guava Smoothie',
-          imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+          imageUrl: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
           description: 'Sharwama contains no animal products, perfect for dieters',
           vegetarian: true,
           price: '1200.00',
@@ -129,7 +129,7 @@ export const caterersOrdersObj = {
     {
       id: 'ce228787-f939-40a0-bfd3-6607ca8d2e53',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '+2348134567890',
+      deliveryPhoneNo: '08134567890',
       status: 'delivered',
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z',
@@ -142,7 +142,7 @@ export const caterersOrdersObj = {
         {
           id: 'baa0412a-d167-4d2b-b1d8-404cb8f02631',
           title: 'Semo/Wheat and Egusi Soup',
-          imageURL: 'https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg',
+          imageUrl: 'https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg',
           description: 'Meal contains 2 pieces of beef and other assorted meat and fish products',
           vegetarian: false,
           price: '2000.00',
@@ -152,7 +152,7 @@ export const caterersOrdersObj = {
         {
           id: 'a3c35e8f-da7a-4113-aa01-a9c0fc088539',
           title: 'Eba and Ogbono Soup',
-          imageURL: 'http://www.kalakutahgrills.com/wp-content/uploads/2017/02/my-pics-group-3-007.jpg',
+          imageUrl: 'http://www.kalakutahgrills.com/wp-content/uploads/2017/02/my-pics-group-3-007.jpg',
           description: 'Meal contains 2 pieces of beef and other assorted meat and fish products',
           vegetarian: false,
           price: '2000.00',
@@ -164,7 +164,7 @@ export const caterersOrdersObj = {
     {
       id: 'fb097bde-5959-45ff-8e21-51184fa60c26',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '+2348134567890',
+      deliveryPhoneNo: '08134567890',
       status: 'pending',
       createdAt: '2018-05-29T00:47:03.687Z',
       updatedAt: '2018-05-29T00:47:03.687Z',
@@ -177,7 +177,7 @@ export const caterersOrdersObj = {
         {
           id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
           title: 'Vegetable Sharwama and Guava Smoothie',
-          imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+          imageUrl: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
           description: 'Sharwama contains no animal products, perfect for dieters',
           vegetarian: true,
           price: '1200.00',
@@ -189,7 +189,7 @@ export const caterersOrdersObj = {
     {
       id: 'fb097bde-5959-45ff-8e21-51184fa60c35',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '+2348134567890',
+      deliveryPhoneNo: '08134567890',
       status: 'canceled',
       createdAt: '2018-05-27T00:47:03.687Z',
       updatedAt: '2018-05-27T00:47:03.687Z',
@@ -202,7 +202,7 @@ export const caterersOrdersObj = {
         {
           id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
           title: 'Vegetable Sharwama and Guava Smoothie',
-          imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+          imageUrl: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
           description: 'Sharwama contains no animal products, perfect for dieters',
           vegetarian: true,
           price: '1200.00',
@@ -224,7 +224,7 @@ export const customersMenuObj = {
       caterer: {
         id: '8356954a-9a42-4616-8079-887a73455a7f',
         businessName: 'FoodCircle',
-        businessPhoneNo: '+2348134567890',
+        businessPhoneNo: '08134567890',
         businessAddress: '4, Church Street, Yaba',
         email: 'food@circle.com'
       },
@@ -232,7 +232,7 @@ export const customersMenuObj = {
         {
           id: '81211c24-51c0-46ec-b1e0-18db55880958',
           title: 'Jollof Rice, Beef and Plantain',
-          imageURL: 'http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg',
+          imageUrl: 'http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg',
           description: 'Jollof Rice, Beef and Plantain. 2 pieces of beef per plate',
           vegetarian: false,
           price: '1500.00'
@@ -240,7 +240,7 @@ export const customersMenuObj = {
         {
           id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
           title: 'Vegetable Sharwama and Guava Smoothie',
-          imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+          imageUrl: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
           description: 'Sharwama contains no animal products, perfect for dieters',
           vegetarian: true,
           price: '1200.00'
@@ -253,7 +253,7 @@ export const customersMenuObj = {
       caterer: {
         id: '8356954a-9a42-4616-8079-887a73455a7g',
         businessName: 'FoodTri',
-        businessPhoneNo: '+2348134567891',
+        businessPhoneNo: '08134567891',
         businessAddress: '4, Church Street, Yaba',
         email: 'food@tri.com'
       },
@@ -261,7 +261,7 @@ export const customersMenuObj = {
         {
           id: '81211c24-51c0-46ec-b1e0-18db55880959',
           title: 'Jollof Rice',
-          imageURL: 'http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg',
+          imageUrl: 'http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg',
           description: 'Jollof Rice, Beef and Plantain. 2 pieces of beef per plate',
           vegetarian: false,
           price: '1500.00'
@@ -276,7 +276,7 @@ export const caterersOrdersObjPerDay = {
     {
       id: 'fb097bde-5959-45ff-8e21-51184fa60c35',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '+2348134567890',
+      deliveryPhoneNo: '08134567890',
       status: 'delivered',
       createdAt: '2018-05-27T00:47:03.687Z',
       updatedAt: '2018-05-27T00:47:03.687Z',
@@ -289,7 +289,7 @@ export const caterersOrdersObjPerDay = {
         {
           id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
           title: 'Vegetable Sharwama and Guava Smoothie',
-          imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+          imageUrl: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
           description: 'Sharwama contains no animal products, perfect for dieters',
           vegetarian: true,
           price: '1200.00',
@@ -306,7 +306,7 @@ export const caterersOrdersObjPerDay = {
 export const deliverOrder = {
   id: 'fb097bde-5959-45ff-8e21-51184fa60c26',
   deliveryAddress: '4, Church Street, Yaba',
-  deliveryPhoneNo: '+2348134567890',
+  deliveryPhoneNo: '08134567890',
   status: 'delivered',
   createdAt: '2018-05-29T00:47:03.687Z',
   updatedAt: '2018-05-29T00:47:03.687Z',
@@ -319,7 +319,7 @@ export const deliverOrder = {
     {
       id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
       title: 'Vegetable Sharwama and Guava Smoothie',
-      imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+      imageUrl: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
       description: 'Sharwama contains no animal products, perfect for dieters',
       vegetarian: true,
       price: '1200.00',
@@ -349,7 +349,7 @@ export const caterersMealsObj = {
     {
       id: '81211c24-51c0-46ec-b1e0-18db55880958',
       title: 'Jollof Rice, Beef and Plantain',
-      imageURL: 'http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg',
+      imageUrl: 'http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg',
       description: 'Jollof Rice, Beef and Plantain. 2 pieces of beef per plate',
       vegetarian: false,
       price: '1500.00'
@@ -357,7 +357,7 @@ export const caterersMealsObj = {
     {
       id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
       title: 'Vegetable Sharwama and Guava Smoothie',
-      imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+      imageUrl: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
       description: 'Sharwama contains no animal products, perfect for dieters',
       vegetarian: true,
       price: '1200.00'
@@ -368,7 +368,7 @@ export const caterersMealsObj = {
 export const newMeal = {
   id: '81211c24-51c0-46ec-b1e0-18db55880954',
   title: 'Jollof Rice and Chicken',
-  imageURL: 'http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg',
+  imageUrl: 'http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg',
   description: '',
   vegetarian: false,
   price: '2500.00'
@@ -383,7 +383,7 @@ export const order = [{
 
 export const orderRequest = {
   deliveryAddress: '4, Church Street, Yaba',
-  deliveryPhoneNo: '+2348134567891',
+  deliveryPhoneNo: '08134567891',
   meals: [
     { id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3', quantity: 3 },
     { id: 'baa0412a-d167-4d2b-b1d8-404cb8f02631', quantity: 10 }
@@ -393,7 +393,7 @@ export const orderRequest = {
 export const customerOrder = {
   id: 'f7247d3a-de8a-43e2-90f6-b126cd4c491c',
   deliveryAddress: '4, Church Street, Yaba',
-  deliveryPhoneNo: '+2348134567891',
+  deliveryPhoneNo: '08134567891',
   status: 'started',
   createdAt: '2018-05-18T16:18:25.303Z',
   updatedAt: '2018-05-18T16:18:25.303Z',
@@ -401,7 +401,7 @@ export const customerOrder = {
     {
       id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
       title: 'Vegetable Sharwama and Guava Smoothie',
-      imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+      imageUrl: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
       description: 'Sharwama contains no animal products, perfect for dieters',
       vegetarian: true,
       price: '1200.00',
@@ -411,7 +411,7 @@ export const customerOrder = {
     {
       id: 'baa0412a-d167-4d2b-b1d8-404cb8f02631',
       title: 'Semo/Wheat and Egusi Soup',
-      imageURL: 'https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg',
+      imageUrl: 'https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg',
       description: 'Meal contains 2 pieces of beef and other assorted meat and fish products',
       vegetarian: false,
       price: '2000.00',
@@ -431,7 +431,7 @@ export const localStorageOrder = {
       { id: 'baa0412a-d167-4d2b-b1d8-404cb8f02631', quantity: 10 }
     ],
     deliveryAddress: '4, Church Street, Yaba',
-    deliveryPhoneNo: '+2348134567891',
+    deliveryPhoneNo: '08134567891',
   }
 };
 
@@ -440,7 +440,7 @@ export const customersOrdersObj = {
     {
       id: 'fb097bde-5959-45ff-8e21-51184fa70c25',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '+2348134567890',
+      deliveryPhoneNo: '08134567890',
       status: 'canceled',
       createdAt: '2018-04-06T00:47:03.687Z',
       updatedAt: '2018-04-06T00:47:03.687Z',
@@ -448,14 +448,14 @@ export const customersOrdersObj = {
         {
           id: '46ced7aa-eed5-4462-b2c0-153f31589bdd',
           title: 'Adalu (Beans and Corn) and Local Fish ',
-          imageURL: 'http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg',
+          imageUrl: 'http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg',
           description: '',
           vegetarian: false,
           price: '2000.00',
           caterer: {
             businessName: 'BellyFill',
             businessAddress: '4, Church Street, Yaba',
-            businessPhoneNo: '+2348134567890',
+            businessPhoneNo: '08134567890',
             email: 'belly@fill.com'
           },
           quantity: 2,
@@ -466,7 +466,7 @@ export const customersOrdersObj = {
     {
       id: 'fb097bde-5959-45ff-8e21-51184fa60c25',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '+2348134567890',
+      deliveryPhoneNo: '08134567890',
       status: 'delivered',
       createdAt: '2018-04-06T00:47:03.687Z',
       updatedAt: '2018-04-06T00:47:03.687Z',
@@ -474,14 +474,14 @@ export const customersOrdersObj = {
         {
           id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
           title: 'Vegetable Sharwama and Guava Smoothie',
-          imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+          imageUrl: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
           description: 'Sharwama contains no animal products, perfect for dieters',
           vegetarian: true,
           price: '1200.00',
           caterer: {
             businessName: 'FoodCircle',
             businessAddress: '4, Church Street, Yaba',
-            businessPhoneNo: '+2348134567890',
+            businessPhoneNo: '08134567890',
             email: 'food@circle.com'
           },
           quantity: 1,
@@ -490,14 +490,14 @@ export const customersOrdersObj = {
         {
           id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce4',
           title: 'Vegetable Sharwama and Guava Smoothie',
-          imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+          imageUrl: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
           description: 'Sharwama contains no animal products, perfect for dieters',
           vegetarian: true,
           price: '1200.00',
           caterer: {
             businessName: 'FoodCircle',
             businessAddress: '4, Church Street, Yaba',
-            businessPhoneNo: '+2348134567890',
+            businessPhoneNo: '08134567890',
             email: 'food@circle.com'
           },
           quantity: 1,
@@ -508,7 +508,7 @@ export const customersOrdersObj = {
     {
       id: 'fb097bde-5959-45ff-8e21-51184fa80c25',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '+2348134567890',
+      deliveryPhoneNo: '08134567890',
       status: 'pending',
       createdAt: '2018-04-06T00:47:03.687Z',
       updatedAt: '2018-04-06T00:47:03.687Z',
@@ -516,14 +516,14 @@ export const customersOrdersObj = {
         {
           id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
           title: 'Vegetable Sharwama and Guava Smoothie',
-          imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+          imageUrl: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
           description: 'Sharwama contains no animal products, perfect for dieters',
           vegetarian: true,
           price: '1200.00',
           caterer: {
             businessName: 'FoodCircle',
             businessAddress: '4, Church Street, Yaba',
-            businessPhoneNo: '+2348134567890',
+            businessPhoneNo: '08134567890',
             email: 'food@circle.com'
           },
           quantity: 1,
@@ -534,7 +534,7 @@ export const customersOrdersObj = {
     {
       id: 'fb097bde-5959-45ff-8e21-51184fa90c25',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '+2348134567890',
+      deliveryPhoneNo: '08134567890',
       status: 'started',
       createdAt: '2018-04-06T00:47:03.687Z',
       updatedAt: '2018-04-06T00:47:03.687Z',
@@ -542,14 +542,14 @@ export const customersOrdersObj = {
         {
           id: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3',
           title: 'Vegetable Sharwama and Guava Smoothie',
-          imageURL: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
+          imageUrl: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350',
           description: 'Sharwama contains no animal products, perfect for dieters',
           vegetarian: true,
           price: '1200.00',
           caterer: {
             businessName: 'FoodCircle',
             businessAddress: '4, Church Street, Yaba',
-            businessPhoneNo: '+2348134567890',
+            businessPhoneNo: '08134567890',
             email: 'food@circle.com'
           },
           quantity: 1,

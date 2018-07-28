@@ -1,81 +1,85 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { renderFormFieldPropTypes } from '../../../helpers/proptypes';
 
 /**
  * @exports
- * @function RenderInput
+ * @class RenderInput
  * @param {object} props
  * @returns {JSX} RenderInput
  */
-const RenderInput = ({
-  id,
-  rows,
-  name,
-  type,
-  label,
-  required,
-  placeholder,
-  meta: {
-    error,
-    touched
-  },
-  handleChange,
-  handleBlur,
-  handleFocus,
-  value
-}) => {
-  const validInput = classNames({
-    'is-invalid': touched && error,
-    'is-valid': touched && !error
-  });
+class RenderInput extends Component {
+  static propTypes = {
+    ...renderFormFieldPropTypes,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number])
+  };
 
-  const validFeedBack = classNames({
-    'invalid-feedback': touched && error,
-    'd-none': touched && !error
-  });
+  static defaultProps = {
+    value: ''
+  };
 
-  const formInputClass = type === 'checkbox' ? 'form-input-checkbox' : 'form-input';
+  state = {
+    openField: false
+  }
 
-  return (
-    <Fragment>
-      <div className={formInputClass}>
-        {label && type !== 'checkbox' &&
-          <label htmlFor={id}>
-            {label}
-            {required && <span className="danger">*</span>}
-          </label>}
-        <input
-          id={id}
-          type={type}
-          name={name}
-          rows={rows}
-          placeholder={placeholder}
-          className={validInput}
-          value={value}
-          checked={type === 'checkbox' ? value : undefined}
-          onChange={e => handleChange(e)}
-          onBlur={e => handleBlur(e)}
-          onFocus={e => handleFocus(e)}
-        />
-        {type === 'checkbox' &&
-          <label htmlFor={id}>
-            {label}
-          </label>}
-        {touched && error && <div className={validFeedBack}>{error}</div>}
-      </div>
-    </Fragment>
-  );
-};
+  toggleOpenField = () => {
+    this.setState(prevState => ({
+      openField: !prevState.openField
+    }));
+  }
 
-RenderInput.propTypes = {
-  ...renderFormFieldPropTypes,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number])
-};
+  /**
+   * @memberof RenderInput
+   * @returns {component} RenderInput
+   */
+  render() {
+    const validInput = classNames({
+      'is-invalid': this.props.meta.touched && this.props.meta.error,
+      'is-valid': this.props.meta.touched && !this.props.meta.error,
+      open: this.state.openField
+    });
 
-RenderInput.defaultProps = {
-  value: ''
-};
+    const validFeedBack = classNames({
+      'invalid-feedback': this.props.meta.touched && this.props.meta.error,
+      'd-none': this.props.meta.touched && !this.props.meta.error
+    });
+
+    const formInputClass = this.props.type === 'checkbox' ? 'form-input-checkbox' : 'form-input';
+
+    return (
+      <Fragment>
+        <div className={formInputClass}>
+          {this.props.label && this.props.type !== 'checkbox' &&
+            // eslint-disable-next-line
+            <label htmlFor={this.props.id} onClick={this.toggleOpenField}>
+              {this.props.label}
+              {this.props.required && <span className="danger">*</span>}
+            </label>}
+          <input
+            id={this.props.id}
+            type={this.props.type}
+            name={this.props.name}
+            rows={this.props.rows}
+            placeholder={this.props.placeholder}
+            className={validInput}
+            value={this.props.value}
+            maxLength={this.props.maxLength}
+            checked={this.props.type === 'checkbox' ? this.props.value : undefined}
+            onChange={e => this.props.handleChange(e)}
+            onBlur={e => this.props.handleBlur(e)}
+            onFocus={e => this.props.handleFocus(e)}
+          />
+          {this.props.type === 'checkbox' &&
+            <label htmlFor={this.props.id}>
+              {this.props.label}
+            </label>}
+          {this.props.meta.touched && this.props.meta.error &&
+          <div className={validFeedBack}>{this.props.meta.error}</div>}
+        </div>
+      </Fragment>
+    );
+  }
+}
 
 export default RenderInput;

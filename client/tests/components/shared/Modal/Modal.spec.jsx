@@ -38,14 +38,6 @@ describe('Modal', () => {
     expect(shallowWrapper.find('MealModal')).toBeTruthy();
   });
 
-  it('renders correctly when type is newMealImage', () => {
-    const shallowWrapper = shallow(<Modal type="newMealImage" open submitting={false} toggleModal={jest.fn()} />);
-
-    expect(toJson(shallowWrapper)).toMatchSnapshot();
-    expect(shallowWrapper.find('#modal-title-h3').text()).toEqual('Add a Meal Image');
-    expect(shallowWrapper.find('MealImageModal')).toBeTruthy();
-  });
-
   it('renders correctly when type is deleteMeal', () => {
     const shallowWrapper = shallow(<Modal type="deleteMeal" open submitting={false} toggleModal={jest.fn()} />);
 
@@ -92,7 +84,7 @@ describe('Modal', () => {
 
   it('calls toggleModal function prop when close modal icon is clicked', () => {
     const toggleMock = jest.fn();
-    const comp = (<Modal store={store} type="addMeal" open submitting={false} toggleModal={toggleMock} />);
+    const comp = (<Modal store={store} type="unknown" open submitting={false} toggleModal={toggleMock} />);
     const wrapper = mount(comp);
 
     wrapper.find('button.link-btn').simulate('click');

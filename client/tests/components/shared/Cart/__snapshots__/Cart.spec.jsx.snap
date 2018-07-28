@@ -54,7 +54,7 @@ exports[`Cart hides checkout button when shop is closed 1`] = `
         className="cart-header"
       >
         <h2>
-          Your Cart
+          Your Basket
         </h2>
         <CloseIcon
           btnID="side-cart-close-icon"
@@ -68,10 +68,12 @@ exports[`Cart hides checkout button when shop is closed 1`] = `
               aria-hidden="true"
               className={null}
               clickHandler={[Function]}
+              dataTip={null}
               id="side-cart-close-icon"
             >
               <button
                 className="link-btn null"
+                data-tip={null}
                 id="side-cart-close-icon"
                 onClick={[Function]}
               >
@@ -97,7 +99,10 @@ exports[`Cart hides checkout button when shop is closed 1`] = `
               value={1}
             />
           </p>
-          <p>
+          <p
+            data-for="cart-tooltip"
+            data-tip="Jollof Rice, Beef and Plantain"
+          >
             Jollof Rice, Beef and Plantain
           </p>
           <p>
@@ -106,16 +111,35 @@ exports[`Cart hides checkout button when shop is closed 1`] = `
           <Link
             className="remove-order"
             clickHandler={[Function]}
+            data-for="cart-tooltip"
+            dataTip="Remove Item?"
             id={null}
           >
             <button
               className="link-btn remove-order"
+              data-tip="Remove Item?"
               id={null}
               onClick={[Function]}
             >
               ×
             </button>
           </Link>
+          <ReactTooltip
+            className="tooltip"
+            effect="solid"
+            id="cart-tooltip"
+            insecure={true}
+            place="top"
+            resizeHide={true}
+            type="dark"
+            wrapper="div"
+          >
+            <div
+              className="__react_component_tooltip place-top type-dark "
+              data-id="tooltip"
+              id="cart-tooltip"
+            />
+          </ReactTooltip>
         </div>
         <div
           className="order-amount"
@@ -193,7 +217,7 @@ exports[`Cart renders correctly 1`] = `
         className="cart-header"
       >
         <h2>
-          Your Cart
+          Your Basket
         </h2>
         <CloseIcon
           btnID="side-cart-close-icon"
@@ -217,7 +241,10 @@ exports[`Cart renders correctly 1`] = `
               value={1}
             />
           </p>
-          <p>
+          <p
+            data-for="cart-tooltip"
+            data-tip="Jollof Rice, Beef and Plantain"
+          >
             Jollof Rice, Beef and Plantain
           </p>
           <p>
@@ -226,10 +253,22 @@ exports[`Cart renders correctly 1`] = `
           <Link
             className="remove-order"
             clickHandler={[Function]}
+            data-for="cart-tooltip"
+            dataTip="Remove Item?"
             id={null}
           >
             ×
           </Link>
+          <ReactTooltip
+            className="tooltip"
+            effect="solid"
+            id="cart-tooltip"
+            insecure={true}
+            place="top"
+            resizeHide={true}
+            type="dark"
+            wrapper="div"
+          />
         </div>
         <div
           className="order-amount"
@@ -318,7 +357,7 @@ exports[`Cart renders message when there is no order 1`] = `
         className="cart-header"
       >
         <h2>
-          Your Cart
+          Your Basket
         </h2>
         <CloseIcon
           btnID="side-cart-close-icon"
@@ -331,7 +370,7 @@ exports[`Cart renders message when there is no order 1`] = `
         className="empty-cart"
       >
         <p>
-          Your Cart is Empty
+          Your Basket is Empty
         </p>
       </div>
       <br />

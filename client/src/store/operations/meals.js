@@ -35,7 +35,6 @@ const addMeal = meal => async (dispatch) => {
     toastr.success('Meal Added Successfully');
     dispatch(unsetMealWorking());
     dispatch(toggleModal());
-    dispatch(toggleModal('newMealImage'));
   } catch (error) {
     const errorResponse = errorHandler(error);
 
@@ -44,18 +43,16 @@ const addMeal = meal => async (dispatch) => {
   }
 };
 
-const editMeal = (id, updatedMeal, toggleModalOnEdit) => async (dispatch) => {
+const editMeal = (id, updatedMeal) => async (dispatch) => {
   try {
     dispatch(setMealWorking());
 
     const response = await instance.put(`/meals/${id}`, updatedMeal);
 
     dispatch(editMealSuccess(response.data));
+    toastr.success('Meal Modified Successfully');
     dispatch(unsetMealWorking());
-    if (toggleModalOnEdit) {
-      dispatch(toggleModal());
-      toastr.success('Meal Modified Successfully');
-    }
+    dispatch(toggleModal());
   } catch (error) {
     const errorResponse = errorHandler(error);
 

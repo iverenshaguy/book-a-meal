@@ -19,7 +19,9 @@ exports[`SideNav renders correctly 1`] = `
       <div
         className="sidenav-title"
       >
-        <h3>
+        <h3
+          className="d-flex-md"
+        >
           <Link
             href="/"
             replace={false}
@@ -42,6 +44,7 @@ exports[`SideNav renders correctly 1`] = `
           <Link
             className={null}
             clickHandler={[MockFunction]}
+            dataTip={null}
             id={null}
           >
             Logout
@@ -55,6 +58,7 @@ exports[`SideNav renders correctly 1`] = `
       <Link
         className="menu-item active"
         clickHandler={[Function]}
+        dataTip={null}
         id={null}
       >
         Dashboard
@@ -62,6 +66,7 @@ exports[`SideNav renders correctly 1`] = `
       <Link
         className="menu-item false"
         clickHandler={[Function]}
+        dataTip={null}
         id={null}
       >
         Meals
@@ -69,6 +74,7 @@ exports[`SideNav renders correctly 1`] = `
       <Link
         className="menu-item false"
         clickHandler={[Function]}
+        dataTip={null}
         id={null}
       >
         Menu
@@ -76,6 +82,7 @@ exports[`SideNav renders correctly 1`] = `
       <Link
         className="menu-item false"
         clickHandler={[Function]}
+        dataTip={null}
         id={null}
       >
         Orders
@@ -104,7 +111,9 @@ exports[`SideNav renders correctly when meals tab is active 1`] = `
       <div
         className="sidenav-title"
       >
-        <h3>
+        <h3
+          className="d-flex-md"
+        >
           <Link
             href="/"
             replace={false}
@@ -127,6 +136,7 @@ exports[`SideNav renders correctly when meals tab is active 1`] = `
           <Link
             className={null}
             clickHandler={[MockFunction]}
+            dataTip={null}
             id={null}
           >
             Logout
@@ -140,6 +150,7 @@ exports[`SideNav renders correctly when meals tab is active 1`] = `
       <Link
         className="menu-item false"
         clickHandler={[Function]}
+        dataTip={null}
         id={null}
       >
         Dashboard
@@ -147,6 +158,7 @@ exports[`SideNav renders correctly when meals tab is active 1`] = `
       <Link
         className="menu-item active"
         clickHandler={[Function]}
+        dataTip={null}
         id={null}
       >
         Meals
@@ -154,6 +166,7 @@ exports[`SideNav renders correctly when meals tab is active 1`] = `
       <Link
         className="menu-item false"
         clickHandler={[Function]}
+        dataTip={null}
         id={null}
       >
         Menu
@@ -161,6 +174,7 @@ exports[`SideNav renders correctly when meals tab is active 1`] = `
       <Link
         className="menu-item false"
         clickHandler={[Function]}
+        dataTip={null}
         id={null}
       >
         Orders
@@ -189,7 +203,9 @@ exports[`SideNav renders correctly when menu tab is active 1`] = `
       <div
         className="sidenav-title"
       >
-        <h3>
+        <h3
+          className="d-flex-md"
+        >
           <Link
             href="/"
             replace={false}
@@ -212,6 +228,7 @@ exports[`SideNav renders correctly when menu tab is active 1`] = `
           <Link
             className={null}
             clickHandler={[MockFunction]}
+            dataTip={null}
             id={null}
           >
             Logout
@@ -225,6 +242,7 @@ exports[`SideNav renders correctly when menu tab is active 1`] = `
       <Link
         className="menu-item false"
         clickHandler={[Function]}
+        dataTip={null}
         id={null}
       >
         Dashboard
@@ -232,6 +250,7 @@ exports[`SideNav renders correctly when menu tab is active 1`] = `
       <Link
         className="menu-item false"
         clickHandler={[Function]}
+        dataTip={null}
         id={null}
       >
         Meals
@@ -239,6 +258,7 @@ exports[`SideNav renders correctly when menu tab is active 1`] = `
       <Link
         className="menu-item active"
         clickHandler={[Function]}
+        dataTip={null}
         id={null}
       >
         Menu
@@ -246,6 +266,7 @@ exports[`SideNav renders correctly when menu tab is active 1`] = `
       <Link
         className="menu-item false"
         clickHandler={[Function]}
+        dataTip={null}
         id={null}
       >
         Orders
@@ -274,7 +295,9 @@ exports[`SideNav renders correctly when orders tab is active 1`] = `
       <div
         className="sidenav-title"
       >
-        <h3>
+        <h3
+          className="d-flex-md"
+        >
           <Link
             href="/"
             replace={false}
@@ -297,6 +320,7 @@ exports[`SideNav renders correctly when orders tab is active 1`] = `
           <Link
             className={null}
             clickHandler={[MockFunction]}
+            dataTip={null}
             id={null}
           >
             Logout
@@ -310,6 +334,7 @@ exports[`SideNav renders correctly when orders tab is active 1`] = `
       <Link
         className="menu-item false"
         clickHandler={[Function]}
+        dataTip={null}
         id={null}
       >
         Dashboard
@@ -317,6 +342,7 @@ exports[`SideNav renders correctly when orders tab is active 1`] = `
       <Link
         className="menu-item false"
         clickHandler={[Function]}
+        dataTip={null}
         id={null}
       >
         Meals
@@ -324,6 +350,7 @@ exports[`SideNav renders correctly when orders tab is active 1`] = `
       <Link
         className="menu-item false"
         clickHandler={[Function]}
+        dataTip={null}
         id={null}
       >
         Menu
@@ -331,6 +358,7 @@ exports[`SideNav renders correctly when orders tab is active 1`] = `
       <Link
         className="menu-item active"
         clickHandler={[Function]}
+        dataTip={null}
         id={null}
       >
         Orders

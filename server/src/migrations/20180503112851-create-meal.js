@@ -28,7 +28,7 @@ export default {
         msg: 'This is a required field'
       }
     },
-    imageURL: {
+    imageUrl: {
       type: Sequelize.TEXT,
       allowNull: false,
       defaultValue: 'https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2Fplaceholder-image.jpg?alt=media&token=e688dcde-0496-4a10-a456-0825e5202c62'

@@ -115,14 +115,56 @@ class Mailer {
   }
 
   /**
+   * Sends Mail to Customer when an order is successfully completed
+   * @method customerOrderMail
+   * @memberof Mailer
+   * @param {object} order
+   * @param {array} meals
+   * @returns {void}
+   */
+  static customerOrderMail(order, meals) {
+    return db.User.findOne({ where: { userId: order.userId } })
+      .then((customer) => {
+        const mealList = meals.map(meal =>
+          `<tr><td>${meal.title} (${meal.OrderItem.quantity})</td><td>&#8358;${meal.price}</td></tr>`);
+        const totalPrice = meals.reduce((total, meal) =>
+          total + (meal.price * meal.OrderItem.quantity), 0);
+
+        const message =
+            `<div>
+            <p style="text-transform: capitalize;">Hello ${customer.firstname},</p>
+            <p>Your order was succesfully completed.</p>
+            <p>Order Details: </p>
+            <table>
+            <tbody>
+              ${mealList.join('')}
+            </tbody>
+            <tfoot><tr><th></th><th>&#8358;${totalPrice}</th></tr></tfoot>
+            </table>
+            <p>See your full order details <a href='http://${url}/orders/${order.orderId}'>here</a>.</p>
+            <br/>
+            <p>Thank you for your order.</p>
+            <br/>
+            <p>Have a great day.</p>
+            </div>`;
+
+        return Mailer.sendMail({
+          to: customer.email,
+          subject: `Order #${order.orderId}`,
+          message
+        });
+      });
+  }
+
+  /**
    * Sends Mail for user to use to reset his password
    * @method forgotPasswordMail
    * @memberof Mailer
    * @param {string} token
-   * @param {string} email
+   * @param {string} emailAddress
    * @returns {void}
    */
-  static forgotPasswordMail(token, email) {
+  static forgotPasswordMail(token, emailAddress) {
     const message =
       `<div>
       <p style="text-transform: capitalize;">Hi,</p>
@@ -134,7 +176,7 @@ class Mailer {
       </div>`;
 
     return Mailer.sendMail({
-      to: email,
+      to: emailAddress,
       subject: 'Reset Password',
       message
     });
@@ -144,10 +186,10 @@ class Mailer {
    * Sends Mail after user succesfully reset his password
    * @method resetPasswordMail
    * @memberof Mailer
-   * @param {string} email
+   * @param {string} emailAddress
    * @returns {void}
    */
-  static resetPasswordMail(email) {
+  static resetPasswordMail(emailAddress) {
     const message =
       `<div>
       <p style="text-transform: capitalize;">Hi,</p>
@@ -156,7 +198,7 @@ class Mailer {
       </div>`;
 
     return Mailer.sendMail({
-      to: email,
+      to: emailAddress,
       subject: 'Password Reset Successful',
       message
     });

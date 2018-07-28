@@ -5,6 +5,7 @@
 @import './modules/cards.scss';
 @import './modules/form_elements.scss';
 @import './modules/username_circle.scss';
+@import './modules/breadcrumbs.scss';
 
 html {
   margin: 0;
@@ -20,7 +21,7 @@ body {
   min-height: 100%;
   flex-direction: column;
   color: $dark;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/chicken-fajitas.jpg") no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("http://res.cloudinary.com/iverenshaguy/image/upload/q_49/v1532540270/bookameal/chicken-fajitas.jpg") no-repeat center center;
   background-color: white;
   background-size: cover;
   background-attachment: fixed;
@@ -241,6 +242,7 @@ hr {
 
 .main-wrapper {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 70px;
@@ -270,7 +272,7 @@ hr {
 .user {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("../../public/img/chicken-fajitas.jpg") no-repeat center center;
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("http://res.cloudinary.com/iverenshaguy/image/upload/q_49/v1532540270/bookameal/chicken-fajitas.jpg") no-repeat center center;
   background-color: white;
   background-size: cover;
   background-attachment: fixed;
@@ -538,4 +540,30 @@ hr {
   .rrt-title {
     font-weight: 400;
   }
+}
+
+.tooltip {
+  // 76, 175, 80
+  background-color: rgba(51,51,51, 0.7) !important;
+  // background-color: rgba(0, 0, 0, 0.8) !important;
+  font-family: $heading-font-stack !important;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 15px;
+}
+
+// Tap Highlight Color
+
+.link-btn {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.dropdown {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.orders-back-link {
+  margin-top: 20px;
+  font-size: 1.3em;
+  font-family: $heading-font-stack;
 }
