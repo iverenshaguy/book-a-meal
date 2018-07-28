@@ -16,9 +16,11 @@ const App = () => (
       <Routes />
     </ConnectedRouter>
     <ReduxToastr
-      timeOut={4000}
+      timeOut={3000}
       newestOnTop={false}
       preventDuplicates
+      transitionIn="bounceIn"
+      transitionOut="fadeOut"
     />
   </Fragment>
 );

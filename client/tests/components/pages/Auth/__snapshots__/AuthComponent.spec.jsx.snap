@@ -7,6 +7,7 @@ exports[`AuthComponent renders caterer's signup form correctly 1`] = `
     logout={null}
     showTime={true}
     type="unauth"
+    updateCurrentDate={null}
     user={null}
   />
   <div
@@ -139,6 +140,7 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
         logout={null}
         showTime={true}
         type="unauth"
+        updateCurrentDate={null}
         user={null}
       >
         <div
@@ -296,6 +298,7 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
               submitError={null}
               submitting={false}
               type="signin"
+              uploading={null}
             >
               <div>
                 <form
@@ -356,6 +359,7 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
                       >
                         <label
                           htmlFor="email"
+                          onClick={[Function]}
                         >
                           Email Address
                           <span
@@ -400,6 +404,7 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
                       >
                         <label
                           htmlFor="password"
+                          onClick={[Function]}
                         >
                           Password
                           <span
@@ -478,7 +483,7 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
           className="footer"
         >
           <p>
-            © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
+            © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
           </p>
         </div>
       </Footer>
@@ -494,6 +499,7 @@ exports[`AuthComponent renders customer's signup form correctly 1`] = `
     logout={null}
     showTime={true}
     type="unauth"
+    updateCurrentDate={null}
     user={null}
   />
   <div
@@ -580,6 +586,7 @@ exports[`AuthComponent renders signin form correctly 1`] = `
     logout={null}
     showTime={true}
     type="unauth"
+    updateCurrentDate={null}
     user={null}
   />
   <div

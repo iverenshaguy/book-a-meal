@@ -58,7 +58,7 @@ class Dropdown extends Component {
         onMouseEnter={this.toggleDropdownContent}
         onMouseLeave={this.toggleDropdownContent}
       >
-        <LinkBtn clickHandler={this.toggleDropdownContent} id="dropdown-toggler" className="link">
+        <LinkBtn id="dropdown-toggler" className="link">
           {this.props.toggler}
         </LinkBtn>
         <div className={dropdownContentClass} id="dropdown-content">{this.props.content}</div>

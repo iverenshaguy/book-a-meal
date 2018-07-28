@@ -10,13 +10,13 @@ import Mailer from '../utils/Mailer';
 class Notifications {
   /**
    * Notifies all Users when the Menu for the day is created/updated
-   * @method notifyAllUsers
+   * @method menuForTheDay
    * @memberof Notifications
    * @param {object} menu
    * @param {string} catererId
    * @returns {void}
    */
-  static notifyAllUsers(menu, catererId) {
+  static menuForTheDay(menu, catererId) {
     return db.User.findOne({ where: { userId: catererId } }).then((user) => {
       const meals = menu.meals.map(meal => meal.title);
       const message = `${user.businessName} just added ${meals.join(', ')} to their Menu for the day`;
@@ -28,13 +28,13 @@ class Notifications {
 
   /**
    * Notifies Caterer when Caterer's meal has been ordered
-   * @method notifyCaterer
+   * @method catererOrder
    * @memberof Notifications
    * @param {object} order
    * @param {string} userId
-   * @returns {void}
+   * @returns {func} Mailer
    */
-  static notifyCaterer(order, userId) {
+  static catererOrder(order, userId) {
     db.User.findOne({ where: { userId } }).then((user) => {
       Object.entries(order.meals).forEach(([catererId, mealArray]) => {
         const meals = mealArray.map(meal => meal.title);
@@ -45,6 +45,18 @@ class Notifications {
           });
       });
     });
+  }
+
+  /**
+   * Notifies Customer when order is successfully completed
+   * @method orderSuccess
+   * @memberof Notifications
+   * @param {object} order
+   * @param {array} meals
+   * @returns {func} Mailer
+   */
+  static orderSuccess(order, meals) {
+    return Mailer.customerOrderMail(order, meals);
   }
 }
 

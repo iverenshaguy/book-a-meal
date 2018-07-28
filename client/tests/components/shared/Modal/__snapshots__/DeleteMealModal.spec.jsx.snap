@@ -31,7 +31,7 @@ exports[`DeleteMealModal renders connected component correctly 1`] = `
       Object {
         "description": "Sharwama contains no animal products, perfect for dieters",
         "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-        "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+        "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
         "price": "1200.00",
         "title": "Vegetable Sharwama and Guava Smoothie",
         "vegetarian": true,
@@ -47,7 +47,7 @@ exports[`DeleteMealModal renders connected component correctly 1`] = `
         Object {
           "description": "Sharwama contains no animal products, perfect for dieters",
           "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
           "price": "1200.00",
           "title": "Vegetable Sharwama and Guava Smoothie",
           "vegetarian": true,

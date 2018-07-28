@@ -123,12 +123,13 @@ class Menu {
         {
           model: db.Meal,
           as: 'meals',
-          attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price'],
+          attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
           through: {
             attributes: []
           }
         }
-      ]
+      ],
+      order: [['createdAt', 'DESC']]
     });
 
     return res.status(200).json({ menu });
@@ -151,10 +152,11 @@ class Menu {
       include: [{
         model: db.Meal,
         as: 'meals',
-        attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price'],
+        attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
         through: {
           attributes: []
-        }
+        },
+        order: [['createdAt', 'DESC']]
       }]
     });
 
@@ -189,8 +191,9 @@ class Menu {
    */
   static async getArrayOfMeals(menu) {
     menu.dataValues.meals = await menu.getMeals({
-      attributes: [['mealId', 'id'], 'title', 'imageURL', 'description', 'vegetarian', 'price'],
-      joinTableAttributes: []
+      attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
+      joinTableAttributes: [],
+      order: [['createdAt', 'DESC']]
     });
   }
 }

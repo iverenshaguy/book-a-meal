@@ -11,6 +11,7 @@ export const maxLength25 = maxLength(25);
 export const maxLength40 = maxLength(40);
 export const maxLength50 = maxLength(50);
 export const maxLength60 = maxLength(60);
+export const maxLength100 = maxLength(100);
 export const maxLength144 = maxLength(144);
 export const maxLength255 = maxLength(255);
 
@@ -66,8 +67,8 @@ export const isMealName = value =>
 export const isAddress = value => isBusinessName(value);
 
 export const isPhoneNumber = value =>
-  (value && !(/^\+?(234)([0-9]{10})$/.test(value))
-    ? 'Phone number is invalid, must be in the format +2348134567890'
+  (value && !(/^\+?(0)[7-9]([0-9]{9})$/.test(value))
+    ? 'Phone number is invalid, must be in the format 08134567890'
     : undefined);
 
 export const isValidPasswordConfirm = (value, allValues) => {

@@ -32,6 +32,7 @@ describe('Meals', () => {
       {...caterersMealsObj}
       isFetching={false}
       submitting={false}
+      uploading={false}
       toggleModal={toggleMock}
     />);
 
@@ -48,6 +49,7 @@ describe('Meals', () => {
       {...caterersMealsObj}
       isFetching={false}
       submitting={false}
+      uploading={false}
       toggleModal={toggleMock}
     />);
 
@@ -84,6 +86,7 @@ describe('Meals', () => {
       {...caterersMealsObj}
       isFetching
       submitting={false}
+      uploading={false}
       toggleModal={toggleMock}
     />);
 
@@ -99,6 +102,7 @@ describe('Meals', () => {
       {...caterersMealsObj}
       isFetching
       submitting={false}
+      uploading={false}
       toggleModal={toggleMock}
     />);
 
@@ -115,6 +119,7 @@ describe('Meals', () => {
       meals={[]}
       isFetching
       submitting={false}
+      uploading={false}
       toggleModal={toggleMock}
     />);
 

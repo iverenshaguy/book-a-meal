@@ -1,16 +1,16 @@
 import React from 'react';
-import InfiniteLoading from '../../../../src/components/shared/InfiniteLoading';
+import InfiniteLoader from '../../../../src/components/shared/InfiniteLoader';
 
-describe('InfiniteLoading', () => {
+describe('InfiniteLoader', () => {
   const items = Array.from({ length: 10 }, (v, i) => <p key={i}>Heya!</p>);
   it('renders correctly', () => {
-    const wrapper = mount(<InfiniteLoading items={items} limit={3} />);
+    const wrapper = mount(<InfiniteLoader items={items} limit={3} />);
 
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('updates current page when there are more elements to load', () => {
-    const wrapper = mount(<InfiniteLoading items={items} limit={3} />);
+    const wrapper = mount(<InfiniteLoader items={items} limit={3} />);
 
     expect(wrapper.state().currentPage).toEqual(1);
 
@@ -20,7 +20,7 @@ describe('InfiniteLoading', () => {
   });
 
   it('does not update current page when there are no more elements to load', () => {
-    const wrapper = mount(<InfiniteLoading items={items} limit={10} />);
+    const wrapper = mount(<InfiniteLoader items={items} limit={10} />);
 
     expect(wrapper.state().currentPage).toEqual(1);
 

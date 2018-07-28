@@ -13,8 +13,8 @@ const formFields = {
   signin: ['email', 'password'],
   customerSignup: ['firstname', 'lastname', 'email', 'password', 'passwordConfirm', 'role'],
   catererSignup: ['businessName', 'email', 'password', 'passwordConfirm', 'businessAddress', 'businessPhoneNo', 'role'],
-  addMeal: ['title', 'price', 'description', 'vegetarian'],
-  editMeal: ['title', 'price', 'description', 'vegetarian'],
+  addMeal: ['title', 'price', 'imageUrl', 'description', 'vegetarian'],
+  editMeal: ['title', 'price', 'imageUrl', 'description', 'vegetarian'],
 };
 
 const requiredFormFields = {

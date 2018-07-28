@@ -27,9 +27,16 @@ const props = {
   submitError: null
 };
 
+const { now } = Date;
+
 describe('MenuForm', () => {
+  beforeAll(() => {
+    Date.now = jest.fn(() => 0);
+  });
+
   afterAll(() => {
     jest.clearAllMocks();
+    Date.now = now;
   });
 
   it('renders correctly', () => {
@@ -52,6 +59,13 @@ describe('MenuForm', () => {
 
   it('renders correctly when there is a submit error', () => {
     const wrapper = shallow(<MenuForm {...props} submitError="Error" />);
+
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('renders correctly when there is a date error', () => {
+    const errorObj = { date: { value: 'Error' } };
+    const wrapper = shallow(<MenuForm {...props} submitError={errorObj} />);
 
     expect(toJson(wrapper)).toMatchSnapshot();
   });

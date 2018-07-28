@@ -9,7 +9,7 @@ import checkShopOpen from '../../../../helpers/checkShopOpen';
 import getOrderFromLocalStorage from '../../../../helpers/getOrderFromLocalStorage';
 import updateLocalStorageOrder from '../../../../helpers/updateLocalStorageOrder';
 import './CustomerMenu.scss';
-import InfiniteLoading from '../../../shared/InfiniteLoading';
+import CardGroup from '../../../shared/CardGroup';
 
 /**
  * @exports
@@ -181,15 +181,13 @@ class CustomerMenu extends Component {
         key={meal.id}
         meal={meal}
         orderMeal={() => this.handleOrderMealClick(meal)}
+        inBasket={!!this.state.order.meals.find(item => item.id === meal.id)}
       />));
 
     return (
       <Fragment>
         {meals.length === 0 && <p className="text-center">{'There are no Meals on Today\'s Menu'}</p>}
-        {meals.length !== 0 &&
-          <div className="card-group meals-wrapper" id="card-group">
-            <InfiniteLoading items={mealItems} limit={9} />
-          </div>}
+        {meals.length !== 0 && <CardGroup items={mealItems} limit={9} />}
       </Fragment>
     );
   }

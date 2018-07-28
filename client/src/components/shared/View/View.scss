@@ -61,11 +61,13 @@
   }
   .navbar .date {
     margin: 0;
+    position: relative;
   }
   .date {
     justify-content: space-between;
     align-items: center;
     margin: 0 40px;
+    position: relative;
   }
   .page-heading {
     display: flex;
@@ -123,7 +125,7 @@
 }
 
 .user {
-  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("../../../../public/img/chicken-fajitas.jpg") no-repeat center center;
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("http://res.cloudinary.com/iverenshaguy/image/upload/q_49/v1532540270/bookameal/chicken-fajitas.jpg") no-repeat center center;
   background-color: white;
   background-size: cover;
   background-attachment: fixed;

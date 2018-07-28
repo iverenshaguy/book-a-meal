@@ -6,11 +6,12 @@ exports[`OrderDetails renders MiniPreloader when delivering 1`] = `
   logout={[MockFunction]}
   showTime={true}
   type="orders"
+  updateCurrentDate={null}
   user={
     Object {
       "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
       "businessName": "Food Circle",
-      "businessPhoneNo": "+2348166557788",
+      "businessPhoneNo": "08166557788",
       "email": "food@circle.com",
       "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
       "role": "caterer",
@@ -21,6 +22,14 @@ exports[`OrderDetails renders MiniPreloader when delivering 1`] = `
     <div
       className="main-wrapper"
     >
+      <Link
+        className="orders-back-link"
+        href="/orders"
+        replace={false}
+        to="/orders"
+      >
+        ← Back To Orders
+      </Link>
       <div
         className="order-confirmation order-details"
       >
@@ -52,11 +61,12 @@ exports[`OrderDetails renders Preloader when fetching 1`] = `
   logout={[MockFunction]}
   showTime={true}
   type="orders"
+  updateCurrentDate={null}
   user={
     Object {
       "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
       "businessName": "Food Circle",
-      "businessPhoneNo": "+2348166557788",
+      "businessPhoneNo": "08166557788",
       "email": "food@circle.com",
       "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
       "role": "caterer",
@@ -93,7 +103,7 @@ exports[`OrderDetails renders connected component 1`] = `
       Object {
         "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
         "businessName": "Food Circle",
-        "businessPhoneNo": "+2348166557788",
+        "businessPhoneNo": "08166557788",
         "email": "food@circle.com",
         "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
         "role": "caterer",
@@ -122,14 +132,14 @@ exports[`OrderDetails renders connected component 1`] = `
             "lastname": "Olasanmi",
           },
           "deliveryAddress": "4, Church Street, Yaba",
-          "deliveryPhoneNo": "+2348134567890",
+          "deliveryPhoneNo": "08134567890",
           "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
           "meals": Array [
             Object {
               "delivered": true,
               "description": "Sharwama contains no animal products, perfect for dieters",
               "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-              "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
               "price": "1200.00",
               "quantity": 1,
               "title": "Vegetable Sharwama and Guava Smoothie",
@@ -144,7 +154,7 @@ exports[`OrderDetails renders connected component 1`] = `
         Object {
           "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
           "businessName": "Food Circle",
-          "businessPhoneNo": "+2348166557788",
+          "businessPhoneNo": "08166557788",
           "email": "food@circle.com",
           "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
           "role": "caterer",
@@ -156,11 +166,12 @@ exports[`OrderDetails renders connected component 1`] = `
         logout={[Function]}
         showTime={true}
         type="orders"
+        updateCurrentDate={null}
         user={
           Object {
             "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
             "businessName": "Food Circle",
-            "businessPhoneNo": "+2348166557788",
+            "businessPhoneNo": "08166557788",
             "email": "food@circle.com",
             "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
             "role": "caterer",
@@ -176,11 +187,12 @@ exports[`OrderDetails renders connected component 1`] = `
             logout={[Function]}
             showTime={true}
             type="caterer"
+            updateCurrentDate={null}
             user={
               Object {
                 "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                 "businessName": "Food Circle",
-                "businessPhoneNo": "+2348166557788",
+                "businessPhoneNo": "08166557788",
                 "email": "food@circle.com",
                 "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                 "role": "caterer",
@@ -196,12 +208,14 @@ exports[`OrderDetails renders connected component 1`] = `
                 <Connect(CatererHeader)
                   dateType="orders"
                   showTime={true}
+                  updateCurrentDate={null}
                 >
                   <CatererHeader
                     currentDay="1970-01-01"
                     dateType="orders"
                     showTime={true}
                     toggleSideNav={[Function]}
+                    updateCurrentDate={null}
                   >
                     <div
                       className="menu-control d-none-md"
@@ -209,10 +223,12 @@ exports[`OrderDetails renders connected component 1`] = `
                       <Link
                         className="d-none-md"
                         clickHandler={[Function]}
+                        dataTip={null}
                         id={null}
                       >
                         <button
                           className="link-btn d-none-md"
+                          data-tip={null}
                           id={null}
                           onClick={[Function]}
                         >
@@ -224,6 +240,24 @@ exports[`OrderDetails renders connected component 1`] = `
                       </Link>
                     </div>
                     <div
+                      className="page-title d-none-md"
+                    >
+                      <h3>
+                        <Link
+                          href="/"
+                          replace={false}
+                          to="/"
+                        >
+                          <a
+                            href="/"
+                            onClick={[Function]}
+                          >
+                            BOOK-A-MEAL
+                          </a>
+                        </Link>
+                      </h3>
+                    </div>
+                    <div
                       className="page-title d-flex-md"
                     >
                       <div
@@ -231,9 +265,25 @@ exports[`OrderDetails renders connected component 1`] = `
                       >
                         <h2>
                           Thursday, 1st January 1970
-                              
-                          00:00
+                          <span>
+                               
+                            00:00
+                          </span>
                         </h2>
+                        <DatePicker
+                          handleSelectDate={null}
+                          screenSize="md"
+                        >
+                          <div
+                            className="datepicker-div d-flex-md"
+                          >
+                            <input
+                              id="datepicker"
+                              onChange={[Function]}
+                              type="date"
+                            />
+                          </div>
+                        </DatePicker>
                       </div>
                     </div>
                   </CatererHeader>
@@ -251,7 +301,7 @@ exports[`OrderDetails renders connected component 1`] = `
                 Object {
                   "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                   "businessName": "Food Circle",
-                  "businessPhoneNo": "+2348166557788",
+                  "businessPhoneNo": "08166557788",
                   "email": "food@circle.com",
                   "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                   "role": "caterer",
@@ -268,7 +318,7 @@ exports[`OrderDetails renders connected component 1`] = `
                   Object {
                     "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                     "businessName": "Food Circle",
-                    "businessPhoneNo": "+2348166557788",
+                    "businessPhoneNo": "08166557788",
                     "email": "food@circle.com",
                     "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                     "role": "caterer",
@@ -297,10 +347,12 @@ exports[`OrderDetails renders connected component 1`] = `
                             aria-hidden="true"
                             className={null}
                             clickHandler={[Function]}
+                            dataTip={null}
                             id={null}
                           >
                             <button
                               className="link-btn null"
+                              data-tip={null}
                               id={null}
                               onClick={[Function]}
                             >
@@ -312,7 +364,9 @@ exports[`OrderDetails renders connected component 1`] = `
                       <div
                         className="sidenav-title"
                       >
-                        <h3>
+                        <h3
+                          className="d-flex-md"
+                        >
                           <Link
                             href="/"
                             replace={false}
@@ -340,10 +394,12 @@ exports[`OrderDetails renders connected component 1`] = `
                           <Link
                             className={null}
                             clickHandler={[Function]}
+                            dataTip={null}
                             id={null}
                           >
                             <button
                               className="link-btn null"
+                              data-tip={null}
                               id={null}
                               onClick={[Function]}
                             >
@@ -359,10 +415,12 @@ exports[`OrderDetails renders connected component 1`] = `
                       <Link
                         className="menu-item false"
                         clickHandler={[Function]}
+                        dataTip={null}
                         id={null}
                       >
                         <button
                           className="link-btn menu-item false"
+                          data-tip={null}
                           id={null}
                           onClick={[Function]}
                         >
@@ -372,10 +430,12 @@ exports[`OrderDetails renders connected component 1`] = `
                       <Link
                         className="menu-item false"
                         clickHandler={[Function]}
+                        dataTip={null}
                         id={null}
                       >
                         <button
                           className="link-btn menu-item false"
+                          data-tip={null}
                           id={null}
                           onClick={[Function]}
                         >
@@ -385,10 +445,12 @@ exports[`OrderDetails renders connected component 1`] = `
                       <Link
                         className="menu-item false"
                         clickHandler={[Function]}
+                        dataTip={null}
                         id={null}
                       >
                         <button
                           className="link-btn menu-item false"
+                          data-tip={null}
                           id={null}
                           onClick={[Function]}
                         >
@@ -398,10 +460,12 @@ exports[`OrderDetails renders connected component 1`] = `
                       <Link
                         className="menu-item active"
                         clickHandler={[Function]}
+                        dataTip={null}
                         id={null}
                       >
                         <button
                           className="link-btn menu-item active"
+                          data-tip={null}
                           id={null}
                           onClick={[Function]}
                         >
@@ -420,6 +484,20 @@ exports[`OrderDetails renders connected component 1`] = `
               <div
                 className="main-wrapper"
               >
+                <Link
+                  className="orders-back-link"
+                  href="/orders"
+                  replace={false}
+                  to="/orders"
+                >
+                  <a
+                    className="orders-back-link"
+                    href="/orders"
+                    onClick={[Function]}
+                  >
+                    ← Back To Orders
+                  </a>
+                </Link>
                 <div
                   className="order-confirmation order-details"
                 >
@@ -461,7 +539,7 @@ exports[`OrderDetails renders connected component 1`] = `
                     </p>
                     <p>
                       Number Provided: 
-                      +2348134567890
+                      08134567890
                     </p>
                   </div>
                   <OrderSummary
@@ -471,7 +549,7 @@ exports[`OrderDetails renders connected component 1`] = `
                           "delivered": true,
                           "description": "Sharwama contains no animal products, perfect for dieters",
                           "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                           "price": "1200.00",
                           "quantity": 1,
                           "title": "Vegetable Sharwama and Guava Smoothie",
@@ -507,7 +585,7 @@ exports[`OrderDetails renders connected component 1`] = `
                           "delivered": true,
                           "description": "Sharwama contains no animal products, perfect for dieters",
                           "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                           "price": "1200.00",
                           "quantity": 1,
                           "title": "Vegetable Sharwama and Guava Smoothie",
@@ -540,11 +618,12 @@ exports[`OrderDetails renders connected component 1`] = `
             logout={[Function]}
             showTime={true}
             type="orders"
+            updateCurrentDate={null}
             user={
               Object {
                 "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                 "businessName": "Food Circle",
-                "businessPhoneNo": "+2348166557788",
+                "businessPhoneNo": "08166557788",
                 "email": "food@circle.com",
                 "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                 "role": "caterer",
@@ -558,11 +637,12 @@ exports[`OrderDetails renders connected component 1`] = `
               showTime={true}
               toggleModal={[Function]}
               type={null}
+              updateCurrentDate={null}
               user={
                 Object {
                   "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                   "businessName": "Food Circle",
-                  "businessPhoneNo": "+2348166557788",
+                  "businessPhoneNo": "08166557788",
                   "email": "food@circle.com",
                   "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                   "role": "caterer",
@@ -575,7 +655,7 @@ exports[`OrderDetails renders connected component 1`] = `
               className="footer"
             >
               <p>
-                © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
+                © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
               </p>
             </div>
           </Footer>
@@ -592,11 +672,12 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
   logout={[MockFunction]}
   showTime={true}
   type="orders"
+  updateCurrentDate={null}
   user={
     Object {
       "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
       "businessName": "Food Circle",
-      "businessPhoneNo": "+2348166557788",
+      "businessPhoneNo": "08166557788",
       "email": "food@circle.com",
       "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
       "role": "caterer",
@@ -607,6 +688,14 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
     <div
       className="main-wrapper"
     >
+      <Link
+        className="orders-back-link"
+        href="/orders"
+        replace={false}
+        to="/orders"
+      >
+        ← Back To Orders
+      </Link>
       <div
         className="order-confirmation order-details"
       >
@@ -649,7 +738,7 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
             </p>
             <p>
               Number Provided: 
-              +2348134567890
+              08134567890
             </p>
           </div>
           <OrderSummary
@@ -659,7 +748,7 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
                   "delivered": true,
                   "description": "Sharwama contains no animal products, perfect for dieters",
                   "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                  "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                   "price": "1200.00",
                   "quantity": 1,
                   "title": "Vegetable Sharwama and Guava Smoothie",
@@ -675,7 +764,7 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
                   "delivered": true,
                   "description": "Sharwama contains no animal products, perfect for dieters",
                   "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                  "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                   "price": "1200.00",
                   "quantity": 1,
                   "title": "Vegetable Sharwama and Guava Smoothie",
@@ -718,7 +807,7 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
       Object {
         "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
         "businessName": "Food Circle",
-        "businessPhoneNo": "+2348166557788",
+        "businessPhoneNo": "08166557788",
         "email": "food@circle.com",
         "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
         "role": "caterer",
@@ -743,7 +832,7 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
         Object {
           "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
           "businessName": "Food Circle",
-          "businessPhoneNo": "+2348166557788",
+          "businessPhoneNo": "08166557788",
           "email": "food@circle.com",
           "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
           "role": "caterer",
@@ -755,11 +844,12 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
         logout={[Function]}
         showTime={true}
         type="orders"
+        updateCurrentDate={null}
         user={
           Object {
             "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
             "businessName": "Food Circle",
-            "businessPhoneNo": "+2348166557788",
+            "businessPhoneNo": "08166557788",
             "email": "food@circle.com",
             "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
             "role": "caterer",
@@ -775,11 +865,12 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
             logout={[Function]}
             showTime={true}
             type="caterer"
+            updateCurrentDate={null}
             user={
               Object {
                 "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                 "businessName": "Food Circle",
-                "businessPhoneNo": "+2348166557788",
+                "businessPhoneNo": "08166557788",
                 "email": "food@circle.com",
                 "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                 "role": "caterer",
@@ -795,12 +886,14 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                 <Connect(CatererHeader)
                   dateType="orders"
                   showTime={true}
+                  updateCurrentDate={null}
                 >
                   <CatererHeader
                     currentDay="1970-01-01"
                     dateType="orders"
                     showTime={true}
                     toggleSideNav={[Function]}
+                    updateCurrentDate={null}
                   >
                     <div
                       className="menu-control d-none-md"
@@ -808,10 +901,12 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                       <Link
                         className="d-none-md"
                         clickHandler={[Function]}
+                        dataTip={null}
                         id={null}
                       >
                         <button
                           className="link-btn d-none-md"
+                          data-tip={null}
                           id={null}
                           onClick={[Function]}
                         >
@@ -823,6 +918,24 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                       </Link>
                     </div>
                     <div
+                      className="page-title d-none-md"
+                    >
+                      <h3>
+                        <Link
+                          href="/"
+                          replace={false}
+                          to="/"
+                        >
+                          <a
+                            href="/"
+                            onClick={[Function]}
+                          >
+                            BOOK-A-MEAL
+                          </a>
+                        </Link>
+                      </h3>
+                    </div>
+                    <div
                       className="page-title d-flex-md"
                     >
                       <div
@@ -830,9 +943,25 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                       >
                         <h2>
                           Thursday, 1st January 1970
-                              
-                          00:00
+                          <span>
+                               
+                            00:00
+                          </span>
                         </h2>
+                        <DatePicker
+                          handleSelectDate={null}
+                          screenSize="md"
+                        >
+                          <div
+                            className="datepicker-div d-flex-md"
+                          >
+                            <input
+                              id="datepicker"
+                              onChange={[Function]}
+                              type="date"
+                            />
+                          </div>
+                        </DatePicker>
                       </div>
                     </div>
                   </CatererHeader>
@@ -850,7 +979,7 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                 Object {
                   "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                   "businessName": "Food Circle",
-                  "businessPhoneNo": "+2348166557788",
+                  "businessPhoneNo": "08166557788",
                   "email": "food@circle.com",
                   "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                   "role": "caterer",
@@ -867,7 +996,7 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                   Object {
                     "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                     "businessName": "Food Circle",
-                    "businessPhoneNo": "+2348166557788",
+                    "businessPhoneNo": "08166557788",
                     "email": "food@circle.com",
                     "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                     "role": "caterer",
@@ -896,10 +1025,12 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                             aria-hidden="true"
                             className={null}
                             clickHandler={[Function]}
+                            dataTip={null}
                             id={null}
                           >
                             <button
                               className="link-btn null"
+                              data-tip={null}
                               id={null}
                               onClick={[Function]}
                             >
@@ -911,7 +1042,9 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                       <div
                         className="sidenav-title"
                       >
-                        <h3>
+                        <h3
+                          className="d-flex-md"
+                        >
                           <Link
                             href="/"
                             replace={false}
@@ -939,10 +1072,12 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                           <Link
                             className={null}
                             clickHandler={[Function]}
+                            dataTip={null}
                             id={null}
                           >
                             <button
                               className="link-btn null"
+                              data-tip={null}
                               id={null}
                               onClick={[Function]}
                             >
@@ -958,10 +1093,12 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                       <Link
                         className="menu-item false"
                         clickHandler={[Function]}
+                        dataTip={null}
                         id={null}
                       >
                         <button
                           className="link-btn menu-item false"
+                          data-tip={null}
                           id={null}
                           onClick={[Function]}
                         >
@@ -971,10 +1108,12 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                       <Link
                         className="menu-item false"
                         clickHandler={[Function]}
+                        dataTip={null}
                         id={null}
                       >
                         <button
                           className="link-btn menu-item false"
+                          data-tip={null}
                           id={null}
                           onClick={[Function]}
                         >
@@ -984,10 +1123,12 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                       <Link
                         className="menu-item false"
                         clickHandler={[Function]}
+                        dataTip={null}
                         id={null}
                       >
                         <button
                           className="link-btn menu-item false"
+                          data-tip={null}
                           id={null}
                           onClick={[Function]}
                         >
@@ -997,10 +1138,12 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                       <Link
                         className="menu-item active"
                         clickHandler={[Function]}
+                        dataTip={null}
                         id={null}
                       >
                         <button
                           className="link-btn menu-item active"
+                          data-tip={null}
                           id={null}
                           onClick={[Function]}
                         >
@@ -1028,11 +1171,12 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
             logout={[Function]}
             showTime={true}
             type="orders"
+            updateCurrentDate={null}
             user={
               Object {
                 "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                 "businessName": "Food Circle",
-                "businessPhoneNo": "+2348166557788",
+                "businessPhoneNo": "08166557788",
                 "email": "food@circle.com",
                 "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                 "role": "caterer",
@@ -1046,11 +1190,12 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
               showTime={true}
               toggleModal={[Function]}
               type={null}
+              updateCurrentDate={null}
               user={
                 Object {
                   "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                   "businessName": "Food Circle",
-                  "businessPhoneNo": "+2348166557788",
+                  "businessPhoneNo": "08166557788",
                   "email": "food@circle.com",
                   "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                   "role": "caterer",
@@ -1063,7 +1208,7 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
               className="footer"
             >
               <p>
-                © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
+                © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
               </p>
             </div>
           </Footer>

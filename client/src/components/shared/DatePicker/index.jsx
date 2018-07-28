@@ -13,11 +13,12 @@ import './DatePicker.scss';
 class DatePicker extends Component {
   static propTypes = {
     screenSize: PropTypes.string,
-    handleSelectDate: PropTypes.func.isRequired,
+    handleSelectDate: PropTypes.func,
   };
 
   static defaultProps = {
     screenSize: null,
+    handleSelectDate: null
   };
 
   /**
@@ -44,7 +45,6 @@ class DatePicker extends Component {
 
     return (
       <div className={datePickerClass}>
-        <button className="btn btn-sec">Change Date</button>
         <input type="date" id="datepicker" onChange={this.handleChange} />
       </div>
     );

@@ -8,6 +8,7 @@ exports[`CatererHeader renders correctly 1`] = `
     <Link
       className="d-none-md"
       clickHandler={[MockFunction]}
+      dataTip={null}
       id={null}
     >
       <img
@@ -17,6 +18,19 @@ exports[`CatererHeader renders correctly 1`] = `
     </Link>
   </div>
   <div
+    className="page-title d-none-md"
+  >
+    <h3>
+      <Link
+        href="/"
+        replace={false}
+        to="/"
+      >
+        BOOK-A-MEAL
+      </Link>
+    </h3>
+  </div>
+  <div
     className="page-title d-flex-md"
   >
     <div
@@ -24,9 +38,15 @@ exports[`CatererHeader renders correctly 1`] = `
     >
       <h2>
         Thursday, 1st January 1970
-            
-        00:00
+        <span>
+             
+          00:00
+        </span>
       </h2>
+      <DatePicker
+        handleSelectDate={null}
+        screenSize="md"
+      />
     </div>
   </div>
 </React.Fragment>

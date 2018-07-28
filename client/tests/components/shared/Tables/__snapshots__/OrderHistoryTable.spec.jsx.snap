@@ -132,6 +132,7 @@ exports[`OrderHistoryTable renders correctly 1`] = `
               <Link
                 className="warning"
                 clickHandler={[Function]}
+                dataTip={null}
                 id={null}
               >
                 Deliver

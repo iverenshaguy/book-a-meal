@@ -9,7 +9,7 @@ const props = {
   uploading: false,
   uploadImage: jest.fn(),
   uploadError: null,
-  formerImgURL: 'image.jpg',
+  formerImgUrl: 'image.jpg',
   clearUploadError: jest.fn(),
   successCallBack: jest.fn(),
 };

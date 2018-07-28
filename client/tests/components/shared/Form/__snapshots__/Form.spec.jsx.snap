@@ -42,6 +42,7 @@ exports[`Form renders addMeal form correctly 1`] = `
             "asyncValidating": false,
             "error": Object {
               "description": null,
+              "imageUrl": null,
               "price": null,
               "title": null,
               "vegetarian": null,
@@ -50,6 +51,7 @@ exports[`Form renders addMeal form correctly 1`] = `
             "pristine": true,
             "touched": Object {
               "description": false,
+              "imageUrl": false,
               "price": false,
               "title": false,
               "vegetarian": false,
@@ -57,6 +59,7 @@ exports[`Form renders addMeal form correctly 1`] = `
             "type": "addMeal",
             "values": Object {
               "description": "",
+              "imageUrl": "http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg",
               "price": "",
               "title": "",
               "vegetarian": false,
@@ -64,6 +67,7 @@ exports[`Form renders addMeal form correctly 1`] = `
           }
         }
         type="addMeal"
+        uploading={null}
       />
       <button
         className="btn btn-pri btn-block"
@@ -299,7 +303,6 @@ exports[`Form renders editMeal form correctly 1`] = `
       onSubmit={[Function]}
     >
       <MealForm
-        editMeal={[Function]}
         handlers={
           Object {
             "handleBlur": [Function],
@@ -312,7 +315,7 @@ exports[`Form renders editMeal form correctly 1`] = `
           Object {
             "description": "",
             "id": "81211c24-51c0-46ec-b1e0-18db55880954",
-            "imageURL": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+            "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
             "price": "2500.00",
             "title": "Jollof Rice and Chicken",
             "vegetarian": false,
@@ -323,6 +326,7 @@ exports[`Form renders editMeal form correctly 1`] = `
             "asyncValidating": false,
             "error": Object {
               "description": null,
+              "imageUrl": null,
               "price": null,
               "title": null,
               "vegetarian": null,
@@ -331,6 +335,7 @@ exports[`Form renders editMeal form correctly 1`] = `
             "pristine": true,
             "touched": Object {
               "description": false,
+              "imageUrl": false,
               "price": false,
               "title": false,
               "vegetarian": false,
@@ -339,7 +344,7 @@ exports[`Form renders editMeal form correctly 1`] = `
             "values": Object {
               "description": "",
               "id": "81211c24-51c0-46ec-b1e0-18db55880954",
-              "imageURL": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+              "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
               "price": "2500.00",
               "title": "Jollof Rice and Chicken",
               "vegetarian": false,
@@ -348,6 +353,7 @@ exports[`Form renders editMeal form correctly 1`] = `
         }
         type="editMeal"
         updating={false}
+        uploading={null}
       />
       <button
         className="btn btn-pri btn-block"

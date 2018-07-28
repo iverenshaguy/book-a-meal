@@ -33,7 +33,7 @@ describe('Cart', () => {
     />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
-    expect(shallowWrapper.find('div.empty-cart>p').text()).toEqual('Your Cart is Empty');
+    expect(shallowWrapper.find('div.empty-cart>p').text()).toEqual('Your Basket is Empty');
   });
 
   it('toggles cart', () => {

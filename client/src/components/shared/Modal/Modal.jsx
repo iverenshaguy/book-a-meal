@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MealModal from './MealModal';
 import MenuModal from './MenuModal';
-import MealImageModal from './MealImageModal';
 import DeleteMealModal from './DeleteMealModal';
 import CloseIcon from '../CloseIcon';
 import './Modal.scss';
@@ -57,8 +56,6 @@ class Modal extends Component {
       case 'orderSuccessMsg':
       case 'orderCanceledMsg':
         return null;
-      case 'newMealImage':
-        return 'Add a Meal Image';
       default:
         return null;
     }
@@ -92,8 +89,6 @@ class Modal extends Component {
         return <p className="text-center">Order Canceled Successfully</p>;
       case 'deleteSuccessMsg':
         return <p className="text-center">Meal Deleted Successfully</p>;
-      case 'newMealImage':
-        return <MealImageModal {...this.props} />;
       default:
         return null;
     }

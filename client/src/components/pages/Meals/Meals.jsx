@@ -4,7 +4,7 @@ import Redirect from 'react-router-dom/Redirect';
 import MealCard from '../../shared/MealCard';
 import View from '../../shared/View';
 import { userPropTypes, mealObjPropTypes } from '../../../helpers/proptypes';
-import InfiniteLoading from '../../shared/InfiniteLoading';
+import CardGroup from '../../shared/CardGroup';
 
 /**
  * @exports
@@ -21,6 +21,7 @@ class Meals extends Component {
     logout: PropTypes.func.isRequired,
     fetchMeals: PropTypes.func.isRequired,
     submitError: PropTypes.string,
+    uploading: PropTypes.bool.isRequired,
     submitting: PropTypes.bool.isRequired,
     toggleModal: PropTypes.func.isRequired,
   }
@@ -86,10 +87,7 @@ class Meals extends Component {
             </button>
           </div>
           {this.props.meals.length === 0 && <p className="text-center">You Do Not Have Any Meals Yet</p>}
-          {this.props.meals.length !== 0 &&
-          <div className="card-group meals-wrapper" id="card-group">
-            <InfiniteLoading items={mealItems.reverse()} limit={8} />
-          </div>}
+          {this.props.meals.length !== 0 && <CardGroup items={mealItems} limit={8} />}
         </div>
       </Fragment>
     );
@@ -102,7 +100,7 @@ class Meals extends Component {
    */
   render() {
     const {
-      user, logout, submitting, submitError, isFetching
+      user, logout, submitting, submitError, isFetching, uploading
     } = this.props;
 
     const { currentMealId } = this.state;
@@ -118,6 +116,7 @@ class Meals extends Component {
           showTime
           isFetching={isFetching}
           meal={this.getCurrentMeal(currentMealId)}
+          uploading={uploading}
           submitting={submitting}
           submitError={submitError}
         >

@@ -8,6 +8,7 @@ import {
   maxLength40,
   maxLength50,
   maxLength60,
+  maxLength100,
   maxLength255,
   isValidEmail,
   isValidDecimal,
@@ -42,13 +43,13 @@ const validation = {
   addMeal: {
     title: [isRequired, minLength1, maxLength50, isMealName],
     price: [isRequired, isValidDecimal, isGreaterThanZero],
-    description: [maxLength50, isBusinessName],
+    description: [maxLength100, isBusinessName],
     vegetarian: [isValidBoolean]
   },
   editMeal: {
     title: [isRequired, minLength1, maxLength50, isMealName],
     price: [isRequired, isValidDecimal, isGreaterThanZero],
-    description: [maxLength50, isBusinessName],
+    description: [maxLength100, isBusinessName],
     vegetarian: [isValidBoolean]
   },
   reviewOrder: {

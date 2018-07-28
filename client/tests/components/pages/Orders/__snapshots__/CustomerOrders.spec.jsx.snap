@@ -43,6 +43,7 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
         logout={[Function]}
         showTime={true}
         type="orderReview"
+        updateCurrentDate={null}
         user={
           Object {
             "email": "emiola@olasanmi.com",
@@ -62,6 +63,7 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
             logout={[Function]}
             showTime={true}
             type="customer"
+            updateCurrentDate={null}
             user={
               Object {
                 "email": "emiola@olasanmi.com",
@@ -84,6 +86,7 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                   logout={[Function]}
                   showTime={true}
                   type="customer"
+                  updateCurrentDate={null}
                   user={
                     Object {
                       "email": "emiola@olasanmi.com",
@@ -115,8 +118,53 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                   <div
                     className="navlinks"
                   >
+                    <h3>
+                      Welcome, 
+                      Emiola
+                    </h3>
+                    <Link
+                      className="false"
+                      href="/"
+                      replace={false}
+                      to="/"
+                    >
+                      <a
+                        className="false"
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        Menu
+                      </a>
+                    </Link>
+                    <Link
+                      className="false"
+                      href="/orders"
+                      replace={false}
+                      to="/orders"
+                    >
+                      <a
+                        className="false"
+                        href="/orders"
+                        onClick={[Function]}
+                      >
+                        Orders
+                      </a>
+                    </Link>
+                    <Link
+                      href="/"
+                      onClick={[Function]}
+                      replace={false}
+                      to="/"
+                    >
+                      <a
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        Logout
+                      </a>
+                    </Link>
                     <div
-                      className="user-info"
+                      className="user-info mobile-only"
                     >
                       <Dropdown
                         content={
@@ -130,11 +178,12 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                               Menu
                             </Link>
                             <Link
+                              className="false"
                               href="/orders"
                               replace={false}
                               to="/orders"
                             >
-                              Order History
+                              Orders
                             </Link>
                             <Link
                               href="/"
@@ -148,14 +197,20 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                         }
                         toggler={
                           <div
-                            className="username-circle circle-click"
+                            className="user-dropdown"
                           >
-                            <p
-                              className="circle-click"
+                            <div
+                              className="username-circle circle-click"
                             >
-                              E
-                              ▿
-                            </p>
+                              <p
+                                className="circle-click"
+                              >
+                                E
+                              </p>
+                            </div>
+                            <span>
+                              ▾
+                            </span>
                           </div>
                         }
                         type="customer"
@@ -167,23 +222,31 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                         >
                           <Link
                             className="link"
-                            clickHandler={[Function]}
+                            clickHandler={null}
+                            dataTip={null}
                             id="dropdown-toggler"
                           >
                             <button
                               className="link-btn link"
+                              data-tip={null}
                               id="dropdown-toggler"
-                              onClick={[Function]}
+                              onClick={null}
                             >
                               <div
-                                className="username-circle circle-click"
+                                className="user-dropdown"
                               >
-                                <p
-                                  className="circle-click"
+                                <div
+                                  className="username-circle circle-click"
                                 >
-                                  E
-                                  ▿
-                                </p>
+                                  <p
+                                    className="circle-click"
+                                  >
+                                    E
+                                  </p>
+                                </div>
+                                <span>
+                                  ▾
+                                </span>
                               </div>
                             </button>
                           </Link>
@@ -206,15 +269,17 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                               </a>
                             </Link>
                             <Link
+                              className="false"
                               href="/orders"
                               replace={false}
                               to="/orders"
                             >
                               <a
+                                className="false"
                                 href="/orders"
                                 onClick={[Function]}
                               >
-                                Order History
+                                Orders
                               </a>
                             </Link>
                             <Link
@@ -273,7 +338,7 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                     handleChange={[Function]}
                     handleFocus={[Function]}
                     id="deliveryPhoneNo"
-                    label="Phone Number"
+                    label="Phone Number (e.g. 08123456789)"
                     meta={
                       Object {
                         "error": null,
@@ -284,15 +349,16 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                     placeholder=""
                     required={true}
                     type="number"
-                    value="+2348134567891"
+                    value="08134567891"
                   >
                     <div
                       className="form-input"
                     >
                       <label
                         htmlFor="deliveryPhoneNo"
+                        onClick={[Function]}
                       >
-                        Phone Number
+                        Phone Number (e.g. 08123456789)
                         <span
                           className="danger"
                         >
@@ -308,7 +374,7 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                         onFocus={[Function]}
                         placeholder=""
                         type="number"
-                        value="+2348134567891"
+                        value="08134567891"
                       />
                     </div>
                   </RenderInput>
@@ -335,6 +401,7 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                     >
                       <label
                         htmlFor="deliveryAddress"
+                        onClick={[Function]}
                       >
                         Delivery Address
                         <span
@@ -393,6 +460,7 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
             logout={[Function]}
             showTime={true}
             type="orderReview"
+            updateCurrentDate={null}
             user={
               Object {
                 "email": "emiola@olasanmi.com",
@@ -410,6 +478,7 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
               showTime={true}
               toggleModal={[Function]}
               type={null}
+              updateCurrentDate={null}
               user={
                 Object {
                   "email": "emiola@olasanmi.com",
@@ -426,7 +495,7 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
               className="footer"
             >
               <p>
-                © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
+                © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
               </p>
             </div>
           </Footer>
@@ -443,6 +512,7 @@ exports[`Customer Orders Order Review renders correctly 1`] = `
   logout={[MockFunction]}
   showTime={true}
   type="orderReview"
+  updateCurrentDate={null}
   user={
     Object {
       "email": "emiola@olasanmi.com",
@@ -480,7 +550,7 @@ exports[`Customer Orders Order Review renders correctly 1`] = `
             handleChange={[Function]}
             handleFocus={[Function]}
             id="deliveryPhoneNo"
-            label="Phone Number"
+            label="Phone Number (e.g. 08123456789)"
             meta={
               Object {
                 "error": null,
@@ -491,7 +561,7 @@ exports[`Customer Orders Order Review renders correctly 1`] = `
             placeholder=""
             required={true}
             type="number"
-            value="+2348134567891"
+            value="08134567891"
           />
           <RenderInput
             handleBlur={[Function]}

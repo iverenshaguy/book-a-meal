@@ -18,6 +18,7 @@ exports[`MealCard renders correctly when type is caterer 1`] = `
           <Link
             className={null}
             clickHandler={[Function]}
+            dataTip={null}
             href="#add-edit-modal"
             id="edit-meal"
           >
@@ -26,6 +27,7 @@ exports[`MealCard renders correctly when type is caterer 1`] = `
           <Link
             className={null}
             clickHandler={[Function]}
+            dataTip={null}
             href="#add-edit-modal"
             id="delete-meal"
           >
@@ -56,11 +58,23 @@ exports[`MealCard renders correctly when type is caterer 1`] = `
         ₦ 
         1500.00
       </h3>
-      <p>
+      <p
+        className="meal-description"
+        data-tip="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
+      >
         Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
       </p>
     </div>
   </div>
+  <ReactTooltip
+    className="tooltip"
+    effect="solid"
+    insecure={true}
+    place="top"
+    resizeHide={true}
+    type="dark"
+    wrapper="div"
+  />
 </div>
 `;
 
@@ -92,7 +106,10 @@ exports[`MealCard renders correctly when type is customer 1`] = `
         ₦ 
         1500.00
       </h3>
-      <p>
+      <p
+        className="meal-description"
+        data-tip="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
+      >
         Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
       </p>
     </div>
@@ -101,11 +118,21 @@ exports[`MealCard renders correctly when type is customer 1`] = `
     >
       <button
         className="btn btn-sec meal-card-btn"
+        disabled={null}
         onClick={null}
       >
-        Click to Order
+        Add To Basket
       </button>
     </div>
   </div>
+  <ReactTooltip
+    className="tooltip"
+    effect="solid"
+    insecure={true}
+    place="top"
+    resizeHide={true}
+    type="dark"
+    wrapper="div"
+  />
 </div>
 `;

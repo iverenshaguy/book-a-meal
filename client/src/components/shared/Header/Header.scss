@@ -7,12 +7,14 @@
   left: 1%;
   width: 99%;
   z-index: 13;
+  max-height: 70px;
   &.homepage {
     position: relative;
   }
   .navbar {
     height: 100%;
     padding: 0 20px;
+    box-sizing: border-box;
     color: $white;
     display: flex;
     flex-direction: row;
@@ -48,6 +50,7 @@
       height: 100%;
       flex-grow: 1;
       justify-content: space-around;
+
       .link {
         color: $white;
       }
@@ -75,8 +78,30 @@
   #dropdown-toggler {
     cursor: pointer;
   }
+  .user-dropdown {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+    span {
+      margin-left: 5px;
+      font-size: 1.7em;
+      color: $primary-color;
+      -webkit-text-fill-color: $primary-color;
+    }
+  }
   &.unauth {
     position: relative;
+  }
+
+  .navlinks {
+    > *:not(.mobile-only) {
+      display: block;
+    }
+  
+    > .mobile-only {
+      display: none !important;
+    }
   }
 }
 
@@ -128,7 +153,17 @@
       display: none;
     }
     .circle {
-      padding-right: 0px;
+      padding-right: 0;
+    }
+
+    .navlinks {
+      > *:not(.mobile-only) {
+        display: none !important;
+      }
+
+      > .mobile-only {
+        display: flex !important;
+      }
     }
   }
 }

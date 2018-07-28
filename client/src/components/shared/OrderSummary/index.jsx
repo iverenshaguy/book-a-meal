@@ -14,6 +14,7 @@ const OrderSummary = ({ meals }) => (
         <p>{meal.quantity}x</p>
         <p>{meal.title}</p>
         <p>&#8358;{meal.quantity * meal.price}</p>
+        {Object.keys(meal).includes('caterer') && <p style={{ marginLeft: '30px' }} className={meal.delivered ? 'success' : 'warning'}>{meal.delivered ? 'Delivered' : 'Pending'}</p>}
       </div>
   ))}
   </div>

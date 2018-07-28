@@ -4,7 +4,7 @@ import OrderPill from '../../shared/OrderPill';
 import View from '../../shared/View';
 import { userPropTypes, catererOrderObjPropTypes, customerOrderObjPropTypes } from '../../../helpers/proptypes';
 import './Orders.scss';
-import InfiniteLoading from '../../shared/InfiniteLoading';
+import InfiniteLoader from '../../shared/InfiniteLoader';
 
 /**
  * @exports
@@ -54,7 +54,7 @@ class Orders extends Component {
           {this.props.orders.length === 0 && <p className="text-center">You Have No Orders</p>}
           {this.props.orders.length !== 0 &&
           <div className="pills">
-            <InfiniteLoading items={orders} limit={8} />
+            <InfiniteLoader items={orders} limit={8} />
           </div>}
         </div>
       </div>

@@ -22,11 +22,13 @@ class View extends Component {
     logout: PropTypes.func.isRequired,
     type: PropTypes.string.isRequired,
     children: PropTypes.element.isRequired,
-    showTime: PropTypes.bool
+    showTime: PropTypes.bool,
+    updateCurrentDate: PropTypes.func
   };
 
   static defaultProps = {
-    showTime: true
+    showTime: true,
+    updateCurrentDate: null
   };
 
   customerOrderTypes = ['orderReview', 'orderConfirm', 'customerOrderDetails'];
@@ -56,7 +58,7 @@ class View extends Component {
    */
   render() {
     const {
-      user, logout, type, showTime,
+      user, logout, type, showTime, updateCurrentDate
     } = this.props;
 
     const mainClass = classNames({
@@ -73,6 +75,7 @@ class View extends Component {
           user={user}
           logout={logout}
           active={type}
+          updateCurrentDate={updateCurrentDate}
         />
         {user.role === 'caterer' &&
           <div className="content">

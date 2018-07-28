@@ -9,7 +9,6 @@ import { formHelpers, formErrorCount } from '../../../helpers';
 import { arrayToObject } from '../../../utils';
 import { syncValidate, validateRequiredFields } from '../../../helpers/validations';
 import { mealObjPropTypes } from '../../../helpers/proptypes';
-import { editMeal } from '../../../store/operations/meals';
 
 /**
  * @exports
@@ -20,6 +19,7 @@ import { editMeal } from '../../../store/operations/meals';
 class Form extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
+    uploading: PropTypes.bool,
     submitting: PropTypes.bool.isRequired,
     submitError: PropTypes.string,
     type: PropTypes.string.isRequired,
@@ -32,6 +32,7 @@ class Form extends Component {
 
   static defaultProps = {
     submitError: null,
+    uploading: null,
     meal: null
   }
 
@@ -52,6 +53,7 @@ class Form extends Component {
 
 
       if (fields.includes('vegetarian')) values.vegetarian = false;
+      if (type === 'addMeal') values.imageUrl = 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg';
       if (type === 'editMeal') values = meal;
       if (type === 'catererSignup') values.role = 'caterer';
       if (type === 'customerSignup') values.role = 'customer';
@@ -71,7 +73,13 @@ class Form extends Component {
   }
 
   state = {
-    type: ''
+    type: '',
+    values: [],
+    touched: [],
+    error: [],
+    pristine: true,
+    formValid: false,
+    asyncValidating: false
   }
 
   /**
@@ -189,20 +197,11 @@ class Form extends Component {
 
     switch (type) {
       case 'editMeal':
-        delete values.imageURL;
-        return formSubmitMapper[type](meal.id, values, true);
+        return formSubmitMapper[type](meal.id, values);
       default:
         return formSubmitMapper[type](values);
     }
   }
-
-  /**
-   * @memberof Form
-   * @param {string} id
-   * @param {object} mealObj
-   * @returns {void}
-   */
-  updateMealImage = (id, mealObj) => this.props.dispatch(editMeal(id, mealObj, false))
 
   /**
    * @memberof Form
@@ -220,7 +219,9 @@ class Form extends Component {
    * @returns {JSX} Form
    */
   renderForm = () => {
-    const { type, submitting, meal } = this.props;
+    const {
+      type, submitting, meal, uploading
+    } = this.props;
     const formState = { ...this.state };
 
     const handlers = {
@@ -236,11 +237,11 @@ class Form extends Component {
       case 'catererSignup':
         return <CatererSignupForm type={type} state={formState} handlers={handlers} />;
       case 'addMeal':
-        return <MealForm type={type} state={formState} handlers={handlers} />;
+        return <MealForm type={type} state={formState} uploading={uploading} handlers={handlers} />;
       case 'editMeal':
         return (<MealForm
-          editMeal={this.updateMealImage}
           updating={submitting}
+          uploading={uploading}
           meal={meal}
           type={type}
           state={formState}
@@ -257,7 +258,9 @@ class Form extends Component {
    */
   render() {
     const { formValid } = this.state;
-    const { submitting, submitError, meta: { btnText, extra } } = this.props;
+    const {
+      submitting, submitError, uploading, meta: { btnText, extra }
+    } = this.props;
     const requiredTextArray = ['catererSignup', 'customerSignup', 'addMeal', 'editMeal'];
 
     return (
@@ -273,7 +276,7 @@ class Form extends Component {
             <form onSubmit={this.handleSubmit}>
               {submitError && <p className="danger text-center mb-0">{submitError}</p>}
               {this.renderForm()}
-              <button className="btn btn-pri btn-block" disabled={!formValid || !!submitting}>
+              <button className="btn btn-pri btn-block" disabled={!formValid || !!submitting || !!uploading}>
                 {btnText}
               </button>
             </form>

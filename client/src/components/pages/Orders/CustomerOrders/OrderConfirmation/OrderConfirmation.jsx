@@ -75,7 +75,7 @@ class OrderConfirmation extends Component {
   */
   render() {
     const { user, logout, isFetching } = this.props;
-    const msg = 'Please note that orders CANNOT be modified or canceled after 15 minutes of order placement.';
+    const msg = 'Please note that orders CANNOT be modified or canceled after 1 minute of order placement.';
 
     if (this.state.order.meals.length === 0) return <Redirect to="/" />;
 

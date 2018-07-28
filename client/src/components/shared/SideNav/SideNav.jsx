@@ -64,7 +64,7 @@ class SideNav extends Component {
           <div className="sidenav-header">
             <CloseIcon divClass="d-none-md" clickHandler={this.handleToggleSideNavClick} />
             <div className="sidenav-title">
-              <h3><Link href="/" to="/">BOOK-A-MEAL</Link></h3>
+              <h3 className="d-flex-md"><Link href="/" to="/">BOOK-A-MEAL</Link></h3>
               <div className="username-circle"><p>{user.businessName.substring(0, 1)}</p></div>
               <p>{user.businessName}</p>
               <span><LinkBtn clickHandler={logout}>Logout</LinkBtn></span>

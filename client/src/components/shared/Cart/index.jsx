@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import ReactTooltip from 'react-tooltip';
 import LinkBtn from '../Link';
 import { orderItemPropTypes } from '../../../helpers/proptypes';
 import checkShopOpen from '../../../helpers/checkShopOpen';
@@ -60,9 +61,10 @@ class Cart extends Component {
             <p>
               <input type="number" className="order-input" value={item.quantity} min="1" onChange={e => handleQuantityInputChange(e, item.id)} />
             </p>
-            <p>{item.title}</p>
+            <p data-tip={item.title} data-for="cart-tooltip">{item.title}</p>
             <p>{item.price}</p>
-            <LinkBtn className="remove-order" clickHandler={() => removeOrderItem(item.id)}>&times;</LinkBtn>
+            <LinkBtn className="remove-order" dataTip="Remove Item?" data-for="cart-tooltip" clickHandler={() => removeOrderItem(item.id)}>&times;</LinkBtn>
+            <ReactTooltip place="top" type="dark" effect="solid" className="tooltip" id="cart-tooltip" />
           </div>
         ))}
         <div className="order-amount">
@@ -114,13 +116,13 @@ class Cart extends Component {
         <div className={`side-cart ${this.state.show ? 'show' : null}`} id="side-cart">
           <div className="cart">
             <div className="cart-header">
-              <h2>Your Cart</h2>
+              <h2>Your Basket</h2>
               <CloseIcon divClass="d-none-xl" btnID="side-cart-close-icon" clickHandler={this.toggleCart} />
             </div>
             <hr />
             {order.length === 0 &&
               <div className="empty-cart">
-                <p>Your Cart is Empty</p>
+                <p>Your Basket is Empty</p>
               </div>}
             {order.length !== 0 && this.renderOrderSummary()}
             <br />

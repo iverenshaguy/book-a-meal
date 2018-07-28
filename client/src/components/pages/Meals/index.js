@@ -9,6 +9,7 @@ import './Meals.scss';
 const mapStateToProps = state => ({
   isFetching: state.isFetching,
   meals: state.meals.items,
+  uploading: state.uploadImage.uploading,
   submitting: state.meals.working,
   submitError: state.meals.error
 });

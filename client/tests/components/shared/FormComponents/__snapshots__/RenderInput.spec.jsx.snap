@@ -69,6 +69,7 @@ exports[`Form Components: RenderInput renders correctly 1`] = `
   >
     <label
       htmlFor="email"
+      onClick={[Function]}
     >
       Email
       <span
@@ -117,6 +118,7 @@ exports[`Form Components: RenderInput shows error when found 1`] = `
   >
     <label
       htmlFor="email"
+      onClick={[Function]}
     >
       Email
       <span

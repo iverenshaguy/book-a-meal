@@ -41,7 +41,7 @@ export default {
       email: 'wecook@cook.com',
       password: 'wecookgoofood',
       passwordConfirm: 'wecookgoofood',
-      businessPhoneNo: '+2348134567890',
+      businessPhoneNo: '08134567890',
       businessAddress: '4, Church Street, Yaba',
     },
 
@@ -52,7 +52,7 @@ export default {
       password: 'favou',
       passwordConfirm: 'favourshaguy',
       businessName: 'Foodie',
-      businessPhoneNo: '+2348134567890',
+      businessPhoneNo: '08134567890',
       businessAddress: '4, Church Street, Yaba',
     },
 
@@ -63,7 +63,7 @@ export default {
       email: 'food@circle',
       password: 'foodc',
       passwordConfirm: 'foodcircle',
-      businessPhoneNo: '+234813456',
+      businessPhoneNo: '0813456',
     },
 
     wrongRoleUserData: {
@@ -109,7 +109,7 @@ export default {
       title: 'Oriental Fried Rice and Turkey',
       description: 'Contains Sea Food',
       price: 2200,
-      imageURL: 'images.com/imgurl1.jpeg',
+      imageUrl: 'images.com/imgurl1.jpeg',
       vegetarian: false
     },
 
@@ -117,7 +117,7 @@ export default {
       title: '',
       description: 'Contains %%% Sea Food',
       price: '',
-      imageURL: 'images.com/imgurl1.jpeg',
+      imageUrl: 'images.com/imgurl1.jpeg',
       vegetarian: 'no'
     },
   },
@@ -127,14 +127,14 @@ export default {
       title: 'Jollof Spaghetti, Plantain and Chicken',
       description: 'Contains Sea Food',
       price: 2400,
-      imageURL: 'images.com/imgurl4.jpeg',
+      imageUrl: 'images.com/imgurl4.jpeg',
     },
 
     badMeal: {
       title: '',
       description: 'Contains %%% Sea Food',
       price: '23yu50',
-      imageURL: 'images.com/imgurl1.jpeg',
+      imageUrl: 'images.com/imgurl1.jpeg',
       vegetarian: 'no'
     }
   },
@@ -184,7 +184,7 @@ export default {
         { mealId: 'baa0412a-d167-4d2b-b1d8-404cb8f02631', quantity: 1 }
       ],
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '+2348134567890',
+      deliveryPhoneNo: '08134567890',
     },
 
     inValidOrder: {
@@ -192,7 +192,7 @@ export default {
         { mealId: '8a65538d-f862-420e-bcdc-80743df06578', quantity: 1 }
       ],
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '+2348134567890',
+      deliveryPhoneNo: '08134567890',
     },
 
     newOrder: {
@@ -201,7 +201,7 @@ export default {
         { mealId: 'baa0412a-d167-4d2b-b1d8-404cb8f02631', quantity: 2 }
       ],
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '+2348134567890',
+      deliveryPhoneNo: '08134567890',
     },
 
     badOrder: {
@@ -213,7 +213,7 @@ export default {
     orderWithExpiredMenu: {
       mealId: 'a3c35e8f-da7a-4113-aa01-a9c0fc088539',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '+2348134567890'
+      deliveryPhoneNo: '08134567890'
     },
   },
 

@@ -23,7 +23,7 @@ class MenuForm extends Component {
     addMenu: PropTypes.func.isRequired,
     editMenu: PropTypes.func.isRequired,
     clearMenuError: PropTypes.func.isRequired,
-    submitting: PropTypes.bool.isRequired,
+    submitting: PropTypes.bool.isRequired
   }
 
   /**
@@ -31,9 +31,13 @@ class MenuForm extends Component {
    * @memberof MenuForm
    * @param {object} props
    * @returns {JSX} MenuForm
+   * check if submitError occurs and then map it to the error
    */
   static getDerivedStateFromProps(props) {
-    return { error: props.submitError };
+    const error = (props.submitError && props.submitError.date) ?
+      props.submitError.date.value : props.submitError;
+
+    return { error };
   }
 
   state = {
@@ -135,7 +139,7 @@ class MenuForm extends Component {
       <div className="meal-options-list">
         <div className="form-input">
           <label htmlFor="date">Date</label>
-          <input type="date" id="date" name="date" value={this.state.date} onChange={this.handleChangeDate} />
+          <input type="date" id="date" name="date" min={moment().format('YYYY-MM-DD')} value={this.state.date} onChange={this.handleChangeDate} />
         </div>
         {this.props.meals.map(meal => (
           <div className="form-input-checkbox" key={meal.id}>

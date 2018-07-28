@@ -7,11 +7,12 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
     logout={[MockFunction]}
     showTime={true}
     type="orders"
+    updateCurrentDate={null}
     user={
       Object {
         "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
         "businessName": "Food Circle",
-        "businessPhoneNo": "+2348166557788",
+        "businessPhoneNo": "08166557788",
         "email": "food@circle.com",
         "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
         "role": "caterer",
@@ -35,7 +36,7 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
         <div
           className="pills"
         >
-          <InfiniteLoading
+          <InfiniteLoader
             items={
               Array [
                 <OrderPill
@@ -48,14 +49,14 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
                         "lastname": "Olasanmi",
                       },
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "+2348134567890",
+                      "deliveryPhoneNo": "08134567890",
                       "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
                       "meals": Array [
                         Object {
                           "delivered": true,
                           "description": "Sharwama contains no animal products, perfect for dieters",
                           "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                           "price": "1200.00",
                           "quantity": 1,
                           "title": "Vegetable Sharwama and Guava Smoothie",
@@ -70,7 +71,7 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
                     Object {
                       "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                       "businessName": "Food Circle",
-                      "businessPhoneNo": "+2348166557788",
+                      "businessPhoneNo": "08166557788",
                       "email": "food@circle.com",
                       "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                       "role": "caterer",
@@ -87,14 +88,14 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
                         "lastname": "Emodi",
                       },
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "+2348134567890",
+                      "deliveryPhoneNo": "08134567890",
                       "id": "ce228787-f939-40a0-bfd3-6607ca8d2e53",
                       "meals": Array [
                         Object {
                           "delivered": true,
                           "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
                           "id": "baa0412a-d167-4d2b-b1d8-404cb8f02631",
-                          "imageURL": "https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg",
+                          "imageUrl": "https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg",
                           "price": "2000.00",
                           "quantity": 2,
                           "title": "Semo/Wheat and Egusi Soup",
@@ -104,7 +105,7 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
                           "delivered": true,
                           "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
                           "id": "a3c35e8f-da7a-4113-aa01-a9c0fc088539",
-                          "imageURL": "http://www.kalakutahgrills.com/wp-content/uploads/2017/02/my-pics-group-3-007.jpg",
+                          "imageUrl": "http://www.kalakutahgrills.com/wp-content/uploads/2017/02/my-pics-group-3-007.jpg",
                           "price": "2000.00",
                           "quantity": 2,
                           "title": "Eba and Ogbono Soup",
@@ -119,7 +120,7 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
                     Object {
                       "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                       "businessName": "Food Circle",
-                      "businessPhoneNo": "+2348166557788",
+                      "businessPhoneNo": "08166557788",
                       "email": "food@circle.com",
                       "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                       "role": "caterer",
@@ -136,14 +137,14 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
                         "lastname": "Olasanmi",
                       },
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "+2348134567890",
+                      "deliveryPhoneNo": "08134567890",
                       "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
                       "meals": Array [
                         Object {
                           "delivered": false,
                           "description": "Sharwama contains no animal products, perfect for dieters",
                           "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                           "price": "1200.00",
                           "quantity": 1,
                           "title": "Vegetable Sharwama and Guava Smoothie",
@@ -158,7 +159,7 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
                     Object {
                       "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                       "businessName": "Food Circle",
-                      "businessPhoneNo": "+2348166557788",
+                      "businessPhoneNo": "08166557788",
                       "email": "food@circle.com",
                       "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                       "role": "caterer",
@@ -175,14 +176,14 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
                         "lastname": "Olasanmi",
                       },
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "+2348134567890",
+                      "deliveryPhoneNo": "08134567890",
                       "id": "fb097bde-5959-45ff-8e21-51184fa60c35",
                       "meals": Array [
                         Object {
                           "delivered": false,
                           "description": "Sharwama contains no animal products, perfect for dieters",
                           "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                           "price": "1200.00",
                           "quantity": 1,
                           "title": "Vegetable Sharwama and Guava Smoothie",
@@ -197,7 +198,7 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
                     Object {
                       "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                       "businessName": "Food Circle",
-                      "businessPhoneNo": "+2348166557788",
+                      "businessPhoneNo": "08166557788",
                       "email": "food@circle.com",
                       "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                       "role": "caterer",
@@ -234,7 +235,7 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
       Object {
         "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
         "businessName": "Food Circle",
-        "businessPhoneNo": "+2348166557788",
+        "businessPhoneNo": "08166557788",
         "email": "food@circle.com",
         "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
         "role": "caterer",
@@ -251,7 +252,7 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
         Object {
           "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
           "businessName": "Food Circle",
-          "businessPhoneNo": "+2348166557788",
+          "businessPhoneNo": "08166557788",
           "email": "food@circle.com",
           "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
           "role": "caterer",
@@ -263,11 +264,12 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
         logout={[Function]}
         showTime={true}
         type="orders"
+        updateCurrentDate={null}
         user={
           Object {
             "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
             "businessName": "Food Circle",
-            "businessPhoneNo": "+2348166557788",
+            "businessPhoneNo": "08166557788",
             "email": "food@circle.com",
             "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
             "role": "caterer",
@@ -283,11 +285,12 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
             logout={[Function]}
             showTime={true}
             type="caterer"
+            updateCurrentDate={null}
             user={
               Object {
                 "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                 "businessName": "Food Circle",
-                "businessPhoneNo": "+2348166557788",
+                "businessPhoneNo": "08166557788",
                 "email": "food@circle.com",
                 "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                 "role": "caterer",
@@ -303,12 +306,14 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
                 <Connect(CatererHeader)
                   dateType="orders"
                   showTime={true}
+                  updateCurrentDate={null}
                 >
                   <CatererHeader
                     currentDay="1970-01-01"
                     dateType="orders"
                     showTime={true}
                     toggleSideNav={[Function]}
+                    updateCurrentDate={null}
                   >
                     <div
                       className="menu-control d-none-md"
@@ -316,10 +321,12 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
                       <Link
                         className="d-none-md"
                         clickHandler={[Function]}
+                        dataTip={null}
                         id={null}
                       >
                         <button
                           className="link-btn d-none-md"
+                          data-tip={null}
                           id={null}
                           onClick={[Function]}
                         >
@@ -331,6 +338,24 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
                       </Link>
                     </div>
                     <div
+                      className="page-title d-none-md"
+                    >
+                      <h3>
+                        <Link
+                          href="/"
+                          replace={false}
+                          to="/"
+                        >
+                          <a
+                            href="/"
+                            onClick={[Function]}
+                          >
+                            BOOK-A-MEAL
+                          </a>
+                        </Link>
+                      </h3>
+                    </div>
+                    <div
                       className="page-title d-flex-md"
                     >
                       <div
@@ -338,9 +363,25 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
                       >
                         <h2>
                           Thursday, 1st January 1970
-                              
-                          00:00
+                          <span>
+                               
+                            00:00
+                          </span>
                         </h2>
+                        <DatePicker
+                          handleSelectDate={null}
+                          screenSize="md"
+                        >
+                          <div
+                            className="datepicker-div d-flex-md"
+                          >
+                            <input
+                              id="datepicker"
+                              onChange={[Function]}
+                              type="date"
+                            />
+                          </div>
+                        </DatePicker>
                       </div>
                     </div>
                   </CatererHeader>
@@ -358,7 +399,7 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
                 Object {
                   "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                   "businessName": "Food Circle",
-                  "businessPhoneNo": "+2348166557788",
+                  "businessPhoneNo": "08166557788",
                   "email": "food@circle.com",
                   "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                   "role": "caterer",
@@ -375,7 +416,7 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
                   Object {
                     "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                     "businessName": "Food Circle",
-                    "businessPhoneNo": "+2348166557788",
+                    "businessPhoneNo": "08166557788",
                     "email": "food@circle.com",
                     "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                     "role": "caterer",
@@ -404,10 +445,12 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
                             aria-hidden="true"
                             className={null}
                             clickHandler={[Function]}
+                            dataTip={null}
                             id={null}
                           >
                             <button
                               className="link-btn null"
+                              data-tip={null}
                               id={null}
                               onClick={[Function]}
                             >
@@ -419,7 +462,9 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
                       <div
                         className="sidenav-title"
                       >
-                        <h3>
+                        <h3
+                          className="d-flex-md"
+                        >
                           <Link
                             href="/"
                             replace={false}
@@ -447,10 +492,12 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
                           <Link
                             className={null}
                             clickHandler={[Function]}
+                            dataTip={null}
                             id={null}
                           >
                             <button
                               className="link-btn null"
+                              data-tip={null}
                               id={null}
                               onClick={[Function]}
                             >
@@ -466,10 +513,12 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
                       <Link
                         className="menu-item false"
                         clickHandler={[Function]}
+                        dataTip={null}
                         id={null}
                       >
                         <button
                           className="link-btn menu-item false"
+                          data-tip={null}
                           id={null}
                           onClick={[Function]}
                         >
@@ -479,10 +528,12 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
                       <Link
                         className="menu-item false"
                         clickHandler={[Function]}
+                        dataTip={null}
                         id={null}
                       >
                         <button
                           className="link-btn menu-item false"
+                          data-tip={null}
                           id={null}
                           onClick={[Function]}
                         >
@@ -492,10 +543,12 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
                       <Link
                         className="menu-item false"
                         clickHandler={[Function]}
+                        dataTip={null}
                         id={null}
                       >
                         <button
                           className="link-btn menu-item false"
+                          data-tip={null}
                           id={null}
                           onClick={[Function]}
                         >
@@ -505,10 +558,12 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
                       <Link
                         className="menu-item active"
                         clickHandler={[Function]}
+                        dataTip={null}
                         id={null}
                       >
                         <button
                           className="link-btn menu-item active"
+                          data-tip={null}
                           id={null}
                           onClick={[Function]}
                         >
@@ -552,11 +607,12 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
             logout={[Function]}
             showTime={true}
             type="orders"
+            updateCurrentDate={null}
             user={
               Object {
                 "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                 "businessName": "Food Circle",
-                "businessPhoneNo": "+2348166557788",
+                "businessPhoneNo": "08166557788",
                 "email": "food@circle.com",
                 "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                 "role": "caterer",
@@ -570,11 +626,12 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
               showTime={true}
               toggleModal={[Function]}
               type={null}
+              updateCurrentDate={null}
               user={
                 Object {
                   "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                   "businessName": "Food Circle",
-                  "businessPhoneNo": "+2348166557788",
+                  "businessPhoneNo": "08166557788",
                   "email": "food@circle.com",
                   "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                   "role": "caterer",
@@ -587,7 +644,7 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
               className="footer"
             >
               <p>
-                © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
+                © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
               </p>
             </div>
           </Footer>
@@ -605,11 +662,12 @@ exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
     logout={[MockFunction]}
     showTime={true}
     type="orders"
+    updateCurrentDate={null}
     user={
       Object {
         "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
         "businessName": "Food Circle",
-        "businessPhoneNo": "+2348166557788",
+        "businessPhoneNo": "08166557788",
         "email": "food@circle.com",
         "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
         "role": "caterer",
@@ -633,7 +691,7 @@ exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
         <div
           className="pills"
         >
-          <InfiniteLoading
+          <InfiniteLoader
             items={
               Array [
                 <OrderPill
@@ -646,14 +704,14 @@ exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
                         "lastname": "Olasanmi",
                       },
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "+2348134567890",
+                      "deliveryPhoneNo": "08134567890",
                       "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
                       "meals": Array [
                         Object {
                           "delivered": true,
                           "description": "Sharwama contains no animal products, perfect for dieters",
                           "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                           "price": "1200.00",
                           "quantity": 1,
                           "title": "Vegetable Sharwama and Guava Smoothie",
@@ -668,7 +726,7 @@ exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
                     Object {
                       "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                       "businessName": "Food Circle",
-                      "businessPhoneNo": "+2348166557788",
+                      "businessPhoneNo": "08166557788",
                       "email": "food@circle.com",
                       "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                       "role": "caterer",
@@ -685,14 +743,14 @@ exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
                         "lastname": "Emodi",
                       },
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "+2348134567890",
+                      "deliveryPhoneNo": "08134567890",
                       "id": "ce228787-f939-40a0-bfd3-6607ca8d2e53",
                       "meals": Array [
                         Object {
                           "delivered": true,
                           "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
                           "id": "baa0412a-d167-4d2b-b1d8-404cb8f02631",
-                          "imageURL": "https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg",
+                          "imageUrl": "https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg",
                           "price": "2000.00",
                           "quantity": 2,
                           "title": "Semo/Wheat and Egusi Soup",
@@ -702,7 +760,7 @@ exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
                           "delivered": true,
                           "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
                           "id": "a3c35e8f-da7a-4113-aa01-a9c0fc088539",
-                          "imageURL": "http://www.kalakutahgrills.com/wp-content/uploads/2017/02/my-pics-group-3-007.jpg",
+                          "imageUrl": "http://www.kalakutahgrills.com/wp-content/uploads/2017/02/my-pics-group-3-007.jpg",
                           "price": "2000.00",
                           "quantity": 2,
                           "title": "Eba and Ogbono Soup",
@@ -717,7 +775,7 @@ exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
                     Object {
                       "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                       "businessName": "Food Circle",
-                      "businessPhoneNo": "+2348166557788",
+                      "businessPhoneNo": "08166557788",
                       "email": "food@circle.com",
                       "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                       "role": "caterer",
@@ -734,14 +792,14 @@ exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
                         "lastname": "Olasanmi",
                       },
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "+2348134567890",
+                      "deliveryPhoneNo": "08134567890",
                       "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
                       "meals": Array [
                         Object {
                           "delivered": false,
                           "description": "Sharwama contains no animal products, perfect for dieters",
                           "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                           "price": "1200.00",
                           "quantity": 1,
                           "title": "Vegetable Sharwama and Guava Smoothie",
@@ -756,7 +814,7 @@ exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
                     Object {
                       "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                       "businessName": "Food Circle",
-                      "businessPhoneNo": "+2348166557788",
+                      "businessPhoneNo": "08166557788",
                       "email": "food@circle.com",
                       "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                       "role": "caterer",
@@ -773,14 +831,14 @@ exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
                         "lastname": "Olasanmi",
                       },
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "+2348134567890",
+                      "deliveryPhoneNo": "08134567890",
                       "id": "fb097bde-5959-45ff-8e21-51184fa60c35",
                       "meals": Array [
                         Object {
                           "delivered": false,
                           "description": "Sharwama contains no animal products, perfect for dieters",
                           "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                           "price": "1200.00",
                           "quantity": 1,
                           "title": "Vegetable Sharwama and Guava Smoothie",
@@ -795,7 +853,7 @@ exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
                     Object {
                       "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
                       "businessName": "Food Circle",
-                      "businessPhoneNo": "+2348166557788",
+                      "businessPhoneNo": "08166557788",
                       "email": "food@circle.com",
                       "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
                       "role": "caterer",
@@ -820,11 +878,12 @@ exports[`Orders Caterer Orders renders message when not fetching and there are n
     logout={[MockFunction]}
     showTime={true}
     type="orders"
+    updateCurrentDate={null}
     user={
       Object {
         "businessAddress": "$, Herbert Macaulay Way, Yaba, Lagos",
         "businessName": "Food Circle",
-        "businessPhoneNo": "+2348166557788",
+        "businessPhoneNo": "08166557788",
         "email": "food@circle.com",
         "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
         "role": "caterer",
@@ -863,6 +922,7 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
     logout={[MockFunction]}
     showTime={true}
     type="orders"
+    updateCurrentDate={null}
     user={
       Object {
         "email": "emiola@olasanmi.com",
@@ -890,7 +950,7 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
         <div
           className="pills"
         >
-          <InfiniteLoading
+          <InfiniteLoader
             items={
               Array [
                 <OrderPill
@@ -898,20 +958,20 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
                     Object {
                       "createdAt": "2018-04-06T00:47:03.687Z",
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "+2348134567890",
+                      "deliveryPhoneNo": "08134567890",
                       "id": "fb097bde-5959-45ff-8e21-51184fa70c25",
                       "meals": Array [
                         Object {
                           "caterer": Object {
                             "businessAddress": "4, Church Street, Yaba",
                             "businessName": "BellyFill",
-                            "businessPhoneNo": "+2348134567890",
+                            "businessPhoneNo": "08134567890",
                             "email": "belly@fill.com",
                           },
                           "delivered": false,
                           "description": "",
                           "id": "46ced7aa-eed5-4462-b2c0-153f31589bdd",
-                          "imageURL": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
+                          "imageUrl": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
                           "price": "2000.00",
                           "quantity": 2,
                           "title": "Adalu (Beans and Corn) and Local Fish ",
@@ -937,20 +997,20 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
                     Object {
                       "createdAt": "2018-04-06T00:47:03.687Z",
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "+2348134567890",
+                      "deliveryPhoneNo": "08134567890",
                       "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
                       "meals": Array [
                         Object {
                           "caterer": Object {
                             "businessAddress": "4, Church Street, Yaba",
                             "businessName": "FoodCircle",
-                            "businessPhoneNo": "+2348134567890",
+                            "businessPhoneNo": "08134567890",
                             "email": "food@circle.com",
                           },
                           "delivered": true,
                           "description": "Sharwama contains no animal products, perfect for dieters",
                           "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                           "price": "1200.00",
                           "quantity": 1,
                           "title": "Vegetable Sharwama and Guava Smoothie",
@@ -960,13 +1020,13 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
                           "caterer": Object {
                             "businessAddress": "4, Church Street, Yaba",
                             "businessName": "FoodCircle",
-                            "businessPhoneNo": "+2348134567890",
+                            "businessPhoneNo": "08134567890",
                             "email": "food@circle.com",
                           },
                           "delivered": true,
                           "description": "Sharwama contains no animal products, perfect for dieters",
                           "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce4",
-                          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                           "price": "1200.00",
                           "quantity": 1,
                           "title": "Vegetable Sharwama and Guava Smoothie",
@@ -992,20 +1052,20 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
                     Object {
                       "createdAt": "2018-04-06T00:47:03.687Z",
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "+2348134567890",
+                      "deliveryPhoneNo": "08134567890",
                       "id": "fb097bde-5959-45ff-8e21-51184fa80c25",
                       "meals": Array [
                         Object {
                           "caterer": Object {
                             "businessAddress": "4, Church Street, Yaba",
                             "businessName": "FoodCircle",
-                            "businessPhoneNo": "+2348134567890",
+                            "businessPhoneNo": "08134567890",
                             "email": "food@circle.com",
                           },
                           "delivered": true,
                           "description": "Sharwama contains no animal products, perfect for dieters",
                           "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                           "price": "1200.00",
                           "quantity": 1,
                           "title": "Vegetable Sharwama and Guava Smoothie",
@@ -1031,20 +1091,20 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
                     Object {
                       "createdAt": "2018-04-06T00:47:03.687Z",
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "+2348134567890",
+                      "deliveryPhoneNo": "08134567890",
                       "id": "fb097bde-5959-45ff-8e21-51184fa90c25",
                       "meals": Array [
                         Object {
                           "caterer": Object {
                             "businessAddress": "4, Church Street, Yaba",
                             "businessName": "FoodCircle",
-                            "businessPhoneNo": "+2348134567890",
+                            "businessPhoneNo": "08134567890",
                             "email": "food@circle.com",
                           },
                           "delivered": false,
                           "description": "Sharwama contains no animal products, perfect for dieters",
                           "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                           "price": "1200.00",
                           "quantity": 1,
                           "title": "Vegetable Sharwama and Guava Smoothie",
@@ -1122,6 +1182,7 @@ exports[`Orders Customer Orders renders connected component 1`] = `
         logout={[Function]}
         showTime={true}
         type="orders"
+        updateCurrentDate={null}
         user={
           Object {
             "email": "emiola@olasanmi.com",
@@ -1141,6 +1202,7 @@ exports[`Orders Customer Orders renders connected component 1`] = `
             logout={[Function]}
             showTime={true}
             type="customer"
+            updateCurrentDate={null}
             user={
               Object {
                 "email": "emiola@olasanmi.com",
@@ -1163,6 +1225,7 @@ exports[`Orders Customer Orders renders connected component 1`] = `
                   logout={[Function]}
                   showTime={true}
                   type="customer"
+                  updateCurrentDate={null}
                   user={
                     Object {
                       "email": "emiola@olasanmi.com",
@@ -1194,8 +1257,53 @@ exports[`Orders Customer Orders renders connected component 1`] = `
                   <div
                     className="navlinks"
                   >
+                    <h3>
+                      Welcome, 
+                      Emiola
+                    </h3>
+                    <Link
+                      className="false"
+                      href="/"
+                      replace={false}
+                      to="/"
+                    >
+                      <a
+                        className="false"
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        Menu
+                      </a>
+                    </Link>
+                    <Link
+                      className="active"
+                      href="/orders"
+                      replace={false}
+                      to="/orders"
+                    >
+                      <a
+                        className="active"
+                        href="/orders"
+                        onClick={[Function]}
+                      >
+                        Orders
+                      </a>
+                    </Link>
+                    <Link
+                      href="/"
+                      onClick={[Function]}
+                      replace={false}
+                      to="/"
+                    >
+                      <a
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        Logout
+                      </a>
+                    </Link>
                     <div
-                      className="user-info"
+                      className="user-info mobile-only"
                     >
                       <Dropdown
                         content={
@@ -1209,11 +1317,12 @@ exports[`Orders Customer Orders renders connected component 1`] = `
                               Menu
                             </Link>
                             <Link
+                              className="active"
                               href="/orders"
                               replace={false}
                               to="/orders"
                             >
-                              Order History
+                              Orders
                             </Link>
                             <Link
                               href="/"
@@ -1227,14 +1336,20 @@ exports[`Orders Customer Orders renders connected component 1`] = `
                         }
                         toggler={
                           <div
-                            className="username-circle circle-click"
+                            className="user-dropdown"
                           >
-                            <p
-                              className="circle-click"
+                            <div
+                              className="username-circle circle-click"
                             >
-                              E
-                              ▿
-                            </p>
+                              <p
+                                className="circle-click"
+                              >
+                                E
+                              </p>
+                            </div>
+                            <span>
+                              ▾
+                            </span>
                           </div>
                         }
                         type="customer"
@@ -1246,23 +1361,31 @@ exports[`Orders Customer Orders renders connected component 1`] = `
                         >
                           <Link
                             className="link"
-                            clickHandler={[Function]}
+                            clickHandler={null}
+                            dataTip={null}
                             id="dropdown-toggler"
                           >
                             <button
                               className="link-btn link"
+                              data-tip={null}
                               id="dropdown-toggler"
-                              onClick={[Function]}
+                              onClick={null}
                             >
                               <div
-                                className="username-circle circle-click"
+                                className="user-dropdown"
                               >
-                                <p
-                                  className="circle-click"
+                                <div
+                                  className="username-circle circle-click"
                                 >
-                                  E
-                                  ▿
-                                </p>
+                                  <p
+                                    className="circle-click"
+                                  >
+                                    E
+                                  </p>
+                                </div>
+                                <span>
+                                  ▾
+                                </span>
                               </div>
                             </button>
                           </Link>
@@ -1285,15 +1408,17 @@ exports[`Orders Customer Orders renders connected component 1`] = `
                               </a>
                             </Link>
                             <Link
+                              className="active"
                               href="/orders"
                               replace={false}
                               to="/orders"
                             >
                               <a
+                                className="active"
                                 href="/orders"
                                 onClick={[Function]}
                               >
-                                Order History
+                                Orders
                               </a>
                             </Link>
                             <Link
@@ -1353,6 +1478,7 @@ exports[`Orders Customer Orders renders connected component 1`] = `
             logout={[Function]}
             showTime={true}
             type="orders"
+            updateCurrentDate={null}
             user={
               Object {
                 "email": "emiola@olasanmi.com",
@@ -1370,6 +1496,7 @@ exports[`Orders Customer Orders renders connected component 1`] = `
               showTime={true}
               toggleModal={[Function]}
               type={null}
+              updateCurrentDate={null}
               user={
                 Object {
                   "email": "emiola@olasanmi.com",
@@ -1386,7 +1513,7 @@ exports[`Orders Customer Orders renders connected component 1`] = `
               className="footer"
             >
               <p>
-                © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
+                © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
               </p>
             </div>
           </Footer>
@@ -1404,6 +1531,7 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
     logout={[MockFunction]}
     showTime={true}
     type="orders"
+    updateCurrentDate={null}
     user={
       Object {
         "email": "emiola@olasanmi.com",
@@ -1431,7 +1559,7 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
         <div
           className="pills"
         >
-          <InfiniteLoading
+          <InfiniteLoader
             items={
               Array [
                 <OrderPill
@@ -1439,20 +1567,20 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
                     Object {
                       "createdAt": "2018-04-06T00:47:03.687Z",
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "+2348134567890",
+                      "deliveryPhoneNo": "08134567890",
                       "id": "fb097bde-5959-45ff-8e21-51184fa70c25",
                       "meals": Array [
                         Object {
                           "caterer": Object {
                             "businessAddress": "4, Church Street, Yaba",
                             "businessName": "BellyFill",
-                            "businessPhoneNo": "+2348134567890",
+                            "businessPhoneNo": "08134567890",
                             "email": "belly@fill.com",
                           },
                           "delivered": false,
                           "description": "",
                           "id": "46ced7aa-eed5-4462-b2c0-153f31589bdd",
-                          "imageURL": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
+                          "imageUrl": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
                           "price": "2000.00",
                           "quantity": 2,
                           "title": "Adalu (Beans and Corn) and Local Fish ",
@@ -1478,20 +1606,20 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
                     Object {
                       "createdAt": "2018-04-06T00:47:03.687Z",
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "+2348134567890",
+                      "deliveryPhoneNo": "08134567890",
                       "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
                       "meals": Array [
                         Object {
                           "caterer": Object {
                             "businessAddress": "4, Church Street, Yaba",
                             "businessName": "FoodCircle",
-                            "businessPhoneNo": "+2348134567890",
+                            "businessPhoneNo": "08134567890",
                             "email": "food@circle.com",
                           },
                           "delivered": true,
                           "description": "Sharwama contains no animal products, perfect for dieters",
                           "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                           "price": "1200.00",
                           "quantity": 1,
                           "title": "Vegetable Sharwama and Guava Smoothie",
@@ -1501,13 +1629,13 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
                           "caterer": Object {
                             "businessAddress": "4, Church Street, Yaba",
                             "businessName": "FoodCircle",
-                            "businessPhoneNo": "+2348134567890",
+                            "businessPhoneNo": "08134567890",
                             "email": "food@circle.com",
                           },
                           "delivered": true,
                           "description": "Sharwama contains no animal products, perfect for dieters",
                           "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce4",
-                          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                           "price": "1200.00",
                           "quantity": 1,
                           "title": "Vegetable Sharwama and Guava Smoothie",
@@ -1533,20 +1661,20 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
                     Object {
                       "createdAt": "2018-04-06T00:47:03.687Z",
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "+2348134567890",
+                      "deliveryPhoneNo": "08134567890",
                       "id": "fb097bde-5959-45ff-8e21-51184fa80c25",
                       "meals": Array [
                         Object {
                           "caterer": Object {
                             "businessAddress": "4, Church Street, Yaba",
                             "businessName": "FoodCircle",
-                            "businessPhoneNo": "+2348134567890",
+                            "businessPhoneNo": "08134567890",
                             "email": "food@circle.com",
                           },
                           "delivered": true,
                           "description": "Sharwama contains no animal products, perfect for dieters",
                           "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                           "price": "1200.00",
                           "quantity": 1,
                           "title": "Vegetable Sharwama and Guava Smoothie",
@@ -1572,20 +1700,20 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
                     Object {
                       "createdAt": "2018-04-06T00:47:03.687Z",
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "+2348134567890",
+                      "deliveryPhoneNo": "08134567890",
                       "id": "fb097bde-5959-45ff-8e21-51184fa90c25",
                       "meals": Array [
                         Object {
                           "caterer": Object {
                             "businessAddress": "4, Church Street, Yaba",
                             "businessName": "FoodCircle",
-                            "businessPhoneNo": "+2348134567890",
+                            "businessPhoneNo": "08134567890",
                             "email": "food@circle.com",
                           },
                           "delivered": false,
                           "description": "Sharwama contains no animal products, perfect for dieters",
                           "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                          "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                           "price": "1200.00",
                           "quantity": 1,
                           "title": "Vegetable Sharwama and Guava Smoothie",
@@ -1624,6 +1752,7 @@ exports[`Orders Customer Orders renders message when not fetching and there are 
     logout={[MockFunction]}
     showTime={true}
     type="orders"
+    updateCurrentDate={null}
     user={
       Object {
         "email": "emiola@olasanmi.com",

@@ -6,6 +6,7 @@ exports[`OrderDetails renders Preloader when fetching 1`] = `
   logout={[MockFunction]}
   showTime={true}
   type="customerOrderDetails"
+  updateCurrentDate={null}
   user={
     Object {
       "email": "emiola@olasanmi.com",
@@ -17,17 +18,20 @@ exports[`OrderDetails renders Preloader when fetching 1`] = `
   }
 >
   <React.Fragment>
+    <Link
+      className="orders-back-link"
+      href="/orders"
+      replace={false}
+      to="/orders"
+    >
+      ← Back To Orders
+    </Link>
     <React.Fragment>
       <div
         className="order-confirmation order-details"
       >
         <h2
           className="text-center"
-          style={
-            Object {
-              "paddingTop": "1em",
-            }
-          }
         >
           Order #
           fb097bde-5959-45ff-8e21-51184fa70c25
@@ -46,13 +50,13 @@ exports[`OrderDetails renders Preloader when fetching 1`] = `
                   "caterer": Object {
                     "businessAddress": "4, Church Street, Yaba",
                     "businessName": "BellyFill",
-                    "businessPhoneNo": "+2348134567890",
+                    "businessPhoneNo": "08134567890",
                     "email": "belly@fill.com",
                   },
                   "delivered": false,
                   "description": "",
                   "id": "46ced7aa-eed5-4462-b2c0-153f31589bdd",
-                  "imageURL": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
+                  "imageUrl": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
                   "price": "2000.00",
                   "quantity": 2,
                   "title": "Adalu (Beans and Corn) and Local Fish ",
@@ -68,13 +72,13 @@ exports[`OrderDetails renders Preloader when fetching 1`] = `
                   "caterer": Object {
                     "businessAddress": "4, Church Street, Yaba",
                     "businessName": "BellyFill",
-                    "businessPhoneNo": "+2348134567890",
+                    "businessPhoneNo": "08134567890",
                     "email": "belly@fill.com",
                   },
                   "delivered": false,
                   "description": "",
                   "id": "46ced7aa-eed5-4462-b2c0-153f31589bdd",
-                  "imageURL": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
+                  "imageUrl": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
                   "price": "2000.00",
                   "quantity": 2,
                   "title": "Adalu (Beans and Corn) and Local Fish ",
@@ -88,9 +92,9 @@ exports[`OrderDetails renders Preloader when fetching 1`] = `
             className="customer-details"
           >
             <p>
-              Status:
+              Order Status:
               <span
-                className="danger"
+                className="order-status danger"
                 style={
                   Object {
                     "textTransform": "capitalize",
@@ -107,7 +111,7 @@ exports[`OrderDetails renders Preloader when fetching 1`] = `
             </p>
             <p>
               Number Provided: 
-              +2348134567890
+              08134567890
             </p>
           </div>
         </React.Fragment>
@@ -166,20 +170,20 @@ exports[`OrderDetails renders connected component 1`] = `
         Object {
           "createdAt": "2018-04-06T00:47:03.687Z",
           "deliveryAddress": "4, Church Street, Yaba",
-          "deliveryPhoneNo": "+2348134567890",
+          "deliveryPhoneNo": "08134567890",
           "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
           "meals": Array [
             Object {
               "caterer": Object {
                 "businessAddress": "4, Church Street, Yaba",
                 "businessName": "FoodCircle",
-                "businessPhoneNo": "+2348134567890",
+                "businessPhoneNo": "08134567890",
                 "email": "food@circle.com",
               },
               "delivered": true,
               "description": "Sharwama contains no animal products, perfect for dieters",
               "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-              "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
               "price": "1200.00",
               "quantity": 1,
               "title": "Vegetable Sharwama and Guava Smoothie",
@@ -189,13 +193,13 @@ exports[`OrderDetails renders connected component 1`] = `
               "caterer": Object {
                 "businessAddress": "4, Church Street, Yaba",
                 "businessName": "FoodCircle",
-                "businessPhoneNo": "+2348134567890",
+                "businessPhoneNo": "08134567890",
                 "email": "food@circle.com",
               },
               "delivered": true,
               "description": "Sharwama contains no animal products, perfect for dieters",
               "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce4",
-              "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
               "price": "1200.00",
               "quantity": 1,
               "title": "Vegetable Sharwama and Guava Smoothie",
@@ -222,6 +226,7 @@ exports[`OrderDetails renders connected component 1`] = `
         logout={[Function]}
         showTime={true}
         type="customerOrderDetails"
+        updateCurrentDate={null}
         user={
           Object {
             "email": "emiola@olasanmi.com",
@@ -241,6 +246,7 @@ exports[`OrderDetails renders connected component 1`] = `
             logout={[Function]}
             showTime={true}
             type="customer"
+            updateCurrentDate={null}
             user={
               Object {
                 "email": "emiola@olasanmi.com",
@@ -263,6 +269,7 @@ exports[`OrderDetails renders connected component 1`] = `
                   logout={[Function]}
                   showTime={true}
                   type="customer"
+                  updateCurrentDate={null}
                   user={
                     Object {
                       "email": "emiola@olasanmi.com",
@@ -294,8 +301,53 @@ exports[`OrderDetails renders connected component 1`] = `
                   <div
                     className="navlinks"
                   >
+                    <h3>
+                      Welcome, 
+                      Emiola
+                    </h3>
+                    <Link
+                      className="false"
+                      href="/"
+                      replace={false}
+                      to="/"
+                    >
+                      <a
+                        className="false"
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        Menu
+                      </a>
+                    </Link>
+                    <Link
+                      className="active"
+                      href="/orders"
+                      replace={false}
+                      to="/orders"
+                    >
+                      <a
+                        className="active"
+                        href="/orders"
+                        onClick={[Function]}
+                      >
+                        Orders
+                      </a>
+                    </Link>
+                    <Link
+                      href="/"
+                      onClick={[Function]}
+                      replace={false}
+                      to="/"
+                    >
+                      <a
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        Logout
+                      </a>
+                    </Link>
                     <div
-                      className="user-info"
+                      className="user-info mobile-only"
                     >
                       <Dropdown
                         content={
@@ -309,11 +361,12 @@ exports[`OrderDetails renders connected component 1`] = `
                               Menu
                             </Link>
                             <Link
+                              className="active"
                               href="/orders"
                               replace={false}
                               to="/orders"
                             >
-                              Order History
+                              Orders
                             </Link>
                             <Link
                               href="/"
@@ -327,14 +380,20 @@ exports[`OrderDetails renders connected component 1`] = `
                         }
                         toggler={
                           <div
-                            className="username-circle circle-click"
+                            className="user-dropdown"
                           >
-                            <p
-                              className="circle-click"
+                            <div
+                              className="username-circle circle-click"
                             >
-                              E
-                              ▿
-                            </p>
+                              <p
+                                className="circle-click"
+                              >
+                                E
+                              </p>
+                            </div>
+                            <span>
+                              ▾
+                            </span>
                           </div>
                         }
                         type="customer"
@@ -346,23 +405,31 @@ exports[`OrderDetails renders connected component 1`] = `
                         >
                           <Link
                             className="link"
-                            clickHandler={[Function]}
+                            clickHandler={null}
+                            dataTip={null}
                             id="dropdown-toggler"
                           >
                             <button
                               className="link-btn link"
+                              data-tip={null}
                               id="dropdown-toggler"
-                              onClick={[Function]}
+                              onClick={null}
                             >
                               <div
-                                className="username-circle circle-click"
+                                className="user-dropdown"
                               >
-                                <p
-                                  className="circle-click"
+                                <div
+                                  className="username-circle circle-click"
                                 >
-                                  E
-                                  ▿
-                                </p>
+                                  <p
+                                    className="circle-click"
+                                  >
+                                    E
+                                  </p>
+                                </div>
+                                <span>
+                                  ▾
+                                </span>
                               </div>
                             </button>
                           </Link>
@@ -385,15 +452,17 @@ exports[`OrderDetails renders connected component 1`] = `
                               </a>
                             </Link>
                             <Link
+                              className="active"
                               href="/orders"
                               replace={false}
                               to="/orders"
                             >
                               <a
+                                className="active"
                                 href="/orders"
                                 onClick={[Function]}
                               >
-                                Order History
+                                Orders
                               </a>
                             </Link>
                             <Link
@@ -426,16 +495,25 @@ exports[`OrderDetails renders connected component 1`] = `
             className="main-wrapper"
             id="has-modal"
           >
+            <Link
+              className="orders-back-link"
+              href="/orders"
+              replace={false}
+              to="/orders"
+            >
+              <a
+                className="orders-back-link"
+                href="/orders"
+                onClick={[Function]}
+              >
+                ← Back To Orders
+              </a>
+            </Link>
             <div
               className="order-confirmation order-details"
             >
               <h2
                 className="text-center"
-                style={
-                  Object {
-                    "paddingTop": "1em",
-                  }
-                }
               >
                 Order #
                 fb097bde-5959-45ff-8e21-51184fa60c25
@@ -453,13 +531,13 @@ exports[`OrderDetails renders connected component 1`] = `
                       "caterer": Object {
                         "businessAddress": "4, Church Street, Yaba",
                         "businessName": "FoodCircle",
-                        "businessPhoneNo": "+2348134567890",
+                        "businessPhoneNo": "08134567890",
                         "email": "food@circle.com",
                       },
                       "delivered": true,
                       "description": "Sharwama contains no animal products, perfect for dieters",
                       "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                      "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                      "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                       "price": "1200.00",
                       "quantity": 1,
                       "title": "Vegetable Sharwama and Guava Smoothie",
@@ -469,13 +547,13 @@ exports[`OrderDetails renders connected component 1`] = `
                       "caterer": Object {
                         "businessAddress": "4, Church Street, Yaba",
                         "businessName": "FoodCircle",
-                        "businessPhoneNo": "+2348134567890",
+                        "businessPhoneNo": "08134567890",
                         "email": "food@circle.com",
                       },
                       "delivered": true,
                       "description": "Sharwama contains no animal products, perfect for dieters",
                       "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce4",
-                      "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                      "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                       "price": "1200.00",
                       "quantity": 1,
                       "title": "Vegetable Sharwama and Guava Smoothie",
@@ -501,6 +579,16 @@ exports[`OrderDetails renders connected component 1`] = `
                       ₦
                       1200
                     </p>
+                    <p
+                      className="success"
+                      style={
+                        Object {
+                          "marginLeft": "30px",
+                        }
+                      }
+                    >
+                      Delivered
+                    </p>
                   </div>
                   <div
                     key="36d525d1-efc9-4b75-9999-3e3d8dc64ce4"
@@ -516,6 +604,16 @@ exports[`OrderDetails renders connected component 1`] = `
                       ₦
                       1200
                     </p>
+                    <p
+                      className="success"
+                      style={
+                        Object {
+                          "marginLeft": "30px",
+                        }
+                      }
+                    >
+                      Delivered
+                    </p>
                   </div>
                 </div>
               </OrderSummary>
@@ -526,13 +624,13 @@ exports[`OrderDetails renders connected component 1`] = `
                       "caterer": Object {
                         "businessAddress": "4, Church Street, Yaba",
                         "businessName": "FoodCircle",
-                        "businessPhoneNo": "+2348134567890",
+                        "businessPhoneNo": "08134567890",
                         "email": "food@circle.com",
                       },
                       "delivered": true,
                       "description": "Sharwama contains no animal products, perfect for dieters",
                       "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                      "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                      "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                       "price": "1200.00",
                       "quantity": 1,
                       "title": "Vegetable Sharwama and Guava Smoothie",
@@ -542,13 +640,13 @@ exports[`OrderDetails renders connected component 1`] = `
                       "caterer": Object {
                         "businessAddress": "4, Church Street, Yaba",
                         "businessName": "FoodCircle",
-                        "businessPhoneNo": "+2348134567890",
+                        "businessPhoneNo": "08134567890",
                         "email": "food@circle.com",
                       },
                       "delivered": true,
                       "description": "Sharwama contains no animal products, perfect for dieters",
                       "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce4",
-                      "imageURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                      "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
                       "price": "1200.00",
                       "quantity": 1,
                       "title": "Vegetable Sharwama and Guava Smoothie",
@@ -576,9 +674,9 @@ exports[`OrderDetails renders connected component 1`] = `
                 className="customer-details"
               >
                 <p>
-                  Status:
+                  Order Status:
                   <span
-                    className="success"
+                    className="order-status success"
                     style={
                       Object {
                         "textTransform": "capitalize",
@@ -595,7 +693,7 @@ exports[`OrderDetails renders connected component 1`] = `
                 </p>
                 <p>
                   Number Provided: 
-                  +2348134567890
+                  08134567890
                 </p>
               </div>
             </div>
@@ -605,6 +703,7 @@ exports[`OrderDetails renders connected component 1`] = `
             logout={[Function]}
             showTime={true}
             type="customerOrderDetails"
+            updateCurrentDate={null}
             user={
               Object {
                 "email": "emiola@olasanmi.com",
@@ -622,6 +721,7 @@ exports[`OrderDetails renders connected component 1`] = `
               showTime={true}
               toggleModal={[Function]}
               type={null}
+              updateCurrentDate={null}
               user={
                 Object {
                   "email": "emiola@olasanmi.com",
@@ -638,7 +738,7 @@ exports[`OrderDetails renders connected component 1`] = `
               className="footer"
             >
               <p>
-                © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
+                © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
               </p>
             </div>
           </Footer>
@@ -655,6 +755,7 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
   logout={[MockFunction]}
   showTime={true}
   type="customerOrderDetails"
+  updateCurrentDate={null}
   user={
     Object {
       "email": "emiola@olasanmi.com",
@@ -666,17 +767,20 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
   }
 >
   <React.Fragment>
+    <Link
+      className="orders-back-link"
+      href="/orders"
+      replace={false}
+      to="/orders"
+    >
+      ← Back To Orders
+    </Link>
     <React.Fragment>
       <div
         className="order-confirmation order-details"
       >
         <h2
           className="text-center"
-          style={
-            Object {
-              "paddingTop": "1em",
-            }
-          }
         >
           Order #
           fb097bde-5959-45ff-8e21-51184fa70c25
@@ -695,13 +799,13 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
                   "caterer": Object {
                     "businessAddress": "4, Church Street, Yaba",
                     "businessName": "BellyFill",
-                    "businessPhoneNo": "+2348134567890",
+                    "businessPhoneNo": "08134567890",
                     "email": "belly@fill.com",
                   },
                   "delivered": false,
                   "description": "",
                   "id": "46ced7aa-eed5-4462-b2c0-153f31589bdd",
-                  "imageURL": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
+                  "imageUrl": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
                   "price": "2000.00",
                   "quantity": 2,
                   "title": "Adalu (Beans and Corn) and Local Fish ",
@@ -717,13 +821,13 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
                   "caterer": Object {
                     "businessAddress": "4, Church Street, Yaba",
                     "businessName": "BellyFill",
-                    "businessPhoneNo": "+2348134567890",
+                    "businessPhoneNo": "08134567890",
                     "email": "belly@fill.com",
                   },
                   "delivered": false,
                   "description": "",
                   "id": "46ced7aa-eed5-4462-b2c0-153f31589bdd",
-                  "imageURL": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
+                  "imageUrl": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
                   "price": "2000.00",
                   "quantity": 2,
                   "title": "Adalu (Beans and Corn) and Local Fish ",
@@ -737,9 +841,9 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
             className="customer-details"
           >
             <p>
-              Status:
+              Order Status:
               <span
-                className="danger"
+                className="order-status danger"
                 style={
                   Object {
                     "textTransform": "capitalize",
@@ -756,7 +860,7 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
             </p>
             <p>
               Number Provided: 
-              +2348134567890
+              08134567890
             </p>
           </div>
         </React.Fragment>
@@ -828,6 +932,7 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
         logout={[Function]}
         showTime={true}
         type="customerOrderDetails"
+        updateCurrentDate={null}
         user={
           Object {
             "email": "emiola@olasanmi.com",
@@ -847,6 +952,7 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
             logout={[Function]}
             showTime={true}
             type="customer"
+            updateCurrentDate={null}
             user={
               Object {
                 "email": "emiola@olasanmi.com",
@@ -869,6 +975,7 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                   logout={[Function]}
                   showTime={true}
                   type="customer"
+                  updateCurrentDate={null}
                   user={
                     Object {
                       "email": "emiola@olasanmi.com",
@@ -900,8 +1007,53 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                   <div
                     className="navlinks"
                   >
+                    <h3>
+                      Welcome, 
+                      Emiola
+                    </h3>
+                    <Link
+                      className="false"
+                      href="/"
+                      replace={false}
+                      to="/"
+                    >
+                      <a
+                        className="false"
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        Menu
+                      </a>
+                    </Link>
+                    <Link
+                      className="active"
+                      href="/orders"
+                      replace={false}
+                      to="/orders"
+                    >
+                      <a
+                        className="active"
+                        href="/orders"
+                        onClick={[Function]}
+                      >
+                        Orders
+                      </a>
+                    </Link>
+                    <Link
+                      href="/"
+                      onClick={[Function]}
+                      replace={false}
+                      to="/"
+                    >
+                      <a
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        Logout
+                      </a>
+                    </Link>
                     <div
-                      className="user-info"
+                      className="user-info mobile-only"
                     >
                       <Dropdown
                         content={
@@ -915,11 +1067,12 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                               Menu
                             </Link>
                             <Link
+                              className="active"
                               href="/orders"
                               replace={false}
                               to="/orders"
                             >
-                              Order History
+                              Orders
                             </Link>
                             <Link
                               href="/"
@@ -933,14 +1086,20 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                         }
                         toggler={
                           <div
-                            className="username-circle circle-click"
+                            className="user-dropdown"
                           >
-                            <p
-                              className="circle-click"
+                            <div
+                              className="username-circle circle-click"
                             >
-                              E
-                              ▿
-                            </p>
+                              <p
+                                className="circle-click"
+                              >
+                                E
+                              </p>
+                            </div>
+                            <span>
+                              ▾
+                            </span>
                           </div>
                         }
                         type="customer"
@@ -952,23 +1111,31 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                         >
                           <Link
                             className="link"
-                            clickHandler={[Function]}
+                            clickHandler={null}
+                            dataTip={null}
                             id="dropdown-toggler"
                           >
                             <button
                               className="link-btn link"
+                              data-tip={null}
                               id="dropdown-toggler"
-                              onClick={[Function]}
+                              onClick={null}
                             >
                               <div
-                                className="username-circle circle-click"
+                                className="user-dropdown"
                               >
-                                <p
-                                  className="circle-click"
+                                <div
+                                  className="username-circle circle-click"
                                 >
-                                  E
-                                  ▿
-                                </p>
+                                  <p
+                                    className="circle-click"
+                                  >
+                                    E
+                                  </p>
+                                </div>
+                                <span>
+                                  ▾
+                                </span>
                               </div>
                             </button>
                           </Link>
@@ -991,15 +1158,17 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                               </a>
                             </Link>
                             <Link
+                              className="active"
                               href="/orders"
                               replace={false}
                               to="/orders"
                             >
                               <a
+                                className="active"
                                 href="/orders"
                                 onClick={[Function]}
                               >
-                                Order History
+                                Orders
                               </a>
                             </Link>
                             <Link
@@ -1032,6 +1201,20 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
             className="main-wrapper"
             id="has-modal"
           >
+            <Link
+              className="orders-back-link"
+              href="/orders"
+              replace={false}
+              to="/orders"
+            >
+              <a
+                className="orders-back-link"
+                href="/orders"
+                onClick={[Function]}
+              >
+                ← Back To Orders
+              </a>
+            </Link>
             <p
               className="text-center"
             >
@@ -1043,6 +1226,7 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
             logout={[Function]}
             showTime={true}
             type="customerOrderDetails"
+            updateCurrentDate={null}
             user={
               Object {
                 "email": "emiola@olasanmi.com",
@@ -1060,6 +1244,7 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
               showTime={true}
               toggleModal={[Function]}
               type={null}
+              updateCurrentDate={null}
               user={
                 Object {
                   "email": "emiola@olasanmi.com",
@@ -1076,7 +1261,7 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
               className="footer"
             >
               <p>
-                © 2018. Iveren Shaguy. All images were gotten from Google and are not mine.
+                © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
               </p>
             </div>
           </Footer>

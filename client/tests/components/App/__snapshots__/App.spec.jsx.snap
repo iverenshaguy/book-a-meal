@@ -29,7 +29,9 @@ exports[`App renders correctly 1`] = `
   <Connect(ReduxToastr)
     newestOnTop={false}
     preventDuplicates={true}
-    timeOut={4000}
+    timeOut={3000}
+    transitionIn="bounceIn"
+    transitionOut="fadeOut"
   />
 </React.Fragment>
 `;

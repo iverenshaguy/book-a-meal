@@ -1,5 +1,6 @@
 import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
+import ReactTooltip from 'react-tooltip';
 import Dropdown from '../Dropdown';
 import LinkBtn from '../Link';
 import { mealObjPropTypes } from '../../../helpers/proptypes';
@@ -17,11 +18,13 @@ class MealCard extends Component {
     meal: mealObjPropTypes.isRequired,
     toggleModal: PropTypes.func,
     orderMeal: PropTypes.func,
+    inBasket: PropTypes.bool
   };
 
   static defaultProps = {
     toggleModal: null,
-    orderMeal: null
+    orderMeal: null,
+    inBasket: false
   };
 
   /**
@@ -31,16 +34,18 @@ class MealCard extends Component {
   renderMealCardBody = () => {
     const { meal, type, orderMeal } = this.props;
     const isShopOpen = checkShopOpen();
+    const btnText = this.props.inBasket ? 'Added To Basket' : 'Add To Basket';
+    const btnDisabled = this.props.inBasket ? 'disabled' : null;
 
     return (
       <div className="meal-card-body">
         <div>
           <h3>&#8358; {meal.price}</h3>
-          <p>{meal.description}</p>
+          <p data-tip={meal.description} className="meal-description">{meal.description}</p>
         </div>
         {type === 'customer' && isShopOpen &&
           <div className="meal-card-action">
-            <button className="btn btn-sec meal-card-btn" onClick={orderMeal}>Click to Order</button>
+            <button className="btn btn-sec meal-card-btn" onClick={orderMeal} disabled={btnDisabled}>{btnText}</button>
           </div>}
       </div>
     );
@@ -56,7 +61,8 @@ class MealCard extends Component {
     return (
       <div className={`meal-card ${type === 'customer' && 'order-meal-card'}`} id="meal-card">
         <div className="meal-card-header">
-          <img src={meal.imageURL} alt="meal" />
+          {meal.vegetarian === true && <span className="veg-ribbon">Vegetarian</span>}
+          <img src={meal.imageUrl} alt="meal" />
           {type === 'caterer' &&
             <Dropdown
               type="card"
@@ -71,6 +77,7 @@ class MealCard extends Component {
           <div className="menu-card-title"><p>{meal.title}</p></div>
         </div>
         {this.renderMealCardBody()}
+        <ReactTooltip place="top" type="dark" effect="solid" className="tooltip" />
       </div>
     );
   }

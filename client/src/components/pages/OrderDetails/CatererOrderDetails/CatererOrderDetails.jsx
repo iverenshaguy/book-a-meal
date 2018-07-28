@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import LinkBtn from '../../../shared/Link';
@@ -103,6 +104,7 @@ class CatererOrderDetails extends Component {
 
     return (
       <div className="main-wrapper">
+        <Link href="/orders" to="/orders" className="orders-back-link">&#8592; Back To Orders</Link>
         <div className="order-confirmation order-details">
           <h3 className="text-center" style={{ paddingTop: '1em' }}>Order #{order.id}</h3>
           {!this.props.delivering && this.renderDetails()}
