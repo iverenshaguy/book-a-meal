@@ -94,7 +94,9 @@ class MenuForm extends Component {
   handleChangeDate = (event) => {
     this.clearFormError();
 
-    const date = moment(event.target.value).format('YYYY-MM-DD');
+    const newDate = moment(event.target.value).format('YYYY-MM-DD');
+    const currentDate = moment().format('YYYY-MM-DD');
+    const date = new Date(currentDate) > new Date(newDate) ? currentDate : newDate;
 
     this.setState({ date }, () => this.props.fetchMenu(date));
   }

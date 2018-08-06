@@ -34,6 +34,8 @@ exports[`MenuForm renders connected component correctly 1`] = `
           Array [],
           Array [],
           Array [],
+          Array [],
+          Array [],
         ],
       }
     }
@@ -41,6 +43,7 @@ exports[`MenuForm renders connected component correctly 1`] = `
     fetchMeals={
       [MockFunction] {
         "calls": Array [
+          Array [],
           Array [],
           Array [],
           Array [],
@@ -70,6 +73,10 @@ exports[`MenuForm renders connected component correctly 1`] = `
           Array [],
           Array [
             "2018-04-27",
+          ],
+          Array [],
+          Array [
+            "1970-01-01",
           ],
           Array [],
           Array [],
