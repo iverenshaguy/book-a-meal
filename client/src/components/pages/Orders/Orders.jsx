@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import OrderPill from '../../shared/OrderPill';
 import View from '../../shared/View';
-import { userPropTypes, catererOrderObjPropTypes, customerOrderObjPropTypes } from '../../../helpers/proptypes';
+import { userPropTypes, metadataPropTypes, catererOrderObjPropTypes, customerOrderObjPropTypes } from '../../../helpers/proptypes';
 import './Orders.scss';
 import InfiniteLoader from '../../shared/InfiniteLoader';
 
@@ -16,6 +16,7 @@ import InfiniteLoader from '../../shared/InfiniteLoader';
 class Orders extends Component {
   static propTypes = {
     ...userPropTypes,
+    ...metadataPropTypes,
     orders: PropTypes.oneOfType([
       PropTypes.arrayOf(catererOrderObjPropTypes),
       PropTypes.arrayOf(customerOrderObjPropTypes)]).isRequired,
@@ -29,12 +30,15 @@ class Orders extends Component {
    * @returns {JSX} Orders Component
   */
   componentDidMount() {
-    this.fetchOrders();
+    if (!this.props.metadata.pages) this.props.fetchOrders();
   }
 
-  fetchOrders = () => {
-    this.props.fetchOrders();
-  }
+  /**
+   * @memberof Meals
+   * @param {object} metadata
+   * @returns {func} load more meals
+  */
+  loadMoreOrders = () => this.props.fetchOrders(null, this.props.metadata)
 
   /**
    * @memberof Orders
@@ -54,7 +58,11 @@ class Orders extends Component {
           {this.props.orders.length === 0 && <p className="text-center">You Have No Orders</p>}
           {this.props.orders.length !== 0 &&
             <div className="pills">
-              <InfiniteLoader items={orders} limit={8} />
+              <InfiniteLoader
+                items={orders}
+                metadata={this.props.metadata}
+                loadMore={this.loadMoreOrders}
+              />
             </div>}
         </div>
       </div>

@@ -23,7 +23,7 @@ class CatererOrderDetails extends Component {
     isFetching: PropTypes.bool.isRequired,
     delivering: PropTypes.bool.isRequired,
     logout: PropTypes.func.isRequired,
-    fetchOrders: PropTypes.func.isRequired,
+    fetchOrder: PropTypes.func.isRequired,
     deliverOrder: PropTypes.func.isRequired,
   }
 
@@ -36,15 +36,7 @@ class CatererOrderDetails extends Component {
    * @returns {JSX} CatererOrderDetails Component
   */
   componentDidMount() {
-    this.fetchOrders();
-  }
-
-  /**
-   * @memberof CatererOrderDetails
-   * @returns {JSX} CatererOrderDetails Component
-  */
-  fetchOrders = () => {
-    this.props.fetchOrders();
+    this.props.fetchOrder(this.props.match.params.id);
   }
 
   /**
@@ -124,8 +116,8 @@ class CatererOrderDetails extends Component {
     return (
       <View user={user} logout={logout} type="orders" showTime isFetching={isFetching}>
         <Fragment>
-          {!isFetching && !this.props.order && <p className="text-center">This Order Does Not Exist</p>}
-          {!isFetching && this.props.order && this.renderCatererOrderDetails()}
+          {!this.props.order && <p className="text-center">This Order Does Not Exist</p>}
+          {this.props.order && this.renderCatererOrderDetails()}
         </Fragment>
       </View>
     );

@@ -1,13 +1,14 @@
 import moment from 'moment';
 import reducer from '../../../src/store/reducers/menu';
-import { caterersMealsObj } from '../../setup/data';
+import { caterersMealsObj, metadata } from '../../setup/data';
 
 const state = {
   id: null,
   meals: [],
   error: null,
   working: false,
-  currentDay: moment().format('YYYY-MM-DD')
+  currentDay: moment().format('YYYY-MM-DD'),
+  metadata: {}
 };
 
 describe('Menu Reducers', () => {
@@ -44,14 +45,28 @@ describe('Menu Reducers', () => {
   it('should handle RECEIVE_MENU_SUCCESS action', () => {
     const newState = reducer(state, {
       type: 'RECEIVE_MENU_SUCCESS',
-      payload: { id: '1234', meals: caterersMealsObj.meals, date: moment().format('YYYY-MM-DD') }
+      payload: { menu: { id: '1234', meals: caterersMealsObj.meals, date: moment().format('YYYY-MM-DD') }, metadata }
     });
 
     expect(newState).toEqual({
       ...state,
       id: '1234',
       meals: caterersMealsObj.meals,
-      currentDay: moment().format('YYYY-MM-DD')
+      currentDay: moment().format('YYYY-MM-DD'),
+      metadata
+    });
+  });
+
+  it('should handle RECEIVE_MORE_MENU_SUCCESS action', () => {
+    const newState = reducer({ ...state, meals: caterersMealsObj.meals }, {
+      type: 'RECEIVE_MORE_MENU_SUCCESS',
+      payload: { menu: { id: '1234', meals: caterersMealsObj.meals, date: moment().format('YYYY-MM-DD') }, metadata }
+    });
+
+    expect(newState).toEqual({
+      ...state,
+      meals: [...caterersMealsObj.meals, ...caterersMealsObj.meals],
+      metadata
     });
   });
 
@@ -74,7 +89,10 @@ describe('Menu Reducers', () => {
       ...state,
       id: '1234',
       meals: caterersMealsObj.meals,
-      currentDay: moment().format('YYYY-MM-DD')
+      currentDay: moment().format('YYYY-MM-DD'),
+      metadata: {
+        next: undefined
+      }
     });
   });
 
@@ -97,7 +115,10 @@ describe('Menu Reducers', () => {
       ...state,
       id: '1234',
       meals: caterersMealsObj.meals,
-      currentDay: moment().format('YYYY-MM-DD')
+      currentDay: moment().format('YYYY-MM-DD'),
+      metadata: {
+        next: undefined
+      }
     });
   });
 

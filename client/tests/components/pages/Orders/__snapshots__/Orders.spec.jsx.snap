@@ -37,6 +37,7 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
           className="pills"
         >
           <InfiniteLoader
+            height={null}
             items={
               Array [
                 <OrderPill
@@ -207,7 +208,15 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
                 />,
               ]
             }
-            limit={8}
+            loadMore={[Function]}
+            metadata={
+              Object {
+                "next": "next",
+                "pages": 2,
+                "prev": "prev",
+                "total": 5,
+              }
+            }
           />
         </div>
       </div>
@@ -247,6 +256,7 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
       fetchOrders={[Function]}
       isFetching={false}
       logout={[Function]}
+      metadata={Object {}}
       orders={Array []}
       user={
         Object {
@@ -692,6 +702,7 @@ exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
           className="pills"
         >
           <InfiniteLoader
+            height={null}
             items={
               Array [
                 <OrderPill
@@ -862,7 +873,15 @@ exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
                 />,
               ]
             }
-            limit={8}
+            loadMore={[Function]}
+            metadata={
+              Object {
+                "next": "next",
+                "pages": 2,
+                "prev": "prev",
+                "total": 5,
+              }
+            }
           />
         </div>
       </div>
@@ -951,6 +970,7 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
           className="pills"
         >
           <InfiniteLoader
+            height={null}
             items={
               Array [
                 <OrderPill
@@ -1127,7 +1147,15 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
                 />,
               ]
             }
-            limit={8}
+            loadMore={[Function]}
+            metadata={
+              Object {
+                "next": "next",
+                "pages": 2,
+                "prev": "prev",
+                "total": 5,
+              }
+            }
           />
         </div>
       </div>
@@ -1166,6 +1194,7 @@ exports[`Orders Customer Orders renders connected component 1`] = `
       fetchOrders={[Function]}
       isFetching={false}
       logout={[Function]}
+      metadata={Object {}}
       orders={Array []}
       user={
         Object {
@@ -1560,6 +1589,7 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
           className="pills"
         >
           <InfiniteLoader
+            height={null}
             items={
               Array [
                 <OrderPill
@@ -1736,7 +1766,15 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
                 />,
               ]
             }
-            limit={8}
+            loadMore={[Function]}
+            metadata={
+              Object {
+                "next": "next",
+                "pages": 2,
+                "prev": "prev",
+                "total": 5,
+              }
+            }
           />
         </div>
       </div>

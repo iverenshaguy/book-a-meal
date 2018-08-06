@@ -15,6 +15,7 @@ const reqBodyValidation = [...validation, ValidationHandler.isEmptyReq];
 ordersRoutes.use(Authorization.authorize);
 
 ordersRoutes.get('/', ordersValidation.retrieve, validation, asyncWrapper(Orders.getOrders));
+ordersRoutes.get('/:orderId', ordersValidation.retrieveOne, validation, asyncWrapper(Orders.getSingleOrder));
 ordersRoutes.post('/:orderId/deliver', catererAuth, ordersValidation.deliver, reqBodyValidation, asyncWrapper(Orders.deliver));
 
 ordersRoutes.use(userAuth);

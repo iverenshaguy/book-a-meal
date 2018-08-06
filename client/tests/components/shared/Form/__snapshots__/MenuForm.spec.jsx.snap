@@ -59,45 +59,21 @@ exports[`MenuForm renders connected component correctly 1`] = `
     fetchMenu={
       [MockFunction] {
         "calls": Array [
-          Array [
-            "2018-06-16",
-          ],
-          Array [
-            "2018-06-16",
-          ],
-          Array [
-            "2018-06-16",
-          ],
-          Array [
-            "2018-06-16",
-          ],
-          Array [
-            "2018-06-16",
-          ],
-          Array [
-            "2018-06-16",
-          ],
-          Array [
-            "2018-06-16",
-          ],
-          Array [
-            "2018-06-16",
-          ],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+          Array [],
           Array [
             "2018-04-27",
           ],
-          Array [
-            "2018-06-16",
-          ],
-          Array [
-            "2018-06-16",
-          ],
-          Array [
-            "2018-06-16",
-          ],
-          Array [
-            "2018-06-16",
-          ],
+          Array [],
+          Array [],
+          Array [],
         ],
       }
     }
@@ -121,6 +97,14 @@ exports[`MenuForm renders connected component correctly 1`] = `
           "vegetarian": true,
         },
       ]
+    }
+    mealsMetadata={
+      Object {
+        "next": "next",
+        "pages": 2,
+        "prev": "prev",
+        "total": 5,
+      }
     }
     menu={
       Object {
@@ -146,6 +130,14 @@ exports[`MenuForm renders connected component correctly 1`] = `
         ],
       }
     }
+    menuMetadata={
+      Object {
+        "next": "next",
+        "pages": 2,
+        "prev": "prev",
+        "total": 5,
+      }
+    }
     submitError={null}
     submitting={false}
   >
@@ -157,6 +149,7 @@ exports[`MenuForm renders connected component correctly 1`] = `
       fetchMenu={[Function]}
       isFetching={false}
       meals={Array []}
+      mealsMetadata={Object {}}
       menu={
         Object {
           "date": "1970-01-01",
@@ -164,6 +157,7 @@ exports[`MenuForm renders connected component correctly 1`] = `
           "meals": Array [],
         }
       }
+      menuMetadata={Object {}}
       setCurrentDay={[Function]}
       submitError={null}
       submitting={false}
@@ -201,42 +195,56 @@ exports[`MenuForm renders correctly 1`] = `
           value="2018-06-16"
         />
       </div>
-      <div
-        className="form-input-checkbox"
-        key="81211c24-51c0-46ec-b1e0-18db55880958"
-      >
-        <input
-          checked={true}
-          id="81211c24-51c0-46ec-b1e0-18db55880958"
-          name="81211c24-51c0-46ec-b1e0-18db55880958"
-          onChange={[Function]}
-          type="checkbox"
-        />
-          
-        <label
-          htmlFor="checkbox"
-        >
-          Jollof Rice, Beef and Plantain
-        </label>
-      </div>
-      <div
-        className="form-input-checkbox"
-        key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-      >
-        <input
-          checked={true}
-          id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-          name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-          onChange={[Function]}
-          type="checkbox"
-        />
-          
-        <label
-          htmlFor="checkbox"
-        >
-          Vegetable Sharwama and Guava Smoothie
-        </label>
-      </div>
+      <InfiniteLoader
+        height={100}
+        items={
+          Array [
+            <div
+              className="form-input-checkbox"
+            >
+              <input
+                checked={true}
+                id="81211c24-51c0-46ec-b1e0-18db55880958"
+                name="81211c24-51c0-46ec-b1e0-18db55880958"
+                onChange={[Function]}
+                type="checkbox"
+              />
+                
+              <label
+                htmlFor="checkbox"
+              >
+                Jollof Rice, Beef and Plantain
+              </label>
+            </div>,
+            <div
+              className="form-input-checkbox"
+            >
+              <input
+                checked={true}
+                id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                onChange={[Function]}
+                type="checkbox"
+              />
+                
+              <label
+                htmlFor="checkbox"
+              >
+                Vegetable Sharwama and Guava Smoothie
+              </label>
+            </div>,
+          ]
+        }
+        loadMore={[Function]}
+        metadata={
+          Object {
+            "next": "next",
+            "pages": 2,
+            "prev": "prev",
+            "total": 5,
+          }
+        }
+      />
     </div>
     <button
       className="btn btn-pri btn-block"
@@ -306,42 +314,56 @@ exports[`MenuForm renders correctly when there is a date error 1`] = `
           value="2018-06-16"
         />
       </div>
-      <div
-        className="form-input-checkbox"
-        key="81211c24-51c0-46ec-b1e0-18db55880958"
-      >
-        <input
-          checked={true}
-          id="81211c24-51c0-46ec-b1e0-18db55880958"
-          name="81211c24-51c0-46ec-b1e0-18db55880958"
-          onChange={[Function]}
-          type="checkbox"
-        />
-          
-        <label
-          htmlFor="checkbox"
-        >
-          Jollof Rice, Beef and Plantain
-        </label>
-      </div>
-      <div
-        className="form-input-checkbox"
-        key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-      >
-        <input
-          checked={true}
-          id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-          name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-          onChange={[Function]}
-          type="checkbox"
-        />
-          
-        <label
-          htmlFor="checkbox"
-        >
-          Vegetable Sharwama and Guava Smoothie
-        </label>
-      </div>
+      <InfiniteLoader
+        height={100}
+        items={
+          Array [
+            <div
+              className="form-input-checkbox"
+            >
+              <input
+                checked={true}
+                id="81211c24-51c0-46ec-b1e0-18db55880958"
+                name="81211c24-51c0-46ec-b1e0-18db55880958"
+                onChange={[Function]}
+                type="checkbox"
+              />
+                
+              <label
+                htmlFor="checkbox"
+              >
+                Jollof Rice, Beef and Plantain
+              </label>
+            </div>,
+            <div
+              className="form-input-checkbox"
+            >
+              <input
+                checked={true}
+                id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                onChange={[Function]}
+                type="checkbox"
+              />
+                
+              <label
+                htmlFor="checkbox"
+              >
+                Vegetable Sharwama and Guava Smoothie
+              </label>
+            </div>,
+          ]
+        }
+        loadMore={[Function]}
+        metadata={
+          Object {
+            "next": "next",
+            "pages": 2,
+            "prev": "prev",
+            "total": 5,
+          }
+        }
+      />
     </div>
     <button
       className="btn btn-pri btn-block"
@@ -381,42 +403,56 @@ exports[`MenuForm renders correctly when there is a submit error 1`] = `
           value="2018-06-16"
         />
       </div>
-      <div
-        className="form-input-checkbox"
-        key="81211c24-51c0-46ec-b1e0-18db55880958"
-      >
-        <input
-          checked={true}
-          id="81211c24-51c0-46ec-b1e0-18db55880958"
-          name="81211c24-51c0-46ec-b1e0-18db55880958"
-          onChange={[Function]}
-          type="checkbox"
-        />
-          
-        <label
-          htmlFor="checkbox"
-        >
-          Jollof Rice, Beef and Plantain
-        </label>
-      </div>
-      <div
-        className="form-input-checkbox"
-        key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-      >
-        <input
-          checked={true}
-          id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-          name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-          onChange={[Function]}
-          type="checkbox"
-        />
-          
-        <label
-          htmlFor="checkbox"
-        >
-          Vegetable Sharwama and Guava Smoothie
-        </label>
-      </div>
+      <InfiniteLoader
+        height={100}
+        items={
+          Array [
+            <div
+              className="form-input-checkbox"
+            >
+              <input
+                checked={true}
+                id="81211c24-51c0-46ec-b1e0-18db55880958"
+                name="81211c24-51c0-46ec-b1e0-18db55880958"
+                onChange={[Function]}
+                type="checkbox"
+              />
+                
+              <label
+                htmlFor="checkbox"
+              >
+                Jollof Rice, Beef and Plantain
+              </label>
+            </div>,
+            <div
+              className="form-input-checkbox"
+            >
+              <input
+                checked={true}
+                id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                onChange={[Function]}
+                type="checkbox"
+              />
+                
+              <label
+                htmlFor="checkbox"
+              >
+                Vegetable Sharwama and Guava Smoothie
+              </label>
+            </div>,
+          ]
+        }
+        loadMore={[Function]}
+        metadata={
+          Object {
+            "next": "next",
+            "pages": 2,
+            "prev": "prev",
+            "total": 5,
+          }
+        }
+      />
     </div>
     <button
       className="btn btn-pri btn-block"

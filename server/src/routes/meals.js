@@ -12,7 +12,7 @@ const validation = [ValidationHandler.validate, TrimValues.trim, ValidationHandl
 
 mealsRoutes.use(Authorization.authorize, authorization.authorizeRole);
 
-mealsRoutes.get('/', asyncWrapper(Meals.getMeals));
+mealsRoutes.get('/', mealsValidation.get, ValidationHandler.validate, asyncWrapper(Meals.getMeals));
 mealsRoutes.post('/', mealsValidation.create, validation, asyncWrapper(Meals.create));
 mealsRoutes.put('/:mealId', mealsValidation.update, validation, asyncWrapper(Meals.update));
 mealsRoutes.delete('/:mealId', mealsValidation.delete, ValidationHandler.validate, asyncWrapper(Meals.delete));

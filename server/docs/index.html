@@ -225,6 +225,17 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
           </li>
           <li>
+            <a href="#pagination" class="toc-h1 toc-link" data-title="pagination">Pagination</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#query-parameters" class="toc-h2 toc-link" data-title="query-parameters">Query Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#pagination-metadata" class="toc-h2 toc-link" data-title="pagination-metadata">Pagination Metadata</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#users" class="toc-h1 toc-link" data-title="users">Users</a>
               <ul class="toc-list-h2">
                   <li>
@@ -248,7 +259,7 @@
             <a href="#meals" class="toc-h1 toc-link" data-title="meals">Meals</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-meal-options" class="toc-h2 toc-link" data-title="get-all-meal-options">Get All Meal Options</a>
+                    <a href="#get-all-meal-options-paginated" class="toc-h2 toc-link" data-title="get-all-meal-options-paginated">Get All Meal Options (Paginated)</a>
                   </li>
                   <li>
                     <a href="#add-a-meal-option" class="toc-h2 toc-link" data-title="add-a-meal-option">Add a Meal Option</a>
@@ -265,7 +276,7 @@
             <a href="#menu" class="toc-h1 toc-link" data-title="menu">Menu</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-menu-per-day" class="toc-h2 toc-link" data-title="get-menu-per-day">Get Menu Per Day</a>
+                    <a href="#get-menu-per-day-paginated" class="toc-h2 toc-link" data-title="get-menu-per-day-paginated">Get Menu Per Day (Paginated)</a>
                   </li>
                   <li>
                     <a href="#create-a-menu" class="toc-h2 toc-link" data-title="create-a-menu">Create a Menu</a>
@@ -279,7 +290,7 @@
             <a href="#orders" class="toc-h1 toc-link" data-title="orders">Orders</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-orders" class="toc-h2 toc-link" data-title="get-all-orders">Get All Orders</a>
+                    <a href="#get-all-orders-paginated" class="toc-h2 toc-link" data-title="get-all-orders-paginated">Get All Orders (Paginated)</a>
                   </li>
                   <li>
                     <a href="#create-an-order" class="toc-h2 toc-link" data-title="create-an-order">Create an Order</a>
@@ -296,7 +307,7 @@
             <a href="#notifications" class="toc-h1 toc-link" data-title="notifications">Notifications</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-notifications" class="toc-h2 toc-link" data-title="get-notifications">Get Notifications</a>
+                    <a href="#get-notifications-paginated" class="toc-h2 toc-link" data-title="get-notifications-paginated">Get Notifications (Paginated)</a>
                   </li>
               </ul>
           </li>
@@ -328,17 +339,51 @@ This is version 1 of the API.</p>
 <aside class="notice">
 You must replace <code>averylong.jsonwebtoken.requiredforauthentication</code> with your personal Authorization Token.
 </aside>
+<h1 id='pagination'>Pagination</h1>
+<p>Every route that returns an array of items is paginated by default.</p>
+<h2 id='query-parameters'>Query Parameters</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>integer</td>
+<td>1</td>
+<td>Page to be returned by endpoint</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>integer</td>
+<td>10</td>
+<td>number of items to be returned by endpoint</td>
+</tr>
+</tbody></table>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"prev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/menu?page=1&amp;limit=10"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/menu?page=2&amp;limit=10"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"totalItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='pagination-metadata'>Pagination Metadata</h2>
+<p>The pagination metadata returned is shown on the right. <code>prev</code> is not returned if page is the first page. <code>next</code> is not returned if page is the last page.</p>
 <h1 id='users'>Users</h1><h2 id='signup'>Signup</h2>
-<p>Registers a New User</p>
+<p>Registers a New Customer</p>
 
 <blockquote>
-<p>Request Body - User</p>
+<p>Request Body - Customer</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emiola"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olasanmi"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emiola@olasanmi.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"phoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08166557788"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$, Herbert Macaulay Way, Yaba, Lagos"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emiolaolasanmi"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"passwordConfirm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emiolaolasanmi"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -352,7 +397,7 @@ You must replace <code>averylong.jsonwebtoken.requiredforauthentication</code> w
   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"food@circle.com"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foodcircle"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"passwordConfirm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foodcircle"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"phoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348166557788"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"phoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08166557788"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$, Herbert Macaulay Way, Yaba, Lagos"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
@@ -363,7 +408,7 @@ You must replace <code>averylong.jsonwebtoken.requiredforauthentication</code> w
 </ul>
 <h3 id='request-body-parameters'>Request Body Parameters</h3>
 <ul>
-<li>User</li>
+<li>Customer</li>
 </ul>
 
 <table><thead>
@@ -378,7 +423,7 @@ You must replace <code>averylong.jsonwebtoken.requiredforauthentication</code> w
 <td>role</td>
 <td>string</td>
 <td>Required</td>
-<td>User role. Should be user</td>
+<td>User role. Should be customer</td>
 </tr>
 <tr>
 <td>firstname</td>
@@ -390,6 +435,18 @@ You must replace <code>averylong.jsonwebtoken.requiredforauthentication</code> w
 <td>lastname</td>
 <td>string</td>
 <td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>address</td>
+<td>string</td>
+<td>Optional</td>
+<td></td>
+</tr>
+<tr>
+<td>phoneNo</td>
+<td>string</td>
+<td>Optional</td>
 <td></td>
 </tr>
 <tr>
@@ -471,13 +528,16 @@ You must replace <code>averylong.jsonwebtoken.requiredforauthentication</code> w
 <blockquote>
 <p>Response Body</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="err">User</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="err">Customer</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a09a5570-a3b2-4e21-94c3-5cf483dbd1ac"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emiola"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olasanmi"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08166557788"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$, Herbert Macaulay Way, Yaba, Lagos"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emiola@olasanmi.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyOX0sImlhdCI6MTUxNTc1MzExNCwiZXhwIjoxNTE1NzU2NzE0fQ.sG-zNYLLSMTm6MtuhQ3XGZuTzsMqykeZSSzROkUvkNw"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -487,9 +547,10 @@ You must replace <code>averylong.jsonwebtoken.requiredforauthentication</code> w
   </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a09a5570-a3b2-4e21-94c3-5cf483dbd1ac"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"businessName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Food Circle"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"phoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348166557788"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08166557788"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$, Herbert Macaulay Way, Yaba, Lagos"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"food@circle.com"</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"food@circle.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"caterer"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyOX0sImlhdCI6MTUxNTc1MzExNCwiZXhwIjoxNTE1NzU2NzE0fQ.sG-zNYLLSMTm6MtuhQ3XGZuTzsMqykeZSSzROkUvkNw"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -500,10 +561,10 @@ You must replace <code>averylong.jsonwebtoken.requiredforauthentication</code> w
 </ul>
 
 <aside class="notice">
-Users and Caterers have the same route with different data and roles
+Customers and Caterers have the same route with different data and roles
 </aside>
 <h2 id='signin'>Signin</h2>
-<p>Logs in an existing User</p>
+<p>Logs in an existing Customer</p>
 
 <blockquote>
 <p>Request Body</p>
@@ -549,7 +610,10 @@ Users and Caterers have the same route with different data and roles
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a09a5570-a3b2-4e21-94c3-5cf483dbd1ac"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emiola"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olasanmi"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08166557788"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$, Herbert Macaulay Way, Yaba, Lagos"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emiola@olasanmi.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyOX0sImlhdCI6MTUxNTc1MzExNCwiZXhwIjoxNTE1NzU2NzE0fQ.sG-zNYLLSMTm6MtuhQ3XGZuTzsMqykeZSSzROkUvkNw"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -561,9 +625,10 @@ Users and Caterers have the same route with different data and roles
   </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a09a5570-a3b2-4e21-94c3-5cf483dbd1ac"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"businessName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Food Circle"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"phoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348166557788"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08166557788"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$, Herbert Macaulay Way, Yaba, Lagos"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"food@circle.com"</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"food@circle.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"caterer"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyOX0sImlhdCI6MTUxNTc1MzExNCwiZXhwIjoxNTE1NzU2NzE0fQ.sG-zNYLLSMTm6MtuhQ3XGZuTzsMqykeZSSzROkUvkNw"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -646,7 +711,7 @@ Users and Caterers have the same route with different data and roles
 <td></td>
 </tr>
 </tbody></table>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -691,6 +756,8 @@ Users and Caterers have the same route with different data and roles
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e42c7ce0-958e-4368-adcb-e5d97dbbe5b7"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olisa"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emodi"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3, Ayodele Street"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08123456789"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"olisa@emodi.com"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -703,7 +770,7 @@ Users and Caterers have the same route with different data and roles
 </ul>
 <h1 id='meals'>Meals</h1>
 <aside class="notice">Only caterers are authorised to access all meals endpoints</aside>
-<h2 id='get-all-meal-options'>Get All Meal Options</h2>
+<h2 id='get-all-meal-options-paginated'>Get All Meal Options (Paginated)</h2>
 <p>Get all meals that beong to the Caterer. Only the caterers can interact with this endpoint</p>
 
 <blockquote>
@@ -712,23 +779,20 @@ Users and Caterers have the same route with different data and roles
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81211c24-51c0-46ec-b1e0-18db55880958"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jollof Rice, Beef and Plantain"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"392788e5-4ad1-4f23-81ed-e747bfdd71f8"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fish Stew"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2F1533467882881.jpeg?alt=media&amp;token=87df1911-4d60-4b52-b7b8-115bd0b2d364"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fish and Pepper"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1500.00"</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36d525d1-efc9-4b75-9999-3e3d8dc64ce3"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vegetable Sharwama and Guava Smoothie"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sharwama contains no animal products, perfect for dieters"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200.00"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
         </span><span class="err">...</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"prev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/meals?page=1&amp;limit=5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"totalItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-6'>HTTP Request</h3>
 <ul>
@@ -751,7 +815,7 @@ Users and Caterers have the same route with different data and roles
   </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wheat and Ogbono"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meal contains 2 pieces of beef and other assorted meat and fish products"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://koalaghana.com/wp-content/uploads/DSC02053.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://koalaghana.com/wp-content/uploads/DSC02053.jpg"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-7'>HTTP Request</h3>
@@ -782,7 +846,7 @@ Users and Caterers have the same route with different data and roles
 <td>Meal description. Maximum of 65 characters</td>
 </tr>
 <tr>
-<td>imageUrl</td>
+<td>imageURL</td>
 <td>string</td>
 <td>Optional</td>
 <td>Meal image URL.</td>
@@ -807,7 +871,7 @@ Users and Caterers have the same route with different data and roles
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ba25e554-6f66-4a94-abb4-53531da1ac89"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wheat and Ogbono"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://koalaghana.com/wp-content/uploads/DSC02053.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://koalaghana.com/wp-content/uploads/DSC02053.jpg"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meal contains 2 pieces of beef and other assorted meat and fish products"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="w">
@@ -851,7 +915,7 @@ Users and Caterers have the same route with different data and roles
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ba25e554-6f66-4a94-abb4-53531da1ac89"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wheat and Ogbono"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://koalaghana.com/wp-content/uploads/DSC02053.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://koalaghana.com/wp-content/uploads/DSC02053.jpg"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meal contains no beef"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="w">
@@ -894,69 +958,66 @@ Users and Caterers have the same route with different data and roles
 <li>Status Code: <code>200</code></li>
 <li>Body: <code>(application/json)</code></li>
 </ul>
-<h1 id='menu'>Menu</h1><h2 id='get-menu-per-day'>Get Menu Per Day</h2>
-<p>Gets the menu for the day for Caterer and User.</p>
+<h1 id='menu'>Menu</h1><h2 id='get-menu-per-day-paginated'>Get Menu Per Day (Paginated)</h2>
+<p>Gets the menu for the day for Caterer and Customer.</p>
 
 <blockquote>
 <p>Response Body - Caterer</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f27c0fb-19a9-4d9e-b5a1-d97c2d426ab5"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-18"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81211c24-51c0-46ec-b1e0-18db55880958"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jollof Rice, Beef and Plantain"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1500.00"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36d525d1-efc9-4b75-9999-3e3d8dc64ce3"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vegetable Sharwama and Guava Smoothie"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sharwama contains no animal products, perfect for dieters"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200.00"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="s2">"menu"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"581a41de-6a79-4e36-afe8-919e8c744356"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-06"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91b6e41c-0972-4ac5-86da-4ac1f5226e83"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jollof Spaghetti, Plantain and Turkey"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2F1533468378082.jpeg?alt=media&amp;token=d1a77871-44c4-406e-bc17-43f5b80662fe"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200.00"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"prev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/menu?page=1&amp;limit=10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/menu?page=2&amp;limit=10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"totalItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>Response Body - Customer</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"menu"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f27c0fb-19a9-4d9e-b5a1-d97c2d426ab5"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"caterer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8356954a-9a42-4616-8079-887a73455a7f"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"businessName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FoodCircle"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"phoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348134567890"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4, Church Street, Yaba"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"food@circle.com"</span><span class="w">
+    </span><span class="s2">"menu"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-06"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91b6e41c-0972-4ac5-86da-4ac1f5226e83"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jollof Spaghetti, Plantain and Turkey"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2F1533468378082.jpeg?alt=media&amp;token=d1a77871-44c4-406e-bc17-43f5b80662fe"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200.00"</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81211c24-51c0-46ec-b1e0-18db55880958"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jollof Rice, Beef and Plantain"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1500.00"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="err">...</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"prev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/menu?page=1&amp;limit=10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/menu?page=2&amp;limit=10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"totalItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-10'>HTTP Request</h3>
 <ul>
 <li>Endpoint: <code>/menu/</code></li>
 <li>Verb: <code>GET</code></li>
 </ul>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -978,7 +1039,7 @@ Users and Caterers have the same route with different data and roles
 <li>Body: <code>(application/json)</code></li>
 </ul>
 
-<aside class="notice">Users can only get the menu for the day. Caterers can get the menu for anyday</aside>
+<aside class="notice">Customers can only get the menu for the day. Caterers can get the menu for anyday</aside>
 <h2 id='create-a-menu'>Create a Menu</h2>
 <p>Creates a new menu.</p>
 
@@ -1028,7 +1089,7 @@ Users and Caterers have the same route with different data and roles
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"baa0412a-d167-4d2b-b1d8-404cb8f02631"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Semo/Wheat and Egusi Soup"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meal contains 2 pieces of beef and other assorted meat and fish products"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000.00"</span><span class="w">
@@ -1036,7 +1097,7 @@ Users and Caterers have the same route with different data and roles
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36d525d1-efc9-4b75-9999-3e3d8dc64ce3"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vegetable Sharwama and Guava Smoothie"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sharwama contains no animal products, perfect for dieters"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200.00"</span><span class="w">
@@ -1086,7 +1147,7 @@ Users and Caterers have the same route with different data and roles
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"baa0412a-d167-4d2b-b1d8-404cb8f02631"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Semo/Wheat and Egusi Soup"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meal contains 2 pieces of beef and other assorted meat and fish products"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000.00"</span><span class="w">
@@ -1100,9 +1161,9 @@ Users and Caterers have the same route with different data and roles
 </ul>
 
 <aside class="notice">Menu date cannot be changed. Only menu for the current day or future date can be modified</aside>
-<h1 id='orders'>Orders</h1><h2 id='get-all-orders'>Get All Orders</h2>
-<p>Returns all User/Caterer&#39;s Orders in the App.
-Also returns the sum of pending orders for the caterers/users and the total cash earned per day for the caterer</p>
+<h1 id='orders'>Orders</h1><h2 id='get-all-orders-paginated'>Get All Orders (Paginated)</h2>
+<p>Returns all Customer/Caterer&#39;s Orders in the App.
+Also returns the sum of pending orders for the caterers/customers and the total cash earned per day for the caterer or customer</p>
 
 <blockquote>
 <p>Response Body - Caterer</p>
@@ -1110,142 +1171,114 @@ Also returns the sum of pending orders for the caterers/users and the total cash
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fb097bde-5959-45ff-8e21-51184fa60c25"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35aa8ebe-8bf8-4a29-9754-e1fe255041ab"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"deliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4, Church Street, Yaba"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"deliveryPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348134567890"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"deliveryPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08134567891"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delivered"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-06T00:47:03.687Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-06T00:47:03.687Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emiola"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olasanmi"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emiola@olasanmi.com"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36d525d1-efc9-4b75-9999-3e3d8dc64ce3"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vegetable Sharwama and Guava Smoothie"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sharwama contains no animal products, perfect for dieters"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200.00"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"delivered"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ce228787-f939-40a0-bfd3-6607ca8d2e53"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"deliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4, Church Street, Yaba"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"deliveryPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348134567890"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delivered"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-01T00:47:03.687Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-01T00:47:03.687Z"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olisa"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emodi"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"olisa@emodi.com"</span><span class="w">
             </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-03T21:57:10+01:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-03T22:11:58+01:00"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"baa0412a-d167-4d2b-b1d8-404cb8f02631"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Semo/Wheat and Egusi Soup"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meal contains 2 pieces of beef and other assorted meat and fish products"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000.00"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36d525d1-efc9-4b75-9999-3e3d8dc64ce3"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vegetable Sharwama and Guava Smoothie"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2F1533467945694.jpeg?alt=media&amp;token=3ae79502-c431-43fe-8f9e-77452bc6974a"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sharwama contains no animal products"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200.00"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"delivered"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3c35e8f-da7a-4113-aa01-a9c0fc088539"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Eba and Ogbono Soup"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.kalakutahgrills.com/wp-content/uploads/2017/02/my-pics-group-3-007.jpg"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meal contains 2 pieces of beef and other assorted meat and fish products"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f9eb7652-125a-4bcb-ad81-02f84901cdc3"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ewa Agoyin, Plantain and Local Fish"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000.00"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200.00"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"delivered"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"totalCashEarned"</span><span class="p">:</span><span class="w"> </span><span class="mi">9200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pendingOrders"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="s2">"totalOrders"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pendingOrders"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"totalCashEarned"</span><span class="p">:</span><span class="w"> </span><span class="mi">14000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"totalItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>Response Body - Customer</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-        </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fb097bde-5959-45ff-8e21-51184fa60c25"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dbc50135-02b2-4937-881e-62700a67d9d0"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"deliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4, Church Street, Yaba"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"deliveryPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348134567890"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delivered"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-06T00:47:03.687Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-06T00:47:03.687Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"deliveryPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08134567891"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"canceled"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-03T21:58:01+01:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-03T21:59:17+01:00"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"46ced7aa-eed5-4462-b2c0-153f31589bdd"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adalu (Beans and Corn) and Local Fish "</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000.00"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"caterer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"businessName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BellyFill"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4, Church Street, Yaba"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"phoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348134567890"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"belly@fill.com"</span><span class="w">
-                    </span><span class="p">},</span><span class="w">
-                    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"delivered"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"72a3417e-45c8-4559-8b74-8b5a61be8614"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wheat and Okro Soup"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://koalaghana.com/wp-content/uploads/DSC02053.jpg"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meal contains 2 pieces of beef and other assorted meat and fish products"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000.00"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"caterer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"businessName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BellyFill"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4, Church Street, Yaba"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"phoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348134567890"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"belly@fill.com"</span><span class="w">
-                    </span><span class="p">},</span><span class="w">
-                    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"delivered"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36d525d1-efc9-4b75-9999-3e3d8dc64ce3"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vegetable Sharwama and Guava Smoothie"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sharwama contains no animal products, perfect for dieters"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://firebasestorage.googleapis.com/v0/b/book-a-meal.appspot.com/o/images%2F1533467945694.jpeg?alt=media&amp;token=3ae79502-c431-43fe-8f9e-77452bc6974a"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sharwama contains no animal products"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200.00"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"caterer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"businessName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FoodCircle"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4, Church Street, Yaba"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"phoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348134567890"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"phoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08134567890"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"food@circle.com"</span><span class="w">
                     </span><span class="p">},</span><span class="w">
-                    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"delivered"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f9eb7652-125a-4bcb-ad81-02f84901cdc3"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ewa Agoyin, Plantain and Local Fish"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200.00"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"caterer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"businessName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FoodCircle"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4, Church Street, Yaba"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"phoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08134567890"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"food@circle.com"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"delivered"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"pendingOrders"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="s2">"totalOrders"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pendingOrders"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"prev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/orders?date=2018-08-03&amp;page=1&amp;limit=2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/orders?date=2018-08-03&amp;page=1&amp;limit=2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"totalItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-13'>HTTP Request</h3>
 <ul>
 <li>Endpoint: <code>/orders/</code></li>
 <li>Verb: <code>GET</code></li>
 </ul>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1258,7 +1291,7 @@ Also returns the sum of pending orders for the caterers/users and the total cash
 <td>date</td>
 <td>YYYY-MM-DD</td>
 <td>Today&#39;s date</td>
-<td>If set, returns the orders for that particular day. <em>Can ony be accessed by caterers</em></td>
+<td>Returns the orders for that day.</td>
 </tr>
 </tbody></table>
 <h3 id='http-response-13'>HTTP Response</h3>
@@ -1266,17 +1299,15 @@ Also returns the sum of pending orders for the caterers/users and the total cash
 <li>Status Code: <code>200</code></li>
 <li>Body: <code>(application/json)</code></li>
 </ul>
-
-<aside class="notice">Both Caterers and Users can get their orders. Only Caterers can get the order for a particular day</aside>
 <h2 id='create-an-order'>Create an Order</h2>
-<p>Creates an order for meals present in the menu for the day. Only users can order meals.</p>
+<p>Creates an order for meals present in the menu for the day. Only customers can order meals.</p>
 
 <blockquote>
 <p>Request Body</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"deliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4, Church Street, Yaba"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deliveryPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348134567891"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"deliveryPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08134567891"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"meals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w"> </span><span class="s2">"mealId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36d525d1-efc9-4b75-9999-3e3d8dc64ce3"</span><span class="p">,</span><span class="w"> </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w"> </span><span class="s2">"mealId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"baa0412a-d167-4d2b-b1d8-404cb8f02631"</span><span class="p">,</span><span class="w"> </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">}</span><span class="w">
@@ -1334,7 +1365,7 @@ Also returns the sum of pending orders for the caterers/users and the total cash
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7247d3a-de8a-43e2-90f6-b126cd4c491c"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"deliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4, Church Street, Yaba"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"deliveryPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348134567891"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"deliveryPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08134567891"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"started"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-18T16:18:25.303Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-18T16:18:25.303Z"</span><span class="p">,</span><span class="w">
@@ -1342,7 +1373,7 @@ Also returns the sum of pending orders for the caterers/users and the total cash
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36d525d1-efc9-4b75-9999-3e3d8dc64ce3"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vegetable Sharwama and Guava Smoothie"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sharwama contains no animal products, perfect for dieters"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200.00"</span><span class="p">,</span><span class="w">
@@ -1352,7 +1383,7 @@ Also returns the sum of pending orders for the caterers/users and the total cash
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"baa0412a-d167-4d2b-b1d8-404cb8f02631"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Semo/Wheat and Egusi Soup"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meal contains 2 pieces of beef and other assorted meat and fish products"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000.00"</span><span class="p">,</span><span class="w">
@@ -1367,9 +1398,9 @@ Also returns the sum of pending orders for the caterers/users and the total cash
 <li>Body: <code>(application/json)</code></li>
 </ul>
 
-<aside class="notice">Orders can only be made from 8:30 am to 4:00 pm. Caterers are notified of a new order after 15 minutes of no action by the user on that order</aside>
+<aside class="notice">Orders can only be made from 8:30 am to 4:00 pm. Caterers are notified of a new order after 100 secs of no action by the customer on that order</aside>
 <h2 id='modify-an-open-order'>Modify an Open Order</h2>
-<p>Modifies any open user orders in the app. An order starts being processed after 15 minutes and cannot be modified.</p>
+<p>Modifies any open customer orders in the app. An order starts being processed after 100 seconds and cannot be modified.</p>
 
 <blockquote>
 <p>Request Body</p>
@@ -1401,7 +1432,7 @@ Also returns the sum of pending orders for the caterers/users and the total cash
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7247d3a-de8a-43e2-90f6-b126cd4c491c"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"deliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4, Church Street, Yaba"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"deliveryPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348134567891"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"deliveryPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08134567891"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"started"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-18T16:18:25.303Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-18T16:18:25.303Z"</span><span class="p">,</span><span class="w">
@@ -1409,7 +1440,7 @@ Also returns the sum of pending orders for the caterers/users and the total cash
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36d525d1-efc9-4b75-9999-3e3d8dc64ce3"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vegetable Sharwama and Guava Smoothie"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sharwama contains no animal products, perfect for dieters"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200.00"</span><span class="p">,</span><span class="w">
@@ -1474,7 +1505,7 @@ Also returns the sum of pending orders for the caterers/users and the total cash
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7247d3a-de8a-43e2-90f6-b126cd4c491c"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"deliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4, Church Street, Yaba"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"deliveryPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+2348134567891"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"deliveryPhoneNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08134567891"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-18T16:18:25.303Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-18T16:18:25.303Z"</span><span class="p">,</span><span class="w">
@@ -1482,7 +1513,7 @@ Also returns the sum of pending orders for the caterers/users and the total cash
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36d525d1-efc9-4b75-9999-3e3d8dc64ce3"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vegetable Sharwama and Guava Smoothie"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sharwama contains no animal products, perfect for dieters"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"vegetarian"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200.00"</span><span class="p">,</span><span class="w">
@@ -1498,9 +1529,29 @@ Also returns the sum of pending orders for the caterers/users and the total cash
 </ul>
 
 <aside class="notice">Endpoint can only be accessed by the caterers</aside>
-<h1 id='notifications'>Notifications</h1><h2 id='get-notifications'>Get Notifications</h2>
-<p>Gets all notifications for Caterers and Users.</p>
+<h1 id='notifications'>Notifications</h1><h2 id='get-notifications-paginated'>Get Notifications (Paginated)</h2>
+<p>Gets all notifications for Caterers and Customers.</p>
 
+<blockquote>
+<p>Response Body - Customer</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"notifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6437d671-e028-4946-b3ea-ae227f31c5fd"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FoodCircle just added Jollof Spaghetti, Plantain and Turkey, Ewa Agoyin, Plantain and Local Fish, Wheat and Egusi Soup to their Menu for the day"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"menuId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"581a41de-6a79-4e36-afe8-919e8c744356"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-06T00:54:59+01:00"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/notifications?page=2&amp;limit=10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"totalItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <blockquote>
 <p>Response Body - Caterer</p>
 </blockquote>
@@ -1511,36 +1562,12 @@ Also returns the sum of pending orders for the caterers/users and the total cash
             </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your menu was just ordered"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15421f7a-0f82-4802-b215-e0e8efb6bfb3"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-01T01:47:03+01:00"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2d48f81e-b619-4da4-9dd4-b7d7d45e3f36"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emiola Olasanmi just ordered meal(s); Vegetable Sharwama and Guava Smoothie, Semo/Wheat and Egusi Soup."</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"435816a0-e304-4b4d-b4e4-72a2f643b65e"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-20T21:38:33+01:00"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="err">...</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Response Body - Customer</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"notifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3dc9cc9b-179b-4f0d-ac60-7ca6f4659d79"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jollof Spaghetti, Plantain and Turkey was just added to the menu"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"menuId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15421f7a-0f82-4802-b215-e0e8efb6bfb3"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-01T01:47:03+01:00"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9015c150-6079-4be6-a240-272a4de6bd17"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jollof Spaghetti, Plantain and Turkey was just added to the menu"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"menuId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15421f7a-0f82-4802-b215-e0e8efb6bfb3"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-01T01:47:03+01:00"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="err">...</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"totalItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-17'>HTTP Request</h3>
 <ul>

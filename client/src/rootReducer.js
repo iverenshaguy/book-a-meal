@@ -3,6 +3,7 @@ import { routerReducer } from 'react-router-redux';
 import { reducer as toastrReducer } from 'react-redux-toastr';
 import createHistory from 'history/createBrowserHistory';
 import { UNAUTHENTICATED } from './store/types';
+import singleOrder from './store/reducers/singleOrder';
 import uploadImage from './store/reducers/uploadImage';
 import isFetching from './store/reducers/isFetching';
 import orders from './store/reducers/orders';
@@ -16,6 +17,7 @@ export const history = createHistory();
 const appReducer = combineReducers({
   router: routerReducer,
   toastr: toastrReducer,
+  singleOrder,
   uploadImage,
   isFetching,
   orders,

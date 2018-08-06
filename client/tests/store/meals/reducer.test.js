@@ -1,10 +1,11 @@
 import reducer from '../../../src/store/reducers/meals';
-import { caterersMealsObj, newMeal } from '../../setup/data';
+import { caterersMealsObj, newMeal, metadata } from '../../setup/data';
 
 const state = {
   items: [],
   error: null,
-  working: false
+  working: false,
+  metadata: {}
 };
 
 describe('Meals Reducers', () => {
@@ -41,12 +42,32 @@ describe('Meals Reducers', () => {
   it('should handle RECEIVE_MEALS_SUCCESS action', () => {
     const newState = reducer(state, {
       type: 'RECEIVE_MEALS_SUCCESS',
-      payload: caterersMealsObj.meals
+      payload: {
+        meals: caterersMealsObj.meals,
+        metadata
+      }
     });
 
     expect(newState).toEqual({
       ...state,
-      items: caterersMealsObj.meals
+      items: caterersMealsObj.meals,
+      metadata
+    });
+  });
+
+  it('should handle RECEIVE_MORE_MEALS_SUCCESS action', () => {
+    const newState = reducer({ ...state, items: caterersMealsObj.meals }, {
+      type: 'RECEIVE_MORE_MEALS_SUCCESS',
+      payload: {
+        meals: caterersMealsObj.meals,
+        metadata
+      }
+    });
+
+    expect(newState).toEqual({
+      ...state,
+      items: [...caterersMealsObj.meals, ...caterersMealsObj.meals],
+      metadata
     });
   });
 

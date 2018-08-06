@@ -157,7 +157,7 @@ exports[`OrderDetails renders connected component 1`] = `
     <CustomerOrderDetails
       cancelOrder={[Function]}
       editOrder={[Function]}
-      fetchOrders={[Function]}
+      fetchOrder={[Function]}
       isFetching={false}
       logout={[Function]}
       match={
@@ -891,7 +891,7 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
     match={
       Object {
         "params": Object {
-          "id": "fb097bde-5959-45ff-8e21-51184fa61c25",
+          "id": "fb097b-5959-45ff-8e21-51184fa61c25",
         },
       }
     }
@@ -908,13 +908,13 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
     <CustomerOrderDetails
       cancelOrder={[Function]}
       editOrder={[Function]}
-      fetchOrders={[Function]}
+      fetchOrder={[Function]}
       isFetching={false}
       logout={[Function]}
       match={
         Object {
           "params": Object {
-            "id": "fb097bde-5959-45ff-8e21-51184fa61c25",
+            "id": "fb097b-5959-45ff-8e21-51184fa61c25",
           },
         }
       }

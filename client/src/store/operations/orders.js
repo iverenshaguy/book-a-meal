@@ -9,14 +9,21 @@ import {
   unsetOrderWorking, editOrderSuccess, editOrderFailure, cancelOrderSuccess, cancelOrderFailure,
 } from '../actions/orders';
 import reloadOrderPage from '../../utils/reloadOrderPage';
+import { RECEIVE_ORDERS_SUCCESS, RECEIVE_MORE_ORDERS_SUCCESS } from '../types';
 
-const fetchOrders = date => async (dispatch) => {
+const fetchOrders = (date, metadata) => async (dispatch) => {
   try {
-    dispatch(setFetching());
+    if (!metadata) dispatch(setFetching());
 
-    const response = date ? await instance.get(`/orders?date=${date}`) : await instance.get('/orders');
+    const initialUrl = (date && !metadata) ? `/orders?date=${date}` : '/orders';
 
-    dispatch(fetchOrdersSuccess(response.data));
+    const url = (metadata && metadata.next) ? metadata.next : initialUrl;
+
+    const response = await instance.get(url);
+
+    const type = metadata ? RECEIVE_MORE_ORDERS_SUCCESS : RECEIVE_ORDERS_SUCCESS;
+
+    dispatch(fetchOrdersSuccess(type, response.data));
     dispatch(unsetFetching());
   } catch (error) {
     const errorResponse = errorHandler(error);

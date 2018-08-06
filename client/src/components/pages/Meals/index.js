@@ -11,7 +11,8 @@ const mapStateToProps = state => ({
   meals: state.meals.items,
   uploading: state.uploadImage.uploading,
   submitting: state.meals.working,
-  submitError: state.meals.error
+  submitError: state.meals.error,
+  metadata: state.meals.metadata
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

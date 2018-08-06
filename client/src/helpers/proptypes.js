@@ -167,11 +167,24 @@ const renderFormFieldPropTypes = {
   handleFocus: PropTypes.func.isRequired,
 };
 
+const metadataProps = PropTypes.shape({
+  page: PropTypes.number,
+  totalItems: PropTypes.number,
+  prev: PropTypes.string,
+  next: PropTypes.string,
+});
+
+const metadataPropTypes = {
+  metadata: metadataProps.isRequired
+};
+
 export default {
   authPropTypes,
   formPropTypes,
   userPropType,
   userPropTypes,
+  metadataProps,
+  metadataPropTypes,
   mealObjPropTypes,
   urlMatchPropTypes,
   orderMealPropTypes,

@@ -1,6 +1,7 @@
 import { Op } from 'sequelize';
 import db from '../models';
 import errors from '../../data/errors.json';
+import Pagination from '../utils/Pagination';
 
 /**
  * @exports
@@ -8,26 +9,7 @@ import errors from '../../data/errors.json';
  */
 class Meals {
   /**
-   * Returns a list of Meal Options
-   * @method getMeals
-   * @memberof Meals
-   * @param {object} req
-   * @param {object} res
-   * @returns {(function|object)} Function next() or JSON object
-   */
-  static async getMeals(req, res) {
-    const { userId } = req;
-    const mealList = await db.Meal.findAll({
-      where: { userId },
-      paranoid: true,
-      attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
-      order: [['createdAt', 'DESC']]
-    });
-    return res.status(200).json({ meals: mealList });
-  }
-
-  /**
-   * Creates a new item
+   * Creates a new meal item
    * @method create
    * @memberof Meals
    * @param {object} req
@@ -56,14 +38,15 @@ class Meals {
   }
 
   /**
-   * Updates an existing item
+   * Updates an existing meal item
    * @method update
    * @memberof Meals
    * @param {object} req
    * @param {object} res
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
-   * First checks db to ensure another meal doesnt have the new meal title
+   * First checks db to ensure another meal belonging to the user
+   * doesnt have the new meal title
    */
   static async update(req, res) {
     const { mealId } = req.params;
@@ -91,7 +74,7 @@ class Meals {
   }
 
   /**
-   * Deletes an existing item
+   * Deletes an existing meal item
    * @method delete
    * @memberof Meals
    * @param {object} req
@@ -108,6 +91,35 @@ class Meals {
     await mealItem.destroy();
 
     return res.status(200).json({ message: 'Meal deleted successfully' });
+  }
+
+  /**
+   * Returns a list of Meal Options
+   * @method getMeals
+   * @memberof Meals
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  static async getMeals(req, res) {
+    const { userId } = req;
+    const paginate = new Pagination(req.query.page, req.query.limit);
+    const { limit, offset } = paginate.getQueryMetadata();
+
+    const data = await db.Meal.findAndCountAll({
+      where: { userId },
+      limit,
+      offset,
+      paranoid: true,
+      attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
+      order: [['createdAt', 'DESC']]
+    });
+
+    const url = '/meals';
+
+    return res.status(200).json({
+      meals: data.rows, metadata: paginate.getPageMetadata(data.count, url)
+    });
   }
 
   /**

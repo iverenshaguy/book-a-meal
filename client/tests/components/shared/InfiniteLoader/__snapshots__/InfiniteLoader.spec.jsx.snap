@@ -2,6 +2,7 @@
 
 exports[`InfiniteLoader renders correctly 1`] = `
 <InfiniteLoader
+  height={10}
   items={
     Array [
       <p>
@@ -36,12 +37,19 @@ exports[`InfiniteLoader renders correctly 1`] = `
       </p>,
     ]
   }
-  limit={3}
+  loadMore={[MockFunction]}
+  metadata={
+    Object {
+      "pages": 1,
+      "totalItems": 20,
+    }
+  }
 >
   <InfiniteScroll
-    dataLength={3}
+    dataLength={10}
     disableBrowserPullToRefresh={true}
-    hasMore={true}
+    hasMore={false}
+    height={10}
     loader={
       <div
         className="text-center"
@@ -49,7 +57,7 @@ exports[`InfiniteLoader renders correctly 1`] = `
         <MiniPreloader />
       </div>
     }
-    next={[Function]}
+    next={[MockFunction]}
     pullDownToRefreshContent={
       <h3>
         Pull down to refresh
@@ -70,7 +78,7 @@ exports[`InfiniteLoader renders correctly 1`] = `
         style={
           Object {
             "WebkitOverflowScrolling": "touch",
-            "height": "auto",
+            "height": 10,
             "overflow": "auto",
           }
         }
@@ -93,37 +101,41 @@ exports[`InfiniteLoader renders correctly 1`] = `
           >
             Heya!
           </p>
-        </div>
-        <div
-          className="text-center"
-        >
-          <MiniPreloader>
-            <Loader
-              active={true}
-              type="ball-beat"
-            >
-              <div
-                className="loader loader-undefined loader-active"
-              >
-                <div
-                  className="loader-inner ball-beat"
-                >
-                  <div
-                    key="0"
-                    style={Object {}}
-                  />
-                  <div
-                    key="1"
-                    style={Object {}}
-                  />
-                  <div
-                    key="2"
-                    style={Object {}}
-                  />
-                </div>
-              </div>
-            </Loader>
-          </MiniPreloader>
+          <p
+            key="3"
+          >
+            Heya!
+          </p>
+          <p
+            key="4"
+          >
+            Heya!
+          </p>
+          <p
+            key="5"
+          >
+            Heya!
+          </p>
+          <p
+            key="6"
+          >
+            Heya!
+          </p>
+          <p
+            key="7"
+          >
+            Heya!
+          </p>
+          <p
+            key="8"
+          >
+            Heya!
+          </p>
+          <p
+            key="9"
+          >
+            Heya!
+          </p>
         </div>
       </div>
     </div>

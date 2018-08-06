@@ -9,10 +9,7 @@ import { caterer, caterersOrdersObj, initialValues } from '../../../setup/data';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({
-  ...initialValues,
-  orders: {
-    ...initialValues.orders, items: caterersOrdersObj.orders
-  }
+  ...initialValues
 });
 
 const { now } = Date;
@@ -30,7 +27,7 @@ describe('OrderDetails', () => {
     const wrapper = shallow(<CatererOrderDetails
       user={caterer}
       logout={jest.fn()}
-      fetchOrders={jest.fn()}
+      fetchOrder={jest.fn()}
       deliverOrder={jest.fn()}
       order={caterersOrdersObj.orders[0]}
       isFetching={false}
@@ -46,7 +43,7 @@ describe('OrderDetails', () => {
     const wrapper = shallow(<CatererOrderDetails
       user={caterer}
       logout={jest.fn()}
-      fetchOrders={jest.fn()}
+      fetchOrder={jest.fn()}
       deliverOrder={jest.fn()}
       order={caterersOrdersObj.orders[0]}
       isFetching
@@ -62,7 +59,7 @@ describe('OrderDetails', () => {
     const wrapper = shallow(<CatererOrderDetails
       user={caterer}
       logout={jest.fn()}
-      fetchOrders={jest.fn()}
+      fetchOrder={jest.fn()}
       deliverOrder={jest.fn()}
       order={caterersOrdersObj.orders[0]}
       isFetching={false}
@@ -80,6 +77,7 @@ describe('OrderDetails', () => {
         <ConnectedCatererOrderDetails
           user={caterer}
           isFetching={false}
+          order={null}
           match={{ params: { id: 'fb097bde-5959-45ff' } }}
         />
       </Provider>);
@@ -91,8 +89,13 @@ describe('OrderDetails', () => {
   });
 
   it('renders delivered order', () => {
+    const newStore = mockStore({
+      ...initialValues,
+      singleOrder: { ...initialValues.singleOrder, item: caterersOrdersObj.orders[0] }
+    });
+
     const comp = (
-      <Provider store={store}>
+      <Provider store={newStore}>
         <ConnectedCatererOrderDetails
           user={caterer}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }}
@@ -105,8 +108,13 @@ describe('OrderDetails', () => {
   });
 
   it('renders canceled order', () => {
+    const newStore = mockStore({
+      ...initialValues,
+      singleOrder: { ...initialValues.singleOrder, item: caterersOrdersObj.orders[3] }
+    });
+
     const comp = (
-      <Provider store={store}>
+      <Provider store={newStore}>
         <ConnectedCatererOrderDetails
           user={caterer}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c35' } }}
@@ -119,8 +127,13 @@ describe('OrderDetails', () => {
   });
 
   it('renders pending order and delivers pending order', () => {
+    const newStore = mockStore({
+      ...initialValues,
+      singleOrder: { ...initialValues.singleOrder, item: caterersOrdersObj.orders[2] }
+    });
+
     const comp = (
-      <Provider store={store}>
+      <Provider store={newStore}>
         <ConnectedCatererOrderDetails
           user={caterer}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c26' } }}
@@ -135,8 +148,13 @@ describe('OrderDetails', () => {
   });
 
   it('renders connected component', () => {
+    const newStore = mockStore({
+      ...initialValues,
+      singleOrder: { ...initialValues.singleOrder, item: caterersOrdersObj.orders[0] }
+    });
+
     const comp = (
-      <Provider store={store}>
+      <Provider store={newStore}>
         <ConnectedCatererOrderDetails
           user={caterer}
           isFetching={false}

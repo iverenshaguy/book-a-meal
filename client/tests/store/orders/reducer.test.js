@@ -1,5 +1,5 @@
 import reducer from '../../../src/store/reducers/orders';
-import { deliverOrder as deliverOrderData, caterersOrdersObj, customerOrder, customersOrdersObj } from '../../setup/data';
+import { deliverOrder as deliverOrderData, caterersOrdersObj, customerOrder, customersOrdersObj, metadata } from '../../setup/data';
 
 
 const state = {
@@ -8,7 +8,8 @@ const state = {
   pendingOrders: 0,
   totalCashEarned: 0,
   error: null,
-  working: false
+  working: false,
+  metadata: {}
 };
 
 describe('Orders Reducers', () => {
@@ -21,14 +22,36 @@ describe('Orders Reducers', () => {
   it('should handle RECEIVE_ORDERS_SUCCESS action', () => {
     const newState = reducer(state, {
       type: 'RECEIVE_ORDERS_SUCCESS',
-      payload: caterersOrdersObj
+      payload: {
+        ...caterersOrdersObj,
+        metadata
+      }
     });
 
     expect(newState).toEqual({
       ...state,
       items: caterersOrdersObj.orders,
       pendingOrders: caterersOrdersObj.pendingOrders,
-      totalCashEarned: caterersOrdersObj.totalCashEarned
+      totalCashEarned: caterersOrdersObj.totalCashEarned,
+      metadata
+    });
+  });
+
+  it('should handle RECEIVE_MORE_ORDERS_SUCCESS action', () => {
+    const newState = reducer({ ...state, items: caterersOrdersObj.orders }, {
+      type: 'RECEIVE_MORE_ORDERS_SUCCESS',
+      payload: {
+        ...caterersOrdersObj,
+        metadata
+      }
+    });
+
+    expect(newState).toEqual({
+      ...state,
+      items: [...caterersOrdersObj.orders, ...caterersOrdersObj.orders],
+      pendingOrders: caterersOrdersObj.pendingOrders,
+      totalCashEarned: caterersOrdersObj.totalCashEarned,
+      metadata
     });
   });
 

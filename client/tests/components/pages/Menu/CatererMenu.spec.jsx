@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import CatererMenu from '../../../../src/components/pages/Menu/CatererMenu/CatererMenu';
 import ConnectedCatererMenu from '../../../../src/components/pages/Menu/CatererMenu';
-import { caterer, caterersMealsObj, initialValues } from '../../../setup/data';
+import { caterer, caterersMealsObj, initialValues, metadata } from '../../../setup/data';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -36,10 +36,33 @@ describe('CatererMenu', () => {
       setCurrentDay={jest.fn()}
       currentDay={moment().format('YYYY-MM-DD')}
       toggleModal={toggleMock}
+      metadata={metadata}
     />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('MealCard')).toBeTruthy();
+  });
+
+  it('calls fetchMenu when loadMoreMenu is called', () => {
+    const toggleMock = jest.fn();
+    const fetchMenuMock = jest.fn();
+
+    const shallowWrapper = shallow(<CatererMenu
+      user={caterer}
+      logout={jest.fn()}
+      fetchMenu={fetchMenuMock}
+      {...caterersMealsObj}
+      isFetching={false}
+      submitting={false}
+      setCurrentDay={jest.fn()}
+      currentDay={moment().format('YYYY-MM-DD')}
+      toggleModal={toggleMock}
+      metadata={metadata}
+    />);
+
+    shallowWrapper.instance().loadMoreMenu();
+
+    expect(fetchMenuMock).toHaveBeenCalledTimes(2);
   });
 
   it('calls toggleModal when set meal button is clicked', () => {
@@ -54,6 +77,7 @@ describe('CatererMenu', () => {
       setCurrentDay={jest.fn()}
       currentDay={moment().format('YYYY-MM-DD')}
       toggleModal={toggleMock}
+      metadata={metadata}
     />);
 
     wrapper.find('#menu-modal-btn').simulate('click');
@@ -72,6 +96,7 @@ describe('CatererMenu', () => {
       setCurrentDay={setCurrentDayMock}
       currentDay={moment().format('YYYY-MM-DD')}
       toggleModal={jest.fn()}
+      metadata={metadata}
     />);
 
     const event = { target: { value: moment().format('YYYY-MM-DD') } };
@@ -93,6 +118,7 @@ describe('CatererMenu', () => {
       setCurrentDay={jest.fn()}
       currentDay={moment().format('YYYY-MM-DD')}
       toggleModal={toggleMock}
+      metadata={metadata}
     />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
@@ -111,6 +137,7 @@ describe('CatererMenu', () => {
       setCurrentDay={jest.fn()}
       currentDay={moment().format('YYYY-MM-DD')}
       toggleModal={toggleMock}
+      metadata={metadata}
     />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
@@ -145,6 +172,7 @@ describe('CatererMenu', () => {
       setCurrentDay={jest.fn()}
       currentDay={moment().format('YYYY-MM-DD')}
       toggleModal={toggleMock}
+      metadata={metadata}
     />);
 
     wrapper.setProps({

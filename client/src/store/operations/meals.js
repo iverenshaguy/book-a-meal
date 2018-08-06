@@ -8,14 +8,19 @@ import {
   deleteMealSuccess, deleteMealFailure
 } from '../actions/meals';
 import { toggleModal } from '../actions/ui';
+import { RECEIVE_MEALS_SUCCESS, RECEIVE_MORE_MEALS_SUCCESS } from '../types';
 
-const fetchMeals = () => async (dispatch) => {
+const fetchMeals = metadata => async (dispatch) => {
+  const url = (metadata && metadata.next) || '/meals';
+
   try {
-    dispatch(setFetching());
+    if (!metadata) dispatch(setFetching());
 
-    const response = await instance.get('/meals');
+    const response = await instance.get(url);
 
-    dispatch(fetchMealsSuccess(response.data.meals));
+    const type = metadata ? RECEIVE_MORE_MEALS_SUCCESS : RECEIVE_MEALS_SUCCESS;
+
+    dispatch(fetchMealsSuccess(type, response.data));
     dispatch(unsetFetching());
   } catch (error) {
     const errorResponse = errorHandler(error);
@@ -24,7 +29,6 @@ const fetchMeals = () => async (dispatch) => {
     dispatch(unsetFetching());
   }
 };
-
 const addMeal = meal => async (dispatch) => {
   try {
     dispatch(setMealWorking());

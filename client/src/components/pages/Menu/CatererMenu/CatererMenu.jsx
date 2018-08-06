@@ -57,11 +57,19 @@ class CatererMenu extends Component {
 
   /**
    * @memberof CatererMenu
-   * @returns {JSX} CatererMenu Component
+   * @param {object} metadata
+   * @returns {func} fetchMenu
   */
-  fetchMenu = () => {
-    this.props.fetchMenu(this.props.currentDay);
+  fetchMenu = (metadata = null) => {
+    this.props.fetchMenu(this.props.currentDay, metadata);
   }
+
+  /**
+   * @memberof CatererMenu
+   * @param {object} metadata
+   * @returns {func} load more menu
+  */
+ loadMoreMenu = () => this.fetchMenu(this.props.metadata)
 
   /**
    * @memberof CatererMenu
@@ -93,7 +101,12 @@ class CatererMenu extends Component {
             <hr />
           </div>
           {this.props.meals.length === 0 && <p className="text-center">There are no Meal Items on this Menu</p>}
-          {this.props.meals.length !== 0 && <CardGroup items={menu} limit={8} />}
+          {this.props.meals.length !== 0 &&
+            <CardGroup
+              items={menu}
+              metadata={this.props.metadata}
+              loadMore={this.loadMoreMenu}
+            />}
         </div>
       </Fragment>
     );

@@ -1,11 +1,11 @@
 import {
-  RECEIVE_MENU_SUCCESS, RECEIVE_MENU_FAILURE, SET_CURRENT_DAY, SET_MENU_WORKING,
+  RECEIVE_MENU_FAILURE, SET_CURRENT_DAY, SET_MENU_WORKING,
   UNSET_MENU_WORKING, CLEAR_MENU_ERROR, ADD_MENU_SUCCESS, ADD_MENU_FAILURE,
   EDIT_MENU_SUCCESS, EDIT_MENU_FAILURE
 } from '../types';
 
-export const fetchMenuSuccess = payload => ({
-  type: RECEIVE_MENU_SUCCESS,
+export const fetchMenuSuccess = (type, payload) => ({
+  type,
   payload
 });
 

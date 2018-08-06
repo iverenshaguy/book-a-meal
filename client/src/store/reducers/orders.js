@@ -2,7 +2,8 @@ import {
   RECEIVE_ORDERS_SUCCESS, RECEIVE_ORDERS_FAILURE,
   DELIVER_ORDER_SUCCESS, DELIVER_ORDER_FAILURE, SET_DELIVERING, UNSET_DELIVERING,
   ADD_ORDER_SUCCESS, ADD_ORDER_FAILURE, SET_ORDER_WORKING, UNSET_ORDER_WORKING,
-  EDIT_ORDER_SUCCESS, EDIT_ORDER_FAILURE, CANCEL_ORDER_SUCCESS, CANCEL_ORDER_FAILURE
+  EDIT_ORDER_SUCCESS, EDIT_ORDER_FAILURE, CANCEL_ORDER_SUCCESS, CANCEL_ORDER_FAILURE,
+  RECEIVE_MORE_ORDERS_SUCCESS
 } from '../types';
 import calculateCashEarnedFromOrder from '../../helpers/calculateCashEarnedFromOrder';
 import getUpdatedItems from '../../helpers/getUpdatedItems';
@@ -13,7 +14,8 @@ const initialValues = {
   totalCashEarned: 0,
   working: false,
   delivering: false,
-  error: null
+  error: null,
+  metadata: {},
 };
 
 export default (state = initialValues, action) => {
@@ -33,6 +35,15 @@ export default (state = initialValues, action) => {
       return {
         ...state,
         items: action.payload.orders,
+        metadata: action.payload.metadata,
+        pendingOrders: action.payload.pendingOrders,
+        totalCashEarned: action.payload.totalCashEarned
+      };
+    case RECEIVE_MORE_ORDERS_SUCCESS:
+      return {
+        ...state,
+        items: [...state.items, ...action.payload.orders],
+        metadata: action.payload.metadata,
         pendingOrders: action.payload.pendingOrders,
         totalCashEarned: action.payload.totalCashEarned
       };

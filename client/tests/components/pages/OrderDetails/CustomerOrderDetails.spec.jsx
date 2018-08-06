@@ -9,10 +9,7 @@ import { customer, customersOrdersObj, initialValues } from '../../../setup/data
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({
-  ...initialValues,
-  orders: {
-    ...initialValues.orders, items: customersOrdersObj.orders
-  }
+  ...initialValues
 });
 
 const { now } = Date;
@@ -30,13 +27,13 @@ describe('OrderDetails', () => {
     const wrapper = shallow(<CustomerOrderDetails
       user={customer}
       logout={jest.fn()}
-      fetchOrders={jest.fn()}
+      fetchOrder={jest.fn()}
       editOrder={jest.fn()}
       cancelOrder={jest.fn()}
       push={jest.fn()}
       order={customersOrdersObj.orders[0]}
       isFetching={false}
-      match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }}
+      match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa70c25' } }}
     />);
 
     expect(toJson(wrapper)).toMatchSnapshot();
@@ -46,13 +43,13 @@ describe('OrderDetails', () => {
     const wrapper = shallow(<CustomerOrderDetails
       user={customer}
       logout={jest.fn()}
-      fetchOrders={jest.fn()}
+      fetchOrder={jest.fn()}
       editOrder={jest.fn()}
       cancelOrder={jest.fn()}
       push={jest.fn()}
       order={customersOrdersObj.orders[0]}
       isFetching
-      match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }}
+      match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa70c25' } }}
     />);
 
     expect(toJson(wrapper)).toMatchSnapshot();
@@ -65,7 +62,7 @@ describe('OrderDetails', () => {
         <ConnectedCustomerOrderDetails
           user={customer}
           isFetching={false}
-          match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa61c25' } }}
+          match={{ params: { id: 'fb097b-5959-45ff-8e21-51184fa61c25' } }}
         />
       </Provider>);
 
@@ -76,8 +73,13 @@ describe('OrderDetails', () => {
   });
 
   it('renders delivered order', () => {
+    const newStore = mockStore({
+      ...initialValues,
+      singleOrder: { ...initialValues.singleOrder, item: customersOrdersObj.orders[1] }
+    });
+
     const comp = (
-      <Provider store={store}>
+      <Provider store={newStore}>
         <ConnectedCustomerOrderDetails
           user={customer}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }}
@@ -90,8 +92,13 @@ describe('OrderDetails', () => {
   });
 
   it('renders canceled order', () => {
+    const newStore = mockStore({
+      ...initialValues,
+      singleOrder: { ...initialValues.singleOrder, item: customersOrdersObj.orders[0] }
+    });
+
     const comp = (
-      <Provider store={store}>
+      <Provider store={newStore}>
         <ConnectedCustomerOrderDetails
           user={customer}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa70c25' } }}
@@ -104,10 +111,16 @@ describe('OrderDetails', () => {
   });
 
   it('renders pending order', () => {
+    const newStore = mockStore({
+      ...initialValues,
+      singleOrder: { ...initialValues.singleOrder, item: customersOrdersObj.orders[2] }
+    });
+
     const comp = (
-      <Provider store={store}>
+      <Provider store={newStore}>
         <ConnectedCustomerOrderDetails
           user={customer}
+          order={customersOrdersObj.orders[2]}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa80c25' } }}
         />
       </Provider>);
@@ -117,8 +130,13 @@ describe('OrderDetails', () => {
   });
 
   it('renders started order and shows control buttons', () => {
+    const newStore = mockStore({
+      ...initialValues,
+      singleOrder: { ...initialValues.singleOrder, item: customersOrdersObj.orders[3] }
+    });
+
     const comp = (
-      <Provider store={store}>
+      <Provider store={newStore}>
         <ConnectedCustomerOrderDetails
           user={customer}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa90c25' } }}
@@ -131,8 +149,13 @@ describe('OrderDetails', () => {
   });
 
   it('renders connected component', () => {
+    const newStore = mockStore({
+      ...initialValues,
+      singleOrder: { ...initialValues.singleOrder, item: customersOrdersObj.orders[1] }
+    });
+
     const comp = (
-      <Provider store={store}>
+      <Provider store={newStore}>
         <ConnectedCustomerOrderDetails
           user={customer}
           isFetching={false}
@@ -147,8 +170,13 @@ describe('OrderDetails', () => {
   });
 
   it('calls edit order method on edit button click', () => {
+    const newStore = mockStore({
+      ...initialValues,
+      singleOrder: { ...initialValues.singleOrder, item: customersOrdersObj.orders[3] }
+    });
+
     const comp = (
-      <Provider store={store}>
+      <Provider store={newStore}>
         <ConnectedCustomerOrderDetails
           user={customer}
           isFetching={false}
@@ -169,18 +197,23 @@ describe('OrderDetails', () => {
 
   it('calls cancel order method on cancel button click', () => {
     const cancelOrderMock = jest.fn();
+    const newStore = mockStore({
+      ...initialValues,
+      singleOrder: { ...initialValues.singleOrder, item: customersOrdersObj.orders[0] }
+    });
 
     const comp = (
-      <Provider store={store}>
+      <Provider store={newStore}>
         <CustomerOrderDetails
           user={customer}
           logout={jest.fn()}
-          fetchOrders={jest.fn()}
+          fetchOrder={jest.fn()}
           editOrder={jest.fn()}
           cancelOrder={cancelOrderMock}
           push={jest.fn()}
-          order={customersOrdersObj.orders[3]}
           isFetching={false}
+          order={customersOrdersObj.orders[3]}
+          match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa90c25' } }}
         />
       </Provider>);
 

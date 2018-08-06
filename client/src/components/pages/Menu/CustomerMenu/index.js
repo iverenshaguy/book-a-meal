@@ -6,7 +6,8 @@ import { fetchMenu } from '../../../../store/operations/menu';
 
 const mapStateToProps = state => ({
   isFetching: state.isFetching,
-  meals: state.menu.meals
+  meals: state.menu.meals,
+  metadata: state.meals.metadata
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

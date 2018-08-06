@@ -7,6 +7,7 @@ import { logout } from '../../../store/operations/auth';
 const mapStateToProps = state => ({
   isFetching: state.isFetching,
   orders: state.orders.items,
+  metadata: state.orders.metadata
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import MockAdapter from 'axios-mock-adapter';
 import instance from '../../../src/config/axios';
 import operations from '../../../src/store/operations/menu';
-import { caterersMealsObj, customersMenuObj } from '../../setup/data';
+import { caterersMealsObj, customersMenuObj, metadata } from '../../setup/data';
 
 const {
   addMenu,
@@ -30,12 +30,13 @@ const newMenu = { date: '2018-06-07', meals: caterersMealsObj.meals };
 // configure Mock store
 const store = mockStore({
   meals: [],
-  error: null
+  error: null,
+  metadata: {}
 });
 
 describe('Menu Actions', () => {
   test('fetchMenuSuccess', () => {
-    const action = fetchMenuSuccess(caterersMealsObj);
+    const action = fetchMenuSuccess('RECEIVE_MENU_SUCCESS', caterersMealsObj);
 
     expect(action).toEqual({
       type: 'RECEIVE_MENU_SUCCESS',
@@ -147,6 +148,20 @@ describe('Menu Actions', () => {
         mockReq.onGet(`${url}/menu?date=2018-06-07`).reply(200, customersMenuObj);
 
         return store.dispatch(fetchMenu('2018-06-07')).then(() => {
+          const dispatchedActions = store.getActions();
+
+          const actionTypes = dispatchedActions.map(action => action.type);
+
+          expect(actionTypes).toEqual(expectedActions);
+        });
+      });
+
+      it('dispatches RECEIVE_MORE_MENU_SUCCESS and UNSET_FETCHING on successful fetching of customer menu with metadata', () => {
+        const expectedActions = ['RECEIVE_MORE_MENU_SUCCESS', 'UNSET_FETCHING'];
+
+        mockReq.onGet(`${url}/menu?date=2018-06-07&limit=5`).reply(200, customersMenuObj);
+
+        return store.dispatch(fetchMenu('2018-06-07', { ...metadata, next: '/menu?date=2018-06-07&limit=5' })).then(() => {
           const dispatchedActions = store.getActions();
 
           const actionTypes = dispatchedActions.map(action => action.type);

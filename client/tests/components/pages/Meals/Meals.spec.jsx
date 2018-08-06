@@ -4,12 +4,12 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import Meals from '../../../../src/components/pages/Meals/Meals';
 import ConnectedMeals from '../../../../src/components/pages/Meals';
-import { caterer, customer, caterersMealsObj, initialValues } from '../../../setup/data';
+import { caterer, customer, caterersMealsObj, initialValues, metadata } from '../../../setup/data';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({
-  ...initialValues, meals: { ...initialValues.meals, items: caterersMealsObj.meals }
+  ...initialValues, meals: { ...initialValues.meals, items: caterersMealsObj.meals, metadata }
 });
 const { now } = Date;
 
@@ -34,10 +34,70 @@ describe('Meals', () => {
       submitting={false}
       uploading={false}
       toggleModal={toggleMock}
+      metadata={metadata}
     />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('MealCard')).toBeTruthy();
+  });
+
+  it('does not call fetchMeals on component mount when metadata is not available', () => {
+    const toggleMock = jest.fn();
+    const fetchMealsMock = jest.fn();
+
+    shallow(<Meals
+      user={caterer}
+      logout={jest.fn()}
+      fetchMeals={fetchMealsMock}
+      {...caterersMealsObj}
+      isFetching={false}
+      submitting={false}
+      uploading={false}
+      toggleModal={toggleMock}
+      metadata={metadata}
+    />);
+
+    expect(fetchMealsMock).not.toHaveBeenCalled();
+  });
+
+  it('calls fetchMeals on component mount when metadata is available', () => {
+    const toggleMock = jest.fn();
+    const fetchMealsMock = jest.fn();
+
+    shallow(<Meals
+      user={caterer}
+      logout={jest.fn()}
+      fetchMeals={fetchMealsMock}
+      {...caterersMealsObj}
+      isFetching={false}
+      submitting={false}
+      uploading={false}
+      toggleModal={toggleMock}
+      metadata={{}}
+    />);
+
+    expect(fetchMealsMock).toHaveBeenCalled();
+  });
+
+  it('calls fetchMeals when loadMoreMeals is called', () => {
+    const toggleMock = jest.fn();
+    const fetchMealsMock = jest.fn();
+
+    const shallowWrapper = shallow(<Meals
+      user={caterer}
+      logout={jest.fn()}
+      fetchMeals={fetchMealsMock}
+      {...caterersMealsObj}
+      isFetching={false}
+      submitting={false}
+      uploading={false}
+      toggleModal={toggleMock}
+      metadata={{}}
+    />);
+
+    shallowWrapper.instance().loadMoreMeals();
+
+    expect(fetchMealsMock).toHaveBeenCalledTimes(2);
   });
 
   it('calls toggleModal when button is clicked', () => {
@@ -51,6 +111,7 @@ describe('Meals', () => {
       submitting={false}
       uploading={false}
       toggleModal={toggleMock}
+      metadata={metadata}
     />);
 
     wrapper.find('#add-meal-btn').simulate('click');
@@ -88,6 +149,7 @@ describe('Meals', () => {
       submitting={false}
       uploading={false}
       toggleModal={toggleMock}
+      metadata={metadata}
     />);
 
     expect(shallowWrapper.find('Redirect')).toBeTruthy();
@@ -104,6 +166,7 @@ describe('Meals', () => {
       submitting={false}
       uploading={false}
       toggleModal={toggleMock}
+      metadata={metadata}
     />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
@@ -121,6 +184,7 @@ describe('Meals', () => {
       submitting={false}
       uploading={false}
       toggleModal={toggleMock}
+      metadata={metadata}
     />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
