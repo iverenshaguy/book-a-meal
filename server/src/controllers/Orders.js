@@ -5,7 +5,7 @@ import errors from '../../data/errors.json';
 import orderEmitter from '../events/Orders';
 import Pagination from '../utils/Pagination';
 import Users from './Users';
-import { sqlOptions, customerPendingOrdersSql, catererCashEarnedSql, catererPendingOrdersSql } from '../../data/queries';
+import { sqlOptions, customerPendingOrdersSql, catererCashEarnedSql, catererPendingOrdersSql } from '../helpers/queries';
 
 /**
  * @exports

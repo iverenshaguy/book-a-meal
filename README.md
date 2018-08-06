@@ -60,25 +60,33 @@ Documentation is hosted at [https://book-a-meal-sivy.herokuapp.com/api/v1/docs](
 
 ## Features
 
+### Users
+
+* Users can signin and signup on the app as either caterer or customer
+* Users can reset their password
+
 ### Caterers
 
-* Signup and Login
-* Create Meals
-* Modiy Meals
-* Delete Meals
-* Setup Menu for Particular Day
-* Get All Orders for a Specific Day
-* Get All Caterer's Orders on the platform
-* Get Order Notifications
+* Caterers can create meals
+* Caterers can modify meals
+* Caterers can delete meals
+* Caterers can setup menu for a particular day
+* Caterers can modify menu for a particular day
+* Caterers can get a particular order
+* Caterers can mark a pending order as delivered
+* Caterers can get all their orders on the platform
+* Caterers can get all their orders for a specific day
+* Caterers can get order notifications
 
 ### Customers
 
-* Signup and Login
-* Make an Order
-* Modify an Order
-* Get Menu for the Day
-* Get Meal Order History
-* Get New Menu Notifications
+* Customers can make an order
+* Customers can modify or cancel an order within 100 seconds of creating it
+* Customers can get the menu for the day
+* Customers can get a particular order
+* Customers can get all their orders on the platform
+* Customers can get all their orders for a specific day
+* Customers can get new menu notifications
 
 ## Getting Started
 

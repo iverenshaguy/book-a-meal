@@ -14,7 +14,7 @@ const envPlugin = new Dotenv();
 
 module.exports = merge(common, {
   mode: 'development',
-  devtool: 'eval',
+  devtool: 'eval-source-map',
   entry: { app: ['react-hot-loader/patch', 'webpack-hot-middleware/client', './client/src/index.jsx'] },
   module: {
     rules: [

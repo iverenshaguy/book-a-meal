@@ -4,6 +4,7 @@ import path from 'path';
 import cors from 'cors';
 import { config } from 'dotenv';
 import bodyParser from 'body-parser';
+import gzipStatic from 'connect-gzip-static';
 import 'babel-polyfill';
 import apiRoutes from './routes';
 import orderEmitter from './events/Orders';
@@ -38,8 +39,8 @@ app.use('/api/v1/docs', express.static('server/docs'));
 app.use('/api', apiRoutes);
 
 // Serve static assets
-app.use(express.static(path.resolve(__dirname, '../../client/', 'dist')));
-app.use(express.static(path.resolve(__dirname, '../../client/', 'public')));
+app.use(gzipStatic(path.resolve(__dirname, '../../client/', 'dist')));
+app.use(gzipStatic(path.resolve(__dirname, '../../client/', 'public')));
 
 // Serve Client File
 app.get('/*', (req, res) => {
