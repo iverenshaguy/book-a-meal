@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import CustomerMenu from '../../../../src/components/pages/Menu/CustomerMenu/CustomerMenu';
 import ConnectedCustomerMenu from '../../../../src/components/pages/Menu/CustomerMenu';
-import { customer, caterersMealsObj, orderItems, initialValues } from '../../../setup/data';
+import { customer, caterersMealsObj, orderItems, initialValues, metadata } from '../../../setup/data';
 import updateLocalStorageOrder from '../../../../src/helpers/updateLocalStorageOrder';
 
 const middlewares = [thunk];
@@ -36,6 +36,7 @@ describe('CustomerMenu', () => {
       fetchMenu={jest.fn()}
       {...caterersMealsObj}
       isFetching={false}
+      metadata={metadata}
     />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
@@ -49,6 +50,7 @@ describe('CustomerMenu', () => {
       fetchMenu={jest.fn()}
       {...caterersMealsObj}
       isFetching
+      metadata={metadata}
     />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
@@ -62,10 +64,28 @@ describe('CustomerMenu', () => {
       fetchMenu={jest.fn()}
       meals={[]}
       isFetching
+      metadata={metadata}
     />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('p').text()).toEqual('There are no Meals on Today\'s Menu');
+  });
+
+  it('calls fetchMenu when loadMoreMenu is called', () => {
+    const fetchMenuMock = jest.fn();
+
+    const shallowWrapper = shallow(<CustomerMenu
+      user={customer}
+      logout={jest.fn()}
+      fetchMenu={fetchMenuMock}
+      meals={[]}
+      isFetching
+      metadata={metadata}
+    />);
+
+    shallowWrapper.instance().loadMoreMenu();
+
+    expect(fetchMenuMock).toHaveBeenCalledTimes(2);
   });
 
   it('renders connected component', () => {
@@ -93,6 +113,7 @@ describe('CustomerMenu', () => {
           fetchMenu={jest.fn()}
           isFetching={false}
           {...caterersMealsObj}
+          metadata={metadata}
         />
       </Provider>);
     const wrapper = mount(comp, rrcMock.get());
@@ -134,6 +155,7 @@ describe('CustomerMenu', () => {
             fetchMenu={jest.fn()}
             isFetching={false}
             {...caterersMealsObj}
+            metadata={metadata}
           />
         </Provider>);
 
@@ -166,6 +188,7 @@ describe('CustomerMenu', () => {
             fetchMenu={jest.fn()}
             isFetching={false}
             {...caterersMealsObj}
+            metadata={metadata}
           />
         </Provider>);
 
@@ -196,6 +219,7 @@ describe('CustomerMenu', () => {
             fetchMenu={jest.fn()}
             isFetching={false}
             {...caterersMealsObj}
+            metadata={metadata}
           />
         </Provider>);
 
@@ -220,6 +244,7 @@ describe('CustomerMenu', () => {
             fetchMenu={jest.fn()}
             isFetching={false}
             {...caterersMealsObj}
+            metadata={metadata}
           />
         </Provider>);
 
@@ -245,6 +270,7 @@ describe('CustomerMenu', () => {
             fetchMenu={jest.fn()}
             isFetching={false}
             {...caterersMealsObj}
+            metadata={metadata}
           />
         </Provider>);
 
@@ -277,6 +303,7 @@ describe('CustomerMenu', () => {
             fetchMenu={jest.fn()}
             isFetching={false}
             {...caterersMealsObj}
+            metadata={metadata}
           />
         </Provider>);
 

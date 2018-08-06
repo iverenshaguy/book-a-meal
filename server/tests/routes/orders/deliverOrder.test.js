@@ -66,7 +66,7 @@ describe('Order Routes: Deliver an Order', () => {
       }));
   });
 
-  it('should not change order status to delivered when all meals haven\'t been delivered', (done) => {
+  it('should change caterer\'s order status to delivered when all his meals have been delivered', (done) => {
     request(app)
       .post(`/api/v1/orders/${newOrderId2}/deliver`)
       .set('Accept', 'application/json')
@@ -74,11 +74,21 @@ describe('Order Routes: Deliver an Order', () => {
       .send({ delivered: true })
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
-        expect(res.body.status).to.equal('pending');
+        expect(res.body.status).to.equal('delivered');
 
         if (err) return done(err);
         done();
       });
+  });
+
+  it('should not change order status to delivered when all meals haven\'t been delivered', async () => {
+    try {
+      const order = await db.Order.findOne({ where: { orderId: newOrderId2 } });
+
+      expect(order.get().status).to.equal('pending');
+    } catch (err) {
+      if (err) return err;
+    }
   });
 
   it('should not modify an expired/delivered order', (done) => {

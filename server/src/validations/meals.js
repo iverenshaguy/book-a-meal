@@ -82,6 +82,20 @@ export default {
     check('mealId')
       .isUUID(4)
       .withMessage('Invalid ID'),
+  ],
+  get: [
+    check('limit')
+      .trim()
+      .optional()
+      .custom(value => notEmpty(value, 'Limit cannot be blank'))
+      .isInt({ gt: 0 })
+      .withMessage('Limit must be an integer greater than 0'),
+    check('page')
+      .trim()
+      .optional()
+      .custom(value => notEmpty(value, 'Page cannot be blank'))
+      .isInt({ gt: 0 })
+      .withMessage('Page must be an integer greater than 0'),
   ]
 };
 

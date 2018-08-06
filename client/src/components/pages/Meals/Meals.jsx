@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Redirect from 'react-router-dom/Redirect';
 import MealCard from '../../shared/MealCard';
 import View from '../../shared/View';
-import { userPropTypes, mealObjPropTypes } from '../../../helpers/proptypes';
+import { userPropTypes, mealObjPropTypes, metadataPropTypes } from '../../../helpers/proptypes';
 import CardGroup from '../../shared/CardGroup';
 
 /**
@@ -16,6 +16,7 @@ import CardGroup from '../../shared/CardGroup';
 class Meals extends Component {
   static propTypes = {
     ...userPropTypes,
+    ...metadataPropTypes,
     meals: PropTypes.arrayOf(mealObjPropTypes).isRequired,
     isFetching: PropTypes.bool.isRequired,
     logout: PropTypes.func.isRequired,
@@ -39,7 +40,7 @@ class Meals extends Component {
    * @returns {JSX} Meals Component
    */
   componentDidMount() {
-    this.props.fetchMeals();
+    if (!this.props.metadata.pages) this.props.fetchMeals();
   }
 
   /**
@@ -49,6 +50,12 @@ class Meals extends Component {
   */
   getCurrentMeal = id => this.props.meals.find(item => item.id === id);
 
+  /**
+   * @memberof Meals
+   * @param {object} metadata
+   * @returns {func} load more meals
+  */
+  loadMoreMeals = () => this.props.fetchMeals(this.props.metadata)
 
   /**
    * @memberof Meals
@@ -87,7 +94,12 @@ class Meals extends Component {
             </button>
           </div>
           {this.props.meals.length === 0 && <p className="text-center">You Do Not Have Any Meals Yet</p>}
-          {this.props.meals.length !== 0 && <CardGroup items={mealItems} limit={8} />}
+          {this.props.meals.length !== 0 &&
+            <CardGroup
+              items={mealItems}
+              metadata={this.props.metadata}
+              loadMore={this.loadMoreMeals}
+            />}
         </div>
       </Fragment>
     );

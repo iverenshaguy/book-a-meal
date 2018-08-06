@@ -9,21 +9,20 @@ import {
   editMenuSuccess, editMenuFailure,
 } from '../actions/menu';
 import { toggleModal } from '../actions/ui';
-import { flattenMealsIntoSingleArray } from '../selectors/menu';
+import { RECEIVE_MORE_MENU_SUCCESS, RECEIVE_MENU_SUCCESS } from '../types';
 
-const fetchMenu = date => async (dispatch) => {
+const fetchMenu = (date, metadata) => async (dispatch) => {
+  const menuDate = date || moment().format('YYYY-MM-DD');
+  const url = (metadata && metadata.next) || `/menu?date=${menuDate}`;
+
   try {
-    dispatch(setFetching());
+    if (!metadata) dispatch(setFetching());
 
-    const menuDate = date || moment().format('YYYY-MM-DD');
+    const response = await instance.get(url);
 
-    const response = await instance.get(`/menu?date=${menuDate}`);
+    const type = metadata ? RECEIVE_MORE_MENU_SUCCESS : RECEIVE_MENU_SUCCESS;
 
-    if (response.data.menu) {
-      dispatch(fetchMenuSuccess(flattenMealsIntoSingleArray(response.data.menu)));
-    } else {
-      dispatch(fetchMenuSuccess(response.data));
-    }
+    dispatch(fetchMenuSuccess(type, response.data));
 
     dispatch(unsetFetching());
   } catch (error) {

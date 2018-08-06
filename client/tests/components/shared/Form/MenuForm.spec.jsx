@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
-import { initialValues, caterersMealsObj } from '../../../setup/data';
+import { initialValues, caterersMealsObj, metadata } from '../../../setup/data';
 import MenuForm from '../../../../src/components/shared/Form/MenuForm/MenuForm';
 import ConnectedMenuForm from '../../../../src/components/shared/Form/MenuForm/';
 
@@ -24,7 +24,9 @@ const props = {
   addMenu: jest.fn(),
   editMenu: jest.fn(),
   submitting: false,
-  submitError: null
+  submitError: null,
+  menuMetadata: metadata,
+  mealsMetadata: metadata
 };
 
 const { now } = Date;
@@ -144,5 +146,59 @@ describe('MenuForm', () => {
     const wrapper = mount(<Provider store={store}><ConnectedMenuForm {...props} /></Provider>);
 
     expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('calls fetchMeals when fetchMoreData is called and meals metadata has next url', () => {
+    const fetchMealsMock = jest.fn();
+
+    const wrapper = mount(<MenuForm
+      {...props}
+      fetchMeals={fetchMealsMock}
+    />);
+
+    wrapper.instance().fetchMoreData();
+
+    expect(fetchMealsMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('doesnt call fetchMeals again when fetchMoreData is called and meals metadata does not have next url', () => {
+    const fetchMealsMock = jest.fn();
+
+    const wrapper = mount(<MenuForm
+      {...props}
+      mealsMetadata={{}}
+      fetchMeals={fetchMealsMock}
+    />);
+
+    wrapper.instance().fetchMoreData();
+
+    expect(fetchMealsMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('calls fetchMenu when fetchMoreData is called and menu metadata has next url', () => {
+    const fetchMenuMock = jest.fn();
+
+    const wrapper = mount(<MenuForm
+      {...props}
+      fetchMenu={fetchMenuMock}
+    />);
+
+    wrapper.instance().fetchMoreData();
+
+    expect(fetchMenuMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('does not call fetchMenu again when fetchMoreData is called and menu metadata does not have next url', () => {
+    const fetchMenuMock = jest.fn();
+
+    const wrapper = mount(<MenuForm
+      {...props}
+      menuMetadata={{}}
+      fetchMenu={fetchMenuMock}
+    />);
+
+    wrapper.instance().fetchMoreData();
+
+    expect(fetchMenuMock).toHaveBeenCalledTimes(1);
   });
 });

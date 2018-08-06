@@ -22,6 +22,56 @@ describe('Meal Routes: Get all meals', () => {
       });
   });
 
+  describe('Bad Query', () => {
+    it('should return errors for bad page and limit query', (done) => {
+      request(app)
+        .get('/api/v1/meals?page=undefined&limit=ghjkl')
+        .set('Accept', 'application/json')
+        .set('authorization', foodCircleToken)
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(400);
+          expect(res.body).to.include.keys('errors');
+          expect(res.body.errors.limit.msg).to.equal('Limit must be an integer greater than 0');
+          expect(res.body.errors.page.msg).to.equal('Page must be an integer greater than 0');
+
+          if (err) return done(err);
+          done();
+        });
+    });
+
+    it('should return errors for null/0 page and limit query', (done) => {
+      request(app)
+        .get('/api/v1/meals?page=null&limit=0')
+        .set('Accept', 'application/json')
+        .set('authorization', foodCircleToken)
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(400);
+          expect(res.body).to.include.keys('errors');
+          expect(res.body.errors.limit.msg).to.equal('Limit must be an integer greater than 0');
+          expect(res.body.errors.page.msg).to.equal('Page must be an integer greater than 0');
+
+          if (err) return done(err);
+          done();
+        });
+    });
+
+    it('should return errors for empty page and limit query', (done) => {
+      request(app)
+        .get('/api/v1/meals?page=&limit=')
+        .set('Accept', 'application/json')
+        .set('authorization', foodCircleToken)
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(400);
+          expect(res.body).to.include.keys('errors');
+          expect(res.body.errors.limit.msg).to.equal('Limit cannot be blank');
+          expect(res.body.errors.page.msg).to.equal('Page cannot be blank');
+
+          if (err) return done(err);
+          done();
+        });
+    });
+  });
+
   notAdmin(
     'should return 403 error for authorized user ie non admin or caterer',
     request(app), 'get', '/api/v1/meals'

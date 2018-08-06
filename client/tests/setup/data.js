@@ -20,14 +20,16 @@ export const initialValues = {
   meals: {
     items: [],
     working: false,
-    error: null
+    error: null,
+    metadata: {}
   },
   menu: {
     id: null,
     meals: [],
     working: false,
     error: null,
-    currentDay: '1970-01-01'
+    currentDay: '1970-01-01',
+    metadata: {}
   },
   orders: {
     items: [],
@@ -35,13 +37,18 @@ export const initialValues = {
     totalCashEarned: 0,
     delivering: false,
     error: null,
-    working: false
+    working: false,
+    metadata: {}
   },
   uploadImage: {
     uploadTask: null,
     uploading: false,
     error: null,
     url: null
+  },
+  singleOrder: {
+    item: null,
+    error: null
   },
   isFetching: false,
   ui: {
@@ -213,7 +220,7 @@ export const caterersOrdersObj = {
     },
   ],
   totalCashEarned: 9200,
-  pendingOrders: 0
+  pendingOrders: 0,
 };
 
 export const customersMenuObj = {
@@ -559,4 +566,11 @@ export const customersOrdersObj = {
     }
   ],
   pendingOrders: 0
+};
+
+export const metadata = {
+  pages: 2,
+  total: 5,
+  prev: 'prev',
+  next: 'next'
 };

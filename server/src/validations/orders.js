@@ -88,8 +88,25 @@ export default {
     check('date')
       .trim()
       .optional()
-      .custom(value => notEmpty(value, 'Date field cannot be left blank'))
+      .custom(value => notEmpty(value, 'Date cannot be left blank'))
       .custom(value => validateDate(value)),
+    check('limit')
+      .trim()
+      .optional()
+      .custom(value => notEmpty(value, 'Limit cannot be blank'))
+      .isInt({ gt: 0 })
+      .withMessage('Limit must be an integer greater than 0'),
+    check('page')
+      .trim()
+      .optional()
+      .custom(value => notEmpty(value, 'Page cannot be blank'))
+      .isInt({ gt: 0 })
+      .withMessage('Page must be an integer greater than 0'),
+  ],
+  retrieveOne: [
+    check('orderId')
+      .isUUID(4)
+      .withMessage('Invalid ID'),
   ]
 };
 

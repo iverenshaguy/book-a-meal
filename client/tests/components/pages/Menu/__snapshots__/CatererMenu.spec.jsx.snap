@@ -100,7 +100,15 @@ exports[`CatererMenu renders Preloader when fetching 1`] = `
               />,
             ]
           }
-          limit={8}
+          loadMore={[Function]}
+          metadata={
+            Object {
+              "next": "next",
+              "pages": 2,
+              "prev": "prev",
+              "total": 5,
+            }
+          }
         />
       </div>
     </React.Fragment>
@@ -203,6 +211,7 @@ exports[`CatererMenu renders connected component 1`] = `
           },
         ]
       }
+      metadata={Object {}}
       setCurrentDay={[Function]}
       submitError={null}
       submitting={false}
@@ -633,13 +642,15 @@ exports[`CatererMenu renders connected component 1`] = `
                       />,
                     ]
                   }
-                  limit={8}
+                  loadMore={[Function]}
+                  metadata={Object {}}
                 >
                   <div
                     className="card-group meals-wrapper"
                     id="card-group"
                   >
                     <InfiniteLoader
+                      height={null}
                       items={
                         Array [
                           <MealCard
@@ -676,12 +687,14 @@ exports[`CatererMenu renders connected component 1`] = `
                           />,
                         ]
                       }
-                      limit={8}
+                      loadMore={[Function]}
+                      metadata={Object {}}
                     >
                       <InfiniteScroll
                         dataLength={2}
                         disableBrowserPullToRefresh={true}
                         hasMore={false}
+                        height={null}
                         loader={
                           <div
                             className="text-center"
@@ -1074,7 +1087,15 @@ exports[`CatererMenu renders correctly when not fetching 1`] = `
               />,
             ]
           }
-          limit={8}
+          loadMore={[Function]}
+          metadata={
+            Object {
+              "next": "next",
+              "pages": 2,
+              "prev": "prev",
+              "total": 5,
+            }
+          }
         />
       </div>
     </React.Fragment>

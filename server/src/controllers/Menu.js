@@ -2,6 +2,7 @@ import moment from 'moment';
 import db from '../models';
 import errors from '../../data/errors.json';
 import notifEmitter from '../events/Notifications';
+import Pagination from '../utils/Pagination';
 
 /**
  * @exports
@@ -9,14 +10,13 @@ import notifEmitter from '../events/Notifications';
  */
 class Menu {
   /**
-   * Creates a new item
+   * Creates a new menu item
    * @method create
    * @memberof Controller
    * @param {object} req
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    * date is either equal to the request date or the default date (today)
-   * check menu unique ensures that menu doesn't already exists in db
    * Notifications are also created when a new menu is added
    */
   static async create(req, res) {
@@ -52,7 +52,7 @@ class Menu {
 
 
   /**
-   * Updates an existing item
+   * Updates an menu existing item
    * @method update
    * @memberof Controller
    * @param {object} req
@@ -101,7 +101,7 @@ class Menu {
   }
 
   /**
-   * Gets the menu for the day
+   * Gets the menu for the day for the customer
    * @method getMenuForCustomer
    * @memberof Meals
    * @param {object} req
@@ -110,33 +110,33 @@ class Menu {
    */
   static async getMenuForCustomer(req, res) {
     const date = moment().format('YYYY-MM-DD');
+    const paginate = new Pagination(req.query.page, req.query.limit);
+    const { limit, offset } = paginate.getQueryMetadata();
 
-    const menu = await db.Menu.findAll({
-      where: { date },
-      attributes: [['menuId', 'id']],
+    const data = await db.Meal.findAndCountAll({
+      attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
+      offset,
+      limit,
+      subQuery: false,
       include: [
+        { model: db.User, as: 'caterer', attributes: [] },
         {
-          model: db.User,
-          as: 'caterer',
-          attributes: [['userId', 'id'], 'businessName', 'phoneNo', 'address', 'email'],
-        },
-        {
-          model: db.Meal,
-          as: 'meals',
-          attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
-          through: {
-            attributes: []
-          }
+          model: db.Menu,
+          where: { date },
+          attributes: [],
+          through: { attributes: [] }
         }
       ],
-      order: [['createdAt', 'DESC']]
     });
 
-    return res.status(200).json({ menu });
+    return res.status(200).json({
+      menu: { date, meals: data.rows },
+      metadata: paginate.getPageMetadata(data.count, '/menu')
+    });
   }
 
   /**
-   * Gets the menu for the day
+   * Gets the menu for the day for the caterer
    * @method getMenuForCaterer
    * @memberof Meals
    * @param {object} req
@@ -145,45 +145,52 @@ class Menu {
    */
   static async getMenuForCaterer(req, res) {
     const date = req.query.date || moment().format('YYYY-MM-DD');
+    const paginate = new Pagination(req.query.page, req.query.limit);
+    const { limit, offset } = paginate.getQueryMetadata();
 
-    const menu = await db.Menu.findOne({
-      where: { date, userId: req.userId },
-      attributes: [['menuId', 'id'], 'date'],
-      include: [{
-        model: db.Meal,
-        as: 'meals',
-        attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
-        through: {
-          attributes: []
-        },
-        order: [['createdAt', 'DESC']]
-      }]
+    const data = await db.Meal.findAndCountAll({
+      attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
+      offset,
+      limit,
+      subQuery: false,
+      include: [
+        { model: db.User, as: 'caterer', attributes: [] },
+        {
+          model: db.Menu,
+          where: { date, userId: req.userId },
+          attributes: [['menuId', 'id'], 'date'],
+          through: { attributes: [] }
+        }
+      ],
+      order: [['createdAt', 'DESC']]
     });
 
-    if (!menu) {
-      return res.status(200).json({ date, meals: [] });
-    }
+    const menu = Menu.mapCatererMenu(date, data.rows);
+    const extraQuery = req.query.date ? `date=${date}` : '';
 
-    return res.status(200).json(menu);
+    return res.status(200).json({
+      menu, metadata: paginate.getPageMetadata(data.count, '/menu', extraQuery)
+    });
   }
 
   /**
-   * Gets menu object for created and updated menu
+   * Maps created and updated menu to readable object
    * @method getMenuObject
    * @memberof Controller
    * @param {object} menu
    * @returns {object} Menu object
    */
   static getMenuObject(menu) {
+    menu = menu.get();
     return {
-      id: menu.getDataValue('menuId'),
-      date: moment(menu.getDataValue('date')).format('YYYY-MM-DD'),
-      meals: menu.dataValues.meals
+      id: menu.menuId,
+      date: moment(menu.date).format('YYYY-MM-DD'),
+      meals: menu.meals
     };
   }
 
   /**
-   * Gets meals for the Menu
+   * Gets array of meals for created and updated menu
    * @method getArrayOfMeals
    * @memberof Controller
    * @param {object} menu
@@ -195,6 +202,26 @@ class Menu {
       joinTableAttributes: [],
       order: [['createdAt', 'DESC']]
     });
+  }
+
+  /**
+   * Maps returned Caterer Menu to readable object
+   * @method mapCatererMenu
+   * @memberof Controller
+   * @param {string} date
+   * @param {object} menu
+   * @returns {array} Array of Meals
+   */
+  static mapCatererMenu(date, menu) {
+    const { id } = menu.length ? menu[0].get().Menus[0].get() : {};
+
+    if (menu.length) menu.forEach(meal => delete meal.get().Menus);
+
+    return {
+      id,
+      date,
+      meals: menu
+    };
   }
 }
 

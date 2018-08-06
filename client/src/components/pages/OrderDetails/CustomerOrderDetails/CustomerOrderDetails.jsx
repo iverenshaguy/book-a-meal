@@ -23,7 +23,7 @@ class CustomerOrderDetails extends Component {
     isFetching: PropTypes.bool.isRequired,
     logout: PropTypes.func.isRequired,
     push: PropTypes.func.isRequired,
-    fetchOrders: PropTypes.func.isRequired,
+    fetchOrder: PropTypes.func.isRequired,
     editOrder: PropTypes.func.isRequired,
     cancelOrder: PropTypes.func.isRequired,
   }
@@ -37,15 +37,7 @@ class CustomerOrderDetails extends Component {
    * @returns {func} fetchOrders
   */
   componentDidMount() {
-    this.fetchOrders();
-  }
-
-  /**
-   * @memberof CustomerOrderDetails
-   * @returns {func} fetchOrders
-  */
-  fetchOrders = () => {
-    this.props.fetchOrders();
+    this.props.fetchOrder(this.props.match.params.id);
   }
 
   /**

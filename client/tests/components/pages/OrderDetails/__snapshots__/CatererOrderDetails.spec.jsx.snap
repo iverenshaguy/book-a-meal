@@ -73,7 +73,101 @@ exports[`OrderDetails renders Preloader when fetching 1`] = `
     }
   }
 >
-  <React.Fragment />
+  <React.Fragment>
+    <div
+      className="main-wrapper"
+    >
+      <Link
+        className="orders-back-link"
+        href="/orders"
+        replace={false}
+        to="/orders"
+      >
+        ← Back To Orders
+      </Link>
+      <div
+        className="order-confirmation order-details"
+      >
+        <h3
+          className="text-center"
+          style={
+            Object {
+              "paddingTop": "1em",
+            }
+          }
+        >
+          Order #
+          fb097bde-5959-45ff-8e21-51184fa60c25
+        </h3>
+        <React.Fragment>
+          <div
+            className="order-misc"
+          >
+            <p
+              className="order-date"
+            >
+              Order Date: 
+              18/04/06 12:47
+            </p>
+            <p>
+              Status: 
+              <span
+                className="success"
+              >
+                Delivered
+              </span>
+            </p>
+            <p>
+              Customer: 
+              Emiola Olasanmi
+            </p>
+            <p>
+              Address Provided: 
+              4, Church Street, Yaba
+            </p>
+            <p>
+              Number Provided: 
+              08134567890
+            </p>
+          </div>
+          <OrderSummary
+            meals={
+              Array [
+                Object {
+                  "delivered": true,
+                  "description": "Sharwama contains no animal products, perfect for dieters",
+                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                  "price": "1200.00",
+                  "quantity": 1,
+                  "title": "Vegetable Sharwama and Guava Smoothie",
+                  "vegetarian": true,
+                },
+              ]
+            }
+            status="delivered"
+          />
+          <OrderAmount
+            meals={
+              Array [
+                Object {
+                  "delivered": true,
+                  "description": "Sharwama contains no animal products, perfect for dieters",
+                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                  "price": "1200.00",
+                  "quantity": 1,
+                  "title": "Vegetable Sharwama and Guava Smoothie",
+                  "vegetarian": true,
+                },
+              ]
+            }
+            type="admin"
+          />
+        </React.Fragment>
+      </div>
+    </div>
+  </React.Fragment>
 </View>
 `;
 
@@ -113,7 +207,7 @@ exports[`OrderDetails renders connected component 1`] = `
     <CatererOrderDetails
       deliverOrder={[Function]}
       delivering={false}
-      fetchOrders={[Function]}
+      fetchOrder={[Function]}
       isFetching={false}
       logout={[Function]}
       match={
@@ -805,6 +899,7 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
         },
       }
     }
+    order={null}
     user={
       Object {
         "address": "$, Herbert Macaulay Way, Yaba, Lagos",
@@ -819,7 +914,7 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
     <CatererOrderDetails
       deliverOrder={[Function]}
       delivering={false}
-      fetchOrders={[Function]}
+      fetchOrder={[Function]}
       isFetching={false}
       logout={[Function]}
       match={

@@ -3,6 +3,9 @@ import sequelize, { Op } from 'sequelize';
 import db from '../models';
 import errors from '../../data/errors.json';
 import orderEmitter from '../events/Orders';
+import Pagination from '../utils/Pagination';
+import Users from './Users';
+import { sqlOptions, customerPendingOrdersSql, catererCashEarnedSql, catererPendingOrdersSql } from '../../data/queries';
 
 /**
  * @exports
@@ -10,138 +13,32 @@ import orderEmitter from '../events/Orders';
  */
 class Orders {
   /**
-   * Returns a list of Order Items
-   * @method getOrders
-   * @memberof Orders
-   * @param {object} req
-   * @param {object} res
-   * @param {string} role
-   * @returns {(function|object)} Function next() or JSON object
-   */
-  static getOrders(req, res) {
-    const { role } = req;
-
-    return role === 'caterer' ?
-      Orders.getCaterersOrders(req, res) :
-      Orders.getCustomersOrders(req, res);
-  }
-
-  /**
-   * Returns Users' Orders
-   * @method getCustomersOrders
-   * @memberof Orders
-   * @param {object} req
-   * @param {object} res
-   * @returns {(function|object)} Function next() or JSON object
-   * if date is provided in query, get orders that belong
-   * to user and were created on that date
-   */
-  static async getCustomersOrders(req, res) {
-    let orders = await db.Order.findAll({
-      where: { userId: req.userId },
-      include: [{
-        model: db.Meal,
-        as: 'meals',
-        attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
-        include: [{
-          model: db.User,
-          attributes: ['businessName', 'address', 'phoneNo', 'email'],
-          as: 'caterer'
-        }],
-        paranoid: false,
-      }],
-      order: [['createdAt', 'DESC']]
-    });
-
-    orders = orders.map((order) => {
-      Orders.mapQuantityToMeal(order);
-      return Orders.getOrderObject(order);
-    });
-
-    const pendingOrders = Orders.pendingOrders(req.role, orders);
-
-    return res.status(200).json({ orders, pendingOrders });
-  }
-
-  /**
-   * Returns Caterer's Orders
-   * @method getCaterersOrders
-   * @memberof Orders
-   * @param {object} req
-   * @param {object} res
-   * @returns {(function|object)} Function next() or JSON object
-   * find meals which belong to the caterer
-   * for each mealId, find the order(s) that correspond to it
-   * extract order details using OrderItem join table
-   */
-  static async getCaterersOrders(req, res) {
-    let where = { [Op.and]: [{ status: { [Op.not]: 'started' } }, { status: { [Op.not]: 'canceled' } }] };
-
-    if (req.query.date) {
-      where = {
-        [Op.and]: [
-          { status: { [Op.not]: 'started' } },
-          { status: { [Op.not]: 'canceled' } },
-          sequelize.where(sequelize.fn('DATE', sequelize.col('Order.createdAt')), req.query.date)
-        ]
-      };
-    }
-
-    let orders = await db.Order.findAll({
-      where,
-      include: [
-        { model: db.User, as: 'customer', attributes: ['firstname', 'lastname', 'email'] },
-        {
-          model: db.Meal,
-          as: 'meals',
-          attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
-          paranoid: false,
-          include: [{
-            model: db.User,
-            as: 'caterer',
-            where: { userId: req.userId },
-            attributes: []
-          }],
-          required: true
-        }
-      ],
-      order: [['createdAt', 'DESC']]
-    });
-
-    orders = orders.map((order) => {
-      Orders.mapQuantityToMeal(order);
-      return Orders.getOrderObject(order);
-    });
-
-    const totalCashEarned = Orders.totalCashEarned(orders);
-    const pendingOrders = Orders.pendingOrders(req.role, orders);
-
-    return res.status(200).json({ orders, totalCashEarned, pendingOrders });
-  }
-
-  /**
-   * Creates a new item
+   * Creates a new order item
    * @method create
    * @memberof Orders
    * @param {object} req
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    * notification is created when an order is made
-   * order is expired after 15 minutes of original purchase
+   * order is expired and cant be canceled or updated after set time of ordering
    * emits create event after creation
    */
   static async create(req, res) {
-    req.body.meals = [...(new Set(req.body.meals))];
-    req.body.userId = req.userId;
     const { deliveryAddress, deliveryPhoneNo } = req.body;
+    const orderBody = {
+      meals: [...(new Set(req.body.meals))],
+      userId: req.userId,
+      deliveryAddress,
+      deliveryPhoneNo
+    };
 
-    const newOrder = await db.Order.create(req.body, { include: [{ model: db.User, as: 'customer' }] })
+    const newOrder = await db.Order.create(orderBody, { include: [{ model: db.User, as: 'customer' }] })
       .then(async (order) => {
         const promises = Orders.addMeals(order, req.body.meals);
 
         await Promise.all(promises);
         await Orders.getOrderMeals(order);
-        await Orders.updateCustomerContact(req.userId, { deliveryAddress, deliveryPhoneNo });
+        await Users.updateCustomerContact(req.userId, { deliveryAddress, deliveryPhoneNo });
 
         orderEmitter.emit('create', order, req.userId);
 
@@ -154,7 +51,7 @@ class Orders {
   }
 
   /**
-   * Updates an order
+   * Updates an existing order
    * @method update
    * @memberof Orders
    * @param {object} req
@@ -173,8 +70,9 @@ class Orders {
       }
 
       await Orders.getOrderMeals(order);
+
       if (req.body.status !== 'canceled') {
-        await Orders.updateCustomerContact(req.userId, { deliveryAddress, deliveryPhoneNo });
+        await Users.updateCustomerContact(req.userId, { deliveryAddress, deliveryPhoneNo });
       }
 
       orderEmitter.emit('create', order);
@@ -210,7 +108,7 @@ class Orders {
   }
 
   /**
-   * Marks Caterer's Order as Delievered
+   * Marks Caterer's Meals in Order as Delievered
    * @method deliver
    * @memberof Orders
    * @param {object} req
@@ -224,31 +122,214 @@ class Orders {
     const order = await db.Order.findOne({
       where: { orderId, status: 'pending' },
       include: [
+        { model: db.User, as: 'customer', attributes: ['firstname', 'lastname', 'email'] },
         {
           model: db.Meal,
           as: 'meals',
-          attributes: [],
-          where: { userId },
+          attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
           paranoid: false,
-          required: true
-        }
+          include: [{
+            model: db.User,
+            as: 'caterer',
+            where: { userId },
+            attributes: []
+          }],
+          required: true,
+          duplicating: false
+        },
       ]
     });
 
     if (!order) return res.status(404).json({ error: errors[404] });
 
-    const meals = await order.getMeals({ where: { userId }, paranoid: false });
-
-    const promises = meals.map((meal) => {
+    const promises = order.get().meals.map((meal) => {
       meal.OrderItem.delivered = req.body.delivered;
 
       return meal.OrderItem.save();
     });
 
     await Promise.all(promises);
-    await Orders.getOrderMeals(order, userId);
 
     orderEmitter.emit('deliver', order);
+
+    Orders.mapQuantityToMeal(order);
+
+    const returnedOrder = await Orders.getOrderObject(order);
+
+    return res.status(200).json(returnedOrder);
+  }
+
+  /**
+   * Returns a list of Order Items
+   * @method getOrders
+   * @memberof Orders
+   * @param {object} req
+   * @param {object} res
+   * @param {string} role
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  static getOrders(req, res) {
+    const { role } = req;
+
+    return role === 'caterer' ?
+      Orders.getCaterersOrders(req, res) :
+      Orders.getCustomersOrders(req, res);
+  }
+
+  /**
+   * Returns Customers' Orders
+   * @method getCustomersOrders
+   * @memberof Orders
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
+   * if date is provided in query, get orders that belong
+   * to user and were created on that date
+   * Total Pending Orders maps to all items so it is gotten from first returned item
+   * Get order by day, if no date is given, gets all orders in app with
+   * total order summary. If date is given, gets orders for that day with
+   * order summary for that day
+   */
+  static async getCustomersOrders(req, res) {
+    const paginate = new Pagination(req.query.page, req.query.limit);
+    const { limit, offset } = paginate.getQueryMetadata();
+    let where = { userId: req.userId };
+
+    if (req.query.date) {
+      where = { [Op.and]: [{ userId: req.userId }, sequelize.where(sequelize.fn('DATE', sequelize.col('Order.createdAt')), req.query.date)] };
+    }
+
+    const pendingOrders = await db.sequelize.query(customerPendingOrdersSql(req), sqlOptions);
+
+    const data = await db.Order.findAndCountAll({
+      where,
+      limit,
+      offset,
+      distinct: true,
+      include: [
+        {
+          model: db.Meal,
+          as: 'meals',
+          attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
+          include: [{
+            model: db.User,
+            attributes: ['businessName', 'address', 'phoneNo', 'email'],
+            as: 'caterer'
+          }],
+          paranoid: false,
+        },
+        { model: db.User, as: 'customer', attributes: [] }
+      ],
+      order: [['createdAt', 'DESC']]
+    });
+
+    return res.status(200).json(Orders.getOrdersResponse('customer', req.query.date, data, paginate, pendingOrders));
+  }
+
+  /**
+   * Returns Caterer's Orders
+   * @method getCaterersOrders
+   * @memberof Orders
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
+   * Find orders containing meals which belong to the caterer
+   * extract order details using OrderItem join table
+   * Map totalPendingOrders, totalCashEarned and totalOrders to object.
+   * Get order by day, if no date is given, gets all orders in app with
+   * total order summary. If date is given, gets orders for that day with
+   * order summary for that day
+   */
+  static async getCaterersOrders(req, res) {
+    const paginate = new Pagination(req.query.page, req.query.limit);
+    const { limit, offset } = paginate.getQueryMetadata();
+    const { date } = req.query;
+    let where = { [Op.and]: [{ status: { [Op.not]: 'started' } }, { status: { [Op.not]: 'canceled' } }] };
+
+    if (date) {
+      where = {
+        [Op.and]: [
+          { status: { [Op.not]: 'started' } },
+          { status: { [Op.not]: 'canceled' } },
+          sequelize.where(sequelize.fn('DATE', sequelize.col('Order.createdAt')), date)
+        ]
+      };
+    }
+
+    const cashEarned = await db.sequelize.query(catererCashEarnedSql(req, date), sqlOptions);
+
+    const pendingOrders = await db.sequelize.query(catererPendingOrdersSql(req, date), sqlOptions);
+
+    const data = await db.Order.findAndCountAll({
+      where,
+      limit,
+      offset,
+      distinct: true,
+      include: [
+        {
+          model: db.Meal,
+          as: 'meals',
+          attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
+          include: [{
+            model: db.User,
+            as: 'caterer',
+            where: { userId: req.userId },
+            attributes: []
+          }],
+          paranoid: false,
+        },
+        { model: db.User, as: 'customer', attributes: ['firstname', 'lastname', 'email'] }
+      ],
+      order: [['createdAt', 'DESC']]
+    });
+
+    return res.status(200).json(Orders.getOrdersResponse('caterer', req.query.date, data, paginate, pendingOrders, cashEarned));
+  }
+
+  /**
+   * Returns Order Details for an order
+   * @method getSingleOrder
+   * @memberof Orders
+   * @param {object} req
+   * @param {object} res
+   * @param {string} role
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  static getSingleOrder(req, res) {
+    const { role } = req;
+
+    return role === 'caterer' ?
+      Orders.getSingleCatererOrder(req, res) :
+      Orders.getSingleCustomerOrder(req, res);
+  }
+
+  /**
+   * Returns Customer Order Details
+   * @method getSingleCustomerOrder
+   * @memberof Orders
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  static async getSingleCustomerOrder(req, res) {
+    const order = await db.Order.findOne({
+      where: { userId: req.userId, orderId: req.params.orderId },
+      include: [
+        {
+          model: db.Meal,
+          as: 'meals',
+          attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
+          include: [{
+            model: db.User,
+            attributes: ['businessName', 'address', 'phoneNo', 'email'],
+            as: 'caterer'
+          }],
+          paranoid: false,
+        }
+      ]
+    });
+
+    if (!order) return res.status(404).json({ error: errors[404] });
 
     Orders.mapQuantityToMeal(order);
 
@@ -256,75 +337,45 @@ class Orders {
   }
 
   /**
-   * Gets total caterer profit
-   * @method totalCashEarned
+   * Returns Caterer's Order Details
+   * @method getSingleCatererOrder
    * @memberof Orders
-   * @param {array} orders
-   * @returns {number} Cash Earned
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
    */
-  static totalCashEarned(orders) {
-    return orders.reduce((totalProfit, order) => {
-      const profitPerOrder = order.meals.reduce((total, meal) => {
-        if (!meal.dataValues.delivered) return total + 0;
+  static async getSingleCatererOrder(req, res) {
+    const where = {
+      [Op.and]: [{ status: { [Op.not]: 'started' } }, { status: { [Op.not]: 'canceled' } }],
+      orderId: req.params.orderId
+    };
 
-        const orderItemPrice = parseInt(meal.dataValues.price, 10) *
-        parseInt(meal.dataValues.quantity, 10);
-        return total + orderItemPrice;
-      }, 0);
+    const order = await db.Order.findOne({
+      where,
+      include: [
+        { model: db.User, as: 'customer', attributes: ['firstname', 'lastname', 'email'] },
+        {
+          model: db.Meal,
+          as: 'meals',
+          attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
+          paranoid: false,
+          include: [{
+            model: db.User,
+            as: 'caterer',
+            where: { userId: req.userId },
+            attributes: []
+          }],
+          required: true,
+          duplicating: false
+        },
+      ]
+    });
 
-      return profitPerOrder + totalProfit;
-    }, 0);
-  }
+    if (!order) return res.status(404).json({ error: errors[404] });
 
-  /**
-   * Gets number of pending orders
-   * @method pendingOrders
-   * @memberof Orders
-   * @param {string} role
-   * @param {array} orders
-   * @returns {number} Pending Orders
-   */
-  static pendingOrders(role, orders) {
-    if (role === 'caterer') {
-      return Orders.catererPendingOrders(orders);
-    }
+    Orders.mapQuantityToMeal(order);
 
-    return Orders.customerPendingOrders(orders);
-  }
-
-  /**
-   * Gets number of caterer's pending orders
-   * @method catererPendingOrders
-   * @memberof Orders
-   * @param {array} orders
-   * @returns {number} Pending Orders
-   * Checks the first caterers meal to see if it is delivered
-   * Delivering one meal delivers all meals
-   * One undelivered meal means all caterers meals are undelivered
-   */
-  static catererPendingOrders(orders) {
-    return orders.reduce((totalPending, order) => {
-      if (order.status === 'pending' && !order.meals[0].dataValues.delivered) return totalPending + 1;
-      return totalPending + 0;
-    }, 0);
-  }
-
-  /**
-   * Gets number of caterer's pending orders
-   * @method customerPendingOrders
-   * @memberof Orders
-   * @param {array} orders
-   * @returns {number} Pending Orders
-   * returns number of orders with status started or pending
-   */
-  static customerPendingOrders(orders) {
-    return orders.reduce((total, order) => {
-      if (order.status === 'pending' || order.status === 'started') {
-        return total + 1;
-      }
-
-      return total + 0;
-    }, 0);
+    return res.status(200).json(Orders.getOrderObject(order));
   }
 
   /**
@@ -337,22 +388,9 @@ class Orders {
    */
   static addMeals(order, mealItems) {
     return mealItems.map(item =>
-      order.addMeal(item.mealId, { through: { quantity: item.quantity } }).then(() => order));
-  }
-
-  /**
-   * Updates Customer's contact details
-   * @method updateCustomerContact
-   * @memberof Orders
-   * @param {string} userId
-   * @param {object} contact
-   * @returns {void}
-   */
-  static async updateCustomerContact(userId, contact) {
-    await db.User.update(
-      { phoneNo: contact.deliveryPhoneNo, address: contact.deliveryAddress },
-      { where: { userId } }
-    );
+      order.addMeal(item.mealId, {
+        through: { quantity: item.quantity }
+      }).then(() => order));
   }
 
   /**
@@ -360,10 +398,9 @@ class Orders {
    * @method getOrderMeals
    * @memberof Orders
    * @param {object} order
-   * @param {string} userId
    * @returns {object} JSON object
    */
-  static async getOrderMeals(order, userId) {
+  static async getOrderMeals(order) {
     const options = {
       attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
       joinTableAttributes: ['quantity', 'delivered'],
@@ -372,26 +409,7 @@ class Orders {
       order: [['createdAt', 'DESC']]
     };
 
-    if (userId) options.where = { userId };
-
-    order.dataValues.meals = await order.getMeals(options);
-  }
-
-  /**
-   * Maps Orders to Show Order Quantity and Item Delivery Status
-   * instead of including OrderItem Association
-   * @method mapQuantityToMeal
-   * @memberof Orders
-   * @param {object} order
-   * @returns {object} JSON object
-   */
-  static mapQuantityToMeal(order) {
-    order.dataValues.meals = order.dataValues.meals.map((meal) => {
-      meal.dataValues.quantity = meal.OrderItem.quantity;
-      meal.dataValues.delivered = meal.OrderItem.delivered;
-      delete meal.dataValues.OrderItem;
-      return meal;
-    });
+    order.get().meals = await order.getMeals(options);
   }
 
   /**
@@ -405,7 +423,7 @@ class Orders {
    * have been delivered even if other caterers havent deliverd
    */
   static getOrderObject(order) {
-    const caterersOrderStatus = order.dataValues.meals[0].dataValues.delivered ? 'delivered' : order.getDataValue('status');
+    const caterersOrderStatus = order.get().meals[0].get().delivered ? 'delivered' : order.getDataValue('status');
     const status = order.getDataValue('customer') ? caterersOrderStatus : order.getDataValue('status');
 
     return {
@@ -416,8 +434,65 @@ class Orders {
       customer: order.getDataValue('customer') ? order.getDataValue('customer') : undefined,
       createdAt: moment(order.getDataValue('createdAt')).format(),
       updatedAt: moment(order.getDataValue('updatedAt')).format(),
-      meals: order.dataValues.meals
+      meals: order.get().meals
     };
+  }
+
+  /**
+   * Get Orders Response
+   * @method getOrdersResponse
+   * @memberof Orders
+   * @param {string} type
+   * @param {string} date date query
+   * @param {object} data
+   * @param {object} paginate
+   * @param {integer} pendingOrders
+   * @param {float} cashEarned
+   * @returns {object} JSON object
+   */
+  static getOrdersResponse(type, date, data, paginate, pendingOrders, cashEarned) {
+    const url = '/orders';
+    const extraQuery = date ? `date=${date}` : '';
+    const orders = Orders.mapOrders(data.rows);
+
+    return {
+      orders,
+      totalOrders: data.count,
+      pendingOrders: parseInt(pendingOrders[0].count, 10),
+      totalCashEarned: type === 'caterer' ? (parseFloat(cashEarned[0].sum) || 0) : undefined,
+      metadata: paginate.getPageMetadata(data.count, url, extraQuery)
+    };
+  }
+
+  /**
+   * Maps Orders to Show Order Quantity and Item Delivery Status
+   * instead of including OrderItem Association
+   * @method mapQuantityToMeal
+   * @memberof Orders
+   * @param {object} order
+   * @returns {object} JSON object
+   */
+  static mapQuantityToMeal(order) {
+    order.get().meals = order.get().meals.map((meal) => {
+      meal.get().quantity = meal.OrderItem.quantity;
+      meal.get().delivered = meal.OrderItem.delivered;
+      delete meal.get().OrderItem;
+      return meal;
+    });
+  }
+
+  /**
+   * Maps Orders to get full order object
+   * @method mapQuantityToMeal
+   * @memberof Orders
+   * @param {array} orders
+   * @returns {object} JSON object
+   */
+  static mapOrders(orders) {
+    return orders.map((order) => {
+      Orders.mapQuantityToMeal(order);
+      return Orders.getOrderObject(order);
+    });
   }
 }
 

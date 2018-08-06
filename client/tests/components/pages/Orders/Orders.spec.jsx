@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import Orders from '../../../../src/components/pages/Orders/Orders';
 import ConnectedOrders from '../../../../src/components/pages/Orders';
-import { caterer, caterersOrdersObj, customer, customersOrdersObj, initialValues } from '../../../setup/data';
+import { caterer, caterersOrdersObj, customer, customersOrdersObj, initialValues, metadata } from '../../../setup/data';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -37,6 +37,7 @@ describe('Orders', () => {
         fetchOrders={jest.fn()}
         orders={caterersOrdersObj.orders}
         isFetching={false}
+        metadata={metadata}
       />);
 
       expect(toJson(shallowWrapper)).toMatchSnapshot();
@@ -49,10 +50,28 @@ describe('Orders', () => {
         fetchOrders={jest.fn()}
         orders={caterersOrdersObj.orders}
         isFetching
+        metadata={metadata}
       />);
 
       expect(toJson(shallowWrapper)).toMatchSnapshot();
       expect(shallowWrapper.find('Preloader')).toBeTruthy();
+    });
+
+    it('calls fetchOrders when loadMoreOrders is called', () => {
+      const fetchOrdersMock = jest.fn();
+
+      const shallowWrapper = shallow(<Orders
+        user={caterer}
+        logout={jest.fn()}
+        fetchOrders={fetchOrdersMock}
+        orders={caterersOrdersObj.orders}
+        isFetching
+        metadata={{}}
+      />);
+
+      shallowWrapper.instance().loadMoreOrders();
+
+      expect(fetchOrdersMock).toHaveBeenCalledTimes(2);
     });
 
     it('renders message when not fetching and there are no orders', () => {
@@ -62,6 +81,7 @@ describe('Orders', () => {
         fetchOrders={jest.fn()}
         orders={[]}
         isFetching
+        metadata={metadata}
       />);
 
       expect(toJson(shallowWrapper)).toMatchSnapshot();
@@ -92,6 +112,7 @@ describe('Orders', () => {
         fetchOrders={jest.fn()}
         orders={customersOrdersObj.orders}
         isFetching={false}
+        metadata={metadata}
       />);
 
       expect(toJson(shallowWrapper)).toMatchSnapshot();
@@ -104,11 +125,29 @@ describe('Orders', () => {
         logout={jest.fn()}
         fetchOrders={jest.fn()}
         orders={customersOrdersObj.orders}
+        metadata={metadata}
         isFetching
       />);
 
       expect(toJson(shallowWrapper)).toMatchSnapshot();
       expect(shallowWrapper.find('Preloader')).toBeTruthy();
+    });
+
+    it('calls fetchOrders when loadMoreOrders is called', () => {
+      const fetchOrdersMock = jest.fn();
+
+      const shallowWrapper = shallow(<Orders
+        user={customer}
+        logout={jest.fn()}
+        fetchOrders={fetchOrdersMock}
+        orders={customersOrdersObj.orders}
+        metadata={{}}
+        isFetching
+      />);
+
+      shallowWrapper.instance().loadMoreOrders();
+
+      expect(fetchOrdersMock).toHaveBeenCalledTimes(2);
     });
 
     it('renders message when not fetching and there are no orders', () => {
@@ -118,6 +157,7 @@ describe('Orders', () => {
         fetchOrders={jest.fn()}
         orders={[]}
         isFetching
+        metadata={{}}
       />);
 
       expect(toJson(shallowWrapper)).toMatchSnapshot();

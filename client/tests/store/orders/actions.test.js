@@ -1,10 +1,9 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import moxios from 'moxios';
 import MockAdapter from 'axios-mock-adapter';
 import instance from '../../../src/config/axios';
 import operations from '../../../src/store/operations/orders';
-import { deliverOrder as deliverOrderData, caterersOrdersObj, caterersOrdersObjPerDay, customerOrder, orderRequest } from '../../setup/data';
+import { deliverOrder as deliverOrderData, caterersOrdersObj, caterersOrdersObjPerDay, customerOrder, orderRequest, metadata } from '../../setup/data';
 
 const {
   addOrder,
@@ -26,6 +25,7 @@ const {
 
 const url = '/api/v1';
 const middlewares = [thunk];
+const mockReq = new MockAdapter(instance);
 const mockStore = configureMockStore(middlewares);
 
 // configure Mock store
@@ -33,13 +33,14 @@ const store = mockStore({
   items: [],
   pendingOrders: 0,
   totalCashEarned: 0,
-  error: null
+  error: null,
+  metadata: {}
 });
 
 process.env.EXPIRY = 2000;
 describe('Orders Actions', () => {
   test('fetchOrdersSuccess', () => {
-    const action = fetchOrdersSuccess(caterersOrdersObj);
+    const action = fetchOrdersSuccess('RECEIVE_ORDERS_SUCCESS', caterersOrdersObj);
 
     expect(action).toEqual({
       type: 'RECEIVE_ORDERS_SUCCESS',
@@ -125,21 +126,10 @@ describe('Orders Actions', () => {
     });
 
     describe('Orders', () => {
-      beforeEach(() => {
-        moxios.install(instance);
-      });
-
-      afterEach(() => {
-        moxios.uninstall(instance);
-      });
-
       it('dispatches SET_FETCHING, RECEIVE_ORDERS_SUCCESS and UNSET_FETCHING on successful fetching of caterer orders', () => {
         const expectedActions = ['SET_FETCHING', 'RECEIVE_ORDERS_SUCCESS', 'UNSET_FETCHING'];
 
-        moxios.stubRequest(`${url}/orders`, {
-          status: 200,
-          response: caterersOrdersObj
-        });
+        mockReq.onGet(`${url}/orders`).reply(200, caterersOrdersObj);
 
         return store.dispatch(fetchOrders()).then(() => {
           const dispatchedActions = store.getActions();
@@ -151,14 +141,26 @@ describe('Orders Actions', () => {
       });
 
       it('dispatches SET_FETCHING, RECEIVE_ORDERS_SUCCESS and UNSET_FETCHING when date is given', () => {
-        moxios.uninstall(instance);
-
         const expectedActions = ['SET_FETCHING', 'RECEIVE_ORDERS_SUCCESS', 'UNSET_FETCHING'];
-        const mock = new MockAdapter(instance);
 
-        mock.onGet(`${url}/orders?date=2018-05-27`).reply(200, caterersOrdersObjPerDay);
+        mockReq.onGet(`${url}/orders?date=2018-05-27`).reply(200, caterersOrdersObjPerDay);
 
         return store.dispatch(fetchOrders('2018-05-27')).then(() => {
+          const dispatchedActions = store.getActions();
+
+          const actionTypes = dispatchedActions.map(action => action.type);
+
+          expect(actionTypes).toEqual(expectedActions);
+        });
+      });
+
+
+      it('dispatches RECEIVE_MORE_ORDERS_SUCCESS and UNSET_FETCHING when metadata is given', () => {
+        const expectedActions = ['RECEIVE_MORE_ORDERS_SUCCESS', 'UNSET_FETCHING'];
+
+        mockReq.onGet(`${url}/orders?date=2018-05-27&limit=5`).reply(200, caterersOrdersObjPerDay);
+
+        return store.dispatch(fetchOrders('2018-05-27', { ...metadata, next: `${url}/orders?date=2018-05-27&limit=5` })).then(() => {
           const dispatchedActions = store.getActions();
 
           const actionTypes = dispatchedActions.map(action => action.type);
@@ -170,12 +172,7 @@ describe('Orders Actions', () => {
       it('dispatches SET_FETCHING, RECEIVE_ORDERS_FAILURE and UNSET_FETCHING on unsuccessful fetching', () => {
         const expectedActions = ['SET_FETCHING', 'RECEIVE_ORDERS_FAILURE', 'UNSET_FETCHING'];
 
-        moxios.stubRequest(`${url}/orders`, {
-          status: 401,
-          response: {
-            error: 'Error'
-          },
-        }, 5);
+        mockReq.onGet(`${url}/orders`).reply(401, { error: 'Error' });
 
         return store.dispatch(fetchOrders()).catch(() => {
           const dispatchedActions = store.getActions();
@@ -190,10 +187,7 @@ describe('Orders Actions', () => {
       it('dispatches SET_DELIVERING, DELIVER_ORDER_SUCCESS and UNSET_DELIVERING on successful order delivery', () => {
         const expectedActions = ['SET_DELIVERING', 'DELIVER_ORDER_SUCCESS', 'UNSET_DELIVERING'];
 
-        moxios.stubRequest(`${url}/orders/fb097bde-5959-45ff-8e21-51184fa60c26/deliver`, {
-          status: 200,
-          response: deliverOrderData
-        });
+        mockReq.onPost(`${url}/orders/fb097bde-5959-45ff-8e21-51184fa60c26/deliver`).reply(200, deliverOrderData);
 
         return store.dispatch(deliverOrder('fb097bde-5959-45ff-8e21-51184fa60c26')).then(() => {
           const dispatchedActions = store.getActions();
@@ -207,12 +201,7 @@ describe('Orders Actions', () => {
       it('dispatches SET_DELIVERING, DELIVER_ORDER_FAILURE and UNSET_DELIVERING on unsuccessful order delivery', () => {
         const expectedActions = ['SET_DELIVERING', 'DELIVER_ORDER_FAILURE', 'UNSET_DELIVERING'];
 
-        moxios.stubRequest(`${url}/orders/fb097bde-5959-45ff-8e21-51184fa60c26/deliver`, {
-          status: 401,
-          response: {
-            error: 'An Error'
-          }
-        });
+        mockReq.onPost(`${url}/orders/fb097bde-5959-45ff-8e21-51184fa60c26/deliver`).reply(401, { error: 'An Error' });
 
         return store.dispatch(deliverOrder('fb097bde-5959-45ff-8e21-51184fa60c26')).then(() => {
           const dispatchedActions = store.getActions();
@@ -226,10 +215,7 @@ describe('Orders Actions', () => {
       it('dispatches SET_ORDER_WORKING, ADD_ORDER_SUCCESS, TOGGLE_MODAL, @@router/CALL_HISTORY_METHOD,  and UNSET_ORDER_WORKING on successful order addition', () => {
         const expectedActions = ['SET_ORDER_WORKING', 'ADD_ORDER_SUCCESS', 'UNSET_ORDER_WORKING', '@@router/CALL_HISTORY_METHOD'];
 
-        moxios.stubRequest(`${url}/orders`, {
-          status: 201,
-          response: customerOrder
-        });
+        mockReq.onPost(`${url}/orders`).reply(201, customerOrder);
 
         jest.useFakeTimers();
 
@@ -246,12 +232,7 @@ describe('Orders Actions', () => {
       it('dispatches SET_ORDER_WORKING, ADD_ORDER_FAILURE and UNSET_ORDER_WORKING on usuccessful order addition', () => {
         const expectedActions = ['SET_ORDER_WORKING', 'ADD_ORDER_FAILURE', 'UNSET_ORDER_WORKING'];
 
-        moxios.stubRequest(`${url}/orders`, {
-          status: 401,
-          response: {
-            error: 'An Error'
-          }
-        });
+        mockReq.onPost(`${url}/orders`).reply(401, { error: 'An Error' });
 
         return store.dispatch(addOrder(orderRequest)).then(() => {
           const dispatchedActions = store.getActions();
@@ -265,10 +246,7 @@ describe('Orders Actions', () => {
       it('dispatches SET_ORDER_WORKING, EDIT_ORDER_SUCCESS, TOGGLE_MODAL, @@router/CALL_HISTORY_METHOD,  and UNSET_ORDER_WORKING on successful order edit', () => {
         const expectedActions = ['SET_ORDER_WORKING', 'EDIT_ORDER_SUCCESS', 'UNSET_ORDER_WORKING', '@@router/CALL_HISTORY_METHOD'];
 
-        moxios.stubRequest(`${url}/orders/${customerOrder.id}`, {
-          status: 200,
-          response: customerOrder
-        });
+        mockReq.onPut(`${url}/orders/${customerOrder.id}`).reply(200, customerOrder);
 
         jest.useFakeTimers();
 
@@ -285,12 +263,7 @@ describe('Orders Actions', () => {
       it('dispatches SET_ORDER_WORKING, EDIT_ORDER_FAILURE and UNSET_ORDER_WORKING on usuccessful order edit', () => {
         const expectedActions = ['SET_ORDER_WORKING', 'EDIT_ORDER_FAILURE', 'UNSET_ORDER_WORKING'];
 
-        moxios.stubRequest(`${url}/orders/${customerOrder.id}`, {
-          status: 401,
-          response: {
-            error: 'An Error'
-          }
-        });
+        mockReq.onPut(`${url}/orders/${customerOrder.id}`).reply(401, { error: 'An Error' });
 
         return store.dispatch(editOrder(customerOrder.id, customerOrder)).then(() => {
           const dispatchedActions = store.getActions();
@@ -301,13 +274,10 @@ describe('Orders Actions', () => {
         });
       });
 
-      it('dispatches SET_ORDER_WORKING,CANCEL_ORDER_SUCCESS, TOGGLE_MODAL, @@router/CALL_HISTORY_METHOD, and UNSET_ORDER_WORKING on successful order cancelation', () => {
+      it('dispatches SET_ORDER_WORKING, CANCEL_ORDER_SUCCESS, TOGGLE_MODAL, @@router/CALL_HISTORY_METHOD, and UNSET_ORDER_WORKING on successful order cancelation', () => {
         const expectedActions = ['SET_ORDER_WORKING', 'CANCEL_ORDER_SUCCESS', 'UNSET_ORDER_WORKING', '@@router/CALL_HISTORY_METHOD'];
 
-        moxios.stubRequest(`${url}/orders/${customerOrder.id}`, {
-          status: 200,
-          response: customerOrder
-        });
+        mockReq.onPut(`${url}/orders/${customerOrder.id}`).reply(200, customerOrder);
 
         jest.useFakeTimers();
 
@@ -324,12 +294,7 @@ describe('Orders Actions', () => {
       it('dispatches SET_ORDER_WORKING, CANCEL_ORDER_FAILURE and UNSET_ORDER_WORKING on unsuccessful order cancelation', () => {
         const expectedActions = ['SET_ORDER_WORKING', 'CANCEL_ORDER_FAILURE', 'UNSET_ORDER_WORKING'];
 
-        moxios.stubRequest(`${url}/orders/${customerOrder.id}`, {
-          status: 401,
-          response: {
-            error: 'An Error'
-          }
-        });
+        mockReq.onPut(`${url}/orders/${customerOrder.id}`).reply(401, { error: 'An Error' });
 
         return store.dispatch(cancelOrder(customerOrder.id)).then(() => {
           const dispatchedActions = store.getActions();

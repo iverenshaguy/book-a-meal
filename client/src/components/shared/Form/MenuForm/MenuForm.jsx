@@ -1,8 +1,9 @@
 import React, { Fragment, Component } from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import { mealObjPropTypes } from '../../../../helpers/proptypes';
+import { mealObjPropTypes, metadataProps } from '../../../../helpers/proptypes';
 import MiniPreloader from '../../Preloader/MiniPreloader';
+import InfiniteLoader from '../../InfiniteLoader';
 
 /**
  * @exports
@@ -23,7 +24,9 @@ class MenuForm extends Component {
     addMenu: PropTypes.func.isRequired,
     editMenu: PropTypes.func.isRequired,
     clearMenuError: PropTypes.func.isRequired,
-    submitting: PropTypes.bool.isRequired
+    submitting: PropTypes.bool.isRequired,
+    mealsMetadata: metadataProps.isRequired,
+    menuMetadata: metadataProps.isRequired,
   }
 
   /**
@@ -43,17 +46,34 @@ class MenuForm extends Component {
   state = {
     date: this.props.menu.date,
     meals: this.props.menu.meals.map(meal => meal.id),
-    error: null
+    error: null,
+    formHeight: 0
   }
 
   /**
    * @memberof MenuForm
    * @returns {JSX} MenuForm
    */
-  async componentDidMount() {
+  componentDidMount() {
     this.props.clearMenuError();
-    await this.props.fetchMeals();
-    await this.props.fetchMenu(this.props.menu.date);
+    this.props.fetchMeals();
+    this.props.fetchMenu();
+  }
+
+  /**
+   * @memberof MenuForm
+   * @returns {func} fetchMeals|fetchMenu
+   */
+  fetchMoreData = () => {
+    if (this.props.mealsMetadata.next) {
+      this.props.fetchMeals(this.props.mealsMetadata);
+    }
+
+    if (this.props.menuMetadata.next) {
+      this.props.fetchMenu(this.props.menu.date, this.props.menuMetadata);
+    }
+
+    return null;
   }
 
   /**
@@ -90,7 +110,7 @@ class MenuForm extends Component {
     const { target } = event;
     const { name } = target;
 
-    return target.checked ? this.addMealToState(name) : this.removeMealToState(name);
+    return target.checked ? this.addMealToState(name) : this.removeMealFromState(name);
   }
 
   /**
@@ -109,7 +129,7 @@ class MenuForm extends Component {
    * @param {object} meal
    * @returns {JSX} MenuForm
    */
-  removeMealToState = (meal) => {
+  removeMealFromState = (meal) => {
     this.setState(prevState => ({
       meals: prevState.meals.filter(item => item !== meal)
     }));
@@ -131,6 +151,23 @@ class MenuForm extends Component {
 
   /**
    * @memberof MenuForm
+   * @returns {JSX} MenuFormMeals
+   */
+  renderMeals = () => (this.props.meals.map(meal => (
+    <div className="form-input-checkbox" key={meal.id} ref={(elem) => { this.elem = elem; }}>
+      <input
+        type="checkbox"
+        id={meal.id}
+        name={meal.id}
+        checked={this.state.meals.includes(meal.id)}
+        onChange={this.handleSelectMeal}
+      />
+        &nbsp;&nbsp;
+      <label htmlFor="checkbox">{meal.title}</label>
+    </div>)))
+
+  /**
+   * @memberof MenuForm
    * @returns {JSX} MenuForm
    */
   renderMenuForm = () => (
@@ -141,18 +178,12 @@ class MenuForm extends Component {
           <label htmlFor="date">Date</label>
           <input type="date" id="date" name="date" min={moment().format('YYYY-MM-DD')} value={this.state.date} onChange={this.handleChangeDate} />
         </div>
-        {this.props.meals.map(meal => (
-          <div className="form-input-checkbox" key={meal.id}>
-            <input
-              type="checkbox"
-              id={meal.id}
-              name={meal.id}
-              checked={this.state.meals.includes(meal.id)}
-              onChange={this.handleSelectMeal}
-            />
-            &nbsp;&nbsp;
-            <label htmlFor="checkbox">{meal.title}</label>
-          </div>))}
+        <InfiniteLoader
+          items={this.renderMeals()}
+          metadata={this.props.mealsMetadata}
+          height={50 * this.props.meals.length}
+          loadMore={this.fetchMoreData}
+        />
       </div>
       <button className="btn btn-pri btn-block" onClick={this.submitMenu}>SAVE MEAL OPTIONS</button>
     </Fragment>

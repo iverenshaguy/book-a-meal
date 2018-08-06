@@ -188,6 +188,21 @@ class Users {
 
     return userObj;
   }
+
+  /**
+   * Updates Customer's contact details
+   * @method updateCustomerContact
+   * @memberof Orders
+   * @param {string} userId
+   * @param {object} contact
+   * @returns {void}
+   */
+  static async updateCustomerContact(userId, contact) {
+    await db.User.update(
+      { phoneNo: contact.deliveryPhoneNo, address: contact.deliveryAddress },
+      { where: { userId } }
+    );
+  }
 }
 
 export default Users;

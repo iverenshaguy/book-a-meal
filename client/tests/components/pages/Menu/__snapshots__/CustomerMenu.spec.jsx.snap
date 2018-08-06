@@ -72,7 +72,15 @@ exports[`CustomerMenu renders Preloader when fetching 1`] = `
                 />,
               ]
             }
-            limit={9}
+            loadMore={[Function]}
+            metadata={
+              Object {
+                "next": "next",
+                "pages": 2,
+                "prev": "prev",
+                "total": 5,
+              }
+            }
           />
         </React.Fragment>
       </div>
@@ -169,6 +177,7 @@ exports[`CustomerMenu renders connected component 1`] = `
           },
         ]
       }
+      metadata={Object {}}
       user={
         Object {
           "email": "emiola@olasanmi.com",
@@ -507,13 +516,15 @@ exports[`CustomerMenu renders connected component 1`] = `
                         />,
                       ]
                     }
-                    limit={9}
+                    loadMore={[Function]}
+                    metadata={Object {}}
                   >
                     <div
                       className="card-group meals-wrapper"
                       id="card-group"
                     >
                       <InfiniteLoader
+                        height={null}
                         items={
                           Array [
                             <MealCard
@@ -550,12 +561,14 @@ exports[`CustomerMenu renders connected component 1`] = `
                             />,
                           ]
                         }
-                        limit={9}
+                        loadMore={[Function]}
+                        metadata={Object {}}
                       >
                         <InfiniteScroll
                           dataLength={2}
                           disableBrowserPullToRefresh={true}
                           hasMore={false}
+                          height={null}
                           loader={
                             <div
                               className="text-center"
@@ -1143,7 +1156,15 @@ exports[`CustomerMenu renders correctly when not fetching 1`] = `
                 />,
               ]
             }
-            limit={9}
+            loadMore={[Function]}
+            metadata={
+              Object {
+                "next": "next",
+                "pages": 2,
+                "prev": "prev",
+                "total": 5,
+              }
+            }
           />
         </React.Fragment>
       </div>
@@ -1258,6 +1279,7 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
         "calls": Array [
           Array [
             undefined,
+            undefined,
           ],
         ],
       }
@@ -1283,6 +1305,14 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
           "vegetarian": true,
         },
       ]
+    }
+    metadata={
+      Object {
+        "next": "next",
+        "pages": 2,
+        "prev": "prev",
+        "total": 5,
+      }
     }
     user={
       Object {
@@ -1635,13 +1665,22 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                       />,
                     ]
                   }
-                  limit={9}
+                  loadMore={[Function]}
+                  metadata={
+                    Object {
+                      "next": "next",
+                      "pages": 2,
+                      "prev": "prev",
+                      "total": 5,
+                    }
+                  }
                 >
                   <div
                     className="card-group meals-wrapper"
                     id="card-group"
                   >
                     <InfiniteLoader
+                      height={null}
                       items={
                         Array [
                           <MealCard
@@ -1678,12 +1717,21 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                           />,
                         ]
                       }
-                      limit={9}
+                      loadMore={[Function]}
+                      metadata={
+                        Object {
+                          "next": "next",
+                          "pages": 2,
+                          "prev": "prev",
+                          "total": 5,
+                        }
+                      }
                     >
                       <InfiniteScroll
                         dataLength={2}
                         disableBrowserPullToRefresh={true}
-                        hasMore={false}
+                        hasMore={true}
+                        height={null}
                         loader={
                           <div
                             className="text-center"
@@ -1861,6 +1909,37 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                                   </ReactTooltip>
                                 </div>
                               </MealCard>
+                            </div>
+                            <div
+                              className="text-center"
+                            >
+                              <MiniPreloader>
+                                <Loader
+                                  active={true}
+                                  type="ball-beat"
+                                >
+                                  <div
+                                    className="loader loader-undefined loader-active"
+                                  >
+                                    <div
+                                      className="loader-inner ball-beat"
+                                    >
+                                      <div
+                                        key="0"
+                                        style={Object {}}
+                                      />
+                                      <div
+                                        key="1"
+                                        style={Object {}}
+                                      />
+                                      <div
+                                        key="2"
+                                        style={Object {}}
+                                      />
+                                    </div>
+                                  </div>
+                                </Loader>
+                              </MiniPreloader>
                             </div>
                           </div>
                         </div>

@@ -13,7 +13,9 @@ const mapStateToProps = state => ({
     date: state.menu.currentDay
   },
   submitting: state.menu.working,
-  submitError: state.menu.error
+  submitError: state.menu.error,
+  menuMetadata: state.menu.metadata,
+  mealsMetadata: state.meals.metadata
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

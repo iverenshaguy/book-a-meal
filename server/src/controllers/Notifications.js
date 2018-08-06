@@ -1,6 +1,7 @@
 import moment from 'moment';
 import { Op } from 'sequelize';
 import db from '../models';
+import Pagination from '../utils/Pagination';
 
 /**
  * @exports
@@ -20,7 +21,7 @@ class Notifications {
   }
 
   /**
-   * Returns a list of Order Items
+   * Returns a list of Notifications
    * @method getNotifications
    * @memberof Notifications
    * @param {object} req
@@ -30,19 +31,28 @@ class Notifications {
    */
   static async getNotifications(req, res) {
     const { role } = req;
+    const paginate = new Pagination(req.query.page, req.query.limit);
+    const { limit, offset } = paginate.getQueryMetadata();
 
     const where = role === 'caterer' ?
       { userId: req.userId } :
       { menuId: { [Op.not]: null } };
 
-    let notifications = await db.Notification.findAll({ where, order: [['createdAt', 'DESC']] });
+    const data = await db.Notification.findAndCountAll({
+      where, order: [['createdAt', 'DESC']], limit, offset
+    });
 
-    notifications = notifications.map(order => Notifications.getNotifObject(order, role));
+    const notifications = data.rows.map(order => Notifications.getNotifObject(order, role));
 
-    return res.status(200).json({ notifications });
+    const url = '/notifications';
+
+    return res.status(200).json({
+      notifications, metadata: paginate.getPageMetadata(data.count, url)
+    });
   }
 
   /**
+   * Maps notifications to readable object
    * @method getNotifObj
    * @memberof Notifications
    * @param {object} notification

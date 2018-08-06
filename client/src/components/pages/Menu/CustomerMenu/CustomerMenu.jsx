@@ -165,9 +165,17 @@ class CustomerMenu extends Component {
 
   /**
    * @memberof CustomerMenu
-   * @returns {JSX} CustomerMenu Component
+   * @param {object} metadata
+   * @returns {func} fetchMenu
   */
-  fetchMenu = () => this.props.fetchMenu(this.props.currentDay);
+  fetchMenu = metadata => this.props.fetchMenu(this.props.currentDay, metadata);
+
+  /**
+   * @memberof CustomerMenu
+   * @param {object} metadata
+   * @returns {func} load more menu
+  */
+  loadMoreMenu = () => this.fetchMenu(this.props.metadata)
 
   /**
    * @memberof CustomerMenu
@@ -175,7 +183,7 @@ class CustomerMenu extends Component {
   */
   renderMenu = () => {
     const { meals } = this.props;
-    const mealItems = meals.map(meal =>
+    const menu = meals.map(meal =>
       (<MealCard
         type="customer"
         key={meal.id}
@@ -187,7 +195,12 @@ class CustomerMenu extends Component {
     return (
       <Fragment>
         {meals.length === 0 && <p className="text-center">{'There are no Meals on Today\'s Menu'}</p>}
-        {meals.length !== 0 && <CardGroup items={mealItems} limit={9} />}
+        {meals.length !== 0 &&
+          <CardGroup
+            items={menu}
+            metadata={this.props.metadata}
+            loadMore={this.loadMoreMenu}
+          />}
       </Fragment>
     );
   }
