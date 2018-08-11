@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import notEmpty from '../../src/helpers/notEmpty';
 
 describe('notEmpty', () => {
-  it('returns true when not empty', () => {
+  it('returns true when value is not empty', () => {
     const check = notEmpty('yes', 'string field cannot be left blank');
 
     expect(check).to.equal(true);

@@ -1,9 +1,9 @@
 import express from 'express';
-import menuRoutes from './menu';
-import authRoutes from './auth';
-import mealsRoutes from './meals';
-import ordersRoutes from './orders';
-import notificationsRoutes from './notifications';
+import menuRoutes from './menuRoutes';
+import authRoutes from './authRoutes';
+import mealRoutes from './mealRoutes';
+import orderRoutes from './orderRoutes';
+import notificationRoutes from './notificationRoutes';
 
 const apiRoutes = express.Router();
 
@@ -18,8 +18,8 @@ apiRoutes.get('/v1', (req, res) => res.status(200).json({
 
 apiRoutes.use('/v1/menu', menuRoutes);
 apiRoutes.use('/v1/auth', authRoutes);
-apiRoutes.use('/v1/meals', mealsRoutes);
-apiRoutes.use('/v1/orders', ordersRoutes);
-apiRoutes.use('/v1/notifications', notificationsRoutes);
+apiRoutes.use('/v1/meals', mealRoutes);
+apiRoutes.use('/v1/orders', orderRoutes);
+apiRoutes.use('/v1/notifications', notificationRoutes);
 
 export default apiRoutes;

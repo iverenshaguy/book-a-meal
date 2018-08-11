@@ -7,12 +7,11 @@ import bodyParser from 'body-parser';
 import gzipStatic from 'connect-gzip-static';
 import 'babel-polyfill';
 import apiRoutes from './routes';
-import orderEmitter from './events/Orders';
-import notifEmitter from './events/Notifications';
 import ErrorHandler from './middlewares/ErrorHandler';
-import OrderHandler from './eventHandlers/Orders';
-import NotifHandler from './eventHandlers/Notifications';
+import { OrderEventEmitter, NotificationEventEmitter } from './eventEmitters';
+import { OrderEventHandler, NotificationEventHandler } from './eventHandlers';
 import webpackDev from './utils/webpackDev';
+import errors from '../data/errors.json';
 
 config();
 
@@ -38,6 +37,11 @@ app.use('/api/v1/docs', express.static('server/docs'));
 //  Connect all our routes to our application
 app.use('/api', apiRoutes);
 
+// Fallback API Route
+app.use('/api/*', (req, res) => {
+  res.status(404).json({ error: errors[404] });
+});
+
 // Serve static assets
 app.use(gzipStatic(path.resolve(__dirname, '../../client/', 'dist')));
 app.use(gzipStatic(path.resolve(__dirname, '../../client/', 'public')));
@@ -47,9 +51,9 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
 });
 
-orderEmitter.on('create', OrderHandler.startOrderProcess);
-orderEmitter.on('deliver', OrderHandler.markOrderAsDelivered);
-notifEmitter.on('createMenu', NotifHandler.menuForTheDay);
+OrderEventEmitter.on('create', OrderEventHandler.startOrderProcess);
+OrderEventEmitter.on('deliver', OrderEventHandler.markOrderAsDelivered);
+NotificationEventEmitter.on('createMenu', NotificationEventHandler.menuForTheDay);
 
 // Handle App Errors
 app.use(ErrorHandler.sendError);

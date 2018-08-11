@@ -11,16 +11,14 @@
     "server_path": "./client/bin/.selenium/selenium-server/3.7.1-server.jar",
     "log_path": "./client/reports",
     "host": "127.0.0.1",
+    "marionette": false,
     "port": 4444,
     "cli_args": {
       "webdriver.chrome.driver":
-        "./client/bin/.selenium/chromedriver/2.33-x64-chromedriver.exe",
-      "webdriver.ie.driver":
-        "./client/bin/.selenium/iedriver/3.7.0-x64-IEDriverServer.exe",
-      "webdriver.gecko.driver":
-        "./client/bin/.selenium/geckodriver/0.19.1-x64-geckodriver.exe",
-      "webdriver.edge.driver":
-        "./client/bin/.selenium/edgedriver/16299-MicrosoftEdgeDriver.exe"
+        "./client/bin/.selenium/chromedriver/chromedriver",
+      "webdriver.ie.driver": "",
+      "webdriver.gecko.driver": "",
+      "webdriver.edge.driver": ""
     }
   },
 

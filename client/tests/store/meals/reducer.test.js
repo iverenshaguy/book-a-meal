@@ -1,5 +1,5 @@
 import reducer from '../../../src/store/reducers/meals';
-import { caterersMealsObj, newMeal, metadata } from '../../setup/data';
+import { caterersMealsObj, newMeal, metadata } from '../../setup/mockData';
 
 const state = {
   items: [],

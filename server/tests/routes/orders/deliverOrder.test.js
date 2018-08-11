@@ -5,14 +5,14 @@ import app from '../../../src/app';
 import notFound from '../../utils/notFound';
 import invalidID from '../../utils/invalidID';
 import unAuthorized from '../../utils/unAuthorized';
-import { addOrder } from '../../utils/data';
+import { order as mockData } from '../../utils/mockData';
 import { tokens } from '../../utils/setup';
 
 const { emiolaToken, foodCircleToken } = tokens;
 
-const { newOrder } = addOrder;
+const { newOrderDetails } = mockData;
 
-let newOrderId1, newOrderId2;
+let firstOrderId, secondOrderId;
 
 describe('Order Routes: Deliver an Order', () => {
   before((done) => {
@@ -20,9 +20,9 @@ describe('Order Routes: Deliver an Order', () => {
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
       .set('authorization', emiolaToken)
-      .send(newOrder)
+      .send(newOrderDetails)
       .end((err, res) => {
-        newOrderId1 = res.body.id;
+        firstOrderId = res.body.id;
         expect(res.statusCode).to.equal(201);
         expect(res.body).to.include.keys('id');
 
@@ -36,9 +36,9 @@ describe('Order Routes: Deliver an Order', () => {
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
       .set('authorization', emiolaToken)
-      .send(newOrder)
+      .send(newOrderDetails)
       .end((err, res) => {
-        newOrderId2 = res.body.id;
+        secondOrderId = res.body.id;
         db.Order.findOne({ where: { orderId: res.body.id } }).then(order =>
           order.addMeal('46ced7aa-eed5-4462-b2c0-153f31589bdd', { through: { quantity: 1 } }).then(() =>
             order.update({ status: 'pending' }).then(() => {
@@ -49,10 +49,10 @@ describe('Order Routes: Deliver an Order', () => {
   });
 
   it('should deliver order belonging to caterer', (done) => {
-    db.Order.findOne({ where: { orderId: newOrderId1 } }).then(order =>
+    db.Order.findOne({ where: { orderId: firstOrderId } }).then(order =>
       order.update({ status: 'pending' }).then(() => {
         request(app)
-          .post(`/api/v1/orders/${newOrderId1}/deliver`)
+          .post(`/api/v1/orders/${firstOrderId}/deliver`)
           .set('Accept', 'application/json')
           .set('authorization', foodCircleToken)
           .send({ delivered: true })
@@ -68,7 +68,7 @@ describe('Order Routes: Deliver an Order', () => {
 
   it('should change caterer\'s order status to delivered when all his meals have been delivered', (done) => {
     request(app)
-      .post(`/api/v1/orders/${newOrderId2}/deliver`)
+      .post(`/api/v1/orders/${secondOrderId}/deliver`)
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
       .send({ delivered: true })
@@ -83,7 +83,7 @@ describe('Order Routes: Deliver an Order', () => {
 
   it('should not change order status to delivered when all meals haven\'t been delivered', async () => {
     try {
-      const order = await db.Order.findOne({ where: { orderId: newOrderId2 } });
+      const order = await db.Order.findOne({ where: { orderId: secondOrderId } });
 
       expect(order.get().status).to.equal('pending');
     } catch (err) {
@@ -92,10 +92,10 @@ describe('Order Routes: Deliver an Order', () => {
   });
 
   it('should not modify an expired/delivered order', (done) => {
-    db.Order.findOne({ where: { orderId: newOrderId1 } }).then(order =>
+    db.Order.findOne({ where: { orderId: firstOrderId } }).then(order =>
       order.update({ status: 'delivered' }).then(() => {
         request(app)
-          .post(`/api/v1/orders/${newOrderId1}/deliver`)
+          .post(`/api/v1/orders/${firstOrderId}/deliver`)
           .set('Accept', 'application/json')
           .set('authorization', foodCircleToken)
           .send({ delivered: true })
@@ -110,10 +110,10 @@ describe('Order Routes: Deliver an Order', () => {
   });
 
   it('should not modify a canceled order', (done) => {
-    db.Order.findOne({ where: { orderId: newOrderId1 } }).then(order =>
+    db.Order.findOne({ where: { orderId: firstOrderId } }).then(order =>
       order.update({ status: 'canceled' }).then(() => {
         request(app)
-          .post(`/api/v1/orders/${newOrderId1}/deliver`)
+          .post(`/api/v1/orders/${firstOrderId}/deliver`)
           .set('Accept', 'application/json')
           .set('authorization', foodCircleToken)
           .send({ delivered: true })
@@ -129,7 +129,7 @@ describe('Order Routes: Deliver an Order', () => {
 
   it('should return errors for invalid input', (done) => {
     request(app)
-      .post(`/api/v1/orders/${newOrderId1}/deliver`)
+      .post(`/api/v1/orders/${firstOrderId}/deliver`)
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
       .send({ delivered: 'tru' })
@@ -144,7 +144,7 @@ describe('Order Routes: Deliver an Order', () => {
 
   it('should return error when delivery status isn\'t specified', (done) => {
     request(app)
-      .post(`/api/v1/orders/${newOrderId1}/deliver`)
+      .post(`/api/v1/orders/${firstOrderId}/deliver`)
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
       .send()
@@ -157,19 +157,20 @@ describe('Order Routes: Deliver an Order', () => {
       });
   });
 
-  invalidID(
-    'should return 400 error for invalid menu id', 'orderId',
-    request(app), 'post', { delivered: true }, '/api/v1/orders/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478/deliver', foodCircleToken
-  );
+  invalidID({
+    type: 'orderId',
+    method: 'post',
+    url: '/api/v1/orders/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478/deliver',
+    token: foodCircleToken,
+    data: { delivered: true },
+  });
 
-  notFound(
-    'should return 404 error for non-existent menu id',
-    request(app), 'post',
-    { delivered: true }, '/api/v1/orders/9ce447be-ee46-424e-82b8-ae4160e795b4/deliver', foodCircleToken
-  );
+  notFound({
+    method: 'post',
+    url: '/api/v1/orders/9ce447be-ee46-424e-82b8-ae4160e795b4/deliver',
+    token: foodCircleToken,
+    data: { delivered: true },
+  });
 
-  unAuthorized(
-    'should return 401 error for user without token',
-    request(app), 'post', '/api/v1/orders/e544248c-145c-4145-b165-239658857637/deliver'
-  );
+  unAuthorized('post', '/api/v1/orders/e544248c-145c-4145-b165-239658857637/deliver');
 });

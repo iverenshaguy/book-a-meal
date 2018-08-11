@@ -6,7 +6,7 @@ import { Redirect, MemoryRouter } from 'react-router-dom';
 import requireAuthentication from '../../../src/components/hoc/Authentication';
 import Preloader from '../../../src/components/shared/Preloader';
 import rootReducer from '../../../src/rootReducer';
-import { initialValues } from '../../setup/data';
+import { initialValues } from '../../setup/mockData';
 
 const loadingInitialValues = {
   ...initialValues,

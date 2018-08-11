@@ -5,7 +5,7 @@ import configureStore from 'redux-mock-store';
 import { arrayToObject } from '../../src/utils';
 import { formHelpers } from '../../src/helpers';
 import FormComponent from '../../src/components/shared/Form/Form';
-import { newMeal, initialValues } from './data';
+import { newMeal, initialValues } from './mockData';
 
 const { formFields } = formHelpers;
 const dispatchMock = jest.fn();

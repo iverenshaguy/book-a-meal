@@ -1,6 +1,6 @@
 import React from 'react';
 import CatererView from '../../../../src/components/shared/View';
-import { caterer } from '../../../setup/data';
+import { caterer } from '../../../setup/mockData';
 
 const props = {
   user: caterer,

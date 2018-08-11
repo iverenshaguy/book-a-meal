@@ -1,6 +1,6 @@
 import React from 'react';
 import OrderSummary from '../../../../src/components/shared/OrderSummary';
-import { caterersOrdersObj } from '../../../setup/data';
+import { caterersOrdersObj } from '../../../setup/mockData';
 
 
 describe('OrderSummary', () => {

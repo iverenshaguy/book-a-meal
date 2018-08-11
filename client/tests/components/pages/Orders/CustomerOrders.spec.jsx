@@ -6,7 +6,7 @@ import OrderConfirmation from '../../../../src/components/pages/Orders/CustomerO
 import ConnectedOrderConfirmation from '../../../../src/components/pages/Orders/CustomerOrders/OrderConfirmation';
 import OrderReview from '../../../../src/components/pages/Orders/CustomerOrders/OrderReview/OrderReview';
 import ConnectedOrderReview from '../../../../src/components/pages/Orders/CustomerOrders/OrderReview';
-import { customer, initialValues, localStorageOrder } from '../../../setup/data';
+import { customer, initialValues, localStorageOrder } from '../../../setup/mockData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

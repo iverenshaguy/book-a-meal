@@ -1,15 +1,16 @@
 import moment from 'moment';
-import db from '../models';
+import models from '../models';
 /**
- * Function to check if menu for the day contains meal
+ * Function to check if menu for the day passed in contains meal
  * @param {string} mealId
  * @param {string} date
  * @return {bool} returns false or true
- * find a menu whose date is today and has the meal as an available meal for the day
+ * find a menu whose date is the date passed in and
+ * has the meal as an available meal for that day
  */
 async function isMealAvailable(mealId, date = moment().format('YYYY-MM-DD')) {
   const mealIdArray = [];
-  const menuArray = await db.Menu.findAll({ where: { date }, paranoid: true });
+  const menuArray = await models.Menu.findAll({ where: { date }, paranoid: true });
 
   if (menuArray.length === 0) return false;
 
@@ -17,8 +18,8 @@ async function isMealAvailable(mealId, date = moment().format('YYYY-MM-DD')) {
     .then(meals => mealIdArray.push(...meals)));
 
   await Promise.all(promises);
-  const mealIdArr = mealIdArray.map(meal => meal.mealId);
-  const checkMeal = mealIdArr.includes(mealId);
+  const arrayOfMealIds = mealIdArray.map(meal => meal.mealId);
+  const checkMeal = arrayOfMealIds.includes(mealId);
 
   if (!checkMeal) return false;
 

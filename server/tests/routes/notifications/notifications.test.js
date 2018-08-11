@@ -6,7 +6,7 @@ import { tokens } from '../../utils/setup';
 const { foodCircleToken, emiolaToken } = tokens;
 
 describe('Notifications: Get Notifications', () => {
-  it(' should get all caterer\'s notifications', (done) => {
+  it('should get all caterer\'s notifications', (done) => {
     request(app)
       .get('/api/v1/notifications')
       .set('Accept', 'application/json')
@@ -20,7 +20,7 @@ describe('Notifications: Get Notifications', () => {
       });
   });
 
-  it(' should get all customers\'s notifications', (done) => {
+  it('should get all customers\'s notifications', (done) => {
     request(app)
       .get('/api/v1/notifications')
       .set('Accept', 'application/json')

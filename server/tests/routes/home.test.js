@@ -16,7 +16,7 @@ describe('API Home Routes', () => {
         });
     });
 
-    it('should return a fallback page', (done) => {
+    it('should return a fallback page for wrong routes', (done) => {
       request(app)
         .get('/yadayada')
         .expect('Content-Type', /html/)
@@ -53,12 +53,13 @@ describe('API Home Routes', () => {
       });
   });
 
-  it('should return a Fallback Message for API Route', (done) => {
+  it('should return a Fallback Page for wrong API route', (done) => {
     request(app)
       .get('/api/fallback')
-      .expect('Content-Type', /html/)
+      .expect('Content-Type', /json/)
       .end((err, res) => {
-        expect(res.text).to.contain('<div id="app"></div>');
+        expect(res.statusCode).to.equal(404);
+        expect(res.body.error).to.equal('Item Not Found');
 
         if (err) return done(err);
         done();

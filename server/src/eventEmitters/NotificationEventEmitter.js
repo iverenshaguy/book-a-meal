@@ -6,6 +6,6 @@ import EventEmitter from 'events';
  * @class Notifications
  * @extends EventEmitter
  */
-class Notifications extends EventEmitter {}
+class NotificationsEventEmitter extends EventEmitter {}
 
-export default new Notifications();
+export default new NotificationsEventEmitter();

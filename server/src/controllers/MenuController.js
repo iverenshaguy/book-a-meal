@@ -1,17 +1,17 @@
 import moment from 'moment';
-import db from '../models';
+import models from '../models';
 import errors from '../../data/errors.json';
-import notifEmitter from '../events/Notifications';
+import NotificationEventEmitter from '../eventEmitters/NotificationEventEmitter';
 import Pagination from '../utils/Pagination';
 
 /**
  * @exports
- * @class Menu
+ * @class MenuController
  */
-class Menu {
+class MenuController {
   /**
    * Creates a new menu item
-   * @method create
+   * @method createMenu
    * @memberof Controller
    * @param {object} req
    * @param {object} res
@@ -19,31 +19,31 @@ class Menu {
    * date is either equal to the request date or the default date (today)
    * Notifications are also created when a new menu is added
    */
-  static async create(req, res) {
-    const { userId } = req;
+  static async createMenu(req, res) {
+    const { userId, body: { date, meals } } = req;
     const defaultDate = moment().format('YYYY-MM-DD');
 
-    req.body.date = req.body.date || defaultDate;
-    req.body.meals = [...(new Set(req.body.meals))];
+    const menuDate = date || defaultDate;
+    const menuMeals = [...(new Set(meals))];
 
-    await db.Menu.findOrCreate({
-      where: { date: req.body.date, userId },
-      defaults: { date: req.body.date, userId },
+    await models.Menu.findOrCreate({
+      where: { date: menuDate, userId },
+      defaults: { date: menuDate, userId },
       attributes: [['menuId', 'id'], 'date'],
       include: [{
-        model: db.User,
+        model: models.User,
         as: 'caterer'
       }]
     }).spread(async (menu, created) => {
       if (!created) return res.status(400).json({ error: 'Menu already exists for this day' });
 
-      await menu.setMeals(req.body.meals, { through: db.MenuMeal });
-      await Menu.getArrayOfMeals(menu);
+      await menu.setMeals(menuMeals, { through: models.Menu });
+      await MenuController.getArrayOfMeals(menu);
 
-      const newMenu = Menu.getMenuObject(menu);
+      const newMenu = MenuController.getMenuObject(menu);
 
-      if (req.body.date === moment().format('YYYY-MM-DD')) {
-        notifEmitter.emit('createMenu', newMenu, req.userId);
+      if (menuDate === moment().format('YYYY-MM-DD')) {
+        NotificationEventEmitter.emit('createMenu', newMenu, userId);
       }
 
       return res.status(201).json(newMenu);
@@ -53,15 +53,16 @@ class Menu {
 
   /**
    * Updates an menu existing item
-   * @method update
+   * @method updateMenu
    * @memberof Controller
    * @param {object} req
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
-  static async update(req, res) {
-    const menu = await db.Menu
-      .findOne({ where: { menuId: req.params.menuId, userId: req.userId } });
+  static async updateMenu(req, res) {
+    const { userId, params: { menuId }, body: { meals } } = req;
+
+    const menu = await models.Menu.findOne({ where: { menuId, userId } });
 
     if (!menu) return res.status(404).json({ error: errors[404] });
 
@@ -69,18 +70,18 @@ class Menu {
       return res.status(400).json({ error: 'Menu Expired' });
     }
 
-    req.body.meals = [...(new Set(req.body.meals))];
+    const menuMeals = [...(new Set(meals))];
 
-    await menu.setMeals([], { through: db.MenuMeal });
+    await menu.setMeals([], { through: models.MenuMeal });
 
-    const updatedMenu = await menu.setMeals(req.body.meals, { through: db.MenuMeal })
+    const updatedMenu = await menu.setMeals(menuMeals, { through: models.MenuMeal })
       .then(async () => {
-        await Menu.getArrayOfMeals(menu);
+        await MenuController.getArrayOfMeals(menu);
 
-        return Menu.getMenuObject(menu);
+        return MenuController.getMenuObject(menu);
       });
 
-    notifEmitter.emit('createMenu', updatedMenu, req.userId);
+    NotificationEventEmitter.emit('createMenu', updatedMenu, userId);
 
     return res.status(200).json(updatedMenu);
   }
@@ -93,11 +94,12 @@ class Menu {
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
-  static async getMenuForDay(req, res) {
+  static getMenuForDay(req, res) {
     const { role } = req;
 
-    if (role === 'caterer') return Menu.getMenuForCaterer(req, res);
-    return Menu.getMenuForCustomer(req, res);
+    return role === 'caterer' ?
+      MenuController.getMenuForCaterer(req, res) :
+      MenuController.getMenuForCustomer(req, res);
   }
 
   /**
@@ -113,15 +115,15 @@ class Menu {
     const paginate = new Pagination(req.query.page, req.query.limit);
     const { limit, offset } = paginate.getQueryMetadata();
 
-    const data = await db.Meal.findAndCountAll({
+    const menuMealsData = await models.Meal.findAndCountAll({
       attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
       offset,
       limit,
       subQuery: false,
       include: [
-        { model: db.User, as: 'caterer', attributes: [] },
+        { model: models.User, as: 'caterer', attributes: [] },
         {
-          model: db.Menu,
+          model: models.Menu,
           where: { date },
           attributes: [],
           through: { attributes: [] }
@@ -130,8 +132,8 @@ class Menu {
     });
 
     return res.status(200).json({
-      menu: { date, meals: data.rows },
-      metadata: paginate.getPageMetadata(data.count, '/menu')
+      menu: { date, meals: menuMealsData.rows },
+      metadata: paginate.getPageMetadata(menuMealsData.count, '/menu')
     });
   }
 
@@ -144,20 +146,21 @@ class Menu {
    * @returns {(function|object)} Function next() or JSON object
    */
   static async getMenuForCaterer(req, res) {
-    const date = req.query.date || moment().format('YYYY-MM-DD');
-    const paginate = new Pagination(req.query.page, req.query.limit);
+    const { query: { date, page } } = req;
+    const menuDate = date || moment().format('YYYY-MM-DD');
+    const paginate = new Pagination(page, req.query.limit);
     const { limit, offset } = paginate.getQueryMetadata();
 
-    const data = await db.Meal.findAndCountAll({
+    const menuMealsData = await models.Meal.findAndCountAll({
       attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
       offset,
       limit,
       subQuery: false,
       include: [
-        { model: db.User, as: 'caterer', attributes: [] },
+        { model: models.User, as: 'caterer', attributes: [] },
         {
-          model: db.Menu,
-          where: { date, userId: req.userId },
+          model: models.Menu,
+          where: { date: menuDate, userId: req.userId },
           attributes: [['menuId', 'id'], 'date'],
           through: { attributes: [] }
         }
@@ -165,11 +168,11 @@ class Menu {
       order: [['createdAt', 'DESC']]
     });
 
-    const menu = Menu.mapCatererMenu(date, data.rows);
-    const extraQuery = req.query.date ? `date=${date}` : '';
+    const menu = MenuController.mapCatererMenu(menuDate, menuMealsData.rows);
+    const extraQuery = date ? `date=${date}` : '';
 
     return res.status(200).json({
-      menu, metadata: paginate.getPageMetadata(data.count, '/menu', extraQuery)
+      menu, metadata: paginate.getPageMetadata(menuMealsData.count, '/menu', extraQuery)
     });
   }
 
@@ -181,11 +184,11 @@ class Menu {
    * @returns {object} Menu object
    */
   static getMenuObject(menu) {
-    menu = menu.get();
+    const { menuId, date, meals } = menu.get();
     return {
-      id: menu.menuId,
-      date: moment(menu.date).format('YYYY-MM-DD'),
-      meals: menu.meals
+      id: menuId,
+      date: moment(date).format('YYYY-MM-DD'),
+      meals
     };
   }
 
@@ -205,24 +208,23 @@ class Menu {
   }
 
   /**
-   * Maps returned Caterer Menu to readable object
+   * Maps returned Caterer Menuto readable object
    * @method mapCatererMenu
    * @memberof Controller
    * @param {string} date
-   * @param {object} menu
+   * @param {array} menuMeals
    * @returns {array} Array of Meals
+   * The array of meals passed into the function has the menuId
+   * on each eagerly loader Menus element of the array
    */
-  static mapCatererMenu(date, menu) {
-    const { id } = menu.length ? menu[0].get().Menus[0].get() : {};
+  static mapCatererMenu(date, menuMeals) {
+    const { id } = menuMeals.length ? menuMeals[0].get().Menus[0].get() : {};
+    const meals = [...menuMeals];
 
-    if (menu.length) menu.forEach(meal => delete meal.get().Menus);
+    if (meals.length) meals.forEach(meal => delete meal.get().Menus);
 
-    return {
-      id,
-      date,
-      meals: menu
-    };
+    return { id, date, meals };
   }
 }
 
-export default Menu;
+export default MenuController;

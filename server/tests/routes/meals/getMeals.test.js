@@ -72,13 +72,7 @@ describe('Meal Routes: Get all meals', () => {
     });
   });
 
-  notAdmin(
-    'should return 403 error for authorized user ie non admin or caterer',
-    request(app), 'get', '/api/v1/meals'
-  );
+  notAdmin('get', '/api/v1/meals');
 
-  unAuthorized(
-    'should return 401 error for user without token',
-    request(app), 'get', '/api/v1/meals'
-  );
+  unAuthorized('get', '/api/v1/meals');
 });

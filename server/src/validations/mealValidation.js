@@ -2,7 +2,7 @@ import { check } from 'express-validator/check';
 import notEmpty from '../helpers/notEmpty';
 
 export default {
-  create: [
+  createMeal: [
     check('title')
       .trim()
       .customSanitizer(value => value.replace(/  +/g, ' ').trim())
@@ -39,7 +39,7 @@ export default {
       .isIn([false, true])
       .withMessage('Accepts only true or false'),
   ],
-  update: [
+  updateMeal: [
     check('mealId')
       .isUUID(4)
       .withMessage('Invalid ID'),
@@ -78,12 +78,12 @@ export default {
       .isIn([false, true])
       .withMessage('Accepts only true or false'),
   ],
-  delete: [
+  deleteMeal: [
     check('mealId')
       .isUUID(4)
       .withMessage('Invalid ID'),
   ],
-  get: [
+  getMeals: [
     check('limit')
       .trim()
       .optional()

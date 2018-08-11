@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import CustomerMenu from '../../../../src/components/pages/Menu/CustomerMenu/CustomerMenu';
 import ConnectedCustomerMenu from '../../../../src/components/pages/Menu/CustomerMenu';
-import { customer, caterersMealsObj, orderItems, initialValues, metadata } from '../../../setup/data';
+import { customer, caterersMealsObj, orderItems, initialValues, metadata } from '../../../setup/mockData';
 import updateLocalStorageOrder from '../../../../src/helpers/updateLocalStorageOrder';
 
 const middlewares = [thunk];

@@ -1,7 +1,7 @@
 import isMealAvailable from './isMealAvailable';
 
 /**
- * Function to check if meal item is valid
+ * Function to check if meal item is valid to be ordered
  * A meal item is valid if it is available in the menu for the day
  * @param {array} items
  * @param {object} req

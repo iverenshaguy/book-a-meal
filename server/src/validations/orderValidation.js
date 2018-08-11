@@ -7,7 +7,7 @@ import checkOrderQuantity from '../helpers/checkOrderQuantity';
 import isValidOrderItems from '../helpers/isValidOrderItems';
 
 export default {
-  create: [
+  createOrder: [
     check('meals')
       .exists().withMessage('Meals must be specified')
       .custom(value => notEmpty(value, 'Meals field cannot be left blank'))
@@ -37,7 +37,7 @@ export default {
       .isLength({ min: 10, max: 15 })
       .withMessage('Delivery Phone Number must be between 10 and 15 characters'),
   ],
-  update: [
+  updateOrder: [
     check('orderId')
       .isUUID(4)
       .withMessage('Invalid ID'),
@@ -73,7 +73,7 @@ export default {
       .isLength({ min: 10, max: 15 })
       .withMessage('Delivery Phone Number must be between 5 and 15 characters'),
   ],
-  deliver: [
+  deliverOrder: [
     check('orderId')
       .isUUID(4)
       .withMessage('Invalid ID'),
@@ -84,7 +84,7 @@ export default {
       .isBoolean()
       .withMessage('True and False are the only available options'),
   ],
-  retrieve: [
+  getOrders: [
     check('date')
       .trim()
       .optional()
@@ -103,7 +103,7 @@ export default {
       .isInt({ gt: 0 })
       .withMessage('Page must be an integer greater than 0'),
   ],
-  retrieveOne: [
+  getSingleOrder: [
     check('orderId')
       .isUUID(4)
       .withMessage('Invalid ID'),

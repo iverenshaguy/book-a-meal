@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import Dashboard from '../../../../src/components/pages/Dashboard/Dashboard';
 import ConnectedDashboard from '../../../../src/components/pages/Dashboard';
-import { caterer, caterersOrdersObj, initialValues } from '../../../setup/data';
+import { caterer, caterersOrdersObj, initialValues } from '../../../setup/mockData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

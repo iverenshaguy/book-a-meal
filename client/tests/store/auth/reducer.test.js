@@ -1,5 +1,5 @@
 import reducer from '../../../src/store/reducers/auth';
-import { customerOrder } from '../../setup/data';
+import { customerOrder } from '../../setup/mockData';
 
 const state = {
   isAuthenticated: false,

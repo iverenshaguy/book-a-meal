@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import AuthComponent from '../../../../src/components/pages/Auth/AuthComponent';
 import Auth from '../../../../src/components/pages/Auth';
-import { initialValues } from '../../../setup/data';
+import { initialValues } from '../../../setup/mockData';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
