@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import Cart from '../../../../src/components/shared/Cart';
-import { order } from '../../../setup/data';
+import { order } from '../../../setup/mockData';
 
 const { now } = Date;
 const currentDay = moment().format('YYYY-MM-DD');

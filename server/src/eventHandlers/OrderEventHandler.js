@@ -1,4 +1,4 @@
-import NotificationHandler from './Notifications';
+import NotificationEventHandler from './NotificationEventHandler';
 import mapCaterersOrder from '../helpers/mapCaterersOrder';
 
 let updateOrder;
@@ -6,13 +6,13 @@ let updateOrder;
 /**
  * Order event handlers
  * @exports
- * @class Orders
+ * @class OrderEventHandler
  */
-class Orders {
+class OrderEventHandler {
   /**
    * Starts order process by updating order status to pending
    * @method startOrderProcess
-   * @memberof Orders
+   * @memberof OrderEventHandler
    * @param {object} order
    * @param {string} userId
    * @returns {void}
@@ -26,7 +26,7 @@ class Orders {
         order.update({ status: 'pending' }).then(async () => {
           const mappedOrder = await mapCaterersOrder(order);
 
-          return NotificationHandler.catererOrder(mappedOrder, userId);
+          return NotificationEventHandler.catererOrder(mappedOrder, userId);
         });
       }
     }), process.env.EXPIRY);
@@ -35,7 +35,7 @@ class Orders {
   /**
    * Automatically marks Order as delivered if all meals are delivered
    * @method markOrderAsDelivered
-   * @memberof Orders
+   * @memberof OrderEventHandler
    * @param {object} order
    * @returns {void}
    */
@@ -52,10 +52,10 @@ class Orders {
       if (delivered) {
         order.update({ status: 'delivered' }).then(() => order);
 
-        NotificationHandler.orderSuccess(order, meals);
+        NotificationEventHandler.orderSuccess(order, meals);
       }
     });
   }
 }
 
-export default Orders;
+export default OrderEventHandler;

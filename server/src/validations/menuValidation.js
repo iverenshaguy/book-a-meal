@@ -2,13 +2,13 @@ import { check } from 'express-validator/check';
 import moment from 'moment';
 import notEmpty from '../helpers/notEmpty';
 import validateDate from '../helpers/validateDate';
-import isUsersMeal from '../helpers/isUsersMeal';
+import isCaterersMeal from '../helpers/isCaterersMeal';
 import checkMealsId from '../helpers/checkMealsId';
 
 const yesterday = moment().subtract(1, 'days').format().toString();
 
 export default {
-  create: [
+  createMenu: [
     check('date')
       .trim()
       .optional({ checkFalsy: true })
@@ -24,10 +24,10 @@ export default {
       .withMessage('Meals must be an array of Meal Ids')
       .custom(value => checkMealsId(value))
       .custom(async (value, { req }) => {
-        await isUsersMeal(value, req.userId).then(err => err);
+        await isCaterersMeal(value, req.userId).then(err => err);
       }),
   ],
-  update: [
+  updateMenu: [
     check('menuId')
       .isUUID(4)
       .withMessage('Invalid ID'),
@@ -41,10 +41,10 @@ export default {
       .withMessage('Meals must be an array of Meal Ids')
       .custom(value => checkMealsId(value))
       .custom(async (value, { req }) => {
-        await isUsersMeal(value, req.userId).then(err => err);
+        await isCaterersMeal(value, req.userId).then(err => err);
       }),
   ],
-  retrieve: [
+  getMenu: [
     check('date')
       .trim()
       .optional()

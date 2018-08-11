@@ -1,13 +1,13 @@
 import request from 'supertest';
 import { expect } from 'chai';
 import app from '../../../src/app';
-import { signup as signupData } from '../../utils/data';
+import { signup as signupDetails } from '../../utils/mockData';
 
 const {
-  rightUserData, rightCatererData, wrongUserData, wrongCatererData,
-  wrongRoleUserData, wrongLengthCatererData,
-  wrongCatererDataFormat, longusername
-} = signupData;
+  rightUserDetails, rightCatererDetails, wrongUserDetails, wrongCatererDetails,
+  wrongRoleUserDetails, wrongLengthCatererDetails,
+  invalidCatererDetails, longName
+} = signupDetails;
 
 // let userToken;
 
@@ -16,7 +16,7 @@ describe('Signup Routes', () => {
     it('registers a new user and returns user data + token for valid data', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
-        .send(rightUserData)
+        .send(rightUserDetails)
         .end((err, res) => {
           expect(res.statusCode).to.equal(201);
           expect(res.body).to.be.an('object');
@@ -32,7 +32,7 @@ describe('Signup Routes', () => {
     it('returns validation errors for wrong input', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
-        .send(wrongUserData)
+        .send(wrongUserDetails)
         .end((err, res) => {
           // userToken = res.body.token;
           expect(res.statusCode).to.equal(400);
@@ -67,7 +67,7 @@ describe('Signup Routes', () => {
     it('returns validation errors for extra length firstname data', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
-        .send({ role: 'customer', firstname: longusername, lastname: longusername })
+        .send({ role: 'customer', firstname: longName, lastname: longName })
         .end((err, res) => {
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
@@ -82,7 +82,7 @@ describe('Signup Routes', () => {
     it('returns validation errors for wrong role', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
-        .send(wrongRoleUserData)
+        .send(wrongRoleUserDetails)
         .end((err, res) => {
           // userToken = res.body.token;
           expect(res.statusCode).to.equal(400);
@@ -112,7 +112,7 @@ describe('Signup Routes', () => {
     it('returns error for already taken email address', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
-        .send(Object.assign({}, rightUserData, { email: 'iveren@shaguy.com' }))
+        .send(Object.assign({}, rightUserDetails, { email: 'iveren@shaguy.com' }))
         .end((err, res) => {
           expect(res.statusCode).to.equal(409);
           expect(res.body).to.be.an('object');
@@ -128,7 +128,7 @@ describe('Signup Routes', () => {
     it('registers a new user and returns user data + token for valid data', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
-        .send(rightCatererData)
+        .send(rightCatererDetails)
         .end((err, res) => {
           expect(res.statusCode).to.equal(201);
           expect(res.body).to.be.an('object');
@@ -148,7 +148,7 @@ describe('Signup Routes', () => {
     it('returns validation errors for wrong input', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
-        .send(wrongCatererData)
+        .send(wrongCatererDetails)
         .end((err, res) => {
           // userToken = res.body.token;
           expect(res.statusCode).to.equal(400);
@@ -169,7 +169,7 @@ describe('Signup Routes', () => {
     it('returns validation errors for wrong input: long length', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
-        .send(wrongLengthCatererData)
+        .send(wrongLengthCatererDetails)
         .end((err, res) => {
           // userToken = res.body.token;
           expect(res.statusCode).to.equal(400);
@@ -187,7 +187,7 @@ describe('Signup Routes', () => {
     it('returns validation errors for wrong input: invalid format', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
-        .send(wrongCatererDataFormat)
+        .send(invalidCatererDetails)
         .end((err, res) => {
           // userToken = res.body.token;
           expect(res.statusCode).to.equal(400);
@@ -207,7 +207,7 @@ describe('Signup Routes', () => {
     it('returns error for already taken email address', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
-        .send({ ...rightCatererData, email: 'food@circle.com', businessName: 'A Business' })
+        .send({ ...rightCatererDetails, email: 'food@circle.com', businessName: 'A Business' })
         .end((err, res) => {
           expect(res.statusCode).to.equal(409);
           expect(res.body).to.be.an('object');
@@ -221,7 +221,7 @@ describe('Signup Routes', () => {
     it('returns error for already taken business name', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
-        .send({ ...rightCatererData, email: 'new@circle.com' })
+        .send({ ...rightCatererDetails, email: 'new@circle.com' })
         .end((err, res) => {
           expect(res.statusCode).to.equal(409);
           expect(res.body).to.be.an('object');

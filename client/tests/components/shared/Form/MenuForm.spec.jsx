@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
-import { initialValues, caterersMealsObj, metadata } from '../../../setup/data';
+import { initialValues, caterersMealsObj, metadata } from '../../../setup/mockData';
 import MenuForm from '../../../../src/components/shared/Form/MenuForm/MenuForm';
 import ConnectedMenuForm from '../../../../src/components/shared/Form/MenuForm/';
 

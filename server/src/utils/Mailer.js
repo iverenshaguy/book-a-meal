@@ -1,8 +1,6 @@
-import { config } from 'dotenv';
 import nodemailer from 'nodemailer';
-import db from '../models';
+import models from '../models';
 
-config();
 const url = process.env.BASE_URL;
 
 /**
@@ -50,7 +48,7 @@ class Mailer {
    * @returns {void}
    */
   static menuMail(meals, businessName) {
-    return db.User.findAll({ where: { role: 'customer' }, attributes: ['firstname', 'email'] })
+    return models.User.findAll({ where: { role: 'customer' }, attributes: ['firstname', 'email'] })
       .then((customers) => {
         customers.forEach((customer) => {
           const mealList = meals.map(meal => `<li>${meal}</li>`);
@@ -84,7 +82,7 @@ class Mailer {
    * @returns {void}
    */
   static catererOrderMail(order, customer, catererId) {
-    return db.User.findOne({ where: { userId: catererId }, attributes: ['userId', 'businessName', 'email'] })
+    return models.User.findOne({ where: { userId: catererId }, attributes: ['userId', 'businessName', 'email'] })
       .then((caterer) => {
         const mealList = order.meals[catererId].map(meal =>
           `<tr><td>${meal.title} (${meal.OrderItem.quantity})</td><td>&#8358;${meal.price}</td></tr>`);
@@ -123,7 +121,7 @@ class Mailer {
    * @returns {void}
    */
   static customerOrderMail(order, meals) {
-    return db.User.findOne({ where: { userId: order.userId } })
+    return models.User.findOne({ where: { userId: order.userId } })
       .then((customer) => {
         const mealList = meals.map(meal =>
           `<tr><td>${meal.title} (${meal.OrderItem.quantity})</td><td>&#8358;${meal.price}</td></tr>`);

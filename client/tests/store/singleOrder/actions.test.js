@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import MockAdapter from 'axios-mock-adapter';
 import instance from '../../../src/config/axios';
 import operations from '../../../src/store/operations/singleOrder';
-import { customerOrder } from '../../setup/data';
+import { customerOrder } from '../../setup/mockData';
 
 const { fetchOrder, fetchOrderSuccess, fetchOrderFailure } = operations;
 

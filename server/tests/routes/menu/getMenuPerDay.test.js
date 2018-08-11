@@ -2,11 +2,11 @@ import request from 'supertest';
 import { expect } from 'chai';
 import app from '../../../src/app';
 import db from '../../../src/models';
-import { addMenu as data, twoDaysTime, currentDay } from '../../utils/data';
+import { menu as mockData, twoDaysTime, currentDay } from '../../utils/mockData';
 import { tokens } from '../../utils/setup';
 
 const { foodCircleToken, emiolaToken } = tokens;
-const { menu1 } = data;
+const { menuDetailsWithoutDate } = mockData;
 
 describe('Menu Routes: Get the menu specific day', () => {
   before((done) => {
@@ -14,7 +14,7 @@ describe('Menu Routes: Get the menu specific day', () => {
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send({ ...menu1, date: twoDaysTime })
+      .send({ ...menuDetailsWithoutDate, date: twoDaysTime })
       .end((err, res) => {
         expect(res.statusCode).to.equal(201);
 

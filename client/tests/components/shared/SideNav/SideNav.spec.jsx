@@ -1,6 +1,6 @@
 import React from 'react';
 import SideNav from '../../../../src/components/shared/SideNav/SideNav';
-import { caterer } from '../../../setup/data';
+import { caterer } from '../../../setup/mockData';
 
 describe('SideNav', () => {
   it('renders correctly', () => {

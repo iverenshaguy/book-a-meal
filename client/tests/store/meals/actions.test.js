@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import MockAdapter from 'axios-mock-adapter';
 import instance from '../../../src/config/axios';
 import operations from '../../../src/store/operations/meals';
-import { caterersMealsObj, newMeal, metadata } from '../../setup/data';
+import { caterersMealsObj, newMeal, metadata } from '../../setup/mockData';
 
 const {
   addMeal,

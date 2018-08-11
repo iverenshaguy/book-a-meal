@@ -1,46 +1,45 @@
 import { Op } from 'sequelize';
-import db from '../models';
+import models from '../models';
 import errors from '../../data/errors.json';
 import Pagination from '../utils/Pagination';
 
 /**
  * @exports
- * @class Meals
+ * @class MealController
  */
-class Meals {
+class MealController {
   /**
    * Creates a new meal item
-   * @method create
-   * @memberof Meals
+   * @method createMeal
+   * @memberof MealController
    * @param {object} req
    * @param {object} res
    * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    * date is either equal to today or given date
    */
-  static async create(req, res) {
-    req.body.userId = req.userId;
-    req.body.price = parseFloat(req.body.price);
+  static async createMeal(req, res) {
+    const { userId, body: { title, price } } = req;
 
-    await db.Meal
+    await models.Meal
       .findOrCreate({
-        where: { title: { [Op.iLike]: req.body.title }, userId: req.userId },
-        defaults: req.body,
+        where: { title: { [Op.iLike]: title }, userId },
+        defaults: { ...req.body, price: parseFloat(price), userId },
         include: [{
-          model: db.User, as: 'caterer'
+          model: models.User, as: 'caterer'
         }]
       })
       .spread((meal, created) => {
         if (!created) return res.status(409).json({ error: 'Meal already exists' });
 
-        return res.status(201).json(Meals.getMealObject(meal));
+        return res.status(201).json(MealController.getMealObject(meal));
       });
   }
 
   /**
    * Updates an existing meal item
-   * @method update
-   * @memberof Meals
+   * @method updateMeal
+   * @memberof MealController
    * @param {object} req
    * @param {object} res
    * @param {object} data
@@ -48,43 +47,42 @@ class Meals {
    * First checks db to ensure another meal belonging to the user
    * doesnt have the new meal title
    */
-  static async update(req, res) {
-    const { mealId } = req.params;
-    const { userId } = req;
+  static async updateMeal(req, res) {
+    const { userId, params: { mealId }, body: { title, price } } = req;
 
-    const existingMealWithTitle = await db.Meal.findOne({
+    const existingMealWithTitle = await models.Meal.findOne({
       where: {
-        title: { [Op.iLike]: req.body.title },
+        userId,
+        title: { [Op.iLike]: title },
         mealId: { [Op.not]: mealId },
-        userId: req.userId
       }
     });
 
     if (existingMealWithTitle) return res.status(409).json({ error: 'Meal already exists' });
 
-    if (req.body.price) req.body.price = parseFloat(req.body.price);
-
-    const mealItem = await db.Meal.findOne({ where: { mealId, userId } });
+    const mealItem = await models.Meal.findOne({ where: { mealId, userId } });
 
     if (!mealItem) return res.status(404).json({ error: errors[404] });
 
+    if (price) req.body.price = parseFloat(price);
+
     const updatedMeal = await mealItem.update({ ...mealItem, ...req.body });
 
-    return res.status(200).json(Meals.getMealObject(updatedMeal));
+    return res.status(200).json(MealController.getMealObject(updatedMeal));
   }
 
   /**
    * Deletes an existing meal item
-   * @method delete
-   * @memberof Meals
+   * @method deleteMeal
+   * @memberof MealController
    * @param {object} req
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
-  static async delete(req, res) {
-    const { mealId } = req.params;
-    const { userId } = req;
-    const mealItem = await db.Meal.findOne({ where: { mealId, userId } });
+  static async deleteMeal(req, res) {
+    const { userId, params: { mealId } } = req;
+
+    const mealItem = await models.Meal.findOne({ where: { mealId, userId } });
 
     if (!mealItem) return res.status(404).json({ error: errors[404] });
 
@@ -96,17 +94,17 @@ class Meals {
   /**
    * Returns a list of Meal Options
    * @method getMeals
-   * @memberof Meals
+   * @memberof MealController
    * @param {object} req
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
   static async getMeals(req, res) {
-    const { userId } = req;
-    const paginate = new Pagination(req.query.page, req.query.limit);
+    const { userId, query: { page } } = req;
+    const paginate = new Pagination(page, req.query.limit);
     const { limit, offset } = paginate.getQueryMetadata();
 
-    const data = await db.Meal.findAndCountAll({
+    const mealsData = await models.Meal.findAndCountAll({
       where: { userId },
       limit,
       offset,
@@ -115,30 +113,32 @@ class Meals {
       order: [['createdAt', 'DESC']]
     });
 
-    const url = '/meals';
-
     return res.status(200).json({
-      meals: data.rows, metadata: paginate.getPageMetadata(data.count, url)
+      meals: mealsData.rows, metadata: paginate.getPageMetadata(mealsData.count, '/meals')
     });
   }
 
   /**
    * Creates a New Meal Object from Meal Item
    * @method getMealObject
-   * @memberof Meals
+   * @memberof MealController
    * @param {object} meal
    * @returns {object} Object
    */
   static getMealObject(meal) {
+    const {
+      mealId, title, imageUrl, description, vegetarian, price
+    } = meal.get();
+
     return {
-      id: meal.getDataValue('mealId'),
-      title: meal.getDataValue('title'),
-      imageUrl: meal.getDataValue('imageUrl'),
-      description: meal.getDataValue('description'),
-      vegetarian: meal.getDataValue('vegetarian'),
-      price: meal.getDataValue('price')
+      id: mealId,
+      title,
+      imageUrl,
+      description,
+      vegetarian,
+      price
     };
   }
 }
 
-export default Meals;
+export default MealController;

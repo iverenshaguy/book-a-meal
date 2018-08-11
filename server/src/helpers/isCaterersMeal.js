@@ -1,4 +1,4 @@
-import db from '../models';
+import models from '../models';
 
 /**
  * Function to check if meal belongs to the user adding it to menu
@@ -6,11 +6,11 @@ import db from '../models';
  * @param {string} userId
  * @return {(bool|error)} returns true or throws error
  */
-async function isUsersMeal(mealIds, userId) {
+async function isCaterersMeal(mealIds, userId) {
   const mealErrorArr = [];
 
   const checks = mealIds.map(async (mealId) => {
-    const meal = await db.Meal.findOne({ where: { mealId, userId } });
+    const meal = await models.Meal.findOne({ where: { mealId, userId } });
 
     if (!meal) mealErrorArr.push(`You don't have access to Meal ${mealId}`);
   });
@@ -20,4 +20,4 @@ async function isUsersMeal(mealIds, userId) {
   throw new Error(mealErrorArr);
 }
 
-export default isUsersMeal;
+export default isCaterersMeal;

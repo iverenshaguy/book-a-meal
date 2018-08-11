@@ -1,9 +1,9 @@
 import request from 'supertest';
 import { expect } from 'chai';
 import app from '../../../src/app';
-import { login as loginData } from '../../utils/data';
+import { login as loginDetails } from '../../utils/mockData';
 
-const { existingUser, nonExistingUser, wrongData } = loginData;
+const { existingUser, nonExistingUser, invalidUser } = loginDetails;
 
 describe('Signin Routes', () => {
   it('signs in a user into the app and returns user + token', (done) => {
@@ -69,7 +69,7 @@ describe('Signin Routes', () => {
   it('returns validation errors for wrong input', (done) => {
     request.agent(app)
       .post('/api/v1/auth/signin')
-      .send(wrongData)
+      .send(invalidUser)
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');

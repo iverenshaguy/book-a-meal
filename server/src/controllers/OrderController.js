@@ -1,20 +1,20 @@
 import moment from 'moment';
 import sequelize, { Op } from 'sequelize';
-import db from '../models';
+import models from '../models';
 import errors from '../../data/errors.json';
-import orderEmitter from '../events/Orders';
+import OrderEventEmitter from '../eventEmitters/OrderEventEmitter';
 import Pagination from '../utils/Pagination';
-import Users from './Users';
+import Users from './UserController';
 import { sqlOptions, customerPendingOrdersSql, catererCashEarnedSql, catererPendingOrdersSql } from '../helpers/queries';
 
 /**
  * @exports
  * @class Orders
  */
-class Orders {
+class OrderController {
   /**
    * Creates a new order item
-   * @method create
+   * @method createOrder
    * @memberof Orders
    * @param {object} req
    * @param {object} res
@@ -23,28 +23,28 @@ class Orders {
    * order is expired and cant be canceled or updated after set time of ordering
    * emits create event after creation
    */
-  static async create(req, res) {
-    const { deliveryAddress, deliveryPhoneNo } = req.body;
+  static async createOrder(req, res) {
+    const { userId, body: { deliveryAddress, deliveryPhoneNo, meals } } = req;
     const orderBody = {
-      meals: [...(new Set(req.body.meals))],
-      userId: req.userId,
+      userId,
+      meals: [...(new Set(meals))],
       deliveryAddress,
       deliveryPhoneNo
     };
 
-    const newOrder = await db.Order.create(orderBody, { include: [{ model: db.User, as: 'customer' }] })
+    const newOrder = await models.Order.create(orderBody, { include: [{ model: models.User, as: 'customer' }] })
       .then(async (order) => {
-        const promises = Orders.addMeals(order, req.body.meals);
+        const promises = OrderController.addMealsToOrder(order, meals);
 
         await Promise.all(promises);
-        await Orders.getOrderMeals(order);
-        await Users.updateCustomerContact(req.userId, { deliveryAddress, deliveryPhoneNo });
+        await OrderController.getOrderMeals(order);
+        await Users.updateCustomerContact(userId, { deliveryAddress, deliveryPhoneNo });
 
-        orderEmitter.emit('create', order, req.userId);
+        OrderEventEmitter.emit('create', order, userId);
 
-        Orders.mapQuantityToMeal(order);
+        OrderController.mapQuantityToMeal(order);
 
-        return Orders.getOrderObject(order);
+        return OrderController.getOrderObject(order);
       });
 
     return res.status(201).json(newOrder);
@@ -52,34 +52,34 @@ class Orders {
 
   /**
    * Updates an existing order
-   * @method update
+   * @method updateOrder
    * @memberof Orders
    * @param {object} req
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
-  static async update(req, res) {
-    const { order } = req;
+  static async updateOrder(req, res) {
+    const { userId, body: { order, meals, status } } = req;
     const { deliveryAddress, deliveryPhoneNo } = order;
     const updatedOrder = await order.update({ ...order, ...req.body }).then(async () => {
-      if (req.body.meals) {
+      if (meals) {
         await order.setMeals([]);
 
-        const promises = Orders.addMeals(order, req.body.meals);
+        const promises = OrderController.addMealsToOrder(order, meals);
         await Promise.all(promises);
       }
 
-      await Orders.getOrderMeals(order);
+      await OrderController.getOrderMeals(order);
 
-      if (req.body.status !== 'canceled') {
-        await Users.updateCustomerContact(req.userId, { deliveryAddress, deliveryPhoneNo });
+      if (status !== 'canceled') {
+        await Users.updateCustomerContact(userId, { deliveryAddress, deliveryPhoneNo });
       }
 
-      orderEmitter.emit('create', order);
+      OrderEventEmitter.emit('create', order);
 
-      Orders.mapQuantityToMeal(order);
+      OrderController.mapQuantityToMeal(order);
 
-      return Orders.getOrderObject(order);
+      return OrderController.getOrderObject(order);
     });
 
     return res.status(200).json(updatedOrder);
@@ -95,41 +95,40 @@ class Orders {
    * @returns {(function|object)} Function next() or JSON object
    */
   static async checkOrderStatus(req, res, next) {
-    const { orderId } = req.params;
-    const order = await db.Order.findOne({ where: { orderId, userId: req.userId } });
+    const { params: { orderId }, userId } = req;
+    const order = await models.Order.findOne({ where: { orderId, userId } });
 
     if (!order) return res.status(404).json({ error: errors[404] });
     if (order.status === 'pending') return res.status(400).json({ error: 'Order is being processed and cannot be edited' });
     if (order.status === 'canceled') return res.status(400).json({ error: 'Order has been canceled' });
     if (order.status === 'delivered') return res.status(400).json({ error: 'Order is expired' });
 
-    req.order = order;
+    req.body.order = order;
     return next();
   }
 
   /**
    * Marks Caterer's Meals in Order as Delievered
-   * @method deliver
+   * @method deliverOrder
    * @memberof Orders
    * @param {object} req
    * @param {object} res
    * @returns {(function|object)} Function next() or JSON object
    */
-  static async deliver(req, res) {
-    const { orderId } = req.params;
-    const { userId } = req;
+  static async deliverOrder(req, res) {
+    const { userId, body: { delivered }, params: { orderId } } = req;
 
-    const order = await db.Order.findOne({
+    const order = await models.Order.findOne({
       where: { orderId, status: 'pending' },
       include: [
-        { model: db.User, as: 'customer', attributes: ['firstname', 'lastname', 'email'] },
+        { model: models.User, as: 'customer', attributes: ['firstname', 'lastname', 'email'] },
         {
-          model: db.Meal,
+          model: models.Meal,
           as: 'meals',
           attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
           paranoid: false,
           include: [{
-            model: db.User,
+            model: models.User,
             as: 'caterer',
             where: { userId },
             attributes: []
@@ -143,18 +142,18 @@ class Orders {
     if (!order) return res.status(404).json({ error: errors[404] });
 
     const promises = order.get().meals.map((meal) => {
-      meal.OrderItem.delivered = req.body.delivered;
+      meal.OrderItem.delivered = delivered;
 
       return meal.OrderItem.save();
     });
 
     await Promise.all(promises);
 
-    orderEmitter.emit('deliver', order);
+    OrderEventEmitter.emit('deliver', order);
 
-    Orders.mapQuantityToMeal(order);
+    OrderController.mapQuantityToMeal(order);
 
-    const returnedOrder = await Orders.getOrderObject(order);
+    const returnedOrder = await OrderController.getOrderObject(order);
 
     return res.status(200).json(returnedOrder);
   }
@@ -172,8 +171,8 @@ class Orders {
     const { role } = req;
 
     return role === 'caterer' ?
-      Orders.getCaterersOrders(req, res) :
-      Orders.getCustomersOrders(req, res);
+      OrderController.getCaterersOrders(req, res) :
+      OrderController.getCustomersOrders(req, res);
   }
 
   /**
@@ -191,39 +190,46 @@ class Orders {
    * order summary for that day
    */
   static async getCustomersOrders(req, res) {
-    const paginate = new Pagination(req.query.page, req.query.limit);
+    const { userId, query: { date, page } } = req;
+    const paginate = new Pagination(page, req.query.limit);
     const { limit, offset } = paginate.getQueryMetadata();
-    let where = { userId: req.userId };
 
-    if (req.query.date) {
-      where = { [Op.and]: [{ userId: req.userId }, sequelize.where(sequelize.fn('DATE', sequelize.col('Order.createdAt')), req.query.date)] };
+    let where = { userId };
+
+    if (date) {
+      where = { [Op.and]: [{ userId }, sequelize.where(sequelize.fn('DATE', sequelize.col('Order.createdAt')), date)] };
     }
 
-    const pendingOrders = await db.sequelize.query(customerPendingOrdersSql(req), sqlOptions);
+    const pendingOrders = await models.sequelize
+      .query(customerPendingOrdersSql(userId, date), sqlOptions);
 
-    const data = await db.Order.findAndCountAll({
+    const ordersData = await models.Order.findAndCountAll({
       where,
       limit,
       offset,
       distinct: true,
       include: [
         {
-          model: db.Meal,
+          model: models.Meal,
           as: 'meals',
           attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
           include: [{
-            model: db.User,
+            model: models.User,
             attributes: ['businessName', 'address', 'phoneNo', 'email'],
             as: 'caterer'
           }],
           paranoid: false,
         },
-        { model: db.User, as: 'customer', attributes: [] }
+        { model: models.User, as: 'customer', attributes: [] }
       ],
       order: [['createdAt', 'DESC']]
     });
 
-    return res.status(200).json(Orders.getOrdersResponse('customer', req.query.date, data, paginate, pendingOrders));
+    const orderDetails = {
+      type: 'customer', date, ordersData, paginate, pendingOrders
+    };
+
+    return res.status(200).json(OrderController.getOrdersResponse(orderDetails));
   }
 
   /**
@@ -241,9 +247,10 @@ class Orders {
    * order summary for that day
    */
   static async getCaterersOrders(req, res) {
-    const paginate = new Pagination(req.query.page, req.query.limit);
+    const { query: { date, page }, userId } = req;
+    const paginate = new Pagination(page, req.query.limit);
     const { limit, offset } = paginate.getQueryMetadata();
-    const { date } = req.query;
+
     let where = { [Op.and]: [{ status: { [Op.not]: 'started' } }, { status: { [Op.not]: 'canceled' } }] };
 
     if (date) {
@@ -256,34 +263,40 @@ class Orders {
       };
     }
 
-    const cashEarned = await db.sequelize.query(catererCashEarnedSql(req, date), sqlOptions);
+    const cashEarned = await models.sequelize.query(catererCashEarnedSql(userId, date), sqlOptions);
 
-    const pendingOrders = await db.sequelize.query(catererPendingOrdersSql(req, date), sqlOptions);
+    const pendingOrders = await models
+      .sequelize.query(catererPendingOrdersSql(userId, date), sqlOptions);
 
-    const data = await db.Order.findAndCountAll({
+    const ordersData = await models.Order.findAndCountAll({
       where,
       limit,
       offset,
       distinct: true,
       include: [
         {
-          model: db.Meal,
+          model: models.Meal,
           as: 'meals',
           attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
           include: [{
-            model: db.User,
+            model: models.User,
             as: 'caterer',
-            where: { userId: req.userId },
+            where: { userId },
             attributes: []
           }],
           paranoid: false,
         },
-        { model: db.User, as: 'customer', attributes: ['firstname', 'lastname', 'email'] }
+        { model: models.User, as: 'customer', attributes: ['firstname', 'lastname', 'email'] }
       ],
       order: [['createdAt', 'DESC']]
     });
 
-    return res.status(200).json(Orders.getOrdersResponse('caterer', req.query.date, data, paginate, pendingOrders, cashEarned));
+
+    const orderDetails = {
+      type: 'caterer', date, ordersData, paginate, pendingOrders, cashEarned
+    };
+
+    return res.status(200).json(OrderController.getOrdersResponse(orderDetails));
   }
 
   /**
@@ -299,8 +312,8 @@ class Orders {
     const { role } = req;
 
     return role === 'caterer' ?
-      Orders.getSingleCatererOrder(req, res) :
-      Orders.getSingleCustomerOrder(req, res);
+      OrderController.getSingleCatererOrder(req, res) :
+      OrderController.getSingleCustomerOrder(req, res);
   }
 
   /**
@@ -312,15 +325,17 @@ class Orders {
    * @returns {(function|object)} Function next() or JSON object
    */
   static async getSingleCustomerOrder(req, res) {
-    const order = await db.Order.findOne({
-      where: { userId: req.userId, orderId: req.params.orderId },
+    const { userId, params: { orderId } } = req;
+
+    const order = await models.Order.findOne({
+      where: { userId, orderId },
       include: [
         {
-          model: db.Meal,
+          model: models.Meal,
           as: 'meals',
           attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
           include: [{
-            model: db.User,
+            model: models.User,
             attributes: ['businessName', 'address', 'phoneNo', 'email'],
             as: 'caterer'
           }],
@@ -331,9 +346,9 @@ class Orders {
 
     if (!order) return res.status(404).json({ error: errors[404] });
 
-    Orders.mapQuantityToMeal(order);
+    OrderController.mapQuantityToMeal(order);
 
-    return res.status(200).json(Orders.getOrderObject(order));
+    return res.status(200).json(OrderController.getOrderObject(order));
   }
 
   /**
@@ -345,24 +360,26 @@ class Orders {
    * @returns {(function|object)} Function next() or JSON object
    */
   static async getSingleCatererOrder(req, res) {
+    const { userId, params: { orderId } } = req;
+
     const where = {
       [Op.and]: [{ status: { [Op.not]: 'started' } }, { status: { [Op.not]: 'canceled' } }],
-      orderId: req.params.orderId
+      orderId
     };
 
-    const order = await db.Order.findOne({
+    const order = await models.Order.findOne({
       where,
       include: [
-        { model: db.User, as: 'customer', attributes: ['firstname', 'lastname', 'email'] },
+        { model: models.User, as: 'customer', attributes: ['firstname', 'lastname', 'email'] },
         {
-          model: db.Meal,
+          model: models.Meal,
           as: 'meals',
           attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
           paranoid: false,
           include: [{
-            model: db.User,
+            model: models.User,
             as: 'caterer',
-            where: { userId: req.userId },
+            where: { userId },
             attributes: []
           }],
           required: true,
@@ -373,20 +390,20 @@ class Orders {
 
     if (!order) return res.status(404).json({ error: errors[404] });
 
-    Orders.mapQuantityToMeal(order);
+    OrderController.mapQuantityToMeal(order);
 
-    return res.status(200).json(Orders.getOrderObject(order));
+    return res.status(200).json(OrderController.getOrderObject(order));
   }
 
   /**
    * Adds meals to order-meal join table
-   * @method addMeals
+   * @method addMealsToOrder
    * @memberof Orders
    * @param {object} order
    * @param {array} mealItems
    * @returns {object} JSON object
    */
-  static addMeals(order, mealItems) {
+  static addMealsToOrder(order, mealItems) {
     return mealItems.map(item =>
       order.addMeal(item.mealId, {
         through: { quantity: item.quantity }
@@ -421,20 +438,27 @@ class Orders {
    * If order has a customer property, order is for a caterer
    * order status for caterer is Delivered when all his meals
    * have been delivered even if other caterers havent deliverd
+   *
+   * Order status is mapped on every Meal in array of returned orders
    */
   static getOrderObject(order) {
-    const caterersOrderStatus = order.get().meals[0].get().delivered ? 'delivered' : order.getDataValue('status');
-    const status = order.getDataValue('customer') ? caterersOrderStatus : order.getDataValue('status');
+    const {
+      meals, customer, orderId, deliveryAddress, deliveryPhoneNo, status, createdAt, updatedAt
+    } = order.get();
+
+    const caterersOrderStatus = meals[0].get().delivered ? 'delivered' : status;
+    const orderStatus = customer !== undefined ? caterersOrderStatus : status;
+    const orderCustomer = customer !== undefined ? customer : undefined;
 
     return {
-      id: order.getDataValue('orderId'),
-      deliveryAddress: order.getDataValue('deliveryAddress'),
-      deliveryPhoneNo: order.getDataValue('deliveryPhoneNo'),
-      status,
-      customer: order.getDataValue('customer') ? order.getDataValue('customer') : undefined,
-      createdAt: moment(order.getDataValue('createdAt')).format(),
-      updatedAt: moment(order.getDataValue('updatedAt')).format(),
-      meals: order.get().meals
+      meals,
+      id: orderId,
+      deliveryAddress,
+      deliveryPhoneNo,
+      status: orderStatus,
+      customer: orderCustomer,
+      createdAt: moment(createdAt).format(),
+      updatedAt: moment(updatedAt).format(),
     };
   }
 
@@ -442,25 +466,23 @@ class Orders {
    * Get Orders Response
    * @method getOrdersResponse
    * @memberof Orders
-   * @param {string} type
-   * @param {string} date date query
-   * @param {object} data
-   * @param {object} paginate
-   * @param {integer} pendingOrders
-   * @param {float} cashEarned
+   * @param {object} orderDetails
    * @returns {object} JSON object
    */
-  static getOrdersResponse(type, date, data, paginate, pendingOrders, cashEarned) {
-    const url = '/orders';
+  static getOrdersResponse(orderDetails) {
+    const {
+      type, date, ordersData, paginate, pendingOrders, cashEarned
+    } = orderDetails;
+
     const extraQuery = date ? `date=${date}` : '';
-    const orders = Orders.mapOrders(data.rows);
+    const orders = OrderController.mapOrders(ordersData.rows);
 
     return {
       orders,
-      totalOrders: data.count,
+      totalOrders: ordersData.count,
       pendingOrders: parseInt(pendingOrders[0].count, 10),
       totalCashEarned: type === 'caterer' ? (parseFloat(cashEarned[0].sum) || 0) : undefined,
-      metadata: paginate.getPageMetadata(data.count, url, extraQuery)
+      metadata: paginate.getPageMetadata(ordersData.count, '/orders', extraQuery)
     };
   }
 
@@ -473,7 +495,8 @@ class Orders {
    * @returns {object} JSON object
    */
   static mapQuantityToMeal(order) {
-    order.get().meals = order.get().meals.map((meal) => {
+    const { meals } = order.get();
+    order.get().meals = meals.map((meal) => {
       meal.get().quantity = meal.OrderItem.quantity;
       meal.get().delivered = meal.OrderItem.delivered;
       delete meal.get().OrderItem;
@@ -490,10 +513,10 @@ class Orders {
    */
   static mapOrders(orders) {
     return orders.map((order) => {
-      Orders.mapQuantityToMeal(order);
-      return Orders.getOrderObject(order);
+      OrderController.mapQuantityToMeal(order);
+      return OrderController.getOrderObject(order);
     });
   }
 }
 
-export default Orders;
+export default OrderController;

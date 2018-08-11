@@ -3,11 +3,11 @@ import { expect } from 'chai';
 import db from '../../../src/models';
 import app from '../../../src/app';
 import unAuthorized from '../../utils/unAuthorized';
-import { addOrder as data } from '../../utils/data';
+import { order as mockData } from '../../utils/mockData';
 import { tokens } from '../../utils/setup';
 
 const { foodCircleToken, emiolaToken, fakeUserToken } = tokens;
-const { newOrder } = data;
+const { newOrderDetails } = mockData;
 
 describe('Order Routes: Get All Orders', () => {
   before((done) => {
@@ -15,7 +15,7 @@ describe('Order Routes: Get All Orders', () => {
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
       .set('authorization', emiolaToken)
-      .send({ ...newOrder })
+      .send({ ...newOrderDetails })
       .end((err, res) => {
         db.Order.findOne({ where: { orderId: res.body.id } }).then(order =>
           order.update({ status: 'pending' }).then(() => {
@@ -163,10 +163,7 @@ describe('Order Routes: Get All Orders', () => {
       });
     });
 
-    unAuthorized(
-      'should return 401 error for user without token',
-      request(app), 'get', '/api/v1/orders'
-    );
+    unAuthorized('get', '/api/v1/orders');
   });
 
   describe('Get Customer Orders', () => {
@@ -228,9 +225,6 @@ describe('Order Routes: Get All Orders', () => {
         });
     });
 
-    unAuthorized(
-      'should return 401 error for user without token',
-      request(app), 'get', '/api/v1/orders'
-    );
+    unAuthorized('get', '/api/v1/orders');
   });
 });

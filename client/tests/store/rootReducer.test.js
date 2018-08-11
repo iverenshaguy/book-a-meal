@@ -1,5 +1,5 @@
 import rootReducer from '../../src/rootReducer';
-import { initialValues } from '../setup/data';
+import { initialValues } from '../setup/mockData';
 
 describe('Root Reducer', () => {
   it('should return initial state', () => {

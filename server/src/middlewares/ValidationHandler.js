@@ -1,10 +1,7 @@
 import moment from 'moment';
-import { config } from 'dotenv';
 import { validationResult } from 'express-validator/check';
 import { matchedData } from 'express-validator/filter';
 import messages from '../../data/errors.json';
-
-config();
 
 /**
  * @exports

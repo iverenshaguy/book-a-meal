@@ -1,21 +1,19 @@
 import { expect } from 'chai'; // eslint-disable-line
+import request from 'supertest'; // eslint-disable-line
+import app from '../../src/app';
 
 /**
  * @function notFound
  * @desc Funtion to test forbidden routes
- * @param {string} message
- * @param {object} request
- * @param {string} method
- * @param {string} data
- * @param {string} url
- * @param {string} token
+ * @param {object} params
  * @returns {function} Returns Mocha Test Function
  */
-
-const notFound = (message, request, method, data, url, token) => {
+const notFound = ({
+  method, url, token, data,
+}) => {
   describe('notFound', () => {
-    it(message, (done) => {
-      request[method](url)
+    it('should return 404 error for non-existent item', (done) => {
+      request(app)[method](url)
         .set('Accept', 'application/json')
         .set('authorization', token)
         .send(data)

@@ -1,5 +1,5 @@
 import { getLastMealItem } from '../../../src/store/selectors/meals';
-import { caterersMealsObj } from '../../setup/data';
+import { caterersMealsObj } from '../../setup/mockData';
 
 describe('Meals Selectors', () => {
   it('should get the last item', () => {

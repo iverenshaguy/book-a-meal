@@ -1,18 +1,18 @@
 import { expect } from 'chai';
 import checkMealsId from '../../src/helpers/checkMealsId';
-import { helpers } from '../utils/data';
+import { helpers as mockData } from '../utils/mockData';
 
-const { checkMealsId: { arr1, UUIDArr1 } } = helpers;
+const { checkMealsId: { arrayOfWrongIds, arrayOfUuids } } = mockData;
 
 describe('checkMealsId', () => {
   it('returns true when item is an array of UUIDs ', () => {
-    const check = checkMealsId(UUIDArr1);
+    const check = checkMealsId(arrayOfUuids);
 
     expect(check).to.equal(true);
   });
 
   it('returns error when item is an array of non-UUIDs ', () => {
-    expect(() => checkMealsId(arr1)).to.throw('MealId iieie is invalid, MealId siioe is invalid');
+    expect(() => checkMealsId(arrayOfWrongIds)).to.throw('MealId iieie is invalid, MealId siioe is invalid');
   });
 
   it('returns false when item is an empty array', () => {

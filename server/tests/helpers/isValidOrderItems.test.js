@@ -1,22 +1,23 @@
 import chai, { expect } from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import isValidOrderItems from '../../src/helpers/isValidOrderItems';
-import { addOrder } from '../utils/data';
+import { order as mockData } from '../utils/mockData';
 
 chai.use(chaiAsPromised);
 chai.should();
-const { validOrder, inValidOrder } = addOrder;
+
+const { validOrderDetails, inValidOrderDetails } = mockData;
 
 describe('isValidOrderItems', () => {
-  it('returns true when valid', async () => {
-    const check = await isValidOrderItems(validOrder.meals);
+  it('returns true when order items are valid', async () => {
+    const check = await isValidOrderItems(validOrderDetails.meals);
 
     expect(check).to.equal(true);
   });
 
-  it('returns err when invalid', async () => {
+  it('returns err when order items are invalid', async () => {
     try {
-      await isValidOrderItems(inValidOrder.meals);
+      await isValidOrderItems(inValidOrderDetails.meals);
     } catch (err) {
       expect(err.message).to.equal('Meal 8a65538d-f862-420e-bcdc-80743df06578 is not available');
     }

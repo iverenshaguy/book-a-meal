@@ -1,6 +1,6 @@
 import React from 'react';
 import Menu from '../../../../src/components/pages/Menu';
-import { caterer, customer } from '../../../setup/data';
+import { caterer, customer } from '../../../setup/mockData';
 
 const { now } = Date;
 

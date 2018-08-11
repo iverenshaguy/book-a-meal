@@ -1,6 +1,6 @@
 import moment from 'moment';
 import reducer from '../../../src/store/reducers/menu';
-import { caterersMealsObj, metadata } from '../../setup/data';
+import { caterersMealsObj, metadata } from '../../setup/mockData';
 
 const state = {
   id: null,
