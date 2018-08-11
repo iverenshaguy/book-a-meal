@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import Orders from '../../../../src/components/pages/Orders/Orders';
 import ConnectedOrders from '../../../../src/components/pages/Orders';
-import { caterer, caterersOrdersObj, customer, customersOrdersObj, initialValues, metadata } from '../../../setup/data';
+import { caterer, caterersOrdersObj, customer, customersOrdersObj, initialValues, metadata } from '../../../setup/mockData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

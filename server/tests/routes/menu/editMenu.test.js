@@ -5,11 +5,11 @@ import notAdmin from '../../utils/notAdmin';
 import notFound from '../../utils/notFound';
 import invalidID from '../../utils/invalidID';
 import unAuthorized from '../../utils/unAuthorized';
-import { addMenu as data } from '../../utils/data';
+import { menu as mockData } from '../../utils/mockData';
 import { tokens } from '../../utils/setup';
 
 const { foodCircleToken } = tokens;
-const { menu1, badMenu } = data;
+const { menuDetailsWithoutDate, menuDetailsWithBadDate } = mockData;
 
 describe('Menu Routes: Edit menu', () => {
   it('should edit a menu for authenticated user', (done) => {
@@ -17,7 +17,7 @@ describe('Menu Routes: Edit menu', () => {
       .put('/api/v1/menu/6f27c0fb-19a9-4d9e-b5a1-d97c2d426ab5')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send(menu1)
+      .send(menuDetailsWithoutDate)
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
         expect(res.body).to.include.keys('id');
@@ -34,7 +34,7 @@ describe('Menu Routes: Edit menu', () => {
       .put('/api/v1/menu/15421f7a-0f82-4802-b215-e0e8efb6bfb3')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send(menu1)
+      .send(menuDetailsWithoutDate)
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body.error).to.equal('Menu Expired');
@@ -49,7 +49,7 @@ describe('Menu Routes: Edit menu', () => {
       .put('/api/v1/menu/6f27c0fb-19a9-4d9e-b5a1-d97c2d426ab5')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send({ ...menu1, meals: ['46ced7aa-eed5-4462-b2c0-153f31589bdd'] })
+      .send({ ...menuDetailsWithoutDate, meals: ['46ced7aa-eed5-4462-b2c0-153f31589bdd'] })
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body.errors.meals.msg).to.equal('You don\'t have access to Meal 46ced7aa-eed5-4462-b2c0-153f31589bdd');
@@ -64,7 +64,7 @@ describe('Menu Routes: Edit menu', () => {
       .put('/api/v1/menu/a9fa6cb3-9f5e-46fa-b641-388f898ca824')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send({ ...badMenu, date: '2018-05-06' })
+      .send({ ...menuDetailsWithBadDate, date: '2018-05-06' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
@@ -93,23 +93,21 @@ describe('Menu Routes: Edit menu', () => {
       });
   });
 
-  invalidID(
-    'should return 400 error for invalid meal id', 'menuId',
-    request(app), 'put', menu1, '/api/v1/menu/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', foodCircleToken
-  );
+  invalidID({
+    type: 'menuId',
+    method: 'put',
+    url: '/api/v1/menu/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478',
+    token: foodCircleToken
+  });
 
-  notAdmin(
-    'should return 403 error for authorized user ie non admin or caterer',
-    request(app), 'put', '/api/v1/menu/15421f7a-0f82-4802-b215-e0e8efb6bfb3'
-  );
+  notFound({
+    method: 'put',
+    url: '/api/v1/menu/4f579f84-53e4-4fc5-a362-956aa36fbfb8',
+    token: foodCircleToken,
+    data: menuDetailsWithoutDate,
+  });
 
-  notFound(
-    'should return 404 error for non-existent meal id',
-    request(app), 'put', menu1, '/api/v1/menu/4f579f84-53e4-4fc5-a362-956aa36fbfb8', foodCircleToken
-  );
+  notAdmin('put', '/api/v1/menu/15421f7a-0f82-4802-b215-e0e8efb6bfb3');
 
-  unAuthorized(
-    'should return 401 error for user without token',
-    request(app), 'put', '/api/v1/menu/15421f7a-0f82-4802-b215-e0e8efb6bfb3'
-  );
+  unAuthorized('put', '/api/v1/menu/15421f7a-0f82-4802-b215-e0e8efb6bfb3');
 });

@@ -6,11 +6,11 @@ import notFound from '../../utils/notFound';
 import invalidID from '../../utils/invalidID';
 import invalidPUT from '../../utils/invalidPUT';
 import unAuthorized from '../../utils/unAuthorized';
-import { editMeal as data } from '../../utils/data';
+import { editMeal as mockData } from '../../utils/mockData';
 import { tokens } from '../../utils/setup';
 
 const { foodCircleToken } = tokens;
-const { newMeal, badMeal } = data;
+const { updatedMealDetails, invalidMealDetails } = mockData;
 
 describe('Meal Routes: Edit a meal option', () => {
   it('should edit a meal for authenticated user', (done) => {
@@ -18,7 +18,7 @@ describe('Meal Routes: Edit a meal option', () => {
       .put('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send({ ...newMeal, title: 'Plantain and Egg', price: undefined })
+      .send({ ...updatedMealDetails, title: 'Plantain and Egg', price: undefined })
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
         expect(res.body.id).to.equal('91b6e41c-0972-4ac5-86da-4ac1f5226e83');
@@ -33,7 +33,7 @@ describe('Meal Routes: Edit a meal option', () => {
       .put('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send({ ...newMeal, price: '1499.99' })
+      .send({ ...updatedMealDetails, price: '1499.99' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
         expect(res.body.id).to.equal('91b6e41c-0972-4ac5-86da-4ac1f5226e83');
@@ -48,7 +48,7 @@ describe('Meal Routes: Edit a meal option', () => {
       .put('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send(badMeal)
+      .send(invalidMealDetails)
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
@@ -69,7 +69,7 @@ describe('Meal Routes: Edit a meal option', () => {
       .put('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send({ ...newMeal, title: 'Oriental Fried Rice' })
+      .send({ ...updatedMealDetails, title: 'Oriental Fried Rice' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(409);
         expect(res.body.error).to.equal('Meal already exists');
@@ -79,28 +79,24 @@ describe('Meal Routes: Edit a meal option', () => {
       });
   });
 
-  invalidID(
-    'should return 400 error for invalid meal id', 'mealId',
-    request(app), 'put', newMeal, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', foodCircleToken
-  );
+  invalidID({
+    type: 'mealId',
+    method: 'put',
+    url: '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478',
+    token: foodCircleToken,
+    data: updatedMealDetails,
+  });
 
-  invalidPUT(
-    'should return 400 error for empty object',
-    request(app), '/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83', foodCircleToken
-  );
+  invalidPUT('/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83', foodCircleToken);
 
-  notFound(
-    'should return 404 error for non-existent meal id',
-    request(app), 'put', { ...newMeal, title: 'Porridge' }, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed539', foodCircleToken
-  );
+  notFound({
+    method: 'put',
+    url: '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed539',
+    token: foodCircleToken,
+    data: { ...updatedMealDetails, title: 'Porridge' },
+  });
 
-  notAdmin(
-    'should return 403 error for authorized user ie non admin or caterer',
-    request(app), 'put', '/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83'
-  );
+  notAdmin('put', '/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83');
 
-  unAuthorized(
-    'should return 401 error for user without token',
-    request(app), 'put', '/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83'
-  );
+  unAuthorized('put', '/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83');
 });

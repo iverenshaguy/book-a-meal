@@ -1,5 +1,5 @@
 import { getOrderItem } from '../../../src/store/selectors/orders';
-import { caterersOrdersObj } from '../../setup/data';
+import { caterersOrdersObj } from '../../setup/mockData';
 
 describe('Orders Selectors', () => {
   it('should get the last item', () => {

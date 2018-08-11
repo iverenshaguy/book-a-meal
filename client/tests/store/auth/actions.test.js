@@ -4,7 +4,7 @@ import axios from 'axios';
 import moxios from 'moxios';
 import instance from '../../../src/config/axios';
 import operations from '../../../src/store/operations/auth';
-import { newCustomer } from '../../setup/data';
+import { newCustomer } from '../../setup/mockData';
 
 const {
   authenticating,

@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
-import { initialValues } from '../../../setup/data';
+import { initialValues } from '../../../setup/mockData';
 import Modal from '../../../../src/components/shared/Modal/Modal';
 import ConnectedModal from '../../../../src/components/shared/Modal';
 

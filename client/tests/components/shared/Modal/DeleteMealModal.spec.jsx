@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
-import { initialValues, caterersMealsObj } from '../../../setup/data';
+import { initialValues, caterersMealsObj } from '../../../setup/mockData';
 import DeleteMealModal from '../../../../src/components/shared/Modal/DeleteMealModal/DeleteMealModal';
 import ConnectedDeleteMealModal from '../../../../src/components/shared/Modal/DeleteMealModal';
 

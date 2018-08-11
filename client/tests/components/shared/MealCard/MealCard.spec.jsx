@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import MealCard from '../../../../src/components/shared/MealCard';
-import { caterersMealsObj } from '../../../setup/data';
+import { caterersMealsObj } from '../../../setup/mockData';
 
 describe('MealCard', () => {
   // beforeAll(() => {

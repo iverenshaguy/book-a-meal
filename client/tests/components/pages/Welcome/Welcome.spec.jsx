@@ -1,6 +1,6 @@
 import React from 'react';
 import Welcome from '../../../../src/components/pages/Welcome/WelcomeComponent';
-import { caterer, customer } from '../../../setup/data';
+import { caterer, customer } from '../../../setup/mockData';
 
 const props = {
   user: caterer,

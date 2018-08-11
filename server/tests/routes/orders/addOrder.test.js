@@ -4,24 +4,25 @@ import moment from 'moment';
 import mockDate from 'mockdate';
 import app from '../../../src/app';
 import unAuthorized from '../../utils/unAuthorized';
-import { addOrder as data } from '../../utils/data';
+import { order as mockData } from '../../utils/mockData';
 import { tokens } from '../../utils/setup';
 
 const { emiolaToken } = tokens;
 
-const { badOrder, newOrder } = data;
+const { badOrderDetails, newOrderDetails } = mockData;
+
 const currentDay = moment().format('YYYY-MM-DD');
 
 
 describe('Order Routes: Add an Order', () => {
-  it('should add an order for authenticated user', (done) => {
+  it('should add an order for an authenticated user', (done) => {
     mockDate.set(new Date(currentDay).getTime() + (60 * 60 * 13 * 1000));
 
     request(app)
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
       .set('authorization', emiolaToken)
-      .send({ ...newOrder })
+      .send({ ...newOrderDetails })
       .end((err, res) => {
         expect(res.statusCode).to.equal(201);
         expect(res.body).to.include.keys('id');
@@ -41,7 +42,7 @@ describe('Order Routes: Add an Order', () => {
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
       .set('authorization', emiolaToken)
-      .send(newOrder)
+      .send(newOrderDetails)
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
         expect(res.body.message).to.equal('Meals can only be ordered from 8:30am to 4:00pm');
@@ -75,7 +76,7 @@ describe('Order Routes: Add an Order', () => {
       .post('/api/v1/orders')
       .set('Accept', 'application/json')
       .set('authorization', emiolaToken)
-      .send(badOrder)
+      .send(badOrderDetails)
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
@@ -90,8 +91,5 @@ describe('Order Routes: Add an Order', () => {
       });
   });
 
-  unAuthorized(
-    'should return 401 error for user without token',
-    request(app), 'post', '/api/v1/orders'
-  );
+  unAuthorized('post', '/api/v1/orders');
 });

@@ -3,13 +3,11 @@ import { expect } from 'chai';
 import app from '../../../src/app';
 import notAdmin from '../../utils/notAdmin';
 import unAuthorized from '../../utils/unAuthorized';
-import { addMenu as data, tomorrow, currentDay } from '../../utils/data';
+import { menu as mockData, tomorrow, currentDay } from '../../utils/mockData';
 import { tokens } from '../../utils/setup';
 
 const { foodCircleToken, bellyFillToken } = tokens;
-const {
-  menu1, menu3, badMenu
-} = data;
+const { menuDetailsWithoutDate, menuDetailsWithDate, menuDetailsWithBadDate } = mockData;
 
 describe('Menu Routes: Add a new menu', () => {
   it('should add a menu for authenticated user, for the next day', (done) => {
@@ -17,7 +15,7 @@ describe('Menu Routes: Add a new menu', () => {
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send({ ...menu1, date: tomorrow })
+      .send({ ...menuDetailsWithoutDate, date: tomorrow })
       .end((err, res) => {
         expect(res.statusCode).to.equal(201);
         expect(res.body).to.include.keys('id');
@@ -53,7 +51,7 @@ describe('Menu Routes: Add a new menu', () => {
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send(menu1)
+      .send(menuDetailsWithoutDate)
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body.error).to.equal('Menu already exists for this day');
@@ -68,7 +66,7 @@ describe('Menu Routes: Add a new menu', () => {
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send(menu3)
+      .send(menuDetailsWithDate)
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
@@ -84,7 +82,7 @@ describe('Menu Routes: Add a new menu', () => {
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send(badMenu)
+      .send(menuDetailsWithBadDate)
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
@@ -101,7 +99,7 @@ describe('Menu Routes: Add a new menu', () => {
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send({ ...menu1, date: '2019-05-04', meals: ['46ced7aa-eed5-4462-b2c0-153f31589bdd'] })
+      .send({ ...menuDetailsWithoutDate, date: '2019-05-04', meals: ['46ced7aa-eed5-4462-b2c0-153f31589bdd'] })
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
@@ -112,13 +110,7 @@ describe('Menu Routes: Add a new menu', () => {
       });
   });
 
-  notAdmin(
-    'should return 403 error for authorized user ie non admin or caterer',
-    request(app), 'post', '/api/v1/meals'
-  );
+  notAdmin('post', '/api/v1/meals');
 
-  unAuthorized(
-    'should return 401 error for user without token',
-    request(app), 'post', '/api/v1/meals'
-  );
+  unAuthorized('post', '/api/v1/meals');
 });

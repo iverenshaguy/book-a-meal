@@ -1,9 +1,7 @@
 import jwt from 'jsonwebtoken';
-import { config } from 'dotenv';
-import errors from '../../data/errors.json';
-import db from '../models';
-
-config();
+import errors from '../../lib/errors.json';
+import models from '../models';
+import UserController from '../controllers/UserController';
 
 /**
  * @exports
@@ -55,6 +53,22 @@ class Authorization {
   }
 
   /**
+   * Resets User Token
+   * @method resetToken
+   * @memberof Users
+   * @param {object} req
+   * @param {object} res
+   * @returns {(function|object)} Function next() or JSON object
+   */
+  static async refreshToken(req, res) {
+    const authUser = await models.User.findOne({ where: { email: req.email } });
+    const user = UserController.getUserObj({ ...authUser.dataValues });
+    const token = Authorization.generateToken(user);
+
+    return res.status(200).json({ user, token });
+  }
+
+  /**
    * Authorize user
    * @method authorize
    * @memberof Authorization
@@ -77,7 +91,7 @@ class Authorization {
         return res.status(401).json({ error: 'Failed to authenticate token' });
       }
 
-      const foundUser = await db.User.findOne({ where: { email: decoded.email } });
+      const foundUser = await models.User.findOne({ where: { email: decoded.email } });
 
       if (!foundUser) return res.status(401).json({ error: errors['401'] });
 

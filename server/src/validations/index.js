@@ -1,5 +1,4 @@
-import auth from './auth';
-import meals from './meals';
-import menu from './menu';
-
-export default { auth, meals, menu };
+export { default as authValidation } from './authValidation';
+export { default as mealValidation } from './mealValidation';
+export { default as menuValidation } from './menuValidation';
+export { default as orderValidation } from './orderValidation';

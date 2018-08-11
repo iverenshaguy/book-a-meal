@@ -1,8 +1,5 @@
-import { customerToken, expiredToken } from '../setup/data';
+import { customerToken, expiredToken } from '../setup/mockData';
 import refreshPage from '../../src/utils/refreshPage';
-
-// jest.mock(operations.resetUser);
-// jest.mock(operations.authenticateUser);
 
 const store = {
   dispatch: jest.fn(action => action)

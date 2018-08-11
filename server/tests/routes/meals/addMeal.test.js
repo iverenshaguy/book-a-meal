@@ -3,11 +3,11 @@ import { expect } from 'chai';
 import app from '../../../src/app';
 import notAdmin from '../../utils/notAdmin';
 import unAuthorized from '../../utils/unAuthorized';
-import { addMeal as data } from '../../utils/data';
+import { addMeal as mockData } from '../../utils/mockData';
 import { tokens } from '../../utils/setup';
 
 const { foodCircleToken } = tokens;
-const { newMeal, badMeal } = data;
+const { newMealDetails, invalidMealDetails } = mockData;
 
 describe('Meal Routes: Add a meal option', () => {
   it('should add a meal for authenticated user', (done) => {
@@ -15,7 +15,7 @@ describe('Meal Routes: Add a meal option', () => {
       .post('/api/v1/meals')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send({ ...newMeal, title: 'Oriental Fried Rice' })
+      .send({ ...newMealDetails, title: 'Oriental Fried Rice' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(201);
         expect(res.body).to.include.keys('id');
@@ -31,7 +31,7 @@ describe('Meal Routes: Add a meal option', () => {
       .post('/api/v1/meals')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send({ ...newMeal, title: 'Oriental Fried Rice' })
+      .send({ ...newMealDetails, title: 'Oriental Fried Rice' })
       .end((err, res) => {
         expect(res.statusCode).to.equal(409);
         expect(res.body.error).to.equal('Meal already exists');
@@ -46,7 +46,7 @@ describe('Meal Routes: Add a meal option', () => {
       .post('/api/v1/meals')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send(badMeal)
+      .send(invalidMealDetails)
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
@@ -65,7 +65,7 @@ describe('Meal Routes: Add a meal option', () => {
       .post('/api/v1/meals')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send({ ...badMeal, price: 0 })
+      .send({ ...invalidMealDetails, price: 0 })
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
@@ -81,7 +81,7 @@ describe('Meal Routes: Add a meal option', () => {
       .post('/api/v1/meals')
       .set('Accept', 'application/json')
       .set('authorization', foodCircleToken)
-      .send({ ...badMeal, price: -25 })
+      .send({ ...invalidMealDetails, price: -25 })
       .end((err, res) => {
         expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
@@ -92,13 +92,7 @@ describe('Meal Routes: Add a meal option', () => {
       });
   });
 
-  notAdmin(
-    'should return 403 error for authorized user ie non admin or caterer',
-    request(app), 'post', '/api/v1/meals'
-  );
+  notAdmin('post', '/api/v1/meals');
 
-  unAuthorized(
-    'should return 401 error for user without token',
-    request(app), 'post', '/api/v1/meals'
-  );
+  unAuthorized('post', '/api/v1/meals');
 });

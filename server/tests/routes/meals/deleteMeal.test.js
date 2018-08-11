@@ -24,23 +24,20 @@ describe('Meal Routes: Delete a meal option', () => {
       });
   });
 
-  invalidID(
-    'should return 400 error for invalid meal id', 'mealId',
-    request(app), 'delete', undefined, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478', foodCircleToken
-  );
+  invalidID({
+    type: 'mealId',
+    method: 'delete',
+    url: '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed5396478',
+    token: foodCircleToken,
+  });
 
-  notFound(
-    'should return 404 error for non-existent meal id',
-    request(app), 'delete', undefined, '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed539', foodCircleToken
-  );
+  notFound({
+    method: 'delete',
+    url: '/api/v1/meals/efbbf4ad-c4ae-4134-928d-b5ee305ed539',
+    token: foodCircleToken,
+  });
 
-  notAdmin(
-    'should return 403 error for authorized user ie non admin or caterer',
-    request(app), 'delete', '/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83'
-  );
+  notAdmin('delete', '/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83');
 
-  unAuthorized(
-    'should return 401 error for user without token',
-    request(app), 'delete', '/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83'
-  );
+  unAuthorized('delete', '/api/v1/meals/91b6e41c-0972-4ac5-86da-4ac1f5226e83');
 });

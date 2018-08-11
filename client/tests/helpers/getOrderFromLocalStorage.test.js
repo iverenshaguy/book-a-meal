@@ -1,5 +1,5 @@
 import getOrderFromLocalStorage from '../../src/helpers/getOrderFromLocalStorage';
-import { customer, localStorageOrder } from '../setup/data';
+import { customer, localStorageOrder } from '../setup/mockData';
 
 const { now } = Date;
 

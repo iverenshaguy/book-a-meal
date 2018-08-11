@@ -1,6 +1,6 @@
 import React from 'react';
 import OrderHistoryTable from '../../../../src/components/shared/Tables/OrderHistoryTable';
-import { caterersOrdersObj } from '../../../setup/data';
+import { caterersOrdersObj } from '../../../setup/mockData';
 
 const { orders } = caterersOrdersObj;
 
