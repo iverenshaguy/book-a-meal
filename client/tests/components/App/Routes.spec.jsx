@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter, routerReducer } from 'react-router-redux';
 import createHistory from 'history/createMemoryHistory';
 import Routes from '../../../src/components/App/Routes';
-import authReducer from '../../../src/store/reducers/auth';
-import mealsReducer from '../../../src/store/reducers/meals';
+import authReducer from '../../../src/reducers/auth';
+import mealsReducer from '../../../src/reducers/meals';
 
 describe('Routes', () => {
   let store, history;

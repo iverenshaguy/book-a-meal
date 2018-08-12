@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Form from '../Form';
+import Form from '../../../containers/shared/Form';
 import { mealObjPropTypes } from '../../../helpers/proptypes';
 
 /**

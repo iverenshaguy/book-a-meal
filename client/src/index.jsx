@@ -6,7 +6,7 @@ import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { AppContainer } from 'react-hot-loader';
-import rootReducer, { history } from './rootReducer';
+import rootReducer, { history } from './reducers/rootReducer';
 import refreshPage from './utils/refreshPage';
 import App from './components/App';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Welcome from '../../../../src/components/pages/Welcome/WelcomeComponent';
+import WelcomeComponent from '../../../../src/components/pages/Welcome';
 import { caterer, customer } from '../../../setup/mockData';
 
 const props = {
@@ -19,28 +19,28 @@ describe('Welcome', () => {
   });
 
   it('renders correctly when authenticating', () => {
-    const shallowWrapper = shallow(<Welcome {...props} authenticating />);
+    const shallowWrapper = shallow(<WelcomeComponent {...props} authenticating />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('Preloader')).toBeTruthy();
   });
 
   it('renders correctly when unauthenticated', () => {
-    const shallowWrapper = shallow(<Welcome {...props} />);
+    const shallowWrapper = shallow(<WelcomeComponent {...props} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('Welcome')).toBeTruthy();
   });
 
   it('renders correctly when authenticated and user role is caterer', () => {
-    const shallowWrapper = shallow(<Welcome {...props} isAuthenticated />);
+    const shallowWrapper = shallow(<WelcomeComponent {...props} isAuthenticated />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('Dashboard')).toBeTruthy();
   });
 
   it('renders correctly when authenticated and user role is customer', () => {
-    const shallowWrapper = shallow(<Welcome {...props} user={customer} isAuthenticated />);
+    const shallowWrapper = shallow(<WelcomeComponent {...props} user={customer} isAuthenticated />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('CustomerMenu')).toBeTruthy();

@@ -1,5 +1,5 @@
-import { auth, clearAuthError } from '../store/operations/auth';
-import { clearMealError, addMeal, editMeal } from '../store/operations/meals';
+import { auth, clearAuthError } from '../actions/auth';
+import { clearMealError, addMeal, editMeal } from '../actions/meals';
 
 const clearFormError = {
   signin: clearAuthError(),

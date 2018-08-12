@@ -2,7 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
 import instance from '../../src/config/axios';
-import { authenticateUser } from '../../src/store/operations/auth';
+import { authenticateUser } from '../../src/actions/auth';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -22,7 +22,7 @@ describe('Axios Instance', () => {
     moxios.uninstall(instance);
   });
 
-  it('reloads page for expired token', () => {
+  it('reloads page when provided token is expired', () => {
     window.location.reload = jest.fn();
 
     moxios.stubRequest('/api/v1/auth/refresh_token', {

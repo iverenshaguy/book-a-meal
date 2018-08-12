@@ -1,6 +1,6 @@
 import React from 'react';
-import FormComponent from '../../../../src/components/shared/Form/Form';
-import { clearAuthError } from '../../../../src/store/operations/auth';
+import FormComponent from '../../../../src/components/shared/Form';
+import { clearAuthError } from '../../../../src/actions/auth';
 import { mainFormSetup as setup, formComponentSetup } from '../../../../tests/setup/formSetup';
 
 const signinState = {

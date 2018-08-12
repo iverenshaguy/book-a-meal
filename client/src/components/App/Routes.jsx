@@ -1,15 +1,15 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import NotFound from './../pages/NotFound';
-import Auth from './../pages/Auth';
-import Welcome from './../pages/Welcome';
-import Meals from './../pages/Meals';
+import Auth from '../../containers/pages/Auth';
+import Welcome from '../../containers/pages/Welcome';
+import Meals from '../../containers/pages/Meals';
 import Menu from './../pages/Menu';
 import requiresAuthentication from './../hoc/Authentication';
-import Orders from './../pages/Orders';
-import OrderReview from '../pages/Orders/CustomerOrders/OrderReview';
+import Orders from '../../containers/pages/Orders';
+import OrderReview from '../../containers/pages/Orders/CustomerOrders/OrderReview';
 import OrderDetails from './../pages/OrderDetails';
-import OrderConfirmation from '../pages/Orders/CustomerOrders/OrderConfirmation';
+import OrderConfirmation from '../../containers/pages/Orders/CustomerOrders/OrderConfirmation';
 import '../../../public/scss/style.scss';
 
 /**

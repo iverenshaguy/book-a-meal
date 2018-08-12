@@ -1,5 +1,5 @@
 import React from 'react';
-import SideNav from '../../../../src/components/shared/SideNav/SideNav';
+import SideNav from '../../../../src/components/shared/SideNav';
 import { caterer } from '../../../setup/mockData';
 
 describe('SideNav', () => {

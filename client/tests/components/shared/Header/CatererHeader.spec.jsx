@@ -1,5 +1,5 @@
 import React from 'react';
-import CatererHeader from '../../../../src/components/shared/Header/CatererHeader/CatererHeader';
+import CatererHeader from '../../../../src/components/shared/Header/CatererHeader';
 
 const { now } = Date;
 

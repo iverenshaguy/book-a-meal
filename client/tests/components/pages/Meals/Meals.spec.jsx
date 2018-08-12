@@ -2,14 +2,14 @@ import React from 'react';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import Meals from '../../../../src/components/pages/Meals/Meals';
-import ConnectedMeals from '../../../../src/components/pages/Meals';
-import { caterer, customer, caterersMealsObj, initialValues, metadata } from '../../../setup/mockData';
+import MealsComponent from '../../../../src/components/pages/Meals';
+import MealsContainer from '../../../../src/containers/pages/Meals';
+import { caterer, customer, caterersMealsObj, initialState, metadata } from '../../../setup/mockData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({
-  ...initialValues, meals: { ...initialValues.meals, items: caterersMealsObj.meals, metadata }
+  ...initialState, meals: { ...initialState.meals, items: caterersMealsObj.meals, metadata }
 });
 const { now } = Date;
 
@@ -25,7 +25,7 @@ describe('Meals', () => {
   it('renders correctly when not fetching', () => {
     const toggleMock = jest.fn();
 
-    const shallowWrapper = shallow(<Meals
+    const shallowWrapper = shallow(<MealsComponent
       user={caterer}
       logout={jest.fn()}
       fetchMeals={jest.fn()}
@@ -45,7 +45,7 @@ describe('Meals', () => {
     const toggleMock = jest.fn();
     const fetchMealsMock = jest.fn();
 
-    shallow(<Meals
+    shallow(<MealsComponent
       user={caterer}
       logout={jest.fn()}
       fetchMeals={fetchMealsMock}
@@ -64,7 +64,7 @@ describe('Meals', () => {
     const toggleMock = jest.fn();
     const fetchMealsMock = jest.fn();
 
-    shallow(<Meals
+    shallow(<MealsComponent
       user={caterer}
       logout={jest.fn()}
       fetchMeals={fetchMealsMock}
@@ -83,7 +83,7 @@ describe('Meals', () => {
     const toggleMock = jest.fn();
     const fetchMealsMock = jest.fn();
 
-    const shallowWrapper = shallow(<Meals
+    const shallowWrapper = shallow(<MealsComponent
       user={caterer}
       logout={jest.fn()}
       fetchMeals={fetchMealsMock}
@@ -102,7 +102,7 @@ describe('Meals', () => {
 
   it('calls toggleModal when button is clicked', () => {
     const toggleMock = jest.fn();
-    const wrapper = shallow(<Meals
+    const wrapper = shallow(<MealsComponent
       user={caterer}
       logout={jest.fn()}
       fetchMeals={jest.fn()}
@@ -121,7 +121,7 @@ describe('Meals', () => {
   it('calls toggleModal when edit meal button is clicked', () => {
     const comp = (
       <Provider store={store}>
-        <ConnectedMeals
+        <MealsContainer
           user={caterer}
           logout={jest.fn()}
           fetchMeals={jest.fn()}
@@ -132,7 +132,7 @@ describe('Meals', () => {
     );
     const wrapper = mount(comp, rrcMock.get());
 
-    const toggleSpy = jest.spyOn(wrapper.find(Meals).instance(), 'toggleModal');
+    const toggleSpy = jest.spyOn(wrapper.find(MealsComponent).instance(), 'toggleModal');
 
     wrapper.find('#edit-meal').at(0).simulate('click');
     expect(toggleSpy).toHaveBeenCalled();
@@ -140,7 +140,7 @@ describe('Meals', () => {
 
   it('redirects User to homepage if user role is customer', () => {
     const toggleMock = jest.fn();
-    const shallowWrapper = shallow(<Meals
+    const shallowWrapper = shallow(<MealsComponent
       user={customer}
       logout={jest.fn()}
       fetchMeals={jest.fn()}
@@ -157,7 +157,7 @@ describe('Meals', () => {
 
   it('renders Preloader when fetching', () => {
     const toggleMock = jest.fn();
-    const shallowWrapper = shallow(<Meals
+    const shallowWrapper = shallow(<MealsComponent
       user={caterer}
       logout={jest.fn()}
       fetchMeals={jest.fn()}
@@ -175,7 +175,7 @@ describe('Meals', () => {
 
   it('renders message when not fetching and there are no meals', () => {
     const toggleMock = jest.fn();
-    const shallowWrapper = shallow(<Meals
+    const shallowWrapper = shallow(<MealsComponent
       user={caterer}
       logout={jest.fn()}
       fetchMeals={jest.fn()}
@@ -195,7 +195,7 @@ describe('Meals', () => {
     const dispatchMock = jest.fn();
     const comp = (
       <Provider store={store}>
-        <ConnectedMeals
+        <MealsContainer
           user={caterer}
           dispatch={dispatchMock}
           {...caterersMealsObj}

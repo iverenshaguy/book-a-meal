@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OrderDetails renders MiniPreloader when delivering 1`] = `
+exports[`CatererOrderDetails renders MiniPreloader when delivering 1`] = `
 <View
   isFetching={false}
   logout={[MockFunction]}
@@ -55,7 +55,7 @@ exports[`OrderDetails renders MiniPreloader when delivering 1`] = `
 </View>
 `;
 
-exports[`OrderDetails renders Preloader when fetching 1`] = `
+exports[`CatererOrderDetails renders Preloader when fetching 1`] = `
 <View
   isFetching={true}
   logout={[MockFunction]}
@@ -171,7 +171,7 @@ exports[`OrderDetails renders Preloader when fetching 1`] = `
 </View>
 `;
 
-exports[`OrderDetails renders connected component 1`] = `
+exports[`CatererOrderDetails renders connected component 1`] = `
 <Provider
   store={
     Object {
@@ -761,7 +761,7 @@ exports[`OrderDetails renders connected component 1`] = `
 </Provider>
 `;
 
-exports[`OrderDetails renders correctly when not fetching 1`] = `
+exports[`CatererOrderDetails renders correctly when not fetching 1`] = `
 <View
   isFetching={false}
   logout={[MockFunction]}
@@ -877,7 +877,7 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
 </View>
 `;
 
-exports[`OrderDetails renders message when not fetching and that order doesn't exist 1`] = `
+exports[`CatererOrderDetails renders message when not fetching and that order doesn't exist 1`] = `
 <Provider
   store={
     Object {

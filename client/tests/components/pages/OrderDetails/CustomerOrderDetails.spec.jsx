@@ -2,14 +2,14 @@ import React from 'react';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import CustomerOrderDetails from '../../../../src/components/pages/OrderDetails/CustomerOrderDetails/CustomerOrderDetails';
-import ConnectedCustomerOrderDetails from '../../../../src/components/pages/OrderDetails/CustomerOrderDetails';
-import { customer, customersOrdersObj, initialValues } from '../../../setup/mockData';
+import CustomerOrderDetailsComponent from '../../../../src/components/pages/OrderDetails/CustomerOrderDetails';
+import CustomerOrderDetailsContainer from '../../../../src/containers/pages/OrderDetails/CustomerOrderDetails';
+import { customer, customersOrdersObj, initialState } from '../../../setup/mockData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({
-  ...initialValues
+  ...initialState
 });
 
 const { now } = Date;
@@ -24,7 +24,7 @@ describe('OrderDetails', () => {
   });
 
   it('renders correctly when not fetching', () => {
-    const wrapper = shallow(<CustomerOrderDetails
+    const wrapper = shallow(<CustomerOrderDetailsComponent
       user={customer}
       logout={jest.fn()}
       fetchOrder={jest.fn()}
@@ -40,7 +40,7 @@ describe('OrderDetails', () => {
   });
 
   it('renders Preloader when fetching', () => {
-    const wrapper = shallow(<CustomerOrderDetails
+    const wrapper = shallow(<CustomerOrderDetailsComponent
       user={customer}
       logout={jest.fn()}
       fetchOrder={jest.fn()}
@@ -59,7 +59,7 @@ describe('OrderDetails', () => {
   it('renders message when not fetching and that order doesn\'t exist', () => {
     const comp = (
       <Provider store={store}>
-        <ConnectedCustomerOrderDetails
+        <CustomerOrderDetailsContainer
           user={customer}
           isFetching={false}
           match={{ params: { id: 'fb097b-5959-45ff-8e21-51184fa61c25' } }}
@@ -74,89 +74,89 @@ describe('OrderDetails', () => {
 
   it('renders delivered order', () => {
     const newStore = mockStore({
-      ...initialValues,
-      singleOrder: { ...initialValues.singleOrder, item: customersOrdersObj.orders[1] }
+      ...initialState,
+      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[1] }
     });
 
     const comp = (
       <Provider store={newStore}>
-        <ConnectedCustomerOrderDetails
+        <CustomerOrderDetailsContainer
           user={customer}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }}
         />
       </Provider>);
 
-    const wrapper = mount(comp, rrcMock.get()).find(CustomerOrderDetails);
+    const wrapper = mount(comp, rrcMock.get()).find(CustomerOrderDetailsComponent);
 
     expect(wrapper.find('.order-status').text()).toEqual(' delivered');
   });
 
   it('renders canceled order', () => {
     const newStore = mockStore({
-      ...initialValues,
-      singleOrder: { ...initialValues.singleOrder, item: customersOrdersObj.orders[0] }
+      ...initialState,
+      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[0] }
     });
 
     const comp = (
       <Provider store={newStore}>
-        <ConnectedCustomerOrderDetails
+        <CustomerOrderDetailsContainer
           user={customer}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa70c25' } }}
         />
       </Provider>);
 
-    const wrapper = mount(comp, rrcMock.get()).find(CustomerOrderDetails);
+    const wrapper = mount(comp, rrcMock.get()).find(CustomerOrderDetailsComponent);
 
     expect(wrapper.find('.danger').text()).toEqual(' canceled');
   });
 
   it('renders pending order', () => {
     const newStore = mockStore({
-      ...initialValues,
-      singleOrder: { ...initialValues.singleOrder, item: customersOrdersObj.orders[2] }
+      ...initialState,
+      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[2] }
     });
 
     const comp = (
       <Provider store={newStore}>
-        <ConnectedCustomerOrderDetails
+        <CustomerOrderDetailsContainer
           user={customer}
           order={customersOrdersObj.orders[2]}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa80c25' } }}
         />
       </Provider>);
 
-    const wrapper = mount(comp, rrcMock.get()).find(CustomerOrderDetails);
+    const wrapper = mount(comp, rrcMock.get()).find(CustomerOrderDetailsComponent);
     expect(wrapper.find('.warning').text()).toEqual(' pending');
   });
 
   it('renders started order and shows control buttons', () => {
     const newStore = mockStore({
-      ...initialValues,
-      singleOrder: { ...initialValues.singleOrder, item: customersOrdersObj.orders[3] }
+      ...initialState,
+      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[3] }
     });
 
     const comp = (
       <Provider store={newStore}>
-        <ConnectedCustomerOrderDetails
+        <CustomerOrderDetailsContainer
           user={customer}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa90c25' } }}
         />
       </Provider>);
 
-    const wrapper = mount(comp, rrcMock.get()).find(CustomerOrderDetails);
+    const wrapper = mount(comp, rrcMock.get()).find(CustomerOrderDetailsComponent);
     expect(wrapper.find('.order-status').text()).toEqual(' pending');
     expect(wrapper.find('.d-flex-row.control-btns').length).toBeTruthy();
   });
 
   it('renders connected component', () => {
     const newStore = mockStore({
-      ...initialValues,
-      singleOrder: { ...initialValues.singleOrder, item: customersOrdersObj.orders[1] }
+      ...initialState,
+      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[1] }
     });
 
     const comp = (
       <Provider store={newStore}>
-        <ConnectedCustomerOrderDetails
+        <CustomerOrderDetailsContainer
           user={customer}
           isFetching={false}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }}
@@ -171,13 +171,13 @@ describe('OrderDetails', () => {
 
   it('calls edit order method on edit button click', () => {
     const newStore = mockStore({
-      ...initialValues,
-      singleOrder: { ...initialValues.singleOrder, item: customersOrdersObj.orders[3] }
+      ...initialState,
+      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[3] }
     });
 
     const comp = (
       <Provider store={newStore}>
-        <ConnectedCustomerOrderDetails
+        <CustomerOrderDetailsContainer
           user={customer}
           isFetching={false}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa90c25' } }}
@@ -186,7 +186,7 @@ describe('OrderDetails', () => {
 
     const wrapper = mount(comp, rrcMock.get());
 
-    wrapper.find(CustomerOrderDetails).find('.control-btns>a').at(0).simulate('click');
+    wrapper.find(CustomerOrderDetailsComponent).find('.control-btns>a').at(0).simulate('click');
 
     const storedOrder = JSON.parse(localStorage.getItem('bookamealorder'));
 
@@ -198,13 +198,13 @@ describe('OrderDetails', () => {
   it('calls cancel order method on cancel button click', () => {
     const cancelOrderMock = jest.fn();
     const newStore = mockStore({
-      ...initialValues,
-      singleOrder: { ...initialValues.singleOrder, item: customersOrdersObj.orders[0] }
+      ...initialState,
+      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[0] }
     });
 
     const comp = (
       <Provider store={newStore}>
-        <CustomerOrderDetails
+        <CustomerOrderDetailsComponent
           user={customer}
           logout={jest.fn()}
           fetchOrder={jest.fn()}
@@ -219,7 +219,7 @@ describe('OrderDetails', () => {
 
     const wrapper = mount(comp, rrcMock.get());
 
-    wrapper.find(CustomerOrderDetails).find('.control-btns>a').at(1).simulate('click');
+    wrapper.find(CustomerOrderDetailsComponent).find('.control-btns>a').at(1).simulate('click');
 
     expect(cancelOrderMock).toHaveBeenCalled();
 

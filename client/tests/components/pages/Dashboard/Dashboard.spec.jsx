@@ -2,13 +2,13 @@ import React from 'react';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import Dashboard from '../../../../src/components/pages/Dashboard/Dashboard';
-import ConnectedDashboard from '../../../../src/components/pages/Dashboard';
-import { caterer, caterersOrdersObj, initialValues } from '../../../setup/mockData';
+import Dashboard from '../../../../src/components/pages/Dashboard';
+import ConnectedDashboard from '../../../../src/containers/pages/Dashboard';
+import { caterer, caterersOrdersObj, initialState } from '../../../setup/mockData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
-const store = mockStore(initialValues);
+const store = mockStore(initialState);
 const { now } = Date;
 
 

@@ -2,15 +2,15 @@ import React from 'react';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import OrderConfirmation from '../../../../src/components/pages/Orders/CustomerOrders/OrderConfirmation/OrderConfirmation';
-import ConnectedOrderConfirmation from '../../../../src/components/pages/Orders/CustomerOrders/OrderConfirmation';
-import OrderReview from '../../../../src/components/pages/Orders/CustomerOrders/OrderReview/OrderReview';
-import ConnectedOrderReview from '../../../../src/components/pages/Orders/CustomerOrders/OrderReview';
-import { customer, initialValues, localStorageOrder } from '../../../setup/mockData';
+import OrderConfirmationComponent from '../../../../src/components/pages/Orders/CustomerOrders/OrderConfirmation';
+import OrderConfirmationContainer from '../../../../src/containers/pages/Orders/CustomerOrders/OrderConfirmation';
+import OrderReviewComponent from '../../../../src/components/pages/Orders/CustomerOrders/OrderReview';
+import OrderReviewContainer from '../../../../src/containers/pages/Orders/CustomerOrders/OrderReview';
+import { customer, initialState, localStorageOrder } from '../../../setup/mockData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
-const store = mockStore({ ...initialValues });
+const store = mockStore({ ...initialState });
 
 describe('Customer Orders', () => {
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe('Customer Orders', () => {
 
   describe('Order Confirmation', () => {
     it('renders correctly', () => {
-      const shallowWrapper = shallow(<OrderConfirmation
+      const shallowWrapper = shallow(<OrderConfirmationComponent
         user={customer}
         logout={jest.fn()}
         addOrder={jest.fn()}
@@ -33,7 +33,7 @@ describe('Customer Orders', () => {
     it('redirects when there are no orders', () => {
       localStorage.setItem('bookamealorder', null);
 
-      const shallowWrapper = shallow(<OrderConfirmation
+      const shallowWrapper = shallow(<OrderConfirmationComponent
         user={customer}
         logout={jest.fn()}
         addOrder={jest.fn()}
@@ -47,7 +47,7 @@ describe('Customer Orders', () => {
     it('renders connected component', () => {
       const comp = (
         <Provider store={store}>
-          <ConnectedOrderConfirmation
+          <OrderConfirmationContainer
             user={customer}
             isFetching={false}
           />
@@ -65,7 +65,7 @@ describe('Customer Orders', () => {
 
       const comp = (
         <Provider store={store}>
-          <OrderConfirmation
+          <OrderConfirmationComponent
             user={customer}
             logout={jest.fn()}
             addOrder={addOrderMock}
@@ -74,7 +74,7 @@ describe('Customer Orders', () => {
           />
         </Provider>);
 
-      const wrapper = mount(comp, rrcMock.get()).find(OrderConfirmation);
+      const wrapper = mount(comp, rrcMock.get()).find(OrderConfirmationComponent);
 
       wrapper.find('#checkout').simulate('click');
 
@@ -99,7 +99,7 @@ describe('Customer Orders', () => {
 
       const comp = (
         <Provider store={store}>
-          <OrderConfirmation
+          <OrderConfirmationComponent
             user={customer}
             logout={jest.fn()}
             addOrder={addOrderMock}
@@ -108,7 +108,7 @@ describe('Customer Orders', () => {
           />
         </Provider>);
 
-      const wrapper = mount(comp, rrcMock.get()).find(OrderConfirmation);
+      const wrapper = mount(comp, rrcMock.get()).find(OrderConfirmationComponent);
 
       wrapper.find('#checkout').simulate('click');
 
@@ -122,7 +122,7 @@ describe('Customer Orders', () => {
 
   describe('Order Review', () => {
     it('renders correctly', () => {
-      const shallowWrapper = shallow(<OrderReview
+      const shallowWrapper = shallow(<OrderReviewComponent
         user={customer}
         logout={jest.fn()}
         isFetching={false}
@@ -134,7 +134,7 @@ describe('Customer Orders', () => {
     it('redirects when there are no orders', () => {
       localStorage.setItem('bookamealorder', null);
 
-      const shallowWrapper = shallow(<OrderReview
+      const shallowWrapper = shallow(<OrderReviewComponent
         user={customer}
         logout={jest.fn()}
         isFetching
@@ -146,7 +146,7 @@ describe('Customer Orders', () => {
     it('renders connected component', () => {
       const comp = (
         <Provider store={store}>
-          <ConnectedOrderReview
+          <OrderReviewContainer
             user={customer}
             isFetching={false}
           />
@@ -161,14 +161,14 @@ describe('Customer Orders', () => {
     it('handles input change on number and address change', () => {
       const comp = (
         <Provider store={store}>
-          <OrderReview
+          <OrderReviewComponent
             user={customer}
             logout={jest.fn()}
             isFetching={false}
           />
         </Provider>);
 
-      const wrapper = mount(comp, rrcMock.get()).find(OrderReview);
+      const wrapper = mount(comp, rrcMock.get()).find(OrderReviewComponent);
 
       const handleInputChange = jest.spyOn(wrapper.instance(), 'handleInputChange');
 
@@ -189,14 +189,14 @@ describe('Customer Orders', () => {
     it('validates form and submits valid form', () => {
       const comp = (
         <Provider store={store}>
-          <OrderReview
+          <OrderReviewComponent
             user={customer}
             logout={jest.fn()}
             isFetching={false}
           />
         </Provider>);
 
-      const wrapper = mount(comp, rrcMock.get()).find(OrderReview);
+      const wrapper = mount(comp, rrcMock.get()).find(OrderReviewComponent);
 
       const handleOrderDetailsSubmitMock = jest.spyOn(wrapper.instance(), 'handleOrderDetailsSubmit');
       const toggleOrderSummaryMock = jest.spyOn(wrapper.instance(), 'toggleOrderSummary');
@@ -217,14 +217,14 @@ describe('Customer Orders', () => {
     it('validates form and doesnt submits invalid form', () => {
       const comp = (
         <Provider store={store}>
-          <OrderReview
+          <OrderReviewComponent
             user={customer}
             logout={jest.fn()}
             isFetching={false}
           />
         </Provider>);
 
-      const wrapper = mount(comp, rrcMock.get()).find(OrderReview);
+      const wrapper = mount(comp, rrcMock.get()).find(OrderReviewComponent);
 
       const handleOrderDetailsSubmitMock = jest.spyOn(wrapper.instance(), 'handleOrderDetailsSubmit');
       const toggleOrderSummaryMock = jest.spyOn(wrapper.instance(), 'toggleOrderSummary');

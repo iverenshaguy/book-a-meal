@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import CatererHeader from './CatererHeader';
+import CatererHeader from '../../../containers/shared/Header/CatererHeader';
 import CustomerHeader from './CustomerHeader';
 import { userPropType } from '../../../helpers/proptypes';
 import './Header.scss';

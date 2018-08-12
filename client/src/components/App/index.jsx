@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { ConnectedRouter } from 'react-router-redux';
 import ReduxToastr from 'react-redux-toastr';
 import 'react-redux-toastr/src/styles/index.scss';
-import { history } from '../../rootReducer';
+import { history } from '../../reducers/rootReducer';
 import Routes from './Routes';
 import '../../../public/scss/style.scss';
 

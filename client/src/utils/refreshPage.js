@@ -1,5 +1,5 @@
 import decodeToken from './decodeToken';
-import { resetUser, authenticateUser } from '../store/operations/auth';
+import { resetUser, authenticateUser } from '../actions/auth';
 
 /**
  * Refreshes and reauthenticates page with token in local storage
