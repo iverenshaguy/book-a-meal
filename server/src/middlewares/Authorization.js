@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import errors from '../../data/errors.json';
+import errors from '../../lib/errors.json';
 import models from '../models';
 import UserController from '../controllers/UserController';
 

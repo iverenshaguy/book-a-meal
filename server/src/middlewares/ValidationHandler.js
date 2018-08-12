@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { validationResult } from 'express-validator/check';
 import { matchedData } from 'express-validator/filter';
-import messages from '../../data/errors.json';
+import messages from '../../lib/errors.json';
 
 /**
  * @exports

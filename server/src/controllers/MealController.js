@@ -1,6 +1,6 @@
 import { Op } from 'sequelize';
 import models from '../models';
-import errors from '../../data/errors.json';
+import errors from '../../lib/errors.json';
 import Pagination from '../utils/Pagination';
 
 /**

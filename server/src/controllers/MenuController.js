@@ -1,6 +1,6 @@
 import moment from 'moment';
 import models from '../models';
-import errors from '../../data/errors.json';
+import errors from '../../lib/errors.json';
 import NotificationEventEmitter from '../eventEmitters/NotificationEventEmitter';
 import Pagination from '../utils/Pagination';
 
