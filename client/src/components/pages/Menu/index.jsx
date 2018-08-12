@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import CatererMenu from './CatererMenu';
-import CustomerMenu from './CustomerMenu';
+import CatererMenu from '../../../containers/pages/Menu/CatererMenu';
+import CustomerMenu from '../../../containers/pages/Menu/CustomerMenu';
 import { userPropTypes } from '../../../helpers/proptypes';
 import './Menu.scss';
 

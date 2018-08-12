@@ -1,32 +1,32 @@
-import { isRequired, isValidPasswordConfirm } from './types';
+import { isRequired, isValidPasswordConfirm } from './validationTypes';
 import validation from './validation';
 
 /**
  * sync Validate supplied field
  * @function syncValidate
- * @param {string} type - validation types
+ * @param {string} type - validation actionTypes
  * @param {string} field - field to test
  * @param {object} values - all field values
  * @returns {string} field Error
  */
 const syncValidate = type => (field, values) => {
   const value = values[field];
-  const types = validation[type][field];
+  const actionTypes = validation[type][field];
   let validate;
 
-  if (!types) {
+  if (!actionTypes) {
     return null;
   }
 
-  // map each type in types array to value
+  // map each type in actionTypes array to value
   if (field === 'passwordConfirm') {
     validate = [isRequired(value), isValidPasswordConfirm(value, values)];
   } else {
-    // map each type in types array to value
-    validate = types.map(val => val(value));
+    // map each type in actionTypes array to value
+    validate = actionTypes.map(val => val(value));
   }
 
-  // filter out undefined types i.e. types with no error
+  // filter out undefined actionTypes i.e. actionTypes with no error
   const fieldError = validate.filter(val => val !== undefined)[0];
 
   if (typeof fieldError !== 'string') {

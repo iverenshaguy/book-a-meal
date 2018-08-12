@@ -4,14 +4,14 @@ import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import { arrayToObject } from '../../src/utils';
 import { formHelpers } from '../../src/helpers';
-import FormComponent from '../../src/components/shared/Form/Form';
-import { newMeal, initialValues } from './mockData';
+import FormComponent from '../../src/components/shared/Form';
+import { newMeal, initialState } from './mockData';
 
 const { formFields } = formHelpers;
 const dispatchMock = jest.fn();
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
-const store = mockStore(initialValues);
+const store = mockStore(initialState);
 
 const formComponentSetup = type => ({
   type,
@@ -40,14 +40,18 @@ const mainFormSetup = (type, meta) => {
     meta
   };
 
-  const mountRoot = mount( //eslint-disable-line
-    <Provider store={store}>
-      <FormComponent
-        {...props}
-        meal={type === 'editMeal' ? newMeal : null}
-        dispatch={dispatchMock}
-      />
-    </Provider>);
+  const comp =
+    (
+      <Provider store={store}>
+        <FormComponent
+          {...props}
+          meal={type === 'editMeal' ? newMeal : null}
+          dispatch={dispatchMock}
+        />
+      </Provider>
+    );
+
+  const mountRoot = mount(comp);
 
   const shallowRoot = shallow(<FormComponent
     {...props}

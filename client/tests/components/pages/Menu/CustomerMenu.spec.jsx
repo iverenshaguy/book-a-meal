@@ -3,15 +3,15 @@ import moment from 'moment';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import CustomerMenu from '../../../../src/components/pages/Menu/CustomerMenu/CustomerMenu';
-import ConnectedCustomerMenu from '../../../../src/components/pages/Menu/CustomerMenu';
-import { customer, caterersMealsObj, orderItems, initialValues, metadata } from '../../../setup/mockData';
+import CustomerMenuComponent from '../../../../src/components/pages/Menu/CustomerMenu';
+import CustomerMenuContainer from '../../../../src/containers/pages/Menu/CustomerMenu';
+import { customer, caterersMealsObj, orderItems, initialState, metadata } from '../../../setup/mockData';
 import updateLocalStorageOrder from '../../../../src/helpers/updateLocalStorageOrder';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({
-  ...initialValues, menu: { ...initialValues.menu, meals: caterersMealsObj.meals }
+  ...initialState, menu: { ...initialState.menu, meals: caterersMealsObj.meals }
 });
 const { now } = Date;
 const currentDay = moment().format('YYYY-MM-DD');
@@ -30,7 +30,7 @@ describe('CustomerMenu', () => {
   });
 
   it('renders correctly when not fetching', () => {
-    const shallowWrapper = shallow(<CustomerMenu
+    const shallowWrapper = shallow(<CustomerMenuComponent
       user={customer}
       logout={jest.fn()}
       fetchMenu={jest.fn()}
@@ -44,7 +44,7 @@ describe('CustomerMenu', () => {
   });
 
   it('renders Preloader when fetching', () => {
-    const shallowWrapper = shallow(<CustomerMenu
+    const shallowWrapper = shallow(<CustomerMenuComponent
       user={customer}
       logout={jest.fn()}
       fetchMenu={jest.fn()}
@@ -58,7 +58,7 @@ describe('CustomerMenu', () => {
   });
 
   it('renders message when not fetching and there are no meals on the menu', () => {
-    const shallowWrapper = shallow(<CustomerMenu
+    const shallowWrapper = shallow(<CustomerMenuComponent
       user={customer}
       logout={jest.fn()}
       fetchMenu={jest.fn()}
@@ -74,7 +74,7 @@ describe('CustomerMenu', () => {
   it('calls fetchMenu when loadMoreMenu is called', () => {
     const fetchMenuMock = jest.fn();
 
-    const shallowWrapper = shallow(<CustomerMenu
+    const shallowWrapper = shallow(<CustomerMenuComponent
       user={customer}
       logout={jest.fn()}
       fetchMenu={fetchMenuMock}
@@ -91,7 +91,7 @@ describe('CustomerMenu', () => {
   it('renders connected component', () => {
     const comp = (
       <Provider store={store}>
-        <ConnectedCustomerMenu
+        <CustomerMenuContainer
           user={customer}
           {...caterersMealsObj}
         />
@@ -107,7 +107,7 @@ describe('CustomerMenu', () => {
     const dateNowSpy = jest.spyOn(Date, 'now').mockImplementation(() => new Date(currentDay).getTime() + (60 * 60 * 18 * 1000));
     const comp = (
       <Provider store={store}>
-        <CustomerMenu
+        <CustomerMenuComponent
           user={customer}
           logout={jest.fn()}
           fetchMenu={jest.fn()}
@@ -149,7 +149,7 @@ describe('CustomerMenu', () => {
     it('adds an order', () => {
       const comp = (
         <Provider store={store}>
-          <CustomerMenu
+          <CustomerMenuComponent
             user={customer}
             logout={jest.fn()}
             fetchMenu={jest.fn()}
@@ -160,7 +160,7 @@ describe('CustomerMenu', () => {
         </Provider>);
 
 
-      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenu).dive();
+      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenuComponent).dive();
       const addOrderSpy = jest.spyOn(wrapper.instance(), 'addOrderItem');
       const handleOrderMealClickSpy = jest.spyOn(wrapper.instance(), 'handleOrderMealClick');
 
@@ -182,7 +182,7 @@ describe('CustomerMenu', () => {
     it('updates orderItem on reorder', () => {
       const comp = (
         <Provider store={store}>
-          <CustomerMenu
+          <CustomerMenuComponent
             user={customer}
             logout={jest.fn()}
             fetchMenu={jest.fn()}
@@ -192,7 +192,7 @@ describe('CustomerMenu', () => {
           />
         </Provider>);
 
-      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenu).dive();
+      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenuComponent).dive();
       const updateOrderItemSpy = jest.spyOn(wrapper.instance(), 'updateOrderItem');
       const handleOrderMealClickSpy = jest.spyOn(wrapper.instance(), 'handleOrderMealClick');
 
@@ -213,7 +213,7 @@ describe('CustomerMenu', () => {
     it('changes order quantity on input change', () => {
       const comp = (
         <Provider store={store}>
-          <CustomerMenu
+          <CustomerMenuComponent
             user={customer}
             logout={jest.fn()}
             fetchMenu={jest.fn()}
@@ -223,7 +223,7 @@ describe('CustomerMenu', () => {
           />
         </Provider>);
 
-      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenu).dive();
+      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenuComponent).dive();
       const changeOrderQuantitySpy = jest.spyOn(wrapper.instance(), 'changeOrderQuantity');
 
       wrapper.find('Cart').dive().find('input').at(0)
@@ -238,7 +238,7 @@ describe('CustomerMenu', () => {
     it('sets quantity input back to one if set to 0 or negative value', () => {
       const comp = (
         <Provider store={store}>
-          <CustomerMenu
+          <CustomerMenuComponent
             user={customer}
             logout={jest.fn()}
             fetchMenu={jest.fn()}
@@ -248,7 +248,7 @@ describe('CustomerMenu', () => {
           />
         </Provider>);
 
-      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenu).dive();
+      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenuComponent).dive();
 
       wrapper.find('Cart').dive().find('input').at(0)
         .simulate('change', { target: { value: 0 } });
@@ -264,7 +264,7 @@ describe('CustomerMenu', () => {
     it('sets empty array as state order when local storage date is not today', () => {
       const comp = (
         <Provider store={store}>
-          <CustomerMenu
+          <CustomerMenuComponent
             user={customer}
             logout={jest.fn()}
             fetchMenu={jest.fn()}
@@ -287,7 +287,7 @@ describe('CustomerMenu', () => {
         date: '2017-06-20'
       }));
 
-      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenu).dive();
+      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenuComponent).dive();
 
       expect(wrapper.state().order.meals.length).toEqual(0);
 
@@ -297,7 +297,7 @@ describe('CustomerMenu', () => {
     it('removes orderItem when delete icon is clicked', () => {
       const comp = (
         <Provider store={store}>
-          <CustomerMenu
+          <CustomerMenuComponent
             user={customer}
             logout={jest.fn()}
             fetchMenu={jest.fn()}
@@ -320,7 +320,7 @@ describe('CustomerMenu', () => {
         date: moment().format('YYYY-MM-DD')
       }));
 
-      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenu).dive();
+      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenuComponent).dive();
 
       wrapper.find('Cart').dive().find('Link.remove-order').dive()
         .find('button.remove-order')

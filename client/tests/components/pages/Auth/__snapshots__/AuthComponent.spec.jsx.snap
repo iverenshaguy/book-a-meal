@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AuthComponent renders caterer's signup form correctly 1`] = `
+exports[`Auth renders caterer's signup form correctly 1`] = `
 <React.Fragment>
   <Header
     dateType={null}
@@ -87,7 +87,7 @@ exports[`AuthComponent renders caterer's signup form correctly 1`] = `
 </React.Fragment>
 `;
 
-exports[`AuthComponent renders connected signin component correctly 1`] = `
+exports[`Auth renders connected signin component correctly 1`] = `
 <Provider
   store={
     Object {
@@ -492,7 +492,7 @@ exports[`AuthComponent renders connected signin component correctly 1`] = `
 </Provider>
 `;
 
-exports[`AuthComponent renders customer's signup form correctly 1`] = `
+exports[`Auth renders customer's signup form correctly 1`] = `
 <React.Fragment>
   <Header
     dateType={null}
@@ -579,7 +579,7 @@ exports[`AuthComponent renders customer's signup form correctly 1`] = `
 </React.Fragment>
 `;
 
-exports[`AuthComponent renders signin form correctly 1`] = `
+exports[`Auth renders signin form correctly 1`] = `
 <React.Fragment>
   <Header
     dateType={null}

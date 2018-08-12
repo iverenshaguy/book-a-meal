@@ -1,5 +1,5 @@
 import React from 'react';
-import MenuForm from '../Form/MenuForm';
+import MenuForm from '../../../containers/shared/Form/MenuForm';
 
 /**
  * @exports

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import Modal from '../Modal';
-import Header from '..//Header';
+import Modal from '../../../containers/shared/Modal';
+import Header from '../Header';
 import Footer from '../Footer';
-import SideNav from '../SideNav';
+import SideNav from '../../../containers/shared/SideNav';
 import Preloader from '../Preloader';
 import { userPropTypes, } from '../../../helpers/proptypes';
 import './View.scss';

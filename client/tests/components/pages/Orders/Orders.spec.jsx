@@ -2,13 +2,13 @@ import React from 'react';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import Orders from '../../../../src/components/pages/Orders/Orders';
-import ConnectedOrders from '../../../../src/components/pages/Orders';
-import { caterer, caterersOrdersObj, customer, customersOrdersObj, initialValues, metadata } from '../../../setup/mockData';
+import OrdersComponent from '../../../../src/components/pages/Orders';
+import OrdersContainer from '../../../../src/containers/pages/Orders';
+import { caterer, caterersOrdersObj, customer, customersOrdersObj, initialState, metadata } from '../../../setup/mockData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
-const store = mockStore({ ...initialValues });
+const store = mockStore({ ...initialState });
 
 const { now } = Date;
 
@@ -31,7 +31,7 @@ describe('Orders', () => {
     });
 
     it('renders correctly when not fetching', () => {
-      const shallowWrapper = shallow(<Orders
+      const shallowWrapper = shallow(<OrdersComponent
         user={caterer}
         logout={jest.fn()}
         fetchOrders={jest.fn()}
@@ -44,7 +44,7 @@ describe('Orders', () => {
       expect(shallowWrapper.find('OrderPill')).toBeTruthy();
     });
     it('renders Preloader when fetching', () => {
-      const shallowWrapper = shallow(<Orders
+      const shallowWrapper = shallow(<OrdersComponent
         user={caterer}
         logout={jest.fn()}
         fetchOrders={jest.fn()}
@@ -60,7 +60,7 @@ describe('Orders', () => {
     it('calls fetchOrders when loadMoreOrders is called', () => {
       const fetchOrdersMock = jest.fn();
 
-      const shallowWrapper = shallow(<Orders
+      const shallowWrapper = shallow(<OrdersComponent
         user={caterer}
         logout={jest.fn()}
         fetchOrders={fetchOrdersMock}
@@ -75,7 +75,7 @@ describe('Orders', () => {
     });
 
     it('renders message when not fetching and there are no orders', () => {
-      const shallowWrapper = shallow(<Orders
+      const shallowWrapper = shallow(<OrdersComponent
         user={caterer}
         logout={jest.fn()}
         fetchOrders={jest.fn()}
@@ -91,7 +91,7 @@ describe('Orders', () => {
     it('renders connected component', () => {
       const comp = (
         <Provider store={store}>
-          <ConnectedOrders
+          <OrdersContainer
             user={caterer}
             isFetching={false}
           />
@@ -106,7 +106,7 @@ describe('Orders', () => {
 
   describe('Customer Orders', () => {
     it('renders correctly when not fetching', () => {
-      const shallowWrapper = shallow(<Orders
+      const shallowWrapper = shallow(<OrdersComponent
         user={customer}
         logout={jest.fn()}
         fetchOrders={jest.fn()}
@@ -120,7 +120,7 @@ describe('Orders', () => {
     });
 
     it('renders Preloader when fetching', () => {
-      const shallowWrapper = shallow(<Orders
+      const shallowWrapper = shallow(<OrdersComponent
         user={customer}
         logout={jest.fn()}
         fetchOrders={jest.fn()}
@@ -136,7 +136,7 @@ describe('Orders', () => {
     it('calls fetchOrders when loadMoreOrders is called', () => {
       const fetchOrdersMock = jest.fn();
 
-      const shallowWrapper = shallow(<Orders
+      const shallowWrapper = shallow(<OrdersComponent
         user={customer}
         logout={jest.fn()}
         fetchOrders={fetchOrdersMock}
@@ -151,7 +151,7 @@ describe('Orders', () => {
     });
 
     it('renders message when not fetching and there are no orders', () => {
-      const shallowWrapper = shallow(<Orders
+      const shallowWrapper = shallow(<OrdersComponent
         user={customer}
         logout={jest.fn()}
         fetchOrders={jest.fn()}
@@ -167,7 +167,7 @@ describe('Orders', () => {
     it('renders connected component', () => {
       const comp = (
         <Provider store={store}>
-          <ConnectedOrders
+          <OrdersContainer
             user={customer}
             isFetching={false}
           />

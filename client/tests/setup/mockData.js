@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import moment from 'moment';
 
-export const initialValues = {
+export const initialState = {
   auth: {
     isAuthenticated: true,
     error: null,

@@ -1,5 +1,5 @@
 import React from 'react';
-import RenderFileInput from '../../../../src/components/shared/FormComponents/RenderFileInput/RenderFileInput';
+import RenderFileInput from '../../../../src/components/shared/FormComponents/RenderFileInput';
 
 const props = {
   id: '1',

@@ -2,17 +2,17 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
-import AuthComponent from '../../../../src/components/pages/Auth/AuthComponent';
-import Auth from '../../../../src/components/pages/Auth';
-import { initialValues } from '../../../setup/mockData';
+import AuthComponent from '../../../../src/components/pages/Auth';
+import AuthContainer from '../../../../src/containers/pages/Auth';
+import { initialState } from '../../../setup/mockData';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
-const store = mockStore(initialValues);
+const store = mockStore(initialState);
 
 const unAuthStore = mockStore({
-  ...initialValues,
-  auth: { ...initialValues.auth, isAuthenticated: false }
+  ...initialState,
+  auth: { ...initialState.auth, isAuthenticated: false }
 });
 
 const props = {
@@ -40,7 +40,7 @@ const customerSignupLocation = {
 };
 const { now } = Date;
 
-describe('AuthComponent', () => {
+describe('Auth', () => {
   beforeAll(() => {
     Date.now = jest.fn(() => 0);
   });
@@ -64,13 +64,8 @@ describe('AuthComponent', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('renders caterer\'s signup form correctly', () => {
-    const wrapper = shallow(<AuthComponent {...props} location={catererSignupLocation} type="signup" />);
-    expect(toJson(wrapper)).toMatchSnapshot();
-  });
-
   it('renders connected signin component correctly', () => {
-    const comp = (<Provider store={unAuthStore}><Auth {...props} location={signinLocation} type="signin" /></Provider>);
+    const comp = (<Provider store={unAuthStore}><AuthContainer {...props} location={signinLocation} type="signin" /></Provider>);
     const mountedWrapper = mount(comp, rrcMock.get());
 
     expect(toJson(mountedWrapper)).toMatchSnapshot();
@@ -98,8 +93,13 @@ describe('AuthComponent', () => {
     expect(wrapper.state().type).toEqual('catererSignup');
   });
 
+  it('renders caterer\'s signup form correctly', () => {
+    const wrapper = shallow(<AuthComponent {...props} location={catererSignupLocation} type="signup" />);
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
   it('sets state on mount: catererSignup', () => {
-    const comp = (<Auth store={store} {...props} location={catererSignupLocation} type="catererSignup" />);
+    const comp = (<AuthContainer store={store} {...props} location={catererSignupLocation} type="catererSignup" />);
     const wrapper = mount(comp, rrcMock.get());
 
     expect(wrapper.find('Redirect')).toBeTruthy();

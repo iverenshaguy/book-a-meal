@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import CatererOrderDetails from './CatererOrderDetails';
-import CustomerOrderDetails from './CustomerOrderDetails';
+import CatererOrderDetails from '../../../containers/pages/OrderDetails/CatererOrderDetails';
+import CustomerOrderDetails from '../../../containers/pages/OrderDetails/CustomerOrderDetails';
 import { userPropTypes } from '../../../helpers/proptypes';
 
 /**

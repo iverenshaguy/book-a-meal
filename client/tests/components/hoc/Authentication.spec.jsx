@@ -5,15 +5,15 @@ import { createStore, applyMiddleware } from 'redux';
 import { Redirect, MemoryRouter } from 'react-router-dom';
 import requireAuthentication from '../../../src/components/hoc/Authentication';
 import Preloader from '../../../src/components/shared/Preloader';
-import rootReducer from '../../../src/rootReducer';
-import { initialValues } from '../../setup/mockData';
+import rootReducer from '../../../src/reducers/rootReducer';
+import { initialState } from '../../setup/mockData';
 
 const loadingInitialValues = {
-  ...initialValues,
-  auth: { ...initialValues.auth, loading: true }
+  ...initialState,
+  auth: { ...initialState.auth, loading: true }
 };
 
-const authStore = createStore(rootReducer, initialValues, applyMiddleware(thunk));
+const authStore = createStore(rootReducer, initialState, applyMiddleware(thunk));
 const loadingStore = createStore(rootReducer, loadingInitialValues, applyMiddleware(thunk));
 const store = createStore(rootReducer, applyMiddleware(thunk));
 

@@ -3,14 +3,14 @@ import moment from 'moment';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import CatererMenu from '../../../../src/components/pages/Menu/CatererMenu/CatererMenu';
-import ConnectedCatererMenu from '../../../../src/components/pages/Menu/CatererMenu';
-import { caterer, caterersMealsObj, initialValues, metadata } from '../../../setup/mockData';
+import CatererMenuComponent from '../../../../src/components/pages/Menu/CatererMenu';
+import CatererMenuContainer from '../../../../src/containers/pages/Menu/CatererMenu';
+import { caterer, caterersMealsObj, initialState, metadata } from '../../../setup/mockData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({
-  ...initialValues, menu: { ...initialValues.menu, meals: caterersMealsObj.meals }
+  ...initialState, menu: { ...initialState.menu, meals: caterersMealsObj.meals }
 });
 const { now } = Date;
 
@@ -26,7 +26,7 @@ describe('CatererMenu', () => {
   it('renders correctly when not fetching', () => {
     const toggleMock = jest.fn();
 
-    const shallowWrapper = shallow(<CatererMenu
+    const shallowWrapper = shallow(<CatererMenuComponent
       user={caterer}
       logout={jest.fn()}
       fetchMenu={jest.fn()}
@@ -47,7 +47,7 @@ describe('CatererMenu', () => {
     const toggleMock = jest.fn();
     const fetchMenuMock = jest.fn();
 
-    const shallowWrapper = shallow(<CatererMenu
+    const shallowWrapper = shallow(<CatererMenuComponent
       user={caterer}
       logout={jest.fn()}
       fetchMenu={fetchMenuMock}
@@ -67,7 +67,7 @@ describe('CatererMenu', () => {
 
   it('calls toggleModal when set meal button is clicked', () => {
     const toggleMock = jest.fn();
-    const wrapper = shallow(<CatererMenu
+    const wrapper = shallow(<CatererMenuComponent
       user={caterer}
       logout={jest.fn()}
       fetchMenu={jest.fn()}
@@ -86,7 +86,7 @@ describe('CatererMenu', () => {
 
   it('calls setCurrentDay when Change Date button is clicked', () => {
     const setCurrentDayMock = jest.fn();
-    const wrapper = shallow(<CatererMenu
+    const wrapper = shallow(<CatererMenuComponent
       user={caterer}
       logout={jest.fn()}
       fetchMenu={jest.fn()}
@@ -108,7 +108,7 @@ describe('CatererMenu', () => {
 
   it('renders Preloader when fetching', () => {
     const toggleMock = jest.fn();
-    const shallowWrapper = shallow(<CatererMenu
+    const shallowWrapper = shallow(<CatererMenuComponent
       user={caterer}
       logout={jest.fn()}
       fetchMenu={jest.fn()}
@@ -127,7 +127,7 @@ describe('CatererMenu', () => {
 
   it('renders message when not fetching and there are no meals on the menu', () => {
     const toggleMock = jest.fn();
-    const shallowWrapper = shallow(<CatererMenu
+    const shallowWrapper = shallow(<CatererMenuComponent
       user={caterer}
       logout={jest.fn()}
       fetchMenu={jest.fn()}
@@ -147,7 +147,7 @@ describe('CatererMenu', () => {
   it('renders connected component', () => {
     const comp = (
       <Provider store={store}>
-        <ConnectedCatererMenu
+        <CatererMenuContainer
           user={caterer}
           {...caterersMealsObj}
           isFetching={false}
@@ -162,7 +162,7 @@ describe('CatererMenu', () => {
 
   it('disbales button when time in state is before current time', () => {
     const toggleMock = jest.fn();
-    const wrapper = shallow(<CatererMenu
+    const wrapper = shallow(<CatererMenuComponent
       user={caterer}
       logout={jest.fn()}
       fetchMenu={jest.fn()}
