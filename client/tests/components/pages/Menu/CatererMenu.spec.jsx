@@ -5,12 +5,12 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import CatererMenuComponent from '../../../../src/components/pages/Menu/CatererMenu';
 import CatererMenuContainer from '../../../../src/containers/pages/Menu/CatererMenu';
-import { caterer, caterersMealsObj, initialState, metadata } from '../../../setup/mockData';
+import { caterer, mealsObj, initialState, metadata } from '../../../setup/mockData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({
-  ...initialState, menu: { ...initialState.menu, meals: caterersMealsObj.meals }
+  ...initialState, menu: { ...initialState.menu, meals: mealsObj.meals }
 });
 const { now } = Date;
 
@@ -30,7 +30,7 @@ describe('CatererMenu', () => {
       user={caterer}
       logout={jest.fn()}
       fetchMenu={jest.fn()}
-      {...caterersMealsObj}
+      {...mealsObj}
       isFetching={false}
       submitting={false}
       setCurrentDay={jest.fn()}
@@ -51,7 +51,7 @@ describe('CatererMenu', () => {
       user={caterer}
       logout={jest.fn()}
       fetchMenu={fetchMenuMock}
-      {...caterersMealsObj}
+      {...mealsObj}
       isFetching={false}
       submitting={false}
       setCurrentDay={jest.fn()}
@@ -71,7 +71,7 @@ describe('CatererMenu', () => {
       user={caterer}
       logout={jest.fn()}
       fetchMenu={jest.fn()}
-      {...caterersMealsObj}
+      {...mealsObj}
       isFetching={false}
       submitting={false}
       setCurrentDay={jest.fn()}
@@ -90,7 +90,7 @@ describe('CatererMenu', () => {
       user={caterer}
       logout={jest.fn()}
       fetchMenu={jest.fn()}
-      {...caterersMealsObj}
+      {...mealsObj}
       isFetching={false}
       submitting={false}
       setCurrentDay={setCurrentDayMock}
@@ -112,7 +112,7 @@ describe('CatererMenu', () => {
       user={caterer}
       logout={jest.fn()}
       fetchMenu={jest.fn()}
-      {...caterersMealsObj}
+      {...mealsObj}
       isFetching
       submitting={false}
       setCurrentDay={jest.fn()}
@@ -149,7 +149,7 @@ describe('CatererMenu', () => {
       <Provider store={store}>
         <CatererMenuContainer
           user={caterer}
-          {...caterersMealsObj}
+          {...mealsObj}
           isFetching={false}
         />
       </Provider>);
@@ -166,7 +166,7 @@ describe('CatererMenu', () => {
       user={caterer}
       logout={jest.fn()}
       fetchMenu={jest.fn()}
-      {...caterersMealsObj}
+      {...mealsObj}
       isFetching={false}
       submitting={false}
       setCurrentDay={jest.fn()}

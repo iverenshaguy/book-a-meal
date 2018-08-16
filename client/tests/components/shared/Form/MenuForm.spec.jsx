@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
-import { initialState, caterersMealsObj, metadata } from '../../../setup/mockData';
+import { initialState, mealsObj, metadata } from '../../../setup/mockData';
 import MenuFormComponent from '../../../../src/components/shared/Form/MenuForm';
 import MenuFormContainer from '../../../../src/containers/shared/Form/MenuForm/';
 
@@ -11,11 +11,11 @@ const mockStore = configureStore(middlewares);
 const store = mockStore(initialState);
 
 const props = {
-  meals: caterersMealsObj.meals,
+  meals: mealsObj.meals,
   menu: {
     id: '1234',
     date: '2018-06-16',
-    meals: caterersMealsObj.meals,
+    meals: [mealsObj.meals[0]],
   },
   isFetching: false,
   fetchMeals: jest.fn(),
@@ -80,25 +80,24 @@ describe('MenuForm', () => {
 
   it('adds meal to state on meal select', () => {
     const wrapper = mount(<MenuFormComponent {...props} />);
-    const event = { target: { name: '81211c24-51c0-46ec-b1e0-18db55880958', type: 'checkbox', checked: false } };
+    const event = { target: { name: '36d525d1-efc9-4b75-9999-3e3d8dc64ce3', type: 'checkbox', checked: true } };
 
-    wrapper.find('input').at(1).simulate('change', event);
+    wrapper.find('input[name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"]').simulate('change', event);
+
+    const mealAvailInState = wrapper.state().meals.findIndex(meal => meal === '36d525d1-efc9-4b75-9999-3e3d8dc64ce3');
+
+    expect(mealAvailInState).toEqual(1);
+  });
+
+  it('removes meal from state on meal deselect', () => {
+    const wrapper = mount(<MenuFormComponent {...props} />);
+    const falseEvent = { target: { name: '81211c24-51c0-46ec-b1e0-18db55880958', type: 'checkbox', checked: false } };
+
+    wrapper.find('input[name="81211c24-51c0-46ec-b1e0-18db55880958"]').simulate('change', falseEvent);
 
     const mealAvailInState = wrapper.state().meals.findIndex(meal => meal === '81211c24-51c0-46ec-b1e0-18db55880958');
 
     expect(mealAvailInState).toEqual(-1);
-  });
-
-  it('removes meal from state on meal select', () => {
-    const wrapper = mount(<MenuFormComponent {...props} />);
-    const falseEvent = { target: { name: '81211c24-51c0-46ec-b1e0-18db55880958', type: 'checkbox', checked: false } };
-    const trueEvent = { target: { name: '81211c24-51c0-46ec-b1e0-18db55880958', type: 'checkbox', checked: true } };
-    const mealAvailInState = wrapper.state().meals.findIndex(meal => meal === '81211c24-51c0-46ec-b1e0-18db55880958');
-
-    wrapper.find('input').at(1).simulate('change', falseEvent);
-    wrapper.find('input').at(1).simulate('change', trueEvent);
-
-    expect(mealAvailInState).toEqual(0);
   });
 
   it('changes date state on date change', () => {
@@ -125,7 +124,7 @@ describe('MenuForm', () => {
     const addMenuMock = jest.fn();
     const wrapper = mount(<MenuFormComponent {...props} menu={menu} addMenu={addMenuMock} />);
 
-    wrapper.setState({ meals: caterersMealsObj.meals });
+    wrapper.setState({ meals: mealsObj.meals });
 
     wrapper.find('button').simulate('click');
 

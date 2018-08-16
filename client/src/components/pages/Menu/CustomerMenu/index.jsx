@@ -1,14 +1,14 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import MealCard from '../../../shared/MealCard';
 import Cart from '../../../shared/Cart';
-import { userPropTypes, mealObjPropTypes } from '../../../../helpers/proptypes';
+import { userPropTypes } from '../../../../helpers/proptypes';
 import View from '../../../shared/View';
 import Notification from '../../../shared/Notification';
 import checkShopOpen from '../../../../helpers/checkShopOpen';
 import getOrderFromLocalStorage from '../../../../helpers/getOrderFromLocalStorage';
 import updateLocalStorageOrder from '../../../../helpers/updateLocalStorageOrder';
-import CardGroup from '../../../shared/CardGroup';
+import SearchForm from '../../../shared/Form/SearchForm';
+import MenuItems from '../../../../containers/pages/Menu/CustomerMenu/MenuItems';
 import './CustomerMenu.scss';
 
 /**
@@ -21,8 +21,6 @@ import './CustomerMenu.scss';
 class CustomerMenu extends Component {
   static propTypes = {
     ...userPropTypes,
-    meals: PropTypes.arrayOf(mealObjPropTypes).isRequired,
-    isFetching: PropTypes.bool.isRequired,
     logout: PropTypes.func.isRequired,
     fetchMenu: PropTypes.func.isRequired,
   }
@@ -55,25 +53,6 @@ class CustomerMenu extends Component {
    * @returns {void}
    */
   getItemIndex = itemId => this.state.order.meals.findIndex(item => item.id === itemId)
-
-  /**
-   * @memberof CustomerMenu
-   * @param {object} meal
-   * @returns {func} addOrderItem|updateOrderItem
-   */
-  handleOrderMealClick = (meal) => {
-    const itemIndex = this.getItemIndex(meal.id);
-
-    if (itemIndex !== -1) {
-      const newQuantity = this.state.order.meals[itemIndex].quantity + 1;
-
-      const orderItem = this.changeOrderQuantity(meal.id, newQuantity);
-
-      return this.updateOrderItem(orderItem);
-    }
-
-    return this.addOrderItem(meal);
-  }
 
   /**
    * @memberof CustomerMenu
@@ -166,43 +145,11 @@ class CustomerMenu extends Component {
   /**
    * @memberof CustomerMenu
    * @param {object} metadata
-   * @returns {func} fetchMenu
+   * @param {string} searchTerm
+   * @returns {void}
   */
-  fetchMenu = metadata => this.props.fetchMenu(this.props.currentDay, metadata);
-
-  /**
-   * @memberof CustomerMenu
-   * @param {object} metadata
-   * @returns {func} load more menu
-  */
-  loadMoreMenu = () => this.fetchMenu(this.props.metadata)
-
-  /**
-   * @memberof CustomerMenu
-   * @returns {JSX} CustomerMenu Component
-  */
-  renderMenu = () => {
-    const { meals } = this.props;
-    const menu = meals.map(meal =>
-      (<MealCard
-        type="customer"
-        key={meal.id}
-        meal={meal}
-        orderMeal={() => this.handleOrderMealClick(meal)}
-        inBasket={!!this.state.order.meals.find(item => item.id === meal.id)}
-      />));
-
-    return (
-      <Fragment>
-        {meals.length === 0 && <p className="text-center">{'There are no Meals on Today\'s Menu'}</p>}
-        {meals.length !== 0 &&
-          <CardGroup
-            items={menu}
-            metadata={this.props.metadata}
-            loadMore={this.loadMoreMenu}
-          />}
-      </Fragment>
-    );
+  fetchMenu = (metadata, searchTerm) => {
+    this.props.fetchMenu(this.props.currentDay, metadata, searchTerm);
   }
 
   /**
@@ -210,11 +157,11 @@ class CustomerMenu extends Component {
    * @returns {JSX} CustomerMenu Component
   */
   render() {
-    const { user, logout, isFetching } = this.props;
+    const { user, logout } = this.props;
     const isShopOpen = checkShopOpen();
 
     return (
-      <View user={user} logout={logout} type="menu" isFetching={isFetching}>
+      <View user={user} logout={logout} type="menu">
         <div className="meals user-meals">
           <div className="user-menu">
             <div className="main-menu">
@@ -222,8 +169,13 @@ class CustomerMenu extends Component {
                 <h2>{'Today\'s Menu'}</h2>
                 <hr />
               </div>
+              <SearchForm type="customer" fetchItems={this.fetchMenu} />
               {!isShopOpen && <Notification message="Ordering is only available between 8:30am and 4:00pm. Please check back later." />}
-              {this.renderMenu()}
+              <MenuItems
+                loadMoreMenu={this.fetchMenu}
+                order={this.state.order}
+                addOrderItem={this.addOrderItem}
+              />
             </div>
             <Cart
               order={this.state.order.meals}

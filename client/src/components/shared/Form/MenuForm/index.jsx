@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import { mealObjPropTypes, metadataProps } from '../../../../helpers/proptypes';
 import MiniPreloader from '../../Preloader/MiniPreloader';
 import InfiniteLoader from '../../InfiniteLoader';
+import SearchForm from '../../Form/SearchForm';
+import DatePicker from '../../DatePicker';
+import './MenuForm.scss';
 
 /**
  * @exports
@@ -47,7 +50,7 @@ class MenuForm extends Component {
     date: this.props.menu.date,
     meals: this.props.menu.meals.map(meal => meal.id),
     error: null,
-    formHeight: 0
+    formHeight: 0,
   }
 
   /**
@@ -88,13 +91,12 @@ class MenuForm extends Component {
 
   /**
    * @memberof MenuForm
-   * @param {object} event
+   * @param {string} newDate
    * @returns {JSX} MenuForm
    */
-  handleChangeDate = (event) => {
+  handleChangeDate = (newDate) => {
     this.clearFormError();
 
-    const newDate = moment(event.target.value).format('YYYY-MM-DD');
     const currentDate = moment().format('YYYY-MM-DD');
     const date = new Date(currentDate) > new Date(newDate) ? currentDate : newDate;
 
@@ -109,10 +111,9 @@ class MenuForm extends Component {
   handleSelectMeal = (event) => {
     this.clearFormError();
 
-    const { target } = event;
-    const { name } = target;
+    const { target: { name, checked } } = event;
 
-    return target.checked ? this.addMealToState(name) : this.removeMealFromState(name);
+    return checked ? this.addMealToState(name) : this.removeMealFromState(name);
   }
 
   /**
@@ -153,10 +154,24 @@ class MenuForm extends Component {
 
   /**
    * @memberof MenuForm
+   * @returns {JSX} SearchBox
+   */
+  renderDate = () => (
+    <div className="menu-date">
+      <h3>
+        {moment(this.state.date).format('dddd[,] Do MMMM YYYY')}
+        <span>&nbsp;&#9662;</span>
+      </h3>
+      <DatePicker handleSelectDate={this.handleChangeDate} />
+    </div>
+  )
+
+  /**
+   * @memberof MenuForm
    * @returns {JSX} MenuFormMeals
    */
   renderMeals = () => (this.props.meals.map(meal => (
-    <div className="form-input-checkbox" key={meal.id} ref={(elem) => { this.elem = elem; }}>
+    <div className="form-input-checkbox" key={meal.id}>
       <input
         type="checkbox"
         id={meal.id}
@@ -172,24 +187,20 @@ class MenuForm extends Component {
    * @memberof MenuForm
    * @returns {JSX} MenuForm
    */
-  renderMenuForm = () => (
-    <Fragment>
-      {this.state.error && <p className="text-center danger">{this.state.error}</p>}
-      <div className="meal-options-list">
-        <div className="form-input">
-          <label htmlFor="date">Date</label>
-          <input type="date" id="date" name="date" min={moment().format('YYYY-MM-DD')} value={this.state.date} onChange={this.handleChangeDate} />
-        </div>
-        <InfiniteLoader
+  renderMenuForm = () => {
+    const { meals, mealsMetadata } = this.props;
+
+    return (
+      <Fragment>
+        {meals.length !== 0 && <InfiniteLoader
           items={this.renderMeals()}
-          metadata={this.props.mealsMetadata}
-          height={50 * this.props.meals.length}
+          metadata={mealsMetadata}
+          height={50 * meals.length}
           loadMore={this.fetchMoreData}
-        />
-      </div>
-      <button className="btn btn-pri btn-block" onClick={this.submitMenu}>SAVE MEAL OPTIONS</button>
-    </Fragment>
-  )
+        />}
+      </Fragment>
+    );
+  }
 
   /**
    * @memberof MenuForm
@@ -200,9 +211,15 @@ class MenuForm extends Component {
 
     return (
       <Fragment>
-        {(isFetching || submitting) && <div className="text-center"><MiniPreloader /></div>}
-        {!isFetching && meals.length === 0 && <p className="text-center">You Do Not Have Any Meals Yet</p>}
-        {!isFetching && !submitting && meals.length !== 0 && this.renderMenuForm()}
+        {this.state.error && <p className="text-center danger">{this.state.error}</p>}
+        {this.renderDate()}
+        <div className="meal-options-list">
+          <SearchForm type="caterer" fetchItems={this.props.fetchMeals} />
+          {(isFetching || submitting) && <div className="text-center"><MiniPreloader /></div>}
+          {!isFetching && !submitting && meals.length === 0 && <p className="text-center info">No Meals Found</p>}
+          {!isFetching && !submitting && meals.length !== 0 && this.renderMenuForm()}
+        </div>
+        {!isFetching && !submitting && meals.length !== 0 && <button className="btn btn-pri btn-block" onClick={this.submitMenu}>SAVE MEAL OPTIONS</button>}
       </Fragment>
     );
   }

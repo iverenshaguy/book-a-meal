@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { Op } from 'sequelize';
 import models from '../models';
 import errors from '../../lib/errors.json';
 import NotificationEventEmitter from '../eventEmitters/NotificationEventEmitter';
@@ -112,10 +113,13 @@ class MenuController {
    */
   static async getMenuForCustomer(req, res) {
     const date = moment().format('YYYY-MM-DD');
-    const paginate = new Pagination(req.query.page, req.query.limit);
+    const { page, search } = req.query;
+    const paginate = new Pagination(page, req.query.limit);
     const { limit, offset } = paginate.getQueryMetadata();
+    const where = search ? { title: { [Op.iLike]: `%${search}%` } } : undefined;
 
     const menuMealsData = await models.Meal.findAndCountAll({
+      where,
       attributes: [['mealId', 'id'], 'title', 'imageUrl', 'description', 'vegetarian', 'price'],
       offset,
       limit,

@@ -100,12 +100,13 @@ class MealController {
    * @returns {(function|object)} Function next() or JSON object
    */
   static async getMeals(req, res) {
-    const { userId, query: { page } } = req;
-    const paginate = new Pagination(page, req.query.limit);
+    const { userId, query: { page, search } } = req;
+    const paginate = new Pagination(page, req.query.limit, search);
     const { limit, offset } = paginate.getQueryMetadata();
+    const where = search ? { userId, title: { [Op.iLike]: `%${search}%` } } : { userId };
 
     const mealsData = await models.Meal.findAndCountAll({
-      where: { userId },
+      where,
       limit,
       offset,
       paranoid: true,
@@ -113,8 +114,10 @@ class MealController {
       order: [['createdAt', 'DESC']]
     });
 
+    const extraQuery = search ? `search=${search}` : '';
+
     return res.status(200).json({
-      meals: mealsData.rows, metadata: paginate.getPageMetadata(mealsData.count, '/meals')
+      meals: mealsData.rows, metadata: paginate.getPageMetadata(mealsData.count, '/meals', extraQuery)
     });
   }
 

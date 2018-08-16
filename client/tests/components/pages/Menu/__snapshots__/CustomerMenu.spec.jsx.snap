@@ -2,7 +2,7 @@
 
 exports[`CustomerMenu renders Preloader when fetching 1`] = `
 <View
-  isFetching={true}
+  isFetching={false}
   logout={[MockFunction]}
   showTime={true}
   type="menu"
@@ -34,55 +34,35 @@ exports[`CustomerMenu renders Preloader when fetching 1`] = `
           </h2>
           <hr />
         </div>
-        <React.Fragment>
-          <CardGroup
-            items={
-              Array [
-                <MealCard
-                  inBasket={false}
-                  meal={
-                    Object {
-                      "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
-                      "id": "81211c24-51c0-46ec-b1e0-18db55880958",
-                      "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
-                      "price": "1500.00",
-                      "title": "Jollof Rice, Beef and Plantain",
-                      "vegetarian": false,
-                    }
-                  }
-                  orderMeal={[Function]}
-                  toggleModal={null}
-                  type="customer"
-                />,
-                <MealCard
-                  inBasket={false}
-                  meal={
-                    Object {
-                      "description": "Sharwama contains no animal products, perfect for dieters",
-                      "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                      "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                      "price": "1200.00",
-                      "title": "Vegetable Sharwama and Guava Smoothie",
-                      "vegetarian": true,
-                    }
-                  }
-                  orderMeal={[Function]}
-                  toggleModal={null}
-                  type="customer"
-                />,
-              ]
+        <SearchForm
+          fetchItems={[Function]}
+          type="customer"
+        />
+        <Connect(MenuItems)
+          addOrderItem={[Function]}
+          loadMoreMenu={[Function]}
+          order={
+            Object {
+              "deliveryAddress": "A Place",
+              "deliveryPhoneNo": "2348167719888",
+              "id": null,
+              "meals": Array [
+                Object {
+                  "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
+                  "price": "2500",
+                  "quantity": 1,
+                  "title": "Meat Soup",
+                },
+                Object {
+                  "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
+                  "price": "2200",
+                  "quantity": 3,
+                  "title": "Fish Soup",
+                },
+              ],
             }
-            loadMore={[Function]}
-            metadata={
-              Object {
-                "next": "next",
-                "pages": 2,
-                "prev": "prev",
-                "total": 5,
-              }
-            }
-          />
-        </React.Fragment>
+          }
+        />
       </div>
       <Cart
         handleQuantityInputChange={[Function]}
@@ -155,7 +135,6 @@ exports[`CustomerMenu renders connected component 1`] = `
   >
     <CustomerMenu
       fetchMenu={[Function]}
-      isFetching={false}
       logout={[Function]}
       meals={
         Array [
@@ -177,7 +156,6 @@ exports[`CustomerMenu renders connected component 1`] = `
           },
         ]
       }
-      metadata={Object {}}
       user={
         Object {
           "email": "emiola@olasanmi.com",
@@ -479,52 +457,116 @@ exports[`CustomerMenu renders connected component 1`] = `
                     </h2>
                     <hr />
                   </div>
-                  <CardGroup
-                    items={
-                      Array [
-                        <MealCard
-                          inBasket={false}
-                          meal={
-                            Object {
-                              "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
-                              "id": "81211c24-51c0-46ec-b1e0-18db55880958",
-                              "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
-                              "price": "1500.00",
-                              "title": "Jollof Rice, Beef and Plantain",
-                              "vegetarian": false,
-                            }
-                          }
-                          orderMeal={[Function]}
-                          toggleModal={null}
-                          type="customer"
-                        />,
-                        <MealCard
-                          inBasket={false}
-                          meal={
-                            Object {
-                              "description": "Sharwama contains no animal products, perfect for dieters",
-                              "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                              "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                              "price": "1200.00",
-                              "title": "Vegetable Sharwama and Guava Smoothie",
-                              "vegetarian": true,
-                            }
-                          }
-                          orderMeal={[Function]}
-                          toggleModal={null}
-                          type="customer"
-                        />,
-                      ]
-                    }
-                    loadMore={[Function]}
-                    metadata={Object {}}
+                  <SearchForm
+                    fetchItems={[Function]}
+                    type="customer"
                   >
                     <div
-                      className="card-group meals-wrapper"
-                      id="card-group"
+                      className="search-wrapper"
                     >
-                      <InfiniteLoader
-                        height={null}
+                      <div
+                        className="search-form"
+                      >
+                        <label
+                          className="hide"
+                          htmlFor="search"
+                        >
+                          Search For Meals
+                        </label>
+                        <input
+                          id="search"
+                          label="Search"
+                          name="search"
+                          onChange={[Function]}
+                          placeholder="Search For Meals"
+                          type="text"
+                          value=""
+                        />
+                        <div
+                          className="search-btn"
+                        >
+                          <img
+                            alt=""
+                            src="/img/search.svg"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </SearchForm>
+                  <Connect(MenuItems)
+                    addOrderItem={[Function]}
+                    loadMoreMenu={[Function]}
+                    order={
+                      Object {
+                        "deliveryAddress": "A Place",
+                        "deliveryPhoneNo": "2348167719888",
+                        "id": null,
+                        "meals": Array [
+                          Object {
+                            "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
+                            "price": "2500",
+                            "quantity": 1,
+                            "title": "Meat Soup",
+                          },
+                          Object {
+                            "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
+                            "price": "2200",
+                            "quantity": 3,
+                            "title": "Fish Soup",
+                          },
+                        ],
+                      }
+                    }
+                  >
+                    <MenuItems
+                      addOrderItem={[Function]}
+                      dispatch={[Function]}
+                      isFetching={false}
+                      loadMoreMenu={[Function]}
+                      meals={
+                        Array [
+                          Object {
+                            "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                            "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                            "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                            "price": "1500.00",
+                            "title": "Jollof Rice, Beef and Plantain",
+                            "vegetarian": false,
+                          },
+                          Object {
+                            "description": "Sharwama contains no animal products, perfect for dieters",
+                            "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                            "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                            "price": "1200.00",
+                            "title": "Vegetable Sharwama and Guava Smoothie",
+                            "vegetarian": true,
+                          },
+                        ]
+                      }
+                      metadata={Object {}}
+                      order={
+                        Object {
+                          "deliveryAddress": "A Place",
+                          "deliveryPhoneNo": "2348167719888",
+                          "id": null,
+                          "meals": Array [
+                            Object {
+                              "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
+                              "price": "2500",
+                              "quantity": 1,
+                              "title": "Meat Soup",
+                            },
+                            Object {
+                              "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
+                              "price": "2200",
+                              "quantity": 3,
+                              "title": "Fish Soup",
+                            },
+                          ],
+                        }
+                      }
+                    >
+                      <CardGroup
                         items={
                           Array [
                             <MealCard
@@ -564,50 +606,16 @@ exports[`CustomerMenu renders connected component 1`] = `
                         loadMore={[Function]}
                         metadata={Object {}}
                       >
-                        <InfiniteScroll
-                          dataLength={2}
-                          disableBrowserPullToRefresh={true}
-                          hasMore={false}
-                          height={null}
-                          loader={
-                            <div
-                              className="text-center"
-                            >
-                              <MiniPreloader />
-                            </div>
-                          }
-                          next={[Function]}
-                          pullDownToRefreshContent={
-                            <h3>
-                              Pull down to refresh
-                            </h3>
-                          }
-                          pullDownToRefreshThreshold={100}
-                          releaseToRefreshContent={
-                            <h3>
-                              Release to refresh
-                            </h3>
-                          }
+                        <div
+                          className="card-group meals-wrapper"
+                          id="card-group"
                         >
-                          <div
-                            style={Object {}}
-                          >
-                            <div
-                              className="infinite-scroll-component"
-                              style={
-                                Object {
-                                  "WebkitOverflowScrolling": "touch",
-                                  "height": "auto",
-                                  "overflow": "auto",
-                                }
-                              }
-                            >
-                              <div
-                                className="scroller"
-                              >
+                          <InfiniteLoader
+                            height={null}
+                            items={
+                              Array [
                                 <MealCard
                                   inBasket={false}
-                                  key="81211c24-51c0-46ec-b1e0-18db55880958"
                                   meal={
                                     Object {
                                       "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
@@ -621,72 +629,9 @@ exports[`CustomerMenu renders connected component 1`] = `
                                   orderMeal={[Function]}
                                   toggleModal={null}
                                   type="customer"
-                                >
-                                  <div
-                                    className="meal-card order-meal-card"
-                                    id="meal-card"
-                                  >
-                                    <div
-                                      className="meal-card-header"
-                                    >
-                                      <img
-                                        alt="meal"
-                                        src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
-                                      />
-                                      <div
-                                        className="menu-card-title"
-                                      >
-                                        <p>
-                                          Jollof Rice, Beef and Plantain
-                                        </p>
-                                      </div>
-                                    </div>
-                                    <div
-                                      className="meal-card-body"
-                                    >
-                                      <div>
-                                        <h3>
-                                          ₦ 
-                                          1500.00
-                                        </h3>
-                                        <p
-                                          className="meal-description"
-                                          data-tip="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
-                                        >
-                                          Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
-                                        </p>
-                                      </div>
-                                      <div
-                                        className="meal-card-action"
-                                      >
-                                        <button
-                                          className="btn btn-sec meal-card-btn"
-                                          disabled={null}
-                                          onClick={[Function]}
-                                        >
-                                          Add To Basket
-                                        </button>
-                                      </div>
-                                    </div>
-                                    <ReactTooltip
-                                      className="tooltip"
-                                      effect="solid"
-                                      insecure={true}
-                                      place="top"
-                                      resizeHide={true}
-                                      type="dark"
-                                      wrapper="div"
-                                    >
-                                      <div
-                                        className="__react_component_tooltip place-top type-dark "
-                                        data-id="tooltip"
-                                      />
-                                    </ReactTooltip>
-                                  </div>
-                                </MealCard>
+                                />,
                                 <MealCard
                                   inBasket={false}
-                                  key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
                                   meal={
                                     Object {
                                       "description": "Sharwama contains no animal products, perfect for dieters",
@@ -700,81 +645,225 @@ exports[`CustomerMenu renders connected component 1`] = `
                                   orderMeal={[Function]}
                                   toggleModal={null}
                                   type="customer"
+                                />,
+                              ]
+                            }
+                            loadMore={[Function]}
+                            metadata={Object {}}
+                          >
+                            <InfiniteScroll
+                              dataLength={2}
+                              disableBrowserPullToRefresh={true}
+                              hasMore={false}
+                              height={null}
+                              loader={
+                                <div
+                                  className="text-center"
+                                >
+                                  <MiniPreloader />
+                                </div>
+                              }
+                              next={[Function]}
+                              pullDownToRefreshContent={
+                                <h3>
+                                  Pull down to refresh
+                                </h3>
+                              }
+                              pullDownToRefreshThreshold={100}
+                              releaseToRefreshContent={
+                                <h3>
+                                  Release to refresh
+                                </h3>
+                              }
+                            >
+                              <div
+                                style={Object {}}
+                              >
+                                <div
+                                  className="infinite-scroll-component"
+                                  style={
+                                    Object {
+                                      "WebkitOverflowScrolling": "touch",
+                                      "height": "auto",
+                                      "overflow": "auto",
+                                    }
+                                  }
                                 >
                                   <div
-                                    className="meal-card order-meal-card"
-                                    id="meal-card"
+                                    className="scroller"
                                   >
-                                    <div
-                                      className="meal-card-header"
+                                    <MealCard
+                                      inBasket={false}
+                                      key="81211c24-51c0-46ec-b1e0-18db55880958"
+                                      meal={
+                                        Object {
+                                          "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                                          "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                                          "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                                          "price": "1500.00",
+                                          "title": "Jollof Rice, Beef and Plantain",
+                                          "vegetarian": false,
+                                        }
+                                      }
+                                      orderMeal={[Function]}
+                                      toggleModal={null}
+                                      type="customer"
                                     >
-                                      <span
-                                        className="veg-ribbon"
-                                      >
-                                        Vegetarian
-                                      </span>
-                                      <img
-                                        alt="meal"
-                                        src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
-                                      />
                                       <div
-                                        className="menu-card-title"
+                                        className="meal-card order-meal-card"
+                                        id="meal-card"
                                       >
-                                        <p>
-                                          Vegetable Sharwama and Guava Smoothie
-                                        </p>
-                                      </div>
-                                    </div>
-                                    <div
-                                      className="meal-card-body"
-                                    >
-                                      <div>
-                                        <h3>
-                                          ₦ 
-                                          1200.00
-                                        </h3>
-                                        <p
-                                          className="meal-description"
-                                          data-tip="Sharwama contains no animal products, perfect for dieters"
+                                        <div
+                                          className="meal-card-header"
                                         >
-                                          Sharwama contains no animal products, perfect for dieters
-                                        </p>
-                                      </div>
-                                      <div
-                                        className="meal-card-action"
-                                      >
-                                        <button
-                                          className="btn btn-sec meal-card-btn"
-                                          disabled={null}
-                                          onClick={[Function]}
+                                          <img
+                                            alt="meal"
+                                            src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+                                          />
+                                          <div
+                                            className="menu-card-title"
+                                          >
+                                            <p>
+                                              Jollof Rice, Beef and Plantain
+                                            </p>
+                                          </div>
+                                        </div>
+                                        <div
+                                          className="meal-card-body"
                                         >
-                                          Add To Basket
-                                        </button>
+                                          <div>
+                                            <h3>
+                                              ₦ 
+                                              1500.00
+                                            </h3>
+                                            <p
+                                              className="meal-description"
+                                              data-tip="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
+                                            >
+                                              Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
+                                            </p>
+                                          </div>
+                                          <div
+                                            className="meal-card-action"
+                                          >
+                                            <button
+                                              className="btn btn-sec meal-card-btn"
+                                              disabled={null}
+                                              onClick={[Function]}
+                                            >
+                                              Add To Basket
+                                            </button>
+                                          </div>
+                                        </div>
+                                        <ReactTooltip
+                                          className="tooltip"
+                                          effect="solid"
+                                          insecure={true}
+                                          place="top"
+                                          resizeHide={true}
+                                          type="dark"
+                                          wrapper="div"
+                                        >
+                                          <div
+                                            className="__react_component_tooltip place-top type-dark "
+                                            data-id="tooltip"
+                                          />
+                                        </ReactTooltip>
                                       </div>
-                                    </div>
-                                    <ReactTooltip
-                                      className="tooltip"
-                                      effect="solid"
-                                      insecure={true}
-                                      place="top"
-                                      resizeHide={true}
-                                      type="dark"
-                                      wrapper="div"
+                                    </MealCard>
+                                    <MealCard
+                                      inBasket={false}
+                                      key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                                      meal={
+                                        Object {
+                                          "description": "Sharwama contains no animal products, perfect for dieters",
+                                          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                                          "price": "1200.00",
+                                          "title": "Vegetable Sharwama and Guava Smoothie",
+                                          "vegetarian": true,
+                                        }
+                                      }
+                                      orderMeal={[Function]}
+                                      toggleModal={null}
+                                      type="customer"
                                     >
                                       <div
-                                        className="__react_component_tooltip place-top type-dark "
-                                        data-id="tooltip"
-                                      />
-                                    </ReactTooltip>
+                                        className="meal-card order-meal-card"
+                                        id="meal-card"
+                                      >
+                                        <div
+                                          className="meal-card-header"
+                                        >
+                                          <span
+                                            className="veg-ribbon"
+                                          >
+                                            Vegetarian
+                                          </span>
+                                          <img
+                                            alt="meal"
+                                            src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
+                                          />
+                                          <div
+                                            className="menu-card-title"
+                                          >
+                                            <p>
+                                              Vegetable Sharwama and Guava Smoothie
+                                            </p>
+                                          </div>
+                                        </div>
+                                        <div
+                                          className="meal-card-body"
+                                        >
+                                          <div>
+                                            <h3>
+                                              ₦ 
+                                              1200.00
+                                            </h3>
+                                            <p
+                                              className="meal-description"
+                                              data-tip="Sharwama contains no animal products, perfect for dieters"
+                                            >
+                                              Sharwama contains no animal products, perfect for dieters
+                                            </p>
+                                          </div>
+                                          <div
+                                            className="meal-card-action"
+                                          >
+                                            <button
+                                              className="btn btn-sec meal-card-btn"
+                                              disabled={null}
+                                              onClick={[Function]}
+                                            >
+                                              Add To Basket
+                                            </button>
+                                          </div>
+                                        </div>
+                                        <ReactTooltip
+                                          className="tooltip"
+                                          effect="solid"
+                                          insecure={true}
+                                          place="top"
+                                          resizeHide={true}
+                                          type="dark"
+                                          wrapper="div"
+                                        >
+                                          <div
+                                            className="__react_component_tooltip place-top type-dark "
+                                            data-id="tooltip"
+                                          />
+                                        </ReactTooltip>
+                                      </div>
+                                    </MealCard>
                                   </div>
-                                </MealCard>
+                                </div>
                               </div>
-                            </div>
-                          </div>
-                        </InfiniteScroll>
-                      </InfiniteLoader>
-                    </div>
-                  </CardGroup>
+                            </InfiniteScroll>
+                          </InfiniteLoader>
+                        </div>
+                      </CardGroup>
+                    </MenuItems>
+                  </Connect(MenuItems)>
                 </div>
                 <Cart
                   handleQuantityInputChange={[Function]}
@@ -1118,122 +1207,35 @@ exports[`CustomerMenu renders correctly when not fetching 1`] = `
           </h2>
           <hr />
         </div>
-        <React.Fragment>
-          <CardGroup
-            items={
-              Array [
-                <MealCard
-                  inBasket={false}
-                  meal={
-                    Object {
-                      "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
-                      "id": "81211c24-51c0-46ec-b1e0-18db55880958",
-                      "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
-                      "price": "1500.00",
-                      "title": "Jollof Rice, Beef and Plantain",
-                      "vegetarian": false,
-                    }
-                  }
-                  orderMeal={[Function]}
-                  toggleModal={null}
-                  type="customer"
-                />,
-                <MealCard
-                  inBasket={false}
-                  meal={
-                    Object {
-                      "description": "Sharwama contains no animal products, perfect for dieters",
-                      "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                      "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                      "price": "1200.00",
-                      "title": "Vegetable Sharwama and Guava Smoothie",
-                      "vegetarian": true,
-                    }
-                  }
-                  orderMeal={[Function]}
-                  toggleModal={null}
-                  type="customer"
-                />,
-              ]
-            }
-            loadMore={[Function]}
-            metadata={
-              Object {
-                "next": "next",
-                "pages": 2,
-                "prev": "prev",
-                "total": 5,
-              }
-            }
-          />
-        </React.Fragment>
-      </div>
-      <Cart
-        handleQuantityInputChange={[Function]}
-        order={
-          Array [
+        <SearchForm
+          fetchItems={[Function]}
+          type="customer"
+        />
+        <Connect(MenuItems)
+          addOrderItem={[Function]}
+          loadMoreMenu={[Function]}
+          order={
             Object {
-              "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
-              "price": "2500",
-              "quantity": 1,
-              "title": "Meat Soup",
-            },
-            Object {
-              "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
-              "price": "2200",
-              "quantity": 3,
-              "title": "Fish Soup",
-            },
-          ]
-        }
-        removeOrderItem={[Function]}
-      />
-    </div>
-  </div>
-</View>
-`;
-
-exports[`CustomerMenu renders message when not fetching and there are no meals on the menu 1`] = `
-<View
-  isFetching={true}
-  logout={[MockFunction]}
-  showTime={true}
-  type="menu"
-  updateCurrentDate={null}
-  user={
-    Object {
-      "email": "emiola@olasanmi.com",
-      "firstname": "Emiola",
-      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-      "lastname": "Olasanmi",
-      "role": "customer",
-    }
-  }
->
-  <div
-    className="meals user-meals"
-  >
-    <div
-      className="user-menu"
-    >
-      <div
-        className="main-menu"
-      >
-        <div
-          className="page-heading"
-        >
-          <h2>
-            Today's Menu
-          </h2>
-          <hr />
-        </div>
-        <React.Fragment>
-          <p
-            className="text-center"
-          >
-            There are no Meals on Today's Menu
-          </p>
-        </React.Fragment>
+              "deliveryAddress": "A Place",
+              "deliveryPhoneNo": "2348167719888",
+              "id": null,
+              "meals": Array [
+                Object {
+                  "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
+                  "price": "2500",
+                  "quantity": 1,
+                  "title": "Meat Soup",
+                },
+                Object {
+                  "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
+                  "price": "2200",
+                  "quantity": 3,
+                  "title": "Fish Soup",
+                },
+              ],
+            }
+          }
+        />
       </div>
       <Cart
         handleQuantityInputChange={[Function]}
@@ -1278,6 +1280,7 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
       [MockFunction] {
         "calls": Array [
           Array [
+            undefined,
             undefined,
             undefined,
           ],
@@ -1615,6 +1618,42 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                   </h2>
                   <hr />
                 </div>
+                <SearchForm
+                  fetchItems={[Function]}
+                  type="customer"
+                >
+                  <div
+                    className="search-wrapper"
+                  >
+                    <div
+                      className="search-form"
+                    >
+                      <label
+                        className="hide"
+                        htmlFor="search"
+                      >
+                        Search For Meals
+                      </label>
+                      <input
+                        id="search"
+                        label="Search"
+                        name="search"
+                        onChange={[Function]}
+                        placeholder="Search For Meals"
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        className="search-btn"
+                      >
+                        <img
+                          alt=""
+                          src="/img/search.svg"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </SearchForm>
                 <Notification
                   message="Ordering is only available between 8:30am and 4:00pm. Please check back later."
                 >
@@ -1628,59 +1667,80 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                     </p>
                   </div>
                 </Notification>
-                <CardGroup
-                  items={
-                    Array [
-                      <MealCard
-                        inBasket={false}
-                        meal={
-                          Object {
-                            "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
-                            "id": "81211c24-51c0-46ec-b1e0-18db55880958",
-                            "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
-                            "price": "1500.00",
-                            "title": "Jollof Rice, Beef and Plantain",
-                            "vegetarian": false,
-                          }
-                        }
-                        orderMeal={[Function]}
-                        toggleModal={null}
-                        type="customer"
-                      />,
-                      <MealCard
-                        inBasket={false}
-                        meal={
-                          Object {
-                            "description": "Sharwama contains no animal products, perfect for dieters",
-                            "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                            "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                            "price": "1200.00",
-                            "title": "Vegetable Sharwama and Guava Smoothie",
-                            "vegetarian": true,
-                          }
-                        }
-                        orderMeal={[Function]}
-                        toggleModal={null}
-                        type="customer"
-                      />,
-                    ]
-                  }
-                  loadMore={[Function]}
-                  metadata={
+                <Connect(MenuItems)
+                  addOrderItem={[Function]}
+                  loadMoreMenu={[Function]}
+                  order={
                     Object {
-                      "next": "next",
-                      "pages": 2,
-                      "prev": "prev",
-                      "total": 5,
+                      "deliveryAddress": "A Place",
+                      "deliveryPhoneNo": "2348167719888",
+                      "id": null,
+                      "meals": Array [
+                        Object {
+                          "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
+                          "price": "2500",
+                          "quantity": 1,
+                          "title": "Meat Soup",
+                        },
+                        Object {
+                          "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
+                          "price": "2200",
+                          "quantity": 3,
+                          "title": "Fish Soup",
+                        },
+                      ],
                     }
                   }
                 >
-                  <div
-                    className="card-group meals-wrapper"
-                    id="card-group"
+                  <MenuItems
+                    addOrderItem={[Function]}
+                    dispatch={[Function]}
+                    isFetching={false}
+                    loadMoreMenu={[Function]}
+                    meals={
+                      Array [
+                        Object {
+                          "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                          "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                          "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                          "price": "1500.00",
+                          "title": "Jollof Rice, Beef and Plantain",
+                          "vegetarian": false,
+                        },
+                        Object {
+                          "description": "Sharwama contains no animal products, perfect for dieters",
+                          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "price": "1200.00",
+                          "title": "Vegetable Sharwama and Guava Smoothie",
+                          "vegetarian": true,
+                        },
+                      ]
+                    }
+                    metadata={Object {}}
+                    order={
+                      Object {
+                        "deliveryAddress": "A Place",
+                        "deliveryPhoneNo": "2348167719888",
+                        "id": null,
+                        "meals": Array [
+                          Object {
+                            "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
+                            "price": "2500",
+                            "quantity": 1,
+                            "title": "Meat Soup",
+                          },
+                          Object {
+                            "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
+                            "price": "2200",
+                            "quantity": 3,
+                            "title": "Fish Soup",
+                          },
+                        ],
+                      }
+                    }
                   >
-                    <InfiniteLoader
-                      height={null}
+                    <CardGroup
                       items={
                         Array [
                           <MealCard
@@ -1718,59 +1778,18 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                         ]
                       }
                       loadMore={[Function]}
-                      metadata={
-                        Object {
-                          "next": "next",
-                          "pages": 2,
-                          "prev": "prev",
-                          "total": 5,
-                        }
-                      }
+                      metadata={Object {}}
                     >
-                      <InfiniteScroll
-                        dataLength={2}
-                        disableBrowserPullToRefresh={true}
-                        hasMore={true}
-                        height={null}
-                        loader={
-                          <div
-                            className="text-center"
-                          >
-                            <MiniPreloader />
-                          </div>
-                        }
-                        next={[Function]}
-                        pullDownToRefreshContent={
-                          <h3>
-                            Pull down to refresh
-                          </h3>
-                        }
-                        pullDownToRefreshThreshold={100}
-                        releaseToRefreshContent={
-                          <h3>
-                            Release to refresh
-                          </h3>
-                        }
+                      <div
+                        className="card-group meals-wrapper"
+                        id="card-group"
                       >
-                        <div
-                          style={Object {}}
-                        >
-                          <div
-                            className="infinite-scroll-component"
-                            style={
-                              Object {
-                                "WebkitOverflowScrolling": "touch",
-                                "height": "auto",
-                                "overflow": "auto",
-                              }
-                            }
-                          >
-                            <div
-                              className="scroller"
-                            >
+                        <InfiniteLoader
+                          height={null}
+                          items={
+                            Array [
                               <MealCard
                                 inBasket={false}
-                                key="81211c24-51c0-46ec-b1e0-18db55880958"
                                 meal={
                                   Object {
                                     "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
@@ -1784,61 +1803,9 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                                 orderMeal={[Function]}
                                 toggleModal={null}
                                 type="customer"
-                              >
-                                <div
-                                  className="meal-card order-meal-card"
-                                  id="meal-card"
-                                >
-                                  <div
-                                    className="meal-card-header"
-                                  >
-                                    <img
-                                      alt="meal"
-                                      src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
-                                    />
-                                    <div
-                                      className="menu-card-title"
-                                    >
-                                      <p>
-                                        Jollof Rice, Beef and Plantain
-                                      </p>
-                                    </div>
-                                  </div>
-                                  <div
-                                    className="meal-card-body"
-                                  >
-                                    <div>
-                                      <h3>
-                                        ₦ 
-                                        1500.00
-                                      </h3>
-                                      <p
-                                        className="meal-description"
-                                        data-tip="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
-                                      >
-                                        Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
-                                      </p>
-                                    </div>
-                                  </div>
-                                  <ReactTooltip
-                                    className="tooltip"
-                                    effect="solid"
-                                    insecure={true}
-                                    place="top"
-                                    resizeHide={true}
-                                    type="dark"
-                                    wrapper="div"
-                                  >
-                                    <div
-                                      className="__react_component_tooltip place-top type-dark "
-                                      data-id="tooltip"
-                                    />
-                                  </ReactTooltip>
-                                </div>
-                              </MealCard>
+                              />,
                               <MealCard
                                 inBasket={false}
-                                key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
                                 meal={
                                   Object {
                                     "description": "Sharwama contains no animal products, perfect for dieters",
@@ -1852,101 +1819,203 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                                 orderMeal={[Function]}
                                 toggleModal={null}
                                 type="customer"
+                              />,
+                            ]
+                          }
+                          loadMore={[Function]}
+                          metadata={Object {}}
+                        >
+                          <InfiniteScroll
+                            dataLength={2}
+                            disableBrowserPullToRefresh={true}
+                            hasMore={false}
+                            height={null}
+                            loader={
+                              <div
+                                className="text-center"
+                              >
+                                <MiniPreloader />
+                              </div>
+                            }
+                            next={[Function]}
+                            pullDownToRefreshContent={
+                              <h3>
+                                Pull down to refresh
+                              </h3>
+                            }
+                            pullDownToRefreshThreshold={100}
+                            releaseToRefreshContent={
+                              <h3>
+                                Release to refresh
+                              </h3>
+                            }
+                          >
+                            <div
+                              style={Object {}}
+                            >
+                              <div
+                                className="infinite-scroll-component"
+                                style={
+                                  Object {
+                                    "WebkitOverflowScrolling": "touch",
+                                    "height": "auto",
+                                    "overflow": "auto",
+                                  }
+                                }
                               >
                                 <div
-                                  className="meal-card order-meal-card"
-                                  id="meal-card"
+                                  className="scroller"
                                 >
-                                  <div
-                                    className="meal-card-header"
+                                  <MealCard
+                                    inBasket={false}
+                                    key="81211c24-51c0-46ec-b1e0-18db55880958"
+                                    meal={
+                                      Object {
+                                        "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                                        "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                                        "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                                        "price": "1500.00",
+                                        "title": "Jollof Rice, Beef and Plantain",
+                                        "vegetarian": false,
+                                      }
+                                    }
+                                    orderMeal={[Function]}
+                                    toggleModal={null}
+                                    type="customer"
                                   >
-                                    <span
-                                      className="veg-ribbon"
-                                    >
-                                      Vegetarian
-                                    </span>
-                                    <img
-                                      alt="meal"
-                                      src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
-                                    />
                                     <div
-                                      className="menu-card-title"
+                                      className="meal-card order-meal-card"
+                                      id="meal-card"
                                     >
-                                      <p>
-                                        Vegetable Sharwama and Guava Smoothie
-                                      </p>
-                                    </div>
-                                  </div>
-                                  <div
-                                    className="meal-card-body"
-                                  >
-                                    <div>
-                                      <h3>
-                                        ₦ 
-                                        1200.00
-                                      </h3>
-                                      <p
-                                        className="meal-description"
-                                        data-tip="Sharwama contains no animal products, perfect for dieters"
+                                      <div
+                                        className="meal-card-header"
                                       >
-                                        Sharwama contains no animal products, perfect for dieters
-                                      </p>
+                                        <img
+                                          alt="meal"
+                                          src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+                                        />
+                                        <div
+                                          className="menu-card-title"
+                                        >
+                                          <p>
+                                            Jollof Rice, Beef and Plantain
+                                          </p>
+                                        </div>
+                                      </div>
+                                      <div
+                                        className="meal-card-body"
+                                      >
+                                        <div>
+                                          <h3>
+                                            ₦ 
+                                            1500.00
+                                          </h3>
+                                          <p
+                                            className="meal-description"
+                                            data-tip="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
+                                          >
+                                            Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
+                                          </p>
+                                        </div>
+                                      </div>
+                                      <ReactTooltip
+                                        className="tooltip"
+                                        effect="solid"
+                                        insecure={true}
+                                        place="top"
+                                        resizeHide={true}
+                                        type="dark"
+                                        wrapper="div"
+                                      >
+                                        <div
+                                          className="__react_component_tooltip place-top type-dark "
+                                          data-id="tooltip"
+                                        />
+                                      </ReactTooltip>
                                     </div>
-                                  </div>
-                                  <ReactTooltip
-                                    className="tooltip"
-                                    effect="solid"
-                                    insecure={true}
-                                    place="top"
-                                    resizeHide={true}
-                                    type="dark"
-                                    wrapper="div"
+                                  </MealCard>
+                                  <MealCard
+                                    inBasket={false}
+                                    key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                                    meal={
+                                      Object {
+                                        "description": "Sharwama contains no animal products, perfect for dieters",
+                                        "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                                        "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                                        "price": "1200.00",
+                                        "title": "Vegetable Sharwama and Guava Smoothie",
+                                        "vegetarian": true,
+                                      }
+                                    }
+                                    orderMeal={[Function]}
+                                    toggleModal={null}
+                                    type="customer"
                                   >
                                     <div
-                                      className="__react_component_tooltip place-top type-dark "
-                                      data-id="tooltip"
-                                    />
-                                  </ReactTooltip>
-                                </div>
-                              </MealCard>
-                            </div>
-                            <div
-                              className="text-center"
-                            >
-                              <MiniPreloader>
-                                <Loader
-                                  active={true}
-                                  type="ball-beat"
-                                >
-                                  <div
-                                    className="loader loader-undefined loader-active"
-                                  >
-                                    <div
-                                      className="loader-inner ball-beat"
+                                      className="meal-card order-meal-card"
+                                      id="meal-card"
                                     >
                                       <div
-                                        key="0"
-                                        style={Object {}}
-                                      />
+                                        className="meal-card-header"
+                                      >
+                                        <span
+                                          className="veg-ribbon"
+                                        >
+                                          Vegetarian
+                                        </span>
+                                        <img
+                                          alt="meal"
+                                          src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
+                                        />
+                                        <div
+                                          className="menu-card-title"
+                                        >
+                                          <p>
+                                            Vegetable Sharwama and Guava Smoothie
+                                          </p>
+                                        </div>
+                                      </div>
                                       <div
-                                        key="1"
-                                        style={Object {}}
-                                      />
-                                      <div
-                                        key="2"
-                                        style={Object {}}
-                                      />
+                                        className="meal-card-body"
+                                      >
+                                        <div>
+                                          <h3>
+                                            ₦ 
+                                            1200.00
+                                          </h3>
+                                          <p
+                                            className="meal-description"
+                                            data-tip="Sharwama contains no animal products, perfect for dieters"
+                                          >
+                                            Sharwama contains no animal products, perfect for dieters
+                                          </p>
+                                        </div>
+                                      </div>
+                                      <ReactTooltip
+                                        className="tooltip"
+                                        effect="solid"
+                                        insecure={true}
+                                        place="top"
+                                        resizeHide={true}
+                                        type="dark"
+                                        wrapper="div"
+                                      >
+                                        <div
+                                          className="__react_component_tooltip place-top type-dark "
+                                          data-id="tooltip"
+                                        />
+                                      </ReactTooltip>
                                     </div>
-                                  </div>
-                                </Loader>
-                              </MiniPreloader>
+                                  </MealCard>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
-                      </InfiniteScroll>
-                    </InfiniteLoader>
-                  </div>
-                </CardGroup>
+                          </InfiniteScroll>
+                        </InfiniteLoader>
+                      </div>
+                    </CardGroup>
+                  </MenuItems>
+                </Connect(MenuItems)>
               </div>
               <Cart
                 handleQuantityInputChange={[Function]}

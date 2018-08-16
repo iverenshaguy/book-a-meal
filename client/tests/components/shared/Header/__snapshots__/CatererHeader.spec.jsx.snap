@@ -43,10 +43,6 @@ exports[`CatererHeader renders correctly 1`] = `
           00:00
         </span>
       </h2>
-      <DatePicker
-        handleSelectDate={null}
-        screenSize="md"
-      />
     </div>
   </div>
 </React.Fragment>

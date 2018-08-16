@@ -351,7 +351,7 @@ export const orderItems = [
   }
 ];
 
-export const caterersMealsObj = {
+export const mealsObj = {
   meals: [
     {
       id: '81211c24-51c0-46ec-b1e0-18db55880958',

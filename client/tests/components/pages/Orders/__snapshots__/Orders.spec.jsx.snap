@@ -378,20 +378,6 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
                             00:00
                           </span>
                         </h2>
-                        <DatePicker
-                          handleSelectDate={null}
-                          screenSize="md"
-                        >
-                          <div
-                            className="datepicker-div d-flex-md"
-                          >
-                            <input
-                              id="datepicker"
-                              onChange={[Function]}
-                              type="date"
-                            />
-                          </div>
-                        </DatePicker>
                       </div>
                     </div>
                   </CatererHeader>

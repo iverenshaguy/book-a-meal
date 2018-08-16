@@ -1191,7 +1191,7 @@ exports[`CatererMenu renders message when not fetching and there are no meals on
           <hr />
         </div>
         <p
-          className="text-center"
+          className="text-center info"
         >
           There are no Meal Items on this Menu
         </p>

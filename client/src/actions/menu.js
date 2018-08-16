@@ -62,12 +62,14 @@ export const editMenuFailure = payload => ({
  * @function fetchMenu
  * @param {string} date
  * @param {object} metadata for pagination
+ * @param {string} searchTerm
  * @param {func} dispatch
  * @returns {void}
  */
-export const fetchMenu = (date, metadata) => async (dispatch) => {
+export const fetchMenu = (date, metadata, searchTerm) => async (dispatch) => {
   const menuDate = date || moment().format('YYYY-MM-DD');
-  const url = (metadata && metadata.next) || `/menu?date=${menuDate}`;
+  const searchUrl = searchTerm ? `/menu?date=${menuDate}&search=${searchTerm}` : `/menu?date=${menuDate}`;
+  const url = (metadata && metadata.next) || searchUrl;
 
   try {
     if (!metadata) dispatch(setFetching());

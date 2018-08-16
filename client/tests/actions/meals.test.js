@@ -2,7 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MockAdapter from 'axios-mock-adapter';
 import instance from '../../src/config/axios';
-import { caterersMealsObj, newMeal, metadata } from '../setup/mockData';
+import { mealsObj, newMeal, metadata } from '../setup/mockData';
 import {
   addMeal,
   editMeal,
@@ -33,11 +33,11 @@ const store = mockStore({
 
 describe('Meals Actions', () => {
   test('fetchMealsSuccess', () => {
-    const action = fetchMealsSuccess('RECEIVE_MEALS_SUCCESS', caterersMealsObj);
+    const action = fetchMealsSuccess('RECEIVE_MEALS_SUCCESS', mealsObj);
 
     expect(action).toEqual({
       type: 'RECEIVE_MEALS_SUCCESS',
-      payload: caterersMealsObj
+      payload: mealsObj
     });
   });
 
@@ -123,9 +123,23 @@ describe('Meals Actions', () => {
       it('dispatches SET_FETCHING, RECEIVE_MEALS_SUCCESS and UNSET_FETCHING on successful fetching of caterer meals', () => {
         const expectedActions = ['SET_FETCHING', 'RECEIVE_MEALS_SUCCESS', 'UNSET_FETCHING'];
 
-        mockReq.onGet(`${url}/meals`).reply(200, caterersMealsObj);
+        mockReq.onGet(`${url}/meals`).reply(200, mealsObj);
 
         return store.dispatch(fetchMeals()).then(() => {
+          const dispatchedActions = store.getActions();
+
+          const actionTypes = dispatchedActions.map(action => action.type);
+
+          expect(actionTypes).toEqual(expectedActions);
+        });
+      });
+
+      it('dispatches SET_FETCHING, RECEIVE_MEALS_SUCCESS and UNSET_FETCHING on successful fetching of caterer meals when search param is passed', () => {
+        const expectedActions = ['SET_FETCHING', 'RECEIVE_MEALS_SUCCESS', 'UNSET_FETCHING'];
+
+        mockReq.onGet(`${url}/meals?search=Rice`).reply(200, mealsObj);
+
+        return store.dispatch(fetchMeals(null, 'Rice')).then(() => {
           const dispatchedActions = store.getActions();
 
           const actionTypes = dispatchedActions.map(action => action.type);
@@ -137,7 +151,7 @@ describe('Meals Actions', () => {
       it('dispatches RECEIVE_MORE_MEALS_SUCCESS and UNSET_FETCHING on successful fetching of caterer meals when metadata is provided', () => {
         const expectedActions = ['RECEIVE_MORE_MEALS_SUCCESS', 'UNSET_FETCHING'];
 
-        mockReq.onGet(`${url}/meals?limit=5`).reply(200, caterersMealsObj);
+        mockReq.onGet(`${url}/meals?limit=5`).reply(200, mealsObj);
 
         return store.dispatch(fetchMeals({ ...metadata, next: '/meals?limit=5' })).then(() => {
           const dispatchedActions = store.getActions();
@@ -166,7 +180,7 @@ describe('Meals Actions', () => {
       it('dispatches SET_MEAL_WORKING, ADD_MEAL_SUCCESS, UNSET_MEAL_WORKING and TOGGLE_MODAL on successful meal addition', () => {
         const expectedActions = ['SET_MEAL_WORKING', 'ADD_MEAL_SUCCESS', 'UNSET_MEAL_WORKING', 'TOGGLE_MODAL'];
 
-        mockReq.onPost(`${url}/meals`).reply(200, caterersMealsObj.meals);
+        mockReq.onPost(`${url}/meals`).reply(200, mealsObj.meals);
 
         return store.dispatch(addMeal(newMeal)).then(() => {
           const dispatchedActions = store.getActions();

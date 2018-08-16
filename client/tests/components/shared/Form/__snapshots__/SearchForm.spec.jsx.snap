@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchForm renders correctly when type is caterer 1`] = `
+<React.Fragment>
+  <div
+    className="form-input"
+  >
+    <label
+      className="hide"
+      htmlFor="search"
+    >
+      Search For Meals
+    </label>
+    <input
+      className="open menu-search-input"
+      name="search"
+      onChange={[Function]}
+      placeholder="Search For Meals"
+      type="text"
+      value=""
+    />
+  </div>
+</React.Fragment>
+`;
+
+exports[`SearchForm renders correctly when type is customer 1`] = `
+<React.Fragment>
+  <React.Fragment>
+    <div
+      className="search-wrapper"
+    >
+      <div
+        className="search-form"
+      >
+        <label
+          className="hide"
+          htmlFor="search"
+        >
+          Search For Meals
+        </label>
+        <input
+          id="search"
+          label="Search"
+          name="search"
+          onChange={[Function]}
+          placeholder="Search For Meals"
+          type="text"
+          value=""
+        />
+        <div
+          className="search-btn"
+        >
+          <img
+            alt=""
+            src="/img/search.svg"
+          />
+        </div>
+      </div>
+    </div>
+  </React.Fragment>
+</React.Fragment>
+`;

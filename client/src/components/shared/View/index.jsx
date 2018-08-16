@@ -18,7 +18,7 @@ import './View.scss';
 class View extends Component {
   static propTypes = {
     ...userPropTypes,
-    isFetching: PropTypes.bool.isRequired,
+    isFetching: PropTypes.bool,
     logout: PropTypes.func.isRequired,
     type: PropTypes.string.isRequired,
     children: PropTypes.element.isRequired,
@@ -27,6 +27,7 @@ class View extends Component {
   };
 
   static defaultProps = {
+    isFetching: false,
     showTime: true,
     updateCurrentDate: null
   };

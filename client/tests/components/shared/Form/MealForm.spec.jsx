@@ -1,7 +1,7 @@
 import React from 'react';
 import MealForm from '../../../../src/components/shared/Form/MealForm';
 import { formComponentSetup } from '../../../../tests/setup/formSetup';
-import { caterersMealsObj } from '../../../setup/mockData';
+import { mealsObj } from '../../../setup/mockData';
 
 describe('MealForm', () => {
   afterAll(() => {
@@ -17,7 +17,7 @@ describe('MealForm', () => {
 
   it('renders correctly when type is editMeal', () => {
     const { handlers, state } = formComponentSetup('editMeal');
-    const wrapper = shallow(<MealForm type="editMeal" state={state} handlers={handlers} meal={caterersMealsObj.meals[0]} />);
+    const wrapper = shallow(<MealForm type="editMeal" state={state} handlers={handlers} meal={mealsObj.meals[0]} />);
 
     expect(toJson(wrapper)).toMatchSnapshot();
   });

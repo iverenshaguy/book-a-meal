@@ -37,6 +37,22 @@ describe('Menu Routes: Get the menu specific day', () => {
       });
   });
 
+  it('should get only meals containing searchTerm in menu for customer with metadata when search query is passed in', (done) => {
+    request(app)
+      .get('/api/v1/menu?search=fish')
+      .set('Accept', 'application/json')
+      .set('authorization', emiolaToken)
+      .end((err, res) => {
+        expect(res.statusCode).to.equal(200);
+        expect(res.body.menu.meals.length).to.equal(2);
+        expect(res.body.menu.meals[0].title).to.contain('Fish');
+        expect(res.body.menu.meals[1].title).to.contain('Fish');
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
   it('should get menu for the current day for caterer', (done) => {
     request(app)
       .get('/api/v1/menu')

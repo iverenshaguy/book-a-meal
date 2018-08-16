@@ -2,7 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MockAdapter from 'axios-mock-adapter';
 import instance from '../../src/config/axios';
-import { caterersMealsObj, customersMenuObj, metadata } from '../setup/mockData';
+import { mealsObj, customersMenuObj, metadata } from '../setup/mockData';
 import {
   addMenu,
   editMenu,
@@ -23,7 +23,7 @@ const url = '/api/v1';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const mockReq = new MockAdapter(instance);
-const newMenu = { date: '2018-06-07', meals: caterersMealsObj.meals };
+const newMenu = { date: '2018-06-07', meals: mealsObj.meals };
 
 // configure Mock store
 const store = mockStore({
@@ -34,11 +34,11 @@ const store = mockStore({
 
 describe('Menu Actions', () => {
   test('fetchMenuSuccess', () => {
-    const action = fetchMenuSuccess('RECEIVE_MENU_SUCCESS', caterersMealsObj);
+    const action = fetchMenuSuccess('RECEIVE_MENU_SUCCESS', mealsObj);
 
     expect(action).toEqual({
       type: 'RECEIVE_MENU_SUCCESS',
-      payload: caterersMealsObj
+      payload: mealsObj
     });
   });
 
@@ -129,7 +129,7 @@ describe('Menu Actions', () => {
       it('dispatches SET_FETCHING, RECEIVE_MENU_SUCCESS and UNSET_FETCHING on successful fetching of caterer menu', () => {
         const expectedActions = ['SET_FETCHING', 'RECEIVE_MENU_SUCCESS', 'UNSET_FETCHING'];
 
-        mockReq.onGet(`${url}/menu?date=2018-06-07`).reply(200, caterersMealsObj);
+        mockReq.onGet(`${url}/menu?date=2018-06-07`).reply(200, mealsObj);
 
         return store.dispatch(fetchMenu('2018-06-07')).then(() => {
           const dispatchedActions = store.getActions();
@@ -140,12 +140,12 @@ describe('Menu Actions', () => {
         });
       });
 
-      it('dispatches SET_FETCHING, RECEIVE_MENU_SUCCESS and UNSET_FETCHING on successful fetching of customer menu', () => {
+      it('dispatches SET_FETCHING, RECEIVE_MENU_SUCCESS and UNSET_FETCHING on successful fetching of customer menu with search', () => {
         const expectedActions = ['SET_FETCHING', 'RECEIVE_MENU_SUCCESS', 'UNSET_FETCHING'];
 
-        mockReq.onGet(`${url}/menu?date=2018-06-07`).reply(200, customersMenuObj);
+        mockReq.onGet(`${url}/menu?date=2018-06-07&search=Rice`).reply(200, customersMenuObj);
 
-        return store.dispatch(fetchMenu('2018-06-07')).then(() => {
+        return store.dispatch(fetchMenu('2018-06-07', null, 'Rice')).then(() => {
           const dispatchedActions = store.getActions();
 
           const actionTypes = dispatchedActions.map(action => action.type);
