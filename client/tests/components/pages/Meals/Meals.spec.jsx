@@ -4,12 +4,12 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import MealsComponent from '../../../../src/components/pages/Meals';
 import MealsContainer from '../../../../src/containers/pages/Meals';
-import { caterer, customer, caterersMealsObj, initialState, metadata } from '../../../setup/mockData';
+import { caterer, customer, mealsObj, initialState, metadata } from '../../../setup/mockData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({
-  ...initialState, meals: { ...initialState.meals, items: caterersMealsObj.meals, metadata }
+  ...initialState, meals: { ...initialState.meals, items: mealsObj.meals, metadata }
 });
 const { now } = Date;
 
@@ -29,7 +29,7 @@ describe('Meals', () => {
       user={caterer}
       logout={jest.fn()}
       fetchMeals={jest.fn()}
-      {...caterersMealsObj}
+      {...mealsObj}
       isFetching={false}
       submitting={false}
       uploading={false}
@@ -49,7 +49,7 @@ describe('Meals', () => {
       user={caterer}
       logout={jest.fn()}
       fetchMeals={fetchMealsMock}
-      {...caterersMealsObj}
+      {...mealsObj}
       isFetching={false}
       submitting={false}
       uploading={false}
@@ -68,7 +68,7 @@ describe('Meals', () => {
       user={caterer}
       logout={jest.fn()}
       fetchMeals={fetchMealsMock}
-      {...caterersMealsObj}
+      {...mealsObj}
       isFetching={false}
       submitting={false}
       uploading={false}
@@ -87,7 +87,7 @@ describe('Meals', () => {
       user={caterer}
       logout={jest.fn()}
       fetchMeals={fetchMealsMock}
-      {...caterersMealsObj}
+      {...mealsObj}
       isFetching={false}
       submitting={false}
       uploading={false}
@@ -106,7 +106,7 @@ describe('Meals', () => {
       user={caterer}
       logout={jest.fn()}
       fetchMeals={jest.fn()}
-      {...caterersMealsObj}
+      {...mealsObj}
       isFetching={false}
       submitting={false}
       uploading={false}
@@ -125,7 +125,7 @@ describe('Meals', () => {
           user={caterer}
           logout={jest.fn()}
           fetchMeals={jest.fn()}
-          {...caterersMealsObj}
+          {...mealsObj}
           isFetching={false}
         />
       </Provider>
@@ -144,7 +144,7 @@ describe('Meals', () => {
       user={customer}
       logout={jest.fn()}
       fetchMeals={jest.fn()}
-      {...caterersMealsObj}
+      {...mealsObj}
       isFetching
       submitting={false}
       uploading={false}
@@ -161,7 +161,7 @@ describe('Meals', () => {
       user={caterer}
       logout={jest.fn()}
       fetchMeals={jest.fn()}
-      {...caterersMealsObj}
+      {...mealsObj}
       isFetching
       submitting={false}
       uploading={false}
@@ -198,7 +198,7 @@ describe('Meals', () => {
         <MealsContainer
           user={caterer}
           dispatch={dispatchMock}
-          {...caterersMealsObj}
+          {...mealsObj}
           isFetching={false}
         />
       </Provider>);

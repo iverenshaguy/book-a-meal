@@ -66,11 +66,13 @@ export const clearMealError = () => ({
  * Fetchs Meals for Caterer
  * @function fetchMeals
  * @param {object} metadata
+ * @param {string} searchTerm
  * @param {func} dispatch
  * @returns {void}
  */
-export const fetchMeals = metadata => async (dispatch) => {
-  const url = (metadata && metadata.next) || '/meals';
+export const fetchMeals = (metadata, searchTerm) => async (dispatch) => {
+  const searchUrl = searchTerm ? `/meals?search=${searchTerm}` : '/meals';
+  const url = (metadata && metadata.next) || searchUrl;
 
   try {
     if (!metadata) dispatch(setFetching());

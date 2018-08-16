@@ -1,6 +1,6 @@
 import moment from 'moment';
 import reducer from '../../src/reducers/menu';
-import { caterersMealsObj, metadata } from '../setup/mockData';
+import { mealsObj, metadata } from '../setup/mockData';
 
 const state = {
   id: null,
@@ -45,27 +45,27 @@ describe('Menu Reducers', () => {
   it('should handle RECEIVE_MENU_SUCCESS action', () => {
     const newState = reducer(state, {
       type: 'RECEIVE_MENU_SUCCESS',
-      payload: { menu: { id: '1234', meals: caterersMealsObj.meals, date: moment().format('YYYY-MM-DD') }, metadata }
+      payload: { menu: { id: '1234', meals: mealsObj.meals, date: moment().format('YYYY-MM-DD') }, metadata }
     });
 
     expect(newState).toEqual({
       ...state,
       id: '1234',
-      meals: caterersMealsObj.meals,
+      meals: mealsObj.meals,
       currentDay: moment().format('YYYY-MM-DD'),
       metadata
     });
   });
 
   it('should handle RECEIVE_MORE_MENU_SUCCESS action', () => {
-    const newState = reducer({ ...state, meals: caterersMealsObj.meals }, {
+    const newState = reducer({ ...state, meals: mealsObj.meals }, {
       type: 'RECEIVE_MORE_MENU_SUCCESS',
-      payload: { menu: { id: '1234', meals: caterersMealsObj.meals, date: moment().format('YYYY-MM-DD') }, metadata }
+      payload: { menu: { id: '1234', meals: mealsObj.meals, date: moment().format('YYYY-MM-DD') }, metadata }
     });
 
     expect(newState).toEqual({
       ...state,
-      meals: [...caterersMealsObj.meals, ...caterersMealsObj.meals],
+      meals: [...mealsObj.meals, ...mealsObj.meals],
       metadata
     });
   });
@@ -82,13 +82,13 @@ describe('Menu Reducers', () => {
   it('should handle ADD_MENU_SUCCESS action', () => {
     const newState = reducer(state, {
       type: 'ADD_MENU_SUCCESS',
-      payload: { id: '1234', meals: caterersMealsObj.meals, date: moment().format('YYYY-MM-DD') }
+      payload: { id: '1234', meals: mealsObj.meals, date: moment().format('YYYY-MM-DD') }
     });
 
     expect(newState).toEqual({
       ...state,
       id: '1234',
-      meals: caterersMealsObj.meals,
+      meals: mealsObj.meals,
       currentDay: moment().format('YYYY-MM-DD'),
       metadata: {
         next: undefined
@@ -108,13 +108,13 @@ describe('Menu Reducers', () => {
   it('should handle EDIT_MENU_SUCCESS action', () => {
     const newState = reducer(state, {
       type: 'EDIT_MENU_SUCCESS',
-      payload: { id: '1234', meals: caterersMealsObj.meals, date: moment().format('YYYY-MM-DD') }
+      payload: { id: '1234', meals: mealsObj.meals, date: moment().format('YYYY-MM-DD') }
     });
 
     expect(newState).toEqual({
       ...state,
       id: '1234',
-      meals: caterersMealsObj.meals,
+      meals: mealsObj.meals,
       currentDay: moment().format('YYYY-MM-DD'),
       metadata: {
         next: undefined

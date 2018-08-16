@@ -5,13 +5,13 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import CustomerMenuComponent from '../../../../src/components/pages/Menu/CustomerMenu';
 import CustomerMenuContainer from '../../../../src/containers/pages/Menu/CustomerMenu';
-import { customer, caterersMealsObj, orderItems, initialState, metadata } from '../../../setup/mockData';
+import { customer, mealsObj, orderItems, initialState, metadata } from '../../../setup/mockData';
 import updateLocalStorageOrder from '../../../../src/helpers/updateLocalStorageOrder';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({
-  ...initialState, menu: { ...initialState.menu, meals: caterersMealsObj.meals }
+  ...initialState, menu: { ...initialState.menu, meals: mealsObj.meals }
 });
 const { now } = Date;
 const currentDay = moment().format('YYYY-MM-DD');
@@ -34,7 +34,7 @@ describe('CustomerMenu', () => {
       user={customer}
       logout={jest.fn()}
       fetchMenu={jest.fn()}
-      {...caterersMealsObj}
+      {...mealsObj}
       isFetching={false}
       metadata={metadata}
     />);
@@ -48,7 +48,7 @@ describe('CustomerMenu', () => {
       user={customer}
       logout={jest.fn()}
       fetchMenu={jest.fn()}
-      {...caterersMealsObj}
+      {...mealsObj}
       isFetching
       metadata={metadata}
     />);
@@ -57,33 +57,24 @@ describe('CustomerMenu', () => {
     expect(shallowWrapper.find('Preloader')).toBeTruthy();
   });
 
-  it('renders message when not fetching and there are no meals on the menu', () => {
-    const shallowWrapper = shallow(<CustomerMenuComponent
-      user={customer}
-      logout={jest.fn()}
-      fetchMenu={jest.fn()}
-      meals={[]}
-      isFetching
-      metadata={metadata}
-    />);
-
-    expect(toJson(shallowWrapper)).toMatchSnapshot();
-    expect(shallowWrapper.find('p').text()).toEqual('There are no Meals on Today\'s Menu');
-  });
-
   it('calls fetchMenu when loadMoreMenu is called', () => {
     const fetchMenuMock = jest.fn();
 
-    const shallowWrapper = shallow(<CustomerMenuComponent
-      user={customer}
-      logout={jest.fn()}
-      fetchMenu={fetchMenuMock}
-      meals={[]}
-      isFetching
-      metadata={metadata}
-    />);
+    const comp = (
+      <Provider store={store}>
+        <CustomerMenuComponent
+          user={customer}
+          logout={jest.fn()}
+          fetchMenu={fetchMenuMock}
+          isFetching={false}
+          meals={[]}
+          metadata={metadata}
+        />
+      </Provider>);
 
-    shallowWrapper.instance().loadMoreMenu();
+    const wrapper = mount(comp, rrcMock.get());
+
+    wrapper.find('Connect(MenuItems)').props().loadMoreMenu();
 
     expect(fetchMenuMock).toHaveBeenCalledTimes(2);
   });
@@ -93,7 +84,7 @@ describe('CustomerMenu', () => {
       <Provider store={store}>
         <CustomerMenuContainer
           user={customer}
-          {...caterersMealsObj}
+          {...mealsObj}
         />
       </Provider>);
 
@@ -112,7 +103,7 @@ describe('CustomerMenu', () => {
           logout={jest.fn()}
           fetchMenu={jest.fn()}
           isFetching={false}
-          {...caterersMealsObj}
+          {...mealsObj}
           metadata={metadata}
         />
       </Provider>);
@@ -146,7 +137,7 @@ describe('CustomerMenu', () => {
       Date.now = now;
     });
 
-    it('adds an order', () => {
+    it('adds an order when add to basket button is clicked', () => {
       const comp = (
         <Provider store={store}>
           <CustomerMenuComponent
@@ -154,58 +145,21 @@ describe('CustomerMenu', () => {
             logout={jest.fn()}
             fetchMenu={jest.fn()}
             isFetching={false}
-            {...caterersMealsObj}
+            {...mealsObj}
             metadata={metadata}
           />
         </Provider>);
 
+      const wrapper = mount(comp, rrcMock.get());
 
-      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenuComponent).dive();
-      const addOrderSpy = jest.spyOn(wrapper.instance(), 'addOrderItem');
-      const handleOrderMealClickSpy = jest.spyOn(wrapper.instance(), 'handleOrderMealClick');
-
-      wrapper.find('CardGroup').dive().find('InfiniteLoader').dive()
-        .find('MealCard')
+      wrapper
+        .find('.meal-card-btn')
         .at(1)
-        .dive()
-        .find('.meal-card-btn')
         .simulate('click');
 
-      expect(handleOrderMealClickSpy).toHaveBeenCalled();
-      expect(addOrderSpy).toHaveBeenCalled();
-      expect(wrapper.state().order.meals[1].title).toEqual('Vegetable Sharwama and Guava Smoothie');
-      expect(wrapper.state().order.meals[1].quantity).toEqual(1);
+      const localStorageMeal = JSON.parse(localStorage.getItem('bookamealorder'));
 
-      wrapper.unmount();
-    });
-
-    it('updates orderItem on reorder', () => {
-      const comp = (
-        <Provider store={store}>
-          <CustomerMenuComponent
-            user={customer}
-            logout={jest.fn()}
-            fetchMenu={jest.fn()}
-            isFetching={false}
-            {...caterersMealsObj}
-            metadata={metadata}
-          />
-        </Provider>);
-
-      const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenuComponent).dive();
-      const updateOrderItemSpy = jest.spyOn(wrapper.instance(), 'updateOrderItem');
-      const handleOrderMealClickSpy = jest.spyOn(wrapper.instance(), 'handleOrderMealClick');
-
-      wrapper.find('CardGroup').dive().find('InfiniteLoader').dive()
-        .find('MealCard')
-        .at(0)
-        .dive()
-        .find('.meal-card-btn')
-        .simulate('click');
-
-      expect(updateOrderItemSpy).toHaveBeenCalled();
-      expect(handleOrderMealClickSpy).toHaveBeenCalled();
-      expect(wrapper.state().order.meals[0].quantity).toEqual(2);
+      expect(localStorageMeal.order.meals[1].title).toEqual('Vegetable Sharwama and Guava Smoothie');
 
       wrapper.unmount();
     });
@@ -218,7 +172,7 @@ describe('CustomerMenu', () => {
             logout={jest.fn()}
             fetchMenu={jest.fn()}
             isFetching={false}
-            {...caterersMealsObj}
+            {...mealsObj}
             metadata={metadata}
           />
         </Provider>);
@@ -243,7 +197,7 @@ describe('CustomerMenu', () => {
             logout={jest.fn()}
             fetchMenu={jest.fn()}
             isFetching={false}
-            {...caterersMealsObj}
+            {...mealsObj}
             metadata={metadata}
           />
         </Provider>);
@@ -269,7 +223,7 @@ describe('CustomerMenu', () => {
             logout={jest.fn()}
             fetchMenu={jest.fn()}
             isFetching={false}
-            {...caterersMealsObj}
+            {...mealsObj}
             metadata={metadata}
           />
         </Provider>);
@@ -302,7 +256,7 @@ describe('CustomerMenu', () => {
             logout={jest.fn()}
             fetchMenu={jest.fn()}
             isFetching={false}
-            {...caterersMealsObj}
+            {...mealsObj}
             metadata={metadata}
           />
         </Provider>);

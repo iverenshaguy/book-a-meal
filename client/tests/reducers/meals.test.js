@@ -1,5 +1,5 @@
 import reducer from '../../src/reducers/meals';
-import { caterersMealsObj, newMeal, metadata } from '../setup/mockData';
+import { mealsObj, newMeal, metadata } from '../setup/mockData';
 
 const state = {
   items: [],
@@ -43,30 +43,30 @@ describe('Meals Reducers', () => {
     const newState = reducer(state, {
       type: 'RECEIVE_MEALS_SUCCESS',
       payload: {
-        meals: caterersMealsObj.meals,
+        meals: mealsObj.meals,
         metadata
       }
     });
 
     expect(newState).toEqual({
       ...state,
-      items: caterersMealsObj.meals,
+      items: mealsObj.meals,
       metadata
     });
   });
 
   it('should handle RECEIVE_MORE_MEALS_SUCCESS action', () => {
-    const newState = reducer({ ...state, items: caterersMealsObj.meals }, {
+    const newState = reducer({ ...state, items: mealsObj.meals }, {
       type: 'RECEIVE_MORE_MEALS_SUCCESS',
       payload: {
-        meals: caterersMealsObj.meals,
+        meals: mealsObj.meals,
         metadata
       }
     });
 
     expect(newState).toEqual({
       ...state,
-      items: [...caterersMealsObj.meals, ...caterersMealsObj.meals],
+      items: [...mealsObj.meals, ...mealsObj.meals],
       metadata
     });
   });
@@ -102,7 +102,7 @@ describe('Meals Reducers', () => {
     const stateWithMeals = {
       ...state,
       items: [
-        ...caterersMealsObj.meals,
+        ...mealsObj.meals,
         newMeal
       ]
     };
@@ -140,7 +140,7 @@ describe('Meals Reducers', () => {
     const stateWithMeals = {
       ...state,
       items: [
-        ...caterersMealsObj.meals,
+        ...mealsObj.meals,
         newMeal
       ]
     };

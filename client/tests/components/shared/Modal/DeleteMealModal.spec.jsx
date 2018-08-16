@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
-import { initialState, caterersMealsObj } from '../../../setup/mockData';
+import { initialState, mealsObj } from '../../../setup/mockData';
 import DeleteMealModalComponent from '../../../../src/components/shared/Modal/DeleteMealModal';
 import DeleteMealModalContainer from '../../../../src/containers/shared/Modal/DeleteMealModal';
 
@@ -10,14 +10,14 @@ const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 const store = mockStore({
   ...initialState,
-  meals: { ...initialState.meals, items: caterersMealsObj.meals }
+  meals: { ...initialState.meals, items: mealsObj.meals }
 });
 const props = {
   editMeal: jest.fn(),
   deleteMeal: jest.fn(),
   toggleModal: jest.fn(),
   deleting: false,
-  meal: caterersMealsObj.meals[1]
+  meal: mealsObj.meals[1]
 };
 
 describe('DeleteMealModal', () => {

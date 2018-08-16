@@ -100,7 +100,7 @@ class CatererMenu extends Component {
             <h2>{'Meal Items on This Day\'s Menu'}</h2>
             <hr />
           </div>
-          {this.props.meals.length === 0 && <p className="text-center">There are no Meal Items on this Menu</p>}
+          {this.props.meals.length === 0 && <p className="text-center info">There are no Meal Items on this Menu</p>}
           {this.props.meals.length !== 0 &&
             <CardGroup
               items={menu}
