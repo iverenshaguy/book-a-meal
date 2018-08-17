@@ -50,7 +50,7 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
                         "lastname": "Olasanmi",
                       },
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "08134567890",
+                      "deliveryPhoneNo": "080xxxxxxxx",
                       "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
                       "meals": Array [
                         Object {
@@ -89,7 +89,7 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
                         "lastname": "Emodi",
                       },
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "08134567890",
+                      "deliveryPhoneNo": "080xxxxxxxx",
                       "id": "ce228787-f939-40a0-bfd3-6607ca8d2e53",
                       "meals": Array [
                         Object {
@@ -138,7 +138,7 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
                         "lastname": "Olasanmi",
                       },
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "08134567890",
+                      "deliveryPhoneNo": "080xxxxxxxx",
                       "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
                       "meals": Array [
                         Object {
@@ -177,7 +177,7 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
                         "lastname": "Olasanmi",
                       },
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "08134567890",
+                      "deliveryPhoneNo": "080xxxxxxxx",
                       "id": "fb097bde-5959-45ff-8e21-51184fa60c35",
                       "meals": Array [
                         Object {
@@ -590,7 +590,7 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
                     <hr />
                   </div>
                   <p
-                    className="text-center"
+                    className="text-center info"
                   >
                     You Have No Orders
                   </p>
@@ -701,7 +701,7 @@ exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
                         "lastname": "Olasanmi",
                       },
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "08134567890",
+                      "deliveryPhoneNo": "080xxxxxxxx",
                       "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
                       "meals": Array [
                         Object {
@@ -740,7 +740,7 @@ exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
                         "lastname": "Emodi",
                       },
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "08134567890",
+                      "deliveryPhoneNo": "080xxxxxxxx",
                       "id": "ce228787-f939-40a0-bfd3-6607ca8d2e53",
                       "meals": Array [
                         Object {
@@ -789,7 +789,7 @@ exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
                         "lastname": "Olasanmi",
                       },
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "08134567890",
+                      "deliveryPhoneNo": "080xxxxxxxx",
                       "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
                       "meals": Array [
                         Object {
@@ -828,7 +828,7 @@ exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
                         "lastname": "Olasanmi",
                       },
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "08134567890",
+                      "deliveryPhoneNo": "080xxxxxxxx",
                       "id": "fb097bde-5959-45ff-8e21-51184fa60c35",
                       "meals": Array [
                         Object {
@@ -910,7 +910,7 @@ exports[`Orders Caterer Orders renders message when not fetching and there are n
           <hr />
         </div>
         <p
-          className="text-center"
+          className="text-center info"
         >
           You Have No Orders
         </p>
@@ -964,7 +964,7 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
                     Object {
                       "createdAt": "2018-04-06T00:47:03.687Z",
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "08134567890",
+                      "deliveryPhoneNo": "080xxxxxxxx",
                       "id": "fb097bde-5959-45ff-8e21-51184fa70c25",
                       "meals": Array [
                         Object {
@@ -972,7 +972,7 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
                             "address": "4, Church Street, Yaba",
                             "businessName": "BellyFill",
                             "email": "belly@fill.com",
-                            "phoneNo": "08134567890",
+                            "phoneNo": "080xxxxxxxx",
                           },
                           "delivered": false,
                           "description": "",
@@ -1003,7 +1003,7 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
                     Object {
                       "createdAt": "2018-04-06T00:47:03.687Z",
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "08134567890",
+                      "deliveryPhoneNo": "080xxxxxxxx",
                       "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
                       "meals": Array [
                         Object {
@@ -1011,7 +1011,7 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
                             "address": "4, Church Street, Yaba",
                             "businessName": "FoodCircle",
                             "email": "food@circle.com",
-                            "phoneNo": "08134567890",
+                            "phoneNo": "080xxxxxxxx",
                           },
                           "delivered": true,
                           "description": "Sharwama contains no animal products, perfect for dieters",
@@ -1027,7 +1027,7 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
                             "address": "4, Church Street, Yaba",
                             "businessName": "FoodCircle",
                             "email": "food@circle.com",
-                            "phoneNo": "08134567890",
+                            "phoneNo": "080xxxxxxxx",
                           },
                           "delivered": true,
                           "description": "Sharwama contains no animal products, perfect for dieters",
@@ -1058,7 +1058,7 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
                     Object {
                       "createdAt": "2018-04-06T00:47:03.687Z",
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "08134567890",
+                      "deliveryPhoneNo": "080xxxxxxxx",
                       "id": "fb097bde-5959-45ff-8e21-51184fa80c25",
                       "meals": Array [
                         Object {
@@ -1066,7 +1066,7 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
                             "address": "4, Church Street, Yaba",
                             "businessName": "FoodCircle",
                             "email": "food@circle.com",
-                            "phoneNo": "08134567890",
+                            "phoneNo": "080xxxxxxxx",
                           },
                           "delivered": true,
                           "description": "Sharwama contains no animal products, perfect for dieters",
@@ -1097,7 +1097,7 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
                     Object {
                       "createdAt": "2018-04-06T00:47:03.687Z",
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "08134567890",
+                      "deliveryPhoneNo": "080xxxxxxxx",
                       "id": "fb097bde-5959-45ff-8e21-51184fa90c25",
                       "meals": Array [
                         Object {
@@ -1105,7 +1105,7 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
                             "address": "4, Church Street, Yaba",
                             "businessName": "FoodCircle",
                             "email": "food@circle.com",
-                            "phoneNo": "08134567890",
+                            "phoneNo": "080xxxxxxxx",
                           },
                           "delivered": false,
                           "description": "Sharwama contains no animal products, perfect for dieters",
@@ -1481,7 +1481,7 @@ exports[`Orders Customer Orders renders connected component 1`] = `
                   <hr />
                 </div>
                 <p
-                  className="text-center"
+                  className="text-center info"
                 >
                   You Have No Orders
                 </p>
@@ -1583,7 +1583,7 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
                     Object {
                       "createdAt": "2018-04-06T00:47:03.687Z",
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "08134567890",
+                      "deliveryPhoneNo": "080xxxxxxxx",
                       "id": "fb097bde-5959-45ff-8e21-51184fa70c25",
                       "meals": Array [
                         Object {
@@ -1591,7 +1591,7 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
                             "address": "4, Church Street, Yaba",
                             "businessName": "BellyFill",
                             "email": "belly@fill.com",
-                            "phoneNo": "08134567890",
+                            "phoneNo": "080xxxxxxxx",
                           },
                           "delivered": false,
                           "description": "",
@@ -1622,7 +1622,7 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
                     Object {
                       "createdAt": "2018-04-06T00:47:03.687Z",
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "08134567890",
+                      "deliveryPhoneNo": "080xxxxxxxx",
                       "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
                       "meals": Array [
                         Object {
@@ -1630,7 +1630,7 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
                             "address": "4, Church Street, Yaba",
                             "businessName": "FoodCircle",
                             "email": "food@circle.com",
-                            "phoneNo": "08134567890",
+                            "phoneNo": "080xxxxxxxx",
                           },
                           "delivered": true,
                           "description": "Sharwama contains no animal products, perfect for dieters",
@@ -1646,7 +1646,7 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
                             "address": "4, Church Street, Yaba",
                             "businessName": "FoodCircle",
                             "email": "food@circle.com",
-                            "phoneNo": "08134567890",
+                            "phoneNo": "080xxxxxxxx",
                           },
                           "delivered": true,
                           "description": "Sharwama contains no animal products, perfect for dieters",
@@ -1677,7 +1677,7 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
                     Object {
                       "createdAt": "2018-04-06T00:47:03.687Z",
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "08134567890",
+                      "deliveryPhoneNo": "080xxxxxxxx",
                       "id": "fb097bde-5959-45ff-8e21-51184fa80c25",
                       "meals": Array [
                         Object {
@@ -1685,7 +1685,7 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
                             "address": "4, Church Street, Yaba",
                             "businessName": "FoodCircle",
                             "email": "food@circle.com",
-                            "phoneNo": "08134567890",
+                            "phoneNo": "080xxxxxxxx",
                           },
                           "delivered": true,
                           "description": "Sharwama contains no animal products, perfect for dieters",
@@ -1716,7 +1716,7 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
                     Object {
                       "createdAt": "2018-04-06T00:47:03.687Z",
                       "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "08134567890",
+                      "deliveryPhoneNo": "080xxxxxxxx",
                       "id": "fb097bde-5959-45ff-8e21-51184fa90c25",
                       "meals": Array [
                         Object {
@@ -1724,7 +1724,7 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
                             "address": "4, Church Street, Yaba",
                             "businessName": "FoodCircle",
                             "email": "food@circle.com",
-                            "phoneNo": "08134567890",
+                            "phoneNo": "080xxxxxxxx",
                           },
                           "delivered": false,
                           "description": "Sharwama contains no animal products, perfect for dieters",
@@ -1802,7 +1802,7 @@ exports[`Orders Customer Orders renders message when not fetching and there are 
           <hr />
         </div>
         <p
-          className="text-center"
+          className="text-center info"
         >
           You Have No Orders
         </p>

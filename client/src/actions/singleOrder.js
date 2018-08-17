@@ -3,11 +3,21 @@ import errorHandler from '../utils/errorHandler';
 import { setFetching, unsetFetching } from '../actions/isFetching';
 import { RECEIVE_ORDER_SUCCESS, RECEIVE_ORDER_FAILURE } from './actionTypes';
 
+/**
+ * @function fetchOrderSuccess
+ * @param {object} payload success response
+ * @returns {object} action
+ */
 export const fetchOrderSuccess = payload => ({
   type: RECEIVE_ORDER_SUCCESS,
   payload
 });
 
+/**
+ * @function fetchOrderSuccess
+ * @param {object} payload success response
+ * @returns {object} action
+ */
 export const fetchOrderFailure = payload => ({
   type: RECEIVE_ORDER_FAILURE,
   payload

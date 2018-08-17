@@ -74,7 +74,7 @@ export default {
         if (req.body.role && req.body.role === 'caterer') {
           if (!req.body.phoneNo) throw new Error('Business Phone Number must be specified');
           if (!validator.matches(value, /^\+?(0)[7-9]([0-9]{9})$/)) {
-            throw new Error('Business Phone Number must be in the format 08134567890');
+            throw new Error('Business Phone Number must be in the format 080xxxxxxxx');
           }
           return notEmpty(value, 'Business Phone Number field cannot be left blank');
         }

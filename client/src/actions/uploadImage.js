@@ -5,15 +5,47 @@ import {
   CLEAR_UPLOAD_ERROR, UPLOAD_SUCCESS, UPLOAD_FAILURE
 } from './actionTypes';
 
-export const setUploading = () => ({ type: SET_UPLOADING });
+/**
+ * @function setUploading
+ * @returns {object} action
+ */
+export const setUploading = () => ({
+  type: SET_UPLOADING
+});
 
-export const unsetUploading = () => ({ type: UNSET_UPLOADING });
+/**
+ * @function unsetUploading
+ * @returns {object} action
+ */
+export const unsetUploading = () => ({
+  type: UNSET_UPLOADING
+});
 
-export const clearUploadError = () => ({ type: CLEAR_UPLOAD_ERROR });
+/**
+ * @function clearUploadError
+ * @returns {object} action
+ */
+export const clearUploadError = () => ({
+  type: CLEAR_UPLOAD_ERROR
+});
 
-export const uploadSuccess = payload => ({ type: UPLOAD_SUCCESS, payload });
+/**
+ * @function uploadSuccess
+ * @param {object} payload success response
+ * @returns {object} action
+ */
+export const uploadSuccess = payload => ({
+  type: UPLOAD_SUCCESS, payload
+});
 
-export const uploadFailure = payload => ({ type: UPLOAD_FAILURE, payload });
+/**
+ * @function uploadFailure
+ * @param {object} payload error response
+ * @returns {object} action
+ */
+export const uploadFailure = payload => ({
+  type: UPLOAD_FAILURE, payload
+});
 
 /**
  * Image Upload to Firebase

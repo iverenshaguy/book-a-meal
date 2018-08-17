@@ -10,54 +10,107 @@ import {
   RECEIVE_MORE_MEALS_SUCCESS
 } from './actionTypes';
 
+/**
+ * @function fetchMealsSuccess
+ * @param {string} type actionType
+ * @param {object} payload success response
+ * @returns {object} action
+ */
 export const fetchMealsSuccess = (type, payload) => ({
   type,
   payload
 });
 
+/**
+ * @function fetchMealsFailure
+ * @param {object} payload error response
+ * @returns {object} action
+ */
 export const fetchMealsFailure = payload => ({
   type: RECEIVE_MEALS_FAILURE,
   payload
 });
 
+/**
+ * @function setMealWorking
+ * @returns {object} action
+ */
 export const setMealWorking = () => ({
   type: SET_MEAL_WORKING
 });
 
+/**
+ * @function unsetMealWorking
+ * @returns {object} action
+ */
 export const unsetMealWorking = () => ({
   type: UNSET_MEAL_WORKING
 });
 
+/**
+ * @function addMealSuccess
+ * @param {object} payload success response
+ * @returns {object} action
+ */
 export const addMealSuccess = payload => ({
   type: ADD_MEAL_SUCCESS,
   payload
 });
 
+/**
+ * @function addMealFailure
+ * @param {object} payload error response
+ * @returns {object} action
+ */
 export const addMealFailure = payload => ({
   type: ADD_MEAL_FAILURE,
   payload
 });
 
+/**
+ * @function editMealSuccess
+ * @param {object} payload success response
+ * @returns {object} action
+ */
 export const editMealSuccess = payload => ({
   type: EDIT_MEAL_SUCCESS,
   payload
 });
 
+/**
+ * @function editMealFailure
+ * @param {object} payload error response
+ * @returns {object} action
+ */
 export const editMealFailure = payload => ({
   type: EDIT_MEAL_FAILURE,
   payload
 });
 
+/**
+ * @function deleteMealSuccess
+ * @param {object} payload success response
+ * @returns {object} action
+ */
 export const deleteMealSuccess = payload => ({
   type: DELETE_MEAL_SUCCESS,
   payload
 });
 
+/**
+ * @function deleteMealFailure
+ * @param {object} payload error response
+ * @returns {object} action
+ */
 export const deleteMealFailure = payload => ({
   type: DELETE_MEAL_FAILURE,
   payload
 });
 
+/**
+ * @function clearMealError
+ * @returns {object} action
+ */
 export const clearMealError = () => ({
   type: CLEAR_MEAL_ERROR
 });

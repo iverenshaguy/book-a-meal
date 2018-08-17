@@ -127,7 +127,7 @@ exports[`CatererOrderDetails renders Preloader when fetching 1`] = `
             </p>
             <p>
               Number Provided: 
-              08134567890
+              080xxxxxxxx
             </p>
           </div>
           <OrderSummary
@@ -226,7 +226,7 @@ exports[`CatererOrderDetails renders connected component 1`] = `
             "lastname": "Olasanmi",
           },
           "deliveryAddress": "4, Church Street, Yaba",
-          "deliveryPhoneNo": "08134567890",
+          "deliveryPhoneNo": "080xxxxxxxx",
           "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
           "meals": Array [
             Object {
@@ -619,7 +619,7 @@ exports[`CatererOrderDetails renders connected component 1`] = `
                     </p>
                     <p>
                       Number Provided: 
-                      08134567890
+                      080xxxxxxxx
                     </p>
                   </div>
                   <OrderSummary
@@ -819,7 +819,7 @@ exports[`CatererOrderDetails renders correctly when not fetching 1`] = `
             </p>
             <p>
               Number Provided: 
-              08134567890
+              080xxxxxxxx
             </p>
           </div>
           <OrderSummary
@@ -1229,7 +1229,7 @@ exports[`CatererOrderDetails renders message when not fetching and that order do
               id="has-modal"
             >
               <p
-                className="text-center"
+                className="text-center info"
               >
                 This Order Does Not Exist
               </p>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import MiniPreloader from '../../Preloader/MiniPreloader';
-import fileEventAdapter from '../../../../utils/fileEventAdapter';
-import uploadValidation from '../../../../helpers/validations/uploadValidation';
+import MiniPreloader from '../Preloader/MiniPreloader';
+import fileEventAdapter from '../../../utils/fileEventAdapter';
+import uploadValidation from '../../../helpers/validations/uploadValidation';
 
 /**
  * @exports

@@ -177,7 +177,7 @@ describe('Validation Types', () => {
     test('isPhoneNumber', () => {
       const check = isPhoneNumber(12345678910);
 
-      expect(check).toEqual('Phone number is invalid, must be in the format 08134567890');
+      expect(check).toEqual('Phone number is invalid, must be in the format 080xxxxxxxx');
     });
 
     test('isGreaterThanZero', () => {

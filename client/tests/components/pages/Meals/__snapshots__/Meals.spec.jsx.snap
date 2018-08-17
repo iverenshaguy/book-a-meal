@@ -1195,7 +1195,7 @@ exports[`Meals renders message when not fetching and there are no meals 1`] = `
           </button>
         </div>
         <p
-          className="text-center"
+          className="text-center info"
         >
           You Do Not Have Any Meals Yet
         </p>

@@ -14,6 +14,12 @@ const initialState = {
   metadata: {}
 };
 
+/**
+ * Menu Reducer
+ * @param {object} state defaults to initalState
+ * @param {string} action action type
+ * @returns {object} new state
+ */
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET_MENU_WORKING:

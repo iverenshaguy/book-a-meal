@@ -1,5 +1,5 @@
 /**
- * Returns Error Response for Error Status Received
+ * Returns Readable Error Response for Error Received
  * @function errorResponse
  * @param {object} err - error
  * @returns {(string|object)} Error Object or String

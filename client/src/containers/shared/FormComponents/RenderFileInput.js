@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import RenderFileInput from './../../../../components/shared/FormComponents/RenderFileInput';
-import { uploadImage, clearUploadError } from '../../../../actions/uploadImage';
+import RenderFileInput from '../../../components/shared/FormComponents/RenderFileInput';
+import { uploadImage, clearUploadError } from '../../../actions/uploadImage';
 
 const mapStateToProps = state => ({
   uploadError: state.uploadImage.error,

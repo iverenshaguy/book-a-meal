@@ -111,7 +111,7 @@ export const caterersOrdersObj = {
     {
       id: 'fb097bde-5959-45ff-8e21-51184fa60c25',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '08134567890',
+      deliveryPhoneNo: '080xxxxxxxx',
       status: 'delivered',
       createdAt: '2018-04-06T00:47:03.687Z',
       updatedAt: '2018-04-06T00:47:03.687Z',
@@ -136,7 +136,7 @@ export const caterersOrdersObj = {
     {
       id: 'ce228787-f939-40a0-bfd3-6607ca8d2e53',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '08134567890',
+      deliveryPhoneNo: '080xxxxxxxx',
       status: 'delivered',
       createdAt: '2018-05-01T00:47:03.687Z',
       updatedAt: '2018-05-01T00:47:03.687Z',
@@ -171,7 +171,7 @@ export const caterersOrdersObj = {
     {
       id: 'fb097bde-5959-45ff-8e21-51184fa60c26',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '08134567890',
+      deliveryPhoneNo: '080xxxxxxxx',
       status: 'pending',
       createdAt: '2018-05-29T00:47:03.687Z',
       updatedAt: '2018-05-29T00:47:03.687Z',
@@ -196,7 +196,7 @@ export const caterersOrdersObj = {
     {
       id: 'fb097bde-5959-45ff-8e21-51184fa60c35',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '08134567890',
+      deliveryPhoneNo: '080xxxxxxxx',
       status: 'canceled',
       createdAt: '2018-05-27T00:47:03.687Z',
       updatedAt: '2018-05-27T00:47:03.687Z',
@@ -231,7 +231,7 @@ export const customersMenuObj = {
       caterer: {
         id: '8356954a-9a42-4616-8079-887a73455a7f',
         businessName: 'FoodCircle',
-        phoneNo: '08134567890',
+        phoneNo: '080xxxxxxxx',
         address: '4, Church Street, Yaba',
         email: 'food@circle.com'
       },
@@ -283,7 +283,7 @@ export const caterersOrdersObjPerDay = {
     {
       id: 'fb097bde-5959-45ff-8e21-51184fa60c35',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '08134567890',
+      deliveryPhoneNo: '080xxxxxxxx',
       status: 'delivered',
       createdAt: '2018-05-27T00:47:03.687Z',
       updatedAt: '2018-05-27T00:47:03.687Z',
@@ -313,7 +313,7 @@ export const caterersOrdersObjPerDay = {
 export const deliverOrder = {
   id: 'fb097bde-5959-45ff-8e21-51184fa60c26',
   deliveryAddress: '4, Church Street, Yaba',
-  deliveryPhoneNo: '08134567890',
+  deliveryPhoneNo: '080xxxxxxxx',
   status: 'delivered',
   createdAt: '2018-05-29T00:47:03.687Z',
   updatedAt: '2018-05-29T00:47:03.687Z',
@@ -447,7 +447,7 @@ export const customersOrdersObj = {
     {
       id: 'fb097bde-5959-45ff-8e21-51184fa70c25',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '08134567890',
+      deliveryPhoneNo: '080xxxxxxxx',
       status: 'canceled',
       createdAt: '2018-04-06T00:47:03.687Z',
       updatedAt: '2018-04-06T00:47:03.687Z',
@@ -462,7 +462,7 @@ export const customersOrdersObj = {
           caterer: {
             businessName: 'BellyFill',
             address: '4, Church Street, Yaba',
-            phoneNo: '08134567890',
+            phoneNo: '080xxxxxxxx',
             email: 'belly@fill.com'
           },
           quantity: 2,
@@ -473,7 +473,7 @@ export const customersOrdersObj = {
     {
       id: 'fb097bde-5959-45ff-8e21-51184fa60c25',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '08134567890',
+      deliveryPhoneNo: '080xxxxxxxx',
       status: 'delivered',
       createdAt: '2018-04-06T00:47:03.687Z',
       updatedAt: '2018-04-06T00:47:03.687Z',
@@ -488,7 +488,7 @@ export const customersOrdersObj = {
           caterer: {
             businessName: 'FoodCircle',
             address: '4, Church Street, Yaba',
-            phoneNo: '08134567890',
+            phoneNo: '080xxxxxxxx',
             email: 'food@circle.com'
           },
           quantity: 1,
@@ -504,7 +504,7 @@ export const customersOrdersObj = {
           caterer: {
             businessName: 'FoodCircle',
             address: '4, Church Street, Yaba',
-            phoneNo: '08134567890',
+            phoneNo: '080xxxxxxxx',
             email: 'food@circle.com'
           },
           quantity: 1,
@@ -515,7 +515,7 @@ export const customersOrdersObj = {
     {
       id: 'fb097bde-5959-45ff-8e21-51184fa80c25',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '08134567890',
+      deliveryPhoneNo: '080xxxxxxxx',
       status: 'pending',
       createdAt: '2018-04-06T00:47:03.687Z',
       updatedAt: '2018-04-06T00:47:03.687Z',
@@ -530,7 +530,7 @@ export const customersOrdersObj = {
           caterer: {
             businessName: 'FoodCircle',
             address: '4, Church Street, Yaba',
-            phoneNo: '08134567890',
+            phoneNo: '080xxxxxxxx',
             email: 'food@circle.com'
           },
           quantity: 1,
@@ -541,7 +541,7 @@ export const customersOrdersObj = {
     {
       id: 'fb097bde-5959-45ff-8e21-51184fa90c25',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '08134567890',
+      deliveryPhoneNo: '080xxxxxxxx',
       status: 'started',
       createdAt: '2018-04-06T00:47:03.687Z',
       updatedAt: '2018-04-06T00:47:03.687Z',
@@ -556,7 +556,7 @@ export const customersOrdersObj = {
           caterer: {
             businessName: 'FoodCircle',
             address: '4, Church Street, Yaba',
-            phoneNo: '08134567890',
+            phoneNo: '080xxxxxxxx',
             email: 'food@circle.com'
           },
           quantity: 1,

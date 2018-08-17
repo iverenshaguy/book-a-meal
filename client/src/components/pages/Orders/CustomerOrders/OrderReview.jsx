@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { userPropTypes } from '../../../../../helpers/proptypes';
-import getOrderFromLocalStorage from '../../../../../helpers/getOrderFromLocalStorage';
-import { syncValidate, validateRequiredFields } from '../../../../../helpers/validations';
-import formErrorCounter from '../../../../../helpers/formErrorCount';
-import updateLocalStorageOrder from '../../../../../helpers/updateLocalStorageOrder';
-import View from '../../../../shared/View';
-import RenderInput from '../../../../shared/FormComponents/RenderInput';
+import { userPropTypes } from '../../../../helpers/proptypes';
+import getOrderFromLocalStorage from '../../../../helpers/getOrderFromLocalStorage';
+import { syncValidate, validateRequiredFields } from '../../../../helpers/validations';
+import formErrorCounter from '../../../../helpers/formErrorCount';
+import updateLocalStorageOrder from '../../../../helpers/updateLocalStorageOrder';
+import View from '../../../shared/View';
+import RenderInput from '../../../shared/FormComponents/RenderInput';
 
 /**
  * @exports
@@ -166,7 +166,7 @@ class OrderReview extends Component {
         type="tel"
         name="deliveryPhoneNo"
         id="deliveryPhoneNo"
-        label="Phone Number (e.g. 08123456789)"
+        label="Phone Number (in the formal 080xxxxxxxx)"
         required
         value={this.state.values.deliveryPhoneNo}
         placeholder=""
@@ -200,7 +200,7 @@ class OrderReview extends Component {
       <h2>Delivery Details</h2>
       <hr />
       <div className="delivery-details">
-        <p className="text-center" style={{ marginBottom: '30px' }}>Please fill in your details below. Both fields are required.</p>
+        <p className="text-center" style={{ marginBottom: '30px' }}>Please fill in your details below. This is only required once.</p>
         {this.renderInputFields()}
       </div>
       <div className="control-btns">

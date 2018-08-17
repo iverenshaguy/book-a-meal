@@ -1,9 +1,9 @@
 import { connect, } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import CatererMenu from '../../../../components/pages/Menu/CatererMenu';
-import { fetchMenu, setCurrentDay } from '../../../../actions/menu';
-import { logout } from '../../../../actions/auth';
-import { toggleModal } from '../../../../actions/ui';
+import CatererMenu from '../../../components/pages/Menu/CatererMenu';
+import { fetchMenu, setCurrentDay } from '../../../actions/menu';
+import { logout } from '../../../actions/auth';
+import { toggleModal } from '../../../actions/ui';
 
 const mapStateToProps = state => ({
   isFetching: state.isFetching,

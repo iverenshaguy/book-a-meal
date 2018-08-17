@@ -1,8 +1,8 @@
 import { connect, } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import OrderConfirmation from '../../../../../components/pages/Orders/CustomerOrders/OrderConfirmation';
-import { logout } from '../../../../../actions/auth';
-import { addOrder, editOrder } from '../../../../../actions/orders';
+import OrderConfirmation from '../../../../components/pages/Orders/CustomerOrders/OrderConfirmation';
+import { logout } from '../../../../actions/auth';
+import { addOrder, editOrder } from '../../../../actions/orders';
 
 const mapStateToProps = state => ({
   isFetching: state.isFetching

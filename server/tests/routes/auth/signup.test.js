@@ -159,7 +159,7 @@ describe('Signup Routes', () => {
           expect(res.body.errors.password.msg).to.equal('Password must be at least 8 characters');
           expect(res.body.errors.passwordConfirm.msg).to.equal('Passwords don\'t match');
           expect(res.body.errors.address.msg).to.equal('Business Address must be specified');
-          expect(res.body.errors.phoneNo.msg).to.equal('Business Phone Number must be in the format 08134567890');
+          expect(res.body.errors.phoneNo.msg).to.equal('Business Phone Number must be in the format 080xxxxxxxx');
 
           if (err) return done(err);
           done();
@@ -197,7 +197,7 @@ describe('Signup Routes', () => {
           expect(res.body.errors.address.msg)
             .to.equal('Business Address can only contain letters, numbers, spaces, and the characters (,.\'-)');
           expect(res.body.errors.phoneNo.msg)
-            .to.equal('Business Phone Number must be in the format 08134567890');
+            .to.equal('Business Phone Number must be in the format 080xxxxxxxx');
 
           if (err) return done(err);
           done();

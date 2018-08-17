@@ -10,48 +10,97 @@ import {
   EDIT_MENU_SUCCESS, EDIT_MENU_FAILURE, RECEIVE_MORE_MENU_SUCCESS,
 } from './actionTypes';
 
+/**
+ * @function setMenuWorking
+ * @returns {object} action
+ */
+export const setMenuWorking = () => ({
+  type: SET_MENU_WORKING
+});
+
+/**
+ * @function unsetMenuWorking
+ * @returns {object} action
+ */
+export const unsetMenuWorking = () => ({
+  type: UNSET_MENU_WORKING
+});
+
+/**
+ * @function clearMenuError
+ * @returns {object} action
+ */
+export const clearMenuError = () => ({
+  type: CLEAR_MENU_ERROR
+});
+
+
+/**
+ * @function fetchMenuSuccess
+ * @param {string} type actionType
+ * @param {object} payload success response
+ * @returns {object} action
+ */
 export const fetchMenuSuccess = (type, payload) => ({
   type,
   payload
 });
 
-export const setMenuWorking = () => ({
-  type: SET_MENU_WORKING
-});
-
-export const unsetMenuWorking = () => ({
-  type: UNSET_MENU_WORKING
-});
-
-export const clearMenuError = () => ({
-  type: CLEAR_MENU_ERROR
-});
-
+/**
+ * @function fetchMenuFailure
+ * @param {object} payload error response
+ * @returns {object} action
+ */
 export const fetchMenuFailure = payload => ({
   type: RECEIVE_MENU_FAILURE,
   payload
 });
 
+/**
+ * @function setCurrentDay
+ * @param {object} payload success response
+ * @returns {object} action
+ */
 export const setCurrentDay = payload => ({
   type: SET_CURRENT_DAY,
   payload
 });
 
+/**
+ * @function addMenuSuccess
+ * @param {object} payload success response
+ * @returns {object} action
+ */
 export const addMenuSuccess = payload => ({
   type: ADD_MENU_SUCCESS,
   payload
 });
 
+/**
+ * @function addMenuFailure
+ * @param {object} payload error response
+ * @returns {object} action
+ */
 export const addMenuFailure = payload => ({
   type: ADD_MENU_FAILURE,
   payload
 });
 
+/**
+ * @function editMenuSuccess
+ * @param {object} payload success response
+ * @returns {object} action
+ */
 export const editMenuSuccess = payload => ({
   type: EDIT_MENU_SUCCESS,
   payload
 });
 
+/**
+ * @function editMenuFailure
+ * @param {object} payload error response
+ * @returns {object} action
+ */
 export const editMenuFailure = payload => ({
   type: EDIT_MENU_FAILURE,
   payload

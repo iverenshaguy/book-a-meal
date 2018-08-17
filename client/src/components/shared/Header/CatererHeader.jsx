@@ -2,8 +2,8 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import LinkBtn from '../../Link';
-import DatePicker from '../../DatePicker';
+import LinkBtn from '../Link';
+import DatePicker from '../DatePicker';
 
 /**
  * @exports

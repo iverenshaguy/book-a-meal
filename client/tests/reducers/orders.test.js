@@ -1,5 +1,5 @@
 import reducer from '../../src/reducers/orders';
-import { deliverOrder as deliverOrderData, caterersOrdersObj, customerOrder, customersOrdersObj, metadata } from '../setup/mockData';
+import { deliverOrder as deliverOrderDetails, caterersOrdersObj, customerOrder, customersOrdersObj, metadata } from '../setup/mockData';
 
 
 const state = {
@@ -65,7 +65,7 @@ describe('Orders Reducers', () => {
 
     const newState = reducer(stateWithOrders, {
       type: 'DELIVER_ORDER_SUCCESS',
-      payload: deliverOrderData,
+      payload: deliverOrderDetails,
     });
 
     expect(newState).toEqual({
@@ -74,7 +74,7 @@ describe('Orders Reducers', () => {
         ...stateWithOrders.items.slice(0, 2),
         {
           ...stateWithOrders.items[2],
-          ...deliverOrderData
+          ...deliverOrderDetails
         },
         ...stateWithOrders.items.slice(3)
       ],

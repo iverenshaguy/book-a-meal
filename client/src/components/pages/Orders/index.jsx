@@ -30,7 +30,7 @@ class Orders extends Component {
    * @returns {JSX} Orders Component
   */
   componentDidMount() {
-    if (!this.props.metadata.pages) this.props.fetchOrders();
+    this.props.fetchOrders();
   }
 
   /**
@@ -55,7 +55,7 @@ class Orders extends Component {
             <h2>Order History</h2>
             <hr />
           </div>
-          {this.props.orders.length === 0 && <p className="text-center">You Have No Orders</p>}
+          {this.props.orders.length === 0 && <p className="text-center info">You Have No Orders</p>}
           {this.props.orders.length !== 0 &&
             <div className="pills">
               <InfiniteLoader

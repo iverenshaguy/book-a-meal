@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import Modal from '../../../../containers/shared/Modal';
-import MealCard from '../../../shared/MealCard';
-import DatePicker from '../../../shared/DatePicker';
-import View from '../../../shared/View';
-import { userPropTypes, mealObjPropTypes } from '../../../../helpers/proptypes';
-import CardGroup from '../../../shared/CardGroup';
+import Modal from '../../../containers/shared/Modal';
+import MealCard from '../../shared/MealCard';
+import DatePicker from '../../shared/DatePicker';
+import View from '../../shared/View';
+import { userPropTypes, mealObjPropTypes } from '../../../helpers/proptypes';
+import CardGroup from '../../shared/CardGroup';
 
 /**
  * @exports

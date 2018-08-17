@@ -142,7 +142,7 @@ describe('Order Routes: Modify an Order', () => {
         expect(res.statusCode).to.equal(400);
         expect(res.body).to.be.an('object');
         expect(res.body.errors.deliveryAddress.msg).to.equal('If provided, delivery address field cannot be left blank');
-        expect(res.body.errors.deliveryPhoneNo.msg).to.equal('Delivery Phone Number must be in the format 08134567890');
+        expect(res.body.errors.deliveryPhoneNo.msg).to.equal('Delivery Phone Number must be in the format 080xxxxxxxx');
 
         if (err) return done(err);
         done();

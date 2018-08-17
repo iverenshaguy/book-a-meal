@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { userPropTypes } from '../../../../../helpers/proptypes';
-import getOrderFromLocalStorage from '../../../../../helpers/getOrderFromLocalStorage';
-import View from '../../../../shared/View';
-import OrderSummary from '../../../../shared/OrderSummary';
-import OrderAmount from '../../../../shared/OrderAmount';
+import { userPropTypes } from '../../../../helpers/proptypes';
+import getOrderFromLocalStorage from '../../../../helpers/getOrderFromLocalStorage';
+import View from '../../../shared/View';
+import OrderSummary from '../../../shared/OrderSummary';
+import OrderAmount from '../../../shared/OrderAmount';
 
 /**
  * @exports

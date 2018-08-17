@@ -1,9 +1,9 @@
 import { connect, } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import CatererOrderDetails from '../../../../components/pages/OrderDetails/CatererOrderDetails';
-import { deliverOrder } from '../../../../actions/orders';
-import { fetchOrder } from '../../../../actions/singleOrder';
-import { logout } from '../../../../actions/auth';
+import CatererOrderDetails from '../../../components/pages/OrderDetails/CatererOrderDetails';
+import { deliverOrder } from '../../../actions/orders';
+import { fetchOrder } from '../../../actions/singleOrder';
+import { logout } from '../../../actions/auth';
 
 const mapStateToProps = state => ({
   isFetching: state.isFetching,
