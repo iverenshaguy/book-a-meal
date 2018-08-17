@@ -40,8 +40,8 @@ describe('Auth Actions', () => {
   });
 
   test('authenticationSuccess', () => {
-    const data = { name: 'Emiola' };
-    const authAction = authenticationSuccess(data);
+    const userDetails = { name: 'Emiola' };
+    const authAction = authenticationSuccess(userDetails);
 
     expect(authAction).toEqual({ type: 'AUTHENTICATED', payload: { name: 'Emiola' } });
   });
@@ -53,8 +53,8 @@ describe('Auth Actions', () => {
   });
 
   test('signinSuccess', () => {
-    const data = { name: 'Emiola' };
-    const authAction = signinSuccess(data);
+    const userDetails = { name: 'Emiola' };
+    const authAction = signinSuccess(userDetails);
 
     expect(authAction).toEqual({ type: 'SIGNIN_SUCCESS', payload: { name: 'Emiola' } });
   });
@@ -66,8 +66,8 @@ describe('Auth Actions', () => {
   });
 
   test('signupSuccess', () => {
-    const data = { name: 'Emiola' };
-    const authAction = signupSuccess(data);
+    const userDetails = { name: 'Emiola' };
+    const authAction = signupSuccess(userDetails);
 
     expect(authAction).toEqual({ type: 'SIGNUP_SUCCESS', payload: { name: 'Emiola' } });
   });
@@ -235,7 +235,7 @@ describe('Auth Actions', () => {
 
         moxios.stubRequest(`${url}/auth/refresh_token`, {
           status: 500
-        }, 5);
+        });
 
         return store.dispatch(authenticateUser()).catch(() => {
           const dispatchedActions = store.getActions();

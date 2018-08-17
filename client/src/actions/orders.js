@@ -11,67 +11,134 @@ import {
   RECEIVE_ORDERS_FAILURE, RECEIVE_ORDERS_SUCCESS, RECEIVE_MORE_ORDERS_SUCCESS
 } from './actionTypes';
 
+/**
+ * @function fetchOrdersSuccess
+ * @param {string} type actionType
+ * @param {object} payload success response
+ * @returns {object} action
+ */
 export const fetchOrdersSuccess = (type, payload) => ({
   type,
   payload
 });
 
+/**
+ * @function fetchOrdersFailure
+ * @param {object} payload error response
+ * @returns {object} action
+ */
 export const fetchOrdersFailure = payload => ({
   type: RECEIVE_ORDERS_FAILURE,
   payload
 });
 
+/**
+ * @function deliverOrderSuccess
+ * @param {object} payload success response
+ * @returns {object} action
+ */
 export const deliverOrderSuccess = payload => ({
   type: DELIVER_ORDER_SUCCESS,
   payload
 });
 
+/**
+ * @function deliverOrderFailure
+ * @param {object} payload error response
+ * @returns {object} action
+ */
 export const deliverOrderFailure = payload => ({
   type: DELIVER_ORDER_FAILURE,
   payload
 });
 
+/**
+ * @function setDelivering
+ * @returns {object} action
+ */
 export const setDelivering = () => ({
   type: SET_DELIVERING
 });
 
+/**
+ * @function unsetDelivering
+ * @returns {object} action
+ */
 export const unsetDelivering = () => ({
   type: UNSET_DELIVERING
 });
 
+/**
+ * @function setOrderWorking
+ * @returns {object} action
+ */
 export const setOrderWorking = () => ({
   type: SET_ORDER_WORKING
 });
 
+/**
+ * @function unsetOrderWorking
+ * @returns {object} action
+ */
 export const unsetOrderWorking = () => ({
   type: UNSET_ORDER_WORKING
 });
 
+/**
+ * @function addOrderSuccess
+ * @param {object} payload success response
+ * @returns {object} action
+ */
 export const addOrderSuccess = payload => ({
   type: ADD_ORDER_SUCCESS,
   payload
 });
 
+/**
+ * @function addOrderFailure
+ * @param {object} payload error response
+ * @returns {object} action
+ */
 export const addOrderFailure = payload => ({
   type: ADD_ORDER_FAILURE,
   payload
 });
 
+/**
+ * @function editOrderSuccess
+ * @param {object} payload success response
+ * @returns {object} action
+ */
 export const editOrderSuccess = payload => ({
   type: EDIT_ORDER_SUCCESS,
   payload
 });
 
+/**
+ * @function editOrderFailure
+ * @param {object} payload error response
+ * @returns {object} action
+ */
 export const editOrderFailure = payload => ({
   type: EDIT_ORDER_FAILURE,
   payload
 });
 
+/**
+ * @function cancelOrderSuccess
+ * @param {object} payload success response
+ * @returns {object} action
+ */
 export const cancelOrderSuccess = payload => ({
   type: CANCEL_ORDER_SUCCESS,
   payload
 });
 
+/**
+ * @function cancelOrderFailure
+ * @param {object} payload error response
+ * @returns {object} action
+ */
 export const cancelOrderFailure = payload => ({
   type: CANCEL_ORDER_FAILURE,
   payload

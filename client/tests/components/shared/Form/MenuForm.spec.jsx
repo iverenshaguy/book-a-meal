@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import { initialState, mealsObj, metadata } from '../../../setup/mockData';
 import MenuFormComponent from '../../../../src/components/shared/Form/MenuForm';
-import MenuFormContainer from '../../../../src/containers/shared/Form/MenuForm/';
+import MenuFormContainer from '../../../../src/containers/shared/Form/MenuForm';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -209,5 +209,21 @@ describe('MenuForm', () => {
     wrapper.instance().fetchMoreData();
 
     expect(fetchMenuMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('renders connected component correctly', () => {
+    const fetchMenuMock = jest.fn();
+    const comp = (
+      <Provider store={store}>
+        <MenuFormContainer
+          {...props}
+          menuMetadata={{}}
+          fetchMenu={fetchMenuMock}
+        />
+      </Provider>);
+
+    const wrapper = mount(comp);
+
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 });

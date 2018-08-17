@@ -331,14 +331,14 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                       }
                     }
                   >
-                    Please fill in your details below. Both fields are required.
+                    Please fill in your details below. This is only required once.
                   </p>
                   <RenderInput
                     handleBlur={[Function]}
                     handleChange={[Function]}
                     handleFocus={[Function]}
                     id="deliveryPhoneNo"
-                    label="Phone Number (e.g. 08123456789)"
+                    label="Phone Number (in the formal 080xxxxxxxx)"
                     meta={
                       Object {
                         "error": null,
@@ -358,7 +358,7 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                         htmlFor="deliveryPhoneNo"
                         onClick={[Function]}
                       >
-                        Phone Number (e.g. 08123456789)
+                        Phone Number (in the formal 080xxxxxxxx)
                         <span
                           className="danger"
                         >
@@ -543,7 +543,7 @@ exports[`Customer Orders Order Review renders correctly 1`] = `
             }
           }
         >
-          Please fill in your details below. Both fields are required.
+          Please fill in your details below. This is only required once.
         </p>
         <React.Fragment>
           <RenderInput
@@ -551,7 +551,7 @@ exports[`Customer Orders Order Review renders correctly 1`] = `
             handleChange={[Function]}
             handleFocus={[Function]}
             id="deliveryPhoneNo"
-            label="Phone Number (e.g. 08123456789)"
+            label="Phone Number (in the formal 080xxxxxxxx)"
             meta={
               Object {
                 "error": null,

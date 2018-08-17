@@ -84,7 +84,7 @@ exports[`Dashboard renders Preloader when fetching 1`] = `
                 "lastname": "Olasanmi",
               },
               "deliveryAddress": "4, Church Street, Yaba",
-              "deliveryPhoneNo": "08134567890",
+              "deliveryPhoneNo": "080xxxxxxxx",
               "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
               "meals": Array [
                 Object {
@@ -109,7 +109,7 @@ exports[`Dashboard renders Preloader when fetching 1`] = `
                 "lastname": "Emodi",
               },
               "deliveryAddress": "4, Church Street, Yaba",
-              "deliveryPhoneNo": "08134567890",
+              "deliveryPhoneNo": "080xxxxxxxx",
               "id": "ce228787-f939-40a0-bfd3-6607ca8d2e53",
               "meals": Array [
                 Object {
@@ -144,7 +144,7 @@ exports[`Dashboard renders Preloader when fetching 1`] = `
                 "lastname": "Olasanmi",
               },
               "deliveryAddress": "4, Church Street, Yaba",
-              "deliveryPhoneNo": "08134567890",
+              "deliveryPhoneNo": "080xxxxxxxx",
               "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
               "meals": Array [
                 Object {
@@ -169,7 +169,7 @@ exports[`Dashboard renders Preloader when fetching 1`] = `
                 "lastname": "Olasanmi",
               },
               "deliveryAddress": "4, Church Street, Yaba",
-              "deliveryPhoneNo": "08134567890",
+              "deliveryPhoneNo": "080xxxxxxxx",
               "id": "fb097bde-5959-45ff-8e21-51184fa60c35",
               "meals": Array [
                 Object {
@@ -220,7 +220,7 @@ exports[`Dashboard renders connected component 1`] = `
             "lastname": "Olasanmi",
           },
           "deliveryAddress": "4, Church Street, Yaba",
-          "deliveryPhoneNo": "08134567890",
+          "deliveryPhoneNo": "080xxxxxxxx",
           "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
           "meals": Array [
             Object {
@@ -245,7 +245,7 @@ exports[`Dashboard renders connected component 1`] = `
             "lastname": "Emodi",
           },
           "deliveryAddress": "4, Church Street, Yaba",
-          "deliveryPhoneNo": "08134567890",
+          "deliveryPhoneNo": "080xxxxxxxx",
           "id": "ce228787-f939-40a0-bfd3-6607ca8d2e53",
           "meals": Array [
             Object {
@@ -280,7 +280,7 @@ exports[`Dashboard renders connected component 1`] = `
             "lastname": "Olasanmi",
           },
           "deliveryAddress": "4, Church Street, Yaba",
-          "deliveryPhoneNo": "08134567890",
+          "deliveryPhoneNo": "080xxxxxxxx",
           "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
           "meals": Array [
             Object {
@@ -305,7 +305,7 @@ exports[`Dashboard renders connected component 1`] = `
             "lastname": "Olasanmi",
           },
           "deliveryAddress": "4, Church Street, Yaba",
-          "deliveryPhoneNo": "08134567890",
+          "deliveryPhoneNo": "080xxxxxxxx",
           "id": "fb097bde-5959-45ff-8e21-51184fa60c35",
           "meals": Array [
             Object {
@@ -890,7 +890,7 @@ exports[`Dashboard renders correctly when not fetching 1`] = `
                 "lastname": "Olasanmi",
               },
               "deliveryAddress": "4, Church Street, Yaba",
-              "deliveryPhoneNo": "08134567890",
+              "deliveryPhoneNo": "080xxxxxxxx",
               "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
               "meals": Array [
                 Object {
@@ -915,7 +915,7 @@ exports[`Dashboard renders correctly when not fetching 1`] = `
                 "lastname": "Emodi",
               },
               "deliveryAddress": "4, Church Street, Yaba",
-              "deliveryPhoneNo": "08134567890",
+              "deliveryPhoneNo": "080xxxxxxxx",
               "id": "ce228787-f939-40a0-bfd3-6607ca8d2e53",
               "meals": Array [
                 Object {
@@ -950,7 +950,7 @@ exports[`Dashboard renders correctly when not fetching 1`] = `
                 "lastname": "Olasanmi",
               },
               "deliveryAddress": "4, Church Street, Yaba",
-              "deliveryPhoneNo": "08134567890",
+              "deliveryPhoneNo": "080xxxxxxxx",
               "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
               "meals": Array [
                 Object {
@@ -975,7 +975,7 @@ exports[`Dashboard renders correctly when not fetching 1`] = `
                 "lastname": "Olasanmi",
               },
               "deliveryAddress": "4, Church Street, Yaba",
-              "deliveryPhoneNo": "08134567890",
+              "deliveryPhoneNo": "080xxxxxxxx",
               "id": "fb097bde-5959-45ff-8e21-51184fa60c35",
               "meals": Array [
                 Object {

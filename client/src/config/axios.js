@@ -5,8 +5,7 @@ const instance = axios.create({
   baseURL: '/api/v1',
 });
 
-// intercept requests, add authorization token
-// and validate status function
+// intercept requests and add authorization token
 instance.interceptors.request.use((config) => {
   const token = localStorage.getItem('jwtToken');
   config.headers.authorization = `Bearer ${token}`;

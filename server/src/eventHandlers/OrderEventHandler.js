@@ -16,9 +16,9 @@ class OrderEventHandler {
    * @param {object} order
    * @param {string} userId
    * @returns {void}
+   * expiry is 15 minutes
    */
   static startOrderProcess(order, userId) {
-    // expiry is 15 minutes
     clearTimeout(updateOrder);
 
     updateOrder = setTimeout(() => order.reload().then(() => {

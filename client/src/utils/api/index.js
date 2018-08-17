@@ -1,3 +1,3 @@
-import { auth } from './auth';
+import authAPI from './authAPI';
 
-export default { auth };
+export default { authAPI };

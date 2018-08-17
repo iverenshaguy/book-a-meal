@@ -17,7 +17,6 @@ function webpackDev(app, env) {
       noInfo: true, publicPath: webpackConfig.output.publicPath, stats: { colors: true }
     }));
 
-    // Hot reloading
     app.use(webpackHotMiddleware(compiler));
   }
 }

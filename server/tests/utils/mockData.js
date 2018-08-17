@@ -41,7 +41,7 @@ export default {
       email: 'wecook@cook.com',
       password: 'wecookgoofood',
       passwordConfirm: 'wecookgoofood',
-      phoneNo: '08134567890',
+      phoneNo: '08123456789',
       address: '4, Church Street, Yaba',
     },
 
@@ -52,7 +52,7 @@ export default {
       password: 'favou',
       passwordConfirm: 'favourshaguy',
       businessName: 'Foodie',
-      phoneNo: '08134567890',
+      phoneNo: '08123456789',
       address: '4, Church Street, Yaba',
     },
 
@@ -184,7 +184,7 @@ export default {
         { mealId: 'baa0412a-d167-4d2b-b1d8-404cb8f02631', quantity: 1 }
       ],
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '08134567890',
+      deliveryPhoneNo: '08123456789',
     },
 
     inValidOrderDetails: {
@@ -192,7 +192,7 @@ export default {
         { mealId: '8a65538d-f862-420e-bcdc-80743df06578', quantity: 1 }
       ],
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '08134567890',
+      deliveryPhoneNo: '08123456789',
     },
 
     newOrderDetails: {
@@ -201,7 +201,7 @@ export default {
         { mealId: 'baa0412a-d167-4d2b-b1d8-404cb8f02631', quantity: 2 }
       ],
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '08134567890',
+      deliveryPhoneNo: '08123456789',
     },
 
     badOrderDetails: {
@@ -213,7 +213,7 @@ export default {
     orderDetailsWithExpiredMenu: {
       mealId: 'a3c35e8f-da7a-4113-aa01-a9c0fc088539',
       deliveryAddress: '4, Church Street, Yaba',
-      deliveryPhoneNo: '08134567890'
+      deliveryPhoneNo: '08123456789'
     },
   },
 

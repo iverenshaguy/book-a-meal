@@ -94,7 +94,7 @@ class Meals extends Component {
             Add a New Meal
             </button>
           </div>
-          {this.props.meals.length === 0 && <p className="text-center">You Do Not Have Any Meals Yet</p>}
+          {this.props.meals.length === 0 && <p className="text-center info">You Do Not Have Any Meals Yet</p>}
           {this.props.meals.length !== 0 &&
             <CardGroup
               items={mealItems}

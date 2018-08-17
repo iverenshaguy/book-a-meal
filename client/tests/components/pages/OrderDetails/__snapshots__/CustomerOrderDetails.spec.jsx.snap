@@ -51,7 +51,7 @@ exports[`OrderDetails renders Preloader when fetching 1`] = `
                     "address": "4, Church Street, Yaba",
                     "businessName": "BellyFill",
                     "email": "belly@fill.com",
-                    "phoneNo": "08134567890",
+                    "phoneNo": "080xxxxxxxx",
                   },
                   "delivered": false,
                   "description": "",
@@ -74,7 +74,7 @@ exports[`OrderDetails renders Preloader when fetching 1`] = `
                     "address": "4, Church Street, Yaba",
                     "businessName": "BellyFill",
                     "email": "belly@fill.com",
-                    "phoneNo": "08134567890",
+                    "phoneNo": "080xxxxxxxx",
                   },
                   "delivered": false,
                   "description": "",
@@ -112,7 +112,7 @@ exports[`OrderDetails renders Preloader when fetching 1`] = `
             </p>
             <p>
               Number Provided: 
-              08134567890
+              080xxxxxxxx
             </p>
           </div>
         </React.Fragment>
@@ -171,7 +171,7 @@ exports[`OrderDetails renders connected component 1`] = `
         Object {
           "createdAt": "2018-04-06T00:47:03.687Z",
           "deliveryAddress": "4, Church Street, Yaba",
-          "deliveryPhoneNo": "08134567890",
+          "deliveryPhoneNo": "080xxxxxxxx",
           "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
           "meals": Array [
             Object {
@@ -179,7 +179,7 @@ exports[`OrderDetails renders connected component 1`] = `
                 "address": "4, Church Street, Yaba",
                 "businessName": "FoodCircle",
                 "email": "food@circle.com",
-                "phoneNo": "08134567890",
+                "phoneNo": "080xxxxxxxx",
               },
               "delivered": true,
               "description": "Sharwama contains no animal products, perfect for dieters",
@@ -195,7 +195,7 @@ exports[`OrderDetails renders connected component 1`] = `
                 "address": "4, Church Street, Yaba",
                 "businessName": "FoodCircle",
                 "email": "food@circle.com",
-                "phoneNo": "08134567890",
+                "phoneNo": "080xxxxxxxx",
               },
               "delivered": true,
               "description": "Sharwama contains no animal products, perfect for dieters",
@@ -533,7 +533,7 @@ exports[`OrderDetails renders connected component 1`] = `
                         "address": "4, Church Street, Yaba",
                         "businessName": "FoodCircle",
                         "email": "food@circle.com",
-                        "phoneNo": "08134567890",
+                        "phoneNo": "080xxxxxxxx",
                       },
                       "delivered": true,
                       "description": "Sharwama contains no animal products, perfect for dieters",
@@ -549,7 +549,7 @@ exports[`OrderDetails renders connected component 1`] = `
                         "address": "4, Church Street, Yaba",
                         "businessName": "FoodCircle",
                         "email": "food@circle.com",
-                        "phoneNo": "08134567890",
+                        "phoneNo": "080xxxxxxxx",
                       },
                       "delivered": true,
                       "description": "Sharwama contains no animal products, perfect for dieters",
@@ -627,7 +627,7 @@ exports[`OrderDetails renders connected component 1`] = `
                         "address": "4, Church Street, Yaba",
                         "businessName": "FoodCircle",
                         "email": "food@circle.com",
-                        "phoneNo": "08134567890",
+                        "phoneNo": "080xxxxxxxx",
                       },
                       "delivered": true,
                       "description": "Sharwama contains no animal products, perfect for dieters",
@@ -643,7 +643,7 @@ exports[`OrderDetails renders connected component 1`] = `
                         "address": "4, Church Street, Yaba",
                         "businessName": "FoodCircle",
                         "email": "food@circle.com",
-                        "phoneNo": "08134567890",
+                        "phoneNo": "080xxxxxxxx",
                       },
                       "delivered": true,
                       "description": "Sharwama contains no animal products, perfect for dieters",
@@ -695,7 +695,7 @@ exports[`OrderDetails renders connected component 1`] = `
                 </p>
                 <p>
                   Number Provided: 
-                  08134567890
+                  080xxxxxxxx
                 </p>
               </div>
             </div>
@@ -802,7 +802,7 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
                     "address": "4, Church Street, Yaba",
                     "businessName": "BellyFill",
                     "email": "belly@fill.com",
-                    "phoneNo": "08134567890",
+                    "phoneNo": "080xxxxxxxx",
                   },
                   "delivered": false,
                   "description": "",
@@ -825,7 +825,7 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
                     "address": "4, Church Street, Yaba",
                     "businessName": "BellyFill",
                     "email": "belly@fill.com",
-                    "phoneNo": "08134567890",
+                    "phoneNo": "080xxxxxxxx",
                   },
                   "delivered": false,
                   "description": "",
@@ -863,7 +863,7 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
             </p>
             <p>
               Number Provided: 
-              08134567890
+              080xxxxxxxx
             </p>
           </div>
         </React.Fragment>
@@ -1219,7 +1219,7 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
               </a>
             </Link>
             <p
-              className="text-center"
+              className="text-center info"
             >
               This Order Does Not Exist
             </p>

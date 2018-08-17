@@ -1,9 +1,9 @@
 /**
- * Adapt File Event to Value
+ * Adapts File Event to Value
  * @function fileEventAdapter
- * @param {object} preview - file preview
+ * @param {object} preview - file preview element
  * @param {object} event - event
- * @returns {function} delegate event function
+ * @returns {void}
  */
 const fileEventAdapter = preview => (event) => {
   const file = event.target.files[0];

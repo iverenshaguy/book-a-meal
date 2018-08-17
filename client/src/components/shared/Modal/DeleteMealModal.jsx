@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { mealObjPropTypes } from '../../../../helpers/proptypes';
-import { MiniPreloader } from '../../Preloader';
+import { mealObjPropTypes } from '../../../helpers/proptypes';
+import { MiniPreloader } from '../Preloader';
 
 /**
  * @exports

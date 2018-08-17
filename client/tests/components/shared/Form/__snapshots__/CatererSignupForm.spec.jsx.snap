@@ -81,7 +81,7 @@ exports[`CatererSignupForm renders correctly 1`] = `
     handleChange={[MockFunction]}
     handleFocus={[MockFunction]}
     id="phoneNo"
-    label="Business Phone Number (e.g. 08123456789)"
+    label="Business Phone Number (in the format 080xxxxxxxx)"
     meta={
       Object {
         "asyncValidating": false,

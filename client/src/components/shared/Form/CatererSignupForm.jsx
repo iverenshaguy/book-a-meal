@@ -80,7 +80,7 @@ const CatererSignupForm = ({ state, handlers }) => (
       type="tel"
       name="phoneNo"
       id="phoneNo"
-      label="Business Phone Number (e.g. 08123456789)"
+      label="Business Phone Number (in the format 080xxxxxxxx)"
       required
       value={state.values.phoneNo}
       placeholder=""

@@ -30,6 +30,11 @@ const store = createStore(rootReducer, composedEnhancers);
 
 refreshPage(store);
 
+/**
+ * @function renderApp
+ * @param {elem} Root - App Root
+ * @returns {JSX} App Instance
+ */
 const renderApp = (Root) => {
   render(
     <AppContainer>

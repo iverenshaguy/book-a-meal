@@ -28,7 +28,7 @@ const appReducer = combineReducers({
 });
 
 /**
- * Root Reducers that resets a store on logout or returns a new store
+ * Root Reducers that resets the store on logout
  * @param {object} state
  * @param {string} action
  * @return {func} appReducer function

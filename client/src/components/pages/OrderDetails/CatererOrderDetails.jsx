@@ -2,12 +2,12 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import LinkBtn from '../../../shared/Link';
-import MiniPreloader from '../../../shared/Preloader/MiniPreloader';
-import View from '../../../shared/View';
-import { userPropTypes, catererOrderObjPropTypes } from '../../../../helpers/proptypes';
-import OrderSummary from '../../../shared/OrderSummary';
-import OrderAmount from '../../../shared/OrderAmount';
+import LinkBtn from '../../shared/Link';
+import MiniPreloader from '../../shared/Preloader/MiniPreloader';
+import View from '../../shared/View';
+import { userPropTypes, catererOrderObjPropTypes } from '../../../helpers/proptypes';
+import OrderSummary from '../../shared/OrderSummary';
+import OrderAmount from '../../shared/OrderAmount';
 
 /**
  * @exports
@@ -116,7 +116,7 @@ class CatererOrderDetails extends Component {
     return (
       <View user={user} logout={logout} type="orders" showTime isFetching={isFetching}>
         <Fragment>
-          {!this.props.order && <p className="text-center">This Order Does Not Exist</p>}
+          {!this.props.order && <p className="text-center info">This Order Does Not Exist</p>}
           {this.props.order && this.renderCatererOrderDetails()}
         </Fragment>
       </View>

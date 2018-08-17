@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { userPropTypes, catererOrderObjPropTypes } from '../../../../helpers/proptypes';
-import View from '../../../shared/View';
-import OrderSummary from '../../../shared/OrderSummary';
-import OrderAmount from '../../../shared/OrderAmount';
-import updateLocalStorageOrder from '../../../../helpers/updateLocalStorageOrder';
+import { userPropTypes, catererOrderObjPropTypes } from '../../../helpers/proptypes';
+import View from '../../shared/View';
+import OrderSummary from '../../shared/OrderSummary';
+import OrderAmount from '../../shared/OrderAmount';
+import updateLocalStorageOrder from '../../../helpers/updateLocalStorageOrder';
 
 /**
  * @exports
@@ -164,7 +164,7 @@ class CustomerOrderDetails extends Component {
       <View user={user} logout={logout} type="customerOrderDetails" isFetching={isFetching}>
         <Fragment>
           <Link href="/orders" to="/orders" className="orders-back-link">&#8592; Back To Orders</Link>
-          {!this.props.order && <p className="text-center">This Order Does Not Exist</p>}
+          {!this.props.order && <p className="text-center info">This Order Does Not Exist</p>}
           {this.props.order && this.renderCustomerOrderDetails()}
         </Fragment>
       </View>

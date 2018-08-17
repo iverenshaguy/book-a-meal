@@ -1,6 +1,6 @@
 import instance from '../config/axios';
 import { errorHandler } from '../utils';
-import { auth as authAPI } from '../utils/api/auth';
+import authAPI from '../utils/api/authAPI';
 import {
   AUTHENTICATED,
   UNAUTHENTICATED,
@@ -13,44 +13,86 @@ import {
   SIGNUP_ERROR,
 } from './actionTypes';
 
+/**
+ * @function authenticating
+ * @returns {object} action
+ */
 export const authenticating = () => ({
   type: AUTHENTICATING
 });
 
-export const signinSuccess = data => ({
+/**
+ * @function signinSuccess
+ * @param {object} user
+ * @returns {object} action
+ */
+export const signinSuccess = user => ({
   type: SIGNIN_SUCCESS,
-  payload: data
+  payload: user
 });
 
+/**
+ * @function signinSuccess
+ * @param {string} error
+ * @returns {object} action
+ */
 export const signinFailure = error => ({
   type: SIGNIN_ERROR,
   payload: error
 });
 
-export const signupSuccess = data => ({
+/**
+ * @function signupSuccess
+ * @param {object} user
+ * @returns {object} action
+ */
+export const signupSuccess = user => ({
   type: SIGNUP_SUCCESS,
-  payload: data
+  payload: user
 });
 
+/**
+ * @function signupFailure
+ * @param {string} error
+ * @returns {object} action
+ */
 export const signupFailure = error => ({
   type: SIGNUP_ERROR,
   payload: error
 });
 
-export const authenticationSuccess = data => ({
+/**
+ * @function authenticationSuccess
+ * @param {object} user
+ * @returns {object} action
+ */
+export const authenticationSuccess = user => ({
   type: AUTHENTICATED,
-  payload: data
+  payload: user
 });
 
+/**
+ * @function authenticationFailure
+ * @param {string} error
+ * @returns {object} action
+ */
 export const authenticationFailure = error => ({
   type: AUTHENTICATION_ERROR,
   payload: error
 });
 
+/**
+ * @function clearAuthError
+ * @returns {object} action
+ */
 export const clearAuthError = () => ({
   type: CLEAR_AUTH_ERROR
 });
 
+/**
+ * @function resetUser
+ * @returns {object} action
+ */
 export const resetUser = () => ({
   type: UNAUTHENTICATED
 });

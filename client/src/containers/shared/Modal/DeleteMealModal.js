@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import DeleteMealModal from '../../../../components/shared/Modal/DeleteMealModal';
-import { deleteMeal } from '../../../../actions/meals';
+import DeleteMealModal from '../../../components/shared/Modal/DeleteMealModal';
+import { deleteMeal } from '../../../actions/meals';
 
 const mapStateToProps = state => ({
   deleting: state.meals.working
