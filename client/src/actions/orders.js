@@ -14,42 +14,42 @@ import {
 /**
  * @function fetchOrdersSuccess
  * @param {string} type actionType
- * @param {object} payload success response
+ * @param {object} ordersObj (orders, metadata, pendingOrders, totalCashEarned)
  * @returns {object} action
  */
-export const fetchOrdersSuccess = (type, payload) => ({
+export const fetchOrdersSuccess = (type, ordersObj) => ({
   type,
-  payload
+  payload: ordersObj
 });
 
 /**
  * @function fetchOrdersFailure
- * @param {object} payload error response
+ * @param {object} error error response
  * @returns {object} action
  */
-export const fetchOrdersFailure = payload => ({
+export const fetchOrdersFailure = error => ({
   type: RECEIVE_ORDERS_FAILURE,
-  payload
+  payload: error
 });
 
 /**
  * @function deliverOrderSuccess
- * @param {object} payload success response
+ * @param {object} deliveredOrder success response
  * @returns {object} action
  */
-export const deliverOrderSuccess = payload => ({
+export const deliverOrderSuccess = deliveredOrder => ({
   type: DELIVER_ORDER_SUCCESS,
-  payload
+  payload: deliveredOrder
 });
 
 /**
  * @function deliverOrderFailure
- * @param {object} payload error response
+ * @param {object} error error response
  * @returns {object} action
  */
-export const deliverOrderFailure = payload => ({
+export const deliverOrderFailure = error => ({
   type: DELIVER_ORDER_FAILURE,
-  payload
+  payload: error
 });
 
 /**
@@ -86,62 +86,62 @@ export const unsetOrderWorking = () => ({
 
 /**
  * @function addOrderSuccess
- * @param {object} payload success response
+ * @param {object} newOrder success response
  * @returns {object} action
  */
-export const addOrderSuccess = payload => ({
+export const addOrderSuccess = newOrder => ({
   type: ADD_ORDER_SUCCESS,
-  payload
+  payload: newOrder
 });
 
 /**
  * @function addOrderFailure
- * @param {object} payload error response
+ * @param {object} error error response
  * @returns {object} action
  */
-export const addOrderFailure = payload => ({
+export const addOrderFailure = error => ({
   type: ADD_ORDER_FAILURE,
-  payload
+  payload: error
 });
 
 /**
  * @function editOrderSuccess
- * @param {object} payload success response
+ * @param {object} updatedOrder success response
  * @returns {object} action
  */
-export const editOrderSuccess = payload => ({
+export const editOrderSuccess = updatedOrder => ({
   type: EDIT_ORDER_SUCCESS,
-  payload
+  payload: updatedOrder
 });
 
 /**
  * @function editOrderFailure
- * @param {object} payload error response
+ * @param {object} error error response
  * @returns {object} action
  */
-export const editOrderFailure = payload => ({
+export const editOrderFailure = error => ({
   type: EDIT_ORDER_FAILURE,
-  payload
+  payload: error
 });
 
 /**
  * @function cancelOrderSuccess
- * @param {object} payload success response
+ * @param {object} canceledOrder success response
  * @returns {object} action
  */
-export const cancelOrderSuccess = payload => ({
+export const cancelOrderSuccess = canceledOrder => ({
   type: CANCEL_ORDER_SUCCESS,
-  payload
+  payload: canceledOrder
 });
 
 /**
  * @function cancelOrderFailure
- * @param {object} payload error response
+ * @param {object} error error response
  * @returns {object} action
  */
-export const cancelOrderFailure = payload => ({
+export const cancelOrderFailure = error => ({
   type: CANCEL_ORDER_FAILURE,
-  payload
+  payload: error
 });
 
 /**
@@ -177,15 +177,15 @@ export const fetchOrders = (date, metadata) => async (dispatch) => {
 /**
  * Delivers an Order
  * @function deliverOrder
- * @param {string} id
+ * @param {string} orderId
  * @param {func} dispatch
  * @returns {void}
  */
-export const deliverOrder = id => async (dispatch) => {
+export const deliverOrder = orderId => async (dispatch) => {
   try {
     dispatch(setDelivering());
 
-    const response = await instance.post(`/orders/${id}/deliver`, { delivered: true });
+    const response = await instance.post(`/orders/${orderId}/deliver`, { delivered: true });
 
     dispatch(deliverOrderSuccess(response.data));
     toastr.success('Order Delivered Successfully');
@@ -201,15 +201,15 @@ export const deliverOrder = id => async (dispatch) => {
 /**
  * Adds an order
  * @function addOrder
- * @param {object} order
+ * @param {object} newOrder
  * @param {func} dispatch
  * @returns {void}
  */
-export const addOrder = order => async (dispatch) => {
+export const addOrder = newOrder => async (dispatch) => {
   try {
     dispatch(setOrderWorking());
 
-    const response = await instance.post('/orders', order);
+    const response = await instance.post('/orders', newOrder);
 
     dispatch(addOrderSuccess(response.data));
     toastr.success('Order Made Successfully');
@@ -231,16 +231,16 @@ export const addOrder = order => async (dispatch) => {
 /**
  * Edits an order
  * @function editOrder
- * @param {string} id
- * @param {object} order
+ * @param {string} orderId
+ * @param {object} updatedOrder
  * @param {func} dispatch
  * @returns {void}
  */
-export const editOrder = (id, order) => async (dispatch) => {
+export const editOrder = (orderId, updatedOrder) => async (dispatch) => {
   try {
     dispatch(setOrderWorking());
 
-    const response = await instance.put(`/orders/${id}`, order);
+    const response = await instance.put(`/orders/${orderId}`, updatedOrder);
 
     dispatch(editOrderSuccess(response.data));
     toastr.success('Order Modified Successfully');
@@ -262,15 +262,15 @@ export const editOrder = (id, order) => async (dispatch) => {
 /**
  * Cancels an order
  * @function auth
- * @param {string} id
+ * @param {string} orderId
  * @param {func} dispatch
  * @returns {void}
  */
-export const cancelOrder = id => async (dispatch) => {
+export const cancelOrder = orderId => async (dispatch) => {
   try {
     dispatch(setOrderWorking());
 
-    const response = await instance.put(`/orders/${id}`, { status: 'canceled' });
+    const response = await instance.put(`/orders/${orderId}`, { status: 'canceled' });
 
     dispatch(cancelOrderSuccess(response.data));
     toastr.success('Order Canceled Successfully');

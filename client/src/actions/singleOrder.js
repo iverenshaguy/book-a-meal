@@ -5,36 +5,36 @@ import { RECEIVE_ORDER_SUCCESS, RECEIVE_ORDER_FAILURE } from './actionTypes';
 
 /**
  * @function fetchOrderSuccess
- * @param {object} payload success response
+ * @param {object} orderObj success response
  * @returns {object} action
  */
-export const fetchOrderSuccess = payload => ({
+export const fetchOrderSuccess = orderObj => ({
   type: RECEIVE_ORDER_SUCCESS,
-  payload
+  payload: orderObj
 });
 
 /**
  * @function fetchOrderSuccess
- * @param {object} payload success response
+ * @param {object} error success response
  * @returns {object} action
  */
-export const fetchOrderFailure = payload => ({
+export const fetchOrderFailure = error => ({
   type: RECEIVE_ORDER_FAILURE,
-  payload
+  payload: error
 });
 
 /**
  * Fetchs an Order
- * @function auth
- * @param {string} id
+ * @function fetchOrder
+ * @param {string} orderId
  * @param {func} dispatch
  * @returns {void}
  */
-export const fetchOrder = id => async (dispatch) => {
+export const fetchOrder = orderId => async (dispatch) => {
   try {
     dispatch(setFetching());
 
-    const response = await instance.get(`/orders/${id}`);
+    const response = await instance.get(`/orders/${orderId}`);
 
     dispatch(fetchOrderSuccess(response.data));
     dispatch(unsetFetching());

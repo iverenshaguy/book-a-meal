@@ -31,20 +31,22 @@ export const clearUploadError = () => ({
 
 /**
  * @function uploadSuccess
- * @param {object} payload success response
+ * @param {object} downloadUrl success response
  * @returns {object} action
  */
-export const uploadSuccess = payload => ({
-  type: UPLOAD_SUCCESS, payload
+export const uploadSuccess = downloadUrl => ({
+  type: UPLOAD_SUCCESS,
+  payload: downloadUrl
 });
 
 /**
  * @function uploadFailure
- * @param {object} payload error response
+ * @param {object} error payload error response
  * @returns {object} action
  */
-export const uploadFailure = payload => ({
-  type: UPLOAD_FAILURE, payload
+export const uploadFailure = error => ({
+  type: UPLOAD_FAILURE,
+  payload: error
 });
 
 /**
@@ -52,17 +54,19 @@ export const uploadFailure = payload => ({
  * @function uploadImage
  * @param {object} image - image file
  * @param {object} formerImagePath - former user img
- * @param {string} imagePath - image path
+ * @param {string} newImagePath - image path
  * @param {function} successCallBack - success callback
  * @returns {function} success callback
+ * deletes former image file from firebase if it exists and
+ * is not equal to default image. This saves memory for deleted images
  */
-export const uploadImage = (image, formerImagePath, imagePath, successCallBack) =>
+export const uploadImage = (image, formerImagePath, newImagePath, successCallBack) =>
   async (dispatch) => {
     const defaultImage = 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg';
 
     const storage = app.storage();
 
-    const storageRef = storage.ref(imagePath);
+    const storageRef = storage.ref(newImagePath);
 
     try {
       dispatch(setUploading());
@@ -71,7 +75,7 @@ export const uploadImage = (image, formerImagePath, imagePath, successCallBack) 
 
       if (formerImagePath && formerImagePath !== defaultImage) {
         const formerStorageRef = storage.refFromURL(`${formerImagePath}`);
-        // delete file if it exists
+
         formerStorageRef.delete();
       }
 
