@@ -13,22 +13,22 @@ import {
 /**
  * @function fetchMealsSuccess
  * @param {string} type actionType
- * @param {object} payload success response
+ * @param {object} mealsObj (meals, metadata)
  * @returns {object} action
  */
-export const fetchMealsSuccess = (type, payload) => ({
+export const fetchMealsSuccess = (type, mealsObj) => ({
   type,
-  payload
+  payload: mealsObj
 });
 
 /**
  * @function fetchMealsFailure
- * @param {object} payload error response
+ * @param {object} error error response
  * @returns {object} action
  */
-export const fetchMealsFailure = payload => ({
+export const fetchMealsFailure = error => ({
   type: RECEIVE_MEALS_FAILURE,
-  payload
+  payload: error
 });
 
 /**
@@ -49,62 +49,62 @@ export const unsetMealWorking = () => ({
 
 /**
  * @function addMealSuccess
- * @param {object} payload success response
+ * @param {object} newMeal success response
  * @returns {object} action
  */
-export const addMealSuccess = payload => ({
+export const addMealSuccess = newMeal => ({
   type: ADD_MEAL_SUCCESS,
-  payload
+  payload: newMeal
 });
 
 /**
  * @function addMealFailure
- * @param {object} payload error response
+ * @param {object} error error response
  * @returns {object} action
  */
-export const addMealFailure = payload => ({
+export const addMealFailure = error => ({
   type: ADD_MEAL_FAILURE,
-  payload
+  payload: error
 });
 
 /**
  * @function editMealSuccess
- * @param {object} payload success response
+ * @param {object} updatedMeal success response
  * @returns {object} action
  */
-export const editMealSuccess = payload => ({
+export const editMealSuccess = updatedMeal => ({
   type: EDIT_MEAL_SUCCESS,
-  payload
+  payload: updatedMeal
 });
 
 /**
  * @function editMealFailure
- * @param {object} payload error response
+ * @param {object} error error response
  * @returns {object} action
  */
-export const editMealFailure = payload => ({
+export const editMealFailure = error => ({
   type: EDIT_MEAL_FAILURE,
-  payload
+  payload: error
 });
 
 /**
  * @function deleteMealSuccess
- * @param {object} payload success response
+ * @param {object} mealId success response
  * @returns {object} action
  */
-export const deleteMealSuccess = payload => ({
+export const deleteMealSuccess = mealId => ({
   type: DELETE_MEAL_SUCCESS,
-  payload
+  payload: mealId
 });
 
 /**
  * @function deleteMealFailure
- * @param {object} payload error response
+ * @param {object} error error response
  * @returns {object} action
  */
-export const deleteMealFailure = payload => ({
+export const deleteMealFailure = error => ({
   type: DELETE_MEAL_FAILURE,
-  payload
+  payload: error
 });
 
 /**
@@ -147,15 +147,15 @@ export const fetchMeals = (metadata, searchTerm) => async (dispatch) => {
 /**
  * Adds a Meal for Caterer
  * @function addMeal
- * @param {object} meal
+ * @param {object} newMeal
  * @param {func} dispatch
  * @returns {void}
  */
-export const addMeal = meal => async (dispatch) => {
+export const addMeal = newMeal => async (dispatch) => {
   try {
     dispatch(setMealWorking());
 
-    const response = await instance.post('/meals', meal);
+    const response = await instance.post('/meals', newMeal);
 
     dispatch(addMealSuccess(response.data));
     toastr.success('Meal Added Successfully');
@@ -198,17 +198,17 @@ export const editMeal = (id, updatedMeal) => async (dispatch) => {
 /**
  * Deletes a Meal
  * @function deleteMeal
- * @param {id} id
+ * @param {id} mealId
  * @param {func} dispatch
  * @returns {void}
  */
-export const deleteMeal = id => async (dispatch) => {
+export const deleteMeal = mealId => async (dispatch) => {
   try {
     dispatch(setMealWorking());
 
-    await instance.delete(`/meals/${id}`);
+    await instance.delete(`/meals/${mealId}`);
 
-    dispatch(deleteMealSuccess(id));
+    dispatch(deleteMealSuccess(mealId));
     toastr.success('Meal Deleted Successfully');
     dispatch(unsetMealWorking());
     dispatch(toggleModal());

@@ -13,7 +13,7 @@ const initialState = {
 /**
  * UI Reducer
  * @param {object} state defaults to initalState
- * @param {string} action action type
+ * @param {string} action action object (type, payload)
  * @returns {object} new state
  */
 export default (state = initialState, action) => {

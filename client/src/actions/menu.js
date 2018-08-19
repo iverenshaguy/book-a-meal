@@ -38,72 +38,72 @@ export const clearMenuError = () => ({
 /**
  * @function fetchMenuSuccess
  * @param {string} type actionType
- * @param {object} payload success response
+ * @param {object} menuObj (menu, metadata)
  * @returns {object} action
  */
-export const fetchMenuSuccess = (type, payload) => ({
+export const fetchMenuSuccess = (type, menuObj) => ({
   type,
-  payload
+  payload: menuObj
 });
 
 /**
  * @function fetchMenuFailure
- * @param {object} payload error response
+ * @param {object} error error response
  * @returns {object} action
  */
-export const fetchMenuFailure = payload => ({
+export const fetchMenuFailure = error => ({
   type: RECEIVE_MENU_FAILURE,
-  payload
+  payload: error
 });
 
 /**
  * @function setCurrentDay
- * @param {object} payload success response
+ * @param {object} date success response
  * @returns {object} action
  */
-export const setCurrentDay = payload => ({
+export const setCurrentDay = date => ({
   type: SET_CURRENT_DAY,
-  payload
+  payload: date
 });
 
 /**
  * @function addMenuSuccess
- * @param {object} payload success response
+ * @param {object} newMenu success response
  * @returns {object} action
  */
-export const addMenuSuccess = payload => ({
+export const addMenuSuccess = newMenu => ({
   type: ADD_MENU_SUCCESS,
-  payload
+  payload: newMenu
 });
 
 /**
  * @function addMenuFailure
- * @param {object} payload error response
+ * @param {object} error error response
  * @returns {object} action
  */
-export const addMenuFailure = payload => ({
+export const addMenuFailure = error => ({
   type: ADD_MENU_FAILURE,
-  payload
+  payload: error
 });
 
 /**
  * @function editMenuSuccess
- * @param {object} payload success response
+ * @param {object} updatedMenu success response
  * @returns {object} action
  */
-export const editMenuSuccess = payload => ({
+export const editMenuSuccess = updatedMenu => ({
   type: EDIT_MENU_SUCCESS,
-  payload
+  payload: updatedMenu
 });
 
 /**
  * @function editMenuFailure
- * @param {object} payload error response
+ * @param {object} error error response
  * @returns {object} action
  */
-export const editMenuFailure = payload => ({
+export const editMenuFailure = error => ({
   type: EDIT_MENU_FAILURE,
-  payload
+  payload: error
 });
 
 /**
@@ -141,15 +141,15 @@ export const fetchMenu = (date, metadata, searchTerm) => async (dispatch) => {
 /**
  * Adds a Menu for Caterer
  * @function addMenu
- * @param {object} menu
+ * @param {object} newMenu
  * @param {func} dispatch
  * @returns {void}
  */
-export const addMenu = menu => async (dispatch) => {
+export const addMenu = newMenu => async (dispatch) => {
   try {
     dispatch(setMenuWorking());
 
-    const response = await instance.post('/menu', menu);
+    const response = await instance.post('/menu', newMenu);
 
     dispatch(addMenuSuccess(response.data));
     toastr.success('Menu Set Successfully');
@@ -167,15 +167,15 @@ export const addMenu = menu => async (dispatch) => {
  * Edits a Menu
  * @function editMenu
  * @param {string} id
- * @param {object} menu
+ * @param {object} updatedMenu
  * @param {func} dispatch
  * @returns {void}
  */
-export const editMenu = (id, menu) => async (dispatch) => {
+export const editMenu = (id, updatedMenu) => async (dispatch) => {
   try {
     dispatch(setMenuWorking());
 
-    const response = await instance.put(`/menu/${id}`, menu);
+    const response = await instance.put(`/menu/${id}`, updatedMenu);
 
     dispatch(editMenuSuccess(response.data));
     toastr.success('Menu Set Successfully');
