@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import Modal from '../../../components/shared/Modal';
 import { toggleModal } from '../../../actions/ui';
 
@@ -8,8 +7,4 @@ const mapStateToProps = state => ({
   type: state.ui.modals.type
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  toggleModal
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default connect(mapStateToProps, { toggleModal })(Modal);

@@ -49,7 +49,7 @@ class Orders extends Component {
       <OrderPill key={order.id} order={order} user={this.props.user} />);
 
     return (
-      <div className={`main-wrapper ${this.props.user.role === 'caterer' ? 'dashboard' : null}`}>
+      <div className={`main-wrapper ${this.props.user.role === 'caterer' ? 'dashboard' : ''} orders`}>
         <div className="order-history">
           <div className="page-heading">
             <h2>Order History</h2>

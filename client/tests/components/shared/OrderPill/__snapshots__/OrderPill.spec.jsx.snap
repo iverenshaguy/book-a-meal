@@ -5,7 +5,6 @@ exports[`OrderPill renders Caterer Order correctly 1`] = `
   className="order-history-pill admin-order-history-pill"
 >
   <Link
-    href="/orders/fb097bde-5959-45ff-8e21-51184fa60c25"
     replace={false}
     to="/orders/fb097bde-5959-45ff-8e21-51184fa60c25"
   >
@@ -17,7 +16,7 @@ exports[`OrderPill renders Caterer Order correctly 1`] = `
       </h3>
       <h3>
           
-        18/04/06 12:47
+        06/04/18 12:47
       </h3>
     </div>
     <hr />
@@ -67,7 +66,6 @@ exports[`OrderPill renders Customer Order correctly 1`] = `
   className="order-history-pill admin-order-history-pill"
 >
   <Link
-    href="/orders/fb097bde-5959-45ff-8e21-51184fa70c25"
     replace={false}
     to="/orders/fb097bde-5959-45ff-8e21-51184fa70c25"
   >
@@ -79,7 +77,7 @@ exports[`OrderPill renders Customer Order correctly 1`] = `
       </h3>
       <h3>
           
-        18/04/06 12:47
+        06/04/18 12:47
       </h3>
     </div>
     <hr />
@@ -127,7 +125,6 @@ exports[`OrderPill renders Customer Order correctly and adds ... for more than o
   className="order-history-pill admin-order-history-pill"
 >
   <Link
-    href="/orders/fb097bde-5959-45ff-8e21-51184fa60c25"
     replace={false}
     to="/orders/fb097bde-5959-45ff-8e21-51184fa60c25"
   >
@@ -139,7 +136,7 @@ exports[`OrderPill renders Customer Order correctly and adds ... for more than o
       </h3>
       <h3>
           
-        18/04/06 12:47
+        06/04/18 12:47
       </h3>
     </div>
     <hr />
@@ -188,7 +185,6 @@ exports[`OrderPill renders Customer Order correctly when status started 1`] = `
   className="order-history-pill admin-order-history-pill"
 >
   <Link
-    href="/orders/fb097bde-5959-45ff-8e21-51184fa90c25"
     replace={false}
     to="/orders/fb097bde-5959-45ff-8e21-51184fa90c25"
   >
@@ -200,7 +196,7 @@ exports[`OrderPill renders Customer Order correctly when status started 1`] = `
       </h3>
       <h3>
           
-        18/04/06 12:47
+        06/04/18 12:47
       </h3>
     </div>
     <hr />

@@ -230,7 +230,6 @@ exports[`CustomerMenu renders connected component 1`] = `
                   >
                     <h3>
                       <Link
-                        href="/"
                         replace={false}
                         to="/"
                       >
@@ -252,7 +251,6 @@ exports[`CustomerMenu renders connected component 1`] = `
                     </h3>
                     <Link
                       className="active"
-                      href="/"
                       replace={false}
                       to="/"
                     >
@@ -266,7 +264,6 @@ exports[`CustomerMenu renders connected component 1`] = `
                     </Link>
                     <Link
                       className="false"
-                      href="/orders"
                       replace={false}
                       to="/orders"
                     >
@@ -279,7 +276,6 @@ exports[`CustomerMenu renders connected component 1`] = `
                       </a>
                     </Link>
                     <Link
-                      href="/"
                       onClick={[Function]}
                       replace={false}
                       to="/"
@@ -299,7 +295,6 @@ exports[`CustomerMenu renders connected component 1`] = `
                           <UNDEFINED>
                             <Link
                               className="active"
-                              href="/"
                               replace={false}
                               to="/"
                             >
@@ -307,14 +302,12 @@ exports[`CustomerMenu renders connected component 1`] = `
                             </Link>
                             <Link
                               className="false"
-                              href="/orders"
                               replace={false}
                               to="/orders"
                             >
                               Orders
                             </Link>
                             <Link
-                              href="/"
                               onClick={[Function]}
                               replace={false}
                               to="/"
@@ -384,7 +377,6 @@ exports[`CustomerMenu renders connected component 1`] = `
                           >
                             <Link
                               className="active"
-                              href="/"
                               replace={false}
                               to="/"
                             >
@@ -398,7 +390,6 @@ exports[`CustomerMenu renders connected component 1`] = `
                             </Link>
                             <Link
                               className="false"
-                              href="/orders"
                               replace={false}
                               to="/orders"
                             >
@@ -411,7 +402,6 @@ exports[`CustomerMenu renders connected component 1`] = `
                               </a>
                             </Link>
                             <Link
-                              href="/"
                               onClick={[Function]}
                               replace={false}
                               to="/"
@@ -467,6 +457,14 @@ exports[`CustomerMenu renders connected component 1`] = `
                       <div
                         className="search-form"
                       >
+                        <div
+                          className="search-btn"
+                        >
+                          <img
+                            alt=""
+                            src="/img/search.svg"
+                          />
+                        </div>
                         <label
                           className="hide"
                           htmlFor="search"
@@ -482,14 +480,6 @@ exports[`CustomerMenu renders connected component 1`] = `
                           type="text"
                           value=""
                         />
-                        <div
-                          className="search-btn"
-                        >
-                          <img
-                            alt=""
-                            src="/img/search.svg"
-                          />
-                        </div>
                       </div>
                     </div>
                   </SearchForm>
@@ -916,7 +906,6 @@ exports[`CustomerMenu renders connected component 1`] = `
                       className="cart-btn"
                     >
                       <Link
-                        href="/order-review"
                         replace={false}
                         to="/order-review"
                       >
@@ -926,6 +915,7 @@ exports[`CustomerMenu renders connected component 1`] = `
                         >
                           <button
                             className="btn btn-pri btn-block checkout-btn"
+                            disabled={null}
                           >
                             Checkout
                           </button>
@@ -1101,7 +1091,6 @@ exports[`CustomerMenu renders connected component 1`] = `
                       </div>
                       <br />
                       <Link
-                        href="/order-review"
                         replace={false}
                         to="/order-review"
                       >
@@ -1111,6 +1100,7 @@ exports[`CustomerMenu renders connected component 1`] = `
                         >
                           <button
                             className="btn btn-pri btn-block checkout-btn"
+                            disabled={null}
                           >
                             Checkout
                           </button>
@@ -1391,7 +1381,6 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                 >
                   <h3>
                     <Link
-                      href="/"
                       replace={false}
                       to="/"
                     >
@@ -1413,7 +1402,6 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                   </h3>
                   <Link
                     className="active"
-                    href="/"
                     replace={false}
                     to="/"
                   >
@@ -1427,7 +1415,6 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                   </Link>
                   <Link
                     className="false"
-                    href="/orders"
                     replace={false}
                     to="/orders"
                   >
@@ -1440,7 +1427,6 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                     </a>
                   </Link>
                   <Link
-                    href="/"
                     onClick={[MockFunction]}
                     replace={false}
                     to="/"
@@ -1460,7 +1446,6 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                         <UNDEFINED>
                           <Link
                             className="active"
-                            href="/"
                             replace={false}
                             to="/"
                           >
@@ -1468,14 +1453,12 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                           </Link>
                           <Link
                             className="false"
-                            href="/orders"
                             replace={false}
                             to="/orders"
                           >
                             Orders
                           </Link>
                           <Link
-                            href="/"
                             onClick={[MockFunction]}
                             replace={false}
                             to="/"
@@ -1545,7 +1528,6 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                         >
                           <Link
                             className="active"
-                            href="/"
                             replace={false}
                             to="/"
                           >
@@ -1559,7 +1541,6 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                           </Link>
                           <Link
                             className="false"
-                            href="/orders"
                             replace={false}
                             to="/orders"
                           >
@@ -1572,7 +1553,6 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                             </a>
                           </Link>
                           <Link
-                            href="/"
                             onClick={[MockFunction]}
                             replace={false}
                             to="/"
@@ -1628,6 +1608,14 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                     <div
                       className="search-form"
                     >
+                      <div
+                        className="search-btn"
+                      >
+                        <img
+                          alt=""
+                          src="/img/search.svg"
+                        />
+                      </div>
                       <label
                         className="hide"
                         htmlFor="search"
@@ -1643,14 +1631,6 @@ exports[`CustomerMenu renders message when shop is closed 1`] = `
                         type="text"
                         value=""
                       />
-                      <div
-                        className="search-btn"
-                      >
-                        <img
-                          alt=""
-                          src="/img/search.svg"
-                        />
-                      </div>
                     </div>
                   </div>
                 </SearchForm>

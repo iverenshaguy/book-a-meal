@@ -25,7 +25,7 @@ const CatererHeader = ({
       </div>
       <div className="page-title d-none-md">
         <h3>
-          <Link href="/" to="/">BOOK-A-MEAL</Link>
+          <Link to="/">BOOK-A-MEAL</Link>
         </h3>
       </div>
       <div className="page-title d-flex-md">

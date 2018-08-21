@@ -1,4 +1,4 @@
-import { TOGGLE_MODAL, TOGGLE_SIDENAV } from '../actions/actionTypes';
+import { TOGGLE_MODAL, TOGGLE_SIDENAV } from '../constants/actionTypes';
 
 const initialState = {
   modals: {

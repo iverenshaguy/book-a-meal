@@ -20,7 +20,7 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
     }
   >
     <div
-      className="main-wrapper dashboard"
+      className="main-wrapper dashboard orders"
     >
       <div
         className="order-history"
@@ -352,7 +352,6 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
                     >
                       <h3>
                         <Link
-                          href="/"
                           replace={false}
                           to="/"
                         >
@@ -576,7 +575,7 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
               id="has-modal"
             >
               <div
-                className="main-wrapper dashboard"
+                className="main-wrapper dashboard orders"
               >
                 <div
                   className="order-history"
@@ -671,7 +670,7 @@ exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
     }
   >
     <div
-      className="main-wrapper dashboard"
+      className="main-wrapper dashboard orders"
     >
       <div
         className="order-history"
@@ -896,7 +895,7 @@ exports[`Orders Caterer Orders renders message when not fetching and there are n
     }
   >
     <div
-      className="main-wrapper dashboard"
+      className="main-wrapper dashboard orders"
     >
       <div
         className="order-history"
@@ -939,7 +938,7 @@ exports[`Orders Customer Orders renders Preloader when fetching 1`] = `
     }
   >
     <div
-      className="main-wrapper null"
+      className="main-wrapper  orders"
     >
       <div
         className="order-history"
@@ -1256,7 +1255,6 @@ exports[`Orders Customer Orders renders connected component 1`] = `
                   >
                     <h3>
                       <Link
-                        href="/"
                         replace={false}
                         to="/"
                       >
@@ -1278,7 +1276,6 @@ exports[`Orders Customer Orders renders connected component 1`] = `
                     </h3>
                     <Link
                       className="false"
-                      href="/"
                       replace={false}
                       to="/"
                     >
@@ -1292,7 +1289,6 @@ exports[`Orders Customer Orders renders connected component 1`] = `
                     </Link>
                     <Link
                       className="active"
-                      href="/orders"
                       replace={false}
                       to="/orders"
                     >
@@ -1305,7 +1301,6 @@ exports[`Orders Customer Orders renders connected component 1`] = `
                       </a>
                     </Link>
                     <Link
-                      href="/"
                       onClick={[Function]}
                       replace={false}
                       to="/"
@@ -1325,7 +1320,6 @@ exports[`Orders Customer Orders renders connected component 1`] = `
                           <UNDEFINED>
                             <Link
                               className="false"
-                              href="/"
                               replace={false}
                               to="/"
                             >
@@ -1333,14 +1327,12 @@ exports[`Orders Customer Orders renders connected component 1`] = `
                             </Link>
                             <Link
                               className="active"
-                              href="/orders"
                               replace={false}
                               to="/orders"
                             >
                               Orders
                             </Link>
                             <Link
-                              href="/"
                               onClick={[Function]}
                               replace={false}
                               to="/"
@@ -1410,7 +1402,6 @@ exports[`Orders Customer Orders renders connected component 1`] = `
                           >
                             <Link
                               className="false"
-                              href="/"
                               replace={false}
                               to="/"
                             >
@@ -1424,7 +1415,6 @@ exports[`Orders Customer Orders renders connected component 1`] = `
                             </Link>
                             <Link
                               className="active"
-                              href="/orders"
                               replace={false}
                               to="/orders"
                             >
@@ -1437,7 +1427,6 @@ exports[`Orders Customer Orders renders connected component 1`] = `
                               </a>
                             </Link>
                             <Link
-                              href="/"
                               onClick={[Function]}
                               replace={false}
                               to="/"
@@ -1467,7 +1456,7 @@ exports[`Orders Customer Orders renders connected component 1`] = `
             id="has-modal"
           >
             <div
-              className="main-wrapper null"
+              className="main-wrapper  orders"
             >
               <div
                 className="order-history"
@@ -1558,7 +1547,7 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
     }
   >
     <div
-      className="main-wrapper null"
+      className="main-wrapper  orders"
     >
       <div
         className="order-history"
@@ -1788,7 +1777,7 @@ exports[`Orders Customer Orders renders message when not fetching and there are 
     }
   >
     <div
-      className="main-wrapper null"
+      className="main-wrapper  orders"
     >
       <div
         className="order-history"

@@ -2,8 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
-import { arrayToObject } from '../../src/utils';
-import { formHelpers } from '../../src/helpers';
+import { arrayToObject, formHelpers } from '../../src/helpers';
 import FormComponent from '../../src/components/shared/Form';
 import { newMeal, initialState } from './mockData';
 

@@ -13,6 +13,7 @@ import './Menu.scss';
  */
 const Menu = (props) => {
   const { user } = props;
+
   return (
     <Fragment>
       {user.role === 'caterer' &&

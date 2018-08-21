@@ -1,4 +1,4 @@
-import arrayToObject from '../../src/utils/arrayToObject';
+import arrayToObject from '../../src/helpers/arrayToObject';
 
 describe('Utils: arrayToObject', () => {
   test('creates new object from array', () => {

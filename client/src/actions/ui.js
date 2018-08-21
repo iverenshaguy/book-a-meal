@@ -1,4 +1,4 @@
-import { TOGGLE_MODAL, TOGGLE_SIDENAV } from './actionTypes';
+import { TOGGLE_MODAL, TOGGLE_SIDENAV } from '../constants/actionTypes';
 
 /**
  * @function toggleModal

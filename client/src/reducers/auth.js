@@ -10,7 +10,7 @@ import {
   EDIT_ORDER_SUCCESS,
   CLEAR_AUTH_ERROR,
   AUTHENTICATION_ERROR,
-} from '../actions/actionTypes';
+} from '../constants/actionTypes';
 
 const initialState = {
   isAuthenticated: !!localStorage.getItem('jwtToken'),

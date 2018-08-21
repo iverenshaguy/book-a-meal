@@ -1,5 +1,4 @@
-import { connect, } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import Meals from '../../../components/pages/Meals';
 import { fetchMeals } from '../../../actions/meals';
 import { logout } from '../../../actions/auth';
@@ -14,8 +13,4 @@ const mapStateToProps = state => ({
   metadata: state.meals.metadata
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  logout, fetchMeals, toggleModal
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Meals);
+export default connect(mapStateToProps, { logout, fetchMeals, toggleModal })(Meals);

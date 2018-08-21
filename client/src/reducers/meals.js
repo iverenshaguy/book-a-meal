@@ -3,7 +3,7 @@ import {
   ADD_MEAL_FAILURE, SET_MEAL_WORKING, UNSET_MEAL_WORKING, CLEAR_MEAL_ERROR,
   EDIT_MEAL_SUCCESS, EDIT_MEAL_FAILURE, DELETE_MEAL_SUCCESS, DELETE_MEAL_FAILURE,
   RECEIVE_MORE_MEALS_SUCCESS
-} from '../actions/actionTypes';
+} from '../constants/actionTypes';
 import getUpdatedItems from '../helpers/getUpdatedItems';
 
 const initialState = {

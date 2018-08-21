@@ -204,7 +204,7 @@ class OrderReview extends Component {
         {this.renderInputFields()}
       </div>
       <div className="control-btns">
-        <Link to="/" href="/">
+        <Link to="/">
           <button className="btn btn-sec" type="button">Back</button>
         </Link>
         <button className="btn btn-sec" type="submit" onClick={this.handleOrderDetailsSubmit}>Next</button>

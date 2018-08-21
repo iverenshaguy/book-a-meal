@@ -1,4 +1,4 @@
-import { RECEIVE_ORDER_SUCCESS, RECEIVE_ORDER_FAILURE } from '../actions/actionTypes';
+import { RECEIVE_ORDER_SUCCESS, RECEIVE_ORDER_FAILURE } from '../constants/actionTypes';
 
 const initialState = {
   item: null,

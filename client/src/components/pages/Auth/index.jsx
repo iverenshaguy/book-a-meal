@@ -50,12 +50,12 @@ class Auth extends Component {
     let btnText, para1, para2;
 
     const catererSignupLink =
-      <Link href="/signup?role=caterer" to="/signup?role=caterer">Signup as a Caterer</Link>;
+      <Link to="/signup?role=caterer">Signup as a Caterer</Link>;
     const customerSignupLink =
-      <Link href="/signup?role=customer" to="/signup?role=customer">Signup as a Customer</Link>;
+      <Link to="/signup?role=customer">Signup as a Customer</Link>;
     const signinLink = (
       <Fragment>
-        Already have an account? Sign in <Link href="/signin" to="/signin">here</Link>
+        Already have an account? <Link to="/signin">Sign In Here</Link>
       </Fragment>
     );
 
@@ -68,7 +68,7 @@ class Auth extends Component {
         break;
       default:
         btnText = 'SIGN IN';
-        para1 = <Fragment>{"Don't have an account, signup"} <Link href="/signup?role=customer" to="/signup?role=customer">here</Link></Fragment>;
+        para1 = <Fragment>{"Don't have an account?"} <Link to="/signup?role=customer">Signup Here</Link></Fragment>;
         para2 = catererSignupLink;
     }
 

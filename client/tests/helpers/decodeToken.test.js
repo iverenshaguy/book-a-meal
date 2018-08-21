@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import decodeToken from '../../src/utils/decodeToken';
+import decodeToken from '../../src/helpers/decodeToken';
 import { customerToken } from '../setup/mockData';
 
 // mock jwt decode method

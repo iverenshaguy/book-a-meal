@@ -52,7 +52,7 @@
     flex-direction: column;
     align-content: space-around;
   }
-  .main-wrapper {
+  .main-wrapper:not(.orders) {
     align-items: center;
     flex-direction: column;
     justify-content: center;

@@ -69,8 +69,8 @@ class MealCard extends Component {
               toggler={<Fragment>&hellip;</Fragment>}
               content={
                 <Fragment>
-                  <LinkBtn href="#add-edit-modal" id="edit-meal" clickHandler={() => toggleModal('editMeal')}>Edit</LinkBtn>
-                  <LinkBtn href="#add-edit-modal" id="delete-meal" clickHandler={() => toggleModal('deleteMeal')}>Delete</LinkBtn>
+                  <LinkBtn id="edit-meal" clickHandler={() => toggleModal('editMeal')}>Edit</LinkBtn>
+                  <LinkBtn id="delete-meal" clickHandler={() => toggleModal('deleteMeal')}>Delete</LinkBtn>
                 </Fragment>
               }
             />}

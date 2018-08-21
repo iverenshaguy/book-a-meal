@@ -17,7 +17,7 @@ const NotFound = () => (
         <div className="eyes"><span>.</span><span>.</span></div>
         <div className="sad" />
       </div>
-      <p>You Lost Your Way! <Link href="/" to="/">Go Back Home</Link></p>
+      <p>You Lost Your Way! <Link to="/">Go Back Home</Link></p>
     </div>
     <Footer />
   </div>

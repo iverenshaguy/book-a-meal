@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import { reducer as toastrReducer } from 'react-redux-toastr';
 import createHistory from 'history/createBrowserHistory';
-import { UNAUTHENTICATED } from '../actions/actionTypes';
+import { UNAUTHENTICATED } from '../constants/actionTypes';
 import singleOrder from './singleOrder';
 import uploadImage from './uploadImage';
 import isFetching from './isFetching';

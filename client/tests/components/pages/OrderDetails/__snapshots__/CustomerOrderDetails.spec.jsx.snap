@@ -20,7 +20,6 @@ exports[`OrderDetails renders Preloader when fetching 1`] = `
   <React.Fragment>
     <Link
       className="orders-back-link"
-      href="/orders"
       replace={false}
       to="/orders"
     >
@@ -30,16 +29,16 @@ exports[`OrderDetails renders Preloader when fetching 1`] = `
       <div
         className="order-confirmation order-details"
       >
-        <h2
+        <h3
           className="text-center"
         >
           Order #
           fb097bde-5959-45ff-8e21-51184fa70c25
-        </h2>
+        </h3>
         <p
           className="order-date text-center"
         >
-          70/01/01 12:00 am
+          Thursday, 1st January 1970 12:00 am
         </p>
         <hr />
         <React.Fragment>
@@ -286,7 +285,6 @@ exports[`OrderDetails renders connected component 1`] = `
                   >
                     <h3>
                       <Link
-                        href="/"
                         replace={false}
                         to="/"
                       >
@@ -308,7 +306,6 @@ exports[`OrderDetails renders connected component 1`] = `
                     </h3>
                     <Link
                       className="false"
-                      href="/"
                       replace={false}
                       to="/"
                     >
@@ -322,7 +319,6 @@ exports[`OrderDetails renders connected component 1`] = `
                     </Link>
                     <Link
                       className="active"
-                      href="/orders"
                       replace={false}
                       to="/orders"
                     >
@@ -335,7 +331,6 @@ exports[`OrderDetails renders connected component 1`] = `
                       </a>
                     </Link>
                     <Link
-                      href="/"
                       onClick={[Function]}
                       replace={false}
                       to="/"
@@ -355,7 +350,6 @@ exports[`OrderDetails renders connected component 1`] = `
                           <UNDEFINED>
                             <Link
                               className="false"
-                              href="/"
                               replace={false}
                               to="/"
                             >
@@ -363,14 +357,12 @@ exports[`OrderDetails renders connected component 1`] = `
                             </Link>
                             <Link
                               className="active"
-                              href="/orders"
                               replace={false}
                               to="/orders"
                             >
                               Orders
                             </Link>
                             <Link
-                              href="/"
                               onClick={[Function]}
                               replace={false}
                               to="/"
@@ -440,7 +432,6 @@ exports[`OrderDetails renders connected component 1`] = `
                           >
                             <Link
                               className="false"
-                              href="/"
                               replace={false}
                               to="/"
                             >
@@ -454,7 +445,6 @@ exports[`OrderDetails renders connected component 1`] = `
                             </Link>
                             <Link
                               className="active"
-                              href="/orders"
                               replace={false}
                               to="/orders"
                             >
@@ -467,7 +457,6 @@ exports[`OrderDetails renders connected component 1`] = `
                               </a>
                             </Link>
                             <Link
-                              href="/"
                               onClick={[Function]}
                               replace={false}
                               to="/"
@@ -498,7 +487,6 @@ exports[`OrderDetails renders connected component 1`] = `
           >
             <Link
               className="orders-back-link"
-              href="/orders"
               replace={false}
               to="/orders"
             >
@@ -513,16 +501,16 @@ exports[`OrderDetails renders connected component 1`] = `
             <div
               className="order-confirmation order-details"
             >
-              <h2
+              <h3
                 className="text-center"
               >
                 Order #
                 fb097bde-5959-45ff-8e21-51184fa60c25
-              </h2>
+              </h3>
               <p
                 className="order-date text-center"
               >
-                70/01/01 12:00 am
+                Thursday, 1st January 1970 12:00 am
               </p>
               <hr />
               <OrderSummary
@@ -771,7 +759,6 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
   <React.Fragment>
     <Link
       className="orders-back-link"
-      href="/orders"
       replace={false}
       to="/orders"
     >
@@ -781,16 +768,16 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
       <div
         className="order-confirmation order-details"
       >
-        <h2
+        <h3
           className="text-center"
         >
           Order #
           fb097bde-5959-45ff-8e21-51184fa70c25
-        </h2>
+        </h3>
         <p
           className="order-date text-center"
         >
-          70/01/01 12:00 am
+          Thursday, 1st January 1970 12:00 am
         </p>
         <hr />
         <React.Fragment>
@@ -994,7 +981,6 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                   >
                     <h3>
                       <Link
-                        href="/"
                         replace={false}
                         to="/"
                       >
@@ -1016,7 +1002,6 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                     </h3>
                     <Link
                       className="false"
-                      href="/"
                       replace={false}
                       to="/"
                     >
@@ -1030,7 +1015,6 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                     </Link>
                     <Link
                       className="active"
-                      href="/orders"
                       replace={false}
                       to="/orders"
                     >
@@ -1043,7 +1027,6 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                       </a>
                     </Link>
                     <Link
-                      href="/"
                       onClick={[Function]}
                       replace={false}
                       to="/"
@@ -1063,7 +1046,6 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                           <UNDEFINED>
                             <Link
                               className="false"
-                              href="/"
                               replace={false}
                               to="/"
                             >
@@ -1071,14 +1053,12 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                             </Link>
                             <Link
                               className="active"
-                              href="/orders"
                               replace={false}
                               to="/orders"
                             >
                               Orders
                             </Link>
                             <Link
-                              href="/"
                               onClick={[Function]}
                               replace={false}
                               to="/"
@@ -1148,7 +1128,6 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                           >
                             <Link
                               className="false"
-                              href="/"
                               replace={false}
                               to="/"
                             >
@@ -1162,7 +1141,6 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                             </Link>
                             <Link
                               className="active"
-                              href="/orders"
                               replace={false}
                               to="/orders"
                             >
@@ -1175,7 +1153,6 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                               </a>
                             </Link>
                             <Link
-                              href="/"
                               onClick={[Function]}
                               replace={false}
                               to="/"
@@ -1206,7 +1183,6 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
           >
             <Link
               className="orders-back-link"
-              href="/orders"
               replace={false}
               to="/orders"
             >

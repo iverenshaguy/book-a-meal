@@ -1,7 +1,7 @@
 import instance from '../config/axios';
-import errorHandler from '../utils/errorHandler';
+import errorHandler from '../helpers/errorHandler';
 import { setFetching, unsetFetching } from '../actions/isFetching';
-import { RECEIVE_ORDER_SUCCESS, RECEIVE_ORDER_FAILURE } from './actionTypes';
+import { RECEIVE_ORDER_SUCCESS, RECEIVE_ORDER_FAILURE } from '../constants/actionTypes';
 
 /**
  * @function fetchOrderSuccess

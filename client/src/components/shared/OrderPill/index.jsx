@@ -21,10 +21,10 @@ const OrderPill = ({ order, user }) => {
 
   return (
     <div className="order-history-pill admin-order-history-pill">
-      <Link href={`/orders/${order.id}`} to={`/orders/${order.id}`}>
+      <Link to={`/orders/${order.id}`}>
         <div className="order-history-header">
           <h3>{`#${order.id}`}</h3>
-          <h3>&nbsp;&nbsp;{moment(order.createdAt).format('YY/MM/DD hh:mm')}</h3>
+          <h3>&nbsp;&nbsp;{moment(order.createdAt).format('DD/MM/YY hh:mm')}</h3>
         </div>
         <hr />
         <div>

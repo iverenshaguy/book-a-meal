@@ -1,5 +1,4 @@
-import { connect, } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import MenuForm from '../../../components/shared/Form/MenuForm';
 import { fetchMeals } from '../../../actions/meals';
 import { fetchMenu, setCurrentDay, addMenu, editMenu, clearMenuError } from '../../../actions/menu';
@@ -18,8 +17,6 @@ const mapStateToProps = state => ({
   mealsMetadata: state.meals.metadata
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
+export default connect(mapStateToProps, {
   fetchMenu, fetchMeals, setCurrentDay, addMenu, editMenu, clearMenuError
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(MenuForm);
+})(MenuForm);

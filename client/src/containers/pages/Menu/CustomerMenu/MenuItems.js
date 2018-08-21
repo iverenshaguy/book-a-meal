@@ -1,4 +1,4 @@
-import { connect, } from 'react-redux';
+import { connect } from 'react-redux';
 import MenuItems from '../../../../components/pages/Menu/CustomerMenu/MenuItems';
 
 const mapStateToProps = state => ({

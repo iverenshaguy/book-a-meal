@@ -1,9 +1,9 @@
 import app from '../config/firebase';
-import { errorHandler } from '../utils';
+import { errorHandler } from '../helpers';
 import {
   SET_UPLOADING, UNSET_UPLOADING,
   CLEAR_UPLOAD_ERROR, UPLOAD_SUCCESS, UPLOAD_FAILURE
-} from './actionTypes';
+} from '../constants/actionTypes';
 
 /**
  * @function setUploading

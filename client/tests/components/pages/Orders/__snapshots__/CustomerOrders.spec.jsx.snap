@@ -102,7 +102,6 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                   >
                     <h3>
                       <Link
-                        href="/"
                         replace={false}
                         to="/"
                       >
@@ -124,7 +123,6 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                     </h3>
                     <Link
                       className="false"
-                      href="/"
                       replace={false}
                       to="/"
                     >
@@ -138,7 +136,6 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                     </Link>
                     <Link
                       className="false"
-                      href="/orders"
                       replace={false}
                       to="/orders"
                     >
@@ -151,7 +148,6 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                       </a>
                     </Link>
                     <Link
-                      href="/"
                       onClick={[Function]}
                       replace={false}
                       to="/"
@@ -171,7 +167,6 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                           <UNDEFINED>
                             <Link
                               className="false"
-                              href="/"
                               replace={false}
                               to="/"
                             >
@@ -179,14 +174,12 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                             </Link>
                             <Link
                               className="false"
-                              href="/orders"
                               replace={false}
                               to="/orders"
                             >
                               Orders
                             </Link>
                             <Link
-                              href="/"
                               onClick={[Function]}
                               replace={false}
                               to="/"
@@ -256,7 +249,6 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                           >
                             <Link
                               className="false"
-                              href="/"
                               replace={false}
                               to="/"
                             >
@@ -270,7 +262,6 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                             </Link>
                             <Link
                               className="false"
-                              href="/orders"
                               replace={false}
                               to="/orders"
                             >
@@ -283,7 +274,6 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                               </a>
                             </Link>
                             <Link
-                              href="/"
                               onClick={[Function]}
                               replace={false}
                               to="/"
@@ -429,7 +419,6 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                   className="control-btns"
                 >
                   <Link
-                    href="/"
                     replace={false}
                     to="/"
                   >
@@ -588,7 +577,6 @@ exports[`Customer Orders Order Review renders correctly 1`] = `
         className="control-btns"
       >
         <Link
-          href="/"
           replace={false}
           to="/"
         >

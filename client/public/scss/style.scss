@@ -244,24 +244,35 @@ hr {
   }
 }
 
-.main-wrapper {
+.main-wrapper:not(.orders) {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 70px;
+  // margin-top: 70px;
   flex-grow: 10;
 }
 
-// .delivery-details {
-//   padding-top: 30px;
-// }
+.main-wrapper.orders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 10;
+  margin-top: -10px;
+}
+
+.main-wrapper.dashboard.orders {
+  margin-top: 20px;
+}
+
+
 .auth,
 .order-confirmation,
 .order-confirmation.order-details {
-  border-radius: 0px;
+  border-radius: 0;
   padding: 10px 30px;
   width: 100%;
+  box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -270,7 +281,7 @@ hr {
 }
 
 .side-cart {
-  border-radius: 0px;
+  border-radius: 0;
 }
 
 .user {
@@ -412,6 +423,10 @@ hr {
   }
   .order-date {
     margin: 0;
+  }
+
+  h3 {
+    font-size: 1.15em;
   }
 }
 
@@ -567,7 +582,13 @@ hr {
 }
 
 .orders-back-link {
-  margin-top: 20px;
+  margin-top: 90px;
   font-size: 1.3em;
   font-family: $heading-font-stack;
+}
+
+.main-wrapper.caterer {
+  .orders-back-link {
+    margin-top: 10px;
+  }
 }

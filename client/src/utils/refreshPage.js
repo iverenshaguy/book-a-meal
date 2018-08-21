@@ -1,4 +1,4 @@
-import decodeToken from './decodeToken';
+import decodeToken from '../helpers/decodeToken';
 import { resetUser, authenticateUser } from '../actions/auth';
 
 /**
