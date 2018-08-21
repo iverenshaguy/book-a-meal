@@ -91,7 +91,7 @@ class OrderConfirmation extends Component {
             <OrderAmount meals={this.state.order.meals} />
             {this.renderCustomerDetails()}
             <br />
-            <Link to="/" href="/"><button className="btn btn-sec btn-block">Edit Order</button></Link>
+            <Link to="/"><button className="btn btn-sec btn-block">Edit Order</button></Link>
             <br /><br />
             <button className="btn btn-pri btn-block" id="checkout" onClick={this.handleSubmit}>Confirm Order</button>
           </div>

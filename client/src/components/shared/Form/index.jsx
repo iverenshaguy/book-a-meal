@@ -5,8 +5,7 @@ import CustomerSignupForm from './CustomerSignupForm';
 import CatererSignupForm from './CatererSignupForm';
 import MealForm from './MealForm';
 import MiniPreloader from '../Preloader/MiniPreloader';
-import { formHelpers, formErrorCount } from '../../../helpers';
-import { arrayToObject } from '../../../utils';
+import { formHelpers, formErrorCount, arrayToObject } from '../../../helpers';
 import { syncValidate, validateRequiredFields } from '../../../helpers/validations';
 import { mealObjPropTypes } from '../../../helpers/proptypes';
 

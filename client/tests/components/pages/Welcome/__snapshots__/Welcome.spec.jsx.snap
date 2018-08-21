@@ -55,7 +55,6 @@ exports[`Welcome renders correctly when unauthenticated 1`] = `
         Delicious Meals At Your Fingertips
       </h1>
       <Link
-        href="/signin"
         replace={false}
         to="/signin"
       >

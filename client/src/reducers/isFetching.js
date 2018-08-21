@@ -1,4 +1,4 @@
-import { SET_FETCHING, UNSET_FETCHING } from '../actions/actionTypes';
+import { SET_FETCHING, UNSET_FETCHING } from '../constants/actionTypes';
 
 /**
  * Fetching Reducer

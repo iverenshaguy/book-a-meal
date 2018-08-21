@@ -144,8 +144,8 @@ class CustomerOrderDetails extends Component {
     return (
       <Fragment>
         <div className="order-confirmation order-details">
-          <h2 className="text-center">Order #{order.id}</h2>
-          <p className="order-date text-center">{moment().format('YY/MM/DD h:mm a')}</p>
+          <h3 className="text-center">Order #{order.id}</h3>
+          <p className="order-date text-center">{moment().format('dddd[,] Do MMMM YYYY h:mm a')}</p>
           <hr />
           {this.renderDetails()}
         </div>
@@ -163,7 +163,7 @@ class CustomerOrderDetails extends Component {
     return (
       <View user={user} logout={logout} type="customerOrderDetails" isFetching={isFetching}>
         <Fragment>
-          <Link href="/orders" to="/orders" className="orders-back-link">&#8592; Back To Orders</Link>
+          <Link to="/orders" className="orders-back-link">&#8592; Back To Orders</Link>
           {!this.props.order && <p className="text-center info">This Order Does Not Exist</p>}
           {this.props.order && this.renderCustomerOrderDetails()}
         </Fragment>

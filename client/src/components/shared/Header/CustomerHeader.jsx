@@ -14,16 +14,16 @@ import Dropdown from '../Dropdown';
 const CustomerHeader = ({ logout, user, active }) => {
   const links = (
     <Fragment>
-      <Link href="/" to="/" className={`${active === 'menu' && 'active'}`}>Menu</Link>
-      <Link href="/orders" to="/orders" className={`${(active === 'orders' || active === 'customerOrderDetails') && 'active'}`}>Orders</Link>
-      <Link href="/" to="/" onClick={logout}>Logout</Link>
+      <Link to="/" className={`${active === 'menu' && 'active'}`}>Menu</Link>
+      <Link to="/orders" className={`${(active === 'orders' || active === 'customerOrderDetails') && 'active'}`}>Orders</Link>
+      <Link to="/" onClick={logout}>Logout</Link>
     </Fragment>);
 
   return (
     <Fragment>
       <div className="page-title">
         <h3>
-          <Link href="/" to="/">BOOK-A-MEAL</Link>
+          <Link to="/">BOOK-A-MEAL</Link>
         </h3>
       </div>
       <div className="navlinks">

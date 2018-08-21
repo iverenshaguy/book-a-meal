@@ -1,7 +1,7 @@
 import {
   SET_UPLOADING, UNSET_UPLOADING,
   UPLOAD_SUCCESS, UPLOAD_FAILURE, CLEAR_UPLOAD_ERROR
-} from '../actions/actionTypes';
+} from '../constants/actionTypes';
 
 const initialState = {
   uploading: false,

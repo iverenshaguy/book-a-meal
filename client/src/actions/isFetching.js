@@ -1,4 +1,4 @@
-import { SET_FETCHING, UNSET_FETCHING } from './actionTypes';
+import { SET_FETCHING, UNSET_FETCHING } from '../constants/actionTypes';
 
 /**
  * @function setFetching

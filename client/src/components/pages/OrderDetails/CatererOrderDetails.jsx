@@ -55,7 +55,7 @@ class CatererOrderDetails extends Component {
    */
   renderOrderMisc = order => (
     <div className="order-misc">
-      <p className="order-date">Order Date: {moment(order.createdAt).format('YY/MM/DD hh:mm')}</p>
+      <p className="order-date text-center">{moment(order.createdAt).format('dddd[,] Do MMMM YYYY h:mm a')}</p>
       <p>
         Status:&nbsp;
         {order.status === 'canceled' && <span className="danger">Canceled</span>}
@@ -95,8 +95,8 @@ class CatererOrderDetails extends Component {
     const { order } = this.props;
 
     return (
-      <div className="main-wrapper">
-        <Link href="/orders" to="/orders" className="orders-back-link">&#8592; Back To Orders</Link>
+      <div className="main-wrapper caterer">
+        <Link to="/orders" className="orders-back-link">&#8592; Back To Orders</Link>
         <div className="order-confirmation order-details">
           <h3 className="text-center" style={{ paddingTop: '1em' }}>Order #{order.id}</h3>
           {!this.props.delivering && this.renderDetails()}

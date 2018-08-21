@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { arrayToObject } from '../utils';
+import { arrayToObject } from '../helpers';
 import formHelpers from './formHelpers';
 
 const { formFields } = formHelpers;

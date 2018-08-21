@@ -40,10 +40,17 @@ class Cart extends Component {
    * @memberof Cart
    * @returns {JSX} Checkout Btn
    */
-  renderCheckoutBtn = () => (
-    <Link to="/order-review" href="/order-review">
-      <button className="btn btn-pri btn-block checkout-btn">Checkout</button>
-    </Link>);
+  renderCheckoutBtn = () => {
+    const { order } = this.props;
+    const disabled = order.length === 0 ? 'disabled' : null;
+
+    return (
+      <Link to="/order-review">
+        <button className="btn btn-pri btn-block checkout-btn" disabled={disabled}>
+          Checkout
+        </button>
+      </Link>);
+  }
 
   /**
    * @memberof Cart

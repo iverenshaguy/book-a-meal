@@ -4,7 +4,7 @@ import {
   ADD_ORDER_SUCCESS, ADD_ORDER_FAILURE, SET_ORDER_WORKING, UNSET_ORDER_WORKING,
   EDIT_ORDER_SUCCESS, EDIT_ORDER_FAILURE, CANCEL_ORDER_SUCCESS, CANCEL_ORDER_FAILURE,
   RECEIVE_MORE_ORDERS_SUCCESS
-} from '../actions/actionTypes';
+} from '../constants/actionTypes';
 import calculateCashEarnedFromOrder from '../helpers/calculateCashEarnedFromOrder';
 import getUpdatedItems from '../helpers/getUpdatedItems';
 

@@ -19,7 +19,6 @@ exports[`MealCard renders correctly when type is caterer 1`] = `
             className={null}
             clickHandler={[Function]}
             dataTip={null}
-            href="#add-edit-modal"
             id="edit-meal"
           >
             Edit
@@ -28,7 +27,6 @@ exports[`MealCard renders correctly when type is caterer 1`] = `
             className={null}
             clickHandler={[Function]}
             dataTip={null}
-            href="#add-edit-modal"
             id="delete-meal"
           >
             Delete

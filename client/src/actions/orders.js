@@ -1,7 +1,7 @@
 import { push } from 'react-router-redux';
 import { toastr } from 'react-redux-toastr';
 import instance from '../config/axios';
-import errorHandler from '../utils/errorHandler';
+import errorHandler from '../helpers/errorHandler';
 import { setFetching, unsetFetching } from '../actions/isFetching';
 import reloadOrderPage from '../utils/reloadOrderPage';
 import {
@@ -9,7 +9,7 @@ import {
   ADD_ORDER_SUCCESS, ADD_ORDER_FAILURE, SET_ORDER_WORKING, UNSET_ORDER_WORKING,
   EDIT_ORDER_SUCCESS, EDIT_ORDER_FAILURE, CANCEL_ORDER_SUCCESS, CANCEL_ORDER_FAILURE,
   RECEIVE_ORDERS_FAILURE, RECEIVE_ORDERS_SUCCESS, RECEIVE_MORE_ORDERS_SUCCESS
-} from './actionTypes';
+} from '../constants/actionTypes';
 
 /**
  * @function fetchOrdersSuccess

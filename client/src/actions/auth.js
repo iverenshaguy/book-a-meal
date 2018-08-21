@@ -1,5 +1,5 @@
 import instance from '../config/axios';
-import { errorHandler } from '../utils';
+import errorHandler from '../helpers/errorHandler';
 import authAPI from '../utils/api/authAPI';
 import {
   AUTHENTICATED,
@@ -11,7 +11,7 @@ import {
   SIGNIN_ERROR,
   SIGNUP_SUCCESS,
   SIGNUP_ERROR,
-} from './actionTypes';
+} from '../constants/actionTypes';
 
 /**
  * @function authenticating

@@ -32,6 +32,14 @@ exports[`SearchForm renders correctly when type is customer 1`] = `
       <div
         className="search-form"
       >
+        <div
+          className="search-btn"
+        >
+          <img
+            alt=""
+            src="/img/search.svg"
+          />
+        </div>
         <label
           className="hide"
           htmlFor="search"
@@ -47,14 +55,6 @@ exports[`SearchForm renders correctly when type is customer 1`] = `
           type="text"
           value=""
         />
-        <div
-          className="search-btn"
-        >
-          <img
-            alt=""
-            src="/img/search.svg"
-          />
-        </div>
       </div>
     </div>
   </React.Fragment>

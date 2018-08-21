@@ -1,5 +1,4 @@
-import { connect, } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import Dashboard from '../../../components/pages/Dashboard';
 import { fetchOrders, deliverOrder } from '../../../actions/orders';
 import { logout } from '../../../actions/auth';
@@ -11,8 +10,4 @@ const mapStateToProps = state => ({
   totalCashEarned: state.orders.totalCashEarned
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchOrders, deliverOrder, logout
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, { fetchOrders, deliverOrder, logout })(Dashboard);

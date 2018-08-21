@@ -1,5 +1,4 @@
-import { connect, } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import Orders from '../../../components/pages/Orders';
 import { fetchOrders, deliverOrder } from '../../../actions/orders';
 import { logout } from '../../../actions/auth';
@@ -10,8 +9,4 @@ const mapStateToProps = state => ({
   metadata: state.orders.metadata
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchOrders, deliverOrder, logout
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Orders);
+export default connect(mapStateToProps, { fetchOrders, deliverOrder, logout })(Orders);

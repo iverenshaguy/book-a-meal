@@ -188,13 +188,13 @@ input[type=number]::-webkit-outer-spin-button {
       
         input {
             width: 95%;
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
             border-color: white;
             box-shadow: none;
             border-width: 0;
             outline: none;
-            padding: 15px 20px;
+            padding: 15px 20px 15px 0;
             box-sizing: border-box;
             font-size: 1.2rem;
             font-family: $heading-font-stack;
@@ -216,8 +216,8 @@ input[type=number]::-webkit-outer-spin-button {
       
         .search-btn {
           background-color: white;
-          border-top-right-radius: 5px;
-          border-bottom-right-radius: 5px;
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
           display: flex;
           justify-content: center;
           align-items: center;

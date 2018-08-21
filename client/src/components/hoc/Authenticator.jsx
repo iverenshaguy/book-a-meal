@@ -1,16 +1,15 @@
 import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import Preloader from '../shared/Preloader';
 import { authPropTypes } from '../../helpers/proptypes';
 
 /**
- * @function AuthenticatedComponent
- * @return {Component} - MyComponent
+ * @function Authenticator
  * @param {object} props
+ * @return {JSX} - MyComponent|Preloader|Redirect
  */
-const AuthenticatedComponent = (props) => {
+const Authenticator = (props) => {
   const {
     MyComponent,
     authenticating,
@@ -32,21 +31,10 @@ const AuthenticatedComponent = (props) => {
   );
 };
 
-AuthenticatedComponent.propTypes = {
+Authenticator.propTypes = {
   ...authPropTypes,
   authenticating: PropTypes.bool.isRequired,
   MyComponent: PropTypes.func.isRequired
 };
 
-const requireAuthentication = (MyComponent) => {
-  const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated,
-    authenticating: state.auth.loading,
-    user: state.auth.user,
-    MyComponent
-  });
-
-  return connect(mapStateToProps)(AuthenticatedComponent);
-};
-
-export default requireAuthentication;
+export default Authenticator;

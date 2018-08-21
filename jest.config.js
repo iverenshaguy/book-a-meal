@@ -10,6 +10,7 @@ module.exports = {
     '<rootDir>/node_modules/',
     '<rootDir>/server/',
     '<rootDir>/client/src/index.jsx',
+    '<rootDir>/client/src/store/configureStore.js',
     '<rootDir>/client/config/',
     '<rootDir>/client/tests/'
   ],

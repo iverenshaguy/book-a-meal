@@ -29,7 +29,6 @@ exports[`Header renders correctly 1`] = `
       >
         <h3>
           <Link
-            href="/"
             replace={false}
             to="/"
           >
@@ -42,7 +41,6 @@ exports[`Header renders correctly 1`] = `
       >
         <Link
           className="link"
-          href="/signin"
           replace={false}
           to="/signin"
         >
@@ -50,7 +48,6 @@ exports[`Header renders correctly 1`] = `
         </Link>
         <Link
           className="link"
-          href="/signup"
           replace={false}
           to="/signup"
         >
@@ -75,7 +72,6 @@ exports[`Header renders unauthenticated header correctly 1`] = `
       >
         <h3>
           <Link
-            href="/"
             replace={false}
             to="/"
           >

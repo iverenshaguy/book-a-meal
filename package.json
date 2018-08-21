@@ -106,7 +106,7 @@
     "reduxsauce": "^1.0.0",
     "sass-loader": "^7.0.1",
     "sequelize": "^4.37.6",
-    "sequelize-cli": "^4.0.0",
+    "sequelize-cli": "4.0.0",
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "uuid": "^3.2.1",

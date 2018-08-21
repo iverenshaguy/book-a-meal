@@ -3,7 +3,7 @@ import {
   RECEIVE_MENU_SUCCESS, RECEIVE_MENU_FAILURE, SET_CURRENT_DAY, ADD_MENU_SUCCESS,
   ADD_MENU_FAILURE, SET_MENU_WORKING, UNSET_MENU_WORKING, CLEAR_MENU_ERROR,
   EDIT_MENU_SUCCESS, EDIT_MENU_FAILURE, RECEIVE_MORE_MENU_SUCCESS
-} from '../actions/actionTypes';
+} from '../constants/actionTypes';
 
 const initialState = {
   id: null,

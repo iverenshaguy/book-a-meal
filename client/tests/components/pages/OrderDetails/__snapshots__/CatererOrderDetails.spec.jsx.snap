@@ -20,11 +20,10 @@ exports[`CatererOrderDetails renders MiniPreloader when delivering 1`] = `
 >
   <React.Fragment>
     <div
-      className="main-wrapper"
+      className="main-wrapper caterer"
     >
       <Link
         className="orders-back-link"
-        href="/orders"
         replace={false}
         to="/orders"
       >
@@ -75,11 +74,10 @@ exports[`CatererOrderDetails renders Preloader when fetching 1`] = `
 >
   <React.Fragment>
     <div
-      className="main-wrapper"
+      className="main-wrapper caterer"
     >
       <Link
         className="orders-back-link"
-        href="/orders"
         replace={false}
         to="/orders"
       >
@@ -104,10 +102,9 @@ exports[`CatererOrderDetails renders Preloader when fetching 1`] = `
             className="order-misc"
           >
             <p
-              className="order-date"
+              className="order-date text-center"
             >
-              Order Date: 
-              18/04/06 12:47
+              Friday, 6th April 2018 12:47 am
             </p>
             <p>
               Status: 
@@ -338,7 +335,6 @@ exports[`CatererOrderDetails renders connected component 1`] = `
                     >
                       <h3>
                         <Link
-                          href="/"
                           replace={false}
                           to="/"
                         >
@@ -562,11 +558,10 @@ exports[`CatererOrderDetails renders connected component 1`] = `
               id="has-modal"
             >
               <div
-                className="main-wrapper"
+                className="main-wrapper caterer"
               >
                 <Link
                   className="orders-back-link"
-                  href="/orders"
                   replace={false}
                   to="/orders"
                 >
@@ -596,10 +591,9 @@ exports[`CatererOrderDetails renders connected component 1`] = `
                     className="order-misc"
                   >
                     <p
-                      className="order-date"
+                      className="order-date text-center"
                     >
-                      Order Date: 
-                      18/04/06 12:47
+                      Friday, 6th April 2018 12:47 am
                     </p>
                     <p>
                       Status: 
@@ -767,11 +761,10 @@ exports[`CatererOrderDetails renders correctly when not fetching 1`] = `
 >
   <React.Fragment>
     <div
-      className="main-wrapper"
+      className="main-wrapper caterer"
     >
       <Link
         className="orders-back-link"
-        href="/orders"
         replace={false}
         to="/orders"
       >
@@ -796,10 +789,9 @@ exports[`CatererOrderDetails renders correctly when not fetching 1`] = `
             className="order-misc"
           >
             <p
-              className="order-date"
+              className="order-date text-center"
             >
-              Order Date: 
-              18/04/06 12:47
+              Friday, 6th April 2018 12:47 am
             </p>
             <p>
               Status: 
@@ -1005,7 +997,6 @@ exports[`CatererOrderDetails renders message when not fetching and that order do
                     >
                       <h3>
                         <Link
-                          href="/"
                           replace={false}
                           to="/"
                         >

@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import { Redirect, MemoryRouter } from 'react-router-dom';
-import requireAuthentication from '../../../src/components/hoc/Authentication';
+import Authenticator from '../../../src/containers/hoc/Authenticator';
 import Preloader from '../../../src/components/shared/Preloader';
 import rootReducer from '../../../src/reducers/rootReducer';
 import { initialState } from '../../setup/mockData';
@@ -27,7 +27,7 @@ const setup = () => {
   const MockComponent = () => (<div>Hi</div>);
   MockComponent.displayName = 'MockComponent';
 
-  const HOCComponent = requireAuthentication(MockComponent);
+  const HOCComponent = Authenticator(MockComponent);
   const location = {
     pathname: '/login',
     state: { from: { pathname: '/' } }
@@ -75,7 +75,7 @@ const setup = () => {
   };
 };
 
-describe('HOC: requireAuthentication', () => {
+describe('HOC: Authenticator', () => {
   afterAll(() => {
     jest.clearAllMocks();
   });

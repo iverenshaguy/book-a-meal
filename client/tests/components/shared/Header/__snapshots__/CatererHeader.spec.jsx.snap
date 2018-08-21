@@ -22,7 +22,6 @@ exports[`CatererHeader renders correctly 1`] = `
   >
     <h3>
       <Link
-        href="/"
         replace={false}
         to="/"
       >

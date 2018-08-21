@@ -27,13 +27,13 @@ class Header extends Component {
       <Fragment>
         <div className="page-title">
           <h3>
-            <Link to="/" href="/">BOOK-A-MEAL</Link>
+            <Link to="/">BOOK-A-MEAL</Link>
           </h3>
         </div>
         {type === 'home' &&
           <div className="navlinks">
-            <Link href="/signin" to="/signin" className="link">Log In</Link>
-            <Link href="/signup" to="/signup" className="link">Sign Up</Link>
+            <Link to="/signin" className="link">Log In</Link>
+            <Link to="/signup" className="link">Sign Up</Link>
           </div>}
       </Fragment>
     );

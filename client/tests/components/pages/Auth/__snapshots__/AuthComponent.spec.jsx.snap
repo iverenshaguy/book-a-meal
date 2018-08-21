@@ -48,13 +48,12 @@ exports[`Auth renders caterer's signup form correctly 1`] = `
                 className="form-extra-info text-center"
               >
                 <UNDEFINED>
-                  Already have an account? Sign in 
+                  Already have an account? 
                   <Link
-                    href="/signin"
                     replace={false}
                     to="/signin"
                   >
-                    here
+                    Sign In Here
                   </Link>
                 </UNDEFINED>
               </p>
@@ -67,7 +66,6 @@ exports[`Auth renders caterer's signup form correctly 1`] = `
                 className="form-extra-info text-center"
               >
                 <Link
-                  href="/signup?role=customer"
                   replace={false}
                   to="/signup?role=customer"
                 >
@@ -154,7 +152,6 @@ exports[`Auth renders connected signin component correctly 1`] = `
             >
               <h3>
                 <Link
-                  href="/"
                   replace={false}
                   to="/"
                 >
@@ -208,14 +205,13 @@ exports[`Auth renders connected signin component correctly 1`] = `
                     className="form-extra-info text-center"
                   >
                     <UNDEFINED>
-                      Don't have an account, signup
+                      Don't have an account?
                        
                       <Link
-                        href="/signup?role=customer"
                         replace={false}
                         to="/signup?role=customer"
                       >
-                        here
+                        Signup Here
                       </Link>
                     </UNDEFINED>
                   </p>
@@ -228,7 +224,6 @@ exports[`Auth renders connected signin component correctly 1`] = `
                     className="form-extra-info text-center"
                   >
                     <Link
-                      href="/signup?role=caterer"
                       replace={false}
                       to="/signup?role=caterer"
                     >
@@ -265,14 +260,13 @@ exports[`Auth renders connected signin component correctly 1`] = `
                       className="form-extra-info text-center"
                     >
                       <UNDEFINED>
-                        Don't have an account, signup
+                        Don't have an account?
                          
                         <Link
-                          href="/signup?role=customer"
                           replace={false}
                           to="/signup?role=customer"
                         >
-                          here
+                          Signup Here
                         </Link>
                       </UNDEFINED>
                     </p>
@@ -285,7 +279,6 @@ exports[`Auth renders connected signin component correctly 1`] = `
                       className="form-extra-info text-center"
                     >
                       <Link
-                        href="/signup?role=caterer"
                         replace={false}
                         to="/signup?role=caterer"
                       >
@@ -437,10 +430,9 @@ exports[`Auth renders connected signin component correctly 1`] = `
                 <p
                   className="form-extra-info text-center"
                 >
-                  Don't have an account, signup
+                  Don't have an account?
                    
                   <Link
-                    href="/signup?role=customer"
                     replace={false}
                     to="/signup?role=customer"
                   >
@@ -448,7 +440,7 @@ exports[`Auth renders connected signin component correctly 1`] = `
                       href="/signup?role=customer"
                       onClick={[Function]}
                     >
-                      here
+                      Signup Here
                     </a>
                   </Link>
                 </p>
@@ -461,7 +453,6 @@ exports[`Auth renders connected signin component correctly 1`] = `
                   className="form-extra-info text-center"
                 >
                   <Link
-                    href="/signup?role=caterer"
                     replace={false}
                     to="/signup?role=caterer"
                   >
@@ -540,13 +531,12 @@ exports[`Auth renders customer's signup form correctly 1`] = `
                 className="form-extra-info text-center"
               >
                 <UNDEFINED>
-                  Already have an account? Sign in 
+                  Already have an account? 
                   <Link
-                    href="/signin"
                     replace={false}
                     to="/signin"
                   >
-                    here
+                    Sign In Here
                   </Link>
                 </UNDEFINED>
               </p>
@@ -559,7 +549,6 @@ exports[`Auth renders customer's signup form correctly 1`] = `
                 className="form-extra-info text-center"
               >
                 <Link
-                  href="/signup?role=caterer"
                   replace={false}
                   to="/signup?role=caterer"
                 >
@@ -626,14 +615,13 @@ exports[`Auth renders signin form correctly 1`] = `
                 className="form-extra-info text-center"
               >
                 <UNDEFINED>
-                  Don't have an account, signup
+                  Don't have an account?
                    
                   <Link
-                    href="/signup?role=customer"
                     replace={false}
                     to="/signup?role=customer"
                   >
-                    here
+                    Signup Here
                   </Link>
                 </UNDEFINED>
               </p>
@@ -646,7 +634,6 @@ exports[`Auth renders signin form correctly 1`] = `
                 className="form-extra-info text-center"
               >
                 <Link
-                  href="/signup?role=caterer"
                   replace={false}
                   to="/signup?role=caterer"
                 >

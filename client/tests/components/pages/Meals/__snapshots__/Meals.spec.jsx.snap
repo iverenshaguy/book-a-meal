@@ -271,7 +271,6 @@ exports[`Meals renders connected component 1`] = `
                     >
                       <h3>
                         <Link
-                          href="/"
                           replace={false}
                           to="/"
                         >
@@ -683,7 +682,6 @@ exports[`Meals renders connected component 1`] = `
                                             className={null}
                                             clickHandler={[Function]}
                                             dataTip={null}
-                                            href="#add-edit-modal"
                                             id="edit-meal"
                                           >
                                             Edit
@@ -692,7 +690,6 @@ exports[`Meals renders connected component 1`] = `
                                             className={null}
                                             clickHandler={[Function]}
                                             dataTip={null}
-                                            href="#add-edit-modal"
                                             id="delete-meal"
                                           >
                                             Delete
@@ -734,7 +731,6 @@ exports[`Meals renders connected component 1`] = `
                                             className={null}
                                             clickHandler={[Function]}
                                             dataTip={null}
-                                            href="#add-edit-modal"
                                             id="edit-meal"
                                           >
                                             <button
@@ -750,7 +746,6 @@ exports[`Meals renders connected component 1`] = `
                                             className={null}
                                             clickHandler={[Function]}
                                             dataTip={null}
-                                            href="#add-edit-modal"
                                             id="delete-meal"
                                           >
                                             <button
@@ -845,7 +840,6 @@ exports[`Meals renders connected component 1`] = `
                                             className={null}
                                             clickHandler={[Function]}
                                             dataTip={null}
-                                            href="#add-edit-modal"
                                             id="edit-meal"
                                           >
                                             Edit
@@ -854,7 +848,6 @@ exports[`Meals renders connected component 1`] = `
                                             className={null}
                                             clickHandler={[Function]}
                                             dataTip={null}
-                                            href="#add-edit-modal"
                                             id="delete-meal"
                                           >
                                             Delete
@@ -896,7 +889,6 @@ exports[`Meals renders connected component 1`] = `
                                             className={null}
                                             clickHandler={[Function]}
                                             dataTip={null}
-                                            href="#add-edit-modal"
                                             id="edit-meal"
                                           >
                                             <button
@@ -912,7 +904,6 @@ exports[`Meals renders connected component 1`] = `
                                             className={null}
                                             clickHandler={[Function]}
                                             dataTip={null}
-                                            href="#add-edit-modal"
                                             id="delete-meal"
                                           >
                                             <button
