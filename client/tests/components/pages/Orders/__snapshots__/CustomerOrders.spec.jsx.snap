@@ -328,7 +328,7 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                     handleChange={[Function]}
                     handleFocus={[Function]}
                     id="deliveryPhoneNo"
-                    label="Phone Number (in the formal 080xxxxxxxx)"
+                    label="Phone Number (in the format 080xxxxxxxx)"
                     meta={
                       Object {
                         "error": null,
@@ -348,7 +348,7 @@ exports[`Customer Orders Order Review renders connected component 1`] = `
                         htmlFor="deliveryPhoneNo"
                         onClick={[Function]}
                       >
-                        Phone Number (in the formal 080xxxxxxxx)
+                        Phone Number (in the format 080xxxxxxxx)
                         <span
                           className="danger"
                         >
@@ -540,7 +540,7 @@ exports[`Customer Orders Order Review renders correctly 1`] = `
             handleChange={[Function]}
             handleFocus={[Function]}
             id="deliveryPhoneNo"
-            label="Phone Number (in the formal 080xxxxxxxx)"
+            label="Phone Number (in the format 080xxxxxxxx)"
             meta={
               Object {
                 "error": null,

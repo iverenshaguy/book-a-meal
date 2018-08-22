@@ -13,7 +13,7 @@ const OrderSummary = ({ meals, status }) => (
     {meals.map(meal => (
       <div key={meal.id}>
         <p>{meal.quantity}x</p>
-        <p>{meal.title}</p>
+        <p style={{ wordWrap: 'break-word', paddingLeft: '5px', paddingRight: '5px' }}>{meal.title}</p>
         <p>&#8358;{meal.quantity * meal.price}</p>
         {Object.keys(meal).includes('caterer') && status !== 'canceled' &&
           <p style={{ marginLeft: '30px' }} className={meal.delivered ? 'success' : 'warning'}>{meal.delivered ? 'Delivered' : 'Pending'}</p>}
