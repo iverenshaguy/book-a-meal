@@ -10007,7 +10007,7 @@ send@0.16.2, send@~0:
     range-parser "~1.2.0"
     statuses "~1.4.0"
 
-sequelize-cli@^4.0.0:
+sequelize-cli@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/sequelize-cli/-/sequelize-cli-4.0.0.tgz#4d641dfb58b0370ab440f737e1b0bf737f15eca5"
   dependencies:

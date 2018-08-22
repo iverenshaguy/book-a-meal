@@ -1,5 +1,10 @@
 import nodemailer from 'nodemailer';
 import models from '../models';
+import newMenu from '../emailTemplates/newMenu';
+import newOrder from '../emailTemplates/newOrder';
+import orderDelivery from '../emailTemplates/orderDelivery';
+import passwordReset from '../emailTemplates/passwordReset';
+import passwordResetSuccess from '../emailTemplates/passwordResetSuccess';
 
 const url = process.env.BASE_URL;
 
@@ -52,20 +57,14 @@ class Mailer {
       .then((customers) => {
         customers.forEach((customer) => {
           const mealList = meals.map(meal => `<li>${meal}</li>`);
-          const message =
-            `<div>
-            <p style="text-transform: capitalize;">Hello ${customer.firstname},</p>
-            <p>${businessName} just added the following meal(s) to the menu for today</p>
-            <ul>
-            ${mealList.join('')}
-            </ul>
-            <p>You can order now at <a href='http://${url}/menu'>Book A Meal</a></p>
-            <p>Have a great day.</p>
-            </div>`;
+
+          const message = newMenu({
+            customer, mealList, businessName, url
+          });
 
           return Mailer.sendMail({
             to: customer.email,
-            subject: `${businessName}'s Menu for Today`,
+            subject: `Book-A-Meal: ${businessName}'s Menu for Today`,
             message
           });
         });
@@ -85,28 +84,18 @@ class Mailer {
     return models.User.findOne({ where: { userId: catererId }, attributes: ['userId', 'businessName', 'email'] })
       .then((caterer) => {
         const mealList = order.meals[catererId].map(meal =>
-          `<tr><td>${meal.title} (${meal.OrderItem.quantity})</td><td>&#8358;${meal.price}</td></tr>`);
+          `<tr><td>${meal.title}</td><td>${meal.OrderItem.quantity}</td><td>&#8358;${meal.price}</td></tr>`);
+
         const totalPrice = order.meals[catererId].reduce((total, meal) =>
           total + (meal.price * meal.OrderItem.quantity), 0);
-        const message =
-            `<div>
-            <p style="text-transform: capitalize;">Hello ${caterer.businessName},</p>
-            <p>${customer.firstname} ${customer.lastname} just ordered your meal(s).</p>
-            <p>Order Details: </p>
-            <table>
-            <tbody>
-              ${mealList.join('')}
-            </tbody>
-            <tfoot><tr><th></th><th>&#8358;${totalPrice}</th></tr></tfoot>
-            </table>
-            <p>See your <a href='http://${url}/orders/${order.orderId}'>order details</a></p>
-            <p>Remember that a happy customer keeps coming back.</p>
-            <p>Have a great day filling bellies.</p>
-            </div>`;
+
+        const message = newOrder({
+          caterer, customer, order, url, mealList, totalPrice
+        });
 
         return Mailer.sendMail({
           to: caterer.email,
-          subject: `Order #${order.orderId}`,
+          subject: `Book-A-Meal: Order #${order.orderId}`,
           message
         });
       });
@@ -124,31 +113,17 @@ class Mailer {
     return models.User.findOne({ where: { userId: order.userId } })
       .then((customer) => {
         const mealList = meals.map(meal =>
-          `<tr><td>${meal.title} (${meal.OrderItem.quantity})</td><td>&#8358;${meal.price}</td></tr>`);
+          `<tr><td>${meal.title}</td><td>${meal.OrderItem.quantity}</td><td>&#8358;${meal.price}</td></tr>`);
         const totalPrice = meals.reduce((total, meal) =>
           total + (meal.price * meal.OrderItem.quantity), 0);
 
-        const message =
-            `<div>
-            <p style="text-transform: capitalize;">Hello ${customer.firstname},</p>
-            <p>Your order was succesfully completed.</p>
-            <p>Order Details: </p>
-            <table>
-            <tbody>
-              ${mealList.join('')}
-            </tbody>
-            <tfoot><tr><th></th><th>&#8358;${totalPrice}</th></tr></tfoot>
-            </table>
-            <p>See your full order details <a href='http://${url}/orders/${order.orderId}'>here</a>.</p>
-            <br/>
-            <p>Thank you for your order.</p>
-            <br/>
-            <p>Have a great day.</p>
-            </div>`;
+        const message = orderDelivery({
+          customer, mealList, totalPrice, order
+        });
 
         return Mailer.sendMail({
           to: customer.email,
-          subject: `Order #${order.orderId}`,
+          subject: `Book-A-Meal: Order #${order.orderId}`,
           message
         });
       });
@@ -163,19 +138,11 @@ class Mailer {
    * @returns {void}
    */
   static forgotPasswordMail(token, emailAddress) {
-    const message =
-      `<div>
-      <p style="text-transform: capitalize;">Hi,</p>
-      <p>You recently requested to reset your password. If this wasn't you, please ignore this mail.</p>
-      <p>You can click on or copy this link: <a href='http://${url}/reset_password?token=${token}'>
-      http://${url}/reset_password?token=${token}</a> to reset your password</p>
-      <p>This link expires in 1 hour.</p>
-      <p>Have a great day.</p>
-      </div>`;
+    const message = passwordReset(url, token);
 
     return Mailer.sendMail({
       to: emailAddress,
-      subject: 'Reset Password',
+      subject: 'Book-A-Meal: Reset Password',
       message
     });
   }
@@ -188,16 +155,11 @@ class Mailer {
    * @returns {void}
    */
   static resetPasswordMail(emailAddress) {
-    const message =
-      `<div>
-      <p style="text-transform: capitalize;">Hi,</p>
-      <p>Your password was reset succesfully.</p>
-      <p><a href='http://${url}/signin'>Login</a> to your account.</p>
-      </div>`;
+    const message = passwordResetSuccess(url);
 
     return Mailer.sendMail({
       to: emailAddress,
-      subject: 'Password Reset Successful',
+      subject: 'Book-A-Meal: Password Reset Successful',
       message
     });
   }

@@ -643,7 +643,15 @@ exports[`CatererOrderDetails renders connected component 1`] = `
                           1
                           x
                         </p>
-                        <p>
+                        <p
+                          style={
+                            Object {
+                              "paddingLeft": "5px",
+                              "paddingRight": "5px",
+                              "wordWrap": "break-word",
+                            }
+                          }
+                        >
                           Vegetable Sharwama and Guava Smoothie
                         </p>
                         <p>
