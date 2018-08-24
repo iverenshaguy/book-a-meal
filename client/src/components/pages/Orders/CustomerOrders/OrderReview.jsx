@@ -200,14 +200,14 @@ class OrderReview extends Component {
       <h2>Delivery Details</h2>
       <hr />
       <div className="delivery-details">
-        <p className="text-center" style={{ marginBottom: '30px' }}>Please fill in your details below. This is only required once.</p>
+        <p className="text-center" style={{ marginBottom: '30px' }}>Please fill in or confirm your details below.</p>
         {this.renderInputFields()}
       </div>
       <div className="control-btns">
         <Link to="/">
-          <button className="btn btn-sec" type="button">Back</button>
+          <button className="btn btn-sec" type="button">Keep Shopping</button>
         </Link>
-        <button className="btn btn-sec" type="submit" onClick={this.handleOrderDetailsSubmit}>Next</button>
+        <button className="btn btn-sec" type="submit" onClick={this.handleOrderDetailsSubmit}>Continue</button>
       </div>
     </div>
   );

@@ -108,10 +108,10 @@ class CustomerOrderDetails extends Component {
       <br />
       <div className="d-flex-row control-btns">
         <a onClick={this.editOrder} href="/">
-          <button className="btn btn-sec order-details-btn">Edit</button>
+          <button className="btn btn-sec order-details-btn">Update Basket</button>
         </a>
         <a onClick={this.cancelOrder} href="./user-menu.html">
-          <button className="btn btn-sec-danger order-details-btn">Cancel</button>
+          <button className="btn btn-sec-danger order-details-btn">Cancel Order</button>
         </a>
       </div>
     </Fragment>

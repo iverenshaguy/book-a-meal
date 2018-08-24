@@ -81,7 +81,7 @@ class OrderConfirmation extends Component {
 
     return (
       <View user={user} logout={logout} type="orderConfirm" isFetching={isFetching}>
-        <div className="order-confirmation">
+        <div className="order-confirmation" style={{ marginTop: '120px' }}>
           <div>
             <p className="text-center" style={{ marginTop: '30px', marginBottom: '0' }}>{msg}</p>
             <br />
@@ -91,7 +91,7 @@ class OrderConfirmation extends Component {
             <OrderAmount meals={this.state.order.meals} />
             {this.renderCustomerDetails()}
             <br />
-            <Link to="/"><button className="btn btn-sec btn-block">Edit Order</button></Link>
+            <Link to="/"><button className="btn btn-sec btn-block">Keep Shopping</button></Link>
             <br /><br />
             <button className="btn btn-pri btn-block" id="checkout" onClick={this.handleSubmit}>Confirm Order</button>
           </div>

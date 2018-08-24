@@ -11,6 +11,7 @@
   "scripts": {
     "start": "node ./server/dist/app.js",
     "start:dev": "cross-env NODE_ENV=development npm-run-all --parallel start:server:dev start:client:dev",
+    "start:test": "cross-env NODE_ENV=test babel-node -- ./server/src/app.js",
     "start:server:dev": "nodemon --exec babel-node -- ./server/src/app.js",
     "start:client:dev": "webpack --config webpack.dev.js",
     "build": "npm-run-all build:server build:client",
@@ -18,6 +19,7 @@
     "build:client": "webpack --config webpack.prod.js ",
     "heroku-postbuild": "npm run build",
     "pretest:server": "npm-run-all lint migrate:test seed:test",
+    "pretest:e2e": "npm run pretest:server",
     "lint": "eslint **/*.js --fix",
     "migrate": "sequelize db:migrate:undo:all && sequelize db:migrate",
     "migrate:test": "sequelize db:migrate:undo:all --env=test && sequelize db:migrate --env=test",
@@ -29,7 +31,9 @@
     "test:server:watch": "npm run test:server --watch",
     "test:client": "cross-env SECRET=mytestsecret jest --env=jsdom --coverage",
     "test:client:watch": "jest --env=jsdom --watch",
-    "merge:lcov": "cat ./coverage/lcov.*.info > ./coverage/lcov.info"
+    "merge:lcov": "cat ./coverage/lcov.*.info > ./coverage/lcov.info",
+    "e2e:setup": "selenium-standalone install --config=./selenium.config.js",
+    "test:e2e": "cross-env NODE_ENV=test nightwatch"
   },
   "dependencies": {
     "@firebase/app-types": "0.x",
