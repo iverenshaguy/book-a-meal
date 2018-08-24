@@ -12,6 +12,7 @@ module.exports = {
     '<rootDir>/client/src/index.jsx',
     '<rootDir>/client/src/store/configureStore.js',
     '<rootDir>/client/config/',
+    '<rootDir>/client/e2e-tests/',
     '<rootDir>/client/tests/'
   ],
   moduleNameMapper: {

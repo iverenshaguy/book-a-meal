@@ -1,5 +1,5 @@
 {
-  "src_folders": ["./client/src/e2e-tests"],
+  "src_folders": ["./client/e2e-tests"],
   "output_folder": "./client/reports",
   "custom_commands_path": "",
   "custom_assertions_path": "",
@@ -8,17 +8,13 @@
 
   "selenium": {
     "start_process": true,
-    "server_path": "./client/bin/.selenium/selenium-server/3.7.1-server.jar",
+    "server_path": "./client/bin/.selenium/selenium-server/3.9.1-server.jar",
     "log_path": "./client/reports",
     "host": "127.0.0.1",
     "marionette": false,
     "port": 4444,
     "cli_args": {
-      "webdriver.chrome.driver":
-        "./client/bin/.selenium/chromedriver/chromedriver",
-      "webdriver.ie.driver": "",
-      "webdriver.gecko.driver": "",
-      "webdriver.edge.driver": ""
+      "webdriver.chrome.driver": "./client/bin/.selenium/chromedriver/2.41-x64-chromedriver"
     }
   },
 
@@ -43,12 +39,6 @@
     "chrome": {
       "desiredCapabilities": {
         "browserName": "chrome"
-      }
-    },
-
-    "edge": {
-      "desiredCapabilities": {
-        "browserName": "MicrosoftEdge"
       }
     }
   }

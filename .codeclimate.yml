@@ -10,6 +10,7 @@ exclude_paths:
 - "server/docs"
 - "server/tests"
 - "client/tests"
+- "client/e2e-tests"
 - "client/src/**/*.spec.jsx"
 - "client/src/**/*.test.js"
 - ".nyc_output/"
