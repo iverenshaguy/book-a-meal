@@ -1,200 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dashboard renders Preloader when fetching 1`] = `
-<View
-  isFetching={true}
-  logout={[MockFunction]}
-  showTime={true}
-  type="dashboard"
-  updateCurrentDate={null}
-  user={
-    Object {
-      "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-      "businessName": "Food Circle",
-      "email": "food@circle.com",
-      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-      "phoneNo": "08166557788",
-      "role": "caterer",
-    }
-  }
->
-  <React.Fragment>
-    <div
-      className="date d-none-md"
-    >
-      <h2>
-        Thursday, 1st January 1970
-            
-        00:00
-      </h2>
-    </div>
-    <div
-      className="card-group summary"
-    >
-      <div
-        className="card total-sum"
-      >
-        <div
-          className="count"
-        >
-          4
-        </div>
-        <div>
-          Today's Orders
-        </div>
-      </div>
-      <div
-        className="card pending"
-      >
-        <div
-          className="count"
-        >
-          0
-        </div>
-        <div>
-          Pending Orders
-        </div>
-      </div>
-      <div
-        className="card total-cash"
-      >
-        <div
-          className="count"
-        >
-          ₦ 
-          9200
-        </div>
-        <div>
-          Today's Revenue
-        </div>
-      </div>
-    </div>
-    <div
-      className="order-details"
-    >
-      <OrderHistoryTable
-        deliverOrder={[MockFunction]}
-        orders={
-          Array [
-            Object {
-              "createdAt": "2018-04-06T00:47:03.687Z",
-              "customer": Object {
-                "email": "emiola@olasanmi.com",
-                "firstname": "Emiola",
-                "lastname": "Olasanmi",
-              },
-              "deliveryAddress": "4, Church Street, Yaba",
-              "deliveryPhoneNo": "080xxxxxxxx",
-              "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
-              "meals": Array [
-                Object {
-                  "delivered": true,
-                  "description": "Sharwama contains no animal products, perfect for dieters",
-                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                  "price": "1200.00",
-                  "quantity": 1,
-                  "title": "Vegetable Sharwama and Guava Smoothie",
-                  "vegetarian": true,
-                },
-              ],
-              "status": "delivered",
-              "updatedAt": "2018-04-06T00:47:03.687Z",
-            },
-            Object {
-              "createdAt": "2018-05-01T00:47:03.687Z",
-              "customer": Object {
-                "email": "olisa@emodi.com",
-                "firstname": "Olisa",
-                "lastname": "Emodi",
-              },
-              "deliveryAddress": "4, Church Street, Yaba",
-              "deliveryPhoneNo": "080xxxxxxxx",
-              "id": "ce228787-f939-40a0-bfd3-6607ca8d2e53",
-              "meals": Array [
-                Object {
-                  "delivered": true,
-                  "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
-                  "id": "baa0412a-d167-4d2b-b1d8-404cb8f02631",
-                  "imageUrl": "https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg",
-                  "price": "2000.00",
-                  "quantity": 2,
-                  "title": "Semo/Wheat and Egusi Soup",
-                  "vegetarian": false,
-                },
-                Object {
-                  "delivered": true,
-                  "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
-                  "id": "a3c35e8f-da7a-4113-aa01-a9c0fc088539",
-                  "imageUrl": "http://www.kalakutahgrills.com/wp-content/uploads/2017/02/my-pics-group-3-007.jpg",
-                  "price": "2000.00",
-                  "quantity": 2,
-                  "title": "Eba and Ogbono Soup",
-                  "vegetarian": false,
-                },
-              ],
-              "status": "delivered",
-              "updatedAt": "2018-05-01T00:47:03.687Z",
-            },
-            Object {
-              "createdAt": "2018-05-29T00:47:03.687Z",
-              "customer": Object {
-                "email": "emiola@olasanmi.com",
-                "firstname": "Emiola",
-                "lastname": "Olasanmi",
-              },
-              "deliveryAddress": "4, Church Street, Yaba",
-              "deliveryPhoneNo": "080xxxxxxxx",
-              "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
-              "meals": Array [
-                Object {
-                  "delivered": false,
-                  "description": "Sharwama contains no animal products, perfect for dieters",
-                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                  "price": "1200.00",
-                  "quantity": 1,
-                  "title": "Vegetable Sharwama and Guava Smoothie",
-                  "vegetarian": true,
-                },
-              ],
-              "status": "pending",
-              "updatedAt": "2018-05-29T00:47:03.687Z",
-            },
-            Object {
-              "createdAt": "2018-05-27T00:47:03.687Z",
-              "customer": Object {
-                "email": "emiola@olasanmi.com",
-                "firstname": "Emiola",
-                "lastname": "Olasanmi",
-              },
-              "deliveryAddress": "4, Church Street, Yaba",
-              "deliveryPhoneNo": "080xxxxxxxx",
-              "id": "fb097bde-5959-45ff-8e21-51184fa60c35",
-              "meals": Array [
-                Object {
-                  "delivered": false,
-                  "description": "Sharwama contains no animal products, perfect for dieters",
-                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                  "price": "1200.00",
-                  "quantity": 1,
-                  "title": "Vegetable Sharwama and Guava Smoothie",
-                  "vegetarian": true,
-                },
-              ],
-              "status": "canceled",
-              "updatedAt": "2018-05-27T00:47:03.687Z",
-            },
-          ]
-        }
-      />
-    </div>
-  </React.Fragment>
-</View>
-`;
-
-exports[`Dashboard renders connected component 1`] = `
+exports[`Dashboard renders connected component correctly 1`] = `
 <Provider
   store={
     Object {
@@ -209,7 +15,6 @@ exports[`Dashboard renders connected component 1`] = `
 >
   <Connect(Dashboard)
     dispatch={[MockFunction]}
-    isFetching={false}
     orders={
       Array [
         Object {
@@ -326,230 +131,107 @@ exports[`Dashboard renders connected component 1`] = `
     }
     pendingOrders={0}
     totalCashEarned={9200}
-    user={
-      Object {
-        "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-        "businessName": "Food Circle",
-        "email": "food@circle.com",
-        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-        "phoneNo": "08166557788",
-        "role": "caterer",
-      }
-    }
   >
     <Dashboard
       deliverOrder={[Function]}
       dispatch={[MockFunction]}
       fetchOrders={[Function]}
-      isFetching={false}
-      logout={[Function]}
       orders={Array []}
       pendingOrders={0}
       totalCashEarned={0}
-      user={
-        Object {
-          "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-          "businessName": "Food Circle",
-          "email": "food@circle.com",
-          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-          "phoneNo": "08166557788",
-          "role": "caterer",
-        }
-      }
     >
-      <View
-        isFetching={false}
-        logout={[Function]}
+      <Connect(View)
         showTime={true}
         type="dashboard"
-        updateCurrentDate={null}
-        user={
-          Object {
-            "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-            "businessName": "Food Circle",
-            "email": "food@circle.com",
-            "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-            "phoneNo": "08166557788",
-            "role": "caterer",
-          }
-        }
       >
-        <div
-          className="admin"
-        >
-          <Header
-            active="dashboard"
-            dateType="dashboard"
-            logout={[Function]}
-            showTime={true}
-            type="caterer"
-            updateCurrentDate={null}
-            user={
-              Object {
-                "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-                "businessName": "Food Circle",
-                "email": "food@circle.com",
-                "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                "phoneNo": "08166557788",
-                "role": "caterer",
-              }
+        <View
+          isFetching={false}
+          logout={[Function]}
+          showTime={true}
+          type="dashboard"
+          updateCurrentDate={null}
+          uploading={false}
+          user={
+            Object {
+              "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+              "businessName": "Food Circle",
+              "email": "food@circle.com",
+              "firstname": "Dave",
+              "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+              "lastname": "Smith",
+              "phoneNo": "08166557788",
+              "role": "caterer",
             }
-          >
-            <div
-              className="header"
-            >
-              <div
-                className="navbar"
-              >
-                <Connect(CatererHeader)
-                  dateType="dashboard"
-                  showTime={true}
-                  updateCurrentDate={null}
-                >
-                  <CatererHeader
-                    currentDay="1970-01-01"
-                    dateType="dashboard"
-                    showTime={true}
-                    toggleSideNav={[Function]}
-                    updateCurrentDate={null}
-                  >
-                    <div
-                      className="menu-control d-none-md"
-                    >
-                      <Link
-                        className="d-none-md"
-                        clickHandler={[Function]}
-                        dataTip={null}
-                        id={null}
-                      >
-                        <button
-                          className="link-btn d-none-md"
-                          data-tip={null}
-                          id={null}
-                          onClick={[Function]}
-                        >
-                          <img
-                            alt="toggler"
-                            src="/img/toggler.png"
-                          />
-                        </button>
-                      </Link>
-                    </div>
-                    <div
-                      className="page-title d-none-md"
-                    >
-                      <h3>
-                        <Link
-                          replace={false}
-                          to="/"
-                        >
-                          <a
-                            href="/"
-                            onClick={[Function]}
-                          >
-                            BOOK-A-MEAL
-                          </a>
-                        </Link>
-                      </h3>
-                    </div>
-                    <div
-                      className="page-title d-flex-md"
-                    >
-                      <div
-                        className="date"
-                      >
-                        <h2>
-                          Thursday, 1st January 1970
-                          <span>
-                               
-                            00:00
-                          </span>
-                        </h2>
-                      </div>
-                    </div>
-                  </CatererHeader>
-                </Connect(CatererHeader)>
-              </div>
-            </div>
-          </Header>
+          }
+        >
           <div
-            className="content"
+            className="admin"
           >
-            <Connect(SideNav)
+            <Header
               active="dashboard"
+              dateType="dashboard"
               logout={[Function]}
+              showTime={true}
+              type="caterer"
+              updateCurrentDate={null}
               user={
                 Object {
                   "address": "$, Herbert Macaulay Way, Yaba, Lagos",
                   "businessName": "Food Circle",
                   "email": "food@circle.com",
+                  "firstname": "Dave",
                   "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                  "lastname": "Smith",
                   "phoneNo": "08166557788",
                   "role": "caterer",
                 }
               }
             >
-              <SideNav
-                active="dashboard"
-                logout={[Function]}
-                open={false}
-                push={[Function]}
-                toggleSideNav={[Function]}
-                user={
-                  Object {
-                    "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-                    "businessName": "Food Circle",
-                    "email": "food@circle.com",
-                    "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                    "phoneNo": "08166557788",
-                    "role": "caterer",
-                  }
-                }
+              <div
+                className="header"
               >
                 <div
-                  className="sidenav null"
-                  id="sidenav"
+                  className="navbar"
                 >
-                  <div
-                    className="sidenav-content"
+                  <Connect(CatererHeader)
+                    dateType="dashboard"
+                    showTime={true}
+                    updateCurrentDate={null}
                   >
-                    <div
-                      className="sidenav-header"
+                    <CatererHeader
+                      currentDay="1970-01-01"
+                      dateType="dashboard"
+                      showTime={true}
+                      toggleSideNav={[Function]}
+                      updateCurrentDate={null}
                     >
-                      <CloseIcon
-                        btnID={null}
-                        clickHandler={[Function]}
-                        divClass="d-none-md"
-                      >
-                        <div
-                          className="close d-none-md"
-                        >
-                          <Link
-                            aria-hidden="true"
-                            className={null}
-                            clickHandler={[Function]}
-                            dataTip={null}
-                            id={null}
-                          >
-                            <button
-                              className="link-btn null"
-                              data-tip={null}
-                              id={null}
-                              onClick={[Function]}
-                            >
-                              ×
-                            </button>
-                          </Link>
-                        </div>
-                      </CloseIcon>
                       <div
-                        className="sidenav-title"
+                        className="menu-control d-none-md"
                       >
-                        <h3
-                          className="d-flex-md"
+                        <Link
+                          className="d-none-md"
+                          clickHandler={[Function]}
+                          dataTip={null}
+                          id={null}
                         >
+                          <button
+                            className="link-btn d-none-md"
+                            data-tip={null}
+                            id={null}
+                            onClick={[Function]}
+                          >
+                            <img
+                              alt="toggler"
+                              src="/img/toggler.png"
+                            />
+                          </button>
+                        </Link>
+                      </div>
+                      <div
+                        className="page-title d-none-md"
+                      >
+                        <h3>
                           <Link
-                            href="/"
                             replace={false}
                             to="/"
                           >
@@ -561,267 +243,375 @@ exports[`Dashboard renders connected component 1`] = `
                             </a>
                           </Link>
                         </h3>
+                      </div>
+                      <div
+                        className="page-title d-flex-md"
+                      >
                         <div
-                          className="username-circle"
+                          className="date"
                         >
-                          <p>
-                            F
-                          </p>
+                          <h2>
+                            Thursday, 1st January 1970
+                            <span>
+                                 
+                              00:00
+                            </span>
+                          </h2>
                         </div>
-                        <p>
-                          Food Circle
-                        </p>
-                        <span>
-                          <Link
-                            className={null}
-                            clickHandler={[Function]}
-                            dataTip={null}
-                            id={null}
+                      </div>
+                    </CatererHeader>
+                  </Connect(CatererHeader)>
+                </div>
+              </div>
+            </Header>
+            <div
+              className="content"
+            >
+              <Connect(SideNav)
+                active="dashboard"
+                logout={[Function]}
+                user={
+                  Object {
+                    "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+                    "businessName": "Food Circle",
+                    "email": "food@circle.com",
+                    "firstname": "Dave",
+                    "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                    "lastname": "Smith",
+                    "phoneNo": "08166557788",
+                    "role": "caterer",
+                  }
+                }
+              >
+                <SideNav
+                  active="dashboard"
+                  logout={[Function]}
+                  open={false}
+                  push={[Function]}
+                  toggleSideNav={[Function]}
+                  user={
+                    Object {
+                      "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+                      "businessName": "Food Circle",
+                      "email": "food@circle.com",
+                      "firstname": "Dave",
+                      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                      "lastname": "Smith",
+                      "phoneNo": "08166557788",
+                      "role": "caterer",
+                    }
+                  }
+                >
+                  <div
+                    className="sidenav null"
+                    id="sidenav"
+                  >
+                    <div
+                      className="sidenav-content"
+                    >
+                      <div
+                        className="sidenav-header"
+                      >
+                        <CloseIcon
+                          btnID={null}
+                          clickHandler={[Function]}
+                          divClass="d-none-md"
+                        >
+                          <div
+                            className="close d-none-md"
                           >
-                            <button
-                              className="link-btn null"
-                              data-tip={null}
+                            <Link
+                              aria-hidden="true"
+                              className={null}
+                              clickHandler={[Function]}
+                              dataTip={null}
                               id={null}
-                              onClick={[Function]}
                             >
-                              Logout
-                            </button>
-                          </Link>
-                        </span>
+                              <button
+                                className="link-btn null"
+                                data-tip={null}
+                                id={null}
+                                onClick={[Function]}
+                              >
+                                ×
+                              </button>
+                            </Link>
+                          </div>
+                        </CloseIcon>
+                        <div
+                          className="sidenav-title"
+                        >
+                          <h3
+                            className="d-flex-md"
+                          >
+                            <Link
+                              href="/"
+                              replace={false}
+                              to="/"
+                            >
+                              <a
+                                href="/"
+                                onClick={[Function]}
+                              >
+                                BOOK-A-MEAL
+                              </a>
+                            </Link>
+                          </h3>
+                          <div
+                            className="username-circle"
+                          >
+                            <p>
+                              F
+                            </p>
+                          </div>
+                          <p>
+                            Food Circle
+                          </p>
+                          <span>
+                            <Link
+                              className={null}
+                              clickHandler={[Function]}
+                              dataTip={null}
+                              id={null}
+                            >
+                              <button
+                                className="link-btn null"
+                                data-tip={null}
+                                id={null}
+                                onClick={[Function]}
+                              >
+                                Logout
+                              </button>
+                            </Link>
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        className="sidenav-body"
+                      >
+                        <Link
+                          className="menu-item active"
+                          clickHandler={[Function]}
+                          dataTip={null}
+                          id={null}
+                        >
+                          <button
+                            className="link-btn menu-item active"
+                            data-tip={null}
+                            id={null}
+                            onClick={[Function]}
+                          >
+                            Dashboard
+                          </button>
+                        </Link>
+                        <Link
+                          className="menu-item false"
+                          clickHandler={[Function]}
+                          dataTip={null}
+                          id={null}
+                        >
+                          <button
+                            className="link-btn menu-item false"
+                            data-tip={null}
+                            id={null}
+                            onClick={[Function]}
+                          >
+                            Meals
+                          </button>
+                        </Link>
+                        <Link
+                          className="menu-item false"
+                          clickHandler={[Function]}
+                          dataTip={null}
+                          id={null}
+                        >
+                          <button
+                            className="link-btn menu-item false"
+                            data-tip={null}
+                            id={null}
+                            onClick={[Function]}
+                          >
+                            Menu
+                          </button>
+                        </Link>
+                        <Link
+                          className="menu-item false"
+                          clickHandler={[Function]}
+                          dataTip={null}
+                          id={null}
+                        >
+                          <button
+                            className="link-btn menu-item false"
+                            data-tip={null}
+                            id={null}
+                            onClick={[Function]}
+                          >
+                            Orders
+                          </button>
+                        </Link>
                       </div>
                     </div>
+                  </div>
+                </SideNav>
+              </Connect(SideNav)>
+              <div
+                className="content-wrapper dashboard"
+                id="has-modal"
+              >
+                <div
+                  className="date d-none-md"
+                >
+                  <h2>
+                    Thursday, 1st January 1970
+                        
+                    00:00
+                  </h2>
+                </div>
+                <div
+                  className="card-group summary"
+                >
+                  <div
+                    className="card total-sum"
+                  >
                     <div
-                      className="sidenav-body"
+                      className="count"
                     >
-                      <Link
-                        className="menu-item active"
-                        clickHandler={[Function]}
-                        dataTip={null}
-                        id={null}
-                      >
-                        <button
-                          className="link-btn menu-item active"
-                          data-tip={null}
-                          id={null}
-                          onClick={[Function]}
-                        >
-                          Dashboard
-                        </button>
-                      </Link>
-                      <Link
-                        className="menu-item false"
-                        clickHandler={[Function]}
-                        dataTip={null}
-                        id={null}
-                      >
-                        <button
-                          className="link-btn menu-item false"
-                          data-tip={null}
-                          id={null}
-                          onClick={[Function]}
-                        >
-                          Meals
-                        </button>
-                      </Link>
-                      <Link
-                        className="menu-item false"
-                        clickHandler={[Function]}
-                        dataTip={null}
-                        id={null}
-                      >
-                        <button
-                          className="link-btn menu-item false"
-                          data-tip={null}
-                          id={null}
-                          onClick={[Function]}
-                        >
-                          Menu
-                        </button>
-                      </Link>
-                      <Link
-                        className="menu-item false"
-                        clickHandler={[Function]}
-                        dataTip={null}
-                        id={null}
-                      >
-                        <button
-                          className="link-btn menu-item false"
-                          data-tip={null}
-                          id={null}
-                          onClick={[Function]}
-                        >
-                          Orders
-                        </button>
-                      </Link>
+                      0
+                    </div>
+                    <div>
+                      Today's Orders
+                    </div>
+                  </div>
+                  <div
+                    className="card pending"
+                  >
+                    <div
+                      className="count"
+                    >
+                      0
+                    </div>
+                    <div>
+                      Pending Orders
+                    </div>
+                  </div>
+                  <div
+                    className="card total-cash"
+                  >
+                    <div
+                      className="count"
+                    >
+                      ₦ 
+                      0
+                    </div>
+                    <div>
+                      Today's Revenue
                     </div>
                   </div>
                 </div>
-              </SideNav>
-            </Connect(SideNav)>
-            <div
-              className="content-wrapper dashboard"
-              id="has-modal"
-            >
-              <div
-                className="date d-none-md"
-              >
-                <h2>
-                  Thursday, 1st January 1970
-                      
-                  00:00
-                </h2>
-              </div>
-              <div
-                className="card-group summary"
-              >
                 <div
-                  className="card total-sum"
+                  className="order-details"
                 >
-                  <div
-                    className="count"
+                  <OrderHistoryTable
+                    deliverOrder={[Function]}
+                    orders={Array []}
                   >
-                    0
-                  </div>
-                  <div>
-                    Today's Orders
-                  </div>
+                    <div
+                      className="table-wrapper"
+                    >
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>
+                              ID
+                            </th>
+                            <th>
+                              Meal Item(s)
+                            </th>
+                            <th>
+                              Customer
+                            </th>
+                            <th>
+                              Amount
+                            </th>
+                            <th>
+                              Date
+                            </th>
+                            <th>
+                              Status
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody />
+                      </table>
+                    </div>
+                  </OrderHistoryTable>
                 </div>
-                <div
-                  className="card pending"
-                >
-                  <div
-                    className="count"
-                  >
-                    0
-                  </div>
-                  <div>
-                    Pending Orders
-                  </div>
-                </div>
-                <div
-                  className="card total-cash"
-                >
-                  <div
-                    className="count"
-                  >
-                    ₦ 
-                    0
-                  </div>
-                  <div>
-                    Today's Revenue
-                  </div>
-                </div>
-              </div>
-              <div
-                className="order-details"
-              >
-                <OrderHistoryTable
-                  deliverOrder={[Function]}
-                  orders={Array []}
-                >
-                  <div
-                    className="table-wrapper"
-                  >
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>
-                            ID
-                          </th>
-                          <th>
-                            Meal Item(s)
-                          </th>
-                          <th>
-                            Customer
-                          </th>
-                          <th>
-                            Amount
-                          </th>
-                          <th>
-                            Date
-                          </th>
-                          <th>
-                            Status
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody />
-                    </table>
-                  </div>
-                </OrderHistoryTable>
               </div>
             </div>
-          </div>
-          <Connect(Modal)
-            isFetching={false}
-            logout={[Function]}
-            showTime={true}
-            type="dashboard"
-            updateCurrentDate={null}
-            user={
-              Object {
-                "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-                "businessName": "Food Circle",
-                "email": "food@circle.com",
-                "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                "phoneNo": "08166557788",
-                "role": "caterer",
-              }
-            }
-          >
-            <Modal
+            <Connect(Modal)
               isFetching={false}
               logout={[Function]}
-              open={false}
               showTime={true}
-              toggleModal={[Function]}
-              type={null}
+              type="dashboard"
               updateCurrentDate={null}
+              uploading={false}
               user={
                 Object {
                   "address": "$, Herbert Macaulay Way, Yaba, Lagos",
                   "businessName": "Food Circle",
                   "email": "food@circle.com",
+                  "firstname": "Dave",
                   "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                  "lastname": "Smith",
                   "phoneNo": "08166557788",
                   "role": "caterer",
                 }
               }
-            />
-          </Connect(Modal)>
-          <Footer>
-            <div
-              className="footer"
             >
-              <p>
-                © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
-              </p>
-            </div>
-          </Footer>
-        </div>
-      </View>
+              <Modal
+                isFetching={false}
+                logout={[Function]}
+                open={false}
+                showTime={true}
+                toggleModal={[Function]}
+                type={null}
+                updateCurrentDate={null}
+                uploading={false}
+                user={
+                  Object {
+                    "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+                    "businessName": "Food Circle",
+                    "email": "food@circle.com",
+                    "firstname": "Dave",
+                    "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                    "lastname": "Smith",
+                    "phoneNo": "08166557788",
+                    "role": "caterer",
+                  }
+                }
+              />
+            </Connect(Modal)>
+            <Footer>
+              <div
+                className="footer"
+              >
+                <p>
+                  © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+                </p>
+              </div>
+            </Footer>
+          </div>
+        </View>
+      </Connect(View)>
     </Dashboard>
   </Connect(Dashboard)>
 </Provider>
 `;
 
-exports[`Dashboard renders correctly when not fetching 1`] = `
-<View
-  isFetching={false}
-  logout={[MockFunction]}
+exports[`Dashboard renders correctly 1`] = `
+<Connect(View)
   showTime={true}
   type="dashboard"
-  updateCurrentDate={null}
-  user={
-    Object {
-      "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-      "businessName": "Food Circle",
-      "email": "food@circle.com",
-      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-      "phoneNo": "08166557788",
-      "role": "caterer",
-    }
-  }
 >
   <React.Fragment>
     <div
@@ -996,5 +786,5 @@ exports[`Dashboard renders correctly when not fetching 1`] = `
       />
     </div>
   </React.Fragment>
-</View>
+</Connect(View)>
 `;

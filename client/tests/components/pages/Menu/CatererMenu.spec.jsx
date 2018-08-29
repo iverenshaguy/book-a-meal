@@ -10,7 +10,9 @@ import { caterer, mealsObj, initialState, metadata } from '../../../setup/mockDa
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({
-  ...initialState, menu: { ...initialState.menu, meals: mealsObj.meals }
+  ...initialState,
+  menu: { ...initialState.menu, meals: mealsObj.meals },
+  auth: { ...initialState.auth, user: { ...initialState.auth.user, ...caterer } }
 });
 const { now } = Date;
 
@@ -28,10 +30,8 @@ describe('CatererMenu', () => {
 
     const shallowWrapper = shallow(<CatererMenuComponent
       user={caterer}
-      logout={jest.fn()}
       fetchMenu={jest.fn()}
       {...mealsObj}
-      isFetching={false}
       submitting={false}
       setCurrentDay={jest.fn()}
       currentDay={moment().format('YYYY-MM-DD')}
@@ -49,10 +49,8 @@ describe('CatererMenu', () => {
 
     const shallowWrapper = shallow(<CatererMenuComponent
       user={caterer}
-      logout={jest.fn()}
       fetchMenu={fetchMenuMock}
       {...mealsObj}
-      isFetching={false}
       submitting={false}
       setCurrentDay={jest.fn()}
       currentDay={moment().format('YYYY-MM-DD')}
@@ -69,10 +67,8 @@ describe('CatererMenu', () => {
     const toggleMock = jest.fn();
     const wrapper = shallow(<CatererMenuComponent
       user={caterer}
-      logout={jest.fn()}
       fetchMenu={jest.fn()}
       {...mealsObj}
-      isFetching={false}
       submitting={false}
       setCurrentDay={jest.fn()}
       currentDay={moment().format('YYYY-MM-DD')}
@@ -88,10 +84,8 @@ describe('CatererMenu', () => {
     const setCurrentDayMock = jest.fn();
     const wrapper = shallow(<CatererMenuComponent
       user={caterer}
-      logout={jest.fn()}
       fetchMenu={jest.fn()}
       {...mealsObj}
-      isFetching={false}
       submitting={false}
       setCurrentDay={setCurrentDayMock}
       currentDay={moment().format('YYYY-MM-DD')}
@@ -110,10 +104,8 @@ describe('CatererMenu', () => {
     const toggleMock = jest.fn();
     const shallowWrapper = shallow(<CatererMenuComponent
       user={caterer}
-      logout={jest.fn()}
       fetchMenu={jest.fn()}
       {...mealsObj}
-      isFetching
       submitting={false}
       setCurrentDay={jest.fn()}
       currentDay={moment().format('YYYY-MM-DD')}
@@ -125,14 +117,12 @@ describe('CatererMenu', () => {
     expect(shallowWrapper.find('Preloader')).toBeTruthy();
   });
 
-  it('renders message when not fetching and there are no meals on the menu', () => {
+  it('renders message when there are no meals on the menu', () => {
     const toggleMock = jest.fn();
     const shallowWrapper = shallow(<CatererMenuComponent
       user={caterer}
-      logout={jest.fn()}
       fetchMenu={jest.fn()}
       meals={[]}
-      isFetching
       submitting={false}
       setCurrentDay={jest.fn()}
       currentDay={moment().format('YYYY-MM-DD')}
@@ -150,7 +140,6 @@ describe('CatererMenu', () => {
         <CatererMenuContainer
           user={caterer}
           {...mealsObj}
-          isFetching={false}
         />
       </Provider>);
 
@@ -164,10 +153,8 @@ describe('CatererMenu', () => {
     const toggleMock = jest.fn();
     const wrapper = shallow(<CatererMenuComponent
       user={caterer}
-      logout={jest.fn()}
       fetchMenu={jest.fn()}
       {...mealsObj}
-      isFetching={false}
       submitting={false}
       setCurrentDay={jest.fn()}
       currentDay={moment().format('YYYY-MM-DD')}

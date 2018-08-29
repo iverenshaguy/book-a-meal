@@ -33,10 +33,8 @@ describe('Orders', () => {
     it('renders correctly when not fetching', () => {
       const shallowWrapper = shallow(<OrdersComponent
         user={caterer}
-        logout={jest.fn()}
         fetchOrders={jest.fn()}
         orders={caterersOrdersObj.orders}
-        isFetching={false}
         metadata={metadata}
       />);
 
@@ -46,10 +44,8 @@ describe('Orders', () => {
     it('renders Preloader when fetching', () => {
       const shallowWrapper = shallow(<OrdersComponent
         user={caterer}
-        logout={jest.fn()}
         fetchOrders={jest.fn()}
         orders={caterersOrdersObj.orders}
-        isFetching
         metadata={metadata}
       />);
 
@@ -62,10 +58,8 @@ describe('Orders', () => {
 
       const shallowWrapper = shallow(<OrdersComponent
         user={caterer}
-        logout={jest.fn()}
         fetchOrders={fetchOrdersMock}
         orders={caterersOrdersObj.orders}
-        isFetching
         metadata={{}}
       />);
 
@@ -77,10 +71,8 @@ describe('Orders', () => {
     it('renders message when not fetching and there are no orders', () => {
       const shallowWrapper = shallow(<OrdersComponent
         user={caterer}
-        logout={jest.fn()}
         fetchOrders={jest.fn()}
         orders={[]}
-        isFetching
         metadata={metadata}
       />);
 
@@ -93,7 +85,6 @@ describe('Orders', () => {
         <Provider store={store}>
           <OrdersContainer
             user={caterer}
-            isFetching={false}
           />
         </Provider>);
 
@@ -108,10 +99,8 @@ describe('Orders', () => {
     it('renders correctly when not fetching', () => {
       const shallowWrapper = shallow(<OrdersComponent
         user={customer}
-        logout={jest.fn()}
         fetchOrders={jest.fn()}
         orders={customersOrdersObj.orders}
-        isFetching={false}
         metadata={metadata}
       />);
 
@@ -119,30 +108,14 @@ describe('Orders', () => {
       expect(shallowWrapper.find('OrderPill')).toBeTruthy();
     });
 
-    it('renders Preloader when fetching', () => {
-      const shallowWrapper = shallow(<OrdersComponent
-        user={customer}
-        logout={jest.fn()}
-        fetchOrders={jest.fn()}
-        orders={customersOrdersObj.orders}
-        metadata={metadata}
-        isFetching
-      />);
-
-      expect(toJson(shallowWrapper)).toMatchSnapshot();
-      expect(shallowWrapper.find('Preloader')).toBeTruthy();
-    });
-
     it('calls fetchOrders when loadMoreOrders is called', () => {
       const fetchOrdersMock = jest.fn();
 
       const shallowWrapper = shallow(<OrdersComponent
         user={customer}
-        logout={jest.fn()}
         fetchOrders={fetchOrdersMock}
         orders={customersOrdersObj.orders}
         metadata={{}}
-        isFetching
       />);
 
       shallowWrapper.instance().loadMoreOrders();
@@ -153,10 +126,8 @@ describe('Orders', () => {
     it('renders message when not fetching and there are no orders', () => {
       const shallowWrapper = shallow(<OrdersComponent
         user={customer}
-        logout={jest.fn()}
         fetchOrders={jest.fn()}
         orders={[]}
-        isFetching
         metadata={{}}
       />);
 
@@ -169,7 +140,6 @@ describe('Orders', () => {
         <Provider store={store}>
           <OrdersContainer
             user={customer}
-            isFetching={false}
           />
         </Provider>);
 

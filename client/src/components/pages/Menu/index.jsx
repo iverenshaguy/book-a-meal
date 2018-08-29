@@ -16,10 +16,8 @@ const Menu = (props) => {
 
   return (
     <Fragment>
-      {user.role === 'caterer' &&
-        <CatererMenu {...props} />}
-      {user.role === 'customer' &&
-        <CustomerMenu {...props} />}
+      {user.role === 'caterer' && <CatererMenu {...props} />}
+      {user.role === 'customer' && <CustomerMenu {...props} />}
     </Fragment>
   );
 };

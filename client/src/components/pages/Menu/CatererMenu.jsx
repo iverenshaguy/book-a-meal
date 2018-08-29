@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import Modal from '../../../containers/shared/Modal';
 import MealCard from '../../shared/MealCard';
 import DatePicker from '../../shared/DatePicker';
-import View from '../../shared/View';
-import { userPropTypes, mealObjPropTypes } from '../../../helpers/proptypes';
+import View from '../../../containers/shared/View';
+import { mealObjPropTypes, metadataPropTypes } from '../../../helpers/proptypes';
 import CardGroup from '../../shared/CardGroup';
 
 /**
@@ -17,10 +17,8 @@ import CardGroup from '../../shared/CardGroup';
  */
 class CatererMenu extends Component {
   static propTypes = {
-    ...userPropTypes,
+    ...metadataPropTypes,
     meals: PropTypes.arrayOf(mealObjPropTypes).isRequired,
-    isFetching: PropTypes.bool.isRequired,
-    logout: PropTypes.func.isRequired,
     fetchMenu: PropTypes.func.isRequired,
     currentDay: PropTypes.string.isRequired,
     submitError: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({
@@ -94,7 +92,7 @@ class CatererMenu extends Component {
             <DatePicker handleSelectDate={this.updateCurrentDate} />
           </div>
           <div className="top">
-            {showMenuBtn && <button className="btn btn-pri" id="menu-modal-btn" onClick={() => this.props.toggleModal('menu')}>View Menu</button>}
+            {showMenuBtn && <button className="btn btn-pri" id="menu-modal-btn" onClick={() => this.props.toggleModal('menu')}>Set Menu</button>}
           </div>
           <div className="page-heading">
             <h2>{'Meal Items on This Day\'s Menu'}</h2>
@@ -118,18 +116,13 @@ class CatererMenu extends Component {
    * @returns {JSX} CatererMenu Component
    */
   render() {
-    const {
-      user, meals, logout, submitting, submitError, isFetching
-    } = this.props;
+    const { meals, submitting, submitError } = this.props;
 
     return (
       <Fragment>
         <View
           showTime={false}
-          user={user}
-          logout={logout}
           type="menu"
-          isFetching={isFetching}
           updateCurrentDate={this.updateCurrentDate}
         >
           {this.renderCatererMenu()}

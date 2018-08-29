@@ -9,7 +9,8 @@ import { caterer, caterersOrdersObj, initialState } from '../../../setup/mockDat
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({
-  ...initialState
+  ...initialState,
+  auth: { ...initialState.auth, user: { ...initialState.auth.user, ...caterer } }
 });
 
 const { now } = Date;
@@ -25,12 +26,9 @@ describe('CatererOrderDetails', () => {
 
   it('renders correctly when not fetching', () => {
     const wrapper = shallow(<CatererOrderDetailsComponent
-      user={caterer}
-      logout={jest.fn()}
       fetchOrder={jest.fn()}
       deliverOrder={jest.fn()}
       order={caterersOrdersObj.orders[0]}
-      isFetching={false}
       delivering={false}
       match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }}
     />);
@@ -41,12 +39,9 @@ describe('CatererOrderDetails', () => {
 
   it('renders Preloader when fetching', () => {
     const wrapper = shallow(<CatererOrderDetailsComponent
-      user={caterer}
-      logout={jest.fn()}
       fetchOrder={jest.fn()}
       deliverOrder={jest.fn()}
       order={caterersOrdersObj.orders[0]}
-      isFetching
       delivering={false}
       match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }}
     />);
@@ -57,12 +52,9 @@ describe('CatererOrderDetails', () => {
 
   it('renders MiniPreloader when delivering', () => {
     const wrapper = shallow(<CatererOrderDetailsComponent
-      user={caterer}
-      logout={jest.fn()}
       fetchOrder={jest.fn()}
       deliverOrder={jest.fn()}
       order={caterersOrdersObj.orders[0]}
-      isFetching={false}
       delivering
       match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }}
     />);
@@ -75,8 +67,6 @@ describe('CatererOrderDetails', () => {
     const comp = (
       <Provider store={store}>
         <CatererOrderDetailsContainer
-          user={caterer}
-          isFetching={false}
           order={null}
           match={{ params: { id: 'fb097bde-5959-45ff' } }}
         />
@@ -91,13 +81,13 @@ describe('CatererOrderDetails', () => {
   it('renders delivered order', () => {
     const newStore = mockStore({
       ...initialState,
-      singleOrder: { ...initialState.singleOrder, item: caterersOrdersObj.orders[0] }
+      singleOrder: { ...initialState.singleOrder, item: caterersOrdersObj.orders[0] },
+      auth: { ...initialState.auth, user: { ...initialState.auth.user, ...caterer } }
     });
 
     const comp = (
       <Provider store={newStore}>
         <CatererOrderDetailsContainer
-          user={caterer}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }}
         />
       </Provider>);
@@ -110,13 +100,13 @@ describe('CatererOrderDetails', () => {
   it('renders canceled order', () => {
     const newStore = mockStore({
       ...initialState,
-      singleOrder: { ...initialState.singleOrder, item: caterersOrdersObj.orders[3] }
+      singleOrder: { ...initialState.singleOrder, item: caterersOrdersObj.orders[3] },
+      auth: { ...initialState.auth, user: { ...initialState.auth.user, ...caterer } }
     });
 
     const comp = (
       <Provider store={newStore}>
         <CatererOrderDetailsContainer
-          user={caterer}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c35' } }}
         />
       </Provider>);
@@ -129,13 +119,13 @@ describe('CatererOrderDetails', () => {
   it('renders pending order and delivers pending order', () => {
     const newStore = mockStore({
       ...initialState,
-      singleOrder: { ...initialState.singleOrder, item: caterersOrdersObj.orders[2] }
+      singleOrder: { ...initialState.singleOrder, item: caterersOrdersObj.orders[2] },
+      auth: { ...initialState.auth, user: { ...initialState.auth.user, ...caterer } }
     });
 
     const comp = (
       <Provider store={newStore}>
         <CatererOrderDetailsContainer
-          user={caterer}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c26' } }}
         />
       </Provider>);
@@ -150,14 +140,13 @@ describe('CatererOrderDetails', () => {
   it('renders connected component', () => {
     const newStore = mockStore({
       ...initialState,
-      singleOrder: { ...initialState.singleOrder, item: caterersOrdersObj.orders[0] }
+      singleOrder: { ...initialState.singleOrder, item: caterersOrdersObj.orders[0] },
+      auth: { ...initialState.auth, user: { ...initialState.auth.user, ...caterer } }
     });
 
     const comp = (
       <Provider store={newStore}>
         <CatererOrderDetailsContainer
-          user={caterer}
-          isFetching={false}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }}
         />
       </Provider>);

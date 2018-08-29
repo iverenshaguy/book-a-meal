@@ -1,12 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { userPropTypes } from '../../../../helpers/proptypes';
 import getOrderFromLocalStorage from '../../../../helpers/getOrderFromLocalStorage';
 import { syncValidate, validateRequiredFields } from '../../../../helpers/validations';
 import formErrorCounter from '../../../../helpers/formErrorCount';
 import updateLocalStorageOrder from '../../../../helpers/updateLocalStorageOrder';
-import View from '../../../shared/View';
+import View from '../../../../containers/shared/View';
 import RenderInput from '../../../shared/FormComponents/RenderInput';
 
 /**
@@ -18,9 +17,7 @@ import RenderInput from '../../../shared/FormComponents/RenderInput';
  */
 class OrderReview extends Component {
   static propTypes = {
-    ...userPropTypes,
-    logout: PropTypes.func.isRequired,
-    isFetching: PropTypes.bool.isRequired
+    ...userPropTypes
   }
 
   /**
@@ -217,13 +214,11 @@ class OrderReview extends Component {
    * @returns {JSX} OrderReview Component
   */
   render() {
-    const { user, logout, isFetching } = this.props;
-
     if (this.state.order.meals.length === 0) return <Redirect to="/" />;
     if (this.state.showOrderSummary) return <Redirect to="/order-confirmation" />;
 
     return (
-      <View user={user} logout={logout} type="orderReview" isFetching={isFetching}>
+      <View type="orderReview">
         <div className="order-confirmation">
           {this.renderDeliveryDetails()}
         </div>

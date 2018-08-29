@@ -4,7 +4,7 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { userPropTypes, catererOrderObjPropTypes } from '../../../helpers/proptypes';
-import View from '../../shared/View';
+import View from '../../../containers/shared/View';
 import OrderSummary from '../../shared/OrderSummary';
 import OrderAmount from '../../shared/OrderAmount';
 import updateLocalStorageOrder from '../../../helpers/updateLocalStorageOrder';
@@ -20,8 +20,6 @@ class CustomerOrderDetails extends Component {
   static propTypes = {
     ...userPropTypes,
     order: catererOrderObjPropTypes,
-    isFetching: PropTypes.bool.isRequired,
-    logout: PropTypes.func.isRequired,
     push: PropTypes.func.isRequired,
     fetchOrder: PropTypes.func.isRequired,
     editOrder: PropTypes.func.isRequired,
@@ -158,10 +156,8 @@ class CustomerOrderDetails extends Component {
    * @returns {JSX} CustomerOrderDetails Component
   */
   render() {
-    const { user, logout, isFetching } = this.props;
-
     return (
-      <View user={user} logout={logout} type="customerOrderDetails" isFetching={isFetching}>
+      <View type="customerOrderDetails">
         <Fragment>
           <Link to="/orders" className="orders-back-link">&#8592; Back To Orders</Link>
           {!this.props.order && <p className="text-center info">This Order Does Not Exist</p>}

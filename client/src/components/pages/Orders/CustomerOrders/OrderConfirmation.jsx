@@ -4,7 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { userPropTypes } from '../../../../helpers/proptypes';
 import getOrderFromLocalStorage from '../../../../helpers/getOrderFromLocalStorage';
-import View from '../../../shared/View';
+import View from '../../../../containers/shared/View';
 import OrderSummary from '../../../shared/OrderSummary';
 import OrderAmount from '../../../shared/OrderAmount';
 
@@ -18,9 +18,7 @@ import OrderAmount from '../../../shared/OrderAmount';
 class OrderConfirmation extends Component {
   static propTypes = {
     ...userPropTypes,
-    logout: PropTypes.func.isRequired,
     addOrder: PropTypes.func.isRequired,
-    isFetching: PropTypes.bool.isRequired
   }
 
   /**
@@ -74,13 +72,12 @@ class OrderConfirmation extends Component {
    * @returns {JSX} OrderConfirmation Component
   */
   render() {
-    const { user, logout, isFetching } = this.props;
     const msg = 'Please note that orders CANNOT be modified or canceled after 1 minute of order placement.';
 
     if (this.state.order.meals.length === 0) return <Redirect to="/" />;
 
     return (
-      <View user={user} logout={logout} type="orderConfirm" isFetching={isFetching}>
+      <View type="orderConfirm">
         <div className="order-confirmation" style={{ marginTop: '120px' }}>
           <div>
             <p className="text-center" style={{ marginTop: '30px', marginBottom: '0' }}>{msg}</p>

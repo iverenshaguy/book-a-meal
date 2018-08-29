@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import OrderPill from '../../shared/OrderPill';
-import View from '../../shared/View';
+import View from '../../../containers/shared/View';
 import { userPropTypes, metadataPropTypes, catererOrderObjPropTypes, customerOrderObjPropTypes } from '../../../helpers/proptypes';
 import InfiniteLoader from '../../shared/InfiniteLoader';
 import './Orders.scss';
@@ -20,8 +20,6 @@ class Orders extends Component {
     orders: PropTypes.oneOfType([
       PropTypes.arrayOf(catererOrderObjPropTypes),
       PropTypes.arrayOf(customerOrderObjPropTypes)]).isRequired,
-    isFetching: PropTypes.bool.isRequired,
-    logout: PropTypes.func.isRequired,
     fetchOrders: PropTypes.func.isRequired,
   }
 
@@ -75,11 +73,9 @@ class Orders extends Component {
    * @returns {JSX} Orders Component
    */
   render() {
-    const { user, logout, isFetching } = this.props;
-
     return (
       <Fragment>
-        <View user={user} logout={logout} type="orders" showTime isFetching={isFetching}>
+        <View type="orders" showTime>
           {this.renderOrders()}
         </View>
       </Fragment>

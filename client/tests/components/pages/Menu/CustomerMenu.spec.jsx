@@ -5,13 +5,15 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import CustomerMenuComponent from '../../../../src/components/pages/Menu/CustomerMenu';
 import CustomerMenuContainer from '../../../../src/containers/pages/Menu/CustomerMenu';
-import { customer, mealsObj, orderItems, initialState, metadata } from '../../../setup/mockData';
+import { customer, mealsObj, orderItems, initialState } from '../../../setup/mockData';
 import updateLocalStorageOrder from '../../../../src/helpers/updateLocalStorageOrder';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({
-  ...initialState, menu: { ...initialState.menu, meals: mealsObj.meals }
+  ...initialState,
+  menu: { ...initialState.menu, meals: mealsObj.meals },
+  auth: { ...initialState.auth, user: { ...initialState.auth.user, ...customer } }
 });
 const { now } = Date;
 const currentDay = moment().format('YYYY-MM-DD');
@@ -32,11 +34,7 @@ describe('CustomerMenu', () => {
   it('renders correctly when not fetching', () => {
     const shallowWrapper = shallow(<CustomerMenuComponent
       user={customer}
-      logout={jest.fn()}
       fetchMenu={jest.fn()}
-      {...mealsObj}
-      isFetching={false}
-      metadata={metadata}
     />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
@@ -46,11 +44,7 @@ describe('CustomerMenu', () => {
   it('renders Preloader when fetching', () => {
     const shallowWrapper = shallow(<CustomerMenuComponent
       user={customer}
-      logout={jest.fn()}
       fetchMenu={jest.fn()}
-      {...mealsObj}
-      isFetching
-      metadata={metadata}
     />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
@@ -64,11 +58,7 @@ describe('CustomerMenu', () => {
       <Provider store={store}>
         <CustomerMenuComponent
           user={customer}
-          logout={jest.fn()}
           fetchMenu={fetchMenuMock}
-          isFetching={false}
-          meals={[]}
-          metadata={metadata}
         />
       </Provider>);
 
@@ -100,11 +90,7 @@ describe('CustomerMenu', () => {
       <Provider store={store}>
         <CustomerMenuComponent
           user={customer}
-          logout={jest.fn()}
           fetchMenu={jest.fn()}
-          isFetching={false}
-          {...mealsObj}
-          metadata={metadata}
         />
       </Provider>);
     const wrapper = mount(comp, rrcMock.get());
@@ -142,11 +128,7 @@ describe('CustomerMenu', () => {
         <Provider store={store}>
           <CustomerMenuComponent
             user={customer}
-            logout={jest.fn()}
             fetchMenu={jest.fn()}
-            isFetching={false}
-            {...mealsObj}
-            metadata={metadata}
           />
         </Provider>);
 
@@ -169,11 +151,7 @@ describe('CustomerMenu', () => {
         <Provider store={store}>
           <CustomerMenuComponent
             user={customer}
-            logout={jest.fn()}
             fetchMenu={jest.fn()}
-            isFetching={false}
-            {...mealsObj}
-            metadata={metadata}
           />
         </Provider>);
 
@@ -194,11 +172,7 @@ describe('CustomerMenu', () => {
         <Provider store={store}>
           <CustomerMenuComponent
             user={customer}
-            logout={jest.fn()}
             fetchMenu={jest.fn()}
-            isFetching={false}
-            {...mealsObj}
-            metadata={metadata}
           />
         </Provider>);
 
@@ -220,11 +194,7 @@ describe('CustomerMenu', () => {
         <Provider store={store}>
           <CustomerMenuComponent
             user={customer}
-            logout={jest.fn()}
             fetchMenu={jest.fn()}
-            isFetching={false}
-            {...mealsObj}
-            metadata={metadata}
           />
         </Provider>);
 
@@ -253,11 +223,7 @@ describe('CustomerMenu', () => {
         <Provider store={store}>
           <CustomerMenuComponent
             user={customer}
-            logout={jest.fn()}
             fetchMenu={jest.fn()}
-            isFetching={false}
-            {...mealsObj}
-            metadata={metadata}
           />
         </Provider>);
 

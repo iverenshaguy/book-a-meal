@@ -1,21 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CustomerMenu renders Preloader when fetching 1`] = `
-<View
-  isFetching={false}
-  logout={[MockFunction]}
-  showTime={true}
+<Connect(View)
   type="menu"
-  updateCurrentDate={null}
-  user={
-    Object {
-      "email": "emiola@olasanmi.com",
-      "firstname": "Emiola",
-      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-      "lastname": "Olasanmi",
-      "role": "customer",
-    }
-  }
 >
   <div
     className="meals user-meals"
@@ -86,7 +73,7 @@ exports[`CustomerMenu renders Preloader when fetching 1`] = `
       />
     </div>
   </div>
-</View>
+</Connect(View)>
 `;
 
 exports[`CustomerMenu renders connected component 1`] = `
@@ -135,7 +122,6 @@ exports[`CustomerMenu renders connected component 1`] = `
   >
     <CustomerMenu
       fetchMenu={[Function]}
-      logout={[Function]}
       meals={
         Array [
           Object {
@@ -166,12 +152,1131 @@ exports[`CustomerMenu renders connected component 1`] = `
         }
       }
     >
+      <Connect(View)
+        type="menu"
+      >
+        <View
+          isFetching={false}
+          logout={[Function]}
+          showTime={true}
+          type="menu"
+          updateCurrentDate={null}
+          uploading={false}
+          user={
+            Object {
+              "email": "emiola@olasanmi.com",
+              "firstname": "Emiola",
+              "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+              "lastname": "Olasanmi",
+              "role": "customer",
+            }
+          }
+        >
+          <div
+            className="admin user"
+          >
+            <Header
+              active="menu"
+              dateType="menu"
+              logout={[Function]}
+              showTime={true}
+              type="customer"
+              updateCurrentDate={null}
+              user={
+                Object {
+                  "email": "emiola@olasanmi.com",
+                  "firstname": "Emiola",
+                  "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                  "lastname": "Olasanmi",
+                  "role": "customer",
+                }
+              }
+            >
+              <div
+                className="header"
+              >
+                <div
+                  className="navbar white-navbar"
+                >
+                  <CustomerHeader
+                    active="menu"
+                    dateType="menu"
+                    logout={[Function]}
+                    showTime={true}
+                    type="customer"
+                    updateCurrentDate={null}
+                    user={
+                      Object {
+                        "email": "emiola@olasanmi.com",
+                        "firstname": "Emiola",
+                        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                        "lastname": "Olasanmi",
+                        "role": "customer",
+                      }
+                    }
+                  >
+                    <div
+                      className="page-title"
+                    >
+                      <h3>
+                        <Link
+                          replace={false}
+                          to="/"
+                        >
+                          <a
+                            href="/"
+                            onClick={[Function]}
+                          >
+                            BOOK-A-MEAL
+                          </a>
+                        </Link>
+                      </h3>
+                    </div>
+                    <div
+                      className="navlinks"
+                    >
+                      <h3>
+                        Welcome, 
+                        Emiola
+                      </h3>
+                      <Link
+                        className="active"
+                        replace={false}
+                        to="/"
+                      >
+                        <a
+                          className="active"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          Menu
+                        </a>
+                      </Link>
+                      <Link
+                        className="false"
+                        replace={false}
+                        to="/orders"
+                      >
+                        <a
+                          className="false"
+                          href="/orders"
+                          onClick={[Function]}
+                        >
+                          Orders
+                        </a>
+                      </Link>
+                      <Link
+                        onClick={[Function]}
+                        replace={false}
+                        to="/"
+                      >
+                        <a
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          Logout
+                        </a>
+                      </Link>
+                      <div
+                        className="user-info mobile-only"
+                      >
+                        <Dropdown
+                          content={
+                            <UNDEFINED>
+                              <Link
+                                className="active"
+                                replace={false}
+                                to="/"
+                              >
+                                Menu
+                              </Link>
+                              <Link
+                                className="false"
+                                replace={false}
+                                to="/orders"
+                              >
+                                Orders
+                              </Link>
+                              <Link
+                                onClick={[Function]}
+                                replace={false}
+                                to="/"
+                              >
+                                Logout
+                              </Link>
+                            </UNDEFINED>
+                          }
+                          toggler={
+                            <div
+                              className="user-dropdown"
+                            >
+                              <div
+                                className="username-circle circle-click"
+                              >
+                                <p
+                                  className="circle-click"
+                                >
+                                  E
+                                </p>
+                              </div>
+                              <span>
+                                ▾
+                              </span>
+                            </div>
+                          }
+                          type="customer"
+                        >
+                          <div
+                            className="dropdown"
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                          >
+                            <Link
+                              className="link"
+                              clickHandler={null}
+                              dataTip={null}
+                              id="dropdown-toggler"
+                            >
+                              <button
+                                className="link-btn link"
+                                data-tip={null}
+                                id="dropdown-toggler"
+                                onClick={null}
+                              >
+                                <div
+                                  className="user-dropdown"
+                                >
+                                  <div
+                                    className="username-circle circle-click"
+                                  >
+                                    <p
+                                      className="circle-click"
+                                    >
+                                      E
+                                    </p>
+                                  </div>
+                                  <span>
+                                    ▾
+                                  </span>
+                                </div>
+                              </button>
+                            </Link>
+                            <div
+                              className="dropdown-content"
+                              id="dropdown-content"
+                            >
+                              <Link
+                                className="active"
+                                replace={false}
+                                to="/"
+                              >
+                                <a
+                                  className="active"
+                                  href="/"
+                                  onClick={[Function]}
+                                >
+                                  Menu
+                                </a>
+                              </Link>
+                              <Link
+                                className="false"
+                                replace={false}
+                                to="/orders"
+                              >
+                                <a
+                                  className="false"
+                                  href="/orders"
+                                  onClick={[Function]}
+                                >
+                                  Orders
+                                </a>
+                              </Link>
+                              <Link
+                                onClick={[Function]}
+                                replace={false}
+                                to="/"
+                              >
+                                <a
+                                  href="/"
+                                  onClick={[Function]}
+                                >
+                                  Logout
+                                </a>
+                              </Link>
+                            </div>
+                          </div>
+                        </Dropdown>
+                        <p>
+                            
+                          Emiola
+                        </p>
+                      </div>
+                    </div>
+                  </CustomerHeader>
+                </div>
+              </div>
+            </Header>
+            <div
+              className="content-wrapper"
+              id="has-modal"
+            >
+              <div
+                className="meals user-meals"
+              >
+                <div
+                  className="user-menu"
+                >
+                  <div
+                    className="main-menu"
+                  >
+                    <div
+                      className="page-heading"
+                    >
+                      <h2>
+                        Today's Menu
+                      </h2>
+                      <hr />
+                    </div>
+                    <SearchForm
+                      fetchItems={[Function]}
+                      type="customer"
+                    >
+                      <div
+                        className="search-wrapper"
+                      >
+                        <div
+                          className="search-form"
+                        >
+                          <div
+                            className="search-btn"
+                          >
+                            <img
+                              alt=""
+                              src="/img/search.svg"
+                            />
+                          </div>
+                          <label
+                            className="hide"
+                            htmlFor="search"
+                          >
+                            Search For Meals
+                          </label>
+                          <input
+                            id="search"
+                            label="Search"
+                            name="search"
+                            onChange={[Function]}
+                            placeholder="Search For Meals"
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                      </div>
+                    </SearchForm>
+                    <Connect(MenuItems)
+                      addOrderItem={[Function]}
+                      loadMoreMenu={[Function]}
+                      order={
+                        Object {
+                          "deliveryAddress": "A Place",
+                          "deliveryPhoneNo": "2348167719888",
+                          "id": null,
+                          "meals": Array [
+                            Object {
+                              "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
+                              "price": "2500",
+                              "quantity": 1,
+                              "title": "Meat Soup",
+                            },
+                            Object {
+                              "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
+                              "price": "2200",
+                              "quantity": 3,
+                              "title": "Fish Soup",
+                            },
+                          ],
+                        }
+                      }
+                    >
+                      <MenuItems
+                        addOrderItem={[Function]}
+                        dispatch={[Function]}
+                        isFetching={false}
+                        loadMoreMenu={[Function]}
+                        meals={
+                          Array [
+                            Object {
+                              "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                              "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                              "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                              "price": "1500.00",
+                              "title": "Jollof Rice, Beef and Plantain",
+                              "vegetarian": false,
+                            },
+                            Object {
+                              "description": "Sharwama contains no animal products, perfect for dieters",
+                              "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                              "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                              "price": "1200.00",
+                              "title": "Vegetable Sharwama and Guava Smoothie",
+                              "vegetarian": true,
+                            },
+                          ]
+                        }
+                        metadata={Object {}}
+                        order={
+                          Object {
+                            "deliveryAddress": "A Place",
+                            "deliveryPhoneNo": "2348167719888",
+                            "id": null,
+                            "meals": Array [
+                              Object {
+                                "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
+                                "price": "2500",
+                                "quantity": 1,
+                                "title": "Meat Soup",
+                              },
+                              Object {
+                                "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
+                                "price": "2200",
+                                "quantity": 3,
+                                "title": "Fish Soup",
+                              },
+                            ],
+                          }
+                        }
+                      >
+                        <CardGroup
+                          items={
+                            Array [
+                              <MealCard
+                                inBasket={false}
+                                meal={
+                                  Object {
+                                    "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                                    "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                                    "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                                    "price": "1500.00",
+                                    "title": "Jollof Rice, Beef and Plantain",
+                                    "vegetarian": false,
+                                  }
+                                }
+                                orderMeal={[Function]}
+                                toggleModal={null}
+                                type="customer"
+                              />,
+                              <MealCard
+                                inBasket={false}
+                                meal={
+                                  Object {
+                                    "description": "Sharwama contains no animal products, perfect for dieters",
+                                    "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                                    "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                                    "price": "1200.00",
+                                    "title": "Vegetable Sharwama and Guava Smoothie",
+                                    "vegetarian": true,
+                                  }
+                                }
+                                orderMeal={[Function]}
+                                toggleModal={null}
+                                type="customer"
+                              />,
+                            ]
+                          }
+                          loadMore={[Function]}
+                          metadata={Object {}}
+                        >
+                          <div
+                            className="card-group meals-wrapper"
+                            id="card-group"
+                          >
+                            <InfiniteLoader
+                              height={null}
+                              items={
+                                Array [
+                                  <MealCard
+                                    inBasket={false}
+                                    meal={
+                                      Object {
+                                        "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                                        "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                                        "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                                        "price": "1500.00",
+                                        "title": "Jollof Rice, Beef and Plantain",
+                                        "vegetarian": false,
+                                      }
+                                    }
+                                    orderMeal={[Function]}
+                                    toggleModal={null}
+                                    type="customer"
+                                  />,
+                                  <MealCard
+                                    inBasket={false}
+                                    meal={
+                                      Object {
+                                        "description": "Sharwama contains no animal products, perfect for dieters",
+                                        "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                                        "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                                        "price": "1200.00",
+                                        "title": "Vegetable Sharwama and Guava Smoothie",
+                                        "vegetarian": true,
+                                      }
+                                    }
+                                    orderMeal={[Function]}
+                                    toggleModal={null}
+                                    type="customer"
+                                  />,
+                                ]
+                              }
+                              loadMore={[Function]}
+                              metadata={Object {}}
+                            >
+                              <InfiniteScroll
+                                dataLength={2}
+                                disableBrowserPullToRefresh={true}
+                                hasMore={false}
+                                height={null}
+                                loader={
+                                  <div
+                                    className="text-center"
+                                  >
+                                    <MiniPreloader />
+                                  </div>
+                                }
+                                next={[Function]}
+                                pullDownToRefreshContent={
+                                  <h3>
+                                    Pull down to refresh
+                                  </h3>
+                                }
+                                pullDownToRefreshThreshold={100}
+                                releaseToRefreshContent={
+                                  <h3>
+                                    Release to refresh
+                                  </h3>
+                                }
+                              >
+                                <div
+                                  style={Object {}}
+                                >
+                                  <div
+                                    className="infinite-scroll-component"
+                                    style={
+                                      Object {
+                                        "WebkitOverflowScrolling": "touch",
+                                        "height": "auto",
+                                        "overflow": "auto",
+                                      }
+                                    }
+                                  >
+                                    <div
+                                      className="scroller"
+                                    >
+                                      <MealCard
+                                        inBasket={false}
+                                        key="81211c24-51c0-46ec-b1e0-18db55880958"
+                                        meal={
+                                          Object {
+                                            "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                                            "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                                            "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                                            "price": "1500.00",
+                                            "title": "Jollof Rice, Beef and Plantain",
+                                            "vegetarian": false,
+                                          }
+                                        }
+                                        orderMeal={[Function]}
+                                        toggleModal={null}
+                                        type="customer"
+                                      >
+                                        <div
+                                          className="meal-card order-meal-card"
+                                          id="meal-card"
+                                        >
+                                          <div
+                                            className="meal-card-header"
+                                          >
+                                            <img
+                                              alt="meal"
+                                              src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+                                            />
+                                            <div
+                                              className="menu-card-title"
+                                            >
+                                              <p>
+                                                Jollof Rice, Beef and Plantain
+                                              </p>
+                                            </div>
+                                          </div>
+                                          <div
+                                            className="meal-card-body"
+                                          >
+                                            <div>
+                                              <h3>
+                                                ₦ 
+                                                1500.00
+                                              </h3>
+                                              <p
+                                                className="meal-description"
+                                                data-tip="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
+                                              >
+                                                Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
+                                              </p>
+                                            </div>
+                                            <div
+                                              className="meal-card-action"
+                                            >
+                                              <button
+                                                className="btn btn-sec meal-card-btn"
+                                                disabled={null}
+                                                onClick={[Function]}
+                                              >
+                                                Add To Basket
+                                              </button>
+                                            </div>
+                                          </div>
+                                          <ReactTooltip
+                                            className="tooltip"
+                                            effect="solid"
+                                            insecure={true}
+                                            place="top"
+                                            resizeHide={true}
+                                            type="dark"
+                                            wrapper="div"
+                                          >
+                                            <div
+                                              className="__react_component_tooltip place-top type-dark "
+                                              data-id="tooltip"
+                                            />
+                                          </ReactTooltip>
+                                        </div>
+                                      </MealCard>
+                                      <MealCard
+                                        inBasket={false}
+                                        key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                                        meal={
+                                          Object {
+                                            "description": "Sharwama contains no animal products, perfect for dieters",
+                                            "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                                            "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                                            "price": "1200.00",
+                                            "title": "Vegetable Sharwama and Guava Smoothie",
+                                            "vegetarian": true,
+                                          }
+                                        }
+                                        orderMeal={[Function]}
+                                        toggleModal={null}
+                                        type="customer"
+                                      >
+                                        <div
+                                          className="meal-card order-meal-card"
+                                          id="meal-card"
+                                        >
+                                          <div
+                                            className="meal-card-header"
+                                          >
+                                            <span
+                                              className="veg-ribbon"
+                                            >
+                                              Vegetarian
+                                            </span>
+                                            <img
+                                              alt="meal"
+                                              src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
+                                            />
+                                            <div
+                                              className="menu-card-title"
+                                            >
+                                              <p>
+                                                Vegetable Sharwama and Guava Smoothie
+                                              </p>
+                                            </div>
+                                          </div>
+                                          <div
+                                            className="meal-card-body"
+                                          >
+                                            <div>
+                                              <h3>
+                                                ₦ 
+                                                1200.00
+                                              </h3>
+                                              <p
+                                                className="meal-description"
+                                                data-tip="Sharwama contains no animal products, perfect for dieters"
+                                              >
+                                                Sharwama contains no animal products, perfect for dieters
+                                              </p>
+                                            </div>
+                                            <div
+                                              className="meal-card-action"
+                                            >
+                                              <button
+                                                className="btn btn-sec meal-card-btn"
+                                                disabled={null}
+                                                onClick={[Function]}
+                                              >
+                                                Add To Basket
+                                              </button>
+                                            </div>
+                                          </div>
+                                          <ReactTooltip
+                                            className="tooltip"
+                                            effect="solid"
+                                            insecure={true}
+                                            place="top"
+                                            resizeHide={true}
+                                            type="dark"
+                                            wrapper="div"
+                                          >
+                                            <div
+                                              className="__react_component_tooltip place-top type-dark "
+                                              data-id="tooltip"
+                                            />
+                                          </ReactTooltip>
+                                        </div>
+                                      </MealCard>
+                                    </div>
+                                  </div>
+                                </div>
+                              </InfiniteScroll>
+                            </InfiniteLoader>
+                          </div>
+                        </CardGroup>
+                      </MenuItems>
+                    </Connect(MenuItems)>
+                  </div>
+                  <Cart
+                    handleQuantityInputChange={[Function]}
+                    order={
+                      Array [
+                        Object {
+                          "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
+                          "price": "2500",
+                          "quantity": 1,
+                          "title": "Meat Soup",
+                        },
+                        Object {
+                          "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
+                          "price": "2200",
+                          "quantity": 3,
+                          "title": "Fish Soup",
+                        },
+                      ]
+                    }
+                    removeOrderItem={[Function]}
+                  >
+                    <div
+                      className="side-cart-toggle d-none-xl"
+                    >
+                      <span
+                        aria-hidden="true"
+                        id="cart-toggler"
+                        onClick={[Function]}
+                      >
+                        <div
+                          className="text-center"
+                        >
+                          <img
+                            alt="cart"
+                            src="/img/cart.png"
+                          />
+                            
+                          <sup>
+                            2
+                          </sup>
+                        </div>
+                        <p
+                          className="text-center"
+                        >
+                          Total: ₦
+                          9100
+                        </p>
+                      </span>
+                      <span
+                        className="cart-btn"
+                      >
+                        <Link
+                          replace={false}
+                          to="/order-review"
+                        >
+                          <a
+                            href="/order-review"
+                            onClick={[Function]}
+                          >
+                            <button
+                              className="btn btn-pri btn-block checkout-btn"
+                              disabled={null}
+                            >
+                              Checkout
+                            </button>
+                          </a>
+                        </Link>
+                      </span>
+                    </div>
+                    <div
+                      className="side-cart null"
+                      id="side-cart"
+                    >
+                      <div
+                        className="cart"
+                      >
+                        <div
+                          className="cart-header"
+                        >
+                          <h2>
+                            Your Basket
+                          </h2>
+                          <CloseIcon
+                            btnID="side-cart-close-icon"
+                            clickHandler={[Function]}
+                            divClass="d-none-xl"
+                          >
+                            <div
+                              className="close d-none-xl"
+                            >
+                              <Link
+                                aria-hidden="true"
+                                className={null}
+                                clickHandler={[Function]}
+                                dataTip={null}
+                                id="side-cart-close-icon"
+                              >
+                                <button
+                                  className="link-btn null"
+                                  data-tip={null}
+                                  id="side-cart-close-icon"
+                                  onClick={[Function]}
+                                >
+                                  ×
+                                </button>
+                              </Link>
+                            </div>
+                          </CloseIcon>
+                        </div>
+                        <hr />
+                        <div
+                          className="order-summary"
+                        >
+                          <div
+                            key="fb097bde-5959-45ff-8e21-51184fa60c26"
+                          >
+                            <p>
+                              <input
+                                className="order-input"
+                                min="1"
+                                onChange={[Function]}
+                                type="number"
+                                value={1}
+                              />
+                            </p>
+                            <p
+                              data-for="cart-tooltip"
+                              data-tip="Meat Soup"
+                            >
+                              Meat Soup
+                            </p>
+                            <p>
+                              2500
+                            </p>
+                            <Link
+                              className="remove-order"
+                              clickHandler={[Function]}
+                              data-for="cart-tooltip"
+                              dataTip="Remove Item?"
+                              id={null}
+                            >
+                              <button
+                                className="link-btn remove-order"
+                                data-tip="Remove Item?"
+                                id={null}
+                                onClick={[Function]}
+                              >
+                                ×
+                              </button>
+                            </Link>
+                            <ReactTooltip
+                              className="tooltip"
+                              effect="solid"
+                              id="cart-tooltip"
+                              insecure={true}
+                              place="top"
+                              resizeHide={true}
+                              type="dark"
+                              wrapper="div"
+                            >
+                              <div
+                                className="__react_component_tooltip place-top type-dark "
+                                data-id="tooltip"
+                                id="cart-tooltip"
+                              />
+                            </ReactTooltip>
+                          </div>
+                          <div
+                            key="fb097bde-5959-45ff-8e21-51184fa60f36"
+                          >
+                            <p>
+                              <input
+                                className="order-input"
+                                min="1"
+                                onChange={[Function]}
+                                type="number"
+                                value={3}
+                              />
+                            </p>
+                            <p
+                              data-for="cart-tooltip"
+                              data-tip="Fish Soup"
+                            >
+                              Fish Soup
+                            </p>
+                            <p>
+                              2200
+                            </p>
+                            <Link
+                              className="remove-order"
+                              clickHandler={[Function]}
+                              data-for="cart-tooltip"
+                              dataTip="Remove Item?"
+                              id={null}
+                            >
+                              <button
+                                className="link-btn remove-order"
+                                data-tip="Remove Item?"
+                                id={null}
+                                onClick={[Function]}
+                              >
+                                ×
+                              </button>
+                            </Link>
+                            <ReactTooltip
+                              className="tooltip"
+                              effect="solid"
+                              id="cart-tooltip"
+                              insecure={true}
+                              place="top"
+                              resizeHide={true}
+                              type="dark"
+                              wrapper="div"
+                            >
+                              <div
+                                className="__react_component_tooltip place-top type-dark "
+                                data-id="tooltip"
+                                id="cart-tooltip"
+                              />
+                            </ReactTooltip>
+                          </div>
+                          <div
+                            className="order-amount"
+                          >
+                            <div>
+                              <p>
+                                Total:
+                              </p>
+                              <h2>
+                                ₦
+                                9100
+                              </h2>
+                            </div>
+                          </div>
+                        </div>
+                        <br />
+                        <Link
+                          replace={false}
+                          to="/order-review"
+                        >
+                          <a
+                            href="/order-review"
+                            onClick={[Function]}
+                          >
+                            <button
+                              className="btn btn-pri btn-block checkout-btn"
+                              disabled={null}
+                            >
+                              Checkout
+                            </button>
+                          </a>
+                        </Link>
+                      </div>
+                    </div>
+                  </Cart>
+                </div>
+              </div>
+            </div>
+            <Connect(Modal)
+              isFetching={false}
+              logout={[Function]}
+              showTime={true}
+              type="menu"
+              updateCurrentDate={null}
+              uploading={false}
+              user={
+                Object {
+                  "email": "emiola@olasanmi.com",
+                  "firstname": "Emiola",
+                  "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                  "lastname": "Olasanmi",
+                  "role": "customer",
+                }
+              }
+            >
+              <Modal
+                isFetching={false}
+                logout={[Function]}
+                open={false}
+                showTime={true}
+                toggleModal={[Function]}
+                type={null}
+                updateCurrentDate={null}
+                uploading={false}
+                user={
+                  Object {
+                    "email": "emiola@olasanmi.com",
+                    "firstname": "Emiola",
+                    "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                    "lastname": "Olasanmi",
+                    "role": "customer",
+                  }
+                }
+              />
+            </Connect(Modal)>
+            <Footer>
+              <div
+                className="footer"
+              >
+                <p>
+                  © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+                </p>
+              </div>
+            </Footer>
+          </div>
+        </View>
+      </Connect(View)>
+    </CustomerMenu>
+  </Connect(CustomerMenu)>
+</Provider>
+`;
+
+exports[`CustomerMenu renders correctly when not fetching 1`] = `
+<Connect(View)
+  type="menu"
+>
+  <div
+    className="meals user-meals"
+  >
+    <div
+      className="user-menu"
+    >
+      <div
+        className="main-menu"
+      >
+        <div
+          className="page-heading"
+        >
+          <h2>
+            Today's Menu
+          </h2>
+          <hr />
+        </div>
+        <SearchForm
+          fetchItems={[Function]}
+          type="customer"
+        />
+        <Connect(MenuItems)
+          addOrderItem={[Function]}
+          loadMoreMenu={[Function]}
+          order={
+            Object {
+              "deliveryAddress": "A Place",
+              "deliveryPhoneNo": "2348167719888",
+              "id": null,
+              "meals": Array [
+                Object {
+                  "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
+                  "price": "2500",
+                  "quantity": 1,
+                  "title": "Meat Soup",
+                },
+                Object {
+                  "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
+                  "price": "2200",
+                  "quantity": 3,
+                  "title": "Fish Soup",
+                },
+              ],
+            }
+          }
+        />
+      </div>
+      <Cart
+        handleQuantityInputChange={[Function]}
+        order={
+          Array [
+            Object {
+              "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
+              "price": "2500",
+              "quantity": 1,
+              "title": "Meat Soup",
+            },
+            Object {
+              "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
+              "price": "2200",
+              "quantity": 3,
+              "title": "Fish Soup",
+            },
+          ]
+        }
+        removeOrderItem={[Function]}
+      />
+    </div>
+  </div>
+</Connect(View)>
+`;
+
+exports[`CustomerMenu renders message when shop is closed 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <CustomerMenu
+    fetchMenu={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            undefined,
+            undefined,
+            undefined,
+          ],
+        ],
+      }
+    }
+    user={
+      Object {
+        "email": "emiola@olasanmi.com",
+        "firstname": "Emiola",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "lastname": "Olasanmi",
+        "role": "customer",
+      }
+    }
+  >
+    <Connect(View)
+      type="menu"
+    >
       <View
         isFetching={false}
         logout={[Function]}
         showTime={true}
         type="menu"
         updateCurrentDate={null}
+        uploading={false}
         user={
           Object {
             "email": "emiola@olasanmi.com",
@@ -483,6 +1588,19 @@ exports[`CustomerMenu renders connected component 1`] = `
                       </div>
                     </div>
                   </SearchForm>
+                  <Notification
+                    message="Ordering is only available between 8:30am and 4:00pm. Please check back later."
+                  >
+                    <div
+                      className="notification-pill"
+                    >
+                      <p
+                        className="text-center notif"
+                      >
+                        Ordering is only available between 8:30am and 4:00pm. Please check back later.
+                      </p>
+                    </div>
+                  </Notification>
                   <Connect(MenuItems)
                     addOrderItem={[Function]}
                     loadMoreMenu={[Function]}
@@ -733,17 +1851,6 @@ exports[`CustomerMenu renders connected component 1`] = `
                                               Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
                                             </p>
                                           </div>
-                                          <div
-                                            className="meal-card-action"
-                                          >
-                                            <button
-                                              className="btn btn-sec meal-card-btn"
-                                              disabled={null}
-                                              onClick={[Function]}
-                                            >
-                                              Add To Basket
-                                            </button>
-                                          </div>
                                         </div>
                                         <ReactTooltip
                                           className="tooltip"
@@ -816,17 +1923,6 @@ exports[`CustomerMenu renders connected component 1`] = `
                                             >
                                               Sharwama contains no animal products, perfect for dieters
                                             </p>
-                                          </div>
-                                          <div
-                                            className="meal-card-action"
-                                          >
-                                            <button
-                                              className="btn btn-sec meal-card-btn"
-                                              disabled={null}
-                                              onClick={[Function]}
-                                            >
-                                              Add To Basket
-                                            </button>
                                           </div>
                                         </div>
                                         <ReactTooltip
@@ -901,26 +1997,6 @@ exports[`CustomerMenu renders connected component 1`] = `
                         Total: ₦
                         9100
                       </p>
-                    </span>
-                    <span
-                      className="cart-btn"
-                    >
-                      <Link
-                        replace={false}
-                        to="/order-review"
-                      >
-                        <a
-                          href="/order-review"
-                          onClick={[Function]}
-                        >
-                          <button
-                            className="btn btn-pri btn-block checkout-btn"
-                            disabled={null}
-                          >
-                            Checkout
-                          </button>
-                        </a>
-                      </Link>
                     </span>
                   </div>
                   <div
@@ -1090,22 +2166,6 @@ exports[`CustomerMenu renders connected component 1`] = `
                         </div>
                       </div>
                       <br />
-                      <Link
-                        replace={false}
-                        to="/order-review"
-                      >
-                        <a
-                          href="/order-review"
-                          onClick={[Function]}
-                        >
-                          <button
-                            className="btn btn-pri btn-block checkout-btn"
-                            disabled={null}
-                          >
-                            Checkout
-                          </button>
-                        </a>
-                      </Link>
                     </div>
                   </div>
                 </Cart>
@@ -1118,6 +2178,7 @@ exports[`CustomerMenu renders connected component 1`] = `
             showTime={true}
             type="menu"
             updateCurrentDate={null}
+            uploading={false}
             user={
               Object {
                 "email": "emiola@olasanmi.com",
@@ -1136,6 +2197,7 @@ exports[`CustomerMenu renders connected component 1`] = `
               toggleModal={[Function]}
               type={null}
               updateCurrentDate={null}
+              uploading={false}
               user={
                 Object {
                   "email": "emiola@olasanmi.com",
@@ -1158,1112 +2220,7 @@ exports[`CustomerMenu renders connected component 1`] = `
           </Footer>
         </div>
       </View>
-    </CustomerMenu>
-  </Connect(CustomerMenu)>
-</Provider>
-`;
-
-exports[`CustomerMenu renders correctly when not fetching 1`] = `
-<View
-  isFetching={false}
-  logout={[MockFunction]}
-  showTime={true}
-  type="menu"
-  updateCurrentDate={null}
-  user={
-    Object {
-      "email": "emiola@olasanmi.com",
-      "firstname": "Emiola",
-      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-      "lastname": "Olasanmi",
-      "role": "customer",
-    }
-  }
->
-  <div
-    className="meals user-meals"
-  >
-    <div
-      className="user-menu"
-    >
-      <div
-        className="main-menu"
-      >
-        <div
-          className="page-heading"
-        >
-          <h2>
-            Today's Menu
-          </h2>
-          <hr />
-        </div>
-        <SearchForm
-          fetchItems={[Function]}
-          type="customer"
-        />
-        <Connect(MenuItems)
-          addOrderItem={[Function]}
-          loadMoreMenu={[Function]}
-          order={
-            Object {
-              "deliveryAddress": "A Place",
-              "deliveryPhoneNo": "2348167719888",
-              "id": null,
-              "meals": Array [
-                Object {
-                  "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
-                  "price": "2500",
-                  "quantity": 1,
-                  "title": "Meat Soup",
-                },
-                Object {
-                  "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
-                  "price": "2200",
-                  "quantity": 3,
-                  "title": "Fish Soup",
-                },
-              ],
-            }
-          }
-        />
-      </div>
-      <Cart
-        handleQuantityInputChange={[Function]}
-        order={
-          Array [
-            Object {
-              "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
-              "price": "2500",
-              "quantity": 1,
-              "title": "Meat Soup",
-            },
-            Object {
-              "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
-              "price": "2200",
-              "quantity": 3,
-              "title": "Fish Soup",
-            },
-          ]
-        }
-        removeOrderItem={[Function]}
-      />
-    </div>
-  </div>
-</View>
-`;
-
-exports[`CustomerMenu renders message when shop is closed 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <CustomerMenu
-    fetchMenu={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            undefined,
-            undefined,
-            undefined,
-          ],
-        ],
-      }
-    }
-    isFetching={false}
-    logout={[MockFunction]}
-    meals={
-      Array [
-        Object {
-          "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
-          "id": "81211c24-51c0-46ec-b1e0-18db55880958",
-          "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
-          "price": "1500.00",
-          "title": "Jollof Rice, Beef and Plantain",
-          "vegetarian": false,
-        },
-        Object {
-          "description": "Sharwama contains no animal products, perfect for dieters",
-          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-          "price": "1200.00",
-          "title": "Vegetable Sharwama and Guava Smoothie",
-          "vegetarian": true,
-        },
-      ]
-    }
-    metadata={
-      Object {
-        "next": "next",
-        "pages": 2,
-        "prev": "prev",
-        "total": 5,
-      }
-    }
-    user={
-      Object {
-        "email": "emiola@olasanmi.com",
-        "firstname": "Emiola",
-        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-        "lastname": "Olasanmi",
-        "role": "customer",
-      }
-    }
-  >
-    <View
-      isFetching={false}
-      logout={[MockFunction]}
-      showTime={true}
-      type="menu"
-      updateCurrentDate={null}
-      user={
-        Object {
-          "email": "emiola@olasanmi.com",
-          "firstname": "Emiola",
-          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-          "lastname": "Olasanmi",
-          "role": "customer",
-        }
-      }
-    >
-      <div
-        className="admin user"
-      >
-        <Header
-          active="menu"
-          dateType="menu"
-          logout={[MockFunction]}
-          showTime={true}
-          type="customer"
-          updateCurrentDate={null}
-          user={
-            Object {
-              "email": "emiola@olasanmi.com",
-              "firstname": "Emiola",
-              "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-              "lastname": "Olasanmi",
-              "role": "customer",
-            }
-          }
-        >
-          <div
-            className="header"
-          >
-            <div
-              className="navbar white-navbar"
-            >
-              <CustomerHeader
-                active="menu"
-                dateType="menu"
-                logout={[MockFunction]}
-                showTime={true}
-                type="customer"
-                updateCurrentDate={null}
-                user={
-                  Object {
-                    "email": "emiola@olasanmi.com",
-                    "firstname": "Emiola",
-                    "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                    "lastname": "Olasanmi",
-                    "role": "customer",
-                  }
-                }
-              >
-                <div
-                  className="page-title"
-                >
-                  <h3>
-                    <Link
-                      replace={false}
-                      to="/"
-                    >
-                      <a
-                        href="/"
-                        onClick={[Function]}
-                      >
-                        BOOK-A-MEAL
-                      </a>
-                    </Link>
-                  </h3>
-                </div>
-                <div
-                  className="navlinks"
-                >
-                  <h3>
-                    Welcome, 
-                    Emiola
-                  </h3>
-                  <Link
-                    className="active"
-                    replace={false}
-                    to="/"
-                  >
-                    <a
-                      className="active"
-                      href="/"
-                      onClick={[Function]}
-                    >
-                      Menu
-                    </a>
-                  </Link>
-                  <Link
-                    className="false"
-                    replace={false}
-                    to="/orders"
-                  >
-                    <a
-                      className="false"
-                      href="/orders"
-                      onClick={[Function]}
-                    >
-                      Orders
-                    </a>
-                  </Link>
-                  <Link
-                    onClick={[MockFunction]}
-                    replace={false}
-                    to="/"
-                  >
-                    <a
-                      href="/"
-                      onClick={[Function]}
-                    >
-                      Logout
-                    </a>
-                  </Link>
-                  <div
-                    className="user-info mobile-only"
-                  >
-                    <Dropdown
-                      content={
-                        <UNDEFINED>
-                          <Link
-                            className="active"
-                            replace={false}
-                            to="/"
-                          >
-                            Menu
-                          </Link>
-                          <Link
-                            className="false"
-                            replace={false}
-                            to="/orders"
-                          >
-                            Orders
-                          </Link>
-                          <Link
-                            onClick={[MockFunction]}
-                            replace={false}
-                            to="/"
-                          >
-                            Logout
-                          </Link>
-                        </UNDEFINED>
-                      }
-                      toggler={
-                        <div
-                          className="user-dropdown"
-                        >
-                          <div
-                            className="username-circle circle-click"
-                          >
-                            <p
-                              className="circle-click"
-                            >
-                              E
-                            </p>
-                          </div>
-                          <span>
-                            ▾
-                          </span>
-                        </div>
-                      }
-                      type="customer"
-                    >
-                      <div
-                        className="dropdown"
-                        onMouseEnter={[Function]}
-                        onMouseLeave={[Function]}
-                      >
-                        <Link
-                          className="link"
-                          clickHandler={null}
-                          dataTip={null}
-                          id="dropdown-toggler"
-                        >
-                          <button
-                            className="link-btn link"
-                            data-tip={null}
-                            id="dropdown-toggler"
-                            onClick={null}
-                          >
-                            <div
-                              className="user-dropdown"
-                            >
-                              <div
-                                className="username-circle circle-click"
-                              >
-                                <p
-                                  className="circle-click"
-                                >
-                                  E
-                                </p>
-                              </div>
-                              <span>
-                                ▾
-                              </span>
-                            </div>
-                          </button>
-                        </Link>
-                        <div
-                          className="dropdown-content"
-                          id="dropdown-content"
-                        >
-                          <Link
-                            className="active"
-                            replace={false}
-                            to="/"
-                          >
-                            <a
-                              className="active"
-                              href="/"
-                              onClick={[Function]}
-                            >
-                              Menu
-                            </a>
-                          </Link>
-                          <Link
-                            className="false"
-                            replace={false}
-                            to="/orders"
-                          >
-                            <a
-                              className="false"
-                              href="/orders"
-                              onClick={[Function]}
-                            >
-                              Orders
-                            </a>
-                          </Link>
-                          <Link
-                            onClick={[MockFunction]}
-                            replace={false}
-                            to="/"
-                          >
-                            <a
-                              href="/"
-                              onClick={[Function]}
-                            >
-                              Logout
-                            </a>
-                          </Link>
-                        </div>
-                      </div>
-                    </Dropdown>
-                    <p>
-                        
-                      Emiola
-                    </p>
-                  </div>
-                </div>
-              </CustomerHeader>
-            </div>
-          </div>
-        </Header>
-        <div
-          className="content-wrapper"
-          id="has-modal"
-        >
-          <div
-            className="meals user-meals"
-          >
-            <div
-              className="user-menu"
-            >
-              <div
-                className="main-menu"
-              >
-                <div
-                  className="page-heading"
-                >
-                  <h2>
-                    Today's Menu
-                  </h2>
-                  <hr />
-                </div>
-                <SearchForm
-                  fetchItems={[Function]}
-                  type="customer"
-                >
-                  <div
-                    className="search-wrapper"
-                  >
-                    <div
-                      className="search-form"
-                    >
-                      <div
-                        className="search-btn"
-                      >
-                        <img
-                          alt=""
-                          src="/img/search.svg"
-                        />
-                      </div>
-                      <label
-                        className="hide"
-                        htmlFor="search"
-                      >
-                        Search For Meals
-                      </label>
-                      <input
-                        id="search"
-                        label="Search"
-                        name="search"
-                        onChange={[Function]}
-                        placeholder="Search For Meals"
-                        type="text"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                </SearchForm>
-                <Notification
-                  message="Ordering is only available between 8:30am and 4:00pm. Please check back later."
-                >
-                  <div
-                    className="notification-pill"
-                  >
-                    <p
-                      className="text-center notif"
-                    >
-                      Ordering is only available between 8:30am and 4:00pm. Please check back later.
-                    </p>
-                  </div>
-                </Notification>
-                <Connect(MenuItems)
-                  addOrderItem={[Function]}
-                  loadMoreMenu={[Function]}
-                  order={
-                    Object {
-                      "deliveryAddress": "A Place",
-                      "deliveryPhoneNo": "2348167719888",
-                      "id": null,
-                      "meals": Array [
-                        Object {
-                          "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
-                          "price": "2500",
-                          "quantity": 1,
-                          "title": "Meat Soup",
-                        },
-                        Object {
-                          "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
-                          "price": "2200",
-                          "quantity": 3,
-                          "title": "Fish Soup",
-                        },
-                      ],
-                    }
-                  }
-                >
-                  <MenuItems
-                    addOrderItem={[Function]}
-                    dispatch={[Function]}
-                    isFetching={false}
-                    loadMoreMenu={[Function]}
-                    meals={
-                      Array [
-                        Object {
-                          "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
-                          "id": "81211c24-51c0-46ec-b1e0-18db55880958",
-                          "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
-                          "price": "1500.00",
-                          "title": "Jollof Rice, Beef and Plantain",
-                          "vegetarian": false,
-                        },
-                        Object {
-                          "description": "Sharwama contains no animal products, perfect for dieters",
-                          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                          "price": "1200.00",
-                          "title": "Vegetable Sharwama and Guava Smoothie",
-                          "vegetarian": true,
-                        },
-                      ]
-                    }
-                    metadata={Object {}}
-                    order={
-                      Object {
-                        "deliveryAddress": "A Place",
-                        "deliveryPhoneNo": "2348167719888",
-                        "id": null,
-                        "meals": Array [
-                          Object {
-                            "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
-                            "price": "2500",
-                            "quantity": 1,
-                            "title": "Meat Soup",
-                          },
-                          Object {
-                            "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
-                            "price": "2200",
-                            "quantity": 3,
-                            "title": "Fish Soup",
-                          },
-                        ],
-                      }
-                    }
-                  >
-                    <CardGroup
-                      items={
-                        Array [
-                          <MealCard
-                            inBasket={false}
-                            meal={
-                              Object {
-                                "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
-                                "id": "81211c24-51c0-46ec-b1e0-18db55880958",
-                                "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
-                                "price": "1500.00",
-                                "title": "Jollof Rice, Beef and Plantain",
-                                "vegetarian": false,
-                              }
-                            }
-                            orderMeal={[Function]}
-                            toggleModal={null}
-                            type="customer"
-                          />,
-                          <MealCard
-                            inBasket={false}
-                            meal={
-                              Object {
-                                "description": "Sharwama contains no animal products, perfect for dieters",
-                                "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                                "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                                "price": "1200.00",
-                                "title": "Vegetable Sharwama and Guava Smoothie",
-                                "vegetarian": true,
-                              }
-                            }
-                            orderMeal={[Function]}
-                            toggleModal={null}
-                            type="customer"
-                          />,
-                        ]
-                      }
-                      loadMore={[Function]}
-                      metadata={Object {}}
-                    >
-                      <div
-                        className="card-group meals-wrapper"
-                        id="card-group"
-                      >
-                        <InfiniteLoader
-                          height={null}
-                          items={
-                            Array [
-                              <MealCard
-                                inBasket={false}
-                                meal={
-                                  Object {
-                                    "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
-                                    "id": "81211c24-51c0-46ec-b1e0-18db55880958",
-                                    "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
-                                    "price": "1500.00",
-                                    "title": "Jollof Rice, Beef and Plantain",
-                                    "vegetarian": false,
-                                  }
-                                }
-                                orderMeal={[Function]}
-                                toggleModal={null}
-                                type="customer"
-                              />,
-                              <MealCard
-                                inBasket={false}
-                                meal={
-                                  Object {
-                                    "description": "Sharwama contains no animal products, perfect for dieters",
-                                    "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                                    "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                                    "price": "1200.00",
-                                    "title": "Vegetable Sharwama and Guava Smoothie",
-                                    "vegetarian": true,
-                                  }
-                                }
-                                orderMeal={[Function]}
-                                toggleModal={null}
-                                type="customer"
-                              />,
-                            ]
-                          }
-                          loadMore={[Function]}
-                          metadata={Object {}}
-                        >
-                          <InfiniteScroll
-                            dataLength={2}
-                            disableBrowserPullToRefresh={true}
-                            hasMore={false}
-                            height={null}
-                            loader={
-                              <div
-                                className="text-center"
-                              >
-                                <MiniPreloader />
-                              </div>
-                            }
-                            next={[Function]}
-                            pullDownToRefreshContent={
-                              <h3>
-                                Pull down to refresh
-                              </h3>
-                            }
-                            pullDownToRefreshThreshold={100}
-                            releaseToRefreshContent={
-                              <h3>
-                                Release to refresh
-                              </h3>
-                            }
-                          >
-                            <div
-                              style={Object {}}
-                            >
-                              <div
-                                className="infinite-scroll-component"
-                                style={
-                                  Object {
-                                    "WebkitOverflowScrolling": "touch",
-                                    "height": "auto",
-                                    "overflow": "auto",
-                                  }
-                                }
-                              >
-                                <div
-                                  className="scroller"
-                                >
-                                  <MealCard
-                                    inBasket={false}
-                                    key="81211c24-51c0-46ec-b1e0-18db55880958"
-                                    meal={
-                                      Object {
-                                        "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
-                                        "id": "81211c24-51c0-46ec-b1e0-18db55880958",
-                                        "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
-                                        "price": "1500.00",
-                                        "title": "Jollof Rice, Beef and Plantain",
-                                        "vegetarian": false,
-                                      }
-                                    }
-                                    orderMeal={[Function]}
-                                    toggleModal={null}
-                                    type="customer"
-                                  >
-                                    <div
-                                      className="meal-card order-meal-card"
-                                      id="meal-card"
-                                    >
-                                      <div
-                                        className="meal-card-header"
-                                      >
-                                        <img
-                                          alt="meal"
-                                          src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
-                                        />
-                                        <div
-                                          className="menu-card-title"
-                                        >
-                                          <p>
-                                            Jollof Rice, Beef and Plantain
-                                          </p>
-                                        </div>
-                                      </div>
-                                      <div
-                                        className="meal-card-body"
-                                      >
-                                        <div>
-                                          <h3>
-                                            ₦ 
-                                            1500.00
-                                          </h3>
-                                          <p
-                                            className="meal-description"
-                                            data-tip="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
-                                          >
-                                            Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
-                                          </p>
-                                        </div>
-                                      </div>
-                                      <ReactTooltip
-                                        className="tooltip"
-                                        effect="solid"
-                                        insecure={true}
-                                        place="top"
-                                        resizeHide={true}
-                                        type="dark"
-                                        wrapper="div"
-                                      >
-                                        <div
-                                          className="__react_component_tooltip place-top type-dark "
-                                          data-id="tooltip"
-                                        />
-                                      </ReactTooltip>
-                                    </div>
-                                  </MealCard>
-                                  <MealCard
-                                    inBasket={false}
-                                    key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-                                    meal={
-                                      Object {
-                                        "description": "Sharwama contains no animal products, perfect for dieters",
-                                        "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                                        "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                                        "price": "1200.00",
-                                        "title": "Vegetable Sharwama and Guava Smoothie",
-                                        "vegetarian": true,
-                                      }
-                                    }
-                                    orderMeal={[Function]}
-                                    toggleModal={null}
-                                    type="customer"
-                                  >
-                                    <div
-                                      className="meal-card order-meal-card"
-                                      id="meal-card"
-                                    >
-                                      <div
-                                        className="meal-card-header"
-                                      >
-                                        <span
-                                          className="veg-ribbon"
-                                        >
-                                          Vegetarian
-                                        </span>
-                                        <img
-                                          alt="meal"
-                                          src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
-                                        />
-                                        <div
-                                          className="menu-card-title"
-                                        >
-                                          <p>
-                                            Vegetable Sharwama and Guava Smoothie
-                                          </p>
-                                        </div>
-                                      </div>
-                                      <div
-                                        className="meal-card-body"
-                                      >
-                                        <div>
-                                          <h3>
-                                            ₦ 
-                                            1200.00
-                                          </h3>
-                                          <p
-                                            className="meal-description"
-                                            data-tip="Sharwama contains no animal products, perfect for dieters"
-                                          >
-                                            Sharwama contains no animal products, perfect for dieters
-                                          </p>
-                                        </div>
-                                      </div>
-                                      <ReactTooltip
-                                        className="tooltip"
-                                        effect="solid"
-                                        insecure={true}
-                                        place="top"
-                                        resizeHide={true}
-                                        type="dark"
-                                        wrapper="div"
-                                      >
-                                        <div
-                                          className="__react_component_tooltip place-top type-dark "
-                                          data-id="tooltip"
-                                        />
-                                      </ReactTooltip>
-                                    </div>
-                                  </MealCard>
-                                </div>
-                              </div>
-                            </div>
-                          </InfiniteScroll>
-                        </InfiniteLoader>
-                      </div>
-                    </CardGroup>
-                  </MenuItems>
-                </Connect(MenuItems)>
-              </div>
-              <Cart
-                handleQuantityInputChange={[Function]}
-                order={
-                  Array [
-                    Object {
-                      "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
-                      "price": "2500",
-                      "quantity": 1,
-                      "title": "Meat Soup",
-                    },
-                    Object {
-                      "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
-                      "price": "2200",
-                      "quantity": 3,
-                      "title": "Fish Soup",
-                    },
-                  ]
-                }
-                removeOrderItem={[Function]}
-              >
-                <div
-                  className="side-cart-toggle d-none-xl"
-                >
-                  <span
-                    aria-hidden="true"
-                    id="cart-toggler"
-                    onClick={[Function]}
-                  >
-                    <div
-                      className="text-center"
-                    >
-                      <img
-                        alt="cart"
-                        src="/img/cart.png"
-                      />
-                        
-                      <sup>
-                        2
-                      </sup>
-                    </div>
-                    <p
-                      className="text-center"
-                    >
-                      Total: ₦
-                      9100
-                    </p>
-                  </span>
-                </div>
-                <div
-                  className="side-cart null"
-                  id="side-cart"
-                >
-                  <div
-                    className="cart"
-                  >
-                    <div
-                      className="cart-header"
-                    >
-                      <h2>
-                        Your Basket
-                      </h2>
-                      <CloseIcon
-                        btnID="side-cart-close-icon"
-                        clickHandler={[Function]}
-                        divClass="d-none-xl"
-                      >
-                        <div
-                          className="close d-none-xl"
-                        >
-                          <Link
-                            aria-hidden="true"
-                            className={null}
-                            clickHandler={[Function]}
-                            dataTip={null}
-                            id="side-cart-close-icon"
-                          >
-                            <button
-                              className="link-btn null"
-                              data-tip={null}
-                              id="side-cart-close-icon"
-                              onClick={[Function]}
-                            >
-                              ×
-                            </button>
-                          </Link>
-                        </div>
-                      </CloseIcon>
-                    </div>
-                    <hr />
-                    <div
-                      className="order-summary"
-                    >
-                      <div
-                        key="fb097bde-5959-45ff-8e21-51184fa60c26"
-                      >
-                        <p>
-                          <input
-                            className="order-input"
-                            min="1"
-                            onChange={[Function]}
-                            type="number"
-                            value={1}
-                          />
-                        </p>
-                        <p
-                          data-for="cart-tooltip"
-                          data-tip="Meat Soup"
-                        >
-                          Meat Soup
-                        </p>
-                        <p>
-                          2500
-                        </p>
-                        <Link
-                          className="remove-order"
-                          clickHandler={[Function]}
-                          data-for="cart-tooltip"
-                          dataTip="Remove Item?"
-                          id={null}
-                        >
-                          <button
-                            className="link-btn remove-order"
-                            data-tip="Remove Item?"
-                            id={null}
-                            onClick={[Function]}
-                          >
-                            ×
-                          </button>
-                        </Link>
-                        <ReactTooltip
-                          className="tooltip"
-                          effect="solid"
-                          id="cart-tooltip"
-                          insecure={true}
-                          place="top"
-                          resizeHide={true}
-                          type="dark"
-                          wrapper="div"
-                        >
-                          <div
-                            className="__react_component_tooltip place-top type-dark "
-                            data-id="tooltip"
-                            id="cart-tooltip"
-                          />
-                        </ReactTooltip>
-                      </div>
-                      <div
-                        key="fb097bde-5959-45ff-8e21-51184fa60f36"
-                      >
-                        <p>
-                          <input
-                            className="order-input"
-                            min="1"
-                            onChange={[Function]}
-                            type="number"
-                            value={3}
-                          />
-                        </p>
-                        <p
-                          data-for="cart-tooltip"
-                          data-tip="Fish Soup"
-                        >
-                          Fish Soup
-                        </p>
-                        <p>
-                          2200
-                        </p>
-                        <Link
-                          className="remove-order"
-                          clickHandler={[Function]}
-                          data-for="cart-tooltip"
-                          dataTip="Remove Item?"
-                          id={null}
-                        >
-                          <button
-                            className="link-btn remove-order"
-                            data-tip="Remove Item?"
-                            id={null}
-                            onClick={[Function]}
-                          >
-                            ×
-                          </button>
-                        </Link>
-                        <ReactTooltip
-                          className="tooltip"
-                          effect="solid"
-                          id="cart-tooltip"
-                          insecure={true}
-                          place="top"
-                          resizeHide={true}
-                          type="dark"
-                          wrapper="div"
-                        >
-                          <div
-                            className="__react_component_tooltip place-top type-dark "
-                            data-id="tooltip"
-                            id="cart-tooltip"
-                          />
-                        </ReactTooltip>
-                      </div>
-                      <div
-                        className="order-amount"
-                      >
-                        <div>
-                          <p>
-                            Total:
-                          </p>
-                          <h2>
-                            ₦
-                            9100
-                          </h2>
-                        </div>
-                      </div>
-                    </div>
-                    <br />
-                  </div>
-                </div>
-              </Cart>
-            </div>
-          </div>
-        </div>
-        <Connect(Modal)
-          isFetching={false}
-          logout={[MockFunction]}
-          showTime={true}
-          type="menu"
-          updateCurrentDate={null}
-          user={
-            Object {
-              "email": "emiola@olasanmi.com",
-              "firstname": "Emiola",
-              "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-              "lastname": "Olasanmi",
-              "role": "customer",
-            }
-          }
-        >
-          <Modal
-            isFetching={false}
-            logout={[MockFunction]}
-            open={false}
-            showTime={true}
-            toggleModal={[Function]}
-            type={null}
-            updateCurrentDate={null}
-            user={
-              Object {
-                "email": "emiola@olasanmi.com",
-                "firstname": "Emiola",
-                "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                "lastname": "Olasanmi",
-                "role": "customer",
-              }
-            }
-          />
-        </Connect(Modal)>
-        <Footer>
-          <div
-            className="footer"
-          >
-            <p>
-              © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
-            </p>
-          </div>
-        </Footer>
-      </div>
-    </View>
+    </Connect(View)>
   </CustomerMenu>
 </Provider>
 `;

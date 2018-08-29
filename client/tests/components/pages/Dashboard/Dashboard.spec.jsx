@@ -8,7 +8,10 @@ import { caterer, caterersOrdersObj, initialState } from '../../../setup/mockDat
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
-const store = mockStore(initialState);
+const store = mockStore({
+  ...initialState,
+  auth: { ...initialState.auth, user: { ...initialState.auth.user, ...caterer } }
+});
 const { now } = Date;
 
 
@@ -21,42 +24,23 @@ describe('Dashboard', () => {
     Date.now = now;
   });
 
-  it('renders correctly when not fetching', () => {
+  it('renders correctly', () => {
     const shallowWrapper = shallow(<Dashboard
-      user={caterer}
-      logout={jest.fn()}
       fetchOrders={jest.fn()}
       deliverOrder={jest.fn()}
       {...caterersOrdersObj}
-      isFetching={false}
     />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
   });
 
-  it('renders Preloader when fetching', () => {
-    const shallowWrapper = shallow(<Dashboard
-      user={caterer}
-      logout={jest.fn()}
-      fetchOrders={jest.fn()}
-      deliverOrder={jest.fn()}
-      {...caterersOrdersObj}
-      isFetching
-    />);
-
-    expect(toJson(shallowWrapper)).toMatchSnapshot();
-    expect(shallowWrapper.find('Preloader')).toBeTruthy();
-  });
-
-  it('renders connected component', () => {
+  it('renders connected component correctly', () => {
     const dispatchMock = jest.fn();
     const comp = (
       <Provider store={store}>
         <ConnectedDashboard
-          user={caterer}
           dispatch={dispatchMock}
           {...caterersOrdersObj}
-          isFetching={false}
         />
       </Provider>);
 
