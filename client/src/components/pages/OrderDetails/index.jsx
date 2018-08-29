@@ -14,10 +14,8 @@ const OrderDetails = (props) => {
   const { user } = props;
   return (
     <Fragment>
-      {user.role === 'caterer' &&
-        <CatererOrderDetails {...props} />}
-      {user.role === 'customer' &&
-        <CustomerOrderDetails {...props} />}
+      {user.role === 'caterer' && <CatererOrderDetails {...props} />}
+      {user.role === 'customer' && <CustomerOrderDetails {...props} />}
     </Fragment>
   );
 };

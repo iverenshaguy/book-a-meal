@@ -34,4 +34,16 @@ describe('Orders Reducers', () => {
 
     expect(newState).toEqual({ ...state, error: 'Error' });
   });
+
+  it('should handle DELIVER_ORDER_SUCCESS action', () => {
+    const newState = reducer(state, {
+      type: 'DELIVER_ORDER_SUCCESS',
+      payload: customerOrder
+    });
+
+    expect(newState).toEqual({
+      ...state,
+      item: customerOrder
+    });
+  });
 });

@@ -4,12 +4,14 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import MealsComponent from '../../../../src/components/pages/Meals';
 import MealsContainer from '../../../../src/containers/pages/Meals';
-import { caterer, customer, mealsObj, initialState, metadata } from '../../../setup/mockData';
+import { caterer, mealsObj, initialState, metadata } from '../../../setup/mockData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({
-  ...initialState, meals: { ...initialState.meals, items: mealsObj.meals, metadata }
+  ...initialState,
+  meals: { ...initialState.meals, items: mealsObj.meals, metadata },
+  auth: { ...initialState.auth, user: { ...initialState.auth.user, ...caterer } }
 });
 const { now } = Date;
 
@@ -27,12 +29,9 @@ describe('Meals', () => {
 
     const shallowWrapper = shallow(<MealsComponent
       user={caterer}
-      logout={jest.fn()}
       fetchMeals={jest.fn()}
       {...mealsObj}
-      isFetching={false}
       submitting={false}
-      uploading={false}
       toggleModal={toggleMock}
       metadata={metadata}
     />);
@@ -47,12 +46,9 @@ describe('Meals', () => {
 
     shallow(<MealsComponent
       user={caterer}
-      logout={jest.fn()}
       fetchMeals={fetchMealsMock}
       {...mealsObj}
-      isFetching={false}
       submitting={false}
-      uploading={false}
       toggleModal={toggleMock}
       metadata={metadata}
     />);
@@ -66,12 +62,9 @@ describe('Meals', () => {
 
     shallow(<MealsComponent
       user={caterer}
-      logout={jest.fn()}
       fetchMeals={fetchMealsMock}
       {...mealsObj}
-      isFetching={false}
       submitting={false}
-      uploading={false}
       toggleModal={toggleMock}
       metadata={{}}
     />);
@@ -85,12 +78,9 @@ describe('Meals', () => {
 
     const shallowWrapper = shallow(<MealsComponent
       user={caterer}
-      logout={jest.fn()}
       fetchMeals={fetchMealsMock}
       {...mealsObj}
-      isFetching={false}
       submitting={false}
-      uploading={false}
       toggleModal={toggleMock}
       metadata={{}}
     />);
@@ -104,12 +94,9 @@ describe('Meals', () => {
     const toggleMock = jest.fn();
     const wrapper = shallow(<MealsComponent
       user={caterer}
-      logout={jest.fn()}
       fetchMeals={jest.fn()}
       {...mealsObj}
-      isFetching={false}
       submitting={false}
-      uploading={false}
       toggleModal={toggleMock}
       metadata={metadata}
     />);
@@ -123,10 +110,8 @@ describe('Meals', () => {
       <Provider store={store}>
         <MealsContainer
           user={caterer}
-          logout={jest.fn()}
           fetchMeals={jest.fn()}
           {...mealsObj}
-          isFetching={false}
         />
       </Provider>
     );
@@ -138,33 +123,14 @@ describe('Meals', () => {
     expect(toggleSpy).toHaveBeenCalled();
   });
 
-  it('redirects User to homepage if user role is customer', () => {
-    const toggleMock = jest.fn();
-    const shallowWrapper = shallow(<MealsComponent
-      user={customer}
-      logout={jest.fn()}
-      fetchMeals={jest.fn()}
-      {...mealsObj}
-      isFetching
-      submitting={false}
-      uploading={false}
-      toggleModal={toggleMock}
-      metadata={metadata}
-    />);
-
-    expect(shallowWrapper.find('Redirect')).toBeTruthy();
-  });
-
   it('renders Preloader when fetching', () => {
     const toggleMock = jest.fn();
     const shallowWrapper = shallow(<MealsComponent
       user={caterer}
-      logout={jest.fn()}
       fetchMeals={jest.fn()}
       {...mealsObj}
       isFetching
       submitting={false}
-      uploading={false}
       toggleModal={toggleMock}
       metadata={metadata}
     />);
@@ -173,16 +139,13 @@ describe('Meals', () => {
     expect(shallowWrapper.find('Preloader')).toBeTruthy();
   });
 
-  it('renders message when not fetching and there are no meals', () => {
+  it('renders message when there are no meals', () => {
     const toggleMock = jest.fn();
     const shallowWrapper = shallow(<MealsComponent
       user={caterer}
-      logout={jest.fn()}
       fetchMeals={jest.fn()}
       meals={[]}
-      isFetching
       submitting={false}
-      uploading={false}
       toggleModal={toggleMock}
       metadata={metadata}
     />);
@@ -199,7 +162,6 @@ describe('Meals', () => {
           user={caterer}
           dispatch={dispatchMock}
           {...mealsObj}
-          isFetching={false}
         />
       </Provider>);
 

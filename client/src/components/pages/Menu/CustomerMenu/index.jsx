@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Cart from '../../../shared/Cart';
 import { userPropTypes } from '../../../../helpers/proptypes';
-import View from '../../../shared/View';
+import View from '../../../../containers/shared/View';
 import Notification from '../../../shared/Notification';
 import checkShopOpen from '../../../../helpers/checkShopOpen';
 import getOrderFromLocalStorage from '../../../../helpers/getOrderFromLocalStorage';
@@ -21,7 +21,6 @@ import './CustomerMenu.scss';
 class CustomerMenu extends Component {
   static propTypes = {
     ...userPropTypes,
-    logout: PropTypes.func.isRequired,
     fetchMenu: PropTypes.func.isRequired,
   }
 
@@ -157,11 +156,10 @@ class CustomerMenu extends Component {
    * @returns {JSX} CustomerMenu Component
   */
   render() {
-    const { user, logout } = this.props;
     const isShopOpen = checkShopOpen();
 
     return (
-      <View user={user} logout={logout} type="menu">
+      <View type="menu">
         <div className="meals user-meals">
           <div className="user-menu">
             <div className="main-menu">

@@ -9,7 +9,8 @@ import { customer, customersOrdersObj, initialState } from '../../../setup/mockD
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({
-  ...initialState
+  ...initialState,
+  auth: { ...initialState.auth, user: { ...initialState.auth.user, ...customer } }
 });
 
 const { now } = Date;
@@ -26,13 +27,11 @@ describe('OrderDetails', () => {
   it('renders correctly when not fetching', () => {
     const wrapper = shallow(<CustomerOrderDetailsComponent
       user={customer}
-      logout={jest.fn()}
       fetchOrder={jest.fn()}
       editOrder={jest.fn()}
       cancelOrder={jest.fn()}
       push={jest.fn()}
       order={customersOrdersObj.orders[0]}
-      isFetching={false}
       match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa70c25' } }}
     />);
 
@@ -42,13 +41,11 @@ describe('OrderDetails', () => {
   it('renders Preloader when fetching', () => {
     const wrapper = shallow(<CustomerOrderDetailsComponent
       user={customer}
-      logout={jest.fn()}
       fetchOrder={jest.fn()}
       editOrder={jest.fn()}
       cancelOrder={jest.fn()}
       push={jest.fn()}
       order={customersOrdersObj.orders[0]}
-      isFetching
       match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa70c25' } }}
     />);
 
@@ -61,7 +58,6 @@ describe('OrderDetails', () => {
       <Provider store={store}>
         <CustomerOrderDetailsContainer
           user={customer}
-          isFetching={false}
           match={{ params: { id: 'fb097b-5959-45ff-8e21-51184fa61c25' } }}
         />
       </Provider>);
@@ -75,7 +71,8 @@ describe('OrderDetails', () => {
   it('renders delivered order', () => {
     const newStore = mockStore({
       ...initialState,
-      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[1] }
+      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[1] },
+      auth: { ...initialState.auth, user: { ...initialState.auth.user, ...customer } }
     });
 
     const comp = (
@@ -94,7 +91,8 @@ describe('OrderDetails', () => {
   it('renders canceled order', () => {
     const newStore = mockStore({
       ...initialState,
-      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[0] }
+      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[0] },
+      auth: { ...initialState.auth, user: { ...initialState.auth.user, ...customer } }
     });
 
     const comp = (
@@ -113,7 +111,8 @@ describe('OrderDetails', () => {
   it('renders pending order', () => {
     const newStore = mockStore({
       ...initialState,
-      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[2] }
+      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[2] },
+      auth: { ...initialState.auth, user: { ...initialState.auth.user, ...customer } }
     });
 
     const comp = (
@@ -132,7 +131,8 @@ describe('OrderDetails', () => {
   it('renders started order and shows control buttons', () => {
     const newStore = mockStore({
       ...initialState,
-      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[3] }
+      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[3] },
+      auth: { ...initialState.auth, user: { ...initialState.auth.user, ...customer } }
     });
 
     const comp = (
@@ -151,7 +151,8 @@ describe('OrderDetails', () => {
   it('renders connected component', () => {
     const newStore = mockStore({
       ...initialState,
-      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[1] }
+      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[1] },
+      auth: { ...initialState.auth, user: { ...initialState.auth.user, ...customer } }
     });
 
     const comp = (
@@ -172,7 +173,8 @@ describe('OrderDetails', () => {
   it('calls edit order method on edit button click', () => {
     const newStore = mockStore({
       ...initialState,
-      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[3] }
+      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[3] },
+      auth: { ...initialState.auth, user: { ...initialState.auth.user, ...customer } }
     });
 
     const comp = (
@@ -199,7 +201,8 @@ describe('OrderDetails', () => {
     const cancelOrderMock = jest.fn();
     const newStore = mockStore({
       ...initialState,
-      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[0] }
+      singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[0] },
+      auth: { ...initialState.auth, user: { ...initialState.auth.user, ...customer } }
     });
 
     const comp = (

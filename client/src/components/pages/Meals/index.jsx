@@ -1,9 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Redirect from 'react-router-dom/Redirect';
 import MealCard from '../../shared/MealCard';
-import View from '../../shared/View';
-import { userPropTypes, mealObjPropTypes, metadataPropTypes } from '../../../helpers/proptypes';
+import View from '../../../containers/shared/View';
+import { mealObjPropTypes, metadataPropTypes } from '../../../helpers/proptypes';
 import CardGroup from '../../shared/CardGroup';
 import './Meals.scss';
 
@@ -16,14 +15,10 @@ import './Meals.scss';
  */
 class Meals extends Component {
   static propTypes = {
-    ...userPropTypes,
     ...metadataPropTypes,
     meals: PropTypes.arrayOf(mealObjPropTypes).isRequired,
-    isFetching: PropTypes.bool.isRequired,
-    logout: PropTypes.func.isRequired,
     fetchMeals: PropTypes.func.isRequired,
     submitError: PropTypes.string,
-    uploading: PropTypes.bool.isRequired,
     submitting: PropTypes.bool.isRequired,
     toggleModal: PropTypes.func.isRequired,
   }
@@ -112,24 +107,16 @@ class Meals extends Component {
    * @returns {JSX} Meals Component
    */
   render() {
-    const {
-      user, logout, submitting, submitError, isFetching, uploading
-    } = this.props;
+    const { submitting, submitError } = this.props;
 
     const { currentMealId } = this.state;
-
-    if (user.role === 'customer') return <Redirect to="/" />;
 
     return (
       <Fragment>
         <View
-          user={user}
-          logout={logout}
           type="meals"
           showTime
-          isFetching={isFetching}
           meal={this.getCurrentMeal(currentMealId)}
-          uploading={uploading}
           submitting={submitting}
           submitError={submitError}
         >

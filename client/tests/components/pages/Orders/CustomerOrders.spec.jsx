@@ -5,12 +5,14 @@ import configureMockStore from 'redux-mock-store';
 import OrderConfirmationComponent from '../../../../src/components/pages/Orders/CustomerOrders/OrderConfirmation';
 import OrderConfirmationContainer from '../../../../src/containers/pages/Orders/CustomerOrders/OrderConfirmation';
 import OrderReviewComponent from '../../../../src/components/pages/Orders/CustomerOrders/OrderReview';
-import OrderReviewContainer from '../../../../src/containers/pages/Orders/CustomerOrders/OrderReview';
 import { customer, initialState, localStorageOrder } from '../../../setup/mockData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
-const store = mockStore({ ...initialState });
+const store = mockStore({
+  ...initialState,
+  auth: { ...initialState.auth, user: { ...initialState.auth.user, ...customer } }
+});
 
 describe('Customer Orders', () => {
   beforeEach(() => {
@@ -21,10 +23,8 @@ describe('Customer Orders', () => {
     it('renders correctly', () => {
       const shallowWrapper = shallow(<OrderConfirmationComponent
         user={customer}
-        logout={jest.fn()}
         addOrder={jest.fn()}
         editOrder={jest.fn()}
-        isFetching={false}
       />);
 
       expect(shallowWrapper.find('OrderSummary').length).toBeTruthy();
@@ -35,10 +35,8 @@ describe('Customer Orders', () => {
 
       const shallowWrapper = shallow(<OrderConfirmationComponent
         user={customer}
-        logout={jest.fn()}
         addOrder={jest.fn()}
         editOrder={jest.fn()}
-        isFetching
       />);
 
       expect(shallowWrapper.find('Redirect')).toBeTruthy();
@@ -49,7 +47,6 @@ describe('Customer Orders', () => {
         <Provider store={store}>
           <OrderConfirmationContainer
             user={customer}
-            isFetching={false}
           />
         </Provider>);
 
@@ -67,10 +64,8 @@ describe('Customer Orders', () => {
         <Provider store={store}>
           <OrderConfirmationComponent
             user={customer}
-            logout={jest.fn()}
             addOrder={addOrderMock}
             editOrder={editOrderMock}
-            isFetching={false}
           />
         </Provider>);
 
@@ -101,10 +96,8 @@ describe('Customer Orders', () => {
         <Provider store={store}>
           <OrderConfirmationComponent
             user={customer}
-            logout={jest.fn()}
             addOrder={addOrderMock}
             editOrder={editOrderMock}
-            isFetching={false}
           />
         </Provider>);
 
@@ -124,8 +117,6 @@ describe('Customer Orders', () => {
     it('renders correctly', () => {
       const shallowWrapper = shallow(<OrderReviewComponent
         user={customer}
-        logout={jest.fn()}
-        isFetching={false}
       />);
 
       expect(toJson(shallowWrapper)).toMatchSnapshot();
@@ -136,26 +127,9 @@ describe('Customer Orders', () => {
 
       const shallowWrapper = shallow(<OrderReviewComponent
         user={customer}
-        logout={jest.fn()}
-        isFetching
       />);
 
       expect(shallowWrapper.find('Redirect')).toBeTruthy();
-    });
-
-    it('renders connected component', () => {
-      const comp = (
-        <Provider store={store}>
-          <OrderReviewContainer
-            user={customer}
-            isFetching={false}
-          />
-        </Provider>);
-
-      const wrapper = mount(comp, rrcMock.get());
-
-      expect(toJson(wrapper)).toMatchSnapshot();
-      wrapper.unmount();
     });
 
     it('handles input change on number and address change', () => {
@@ -163,8 +137,6 @@ describe('Customer Orders', () => {
         <Provider store={store}>
           <OrderReviewComponent
             user={customer}
-            logout={jest.fn()}
-            isFetching={false}
           />
         </Provider>);
 
@@ -191,8 +163,6 @@ describe('Customer Orders', () => {
         <Provider store={store}>
           <OrderReviewComponent
             user={customer}
-            logout={jest.fn()}
-            isFetching={false}
           />
         </Provider>);
 
@@ -219,8 +189,6 @@ describe('Customer Orders', () => {
         <Provider store={store}>
           <OrderReviewComponent
             user={customer}
-            logout={jest.fn()}
-            isFetching={false}
           />
         </Provider>);
 

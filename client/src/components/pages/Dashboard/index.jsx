@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import View from '../../shared/View';
+import View from '../../../containers/shared/View';
 import { OrderHistoryTable } from '../../shared/Tables';
-import { userPropTypes, catererOrdersObjPropTypes } from '../../../helpers/proptypes';
+import { catererOrdersObjPropTypes } from '../../../helpers/proptypes';
 import './Dashboard.scss';
 
 /**
@@ -15,10 +15,7 @@ import './Dashboard.scss';
  */
 class Dashboard extends Component {
   static propTypes = {
-    ...userPropTypes,
     ...catererOrdersObjPropTypes,
-    isFetching: PropTypes.bool.isRequired,
-    logout: PropTypes.func.isRequired,
     fetchOrders: PropTypes.func.isRequired,
     deliverOrder: PropTypes.func.isRequired,
   }
@@ -70,10 +67,8 @@ class Dashboard extends Component {
    * @returns {JSX} Dashboard Component
    */
   render() {
-    const { user, logout, isFetching } = this.props;
-
     return (
-      <View user={user} logout={logout} type="dashboard" showTime isFetching={isFetching}>
+      <View type="dashboard" showTime >
         {this.renderDashBoard()}
       </View>
     );

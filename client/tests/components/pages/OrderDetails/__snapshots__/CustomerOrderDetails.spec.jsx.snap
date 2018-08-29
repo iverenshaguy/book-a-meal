@@ -1,21 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OrderDetails renders Preloader when fetching 1`] = `
-<View
-  isFetching={true}
-  logout={[MockFunction]}
-  showTime={true}
+<Connect(View)
   type="customerOrderDetails"
-  updateCurrentDate={null}
-  user={
-    Object {
-      "email": "emiola@olasanmi.com",
-      "firstname": "Emiola",
-      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-      "lastname": "Olasanmi",
-      "role": "customer",
-    }
-  }
 >
   <React.Fragment>
     <Link
@@ -118,7 +105,7 @@ exports[`OrderDetails renders Preloader when fetching 1`] = `
       </div>
     </React.Fragment>
   </React.Fragment>
-</View>
+</Connect(View)>
 `;
 
 exports[`OrderDetails renders connected component 1`] = `
@@ -158,7 +145,6 @@ exports[`OrderDetails renders connected component 1`] = `
       editOrder={[Function]}
       fetchOrder={[Function]}
       isFetching={false}
-      logout={[Function]}
       match={
         Object {
           "params": Object {
@@ -221,512 +207,35 @@ exports[`OrderDetails renders connected component 1`] = `
         }
       }
     >
-      <View
-        isFetching={false}
-        logout={[Function]}
-        showTime={true}
+      <Connect(View)
         type="customerOrderDetails"
-        updateCurrentDate={null}
-        user={
-          Object {
-            "email": "emiola@olasanmi.com",
-            "firstname": "Emiola",
-            "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-            "lastname": "Olasanmi",
-            "role": "customer",
-          }
-        }
       >
-        <div
-          className="user"
+        <View
+          isFetching={false}
+          logout={[Function]}
+          showTime={true}
+          type="customerOrderDetails"
+          updateCurrentDate={null}
+          uploading={false}
+          user={
+            Object {
+              "email": "emiola@olasanmi.com",
+              "firstname": "Emiola",
+              "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+              "lastname": "Olasanmi",
+              "role": "customer",
+            }
+          }
         >
-          <Header
-            active="customerOrderDetails"
-            dateType="customerOrderDetails"
-            logout={[Function]}
-            showTime={true}
-            type="customer"
-            updateCurrentDate={null}
-            user={
-              Object {
-                "email": "emiola@olasanmi.com",
-                "firstname": "Emiola",
-                "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                "lastname": "Olasanmi",
-                "role": "customer",
-              }
-            }
-          >
-            <div
-              className="header"
-            >
-              <div
-                className="navbar white-navbar"
-              >
-                <CustomerHeader
-                  active="customerOrderDetails"
-                  dateType="customerOrderDetails"
-                  logout={[Function]}
-                  showTime={true}
-                  type="customer"
-                  updateCurrentDate={null}
-                  user={
-                    Object {
-                      "email": "emiola@olasanmi.com",
-                      "firstname": "Emiola",
-                      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                      "lastname": "Olasanmi",
-                      "role": "customer",
-                    }
-                  }
-                >
-                  <div
-                    className="page-title"
-                  >
-                    <h3>
-                      <Link
-                        replace={false}
-                        to="/"
-                      >
-                        <a
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          BOOK-A-MEAL
-                        </a>
-                      </Link>
-                    </h3>
-                  </div>
-                  <div
-                    className="navlinks"
-                  >
-                    <h3>
-                      Welcome, 
-                      Emiola
-                    </h3>
-                    <Link
-                      className="false"
-                      replace={false}
-                      to="/"
-                    >
-                      <a
-                        className="false"
-                        href="/"
-                        onClick={[Function]}
-                      >
-                        Menu
-                      </a>
-                    </Link>
-                    <Link
-                      className="active"
-                      replace={false}
-                      to="/orders"
-                    >
-                      <a
-                        className="active"
-                        href="/orders"
-                        onClick={[Function]}
-                      >
-                        Orders
-                      </a>
-                    </Link>
-                    <Link
-                      onClick={[Function]}
-                      replace={false}
-                      to="/"
-                    >
-                      <a
-                        href="/"
-                        onClick={[Function]}
-                      >
-                        Logout
-                      </a>
-                    </Link>
-                    <div
-                      className="user-info mobile-only"
-                    >
-                      <Dropdown
-                        content={
-                          <UNDEFINED>
-                            <Link
-                              className="false"
-                              replace={false}
-                              to="/"
-                            >
-                              Menu
-                            </Link>
-                            <Link
-                              className="active"
-                              replace={false}
-                              to="/orders"
-                            >
-                              Orders
-                            </Link>
-                            <Link
-                              onClick={[Function]}
-                              replace={false}
-                              to="/"
-                            >
-                              Logout
-                            </Link>
-                          </UNDEFINED>
-                        }
-                        toggler={
-                          <div
-                            className="user-dropdown"
-                          >
-                            <div
-                              className="username-circle circle-click"
-                            >
-                              <p
-                                className="circle-click"
-                              >
-                                E
-                              </p>
-                            </div>
-                            <span>
-                              ▾
-                            </span>
-                          </div>
-                        }
-                        type="customer"
-                      >
-                        <div
-                          className="dropdown"
-                          onMouseEnter={[Function]}
-                          onMouseLeave={[Function]}
-                        >
-                          <Link
-                            className="link"
-                            clickHandler={null}
-                            dataTip={null}
-                            id="dropdown-toggler"
-                          >
-                            <button
-                              className="link-btn link"
-                              data-tip={null}
-                              id="dropdown-toggler"
-                              onClick={null}
-                            >
-                              <div
-                                className="user-dropdown"
-                              >
-                                <div
-                                  className="username-circle circle-click"
-                                >
-                                  <p
-                                    className="circle-click"
-                                  >
-                                    E
-                                  </p>
-                                </div>
-                                <span>
-                                  ▾
-                                </span>
-                              </div>
-                            </button>
-                          </Link>
-                          <div
-                            className="dropdown-content"
-                            id="dropdown-content"
-                          >
-                            <Link
-                              className="false"
-                              replace={false}
-                              to="/"
-                            >
-                              <a
-                                className="false"
-                                href="/"
-                                onClick={[Function]}
-                              >
-                                Menu
-                              </a>
-                            </Link>
-                            <Link
-                              className="active"
-                              replace={false}
-                              to="/orders"
-                            >
-                              <a
-                                className="active"
-                                href="/orders"
-                                onClick={[Function]}
-                              >
-                                Orders
-                              </a>
-                            </Link>
-                            <Link
-                              onClick={[Function]}
-                              replace={false}
-                              to="/"
-                            >
-                              <a
-                                href="/"
-                                onClick={[Function]}
-                              >
-                                Logout
-                              </a>
-                            </Link>
-                          </div>
-                        </div>
-                      </Dropdown>
-                      <p>
-                          
-                        Emiola
-                      </p>
-                    </div>
-                  </div>
-                </CustomerHeader>
-              </div>
-            </div>
-          </Header>
           <div
-            className="main-wrapper"
-            id="has-modal"
+            className="user"
           >
-            <Link
-              className="orders-back-link"
-              replace={false}
-              to="/orders"
-            >
-              <a
-                className="orders-back-link"
-                href="/orders"
-                onClick={[Function]}
-              >
-                ← Back To Orders
-              </a>
-            </Link>
-            <div
-              className="order-confirmation order-details"
-            >
-              <h3
-                className="text-center"
-              >
-                Order #
-                fb097bde-5959-45ff-8e21-51184fa60c25
-              </h3>
-              <p
-                className="order-date text-center"
-              >
-                Thursday, 1st January 1970 12:00 am
-              </p>
-              <hr />
-              <OrderSummary
-                meals={
-                  Array [
-                    Object {
-                      "caterer": Object {
-                        "address": "4, Church Street, Yaba",
-                        "businessName": "FoodCircle",
-                        "email": "food@circle.com",
-                        "phoneNo": "080xxxxxxxx",
-                      },
-                      "delivered": true,
-                      "description": "Sharwama contains no animal products, perfect for dieters",
-                      "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                      "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                      "price": "1200.00",
-                      "quantity": 1,
-                      "title": "Vegetable Sharwama and Guava Smoothie",
-                      "vegetarian": true,
-                    },
-                    Object {
-                      "caterer": Object {
-                        "address": "4, Church Street, Yaba",
-                        "businessName": "FoodCircle",
-                        "email": "food@circle.com",
-                        "phoneNo": "080xxxxxxxx",
-                      },
-                      "delivered": true,
-                      "description": "Sharwama contains no animal products, perfect for dieters",
-                      "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce4",
-                      "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                      "price": "1200.00",
-                      "quantity": 1,
-                      "title": "Vegetable Sharwama and Guava Smoothie",
-                      "vegetarian": true,
-                    },
-                  ]
-                }
-                status="delivered"
-              >
-                <div
-                  className="order-summary"
-                >
-                  <div
-                    key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-                  >
-                    <p>
-                      1
-                      x
-                    </p>
-                    <p
-                      style={
-                        Object {
-                          "paddingLeft": "5px",
-                          "paddingRight": "5px",
-                          "wordWrap": "break-word",
-                        }
-                      }
-                    >
-                      Vegetable Sharwama and Guava Smoothie
-                    </p>
-                    <p>
-                      ₦
-                      1200
-                    </p>
-                    <p
-                      className="success"
-                      style={
-                        Object {
-                          "marginLeft": "30px",
-                        }
-                      }
-                    >
-                      Delivered
-                    </p>
-                  </div>
-                  <div
-                    key="36d525d1-efc9-4b75-9999-3e3d8dc64ce4"
-                  >
-                    <p>
-                      1
-                      x
-                    </p>
-                    <p
-                      style={
-                        Object {
-                          "paddingLeft": "5px",
-                          "paddingRight": "5px",
-                          "wordWrap": "break-word",
-                        }
-                      }
-                    >
-                      Vegetable Sharwama and Guava Smoothie
-                    </p>
-                    <p>
-                      ₦
-                      1200
-                    </p>
-                    <p
-                      className="success"
-                      style={
-                        Object {
-                          "marginLeft": "30px",
-                        }
-                      }
-                    >
-                      Delivered
-                    </p>
-                  </div>
-                </div>
-              </OrderSummary>
-              <OrderAmount
-                meals={
-                  Array [
-                    Object {
-                      "caterer": Object {
-                        "address": "4, Church Street, Yaba",
-                        "businessName": "FoodCircle",
-                        "email": "food@circle.com",
-                        "phoneNo": "080xxxxxxxx",
-                      },
-                      "delivered": true,
-                      "description": "Sharwama contains no animal products, perfect for dieters",
-                      "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                      "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                      "price": "1200.00",
-                      "quantity": 1,
-                      "title": "Vegetable Sharwama and Guava Smoothie",
-                      "vegetarian": true,
-                    },
-                    Object {
-                      "caterer": Object {
-                        "address": "4, Church Street, Yaba",
-                        "businessName": "FoodCircle",
-                        "email": "food@circle.com",
-                        "phoneNo": "080xxxxxxxx",
-                      },
-                      "delivered": true,
-                      "description": "Sharwama contains no animal products, perfect for dieters",
-                      "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce4",
-                      "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                      "price": "1200.00",
-                      "quantity": 1,
-                      "title": "Vegetable Sharwama and Guava Smoothie",
-                      "vegetarian": true,
-                    },
-                  ]
-                }
-                type="user"
-              >
-                <div
-                  className="order-amount false"
-                >
-                  <div>
-                    <p>
-                      Total
-                    </p>
-                    <h2>
-                      ₦
-                      2400
-                    </h2>
-                  </div>
-                </div>
-              </OrderAmount>
-              <div
-                className="customer-details"
-              >
-                <p>
-                  Order Status:
-                  <span
-                    className="order-status success"
-                    style={
-                      Object {
-                        "textTransform": "capitalize",
-                      }
-                    }
-                  >
-                     
-                    delivered
-                  </span>
-                </p>
-                <p>
-                  Address Provided: 
-                  4, Church Street, Yaba
-                </p>
-                <p>
-                  Number Provided: 
-                  080xxxxxxxx
-                </p>
-              </div>
-            </div>
-          </div>
-          <Connect(Modal)
-            isFetching={false}
-            logout={[Function]}
-            showTime={true}
-            type="customerOrderDetails"
-            updateCurrentDate={null}
-            user={
-              Object {
-                "email": "emiola@olasanmi.com",
-                "firstname": "Emiola",
-                "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                "lastname": "Olasanmi",
-                "role": "customer",
-              }
-            }
-          >
-            <Modal
-              isFetching={false}
+            <Header
+              active="customerOrderDetails"
+              dateType="customerOrderDetails"
               logout={[Function]}
-              open={false}
               showTime={true}
-              toggleModal={[Function]}
-              type={null}
+              type="customer"
               updateCurrentDate={null}
               user={
                 Object {
@@ -737,40 +246,511 @@ exports[`OrderDetails renders connected component 1`] = `
                   "role": "customer",
                 }
               }
-            />
-          </Connect(Modal)>
-          <Footer>
-            <div
-              className="footer"
             >
-              <p>
-                © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
-              </p>
+              <div
+                className="header"
+              >
+                <div
+                  className="navbar white-navbar"
+                >
+                  <CustomerHeader
+                    active="customerOrderDetails"
+                    dateType="customerOrderDetails"
+                    logout={[Function]}
+                    showTime={true}
+                    type="customer"
+                    updateCurrentDate={null}
+                    user={
+                      Object {
+                        "email": "emiola@olasanmi.com",
+                        "firstname": "Emiola",
+                        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                        "lastname": "Olasanmi",
+                        "role": "customer",
+                      }
+                    }
+                  >
+                    <div
+                      className="page-title"
+                    >
+                      <h3>
+                        <Link
+                          replace={false}
+                          to="/"
+                        >
+                          <a
+                            href="/"
+                            onClick={[Function]}
+                          >
+                            BOOK-A-MEAL
+                          </a>
+                        </Link>
+                      </h3>
+                    </div>
+                    <div
+                      className="navlinks"
+                    >
+                      <h3>
+                        Welcome, 
+                        Emiola
+                      </h3>
+                      <Link
+                        className="false"
+                        replace={false}
+                        to="/"
+                      >
+                        <a
+                          className="false"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          Menu
+                        </a>
+                      </Link>
+                      <Link
+                        className="active"
+                        replace={false}
+                        to="/orders"
+                      >
+                        <a
+                          className="active"
+                          href="/orders"
+                          onClick={[Function]}
+                        >
+                          Orders
+                        </a>
+                      </Link>
+                      <Link
+                        onClick={[Function]}
+                        replace={false}
+                        to="/"
+                      >
+                        <a
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          Logout
+                        </a>
+                      </Link>
+                      <div
+                        className="user-info mobile-only"
+                      >
+                        <Dropdown
+                          content={
+                            <UNDEFINED>
+                              <Link
+                                className="false"
+                                replace={false}
+                                to="/"
+                              >
+                                Menu
+                              </Link>
+                              <Link
+                                className="active"
+                                replace={false}
+                                to="/orders"
+                              >
+                                Orders
+                              </Link>
+                              <Link
+                                onClick={[Function]}
+                                replace={false}
+                                to="/"
+                              >
+                                Logout
+                              </Link>
+                            </UNDEFINED>
+                          }
+                          toggler={
+                            <div
+                              className="user-dropdown"
+                            >
+                              <div
+                                className="username-circle circle-click"
+                              >
+                                <p
+                                  className="circle-click"
+                                >
+                                  E
+                                </p>
+                              </div>
+                              <span>
+                                ▾
+                              </span>
+                            </div>
+                          }
+                          type="customer"
+                        >
+                          <div
+                            className="dropdown"
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                          >
+                            <Link
+                              className="link"
+                              clickHandler={null}
+                              dataTip={null}
+                              id="dropdown-toggler"
+                            >
+                              <button
+                                className="link-btn link"
+                                data-tip={null}
+                                id="dropdown-toggler"
+                                onClick={null}
+                              >
+                                <div
+                                  className="user-dropdown"
+                                >
+                                  <div
+                                    className="username-circle circle-click"
+                                  >
+                                    <p
+                                      className="circle-click"
+                                    >
+                                      E
+                                    </p>
+                                  </div>
+                                  <span>
+                                    ▾
+                                  </span>
+                                </div>
+                              </button>
+                            </Link>
+                            <div
+                              className="dropdown-content"
+                              id="dropdown-content"
+                            >
+                              <Link
+                                className="false"
+                                replace={false}
+                                to="/"
+                              >
+                                <a
+                                  className="false"
+                                  href="/"
+                                  onClick={[Function]}
+                                >
+                                  Menu
+                                </a>
+                              </Link>
+                              <Link
+                                className="active"
+                                replace={false}
+                                to="/orders"
+                              >
+                                <a
+                                  className="active"
+                                  href="/orders"
+                                  onClick={[Function]}
+                                >
+                                  Orders
+                                </a>
+                              </Link>
+                              <Link
+                                onClick={[Function]}
+                                replace={false}
+                                to="/"
+                              >
+                                <a
+                                  href="/"
+                                  onClick={[Function]}
+                                >
+                                  Logout
+                                </a>
+                              </Link>
+                            </div>
+                          </div>
+                        </Dropdown>
+                        <p>
+                            
+                          Emiola
+                        </p>
+                      </div>
+                    </div>
+                  </CustomerHeader>
+                </div>
+              </div>
+            </Header>
+            <div
+              className="main-wrapper"
+              id="has-modal"
+            >
+              <Link
+                className="orders-back-link"
+                replace={false}
+                to="/orders"
+              >
+                <a
+                  className="orders-back-link"
+                  href="/orders"
+                  onClick={[Function]}
+                >
+                  ← Back To Orders
+                </a>
+              </Link>
+              <div
+                className="order-confirmation order-details"
+              >
+                <h3
+                  className="text-center"
+                >
+                  Order #
+                  fb097bde-5959-45ff-8e21-51184fa60c25
+                </h3>
+                <p
+                  className="order-date text-center"
+                >
+                  Thursday, 1st January 1970 12:00 am
+                </p>
+                <hr />
+                <OrderSummary
+                  meals={
+                    Array [
+                      Object {
+                        "caterer": Object {
+                          "address": "4, Church Street, Yaba",
+                          "businessName": "FoodCircle",
+                          "email": "food@circle.com",
+                          "phoneNo": "080xxxxxxxx",
+                        },
+                        "delivered": true,
+                        "description": "Sharwama contains no animal products, perfect for dieters",
+                        "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                        "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                        "price": "1200.00",
+                        "quantity": 1,
+                        "title": "Vegetable Sharwama and Guava Smoothie",
+                        "vegetarian": true,
+                      },
+                      Object {
+                        "caterer": Object {
+                          "address": "4, Church Street, Yaba",
+                          "businessName": "FoodCircle",
+                          "email": "food@circle.com",
+                          "phoneNo": "080xxxxxxxx",
+                        },
+                        "delivered": true,
+                        "description": "Sharwama contains no animal products, perfect for dieters",
+                        "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce4",
+                        "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                        "price": "1200.00",
+                        "quantity": 1,
+                        "title": "Vegetable Sharwama and Guava Smoothie",
+                        "vegetarian": true,
+                      },
+                    ]
+                  }
+                  status="delivered"
+                >
+                  <div
+                    className="order-summary"
+                  >
+                    <div
+                      key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                    >
+                      <p>
+                        1
+                        x
+                      </p>
+                      <p
+                        style={
+                          Object {
+                            "paddingLeft": "5px",
+                            "paddingRight": "5px",
+                            "wordWrap": "break-word",
+                          }
+                        }
+                      >
+                        Vegetable Sharwama and Guava Smoothie
+                      </p>
+                      <p>
+                        ₦
+                        1200
+                      </p>
+                      <p
+                        className="success"
+                        style={
+                          Object {
+                            "marginLeft": "30px",
+                          }
+                        }
+                      >
+                        Delivered
+                      </p>
+                    </div>
+                    <div
+                      key="36d525d1-efc9-4b75-9999-3e3d8dc64ce4"
+                    >
+                      <p>
+                        1
+                        x
+                      </p>
+                      <p
+                        style={
+                          Object {
+                            "paddingLeft": "5px",
+                            "paddingRight": "5px",
+                            "wordWrap": "break-word",
+                          }
+                        }
+                      >
+                        Vegetable Sharwama and Guava Smoothie
+                      </p>
+                      <p>
+                        ₦
+                        1200
+                      </p>
+                      <p
+                        className="success"
+                        style={
+                          Object {
+                            "marginLeft": "30px",
+                          }
+                        }
+                      >
+                        Delivered
+                      </p>
+                    </div>
+                  </div>
+                </OrderSummary>
+                <OrderAmount
+                  meals={
+                    Array [
+                      Object {
+                        "caterer": Object {
+                          "address": "4, Church Street, Yaba",
+                          "businessName": "FoodCircle",
+                          "email": "food@circle.com",
+                          "phoneNo": "080xxxxxxxx",
+                        },
+                        "delivered": true,
+                        "description": "Sharwama contains no animal products, perfect for dieters",
+                        "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                        "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                        "price": "1200.00",
+                        "quantity": 1,
+                        "title": "Vegetable Sharwama and Guava Smoothie",
+                        "vegetarian": true,
+                      },
+                      Object {
+                        "caterer": Object {
+                          "address": "4, Church Street, Yaba",
+                          "businessName": "FoodCircle",
+                          "email": "food@circle.com",
+                          "phoneNo": "080xxxxxxxx",
+                        },
+                        "delivered": true,
+                        "description": "Sharwama contains no animal products, perfect for dieters",
+                        "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce4",
+                        "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                        "price": "1200.00",
+                        "quantity": 1,
+                        "title": "Vegetable Sharwama and Guava Smoothie",
+                        "vegetarian": true,
+                      },
+                    ]
+                  }
+                  type="user"
+                >
+                  <div
+                    className="order-amount false"
+                  >
+                    <div>
+                      <p>
+                        Total
+                      </p>
+                      <h2>
+                        ₦
+                        2400
+                      </h2>
+                    </div>
+                  </div>
+                </OrderAmount>
+                <div
+                  className="customer-details"
+                >
+                  <p>
+                    Order Status:
+                    <span
+                      className="order-status success"
+                      style={
+                        Object {
+                          "textTransform": "capitalize",
+                        }
+                      }
+                    >
+                       
+                      delivered
+                    </span>
+                  </p>
+                  <p>
+                    Address Provided: 
+                    4, Church Street, Yaba
+                  </p>
+                  <p>
+                    Number Provided: 
+                    080xxxxxxxx
+                  </p>
+                </div>
+              </div>
             </div>
-          </Footer>
-        </div>
-      </View>
+            <Connect(Modal)
+              isFetching={false}
+              logout={[Function]}
+              showTime={true}
+              type="customerOrderDetails"
+              updateCurrentDate={null}
+              uploading={false}
+              user={
+                Object {
+                  "email": "emiola@olasanmi.com",
+                  "firstname": "Emiola",
+                  "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                  "lastname": "Olasanmi",
+                  "role": "customer",
+                }
+              }
+            >
+              <Modal
+                isFetching={false}
+                logout={[Function]}
+                open={false}
+                showTime={true}
+                toggleModal={[Function]}
+                type={null}
+                updateCurrentDate={null}
+                uploading={false}
+                user={
+                  Object {
+                    "email": "emiola@olasanmi.com",
+                    "firstname": "Emiola",
+                    "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                    "lastname": "Olasanmi",
+                    "role": "customer",
+                  }
+                }
+              />
+            </Connect(Modal)>
+            <Footer>
+              <div
+                className="footer"
+              >
+                <p>
+                  © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+                </p>
+              </div>
+            </Footer>
+          </div>
+        </View>
+      </Connect(View)>
     </CustomerOrderDetails>
   </Connect(CustomerOrderDetails)>
 </Provider>
 `;
 
 exports[`OrderDetails renders correctly when not fetching 1`] = `
-<View
-  isFetching={false}
-  logout={[MockFunction]}
-  showTime={true}
+<Connect(View)
   type="customerOrderDetails"
-  updateCurrentDate={null}
-  user={
-    Object {
-      "email": "emiola@olasanmi.com",
-      "firstname": "Emiola",
-      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-      "lastname": "Olasanmi",
-      "role": "customer",
-    }
-  }
 >
   <React.Fragment>
     <Link
@@ -873,7 +853,7 @@ exports[`OrderDetails renders correctly when not fetching 1`] = `
       </div>
     </React.Fragment>
   </React.Fragment>
-</View>
+</Connect(View)>
 `;
 
 exports[`OrderDetails renders message when not fetching and that order doesn't exist 1`] = `
@@ -890,7 +870,6 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
   }
 >
   <Connect(CustomerOrderDetails)
-    isFetching={false}
     match={
       Object {
         "params": Object {
@@ -912,8 +891,6 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
       cancelOrder={[Function]}
       editOrder={[Function]}
       fetchOrder={[Function]}
-      isFetching={false}
-      logout={[Function]}
       match={
         Object {
           "params": Object {
@@ -933,312 +910,35 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
         }
       }
     >
-      <View
-        isFetching={false}
-        logout={[Function]}
-        showTime={true}
+      <Connect(View)
         type="customerOrderDetails"
-        updateCurrentDate={null}
-        user={
-          Object {
-            "email": "emiola@olasanmi.com",
-            "firstname": "Emiola",
-            "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-            "lastname": "Olasanmi",
-            "role": "customer",
-          }
-        }
       >
-        <div
-          className="user"
+        <View
+          isFetching={false}
+          logout={[Function]}
+          showTime={true}
+          type="customerOrderDetails"
+          updateCurrentDate={null}
+          uploading={false}
+          user={
+            Object {
+              "email": "emiola@olasanmi.com",
+              "firstname": "Emiola",
+              "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+              "lastname": "Olasanmi",
+              "role": "customer",
+            }
+          }
         >
-          <Header
-            active="customerOrderDetails"
-            dateType="customerOrderDetails"
-            logout={[Function]}
-            showTime={true}
-            type="customer"
-            updateCurrentDate={null}
-            user={
-              Object {
-                "email": "emiola@olasanmi.com",
-                "firstname": "Emiola",
-                "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                "lastname": "Olasanmi",
-                "role": "customer",
-              }
-            }
-          >
-            <div
-              className="header"
-            >
-              <div
-                className="navbar white-navbar"
-              >
-                <CustomerHeader
-                  active="customerOrderDetails"
-                  dateType="customerOrderDetails"
-                  logout={[Function]}
-                  showTime={true}
-                  type="customer"
-                  updateCurrentDate={null}
-                  user={
-                    Object {
-                      "email": "emiola@olasanmi.com",
-                      "firstname": "Emiola",
-                      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                      "lastname": "Olasanmi",
-                      "role": "customer",
-                    }
-                  }
-                >
-                  <div
-                    className="page-title"
-                  >
-                    <h3>
-                      <Link
-                        replace={false}
-                        to="/"
-                      >
-                        <a
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          BOOK-A-MEAL
-                        </a>
-                      </Link>
-                    </h3>
-                  </div>
-                  <div
-                    className="navlinks"
-                  >
-                    <h3>
-                      Welcome, 
-                      Emiola
-                    </h3>
-                    <Link
-                      className="false"
-                      replace={false}
-                      to="/"
-                    >
-                      <a
-                        className="false"
-                        href="/"
-                        onClick={[Function]}
-                      >
-                        Menu
-                      </a>
-                    </Link>
-                    <Link
-                      className="active"
-                      replace={false}
-                      to="/orders"
-                    >
-                      <a
-                        className="active"
-                        href="/orders"
-                        onClick={[Function]}
-                      >
-                        Orders
-                      </a>
-                    </Link>
-                    <Link
-                      onClick={[Function]}
-                      replace={false}
-                      to="/"
-                    >
-                      <a
-                        href="/"
-                        onClick={[Function]}
-                      >
-                        Logout
-                      </a>
-                    </Link>
-                    <div
-                      className="user-info mobile-only"
-                    >
-                      <Dropdown
-                        content={
-                          <UNDEFINED>
-                            <Link
-                              className="false"
-                              replace={false}
-                              to="/"
-                            >
-                              Menu
-                            </Link>
-                            <Link
-                              className="active"
-                              replace={false}
-                              to="/orders"
-                            >
-                              Orders
-                            </Link>
-                            <Link
-                              onClick={[Function]}
-                              replace={false}
-                              to="/"
-                            >
-                              Logout
-                            </Link>
-                          </UNDEFINED>
-                        }
-                        toggler={
-                          <div
-                            className="user-dropdown"
-                          >
-                            <div
-                              className="username-circle circle-click"
-                            >
-                              <p
-                                className="circle-click"
-                              >
-                                E
-                              </p>
-                            </div>
-                            <span>
-                              ▾
-                            </span>
-                          </div>
-                        }
-                        type="customer"
-                      >
-                        <div
-                          className="dropdown"
-                          onMouseEnter={[Function]}
-                          onMouseLeave={[Function]}
-                        >
-                          <Link
-                            className="link"
-                            clickHandler={null}
-                            dataTip={null}
-                            id="dropdown-toggler"
-                          >
-                            <button
-                              className="link-btn link"
-                              data-tip={null}
-                              id="dropdown-toggler"
-                              onClick={null}
-                            >
-                              <div
-                                className="user-dropdown"
-                              >
-                                <div
-                                  className="username-circle circle-click"
-                                >
-                                  <p
-                                    className="circle-click"
-                                  >
-                                    E
-                                  </p>
-                                </div>
-                                <span>
-                                  ▾
-                                </span>
-                              </div>
-                            </button>
-                          </Link>
-                          <div
-                            className="dropdown-content"
-                            id="dropdown-content"
-                          >
-                            <Link
-                              className="false"
-                              replace={false}
-                              to="/"
-                            >
-                              <a
-                                className="false"
-                                href="/"
-                                onClick={[Function]}
-                              >
-                                Menu
-                              </a>
-                            </Link>
-                            <Link
-                              className="active"
-                              replace={false}
-                              to="/orders"
-                            >
-                              <a
-                                className="active"
-                                href="/orders"
-                                onClick={[Function]}
-                              >
-                                Orders
-                              </a>
-                            </Link>
-                            <Link
-                              onClick={[Function]}
-                              replace={false}
-                              to="/"
-                            >
-                              <a
-                                href="/"
-                                onClick={[Function]}
-                              >
-                                Logout
-                              </a>
-                            </Link>
-                          </div>
-                        </div>
-                      </Dropdown>
-                      <p>
-                          
-                        Emiola
-                      </p>
-                    </div>
-                  </div>
-                </CustomerHeader>
-              </div>
-            </div>
-          </Header>
           <div
-            className="main-wrapper"
-            id="has-modal"
+            className="user"
           >
-            <Link
-              className="orders-back-link"
-              replace={false}
-              to="/orders"
-            >
-              <a
-                className="orders-back-link"
-                href="/orders"
-                onClick={[Function]}
-              >
-                ← Back To Orders
-              </a>
-            </Link>
-            <p
-              className="text-center info"
-            >
-              This Order Does Not Exist
-            </p>
-          </div>
-          <Connect(Modal)
-            isFetching={false}
-            logout={[Function]}
-            showTime={true}
-            type="customerOrderDetails"
-            updateCurrentDate={null}
-            user={
-              Object {
-                "email": "emiola@olasanmi.com",
-                "firstname": "Emiola",
-                "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                "lastname": "Olasanmi",
-                "role": "customer",
-              }
-            }
-          >
-            <Modal
-              isFetching={false}
+            <Header
+              active="customerOrderDetails"
+              dateType="customerOrderDetails"
               logout={[Function]}
-              open={false}
               showTime={true}
-              toggleModal={[Function]}
-              type={null}
+              type="customer"
               updateCurrentDate={null}
               user={
                 Object {
@@ -1249,19 +949,303 @@ exports[`OrderDetails renders message when not fetching and that order doesn't e
                   "role": "customer",
                 }
               }
-            />
-          </Connect(Modal)>
-          <Footer>
-            <div
-              className="footer"
             >
-              <p>
-                © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+              <div
+                className="header"
+              >
+                <div
+                  className="navbar white-navbar"
+                >
+                  <CustomerHeader
+                    active="customerOrderDetails"
+                    dateType="customerOrderDetails"
+                    logout={[Function]}
+                    showTime={true}
+                    type="customer"
+                    updateCurrentDate={null}
+                    user={
+                      Object {
+                        "email": "emiola@olasanmi.com",
+                        "firstname": "Emiola",
+                        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                        "lastname": "Olasanmi",
+                        "role": "customer",
+                      }
+                    }
+                  >
+                    <div
+                      className="page-title"
+                    >
+                      <h3>
+                        <Link
+                          replace={false}
+                          to="/"
+                        >
+                          <a
+                            href="/"
+                            onClick={[Function]}
+                          >
+                            BOOK-A-MEAL
+                          </a>
+                        </Link>
+                      </h3>
+                    </div>
+                    <div
+                      className="navlinks"
+                    >
+                      <h3>
+                        Welcome, 
+                        Emiola
+                      </h3>
+                      <Link
+                        className="false"
+                        replace={false}
+                        to="/"
+                      >
+                        <a
+                          className="false"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          Menu
+                        </a>
+                      </Link>
+                      <Link
+                        className="active"
+                        replace={false}
+                        to="/orders"
+                      >
+                        <a
+                          className="active"
+                          href="/orders"
+                          onClick={[Function]}
+                        >
+                          Orders
+                        </a>
+                      </Link>
+                      <Link
+                        onClick={[Function]}
+                        replace={false}
+                        to="/"
+                      >
+                        <a
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          Logout
+                        </a>
+                      </Link>
+                      <div
+                        className="user-info mobile-only"
+                      >
+                        <Dropdown
+                          content={
+                            <UNDEFINED>
+                              <Link
+                                className="false"
+                                replace={false}
+                                to="/"
+                              >
+                                Menu
+                              </Link>
+                              <Link
+                                className="active"
+                                replace={false}
+                                to="/orders"
+                              >
+                                Orders
+                              </Link>
+                              <Link
+                                onClick={[Function]}
+                                replace={false}
+                                to="/"
+                              >
+                                Logout
+                              </Link>
+                            </UNDEFINED>
+                          }
+                          toggler={
+                            <div
+                              className="user-dropdown"
+                            >
+                              <div
+                                className="username-circle circle-click"
+                              >
+                                <p
+                                  className="circle-click"
+                                >
+                                  E
+                                </p>
+                              </div>
+                              <span>
+                                ▾
+                              </span>
+                            </div>
+                          }
+                          type="customer"
+                        >
+                          <div
+                            className="dropdown"
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                          >
+                            <Link
+                              className="link"
+                              clickHandler={null}
+                              dataTip={null}
+                              id="dropdown-toggler"
+                            >
+                              <button
+                                className="link-btn link"
+                                data-tip={null}
+                                id="dropdown-toggler"
+                                onClick={null}
+                              >
+                                <div
+                                  className="user-dropdown"
+                                >
+                                  <div
+                                    className="username-circle circle-click"
+                                  >
+                                    <p
+                                      className="circle-click"
+                                    >
+                                      E
+                                    </p>
+                                  </div>
+                                  <span>
+                                    ▾
+                                  </span>
+                                </div>
+                              </button>
+                            </Link>
+                            <div
+                              className="dropdown-content"
+                              id="dropdown-content"
+                            >
+                              <Link
+                                className="false"
+                                replace={false}
+                                to="/"
+                              >
+                                <a
+                                  className="false"
+                                  href="/"
+                                  onClick={[Function]}
+                                >
+                                  Menu
+                                </a>
+                              </Link>
+                              <Link
+                                className="active"
+                                replace={false}
+                                to="/orders"
+                              >
+                                <a
+                                  className="active"
+                                  href="/orders"
+                                  onClick={[Function]}
+                                >
+                                  Orders
+                                </a>
+                              </Link>
+                              <Link
+                                onClick={[Function]}
+                                replace={false}
+                                to="/"
+                              >
+                                <a
+                                  href="/"
+                                  onClick={[Function]}
+                                >
+                                  Logout
+                                </a>
+                              </Link>
+                            </div>
+                          </div>
+                        </Dropdown>
+                        <p>
+                            
+                          Emiola
+                        </p>
+                      </div>
+                    </div>
+                  </CustomerHeader>
+                </div>
+              </div>
+            </Header>
+            <div
+              className="main-wrapper"
+              id="has-modal"
+            >
+              <Link
+                className="orders-back-link"
+                replace={false}
+                to="/orders"
+              >
+                <a
+                  className="orders-back-link"
+                  href="/orders"
+                  onClick={[Function]}
+                >
+                  ← Back To Orders
+                </a>
+              </Link>
+              <p
+                className="text-center info"
+              >
+                This Order Does Not Exist
               </p>
             </div>
-          </Footer>
-        </div>
-      </View>
+            <Connect(Modal)
+              isFetching={false}
+              logout={[Function]}
+              showTime={true}
+              type="customerOrderDetails"
+              updateCurrentDate={null}
+              uploading={false}
+              user={
+                Object {
+                  "email": "emiola@olasanmi.com",
+                  "firstname": "Emiola",
+                  "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                  "lastname": "Olasanmi",
+                  "role": "customer",
+                }
+              }
+            >
+              <Modal
+                isFetching={false}
+                logout={[Function]}
+                open={false}
+                showTime={true}
+                toggleModal={[Function]}
+                type={null}
+                updateCurrentDate={null}
+                uploading={false}
+                user={
+                  Object {
+                    "email": "emiola@olasanmi.com",
+                    "firstname": "Emiola",
+                    "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                    "lastname": "Olasanmi",
+                    "role": "customer",
+                  }
+                }
+              />
+            </Connect(Modal)>
+            <Footer>
+              <div
+                className="footer"
+              >
+                <p>
+                  © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+                </p>
+              </div>
+            </Footer>
+          </div>
+        </View>
+      </Connect(View)>
     </CustomerOrderDetails>
   </Connect(CustomerOrderDetails)>
 </Provider>

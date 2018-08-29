@@ -4,8 +4,8 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import LinkBtn from '../../shared/Link';
 import MiniPreloader from '../../shared/Preloader/MiniPreloader';
-import View from '../../shared/View';
-import { userPropTypes, catererOrderObjPropTypes } from '../../../helpers/proptypes';
+import View from '../../../containers/shared/View';
+import { catererOrderObjPropTypes, urlMatchPropTypes } from '../../../helpers/proptypes';
 import OrderSummary from '../../shared/OrderSummary';
 import OrderAmount from '../../shared/OrderAmount';
 
@@ -18,11 +18,9 @@ import OrderAmount from '../../shared/OrderAmount';
  */
 class CatererOrderDetails extends Component {
   static propTypes = {
-    ...userPropTypes,
+    ...urlMatchPropTypes,
     order: catererOrderObjPropTypes,
-    isFetching: PropTypes.bool.isRequired,
     delivering: PropTypes.bool.isRequired,
-    logout: PropTypes.func.isRequired,
     fetchOrder: PropTypes.func.isRequired,
     deliverOrder: PropTypes.func.isRequired,
   }
@@ -53,23 +51,27 @@ class CatererOrderDetails extends Component {
    * @param {func} deliverOrder
    * @returns {JSX} CatererOrderDetails Component
    */
-  renderOrderMisc = order => (
-    <div className="order-misc">
-      <p className="order-date text-center">{moment(order.createdAt).format('dddd[,] Do MMMM YYYY h:mm a')}</p>
-      <p>
+  renderOrderMisc = () => {
+    const { order } = this.props;
+
+    return (
+      <div className="order-misc">
+        <p className="order-date text-center">{moment(order.createdAt).format('dddd[,] Do MMMM YYYY h:mm a')}</p>
+        <p>
         Status:&nbsp;
-        {order.status === 'canceled' && <span className="danger">Canceled</span>}
-        {order.meals[0].delivered && <span className="success">Delivered</span>}
-        {!order.meals[0].delivered && order.status !== 'canceled' &&
+          {order.status === 'canceled' && <span className="danger">Canceled</span>}
+          {order.meals[0].delivered && <span className="success">Delivered</span>}
+          {!order.meals[0].delivered && order.status !== 'canceled' &&
           <Fragment>
             <LinkBtn className="warning" clickHandler={this.deliverOrder}>Deliver</LinkBtn>
           </Fragment>}
-      </p>
-      <p>Customer: {`${order.customer.firstname} ${order.customer.lastname}`}</p>
-      <p>Address Provided: {order.deliveryAddress}</p>
-      <p>Number Provided: {order.deliveryPhoneNo}</p>
-    </div>
-  )
+        </p>
+        <p>Customer: {`${order.customer.firstname} ${order.customer.lastname}`}</p>
+        <p>Address Provided: {order.deliveryAddress}</p>
+        <p>Number Provided: {order.deliveryPhoneNo}</p>
+      </div>
+    );
+  }
 
   /**
    * @memberof CatererOrderDetails
@@ -80,7 +82,7 @@ class CatererOrderDetails extends Component {
 
     return (
       <Fragment>
-        {this.renderOrderMisc(order)}
+        {this.renderOrderMisc()}
         <OrderSummary meals={order.meals} status={order.status} />
         <OrderAmount meals={order.meals} type="admin" />
       </Fragment>
@@ -92,15 +94,15 @@ class CatererOrderDetails extends Component {
    * @returns {JSX} CatererOrderDetails Component
    */
   renderCatererOrderDetails = () => {
-    const { order } = this.props;
+    const { order, delivering } = this.props;
 
     return (
       <div className="main-wrapper caterer">
         <Link to="/orders" className="orders-back-link">&#8592; Back To Orders</Link>
         <div className="order-confirmation order-details">
           <h3 className="text-center" style={{ paddingTop: '1em' }}>Order #{order.id}</h3>
-          {!this.props.delivering && this.renderDetails()}
-          {this.props.delivering && <div className="text-center"><MiniPreloader /></div>}
+          {!delivering && this.renderDetails()}
+          {delivering && <div className="text-center"><MiniPreloader /></div>}
         </div>
       </div>
     );
@@ -111,13 +113,13 @@ class CatererOrderDetails extends Component {
    * @returns {JSX} CatererOrderDetails Component
   */
   render() {
-    const { user, logout, isFetching } = this.props;
+    const { order } = this.props;
 
     return (
-      <View user={user} logout={logout} type="orders" showTime isFetching={isFetching}>
+      <View type="orders" showTime>
         <Fragment>
-          {!this.props.order && <p className="text-center info">This Order Does Not Exist</p>}
-          {this.props.order && this.renderCatererOrderDetails()}
+          {!order && <p className="text-center info">This Order Does Not Exist</p>}
+          {order && this.renderCatererOrderDetails()}
         </Fragment>
       </View>
     );
