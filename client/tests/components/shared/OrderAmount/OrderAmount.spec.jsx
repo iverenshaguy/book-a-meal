@@ -4,7 +4,7 @@ import { caterersOrdersObj } from '../../../setup/mockData';
 
 
 describe('OrderAmount', () => {
-  it('renders correctly', () => {
+  it('should render OrderAmount component correctly', () => {
     const shallowWrapper = shallow(<OrderAmount type="admin" meals={caterersOrdersObj.orders[0].meals} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DeleteMealModal renders MiniPreloader when deleting 1`] = `
+exports[`DeleteMealModal should render MiniPreloader when deleting 1`] = `
 <React.Fragment>
   <div
     className="text-center"
@@ -10,7 +10,7 @@ exports[`DeleteMealModal renders MiniPreloader when deleting 1`] = `
 </React.Fragment>
 `;
 
-exports[`DeleteMealModal renders connected component correctly 1`] = `
+exports[`DeleteMealModal should render connected component correctly 1`] = `
 <Provider
   store={
     Object {
@@ -85,7 +85,7 @@ exports[`DeleteMealModal renders connected component correctly 1`] = `
 </Provider>
 `;
 
-exports[`DeleteMealModal renders correctly 1`] = `
+exports[`DeleteMealModal should render correctly 1`] = `
 <React.Fragment>
   <div
     className="delete-meal"

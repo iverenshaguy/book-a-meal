@@ -7,7 +7,7 @@ describe('SigninForm', () => {
     jest.clearAllMocks();
   });
 
-  it('renders correctly', () => {
+  it('should render SigninForm correctly', () => {
     const { handlers, state } = formComponentSetup('signin');
     const wrapper = shallow(<SigninForm type="signin" state={state} handlers={handlers} />);
 

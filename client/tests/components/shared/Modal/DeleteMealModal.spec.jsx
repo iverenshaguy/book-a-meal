@@ -25,7 +25,7 @@ describe('DeleteMealModal', () => {
     jest.clearAllMocks();
   });
 
-  it('renders correctly', () => {
+  it('should render correctly', () => {
     const wrapper = shallow(<DeleteMealModalComponent {...props} />);
 
     expect(toJson(wrapper)).toMatchSnapshot();
@@ -33,7 +33,7 @@ describe('DeleteMealModal', () => {
     expect(wrapper.find('MiniPreloader').length).toBeFalsy();
   });
 
-  it('renders MiniPreloader when deleting', () => {
+  it('should render MiniPreloader when deleting', () => {
     const wrapper = shallow(<DeleteMealModalComponent {...props} deleting />);
 
     expect(toJson(wrapper)).toMatchSnapshot();
@@ -41,7 +41,7 @@ describe('DeleteMealModal', () => {
     expect(wrapper.find('.delete-meal').length).toBeFalsy();
   });
 
-  it('renders connected component correctly', () => {
+  it('should render connected component correctly', () => {
     const comp = (<Provider store={store}><DeleteMealModalContainer {...props} /></Provider>);
     const wrapper = mount(comp);
 
@@ -49,7 +49,7 @@ describe('DeleteMealModal', () => {
     wrapper.unmount();
   });
 
-  it('calls toggleModal', () => {
+  it('should call toggleModal when delete meal is not confirmed', () => {
     const toggleModalMock = jest.fn();
     const comp = (
       <Provider store={store}>
@@ -64,7 +64,7 @@ describe('DeleteMealModal', () => {
     wrapper.unmount();
   });
 
-  it('calls handleDeleteClick', () => {
+  it('should call handleDeleteClick when delete meal is confirmed', () => {
     const deleteMealMock = jest.fn();
     const comp = (
       <Provider store={store}>

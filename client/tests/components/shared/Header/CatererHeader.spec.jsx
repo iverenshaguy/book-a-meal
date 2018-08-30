@@ -12,7 +12,7 @@ describe('CatererHeader', () => {
     Date.now = now;
   });
 
-  it('renders correctly', () => {
+  it('should render CatererHeader component correctly', () => {
     const shallowWrapper = shallow(<CatererHeader currentDay="1970-01-01" toggleSideNav={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();

@@ -15,7 +15,7 @@ describe('Modal', () => {
     jest.clearAllMocks();
   });
 
-  it('renders correctly', () => {
+  it('should render Modal component correctly when type prop is addMeal', () => {
     const shallowWrapper = shallow(<ModalComponent type="addMeal" open submitting={false} toggleModal={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
@@ -23,14 +23,14 @@ describe('Modal', () => {
     expect(shallowWrapper.find('MealModal')).toBeTruthy();
   });
 
-  it('does not correctly when modal is closed', () => {
+  it('should not render correctly when modal is closed i.e. open prop is false', () => {
     const shallowWrapper = shallow(<ModalComponent type="addMeal" open={false} submitting={false} toggleModal={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.text()).toEqual('');
   });
 
-  it('renders correctly when type is editMeal', () => {
+  it('should render correctly when type prop is editMeal', () => {
     const shallowWrapper = shallow(<ModalComponent type="editMeal" open submitting={false} toggleModal={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
@@ -38,7 +38,7 @@ describe('Modal', () => {
     expect(shallowWrapper.find('MealModal')).toBeTruthy();
   });
 
-  it('renders correctly when type is deleteMeal', () => {
+  it('should render correctly when type prop is deleteMeal', () => {
     const shallowWrapper = shallow(<ModalComponent type="deleteMeal" open submitting={false} toggleModal={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
@@ -46,7 +46,7 @@ describe('Modal', () => {
     expect(shallowWrapper.find('DeleteMealModal')).toBeTruthy();
   });
 
-  it('renders correctly when type is deleteSuccessMsg', () => {
+  it('should render correctly when type prop is deleteSuccessMsg', () => {
     const shallowWrapper = shallow(<ModalComponent type="deleteSuccessMsg" open toggleModal={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
@@ -54,21 +54,21 @@ describe('Modal', () => {
     expect(shallowWrapper.find('p.text-center').text()).toEqual('Meal Deleted Successfully');
   });
 
-  it('renders correctly when type is orderSuccessMsg', () => {
+  it('should render correctly when type prop is orderSuccessMsg', () => {
     const shallowWrapper = shallow(<ModalComponent type="orderSuccessMsg" open toggleModal={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('p.text-center').text()).toEqual('Thank you for your order. Your belly will be filled up shortly');
   });
 
-  it('renders correctly when type is orderCanceledMsg', () => {
+  it('should render correctly when type prop is orderCanceledMsg', () => {
     const shallowWrapper = shallow(<ModalComponent type="orderCanceledMsg" open toggleModal={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('p.text-center').text()).toEqual('Order Canceled Successfully');
   });
 
-  it('renders correctly when type is menu', () => {
+  it('should render correctly when type prop is menu', () => {
     const shallowWrapper = shallow(<ModalComponent type="menu" open submitting={false} toggleModal={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
@@ -76,13 +76,13 @@ describe('Modal', () => {
     expect(shallowWrapper.find('MenuModal')).toBeTruthy();
   });
 
-  it('renders null when type is unknown', () => {
+  it('should render null when type prop is unknown', () => {
     const shallowWrapper = shallow(<ModalComponent type="unknown" open toggleModal={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
   });
 
-  it('calls toggleModal function prop when close modal icon is clicked', () => {
+  it('should call toggleModal function prop when close modal icon is clicked', () => {
     const toggleMock = jest.fn();
     const comp = (<ModalComponent store={store} type="unknown" open submitting={false} toggleModal={toggleMock} />);
     const wrapper = mount(comp);
@@ -93,7 +93,7 @@ describe('Modal', () => {
     wrapper.unmount();
   });
 
-  it('renders connected component correctly', () => {
+  it('should render connected Modal component correctly', () => {
     const comp = (<Provider store={store}><ModalContainer type="addMeal" open toggleModal={jest.fn()} /></Provider>);
     const mountedWrapper = mount(comp);
 

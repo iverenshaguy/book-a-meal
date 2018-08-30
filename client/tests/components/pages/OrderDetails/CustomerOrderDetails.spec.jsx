@@ -24,7 +24,7 @@ describe('OrderDetails', () => {
     Date.now = now;
   });
 
-  it('renders correctly when not fetching', () => {
+  it('should render CustomerOrderDetails correctly when not fetching', () => {
     const wrapper = shallow(<CustomerOrderDetailsComponent
       user={customer}
       fetchOrder={jest.fn()}
@@ -38,22 +38,7 @@ describe('OrderDetails', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('renders Preloader when fetching', () => {
-    const wrapper = shallow(<CustomerOrderDetailsComponent
-      user={customer}
-      fetchOrder={jest.fn()}
-      editOrder={jest.fn()}
-      cancelOrder={jest.fn()}
-      push={jest.fn()}
-      order={customersOrdersObj.orders[0]}
-      match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa70c25' } }}
-    />);
-
-    expect(toJson(wrapper)).toMatchSnapshot();
-    expect(wrapper.find('Preloader')).toBeTruthy();
-  });
-
-  it('renders message when not fetching and that order doesn\'t exist', () => {
+  it('should render a message when an order with that orderId doesn\'t exist', () => {
     const comp = (
       <Provider store={store}>
         <CustomerOrderDetailsContainer
@@ -68,7 +53,7 @@ describe('OrderDetails', () => {
     expect(wrapper.find('p.text-center').text()).toEqual('This Order Does Not Exist');
   });
 
-  it('renders delivered order', () => {
+  it('should render an order that has been delivered correctly', () => {
     const newStore = mockStore({
       ...initialState,
       singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[1] },
@@ -88,7 +73,7 @@ describe('OrderDetails', () => {
     expect(wrapper.find('.order-status').text()).toEqual(' delivered');
   });
 
-  it('renders canceled order', () => {
+  it('should render an order that has been canceled correctly', () => {
     const newStore = mockStore({
       ...initialState,
       singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[0] },
@@ -108,7 +93,7 @@ describe('OrderDetails', () => {
     expect(wrapper.find('.danger').text()).toEqual(' canceled');
   });
 
-  it('renders pending order', () => {
+  it('should render an order that is pending correctly', () => {
     const newStore = mockStore({
       ...initialState,
       singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[2] },
@@ -128,7 +113,7 @@ describe('OrderDetails', () => {
     expect(wrapper.find('.warning').text()).toEqual(' pending');
   });
 
-  it('renders started order and shows control buttons', () => {
+  it('should render an order that has been started correctly and show the customer order control buttons', () => {
     const newStore = mockStore({
       ...initialState,
       singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[3] },
@@ -148,7 +133,7 @@ describe('OrderDetails', () => {
     expect(wrapper.find('.d-flex-row.control-btns').length).toBeTruthy();
   });
 
-  it('renders connected component', () => {
+  it('should render a connected OrderDetails component correctly', () => {
     const newStore = mockStore({
       ...initialState,
       singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[1] },
@@ -170,7 +155,7 @@ describe('OrderDetails', () => {
     wrapper.unmount();
   });
 
-  it('calls edit order method on edit button click', () => {
+  it('should call the edit order method when the "Edit Order" button is clicked', () => {
     const newStore = mockStore({
       ...initialState,
       singleOrder: { ...initialState.singleOrder, item: customersOrdersObj.orders[3] },
@@ -197,7 +182,7 @@ describe('OrderDetails', () => {
     wrapper.unmount();
   });
 
-  it('calls cancel order method on cancel button click', () => {
+  it('should call the cancel order method when the "Cancel Order" button is clicked', () => {
     const cancelOrderMock = jest.fn();
     const newStore = mockStore({
       ...initialState,

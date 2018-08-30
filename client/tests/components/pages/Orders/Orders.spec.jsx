@@ -30,7 +30,7 @@ describe('Orders', () => {
       Date.now = now;
     });
 
-    it('renders correctly when not fetching', () => {
+    it('should render Caterer Orders component correctly', () => {
       const shallowWrapper = shallow(<OrdersComponent
         user={caterer}
         fetchOrders={jest.fn()}
@@ -41,19 +41,8 @@ describe('Orders', () => {
       expect(toJson(shallowWrapper)).toMatchSnapshot();
       expect(shallowWrapper.find('OrderPill')).toBeTruthy();
     });
-    it('renders Preloader when fetching', () => {
-      const shallowWrapper = shallow(<OrdersComponent
-        user={caterer}
-        fetchOrders={jest.fn()}
-        orders={caterersOrdersObj.orders}
-        metadata={metadata}
-      />);
 
-      expect(toJson(shallowWrapper)).toMatchSnapshot();
-      expect(shallowWrapper.find('Preloader')).toBeTruthy();
-    });
-
-    it('calls fetchOrders when loadMoreOrders is called', () => {
+    it('should start fetching more order items when Orders Component triggers the loadMoreOrders function', () => {
       const fetchOrdersMock = jest.fn();
 
       const shallowWrapper = shallow(<OrdersComponent
@@ -68,7 +57,7 @@ describe('Orders', () => {
       expect(fetchOrdersMock).toHaveBeenCalledTimes(2);
     });
 
-    it('renders message when not fetching and there are no orders', () => {
+    it('should render a message when there are no orders to show', () => {
       const shallowWrapper = shallow(<OrdersComponent
         user={caterer}
         fetchOrders={jest.fn()}
@@ -80,7 +69,7 @@ describe('Orders', () => {
       expect(shallowWrapper.find('p').text()).toEqual('You Have No Orders');
     });
 
-    it('renders connected component', () => {
+    it('should render the connected Caterer Orders component correctly', () => {
       const comp = (
         <Provider store={store}>
           <OrdersContainer
@@ -96,7 +85,7 @@ describe('Orders', () => {
   });
 
   describe('Customer Orders', () => {
-    it('renders correctly when not fetching', () => {
+    it('should render Customer Orders component correctly', () => {
       const shallowWrapper = shallow(<OrdersComponent
         user={customer}
         fetchOrders={jest.fn()}
@@ -108,7 +97,7 @@ describe('Orders', () => {
       expect(shallowWrapper.find('OrderPill')).toBeTruthy();
     });
 
-    it('calls fetchOrders when loadMoreOrders is called', () => {
+    it('should start fetching more order items when Orders Component triggers the loadMoreOrders function', () => {
       const fetchOrdersMock = jest.fn();
 
       const shallowWrapper = shallow(<OrdersComponent
@@ -123,7 +112,7 @@ describe('Orders', () => {
       expect(fetchOrdersMock).toHaveBeenCalledTimes(2);
     });
 
-    it('renders message when not fetching and there are no orders', () => {
+    it('should render a message when there are no orders to show', () => {
       const shallowWrapper = shallow(<OrdersComponent
         user={customer}
         fetchOrders={jest.fn()}
@@ -135,7 +124,7 @@ describe('Orders', () => {
       expect(shallowWrapper.find('p').text()).toEqual('You Have No Orders');
     });
 
-    it('renders connected component', () => {
+    it('should render the connected Customer Orders component correctly', () => {
       const comp = (
         <Provider store={store}>
           <OrdersContainer

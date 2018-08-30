@@ -122,7 +122,7 @@ describe('Menu Routes: Get the menu specific day', () => {
       db.Menu.destroy({ truncate: { cascade: true } }).then(() => done());
     });
 
-    it('User: should return empty meals array when there is no menu', (done) => {
+    it('should return empty meals array when there is no menu for customer', (done) => {
       request(app)
         .get('/api/v1/menu')
         .set('Accept', 'application/json')
@@ -136,7 +136,7 @@ describe('Menu Routes: Get the menu specific day', () => {
         });
     });
 
-    it('Caterer: should return empty meals when there is no menu', (done) => {
+    it('should return empty meals when there is no menu for user', (done) => {
       request(app)
         .get('/api/v1/menu')
         .set('Accept', 'application/json')

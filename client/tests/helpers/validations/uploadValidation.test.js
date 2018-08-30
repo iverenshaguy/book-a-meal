@@ -11,19 +11,19 @@ describe('Upload Validation', () => {
     jest.clearAllMocks();
   });
 
-  test('Right Image File', () => {
+  it('should return null i.e. no error for right file input', () => {
     const validate = uploadValidation(rightImgFile, maxSize, actionTypes);
 
     expect(validate).toEqual(null);
   });
 
-  test('PDF File', () => {
+  it('should return an error for invalid file type', () => {
     const validate = uploadValidation(pdfFile, maxSize, actionTypes);
 
     expect(validate).toEqual('Invalid File Type');
   });
 
-  test('Large File', () => {
+  it('should return an error for large file size', () => {
     const validate = uploadValidation(largeFile, maxSize, actionTypes);
 
     expect(validate).toEqual('File Too Large');

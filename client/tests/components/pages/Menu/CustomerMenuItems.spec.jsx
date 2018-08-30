@@ -31,7 +31,7 @@ describe('MenuItems', () => {
     Date.now = now;
   });
 
-  it('renders correctly', () => {
+  it('should render MenuItems component correctly', () => {
     const shallowWrapper = shallow(<MenuItemsComponent
       {...mealsObj}
       order={order}
@@ -45,7 +45,7 @@ describe('MenuItems', () => {
     expect(shallowWrapper.find('MealCard')).toBeTruthy();
   });
 
-  it('renders Preloader when fetching', () => {
+  it('should render Preloader when fetching menu items', () => {
     const shallowWrapper = shallow(<MenuItemsComponent
       order={order}
       {...mealsObj}
@@ -59,7 +59,7 @@ describe('MenuItems', () => {
     expect(shallowWrapper.find('Preloader')).toBeTruthy();
   });
 
-  it('renders message when not fetching and there are no meals on the menu', () => {
+  it('should render message when there are no meals on the menu', () => {
     const shallowWrapper = shallow(<MenuItemsComponent
       order={order}
       meals={[]}
@@ -73,7 +73,7 @@ describe('MenuItems', () => {
     expect(shallowWrapper.find('p').text()).toEqual('No Meals Found');
   });
 
-  it('calls loadMoreMenu when loadMore in CardGroup is called', () => {
+  it('should start fetching more menu items when Menu Component triggers loadMoreMenu function', () => {
     const loadMoreMenuMock = jest.fn();
 
     const wrapper = shallow(<MenuItemsComponent
@@ -90,7 +90,7 @@ describe('MenuItems', () => {
     expect(loadMoreMenuMock).toHaveBeenCalledTimes(1);
   });
 
-  it('renders connected component', () => {
+  it('should render connected Menu component', () => {
     const comp = (
       <Provider store={store}>
         <MenuItemsContainer

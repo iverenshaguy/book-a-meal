@@ -24,11 +24,10 @@ describe('Meals', () => {
     Date.now = now;
   });
 
-  it('renders correctly when not fetching', () => {
+  it('should render Meal component correctly when there are available meals', () => {
     const toggleMock = jest.fn();
 
     const shallowWrapper = shallow(<MealsComponent
-      user={caterer}
       fetchMeals={jest.fn()}
       {...mealsObj}
       submitting={false}
@@ -40,28 +39,11 @@ describe('Meals', () => {
     expect(shallowWrapper.find('MealCard')).toBeTruthy();
   });
 
-  it('does not call fetchMeals on component mount when metadata is not available', () => {
+  it('should start fetching meals when Meal component is loaded', () => {
     const toggleMock = jest.fn();
     const fetchMealsMock = jest.fn();
 
     shallow(<MealsComponent
-      user={caterer}
-      fetchMeals={fetchMealsMock}
-      {...mealsObj}
-      submitting={false}
-      toggleModal={toggleMock}
-      metadata={metadata}
-    />);
-
-    expect(fetchMealsMock).not.toHaveBeenCalled();
-  });
-
-  it('calls fetchMeals on component mount when metadata is available', () => {
-    const toggleMock = jest.fn();
-    const fetchMealsMock = jest.fn();
-
-    shallow(<MealsComponent
-      user={caterer}
       fetchMeals={fetchMealsMock}
       {...mealsObj}
       submitting={false}
@@ -72,17 +54,16 @@ describe('Meals', () => {
     expect(fetchMealsMock).toHaveBeenCalled();
   });
 
-  it('calls fetchMeals when loadMoreMeals is called', () => {
+  it('should start fetching more meals when Meal Component triggers loadMoreMeals function', () => {
     const toggleMock = jest.fn();
     const fetchMealsMock = jest.fn();
 
     const shallowWrapper = shallow(<MealsComponent
-      user={caterer}
       fetchMeals={fetchMealsMock}
       {...mealsObj}
       submitting={false}
       toggleModal={toggleMock}
-      metadata={{}}
+      metadata={metadata}
     />);
 
     shallowWrapper.instance().loadMoreMeals();
@@ -90,10 +71,9 @@ describe('Meals', () => {
     expect(fetchMealsMock).toHaveBeenCalledTimes(2);
   });
 
-  it('calls toggleModal when button is clicked', () => {
+  it('should open meal modal when the "Add Meal" button is clicked', () => {
     const toggleMock = jest.fn();
     const wrapper = shallow(<MealsComponent
-      user={caterer}
       fetchMeals={jest.fn()}
       {...mealsObj}
       submitting={false}
@@ -105,13 +85,13 @@ describe('Meals', () => {
     expect(toggleMock).toHaveBeenCalled();
   });
 
-  it('calls toggleModal when edit meal button is clicked', () => {
+  it('should open meal modal when the "Edit Meal" button is clicked', () => {
     const comp = (
       <Provider store={store}>
         <MealsContainer
-          user={caterer}
           fetchMeals={jest.fn()}
           {...mealsObj}
+          metadata={metadata}
         />
       </Provider>
     );
@@ -123,43 +103,25 @@ describe('Meals', () => {
     expect(toggleSpy).toHaveBeenCalled();
   });
 
-  it('renders Preloader when fetching', () => {
+  it('should show "You Do Not Have Any Meals Yet" message when caterer does not have any meals available', () => {
     const toggleMock = jest.fn();
     const shallowWrapper = shallow(<MealsComponent
-      user={caterer}
-      fetchMeals={jest.fn()}
-      {...mealsObj}
-      isFetching
-      submitting={false}
-      toggleModal={toggleMock}
-      metadata={metadata}
-    />);
-
-    expect(toJson(shallowWrapper)).toMatchSnapshot();
-    expect(shallowWrapper.find('Preloader')).toBeTruthy();
-  });
-
-  it('renders message when there are no meals', () => {
-    const toggleMock = jest.fn();
-    const shallowWrapper = shallow(<MealsComponent
-      user={caterer}
       fetchMeals={jest.fn()}
       meals={[]}
       submitting={false}
       toggleModal={toggleMock}
-      metadata={metadata}
+      metadata={{}}
     />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('p').text()).toEqual('You Do Not Have Any Meals Yet');
   });
 
-  it('renders connected component', () => {
+  it('should render Meal Component when it is connected to the redux store correctly', () => {
     const dispatchMock = jest.fn();
     const comp = (
       <Provider store={store}>
         <MealsContainer
-          user={caterer}
           dispatch={dispatchMock}
           {...mealsObj}
         />

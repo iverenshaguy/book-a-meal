@@ -24,7 +24,7 @@ describe('Dashboard', () => {
     Date.now = now;
   });
 
-  it('renders correctly', () => {
+  it('should render Dashboard component correctly', () => {
     const shallowWrapper = shallow(<Dashboard
       fetchOrders={jest.fn()}
       deliverOrder={jest.fn()}
@@ -34,7 +34,7 @@ describe('Dashboard', () => {
     expect(toJson(shallowWrapper)).toMatchSnapshot();
   });
 
-  it('renders connected component correctly', () => {
+  it('should render connected Dashboard component correctly', () => {
     const dispatchMock = jest.fn();
     const comp = (
       <Provider store={store}>

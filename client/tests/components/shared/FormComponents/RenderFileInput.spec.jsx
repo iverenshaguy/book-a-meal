@@ -25,27 +25,27 @@ const badFile = new Blob([''], {
 });
 
 describe('Form Components: RenderFileInput', () => {
-  it('renders correctly', () => {
+  it('should render correctly', () => {
     const wrapper = shallow(<RenderFileInput {...props} />);
     expect(toJson(wrapper)).toMatchSnapshot();
     expect(wrapper.find('div.file-feedback').exists()).toBeFalsy();
   });
 
-  it('shows error when found', () => {
+  it('should show error when there is an upload error', () => {
     const wrapper = shallow(<RenderFileInput {...props} uploadError="This is an error" />);
 
     expect(toJson(wrapper)).toMatchSnapshot();
     expect(wrapper.find('.file-feedback').text()).toEqual('This is an error');
   });
 
-  it('shows preloader when uploading', () => {
+  it('should show preloader when uploading', () => {
     const wrapper = shallow(<RenderFileInput {...props} uploading />);
 
     expect(toJson(wrapper)).toMatchSnapshot();
     expect(wrapper.find('MiniPreloader')).toBeTruthy();
   });
 
-  it('calls handle click on click', () => {
+  it('should call handle click on input click', () => {
     const uploadImageMock = jest.fn();
     const wrapper = shallow(<RenderFileInput {...props} uploadImage={uploadImageMock} />);
 
@@ -55,7 +55,7 @@ describe('Form Components: RenderFileInput', () => {
     expect(wrapper.state().error).toEqual(null);
   });
 
-  it('calls uploadImage if there\'s no upload error', () => {
+  it('should call uploadImage if a valid file is passed in and there is no upload error', () => {
     const uploadImageMock = jest.fn();
     const wrapper = shallow(<RenderFileInput {...props} uploadImage={uploadImageMock} />);
     const event = {
@@ -69,7 +69,7 @@ describe('Form Components: RenderFileInput', () => {
     expect(uploadImageMock).toHaveBeenCalled();
   });
 
-  it('doesn\'t call uploadImage if there\'s no upload error', () => {
+  it('should not call uploadImage if an invalid file is passed in', () => {
     const uploadImageMock = jest.fn();
     const wrapper = shallow(<RenderFileInput {...props} uploadImage={uploadImageMock} />);
     const event = {

@@ -12,19 +12,19 @@ describe('Header', () => {
     Date.now = now;
   });
 
-  it('renders correctly', () => {
+  it('should render Header component correctly', () => {
     const shallowWrapper = shallow(<Header type="home" />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
   });
 
-  it('renders unauthenticated header correctly', () => {
+  it('should render unauthenticated Header component correctly when type prop is unauth', () => {
     const shallowWrapper = shallow(<Header type="unauth" />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
   });
 
-  it('renders caterer header correctly', () => {
+  it('should render Caterer Header component correctly when type prop is caterer', () => {
     const shallowWrapper = shallow(<Header type="caterer" />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();

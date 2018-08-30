@@ -15,11 +15,10 @@ const returnValue = {
 
 describe('Utils: decodeToken', () => {
   afterAll(() => {
-    // restore mock
     jwt.decode = decode;
   });
 
-  test('works as expected', () => {
+  it('should decode token', () => {
     localStorage.setItem('jwtToken', customerToken);
     const check = decodeToken();
 

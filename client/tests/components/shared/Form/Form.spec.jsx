@@ -26,43 +26,43 @@ describe('Form', () => {
     jest.clearAllMocks();
   });
 
-  it('renders correctly', () => {
+  it('should render the Form component correctly', () => {
     const { shallowRoot } = setup('signin', meta);
 
     expect(toJson(shallowRoot)).toMatchSnapshot();
   });
 
-  it('renders customer\'s signup form correctly', () => {
+  it('should render the Customer Signup Form correctly when the type prop is customerSignup', () => {
     const { shallowRoot } = setup('customerSignup', meta);
 
     expect(toJson(shallowRoot)).toMatchSnapshot();
   });
 
-  it('renders caterer\'s signup form correctly', () => {
+  it('should render the Caterer Signup Form correctly when the type prop is customerSignup', () => {
     const { shallowRoot } = setup('catererSignup', meta);
 
     expect(toJson(shallowRoot)).toMatchSnapshot();
   });
 
-  it('renders addMeal form correctly', () => {
+  it('should render the Add Meal Form correctly when the type prop is addMeal', () => {
     const { shallowRoot } = setup('addMeal', meta);
 
     expect(toJson(shallowRoot)).toMatchSnapshot();
   });
 
-  it('renders editMeal form correctly', () => {
+  it('should render the Edit Meal Form correctly when the type prop is editMeal', () => {
     const { shallowRoot } = setup('editMeal', meta);
 
     expect(toJson(shallowRoot)).toMatchSnapshot();
   });
 
-  it('disables submit button when form is clean', () => {
+  it('should disable the form submit button when the form has not been touched', () => {
     const { shallowRoot } = setup('signin', meta);
 
     expect(shallowRoot.find('button[disabled=true]')).toBeTruthy();
   });
 
-  it('disables submit button when submitting form', () => {
+  it('should disable the form submit button when submitting the form', () => {
     const { props, dispatchMock } = setup('signin', meta);
     const newProps = {
       ...props,
@@ -74,7 +74,7 @@ describe('Form', () => {
     expect(shallowRoot.find('button[disabled=true]')).toBeTruthy();
   });
 
-  it('shows error alert and disables submit button when there\'s a submit error', () => {
+  it('should show an error alert and disable the form submit button when there\'s a submit error', () => {
     const { props, dispatchMock } = setup('signin', meta);
     const newProps = {
       ...props,
@@ -88,19 +88,17 @@ describe('Form', () => {
     expect(shallowRoot.find('button[disabled=true]')).toBeTruthy();
   });
 
-  it('changes form state when prop: type changes', () => {
+  it('should change the form state when the type prop changes', () => {
     const { props, dispatchMock } = setup('signin', meta);
 
     const shallowRoot = shallow(<FormComponent {...props} dispatch={dispatchMock} />);
 
-    shallowRoot.setProps({
-      type: 'editMeal'
-    });
+    shallowRoot.setProps({ type: 'editMeal' });
 
     expect(shallowRoot.state().type).toEqual('editMeal');
   });
 
-  it('does not change form state when prop: type does not change but props update', () => {
+  it('should not change the form state when the type prop does not change but the form props update', () => {
     const { props, dispatchMock } = setup('signin', meta);
 
     const shallowRoot = shallow(<FormComponent {...props} dispatch={dispatchMock} />);
@@ -115,7 +113,7 @@ describe('Form', () => {
   });
 
   describe('test for right input', () => {
-    it('calls handleChange on input change for email field', () => {
+    it('should handle input change on input change for email field', () => {
       const { mountRoot, dispatchMock } = setup('signin', meta);
       const wrapper = mountRoot.find(FormComponent);
 
@@ -139,7 +137,7 @@ describe('Form', () => {
       expect(wrapper.instance().state).toEqual(changeState);
     });
 
-    it('calls handleChange on checkbox change for vegetarian field', () => {
+    it('should handle input change on checkbox change for vegetarian field', () => {
       const { state } = formComponentSetup('addMeal');
       const { mountRoot } = setup('addMeal', meta);
       const wrapper = mountRoot.find(FormComponent);
@@ -158,7 +156,7 @@ describe('Form', () => {
       expect(wrapper.instance().state).toEqual(changeState);
     });
 
-    it('submits valid form', () => {
+    it('should submit a valid form', () => {
       const { mountRoot, dispatchMock } = setup('signin', meta);
       const wrapper = mountRoot.find(FormComponent);
 
@@ -185,7 +183,7 @@ describe('Form', () => {
       expect(dispatchMock).toHaveBeenCalled();
     });
 
-    it('submits valid editMeal form', () => {
+    it('should submit a valid editMeal form', () => {
       const { mountRoot, dispatchMock } = setup('editMeal', meta);
       const wrapper = mountRoot.find(FormComponent);
 
@@ -198,7 +196,7 @@ describe('Form', () => {
       expect(dispatchMock).toHaveBeenCalled();
     });
 
-    it('calls dispatch on file input change', () => {
+    it('should call the dispatch function on file input change', () => {
       const { mountRoot, dispatchMock } = setup('editMeal', meta);
       const wrapper = mountRoot.find(FormComponent);
 
@@ -234,7 +232,7 @@ describe('Form', () => {
   });
 
   describe('test for wrong input', () => {
-    it('sync validates field and form on input change and blur', () => {
+    it('should sync validate field and form on input change and blur', () => {
       const { state } = formComponentSetup('customerSignup');
       const { mountRoot } = setup('customerSignup', meta);
       const wrapper = mountRoot.find(FormComponent);

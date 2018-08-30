@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Cart hides checkout button when shop is closed 1`] = `
+exports[`Cart should hide the checkout button whenthe shop is closed 1`] = `
 <Cart
   handleQuantityInputChange={[MockFunction]}
   order={
@@ -161,7 +161,96 @@ exports[`Cart hides checkout button when shop is closed 1`] = `
 </Cart>
 `;
 
-exports[`Cart renders correctly 1`] = `
+exports[`Cart should render a message when there is no order 1`] = `
+<React.Fragment>
+  <div
+    className="side-cart-toggle d-none-xl"
+  >
+    <span
+      aria-hidden="true"
+      id="cart-toggler"
+      onClick={[Function]}
+    >
+      <div
+        className="text-center"
+      >
+        <img
+          alt="cart"
+          src="/img/cart.png"
+        />
+          
+        <sup>
+          0
+        </sup>
+      </div>
+      <p
+        className="text-center"
+      >
+        Total: ₦
+        0
+      </p>
+    </span>
+    <span
+      className="cart-btn"
+    >
+      <Link
+        replace={false}
+        to="/order-review"
+      >
+        <button
+          className="btn btn-pri btn-block checkout-btn"
+          disabled="disabled"
+        >
+          Checkout
+        </button>
+      </Link>
+    </span>
+  </div>
+  <div
+    className="side-cart null"
+    id="side-cart"
+  >
+    <div
+      className="cart"
+    >
+      <div
+        className="cart-header"
+      >
+        <h2>
+          Your Basket
+        </h2>
+        <CloseIcon
+          btnID="side-cart-close-icon"
+          clickHandler={[Function]}
+          divClass="d-none-xl"
+        />
+      </div>
+      <hr />
+      <div
+        className="empty-cart"
+      >
+        <p>
+          Your Basket is Empty
+        </p>
+      </div>
+      <br />
+      <Link
+        replace={false}
+        to="/order-review"
+      >
+        <button
+          className="btn btn-pri btn-block checkout-btn"
+          disabled="disabled"
+        >
+          Checkout
+        </button>
+      </Link>
+    </div>
+  </div>
+</React.Fragment>
+`;
+
+exports[`Cart should render the Cart component correctly 1`] = `
 <React.Fragment>
   <div
     className="side-cart-toggle d-none-xl"
@@ -292,95 +381,6 @@ exports[`Cart renders correctly 1`] = `
         <button
           className="btn btn-pri btn-block checkout-btn"
           disabled={null}
-        >
-          Checkout
-        </button>
-      </Link>
-    </div>
-  </div>
-</React.Fragment>
-`;
-
-exports[`Cart renders message when there is no order 1`] = `
-<React.Fragment>
-  <div
-    className="side-cart-toggle d-none-xl"
-  >
-    <span
-      aria-hidden="true"
-      id="cart-toggler"
-      onClick={[Function]}
-    >
-      <div
-        className="text-center"
-      >
-        <img
-          alt="cart"
-          src="/img/cart.png"
-        />
-          
-        <sup>
-          0
-        </sup>
-      </div>
-      <p
-        className="text-center"
-      >
-        Total: ₦
-        0
-      </p>
-    </span>
-    <span
-      className="cart-btn"
-    >
-      <Link
-        replace={false}
-        to="/order-review"
-      >
-        <button
-          className="btn btn-pri btn-block checkout-btn"
-          disabled="disabled"
-        >
-          Checkout
-        </button>
-      </Link>
-    </span>
-  </div>
-  <div
-    className="side-cart null"
-    id="side-cart"
-  >
-    <div
-      className="cart"
-    >
-      <div
-        className="cart-header"
-      >
-        <h2>
-          Your Basket
-        </h2>
-        <CloseIcon
-          btnID="side-cart-close-icon"
-          clickHandler={[Function]}
-          divClass="d-none-xl"
-        />
-      </div>
-      <hr />
-      <div
-        className="empty-cart"
-      >
-        <p>
-          Your Basket is Empty
-        </p>
-      </div>
-      <br />
-      <Link
-        replace={false}
-        to="/order-review"
-      >
-        <button
-          className="btn btn-pri btn-block checkout-btn"
-          disabled="disabled"
         >
           Checkout
         </button>

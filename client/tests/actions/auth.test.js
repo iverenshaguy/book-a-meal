@@ -33,61 +33,79 @@ const store = mockStore({
 });
 
 describe('Auth Actions', () => {
-  test('authenticating', () => {
-    const authAction = authenticating();
+  describe('authenticating', () => {
+    it('should return an object with type AUTHENTICATING', () => {
+      const authAction = authenticating();
 
-    expect(authAction).toEqual({ type: 'AUTHENTICATING' });
+      expect(authAction).toEqual({ type: 'AUTHENTICATING' });
+    });
   });
 
-  test('authenticationSuccess', () => {
-    const userDetails = { name: 'Emiola' };
-    const authAction = authenticationSuccess(userDetails);
+  describe('authenticationSuccess', () => {
+    it('should return an object with type AUTHENTICATED', () => {
+      const userDetails = { name: 'Emiola' };
+      const authAction = authenticationSuccess(userDetails);
 
-    expect(authAction).toEqual({ type: 'AUTHENTICATED', payload: { name: 'Emiola' } });
+      expect(authAction).toEqual({ type: 'AUTHENTICATED', payload: { name: 'Emiola' } });
+    });
   });
 
-  test('authenticationFailure', () => {
-    const authAction = authenticationFailure('error');
+  describe('authenticationFailure', () => {
+    it('should return an object with type AUTHENTICATION_ERROR', () => {
+      const authAction = authenticationFailure('error');
 
-    expect(authAction).toEqual({ type: 'AUTHENTICATION_ERROR', payload: 'error' });
+      expect(authAction).toEqual({ type: 'AUTHENTICATION_ERROR', payload: 'error' });
+    });
   });
 
-  test('signinSuccess', () => {
-    const userDetails = { name: 'Emiola' };
-    const authAction = signinSuccess(userDetails);
+  describe('signinSuccess', () => {
+    it('should return an object with type SIGNIN_SUCCESS', () => {
+      const userDetails = { name: 'Emiola' };
+      const authAction = signinSuccess(userDetails);
 
-    expect(authAction).toEqual({ type: 'SIGNIN_SUCCESS', payload: { name: 'Emiola' } });
+      expect(authAction).toEqual({ type: 'SIGNIN_SUCCESS', payload: { name: 'Emiola' } });
+    });
   });
 
-  test('signinFailure', () => {
-    const authAction = signinFailure('error');
+  describe('signinFailure', () => {
+    it('should return an object with type SIGNIN_ERROR', () => {
+      const authAction = signinFailure('error');
 
-    expect(authAction).toEqual({ type: 'SIGNIN_ERROR', payload: 'error' });
+      expect(authAction).toEqual({ type: 'SIGNIN_ERROR', payload: 'error' });
+    });
   });
 
-  test('signupSuccess', () => {
-    const userDetails = { name: 'Emiola' };
-    const authAction = signupSuccess(userDetails);
+  describe('signupSuccess', () => {
+    it('should return an object with type SIGNUP_SUCCESS', () => {
+      const userDetails = { name: 'Emiola' };
+      const authAction = signupSuccess(userDetails);
 
-    expect(authAction).toEqual({ type: 'SIGNUP_SUCCESS', payload: { name: 'Emiola' } });
+      expect(authAction).toEqual({ type: 'SIGNUP_SUCCESS', payload: { name: 'Emiola' } });
+    });
   });
 
-  test('signupFailure', () => {
-    const authAction = signupFailure('error');
+  describe('signupFailure', () => {
+    it('should return an object with type SIGNUP_ERROR', () => {
+      const authAction = signupFailure('error');
 
-    expect(authAction).toEqual({ type: 'SIGNUP_ERROR', payload: 'error' });
+      expect(authAction).toEqual({ type: 'SIGNUP_ERROR', payload: 'error' });
+    });
   });
 
-  test('clearAuthError', () => {
-    const authAction = clearAuthError();
+  describe('clearAuthError', () => {
+    it('should return an object with type CLEAR_AUTH_ERROR', () => {
+      const authAction = clearAuthError();
 
-    expect(authAction).toEqual({ type: 'CLEAR_AUTH_ERROR' });
+      expect(authAction).toEqual({ type: 'CLEAR_AUTH_ERROR' });
+    });
   });
 
-  test('resetUser', () => {
-    const authAction = resetUser();
+  describe('resetUser', () => {
+    it('should return an object with type UNAUTHENTICATED', () => {
+      const authAction = resetUser();
 
-    expect(authAction).toEqual({ type: 'UNAUTHENTICATED' });
+      expect(authAction).toEqual({ type: 'UNAUTHENTICATED' });
+    });
   });
 
   describe('Auth Operations', () => {
@@ -106,7 +124,7 @@ describe('Auth Actions', () => {
         moxios.uninstall(axios);
       });
 
-      it('dispatches AUTHENTICATING and SIGNIN_SUCCESS on successful signin', () => {
+      it('should dispatch AUTHENTICATING and SIGNIN_SUCCESS on successful signin', () => {
         const expectedActions = ['AUTHENTICATING', 'SIGNIN_SUCCESS'];
 
         moxios.stubRequest(`${url}/auth/signin`, {
@@ -125,7 +143,7 @@ describe('Auth Actions', () => {
         });
       });
 
-      it('dispatches AUTHENTICATING and SIGNIN_ERROR on unsuccessful signin', () => {
+      it('should dispatch AUTHENTICATING and SIGNIN_ERROR on unsuccessful signin', () => {
         const expectedActions = ['AUTHENTICATING', 'SIGNIN_ERROR'];
 
         moxios.stubRequest(`${url}/auth/signin`, {
@@ -146,7 +164,7 @@ describe('Auth Actions', () => {
         });
       });
 
-      it('dispatches AUTHENTICATING and SIGNUP_SUCCESS on successful signup', () => {
+      it('should dispatch AUTHENTICATING and SIGNUP_SUCCESS on successful signup', () => {
         const expectedActions = ['AUTHENTICATING', 'SIGNUP_SUCCESS'];
 
         moxios.stubRequest(`${url}/auth/signup`, {
@@ -165,7 +183,7 @@ describe('Auth Actions', () => {
         });
       });
 
-      it('dispatches AUTHENTICATING and SIGNUP_ERROR on unsuccessful signup', () => {
+      it('should dispatch AUTHENTICATING and SIGNUP_ERROR on unsuccessful signup', () => {
         const expectedActions = ['AUTHENTICATING', 'SIGNUP_ERROR'];
 
         moxios.stubRequest(`${url}/auth/signup`, {
@@ -188,7 +206,7 @@ describe('Auth Actions', () => {
         });
       });
 
-      it('dispatches UNAUTHENTICATED', () => {
+      it('should dispatch UNAUTHENTICATED', () => {
         store.dispatch(logout());
 
         const expectedActions = ['UNAUTHENTICATED'];
@@ -212,7 +230,7 @@ describe('Auth Actions', () => {
         moxios.uninstall(instance);
       });
 
-      it('dispatches AUTHENTICATING and AUTHENTICATION_SUCCESS on successful authentication', () => {
+      it('should dispatch AUTHENTICATING and AUTHENTICATION_SUCCESS on successful authentication', () => {
         const expectedActions = ['AUTHENTICATING', 'AUTHENTICATED'];
 
         moxios.stubRequest(`${url}/auth/refresh_token`, {
@@ -230,7 +248,7 @@ describe('Auth Actions', () => {
         });
       });
 
-      it('dispatches AUTHENTICATING and AUTHENTICATION_ERROR on unsuccessful authentication', () => {
+      it('should dispatch AUTHENTICATING and AUTHENTICATION_ERROR on unsuccessful authentication', () => {
         const expectedActions = ['AUTHENTICATING', 'AUTHENTICATION_ERROR'];
 
         moxios.stubRequest(`${url}/auth/refresh_token`, {

@@ -21,7 +21,7 @@ const status = sinon.spy(res, 'status');
 const currentDay = moment().format('YYYY-MM-DD');
 
 describe('Validation Handler: Orders', () => {
-  it('returns error message if shop is closed', () => {
+  it('should return error message if shop is closed', () => {
     mockDate.set(new Date(currentDay).getTime() + (60 * 60 * 18 * 1000));
 
     ValidationHandler.isShopOpen(req, res, next);
@@ -29,7 +29,7 @@ describe('Validation Handler: Orders', () => {
     assert(status.calledWith(200));
   });
 
-  it('calls next if shop is open', () => {
+  it('should call next if shop is open', () => {
     mockDate.set(new Date(currentDay).getTime() + (60 * 60 * 13 * 1000));
 
     ValidationHandler.isShopOpen(req, res, next);

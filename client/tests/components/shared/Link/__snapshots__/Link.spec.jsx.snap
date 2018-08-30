@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Link renders correctly 1`] = `
+exports[`Link should render Link component correctly 1`] = `
 <button
   className="link-btn null"
   data-tip={null}

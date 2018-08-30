@@ -12,14 +12,14 @@ const props = {
 };
 
 describe('CustomerView', () => {
-  it('renders correctly', () => {
+  it('should render CustomerView component correctly', () => {
     const wrapper = shallow(<CustomerView {...props} />);
 
     expect(toJson(wrapper)).toMatchSnapshot();
     expect(wrapper.find('Preloader').length).toBeFalsy();
   });
 
-  it('renders Preloader when fetching', () => {
+  it('should render Preloader when fetching page data', () => {
     const wrapper = shallow(<CustomerView {...props} isFetching />);
 
     expect(toJson(wrapper)).toMatchSnapshot();

@@ -14,7 +14,6 @@ class MealController {
    * @memberof MealController
    * @param {object} req
    * @param {object} res
-   * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    * date is either equal to today or given date
    */
@@ -42,7 +41,6 @@ class MealController {
    * @memberof MealController
    * @param {object} req
    * @param {object} res
-   * @param {object} data
    * @returns {(function|object)} Function next() or JSON object
    * First checks db to ensure another meal belonging to the user
    * doesnt have the new meal title

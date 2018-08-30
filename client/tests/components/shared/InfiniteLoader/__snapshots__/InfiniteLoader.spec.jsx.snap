@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InfiniteLoader renders correctly 1`] = `
+exports[`InfiniteLoader should render InfiniteLoader component correctly 1`] = `
 <InfiniteLoader
   height={10}
   items={

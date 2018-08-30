@@ -33,90 +33,110 @@ const store = mockStore({
 });
 
 describe('Menu Actions', () => {
-  test('fetchMenuSuccess', () => {
-    const action = fetchMenuSuccess('RECEIVE_MENU_SUCCESS', mealsObj);
+  describe('fetchMenuSuccess', () => {
+    it('should return an object with type RECEIVE_MENU_SUCCESS', () => {
+      const action = fetchMenuSuccess('RECEIVE_MENU_SUCCESS', mealsObj);
 
-    expect(action).toEqual({
-      type: 'RECEIVE_MENU_SUCCESS',
-      payload: mealsObj
+      expect(action).toEqual({
+        type: 'RECEIVE_MENU_SUCCESS',
+        payload: mealsObj
+      });
     });
   });
 
-  test('fetchMenuFailure', () => {
-    const action = fetchMenuFailure('error');
+  describe('fetchMenuFailure', () => {
+    it('should return an object with type RECEIVE_MENU_FAILURE', () => {
+      const action = fetchMenuFailure('error');
 
-    expect(action).toEqual({
-      type: 'RECEIVE_MENU_FAILURE',
-      payload: 'error'
+      expect(action).toEqual({
+        type: 'RECEIVE_MENU_FAILURE',
+        payload: 'error'
+      });
     });
   });
 
-  test('setCurrentDay', () => {
-    const action = setCurrentDay('2018-04-25');
+  describe('setCurrentDay', () => {
+    it('should return an object with type SET_CURRENT_DAY', () => {
+      const action = setCurrentDay('2018-04-25');
 
-    expect(action).toEqual({
-      type: 'SET_CURRENT_DAY',
-      payload: '2018-04-25'
+      expect(action).toEqual({
+        type: 'SET_CURRENT_DAY',
+        payload: '2018-04-25'
+      });
     });
   });
 
-  test('setMenuWorking', () => {
-    const action = setMenuWorking();
+  describe('setMenuWorking', () => {
+    it('should return an object with type SET_MENU_WORKING', () => {
+      const action = setMenuWorking();
 
-    expect(action).toEqual({
-      type: 'SET_MENU_WORKING'
+      expect(action).toEqual({
+        type: 'SET_MENU_WORKING'
+      });
     });
   });
 
-  test('unsetMenuWorking', () => {
-    const action = unsetMenuWorking();
+  describe('unsetMenuWorking', () => {
+    it('should return an object with type UNSET_MENU_WORKING', () => {
+      const action = unsetMenuWorking();
 
-    expect(action).toEqual({
-      type: 'UNSET_MENU_WORKING'
+      expect(action).toEqual({
+        type: 'UNSET_MENU_WORKING'
+      });
     });
   });
 
-  test('addMenuSuccess', () => {
-    const action = addMenuSuccess(newMenu);
+  describe('addMenuSuccess', () => {
+    it('should return an object with type ADD_MENU_SUCCESS', () => {
+      const action = addMenuSuccess(newMenu);
 
-    expect(action).toEqual({
-      type: 'ADD_MENU_SUCCESS',
-      payload: newMenu
+      expect(action).toEqual({
+        type: 'ADD_MENU_SUCCESS',
+        payload: newMenu
+      });
     });
   });
 
-  test('addMenuFailure', () => {
-    const action = addMenuFailure('error');
+  describe('addMenuFailure', () => {
+    it('should return an object with type ADD_MENU_FAILURE', () => {
+      const action = addMenuFailure('error');
 
-    expect(action).toEqual({
-      type: 'ADD_MENU_FAILURE',
-      payload: 'error'
+      expect(action).toEqual({
+        type: 'ADD_MENU_FAILURE',
+        payload: 'error'
+      });
     });
   });
 
-  test('editMenuSuccess', () => {
-    const action = editMenuSuccess(newMenu);
+  describe('editMenuSuccess', () => {
+    it('should return an object with type RECEIVE_ORDERS_FAILURE', () => {
+      const action = editMenuSuccess(newMenu);
 
-    expect(action).toEqual({
-      type: 'EDIT_MENU_SUCCESS',
-      payload: newMenu
+      expect(action).toEqual({
+        type: 'EDIT_MENU_SUCCESS',
+        payload: newMenu
+      });
     });
   });
 
-  test('editMenuFailure', () => {
-    const action = editMenuFailure('error');
+  describe('editMenuFailure', () => {
+    it('should return an object with type RECEIVE_ORDERS_FAILURE', () => {
+      const action = editMenuFailure('error');
 
-    expect(action).toEqual({
-      type: 'EDIT_MENU_FAILURE',
-      payload: 'error'
+      expect(action).toEqual({
+        type: 'EDIT_MENU_FAILURE',
+        payload: 'error'
+      });
     });
   });
 
-  test('clearMenuError', () => {
-    const action = clearMenuError();
+  describe('clearMenuError', () => {
+    it('should return an object with type CLEAR_MENU_ERROR', () => {
+      const action = clearMenuError();
 
-    expect(action).toEqual({
-      type: 'CLEAR_MENU_ERROR'
+      expect(action).toEqual({
+        type: 'CLEAR_MENU_ERROR'
+      });
     });
   });
 
@@ -126,7 +146,7 @@ describe('Menu Actions', () => {
     });
 
     describe('Menu', () => {
-      it('dispatches SET_FETCHING, RECEIVE_MENU_SUCCESS and UNSET_FETCHING on successful fetching of caterer menu', () => {
+      it('should dispatch SET_FETCHING, RECEIVE_MENU_SUCCESS and UNSET_FETCHING on successful fetching of caterer menu', () => {
         const expectedActions = ['SET_FETCHING', 'RECEIVE_MENU_SUCCESS', 'UNSET_FETCHING'];
 
         mockReq.onGet(`${url}/menu?date=2018-06-07`).reply(200, mealsObj);
@@ -140,7 +160,7 @@ describe('Menu Actions', () => {
         });
       });
 
-      it('dispatches SET_FETCHING, RECEIVE_MENU_SUCCESS and UNSET_FETCHING on successful fetching of customer menu with search', () => {
+      it('should dispatch SET_FETCHING, RECEIVE_MENU_SUCCESS and UNSET_FETCHING on successful fetching of customer menu with search', () => {
         const expectedActions = ['SET_FETCHING', 'RECEIVE_MENU_SUCCESS', 'UNSET_FETCHING'];
 
         mockReq.onGet(`${url}/menu?date=2018-06-07&search=Rice`).reply(200, customersMenuObj);
@@ -154,7 +174,7 @@ describe('Menu Actions', () => {
         });
       });
 
-      it('dispatches RECEIVE_MORE_MENU_SUCCESS and UNSET_FETCHING on successful fetching of customer menu with metadata', () => {
+      it('should dispatch RECEIVE_MORE_MENU_SUCCESS and UNSET_FETCHING on successful fetching of customer menu with metadata', () => {
         const expectedActions = ['RECEIVE_MORE_MENU_SUCCESS', 'UNSET_FETCHING'];
 
         mockReq.onGet(`${url}/menu?date=2018-06-07&limit=5`).reply(200, customersMenuObj);
@@ -168,7 +188,7 @@ describe('Menu Actions', () => {
         });
       });
 
-      it('dispatches SET_FETCHING, RECEIVE_MENU_FAILURE and UNSET_FETCHING on unsuccessful fetching', () => {
+      it('should dispatch SET_FETCHING, RECEIVE_MENU_FAILURE and UNSET_FETCHING on unsuccessful fetching', () => {
         const expectedActions = ['SET_FETCHING', 'RECEIVE_MENU_FAILURE', 'UNSET_FETCHING'];
 
         mockReq.onGet(`${url}/menu?date=2018-06-07`).reply(401, { error: 'Error' });
@@ -183,7 +203,7 @@ describe('Menu Actions', () => {
         });
       });
 
-      it('dispatches SET_MENU_WORKING, ADD_MENU_SUCCESS, UNSET_MENU_WORKING and TOGGLE_MODAL on successful meal addition', () => {
+      it('should dispatch SET_MENU_WORKING, ADD_MENU_SUCCESS, UNSET_MENU_WORKING and TOGGLE_MODAL on successful meal addition', () => {
         const expectedActions = ['SET_MENU_WORKING', 'ADD_MENU_SUCCESS', 'UNSET_MENU_WORKING', 'TOGGLE_MODAL'];
 
         mockReq.onPost(`${url}/menu`).reply(200, newMenu);
@@ -197,7 +217,7 @@ describe('Menu Actions', () => {
         });
       });
 
-      it('dispatches SET_MENU_WORKING, ADD_MENU_FAILURE and UNSET_MENU_WORKING on unsuccessful meal addition', () => {
+      it('should dispatch SET_MENU_WORKING, ADD_MENU_FAILURE and UNSET_MENU_WORKING on unsuccessful meal addition', () => {
         const expectedActions = ['SET_MENU_WORKING', 'ADD_MENU_FAILURE', 'UNSET_MENU_WORKING'];
 
         mockReq.onPost(`${url}/menu`).reply(401, { error: 'Error' });
@@ -212,7 +232,7 @@ describe('Menu Actions', () => {
         });
       });
 
-      it('dispatches SET_MENU_WORKING, EDIT_MENU_SUCCESS, UNSET_MENU_WORKING and TOGGLE_MODAL on successful meal addition', () => {
+      it('should dispatch SET_MENU_WORKING, EDIT_MENU_SUCCESS, UNSET_MENU_WORKING and TOGGLE_MODAL on successful meal addition', () => {
         const expectedActions = ['SET_MENU_WORKING', 'EDIT_MENU_SUCCESS', 'UNSET_MENU_WORKING', 'TOGGLE_MODAL'];
 
         mockReq.onPut(`${url}/menu/1234`).reply(200, newMenu);
@@ -226,7 +246,7 @@ describe('Menu Actions', () => {
         });
       });
 
-      it('dispatches SET_MENU_WORKING, EDIT_MENU_FAILURE and UNSET_MENU_WORKING on unsuccessful meal addition', () => {
+      it('should dispatch SET_MENU_WORKING, EDIT_MENU_FAILURE and UNSET_MENU_WORKING on unsuccessful meal addition', () => {
         const expectedActions = ['SET_MENU_WORKING', 'EDIT_MENU_FAILURE', 'UNSET_MENU_WORKING'];
 
         mockReq.onPut(`${url}/menu/1234`).reply(401, { error: 'Error' });

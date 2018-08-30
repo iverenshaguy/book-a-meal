@@ -80,13 +80,13 @@ describe('HOC: Authenticator', () => {
     jest.clearAllMocks();
   });
 
-  it('renders correctly', () => {
+  it('should render correctly', () => {
     const { wrapper } = setup();
 
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('renders unauthorized component: Redirect', () => {
+  it('should render unauthorized component: Redirect', () => {
     const { unAuthWrapper, MockComponent } = setup();
 
     expect(unAuthWrapper.find(Redirect).length).toBeTruthy();
@@ -95,7 +95,7 @@ describe('HOC: Authenticator', () => {
     unAuthWrapper.unmount();
   });
 
-  it('renders authorized component: MockComponent', () => {
+  it('should render authorized component: MockComponent', () => {
     const { authWrapper, MockComponent } = setup();
 
     expect(authWrapper.find(MockComponent).length).toBeTruthy();
@@ -104,7 +104,7 @@ describe('HOC: Authenticator', () => {
     authWrapper.unmount();
   });
 
-  it('renders loading component: Loading', () => {
+  it('should render loading component: Loading', () => {
     const { loadingWrapper, MockComponent } = setup();
 
     expect(loadingWrapper.find(Preloader).length).toBeTruthy();

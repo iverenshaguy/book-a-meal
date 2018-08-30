@@ -15,7 +15,7 @@ describe('Cart', () => {
     Date.now = now;
   });
 
-  it('renders correctly', () => {
+  it('should render the Cart component correctly', () => {
     const shallowWrapper = shallow(<Cart
       order={order}
       handleQuantityInputChange={jest.fn()}
@@ -25,7 +25,7 @@ describe('Cart', () => {
     expect(toJson(shallowWrapper)).toMatchSnapshot();
   });
 
-  it('renders message when there is no order', () => {
+  it('should render a message when there is no order', () => {
     const shallowWrapper = shallow(<Cart
       order={[]}
       handleQuantityInputChange={jest.fn()}
@@ -36,7 +36,7 @@ describe('Cart', () => {
     expect(shallowWrapper.find('div.empty-cart>p').text()).toEqual('Your Basket is Empty');
   });
 
-  it('toggles cart', () => {
+  it('should toggle the cart when the cart toggler is clicked', () => {
     const wrapper = mount(<Cart
       order={order}
       handleQuantityInputChange={jest.fn()}
@@ -48,7 +48,7 @@ describe('Cart', () => {
     expect(wrapper.state().show).toBeTruthy();
   });
 
-  it('shows checkout button when shop is open', () => {
+  it('should show the checkout button when the shop is open', () => {
     const wrapper = mount(<Cart
       order={order}
       handleQuantityInputChange={jest.fn()}
@@ -58,7 +58,7 @@ describe('Cart', () => {
     expect(wrapper.find('.checkout-btn').length).toEqual(2); // 2 buttons for differet screen sizes
   });
 
-  it('hides checkout button when shop is closed', () => {
+  it('should hide the checkout button whenthe shop is closed', () => {
     const dateNowSpy = jest.spyOn(Date, 'now').mockImplementation(() => new Date(currentDay).getTime() + (60 * 60 * 18 * 1000));
     const wrapper = mount(<Cart
       order={order}

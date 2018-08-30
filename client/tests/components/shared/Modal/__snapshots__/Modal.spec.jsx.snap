@@ -1,35 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Modal does not correctly when modal is closed 1`] = `""`;
+exports[`Modal should not render correctly when modal is closed i.e. open prop is false 1`] = `""`;
 
-exports[`Modal renders connected component correctly 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Connect(Modal)
-    open={true}
-    toggleModal={[MockFunction]}
-    type="addMeal"
-  >
-    <Modal
-      open={false}
-      toggleModal={[Function]}
-      type={null}
-    />
-  </Connect(Modal)>
-</Provider>
-`;
-
-exports[`Modal renders correctly 1`] = `
+exports[`Modal should render Modal component correctly when type prop is addMeal 1`] = `
 <div
   className="modal show"
   id="meal-modal"
@@ -71,7 +44,34 @@ exports[`Modal renders correctly 1`] = `
 </div>
 `;
 
-exports[`Modal renders correctly when type is deleteMeal 1`] = `
+exports[`Modal should render connected Modal component correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Modal)
+    open={true}
+    toggleModal={[MockFunction]}
+    type="addMeal"
+  >
+    <Modal
+      open={false}
+      toggleModal={[Function]}
+      type={null}
+    />
+  </Connect(Modal)>
+</Provider>
+`;
+
+exports[`Modal should render correctly when type prop is deleteMeal 1`] = `
 <div
   className="modal show"
   id="meal-modal"
@@ -112,7 +112,7 @@ exports[`Modal renders correctly when type is deleteMeal 1`] = `
 </div>
 `;
 
-exports[`Modal renders correctly when type is deleteSuccessMsg 1`] = `
+exports[`Modal should render correctly when type prop is deleteSuccessMsg 1`] = `
 <div
   className="modal show"
   id="meal-modal"
@@ -152,7 +152,7 @@ exports[`Modal renders correctly when type is deleteSuccessMsg 1`] = `
 </div>
 `;
 
-exports[`Modal renders correctly when type is editMeal 1`] = `
+exports[`Modal should render correctly when type prop is editMeal 1`] = `
 <div
   className="modal show"
   id="meal-modal"
@@ -194,7 +194,7 @@ exports[`Modal renders correctly when type is editMeal 1`] = `
 </div>
 `;
 
-exports[`Modal renders correctly when type is menu 1`] = `
+exports[`Modal should render correctly when type prop is menu 1`] = `
 <div
   className="modal show"
   id="meal-modal"
@@ -230,7 +230,7 @@ exports[`Modal renders correctly when type is menu 1`] = `
 </div>
 `;
 
-exports[`Modal renders correctly when type is orderCanceledMsg 1`] = `
+exports[`Modal should render correctly when type prop is orderCanceledMsg 1`] = `
 <div
   className="modal show"
   id="meal-modal"
@@ -268,7 +268,7 @@ exports[`Modal renders correctly when type is orderCanceledMsg 1`] = `
 </div>
 `;
 
-exports[`Modal renders correctly when type is orderSuccessMsg 1`] = `
+exports[`Modal should render correctly when type prop is orderSuccessMsg 1`] = `
 <div
   className="modal show"
   id="meal-modal"
@@ -306,7 +306,7 @@ exports[`Modal renders correctly when type is orderSuccessMsg 1`] = `
 </div>
 `;
 
-exports[`Modal renders null when type is unknown 1`] = `
+exports[`Modal should render null when type prop is unknown 1`] = `
 <div
   className="modal show"
   id="meal-modal"

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CatererHeader renders correctly 1`] = `
+exports[`CatererHeader should render CatererHeader component correctly 1`] = `
 <React.Fragment>
   <div
     className="menu-control d-none-md"

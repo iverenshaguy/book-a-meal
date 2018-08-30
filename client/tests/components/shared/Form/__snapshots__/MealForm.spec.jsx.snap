@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MealForm renders correctly when type is addMeal 1`] = `
+exports[`MealForm should render the Meal Form correctly when type prop is addMeal 1`] = `
 <React.Fragment>
   <RenderInput
     handleBlur={[MockFunction]}
@@ -87,7 +87,7 @@ exports[`MealForm renders correctly when type is addMeal 1`] = `
 </React.Fragment>
 `;
 
-exports[`MealForm renders correctly when type is editMeal 1`] = `
+exports[`MealForm should render the Meal Form correctly when type prop is editMeal 1`] = `
 <React.Fragment>
   <RenderInput
     handleBlur={[MockFunction]}

@@ -5,7 +5,7 @@ import db from '../../../src/models';
 
 describe('Password Routes', () => {
   describe('Forgot Password', () => {
-    it('sends reset password mail', (done) => {
+    it('should send reset password mail', (done) => {
       request.agent(app)
         .post('/api/v1/auth/forgot_password')
         .send({ email: 'emiola@olasanmi.com' })
@@ -18,7 +18,7 @@ describe('Password Routes', () => {
         });
     });
 
-    it('doesn\'t send reset password mail to none existing user', (done) => {
+    it('should not send reset password mail to none existing user', (done) => {
       request.agent(app)
         .post('/api/v1/auth/forgot_password')
         .send({ email: 'non@existing.com' })
@@ -31,7 +31,7 @@ describe('Password Routes', () => {
         });
     });
 
-    it('returns validation errors for invalid email', (done) => {
+    it('should return validation errors for invalid email', (done) => {
       request.agent(app)
         .post('/api/v1/auth/forgot_password')
         .send({ email: 'emi@ola' })
@@ -46,7 +46,7 @@ describe('Password Routes', () => {
     });
   });
   describe('Reset Password', () => {
-    it('resets password and sends reset password successful mail', (done) => {
+    it('should reset password and sends reset password successful mail', (done) => {
       db.User.findOne({ where: { email: 'emiola@olasanmi.com' } }).then((user) => {
         request.agent(app)
           .post(`/api/v1/auth/reset_password?token=${user.passwordResetToken}`)
@@ -61,7 +61,7 @@ describe('Password Routes', () => {
       });
     });
 
-    it('doesn\'t reset password for invalid/expired token', (done) => {
+    it('should not reset password for invalid/expired token', (done) => {
       db.User.findOne({ where: { email: 'emiola@olasanmi.com' } }).then((user) => {
         request.agent(app)
           .post(`/api/v1/auth/reset_password?token=${user.passwordResetToken}`)
@@ -76,7 +76,7 @@ describe('Password Routes', () => {
       });
     });
 
-    it('returns validation errors when no password is provided', (done) => {
+    it('should return validation errors when no password is provided', (done) => {
       request.agent(app)
         .post('/api/v1/auth/reset_password')
         .send({ password: '' })
@@ -90,7 +90,7 @@ describe('Password Routes', () => {
         });
     });
 
-    it('returns validation errors for invalid password', (done) => {
+    it('should return validation errors for invalid password', (done) => {
       request.agent(app)
         .post('/api/v1/auth/reset_password')
         .send({ password: 'emi' })

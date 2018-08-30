@@ -22,7 +22,7 @@ describe('Axios Instance', () => {
     moxios.uninstall(instance);
   });
 
-  it('reloads page when provided token is expired', () => {
+  it('should reload page when provided token is expired', () => {
     window.location.reload = jest.fn();
 
     moxios.stubRequest('/api/v1/auth/refresh_token', {

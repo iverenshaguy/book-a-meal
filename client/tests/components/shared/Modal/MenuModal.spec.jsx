@@ -6,7 +6,7 @@ describe('MenuModal', () => {
     jest.clearAllMocks();
   });
 
-  it('renders correctly', () => {
+  it('should render MenuModal component correctly', () => {
     const shallowWrapper = shallow(<MenuModal />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();

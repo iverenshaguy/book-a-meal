@@ -10,12 +10,12 @@
   },
   "scripts": {
     "start": "node ./server/dist/app.js",
-    "start:dev": "cross-env NODE_ENV=development npm-run-all --parallel start:server:dev start:client:dev",
-    "start:test": "cross-env NODE_ENV=test babel-node -- ./server/src/app.js",
+    "start:dev": "NODE_ENV=development npm-run-all --parallel start:server:dev start:client:dev",
+    "start:test": "NODE_ENV=test babel-node -- ./server/src/app.js",
     "start:server:dev": "nodemon --exec babel-node -- ./server/src/app.js",
     "start:client:dev": "webpack --config webpack.dev.js",
     "build": "npm-run-all build:server build:client",
-    "build:server": "cross-env NODE_ENV=production babel ./server/src -d ./server/dist",
+    "build:server": "NODE_ENV=production babel ./server/src -d ./server/dist",
     "build:client": "webpack --config webpack.prod.js ",
     "heroku-postbuild": "npm run build",
     "pretest:server": "npm-run-all lint migrate:test seed:test",
@@ -27,13 +27,13 @@
     "seed:test": "sequelize db:seed:all --env=test",
     "coverage": "npm run merge:lcov && cat ./coverage/lcov.info | coveralls",
     "test": "npm-run-all test:server test:client",
-    "test:server": "cross-env NODE_ENV=test SECRET=mytestsecret nyc mocha ./server/tests/test.js --recursive --timeout 50000 --exit",
+    "test:server": "NODE_ENV=test SECRET=mytestsecret nyc mocha ./server/tests/test.js --recursive --timeout 50000 --exit",
     "test:server:watch": "npm run test:server --watch",
-    "test:client": "cross-env SECRET=mytestsecret jest --env=jsdom --coverage",
-    "test:client:watch": "jest --env=jsdom --watch",
+    "test:client": "SECRET=mytestsecret jest --env=jsdom --coverage --verbose",
+    "test:client:watch": "SECRET=mytestsecret jest --env=jsdom --watch --verbose",
     "merge:lcov": "cat ./coverage/lcov.*.info > ./coverage/lcov.info",
     "e2e:setup": "selenium-standalone install --config=./selenium.config.js",
-    "test:e2e": "cross-env NODE_ENV=test nightwatch"
+    "test:e2e": "NODE_ENV=test nightwatch"
   },
   "dependencies": {
     "@firebase/app-types": "0.x",

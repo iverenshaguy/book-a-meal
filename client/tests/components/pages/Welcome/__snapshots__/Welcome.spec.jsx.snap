@@ -1,6 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Welcome renders correctly when authenticated and user role is caterer 1`] = `
+exports[`Welcome should render the CustomerMenu component correctly when authenticated and the user role is customer 1`] = `
+<Menu
+  user={
+    Object {
+      "email": "emiola@olasanmi.com",
+      "firstname": "Emiola",
+      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+      "lastname": "Olasanmi",
+      "role": "customer",
+    }
+  }
+/>
+`;
+
+exports[`Welcome should render the Dashboard component correctly when authenticated and the user role is caterer 1`] = `
 <Connect(Dashboard)
   user={
     Object {
@@ -15,27 +29,13 @@ exports[`Welcome renders correctly when authenticated and user role is caterer 1
 />
 `;
 
-exports[`Welcome renders correctly when authenticated and user role is customer 1`] = `
-<Menu
-  user={
-    Object {
-      "email": "emiola@olasanmi.com",
-      "firstname": "Emiola",
-      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-      "lastname": "Olasanmi",
-      "role": "customer",
-    }
-  }
-/>
-`;
-
-exports[`Welcome renders correctly when authenticating 1`] = `
+exports[`Welcome should render the Preloader component when authenticating 1`] = `
 <Preloader
   type="user"
 />
 `;
 
-exports[`Welcome renders correctly when unauthenticated 1`] = `
+exports[`Welcome should render the Welcome component correctly when unauthenticated 1`] = `
 <React.Fragment>
   <Header
     dateType={null}

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchForm renders correctly when type is caterer 1`] = `
+exports[`SearchForm should render the SearchForm component correctly when type prop is caterer 1`] = `
 <React.Fragment>
   <div
     className="form-input"
@@ -23,7 +23,7 @@ exports[`SearchForm renders correctly when type is caterer 1`] = `
 </React.Fragment>
 `;
 
-exports[`SearchForm renders correctly when type is customer 1`] = `
+exports[`SearchForm should render the SearchForm component correctly when type prop is customer 1`] = `
 <React.Fragment>
   <React.Fragment>
     <div

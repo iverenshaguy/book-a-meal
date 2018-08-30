@@ -9,13 +9,13 @@ chai.should();
 const { validOrderDetails, inValidOrderDetails } = mockData;
 
 describe('isValidOrderItems', () => {
-  it('returns true when order items are valid', async () => {
+  it('should return true when order items are valid', async () => {
     const check = await isValidOrderItems(validOrderDetails.meals);
 
     expect(check).to.equal(true);
   });
 
-  it('returns err when order items are invalid', async () => {
+  it('should return err when order items are invalid', async () => {
     try {
       await isValidOrderItems(inValidOrderDetails.meals);
     } catch (err) {

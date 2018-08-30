@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CustomerSignupForm renders correctly 1`] = `
+exports[`CustomerSignupForm should render the Customer Signup Form correctly 1`] = `
 <React.Fragment>
   <RenderInput
     handleBlur={[MockFunction]}

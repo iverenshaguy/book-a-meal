@@ -1,82 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Meals renders Preloader when fetching 1`] = `
-<React.Fragment>
-  <Connect(View)
-    showTime={true}
-    submitError={null}
-    submitting={false}
-    type="meals"
-  >
-    <React.Fragment>
-      <div
-        className="content-wrapper meals caterer-meals"
-      >
-        <div
-          className="top"
-        >
-          <button
-            className="btn btn-pri"
-            id="add-meal-btn"
-            onClick={[Function]}
-          >
-            Add a New Meal
-          </button>
-        </div>
-        <CardGroup
-          items={
-            Array [
-              <MealCard
-                inBasket={false}
-                meal={
-                  Object {
-                    "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
-                    "id": "81211c24-51c0-46ec-b1e0-18db55880958",
-                    "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
-                    "price": "1500.00",
-                    "title": "Jollof Rice, Beef and Plantain",
-                    "vegetarian": false,
-                  }
-                }
-                orderMeal={null}
-                toggleModal={[Function]}
-                type="caterer"
-              />,
-              <MealCard
-                inBasket={false}
-                meal={
-                  Object {
-                    "description": "Sharwama contains no animal products, perfect for dieters",
-                    "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                    "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                    "price": "1200.00",
-                    "title": "Vegetable Sharwama and Guava Smoothie",
-                    "vegetarian": true,
-                  }
-                }
-                orderMeal={null}
-                toggleModal={[Function]}
-                type="caterer"
-              />,
-            ]
-          }
-          loadMore={[Function]}
-          metadata={
-            Object {
-              "next": "next",
-              "pages": 2,
-              "prev": "prev",
-              "total": 5,
-            }
-          }
-        />
-      </div>
-    </React.Fragment>
-  </Connect(View)>
-</React.Fragment>
-`;
-
-exports[`Meals renders connected component 1`] = `
+exports[`Meals should render Meal Component when it is connected to the redux store correctly 1`] = `
 <Provider
   store={
     Object {
@@ -110,16 +34,6 @@ exports[`Meals renders connected component 1`] = `
           "vegetarian": true,
         },
       ]
-    }
-    user={
-      Object {
-        "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-        "businessName": "Food Circle",
-        "email": "food@circle.com",
-        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-        "phoneNo": "08166557788",
-        "role": "caterer",
-      }
     }
   >
     <Meals
@@ -156,16 +70,6 @@ exports[`Meals renders connected component 1`] = `
       submitError={null}
       submitting={false}
       toggleModal={[Function]}
-      user={
-        Object {
-          "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-          "businessName": "Food Circle",
-          "email": "food@circle.com",
-          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-          "phoneNo": "08166557788",
-          "role": "caterer",
-        }
-      }
     >
       <Connect(View)
         showTime={true}
@@ -1059,7 +963,7 @@ exports[`Meals renders connected component 1`] = `
 </Provider>
 `;
 
-exports[`Meals renders correctly when not fetching 1`] = `
+exports[`Meals should render Meal component correctly when there are available meals 1`] = `
 <React.Fragment>
   <Connect(View)
     showTime={true}
@@ -1135,7 +1039,7 @@ exports[`Meals renders correctly when not fetching 1`] = `
 </React.Fragment>
 `;
 
-exports[`Meals renders message when there are no meals 1`] = `
+exports[`Meals should show "You Do Not Have Any Meals Yet" message when caterer does not have any meals available 1`] = `
 <React.Fragment>
   <Connect(View)
     showTime={true}

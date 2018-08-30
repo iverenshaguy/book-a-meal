@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Menu renders correctly: Caterer Menu 1`] = `
+exports[`Menu should render Caterer Menu component correctly when type prop is caterer 1`] = `
 <React.Fragment>
   <Connect(CatererMenu)
     type="caterer"
@@ -18,7 +18,7 @@ exports[`Menu renders correctly: Caterer Menu 1`] = `
 </React.Fragment>
 `;
 
-exports[`Menu renders correctly: Customer Menu 1`] = `
+exports[`Menu should render Customer Menu component correctly when type prop is customer 1`] = `
 <React.Fragment>
   <Connect(CustomerMenu)
     type="customer"

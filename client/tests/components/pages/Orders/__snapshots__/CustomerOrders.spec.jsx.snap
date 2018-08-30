@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Customer Orders Order Review renders correctly 1`] = `
+exports[`Customer Orders Order Review should render the OrderReview component correctly 1`] = `
 <Connect(View)
   type="orderReview"
 >

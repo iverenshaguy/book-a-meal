@@ -1,6 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Auth renders caterer's signup form correctly 1`] = `
+exports[`Auth should render Signin Form component correctly 1`] = `
+<React.Fragment>
+  <Header
+    dateType={null}
+    logout={null}
+    showTime={true}
+    type="unauth"
+    updateCurrentDate={null}
+    user={null}
+  />
+  <div
+    className="main-wrapper auth-wrapper"
+  >
+    <div
+      className="auth"
+    >
+      <div
+        className="title"
+      >
+        <h2>
+          Welcome Back
+        </h2>
+        <hr
+          className="w-75"
+        />
+      </div>
+      <Connect(Form)
+        changeUrl={[MockFunction]}
+        isAuthenticated={false}
+        location={
+          Object {
+            "pathname": "/signin",
+            "state": Object {
+              "from": Object {
+                "pathname": "/",
+              },
+            },
+          }
+        }
+        meta={
+          Object {
+            "btnText": "SIGN IN",
+            "extra": <UNDEFINED>
+              <p
+                className="form-extra-info text-center"
+              >
+                <UNDEFINED>
+                  Don't have an account?
+                   
+                  <Link
+                    replace={false}
+                    to="/signup?role=customer"
+                  >
+                    Signup Here
+                  </Link>
+                </UNDEFINED>
+              </p>
+              <p
+                className="text-center"
+              >
+                Or
+              </p>
+              <p
+                className="form-extra-info text-center"
+              >
+                <Link
+                  replace={false}
+                  to="/signup?role=caterer"
+                >
+                  Signup as a Caterer
+                </Link>
+              </p>
+            </UNDEFINED>,
+          }
+        }
+        submitError={null}
+        submitting={false}
+        type="signin"
+      />
+    </div>
+  </div>
+  <Footer />
+</React.Fragment>
+`;
+
+exports[`Auth should render caterer's signup form correctly when role query is caterer 1`] = `
 <React.Fragment>
   <Header
     dateType={null}
@@ -85,7 +170,92 @@ exports[`Auth renders caterer's signup form correctly 1`] = `
 </React.Fragment>
 `;
 
-exports[`Auth renders connected signin component correctly 1`] = `
+exports[`Auth should render customer's signup form component correctly 1`] = `
+<React.Fragment>
+  <Header
+    dateType={null}
+    logout={null}
+    showTime={true}
+    type="unauth"
+    updateCurrentDate={null}
+    user={null}
+  />
+  <div
+    className="main-wrapper auth-wrapper"
+  >
+    <div
+      className="auth"
+    >
+      <div
+        className="title"
+      >
+        <h2>
+          Start Filling Your Belly
+        </h2>
+        <hr
+          className="w-75"
+        />
+      </div>
+      <Connect(Form)
+        changeUrl={[MockFunction]}
+        isAuthenticated={false}
+        location={
+          Object {
+            "pathname": "/signup",
+            "search": "?role=customer",
+            "state": Object {
+              "from": Object {
+                "pathname": "/",
+              },
+            },
+          }
+        }
+        meta={
+          Object {
+            "btnText": "SIGN UP",
+            "extra": <UNDEFINED>
+              <p
+                className="form-extra-info text-center"
+              >
+                <UNDEFINED>
+                  Already have an account? 
+                  <Link
+                    replace={false}
+                    to="/signin"
+                  >
+                    Sign In Here
+                  </Link>
+                </UNDEFINED>
+              </p>
+              <p
+                className="text-center"
+              >
+                Or
+              </p>
+              <p
+                className="form-extra-info text-center"
+              >
+                <Link
+                  replace={false}
+                  to="/signup?role=caterer"
+                >
+                  Signup as a Caterer
+                </Link>
+              </p>
+            </UNDEFINED>,
+          }
+        }
+        submitError={null}
+        submitting={false}
+        type="customerSignup"
+      />
+    </div>
+  </div>
+  <Footer />
+</React.Fragment>
+`;
+
+exports[`Auth should render signin component that is connected to the redux store correctly 1`] = `
 <Provider
   store={
     Object {
@@ -481,174 +651,4 @@ exports[`Auth renders connected signin component correctly 1`] = `
     </Auth>
   </Connect(Auth)>
 </Provider>
-`;
-
-exports[`Auth renders customer's signup form correctly 1`] = `
-<React.Fragment>
-  <Header
-    dateType={null}
-    logout={null}
-    showTime={true}
-    type="unauth"
-    updateCurrentDate={null}
-    user={null}
-  />
-  <div
-    className="main-wrapper auth-wrapper"
-  >
-    <div
-      className="auth"
-    >
-      <div
-        className="title"
-      >
-        <h2>
-          Start Filling Your Belly
-        </h2>
-        <hr
-          className="w-75"
-        />
-      </div>
-      <Connect(Form)
-        changeUrl={[MockFunction]}
-        isAuthenticated={false}
-        location={
-          Object {
-            "pathname": "/signup",
-            "search": "?role=customer",
-            "state": Object {
-              "from": Object {
-                "pathname": "/",
-              },
-            },
-          }
-        }
-        meta={
-          Object {
-            "btnText": "SIGN UP",
-            "extra": <UNDEFINED>
-              <p
-                className="form-extra-info text-center"
-              >
-                <UNDEFINED>
-                  Already have an account? 
-                  <Link
-                    replace={false}
-                    to="/signin"
-                  >
-                    Sign In Here
-                  </Link>
-                </UNDEFINED>
-              </p>
-              <p
-                className="text-center"
-              >
-                Or
-              </p>
-              <p
-                className="form-extra-info text-center"
-              >
-                <Link
-                  replace={false}
-                  to="/signup?role=caterer"
-                >
-                  Signup as a Caterer
-                </Link>
-              </p>
-            </UNDEFINED>,
-          }
-        }
-        submitError={null}
-        submitting={false}
-        type="customerSignup"
-      />
-    </div>
-  </div>
-  <Footer />
-</React.Fragment>
-`;
-
-exports[`Auth renders signin form correctly 1`] = `
-<React.Fragment>
-  <Header
-    dateType={null}
-    logout={null}
-    showTime={true}
-    type="unauth"
-    updateCurrentDate={null}
-    user={null}
-  />
-  <div
-    className="main-wrapper auth-wrapper"
-  >
-    <div
-      className="auth"
-    >
-      <div
-        className="title"
-      >
-        <h2>
-          Welcome Back
-        </h2>
-        <hr
-          className="w-75"
-        />
-      </div>
-      <Connect(Form)
-        changeUrl={[MockFunction]}
-        isAuthenticated={false}
-        location={
-          Object {
-            "pathname": "/signin",
-            "state": Object {
-              "from": Object {
-                "pathname": "/",
-              },
-            },
-          }
-        }
-        meta={
-          Object {
-            "btnText": "SIGN IN",
-            "extra": <UNDEFINED>
-              <p
-                className="form-extra-info text-center"
-              >
-                <UNDEFINED>
-                  Don't have an account?
-                   
-                  <Link
-                    replace={false}
-                    to="/signup?role=customer"
-                  >
-                    Signup Here
-                  </Link>
-                </UNDEFINED>
-              </p>
-              <p
-                className="text-center"
-              >
-                Or
-              </p>
-              <p
-                className="form-extra-info text-center"
-              >
-                <Link
-                  replace={false}
-                  to="/signup?role=caterer"
-                >
-                  Signup as a Caterer
-                </Link>
-              </p>
-            </UNDEFINED>,
-          }
-        }
-        submitError={null}
-        submitting={false}
-        type="signin"
-      />
-    </div>
-  </div>
-  <Footer />
-</React.Fragment>
 `;

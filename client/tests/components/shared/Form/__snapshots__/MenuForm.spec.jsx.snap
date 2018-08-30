@@ -1,6 +1,418 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MenuForm renders connected component correctly 1`] = `
+exports[`MenuForm should render the MenuForm correctly 1`] = `
+<React.Fragment>
+  <div
+    className="menu-date"
+  >
+    <h3>
+      Saturday, 16th June 2018
+      <span>
+         ▾
+      </span>
+    </h3>
+    <DatePicker
+      handleSelectDate={[Function]}
+      screenSize={null}
+    />
+  </div>
+  <div
+    className="meal-options-list"
+  >
+    <SearchForm
+      fetchItems={
+        [MockFunction] {
+          "calls": Array [
+            Array [],
+          ],
+        }
+      }
+      type="caterer"
+    />
+    <React.Fragment>
+      <InfiniteLoader
+        height={100}
+        items={
+          Array [
+            <div
+              className="form-input-checkbox"
+            >
+              <input
+                checked={true}
+                id="81211c24-51c0-46ec-b1e0-18db55880958"
+                name="81211c24-51c0-46ec-b1e0-18db55880958"
+                onChange={[Function]}
+                type="checkbox"
+              />
+                
+              <label
+                htmlFor="checkbox"
+              >
+                Jollof Rice, Beef and Plantain
+              </label>
+            </div>,
+            <div
+              className="form-input-checkbox"
+            >
+              <input
+                checked={false}
+                id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                onChange={[Function]}
+                type="checkbox"
+              />
+                
+              <label
+                htmlFor="checkbox"
+              >
+                Vegetable Sharwama and Guava Smoothie
+              </label>
+            </div>,
+          ]
+        }
+        loadMore={[Function]}
+        metadata={
+          Object {
+            "next": "next",
+            "pages": 2,
+            "prev": "prev",
+            "total": 5,
+          }
+        }
+      />
+    </React.Fragment>
+  </div>
+  <button
+    className="btn btn-pri btn-block"
+    onClick={[Function]}
+  >
+    SAVE MEAL OPTIONS
+  </button>
+</React.Fragment>
+`;
+
+exports[`MenuForm should render the MenuForm correctly when fetching 1`] = `
+<React.Fragment>
+  <div
+    className="menu-date"
+  >
+    <h3>
+      Saturday, 16th June 2018
+      <span>
+         ▾
+      </span>
+    </h3>
+    <DatePicker
+      handleSelectDate={[Function]}
+      screenSize={null}
+    />
+  </div>
+  <div
+    className="meal-options-list"
+  >
+    <SearchForm
+      fetchItems={
+        [MockFunction] {
+          "calls": Array [
+            Array [],
+            Array [],
+          ],
+        }
+      }
+      type="caterer"
+    />
+    <div
+      className="text-center"
+    >
+      <MiniPreloader />
+    </div>
+  </div>
+</React.Fragment>
+`;
+
+exports[`MenuForm should render the MenuForm correctly when submitting 1`] = `
+<React.Fragment>
+  <div
+    className="menu-date"
+  >
+    <h3>
+      Saturday, 16th June 2018
+      <span>
+         ▾
+      </span>
+    </h3>
+    <DatePicker
+      handleSelectDate={[Function]}
+      screenSize={null}
+    />
+  </div>
+  <div
+    className="meal-options-list"
+  >
+    <SearchForm
+      fetchItems={
+        [MockFunction] {
+          "calls": Array [
+            Array [],
+            Array [],
+            Array [],
+          ],
+        }
+      }
+      type="caterer"
+    />
+    <div
+      className="text-center"
+    >
+      <MiniPreloader />
+    </div>
+  </div>
+</React.Fragment>
+`;
+
+exports[`MenuForm should render the MenuForm correctly when there are no meals 1`] = `
+<React.Fragment>
+  <div
+    className="menu-date"
+  >
+    <h3>
+      Saturday, 16th June 2018
+      <span>
+         ▾
+      </span>
+    </h3>
+    <DatePicker
+      handleSelectDate={[Function]}
+      screenSize={null}
+    />
+  </div>
+  <div
+    className="meal-options-list"
+  >
+    <SearchForm
+      fetchItems={
+        [MockFunction] {
+          "calls": Array [
+            Array [],
+            Array [],
+            Array [],
+            Array [],
+            Array [],
+            Array [],
+          ],
+        }
+      }
+      type="caterer"
+    />
+    <p
+      className="text-center info"
+    >
+      No Meals Found
+    </p>
+  </div>
+</React.Fragment>
+`;
+
+exports[`MenuForm should render the MenuForm correctly when there is a date error 1`] = `
+<React.Fragment>
+  <p
+    className="text-center danger"
+  >
+    Error
+  </p>
+  <div
+    className="menu-date"
+  >
+    <h3>
+      Saturday, 16th June 2018
+      <span>
+         ▾
+      </span>
+    </h3>
+    <DatePicker
+      handleSelectDate={[Function]}
+      screenSize={null}
+    />
+  </div>
+  <div
+    className="meal-options-list"
+  >
+    <SearchForm
+      fetchItems={
+        [MockFunction] {
+          "calls": Array [
+            Array [],
+            Array [],
+            Array [],
+            Array [],
+            Array [],
+          ],
+        }
+      }
+      type="caterer"
+    />
+    <React.Fragment>
+      <InfiniteLoader
+        height={100}
+        items={
+          Array [
+            <div
+              className="form-input-checkbox"
+            >
+              <input
+                checked={true}
+                id="81211c24-51c0-46ec-b1e0-18db55880958"
+                name="81211c24-51c0-46ec-b1e0-18db55880958"
+                onChange={[Function]}
+                type="checkbox"
+              />
+                
+              <label
+                htmlFor="checkbox"
+              >
+                Jollof Rice, Beef and Plantain
+              </label>
+            </div>,
+            <div
+              className="form-input-checkbox"
+            >
+              <input
+                checked={false}
+                id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                onChange={[Function]}
+                type="checkbox"
+              />
+                
+              <label
+                htmlFor="checkbox"
+              >
+                Vegetable Sharwama and Guava Smoothie
+              </label>
+            </div>,
+          ]
+        }
+        loadMore={[Function]}
+        metadata={
+          Object {
+            "next": "next",
+            "pages": 2,
+            "prev": "prev",
+            "total": 5,
+          }
+        }
+      />
+    </React.Fragment>
+  </div>
+  <button
+    className="btn btn-pri btn-block"
+    onClick={[Function]}
+  >
+    SAVE MEAL OPTIONS
+  </button>
+</React.Fragment>
+`;
+
+exports[`MenuForm should render the MenuForm correctly when there is a submit error 1`] = `
+<React.Fragment>
+  <p
+    className="text-center danger"
+  >
+    Error
+  </p>
+  <div
+    className="menu-date"
+  >
+    <h3>
+      Saturday, 16th June 2018
+      <span>
+         ▾
+      </span>
+    </h3>
+    <DatePicker
+      handleSelectDate={[Function]}
+      screenSize={null}
+    />
+  </div>
+  <div
+    className="meal-options-list"
+  >
+    <SearchForm
+      fetchItems={
+        [MockFunction] {
+          "calls": Array [
+            Array [],
+            Array [],
+            Array [],
+            Array [],
+          ],
+        }
+      }
+      type="caterer"
+    />
+    <React.Fragment>
+      <InfiniteLoader
+        height={100}
+        items={
+          Array [
+            <div
+              className="form-input-checkbox"
+            >
+              <input
+                checked={true}
+                id="81211c24-51c0-46ec-b1e0-18db55880958"
+                name="81211c24-51c0-46ec-b1e0-18db55880958"
+                onChange={[Function]}
+                type="checkbox"
+              />
+                
+              <label
+                htmlFor="checkbox"
+              >
+                Jollof Rice, Beef and Plantain
+              </label>
+            </div>,
+            <div
+              className="form-input-checkbox"
+            >
+              <input
+                checked={false}
+                id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                onChange={[Function]}
+                type="checkbox"
+              />
+                
+              <label
+                htmlFor="checkbox"
+              >
+                Vegetable Sharwama and Guava Smoothie
+              </label>
+            </div>,
+          ]
+        }
+        loadMore={[Function]}
+        metadata={
+          Object {
+            "next": "next",
+            "pages": 2,
+            "prev": "prev",
+            "total": 5,
+          }
+        }
+      />
+    </React.Fragment>
+  </div>
+  <button
+    className="btn btn-pri btn-block"
+    onClick={[Function]}
+  >
+    SAVE MEAL OPTIONS
+  </button>
+</React.Fragment>
+`;
+
+exports[`MenuForm should render the connected MenuForm component correctly 1`] = `
 <Provider
   store={
     Object {
@@ -221,7 +633,7 @@ exports[`MenuForm renders connected component correctly 1`] = `
 </Provider>
 `;
 
-exports[`MenuForm renders connected component correctly 2`] = `
+exports[`MenuForm should render the connected MenuForm component correctly 2`] = `
 <Provider
   store={
     Object {
@@ -431,416 +843,4 @@ exports[`MenuForm renders connected component correctly 2`] = `
     </MenuForm>
   </Connect(MenuForm)>
 </Provider>
-`;
-
-exports[`MenuForm renders correctly 1`] = `
-<React.Fragment>
-  <div
-    className="menu-date"
-  >
-    <h3>
-      Saturday, 16th June 2018
-      <span>
-         ▾
-      </span>
-    </h3>
-    <DatePicker
-      handleSelectDate={[Function]}
-      screenSize={null}
-    />
-  </div>
-  <div
-    className="meal-options-list"
-  >
-    <SearchForm
-      fetchItems={
-        [MockFunction] {
-          "calls": Array [
-            Array [],
-          ],
-        }
-      }
-      type="caterer"
-    />
-    <React.Fragment>
-      <InfiniteLoader
-        height={100}
-        items={
-          Array [
-            <div
-              className="form-input-checkbox"
-            >
-              <input
-                checked={true}
-                id="81211c24-51c0-46ec-b1e0-18db55880958"
-                name="81211c24-51c0-46ec-b1e0-18db55880958"
-                onChange={[Function]}
-                type="checkbox"
-              />
-                
-              <label
-                htmlFor="checkbox"
-              >
-                Jollof Rice, Beef and Plantain
-              </label>
-            </div>,
-            <div
-              className="form-input-checkbox"
-            >
-              <input
-                checked={false}
-                id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-                name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-                onChange={[Function]}
-                type="checkbox"
-              />
-                
-              <label
-                htmlFor="checkbox"
-              >
-                Vegetable Sharwama and Guava Smoothie
-              </label>
-            </div>,
-          ]
-        }
-        loadMore={[Function]}
-        metadata={
-          Object {
-            "next": "next",
-            "pages": 2,
-            "prev": "prev",
-            "total": 5,
-          }
-        }
-      />
-    </React.Fragment>
-  </div>
-  <button
-    className="btn btn-pri btn-block"
-    onClick={[Function]}
-  >
-    SAVE MEAL OPTIONS
-  </button>
-</React.Fragment>
-`;
-
-exports[`MenuForm renders correctly when fetching 1`] = `
-<React.Fragment>
-  <div
-    className="menu-date"
-  >
-    <h3>
-      Saturday, 16th June 2018
-      <span>
-         ▾
-      </span>
-    </h3>
-    <DatePicker
-      handleSelectDate={[Function]}
-      screenSize={null}
-    />
-  </div>
-  <div
-    className="meal-options-list"
-  >
-    <SearchForm
-      fetchItems={
-        [MockFunction] {
-          "calls": Array [
-            Array [],
-            Array [],
-          ],
-        }
-      }
-      type="caterer"
-    />
-    <div
-      className="text-center"
-    >
-      <MiniPreloader />
-    </div>
-  </div>
-</React.Fragment>
-`;
-
-exports[`MenuForm renders correctly when submitting 1`] = `
-<React.Fragment>
-  <div
-    className="menu-date"
-  >
-    <h3>
-      Saturday, 16th June 2018
-      <span>
-         ▾
-      </span>
-    </h3>
-    <DatePicker
-      handleSelectDate={[Function]}
-      screenSize={null}
-    />
-  </div>
-  <div
-    className="meal-options-list"
-  >
-    <SearchForm
-      fetchItems={
-        [MockFunction] {
-          "calls": Array [
-            Array [],
-            Array [],
-            Array [],
-          ],
-        }
-      }
-      type="caterer"
-    />
-    <div
-      className="text-center"
-    >
-      <MiniPreloader />
-    </div>
-  </div>
-</React.Fragment>
-`;
-
-exports[`MenuForm renders correctly when there are no meals 1`] = `
-<React.Fragment>
-  <div
-    className="menu-date"
-  >
-    <h3>
-      Saturday, 16th June 2018
-      <span>
-         ▾
-      </span>
-    </h3>
-    <DatePicker
-      handleSelectDate={[Function]}
-      screenSize={null}
-    />
-  </div>
-  <div
-    className="meal-options-list"
-  >
-    <SearchForm
-      fetchItems={
-        [MockFunction] {
-          "calls": Array [
-            Array [],
-            Array [],
-            Array [],
-            Array [],
-            Array [],
-            Array [],
-          ],
-        }
-      }
-      type="caterer"
-    />
-    <p
-      className="text-center info"
-    >
-      No Meals Found
-    </p>
-  </div>
-</React.Fragment>
-`;
-
-exports[`MenuForm renders correctly when there is a date error 1`] = `
-<React.Fragment>
-  <p
-    className="text-center danger"
-  >
-    Error
-  </p>
-  <div
-    className="menu-date"
-  >
-    <h3>
-      Saturday, 16th June 2018
-      <span>
-         ▾
-      </span>
-    </h3>
-    <DatePicker
-      handleSelectDate={[Function]}
-      screenSize={null}
-    />
-  </div>
-  <div
-    className="meal-options-list"
-  >
-    <SearchForm
-      fetchItems={
-        [MockFunction] {
-          "calls": Array [
-            Array [],
-            Array [],
-            Array [],
-            Array [],
-            Array [],
-          ],
-        }
-      }
-      type="caterer"
-    />
-    <React.Fragment>
-      <InfiniteLoader
-        height={100}
-        items={
-          Array [
-            <div
-              className="form-input-checkbox"
-            >
-              <input
-                checked={true}
-                id="81211c24-51c0-46ec-b1e0-18db55880958"
-                name="81211c24-51c0-46ec-b1e0-18db55880958"
-                onChange={[Function]}
-                type="checkbox"
-              />
-                
-              <label
-                htmlFor="checkbox"
-              >
-                Jollof Rice, Beef and Plantain
-              </label>
-            </div>,
-            <div
-              className="form-input-checkbox"
-            >
-              <input
-                checked={false}
-                id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-                name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-                onChange={[Function]}
-                type="checkbox"
-              />
-                
-              <label
-                htmlFor="checkbox"
-              >
-                Vegetable Sharwama and Guava Smoothie
-              </label>
-            </div>,
-          ]
-        }
-        loadMore={[Function]}
-        metadata={
-          Object {
-            "next": "next",
-            "pages": 2,
-            "prev": "prev",
-            "total": 5,
-          }
-        }
-      />
-    </React.Fragment>
-  </div>
-  <button
-    className="btn btn-pri btn-block"
-    onClick={[Function]}
-  >
-    SAVE MEAL OPTIONS
-  </button>
-</React.Fragment>
-`;
-
-exports[`MenuForm renders correctly when there is a submit error 1`] = `
-<React.Fragment>
-  <p
-    className="text-center danger"
-  >
-    Error
-  </p>
-  <div
-    className="menu-date"
-  >
-    <h3>
-      Saturday, 16th June 2018
-      <span>
-         ▾
-      </span>
-    </h3>
-    <DatePicker
-      handleSelectDate={[Function]}
-      screenSize={null}
-    />
-  </div>
-  <div
-    className="meal-options-list"
-  >
-    <SearchForm
-      fetchItems={
-        [MockFunction] {
-          "calls": Array [
-            Array [],
-            Array [],
-            Array [],
-            Array [],
-          ],
-        }
-      }
-      type="caterer"
-    />
-    <React.Fragment>
-      <InfiniteLoader
-        height={100}
-        items={
-          Array [
-            <div
-              className="form-input-checkbox"
-            >
-              <input
-                checked={true}
-                id="81211c24-51c0-46ec-b1e0-18db55880958"
-                name="81211c24-51c0-46ec-b1e0-18db55880958"
-                onChange={[Function]}
-                type="checkbox"
-              />
-                
-              <label
-                htmlFor="checkbox"
-              >
-                Jollof Rice, Beef and Plantain
-              </label>
-            </div>,
-            <div
-              className="form-input-checkbox"
-            >
-              <input
-                checked={false}
-                id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-                name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-                onChange={[Function]}
-                type="checkbox"
-              />
-                
-              <label
-                htmlFor="checkbox"
-              >
-                Vegetable Sharwama and Guava Smoothie
-              </label>
-            </div>,
-          ]
-        }
-        loadMore={[Function]}
-        metadata={
-          Object {
-            "next": "next",
-            "pages": 2,
-            "prev": "prev",
-            "total": 5,
-          }
-        }
-      />
-    </React.Fragment>
-  </div>
-  <button
-    className="btn btn-pri btn-block"
-    onClick={[Function]}
-  >
-    SAVE MEAL OPTIONS
-  </button>
-</React.Fragment>
 `;
