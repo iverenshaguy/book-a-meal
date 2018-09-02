@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import Modal from '../../../containers/shared/Modal';
 import MealCard from '../../shared/MealCard';
 import DatePicker from '../../shared/DatePicker';
 import View from '../../../containers/shared/View';
@@ -21,18 +20,8 @@ class CatererMenu extends Component {
     meals: PropTypes.arrayOf(mealObjPropTypes).isRequired,
     fetchMenu: PropTypes.func.isRequired,
     currentDay: PropTypes.string.isRequired,
-    submitError: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({
-      date: PropTypes.shape({
-        value: PropTypes.string
-      })
-    })]),
-    submitting: PropTypes.bool.isRequired,
     toggleModal: PropTypes.func.isRequired,
     setCurrentDay: PropTypes.func.isRequired,
-  }
-
-  static defaultProps = {
-    submitError: null
   }
 
   /**
@@ -116,8 +105,6 @@ class CatererMenu extends Component {
    * @returns {JSX} CatererMenu Component
    */
   render() {
-    const { meals, submitting, submitError } = this.props;
-
     return (
       <Fragment>
         <View
@@ -127,11 +114,6 @@ class CatererMenu extends Component {
         >
           {this.renderCatererMenu()}
         </View>
-        <Modal
-          meals={meals}
-          submitting={submitting}
-          submitError={submitError}
-        />
       </Fragment>
     );
   }

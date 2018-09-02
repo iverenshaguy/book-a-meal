@@ -39,8 +39,8 @@ class OrderReview extends Component {
         deliveryAddress: null
       },
       values: {
-        deliveryPhoneNo: props.user.phoneNo,
-        deliveryAddress: props.user.address,
+        deliveryPhoneNo: props.user.phoneNo || '',
+        deliveryAddress: props.user.address || '',
       }
     };
   }

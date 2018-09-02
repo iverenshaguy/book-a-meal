@@ -12,7 +12,7 @@ const compiler = webpack(webpackConfig);
  * @return {middleware} returns middleware
  */
 function webpackDev(app, env) {
-  if (env === 'development') {
+  if (env === 'development' || env === 'test') {
     app.use(webpackDevMiddleware(compiler, {
       noInfo: true, publicPath: webpackConfig.output.publicPath, stats: { colors: true }
     }));

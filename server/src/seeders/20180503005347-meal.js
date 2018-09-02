@@ -25,7 +25,7 @@ export default {
     {
       userId: '8356954a-9a42-4616-8079-887a73455a7f',
       mealId: 'baa0412a-d167-4d2b-b1d8-404cb8f02631',
-      title: 'Semo/Wheat and Egusi Soup',
+      title: 'Semo and Egusi Soup',
       description: 'Meal contains 2 pieces of beef',
       price: 2000,
       imageUrl: 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg',

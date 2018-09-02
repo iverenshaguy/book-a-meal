@@ -12,3 +12,4 @@ server/coverage
 client/coverage
 .vs
 .DS_Store
+client/reports

@@ -60,8 +60,6 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
       }
       metadata={Object {}}
       setCurrentDay={[Function]}
-      submitError={null}
-      submitting={false}
       toggleModal={[Function]}
     >
       <Connect(View)
@@ -787,58 +785,6 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
           </div>
         </View>
       </Connect(View)>
-      <Connect(Modal)
-        meals={
-          Array [
-            Object {
-              "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
-              "id": "81211c24-51c0-46ec-b1e0-18db55880958",
-              "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
-              "price": "1500.00",
-              "title": "Jollof Rice, Beef and Plantain",
-              "vegetarian": false,
-            },
-            Object {
-              "description": "Sharwama contains no animal products, perfect for dieters",
-              "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-              "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-              "price": "1200.00",
-              "title": "Vegetable Sharwama and Guava Smoothie",
-              "vegetarian": true,
-            },
-          ]
-        }
-        submitError={null}
-        submitting={false}
-      >
-        <Modal
-          meals={
-            Array [
-              Object {
-                "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
-                "id": "81211c24-51c0-46ec-b1e0-18db55880958",
-                "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
-                "price": "1500.00",
-                "title": "Jollof Rice, Beef and Plantain",
-                "vegetarian": false,
-              },
-              Object {
-                "description": "Sharwama contains no animal products, perfect for dieters",
-                "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                "price": "1200.00",
-                "title": "Vegetable Sharwama and Guava Smoothie",
-                "vegetarian": true,
-              },
-            ]
-          }
-          open={false}
-          submitError={null}
-          submitting={false}
-          toggleModal={[Function]}
-          type={null}
-        />
-      </Connect(Modal)>
     </CatererMenu>
   </Connect(CatererMenu)>
 </Provider>
@@ -945,30 +891,6 @@ exports[`CatererMenu should render Menu component correctly when not fetching 1`
       </div>
     </React.Fragment>
   </Connect(View)>
-  <Connect(Modal)
-    meals={
-      Array [
-        Object {
-          "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
-          "id": "81211c24-51c0-46ec-b1e0-18db55880958",
-          "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
-          "price": "1500.00",
-          "title": "Jollof Rice, Beef and Plantain",
-          "vegetarian": false,
-        },
-        Object {
-          "description": "Sharwama contains no animal products, perfect for dieters",
-          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-          "price": "1200.00",
-          "title": "Vegetable Sharwama and Guava Smoothie",
-          "vegetarian": true,
-        },
-      ]
-    }
-    submitError={null}
-    submitting={false}
-  />
 </React.Fragment>
 `;
 
@@ -1031,10 +953,5 @@ exports[`CatererMenu should render message when there are no meals on the menu 1
       </div>
     </React.Fragment>
   </Connect(View)>
-  <Connect(Modal)
-    meals={Array []}
-    submitError={null}
-    submitting={false}
-  />
 </React.Fragment>
 `;

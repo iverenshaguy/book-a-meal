@@ -106,7 +106,7 @@ exports[`Dashboard should render Dashboard component correctly 1`] = `
                   "imageUrl": "https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg",
                   "price": "2000.00",
                   "quantity": 2,
-                  "title": "Semo/Wheat and Egusi Soup",
+                  "title": "Semo and Egusi Soup",
                   "vegetarian": false,
                 },
                 Object {
@@ -241,7 +241,7 @@ exports[`Dashboard should render connected Dashboard component correctly 1`] = `
               "imageUrl": "https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg",
               "price": "2000.00",
               "quantity": 2,
-              "title": "Semo/Wheat and Egusi Soup",
+              "title": "Semo and Egusi Soup",
               "vegetarian": false,
             },
             Object {
