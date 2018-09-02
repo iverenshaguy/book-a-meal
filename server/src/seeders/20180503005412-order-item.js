@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export default {
   up: queryInterface => queryInterface.bulkInsert(
     'OrderItems',
@@ -46,7 +48,70 @@ export default {
         delivered: true,
         createdAt: '2018-05-06T00:47:03.687Z',
         updatedAt: '2018-05-06T00:47:03.687Z'
-      }
+      },
+      {
+        id: 6,
+        mealId: 'baa0412a-d167-4d2b-b1d8-404cb8f02631',
+        orderId: '58228787-f939-40a0-bfd3-6607ca8d2e53',
+        quantity: 2,
+        delivered: true,
+        createdAt: `${moment().format('YYYY-MM-DD')}T00:47:03.687Z`,
+        updatedAt: `${moment().format('YYYY-MM-DD')}T00:47:03.687Z`
+      },
+      {
+        id: 7,
+        mealId: 'a3c35e8f-da7a-4113-aa01-a9c0fc088539',
+        orderId: 'be228787-f939-40a0-bfd3-3607ca8d2e53',
+        quantity: 2,
+        delivered: false,
+        createdAt: `${moment().format('YYYY-MM-DD')}T00:47:03.687Z`,
+        updatedAt: `${moment().format('YYYY-MM-DD')}T00:47:03.687Z`
+      },
+      {
+        id: 8,
+        mealId: 'baa0412a-d167-4d2b-b1d8-404cb8f02631',
+        orderId: 'be228787-f939-40a0-bfd3-3607ca8d2e53',
+        quantity: 2,
+        delivered: false,
+        createdAt: `${moment().format('YYYY-MM-DD')}T00:47:03.687Z`,
+        updatedAt: `${moment().format('YYYY-MM-DD')}T00:47:03.687Z`
+      },
+      {
+        id: 9,
+        mealId: 'a3c35e8f-da7a-4113-aa01-a9c0fc088539',
+        orderId: '97bde787-f939-40a0-bfd3-3607ca8d2e53',
+        quantity: 2,
+        delivered: false,
+        createdAt: `${moment().format('YYYY-MM-DD')}T11:47:03.687Z`,
+        updatedAt: `${moment().format('YYYY-MM-DD')}T11:47:03.687Z`
+      },
+      {
+        id: 10,
+        mealId: 'baa0412a-d167-4d2b-b1d8-404cb8f02631',
+        orderId: '97bde787-f939-40a0-bfd3-3607ca8d2e53',
+        quantity: 2,
+        delivered: false,
+        createdAt: `${moment().format('YYYY-MM-DD')}T11:47:03.687Z`,
+        updatedAt: `${moment().format('YYYY-MM-DD')}T11:47:03.687Z`
+      },
+      {
+        id: 11,
+        mealId: 'a3c35e8f-da7a-4113-aa01-a9c0fc088539',
+        orderId: 'f939e787-f939-40a0-bfd3-3607ca8d2e53',
+        quantity: 2,
+        delivered: false,
+        createdAt: `${moment().format('YYYY-MM-DD')}T13:47:03.687Z`,
+        updatedAt: `${moment().format('YYYY-MM-DD')}T13:47:03.687Z`
+      },
+      {
+        id: 12,
+        mealId: 'baa0412a-d167-4d2b-b1d8-404cb8f02631',
+        orderId: 'f939e787-f939-40a0-bfd3-3607ca8d2e53',
+        quantity: 2,
+        delivered: false,
+        createdAt: `${moment().format('YYYY-MM-DD')}T13:47:03.687Z`,
+        updatedAt: `${moment().format('YYYY-MM-DD')}T13:47:03.687Z`
+      },
     ]
   ),
 

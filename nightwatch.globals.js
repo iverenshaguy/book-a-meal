@@ -1,3 +1,4 @@
 export default {
-  waitForConditionTimeout: 10000,
+  waitForConditionTimeout: 1000000,
+  abortOnAssertionFailure: false
 };

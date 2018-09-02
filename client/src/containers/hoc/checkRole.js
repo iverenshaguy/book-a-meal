@@ -13,6 +13,7 @@ export default role => (MyComponent) => {
     role,
     MyComponent,
     user: state.auth.user,
+    authenticating: state.auth.loading
   });
 
   return connect(mapStateToProps)(checkRole);

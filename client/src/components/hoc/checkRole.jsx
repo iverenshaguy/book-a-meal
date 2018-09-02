@@ -9,12 +9,14 @@ import { userPropTypes } from '../../helpers/proptypes';
  * @return {JSX} - MyComponent|Redirect
  */
 const checkRole = (props) => {
-  const { MyComponent, user, role } = props;
+  const {
+    MyComponent, user, role, authenticating
+  } = props;
 
   return (
     <Fragment>
-      {user.role !== role && <Redirect to="/" />}
-      {user.role === role && <MyComponent {...props} />}
+      {!authenticating && user.role !== role && <Redirect to="/" />}
+      {!authenticating && user.role === role && <MyComponent {...props} />}
     </Fragment>
   );
 };

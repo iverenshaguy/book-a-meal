@@ -1,6 +1,10 @@
 @import '../_variables.scss';
 form {
-    padding: 30px 0 10px;
+    padding: 25px 0 10px;
+
+    p.danger {
+        margin-top: -15px;
+    }
 }
 
 label {

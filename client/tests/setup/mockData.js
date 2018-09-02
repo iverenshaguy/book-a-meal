@@ -148,7 +148,7 @@ export const caterersOrdersObj = {
       meals: [
         {
           id: 'baa0412a-d167-4d2b-b1d8-404cb8f02631',
-          title: 'Semo/Wheat and Egusi Soup',
+          title: 'Semo and Egusi Soup',
           imageUrl: 'https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg',
           description: 'Meal contains 2 pieces of beef and other assorted meat and fish products',
           vegetarian: false,
@@ -417,7 +417,7 @@ export const customerOrder = {
     },
     {
       id: 'baa0412a-d167-4d2b-b1d8-404cb8f02631',
-      title: 'Semo/Wheat and Egusi Soup',
+      title: 'Semo and Egusi Soup',
       imageUrl: 'https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg',
       description: 'Meal contains 2 pieces of beef and other assorted meat and fish products',
       vegetarian: false,

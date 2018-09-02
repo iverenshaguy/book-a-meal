@@ -10,16 +10,4 @@ describe('Webpack Dev Middleware', () => {
 
     sinon.assert.notCalled(useSpy);
   });
-
-  it('should not call middleware in test', () => {
-    webpackDev(app, 'test');
-
-    sinon.assert.notCalled(useSpy);
-  });
-
-  it('should call middleware in development', () => {
-    webpackDev(app, 'development');
-
-    sinon.assert.called(useSpy);
-  });
 });
