@@ -15,21 +15,25 @@ const store = mockStore({ item: null, error: null });
 
 process.env.EXPIRY = 2000;
 describe('Orders Actions', () => {
-  test('fetchOrdersSuccess', () => {
-    const action = fetchOrderSuccess(customerOrder);
+  describe('fetchOrdersSuccess', () => {
+    it('should return an object with type RECEIVE_ORDER_SUCCESS', () => {
+      const action = fetchOrderSuccess(customerOrder);
 
-    expect(action).toEqual({
-      type: 'RECEIVE_ORDER_SUCCESS',
-      payload: customerOrder
+      expect(action).toEqual({
+        type: 'RECEIVE_ORDER_SUCCESS',
+        payload: customerOrder
+      });
     });
   });
 
-  test('fetchOrdersFailure', () => {
-    const action = fetchOrderFailure('error');
+  describe('fetchOrdersFailure', () => {
+    it('should return an object with type RECEIVE_ORDER_FAILURE', () => {
+      const action = fetchOrderFailure('error');
 
-    expect(action).toEqual({
-      type: 'RECEIVE_ORDER_FAILURE',
-      payload: 'error'
+      expect(action).toEqual({
+        type: 'RECEIVE_ORDER_FAILURE',
+        payload: 'error'
+      });
     });
   });
 
@@ -39,7 +43,7 @@ describe('Orders Actions', () => {
     });
 
     describe('Single Order', () => {
-      it('dispatches SET_FETCHING, RECEIVE_ORDER_SUCCESS and UNSET_FETCHING on successful fetching of caterer orders', () => {
+      it('should dispatch SET_FETCHING, RECEIVE_ORDER_SUCCESS and UNSET_FETCHING on successful fetching of caterer orders', () => {
         const expectedActions = ['SET_FETCHING', 'RECEIVE_ORDER_SUCCESS', 'UNSET_FETCHING'];
 
         mockReq.onGet(`${url}/orders/12345`).reply(200, customerOrder);
@@ -53,7 +57,7 @@ describe('Orders Actions', () => {
         });
       });
 
-      it('dispatches SET_FETCHING, RECEIVE_ORDER_FAILURE and UNSET_FETCHING on unsuccessful fetching', () => {
+      it('should dispatch SET_FETCHING, RECEIVE_ORDER_FAILURE and UNSET_FETCHING on unsuccessful fetching', () => {
         const expectedActions = ['SET_FETCHING', 'RECEIVE_ORDER_FAILURE', 'UNSET_FETCHING'];
 
         mockReq.onGet(`${url}/orders/12345`).reply(401, { error: 'Error' });

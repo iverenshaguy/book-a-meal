@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CustomerMenu renders Preloader when fetching 1`] = `
+exports[`CustomerMenu should render Customer Menu component correctly 1`] = `
 <Connect(View)
   type="menu"
 >
@@ -76,7 +76,7 @@ exports[`CustomerMenu renders Preloader when fetching 1`] = `
 </Connect(View)>
 `;
 
-exports[`CustomerMenu renders connected component 1`] = `
+exports[`CustomerMenu should render Menu Component when it is connected to the redux store correctly 1`] = `
 <Provider
   store={
     Object {
@@ -1156,83 +1156,7 @@ exports[`CustomerMenu renders connected component 1`] = `
 </Provider>
 `;
 
-exports[`CustomerMenu renders correctly when not fetching 1`] = `
-<Connect(View)
-  type="menu"
->
-  <div
-    className="meals user-meals"
-  >
-    <div
-      className="user-menu"
-    >
-      <div
-        className="main-menu"
-      >
-        <div
-          className="page-heading"
-        >
-          <h2>
-            Today's Menu
-          </h2>
-          <hr />
-        </div>
-        <SearchForm
-          fetchItems={[Function]}
-          type="customer"
-        />
-        <Connect(MenuItems)
-          addOrderItem={[Function]}
-          loadMoreMenu={[Function]}
-          order={
-            Object {
-              "deliveryAddress": "A Place",
-              "deliveryPhoneNo": "2348167719888",
-              "id": null,
-              "meals": Array [
-                Object {
-                  "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
-                  "price": "2500",
-                  "quantity": 1,
-                  "title": "Meat Soup",
-                },
-                Object {
-                  "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
-                  "price": "2200",
-                  "quantity": 3,
-                  "title": "Fish Soup",
-                },
-              ],
-            }
-          }
-        />
-      </div>
-      <Cart
-        handleQuantityInputChange={[Function]}
-        order={
-          Array [
-            Object {
-              "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
-              "price": "2500",
-              "quantity": 1,
-              "title": "Meat Soup",
-            },
-            Object {
-              "id": "fb097bde-5959-45ff-8e21-51184fa60f36",
-              "price": "2200",
-              "quantity": 3,
-              "title": "Fish Soup",
-            },
-          ]
-        }
-        removeOrderItem={[Function]}
-      />
-    </div>
-  </div>
-</Connect(View)>
-`;
-
-exports[`CustomerMenu renders message when shop is closed 1`] = `
+exports[`CustomerMenu should render a message when shop is closed 1`] = `
 <Provider
   store={
     Object {

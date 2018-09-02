@@ -5,13 +5,13 @@ import { caterersOrdersObj } from '../../../setup/mockData';
 const { orders } = caterersOrdersObj;
 
 describe('OrderHistoryTable', () => {
-  it('renders correctly', () => {
+  it('should render OrderHistoryTable component correctly', () => {
     const shallowWrapper = shallow(<OrderHistoryTable orders={orders} deliverOrder={jest.fn()} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
   });
 
-  it('calls deliverOrder', () => {
+  it('should call deliverOrder', () => {
     const deliverOrderMock = jest.fn();
     const comp = <OrderHistoryTable orders={orders} deliverOrder={deliverOrderMock} />;
     const wrapper = mount(comp);

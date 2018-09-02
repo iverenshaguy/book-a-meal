@@ -8,14 +8,14 @@ describe('MealForm', () => {
     jest.clearAllMocks();
   });
 
-  it('renders correctly when type is addMeal', () => {
+  it('should render the Meal Form correctly when type prop is addMeal', () => {
     const { handlers, state } = formComponentSetup('addMeal');
     const wrapper = shallow(<MealForm type="addMeal" state={state} handlers={handlers} />);
 
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('renders correctly when type is editMeal', () => {
+  it('should render the Meal Form correctly when type prop is editMeal', () => {
     const { handlers, state } = formComponentSetup('editMeal');
     const wrapper = shallow(<MealForm type="editMeal" state={state} handlers={handlers} meal={mealsObj.meals[0]} />);
 

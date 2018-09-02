@@ -18,28 +18,28 @@ describe('Welcome', () => {
     Date.now = now;
   });
 
-  it('renders correctly when authenticating', () => {
+  it('should render the Preloader component when authenticating', () => {
     const shallowWrapper = shallow(<WelcomeComponent {...props} authenticating />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('Preloader')).toBeTruthy();
   });
 
-  it('renders correctly when unauthenticated', () => {
+  it('should render the Welcome component correctly when unauthenticated', () => {
     const shallowWrapper = shallow(<WelcomeComponent {...props} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('Welcome')).toBeTruthy();
   });
 
-  it('renders correctly when authenticated and user role is caterer', () => {
+  it('should render the Dashboard component correctly when authenticated and the user role is caterer', () => {
     const shallowWrapper = shallow(<WelcomeComponent {...props} isAuthenticated />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('Dashboard')).toBeTruthy();
   });
 
-  it('renders correctly when authenticated and user role is customer', () => {
+  it('should render the CustomerMenu component correctly when authenticated and the user role is customer', () => {
     const shallowWrapper = shallow(<WelcomeComponent {...props} user={customer} isAuthenticated />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();

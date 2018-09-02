@@ -1,79 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CatererView renders Preloader when fetching 1`] = `
-<div
-  className="admin"
->
-  <Header
-    active="dashboard"
-    dateType="dashboard"
-    logout={[MockFunction]}
-    showTime={true}
-    type="caterer"
-    updateCurrentDate={null}
-    user={
-      Object {
-        "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-        "businessName": "Food Circle",
-        "email": "food@circle.com",
-        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-        "phoneNo": "08166557788",
-        "role": "caterer",
-      }
-    }
-  />
-  <div
-    className="content"
-  >
-    <Connect(SideNav)
-      active="dashboard"
-      logout={[MockFunction]}
-      user={
-        Object {
-          "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-          "businessName": "Food Circle",
-          "email": "food@circle.com",
-          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-          "phoneNo": "08166557788",
-          "role": "caterer",
-        }
-      }
-    />
-    <div
-      className="content-wrapper dashboard"
-      id="has-modal"
-    >
-      <Preloader
-        type={null}
-      />
-    </div>
-  </div>
-  <Connect(Modal)
-    isFetching={true}
-    logout={[MockFunction]}
-    showTime={true}
-    type="dashboard"
-    updateCurrentDate={null}
-    user={
-      Object {
-        "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-        "businessName": "Food Circle",
-        "email": "food@circle.com",
-        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-        "phoneNo": "08166557788",
-        "role": "caterer",
-      }
-    }
-  >
-    <p>
-      Hi
-    </p>
-  </Connect(Modal)>
-  <Footer />
-</div>
-`;
-
-exports[`CatererView renders correctly 1`] = `
+exports[`CatererView should render CatererView component correctly 1`] = `
 <div
   className="admin"
 >
@@ -123,6 +50,79 @@ exports[`CatererView renders correctly 1`] = `
   </div>
   <Connect(Modal)
     isFetching={false}
+    logout={[MockFunction]}
+    showTime={true}
+    type="dashboard"
+    updateCurrentDate={null}
+    user={
+      Object {
+        "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+        "businessName": "Food Circle",
+        "email": "food@circle.com",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "phoneNo": "08166557788",
+        "role": "caterer",
+      }
+    }
+  >
+    <p>
+      Hi
+    </p>
+  </Connect(Modal)>
+  <Footer />
+</div>
+`;
+
+exports[`CatererView should render Preloader when fetching page data 1`] = `
+<div
+  className="admin"
+>
+  <Header
+    active="dashboard"
+    dateType="dashboard"
+    logout={[MockFunction]}
+    showTime={true}
+    type="caterer"
+    updateCurrentDate={null}
+    user={
+      Object {
+        "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+        "businessName": "Food Circle",
+        "email": "food@circle.com",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "phoneNo": "08166557788",
+        "role": "caterer",
+      }
+    }
+  />
+  <div
+    className="content"
+  >
+    <Connect(SideNav)
+      active="dashboard"
+      logout={[MockFunction]}
+      user={
+        Object {
+          "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+          "businessName": "Food Circle",
+          "email": "food@circle.com",
+          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+          "phoneNo": "08166557788",
+          "role": "caterer",
+        }
+      }
+    />
+    <div
+      className="content-wrapper dashboard"
+      id="has-modal"
+    >
+      <Preloader
+        type={null}
+      />
+    </div>
+  </div>
+  <Connect(Modal)
+    isFetching={true}
     logout={[MockFunction]}
     showTime={true}
     type="dashboard"

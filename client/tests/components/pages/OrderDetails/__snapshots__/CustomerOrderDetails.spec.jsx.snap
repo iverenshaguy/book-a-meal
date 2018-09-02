@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OrderDetails renders Preloader when fetching 1`] = `
+exports[`OrderDetails should render CustomerOrderDetails correctly when not fetching 1`] = `
 <Connect(View)
   type="customerOrderDetails"
 >
@@ -108,7 +108,7 @@ exports[`OrderDetails renders Preloader when fetching 1`] = `
 </Connect(View)>
 `;
 
-exports[`OrderDetails renders connected component 1`] = `
+exports[`OrderDetails should render a connected OrderDetails component correctly 1`] = `
 <Provider
   store={
     Object {
@@ -748,115 +748,7 @@ exports[`OrderDetails renders connected component 1`] = `
 </Provider>
 `;
 
-exports[`OrderDetails renders correctly when not fetching 1`] = `
-<Connect(View)
-  type="customerOrderDetails"
->
-  <React.Fragment>
-    <Link
-      className="orders-back-link"
-      replace={false}
-      to="/orders"
-    >
-      ← Back To Orders
-    </Link>
-    <React.Fragment>
-      <div
-        className="order-confirmation order-details"
-      >
-        <h3
-          className="text-center"
-        >
-          Order #
-          fb097bde-5959-45ff-8e21-51184fa70c25
-        </h3>
-        <p
-          className="order-date text-center"
-        >
-          Thursday, 1st January 1970 12:00 am
-        </p>
-        <hr />
-        <React.Fragment>
-          <OrderSummary
-            meals={
-              Array [
-                Object {
-                  "caterer": Object {
-                    "address": "4, Church Street, Yaba",
-                    "businessName": "BellyFill",
-                    "email": "belly@fill.com",
-                    "phoneNo": "080xxxxxxxx",
-                  },
-                  "delivered": false,
-                  "description": "",
-                  "id": "46ced7aa-eed5-4462-b2c0-153f31589bdd",
-                  "imageUrl": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
-                  "price": "2000.00",
-                  "quantity": 2,
-                  "title": "Adalu (Beans and Corn) and Local Fish ",
-                  "vegetarian": false,
-                },
-              ]
-            }
-            status="canceled"
-          />
-          <OrderAmount
-            meals={
-              Array [
-                Object {
-                  "caterer": Object {
-                    "address": "4, Church Street, Yaba",
-                    "businessName": "BellyFill",
-                    "email": "belly@fill.com",
-                    "phoneNo": "080xxxxxxxx",
-                  },
-                  "delivered": false,
-                  "description": "",
-                  "id": "46ced7aa-eed5-4462-b2c0-153f31589bdd",
-                  "imageUrl": "http://www.gratednutmeg.com/wp-content/uploads/2015/03/DSC_07722.jpg",
-                  "price": "2000.00",
-                  "quantity": 2,
-                  "title": "Adalu (Beans and Corn) and Local Fish ",
-                  "vegetarian": false,
-                },
-              ]
-            }
-            type="user"
-          />
-          <div
-            className="customer-details"
-          >
-            <p>
-              Order Status:
-              <span
-                className="order-status danger"
-                style={
-                  Object {
-                    "textTransform": "capitalize",
-                  }
-                }
-              >
-                 
-                canceled
-              </span>
-            </p>
-            <p>
-              Address Provided: 
-              4, Church Street, Yaba
-            </p>
-            <p>
-              Number Provided: 
-              080xxxxxxxx
-            </p>
-          </div>
-        </React.Fragment>
-      </div>
-    </React.Fragment>
-  </React.Fragment>
-</Connect(View)>
-`;
-
-exports[`OrderDetails renders message when not fetching and that order doesn't exist 1`] = `
+exports[`OrderDetails should render a message when an order with that orderId doesn't exist 1`] = `
 <Provider
   store={
     Object {

@@ -21,14 +21,14 @@ describe('CatererView', () => {
     Date.now = now;
   });
 
-  it('renders correctly', () => {
+  it('should render CatererView component correctly', () => {
     const wrapper = shallow(<CatererView {...props} />);
 
     expect(toJson(wrapper)).toMatchSnapshot();
     expect(wrapper.find('Preloader').length).toBeFalsy();
   });
 
-  it('renders Preloader when fetching', () => {
+  it('should render Preloader when fetching page data', () => {
     const wrapper = shallow(<CatererView {...props} isFetching />);
 
     expect(toJson(wrapper)).toMatchSnapshot();

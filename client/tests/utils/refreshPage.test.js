@@ -8,7 +8,7 @@ const store = {
 describe('Refresh page', () => {
   afterAll(() => jest.clearAllMocks());
 
-  it('refreshes user if jwt token is present and not expired', () => {
+  it('should refresh page if jwt token is present and not expired', () => {
     localStorage.setItem('jwtToken', customerToken);
 
     refreshPage(store);
@@ -16,7 +16,7 @@ describe('Refresh page', () => {
     expect(store.dispatch).toBeCalled();
   });
 
-  it('resets user if jwt token is present and expired', () => {
+  it('should dispatch type UNAUTHENTICATED if jwt token is present and expired', () => {
     localStorage.setItem('jwtToken', expiredToken);
 
     refreshPage(store);
@@ -24,7 +24,7 @@ describe('Refresh page', () => {
     expect(store.dispatch).toBeCalledWith({ type: 'UNAUTHENTICATED' });
   });
 
-  it('resets user if jwt token is not preset', () => {
+  it('should dispatch type UNAUTHENTICATED if jwt token is not preset', () => {
     localStorage.clear();
 
     refreshPage(store);

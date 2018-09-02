@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MealCard renders correctly when type is caterer 1`] = `
+exports[`MealCard should render correctly when type is caterer 1`] = `
 <div
   className="meal-card false"
   id="meal-card"
@@ -76,7 +76,7 @@ exports[`MealCard renders correctly when type is caterer 1`] = `
 </div>
 `;
 
-exports[`MealCard renders correctly when type is customer 1`] = `
+exports[`MealCard should render correctly when type is customer 1`] = `
 <div
   className="meal-card order-meal-card"
   id="meal-card"

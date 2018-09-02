@@ -5,7 +5,7 @@ const dispatchMock = jest.fn();
 describe('Reload Order Page', () => {
   afterAll(() => jest.clearAllMocks());
 
-  it('calls dispatch on timeout', () => {
+  it('should call dispatch on timeout', () => {
     jest.useFakeTimers();
 
     reloadOrderPage(dispatchMock, '/');

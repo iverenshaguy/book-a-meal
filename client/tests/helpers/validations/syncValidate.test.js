@@ -17,13 +17,13 @@ describe('Sync Validation: Auth', () => {
   });
 
   describe('Right Input', () => {
-    test('email: signin', () => {
+    it('should return null i.e. no error for right email value for signin form', () => {
       const check = syncValidate('signin')('email', rightSigninValues);
 
       expect(check).toEqual(null);
     });
 
-    test('password: signin', () => {
+    it('should return null i.e. no error for right password value for signin form', () => {
       const check = syncValidate('signin')('password', { password: 'emiolaolasanmi' });
 
       expect(check).toEqual(null);
@@ -31,31 +31,31 @@ describe('Sync Validation: Auth', () => {
   });
 
   describe('Wrong Input', () => {
-    test('email: signin', () => {
+    it('should return an error for wrong email value for signin form', () => {
       const check = syncValidate('signin')('email', wrongSigninValues);
 
       expect(check).toEqual('Invalid email address!');
     });
 
-    test('password: signin', () => {
+    it('should return an error for wrong password value for signin form', () => {
       const check = syncValidate('signin')('password', { password: '' });
 
       expect(check).toEqual('Required!');
     });
 
-    test('passwordConfirm', () => {
+    it('should return an error for wrong password confirm value for signin form', () => {
       const check = syncValidate('customerSignup')('passwordConfirm', wrongSigninValues);
 
       expect(check).toEqual('Passwords do not match');
     });
 
-    test('email', () => {
+    it('should return an error for empty email value for signin form', () => {
       const check = syncValidate('signin')('email', { email: '' });
 
       expect(check).toEqual('Required!');
     });
 
-    test('non-existent field', () => {
+    it('should return null i.e. no error for non-existent field value for signin form', () => {
       const check = syncValidate('signin')('name', { name: '' });
 
       expect(check).toEqual(null);

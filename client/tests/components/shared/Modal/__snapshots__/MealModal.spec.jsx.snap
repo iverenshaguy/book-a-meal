@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MealModal renders correctly when type is addMeal 1`] = `
+exports[`MealModal should render correctly when type prop is addMeal 1`] = `
 <Connect(Form)
   meal={null}
   meta={
@@ -12,7 +12,7 @@ exports[`MealModal renders correctly when type is addMeal 1`] = `
 />
 `;
 
-exports[`MealModal renders correctly when type is editMeal 1`] = `
+exports[`MealModal should render correctly when type prop is editMeal 1`] = `
 <Connect(Form)
   meal={null}
   meta={

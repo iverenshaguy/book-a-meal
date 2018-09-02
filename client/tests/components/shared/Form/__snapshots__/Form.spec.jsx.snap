@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Form disables submit button when submitting form 1`] = `
+exports[`Form should disable the form submit button when submitting the form 1`] = `
 <div>
   <div
     className="modal-preloader text-center"
@@ -10,7 +10,7 @@ exports[`Form disables submit button when submitting form 1`] = `
 </div>
 `;
 
-exports[`Form renders addMeal form correctly 1`] = `
+exports[`Form should render the Add Meal Form correctly when the type prop is addMeal 1`] = `
 <div>
   <React.Fragment>
     <p
@@ -83,7 +83,7 @@ exports[`Form renders addMeal form correctly 1`] = `
 </div>
 `;
 
-exports[`Form renders caterer's signup form correctly 1`] = `
+exports[`Form should render the Caterer Signup Form correctly when the type prop is customerSignup 1`] = `
 <div>
   <React.Fragment>
     <p
@@ -160,58 +160,7 @@ exports[`Form renders caterer's signup form correctly 1`] = `
 </div>
 `;
 
-exports[`Form renders correctly 1`] = `
-<div>
-  <React.Fragment>
-    <form
-      onSubmit={[Function]}
-    >
-      <SigninForm
-        handlers={
-          Object {
-            "handleBlur": [Function],
-            "handleChange": [Function],
-            "handleFocus": [Function],
-            "handleSubmit": [Function],
-          }
-        }
-        state={
-          Object {
-            "asyncValidating": false,
-            "error": Object {
-              "email": null,
-              "password": null,
-            },
-            "formValid": false,
-            "pristine": true,
-            "touched": Object {
-              "email": false,
-              "password": false,
-            },
-            "type": "signin",
-            "values": Object {
-              "email": "",
-              "password": "",
-            },
-          }
-        }
-        type="signin"
-      />
-      <button
-        className="btn btn-pri btn-block"
-        disabled={true}
-      >
-        SIGN IN
-      </button>
-    </form>
-    <p>
-      something
-    </p>
-  </React.Fragment>
-</div>
-`;
-
-exports[`Form renders customer's signup form correctly 1`] = `
+exports[`Form should render the Customer Signup Form correctly when the type prop is customerSignup 1`] = `
 <div>
   <React.Fragment>
     <p
@@ -285,7 +234,7 @@ exports[`Form renders customer's signup form correctly 1`] = `
 </div>
 `;
 
-exports[`Form renders editMeal form correctly 1`] = `
+exports[`Form should render the Edit Meal Form correctly when the type prop is editMeal 1`] = `
 <div>
   <React.Fragment>
     <p
@@ -369,7 +318,58 @@ exports[`Form renders editMeal form correctly 1`] = `
 </div>
 `;
 
-exports[`Form shows error alert and disables submit button when there's a submit error 1`] = `
+exports[`Form should render the Form component correctly 1`] = `
+<div>
+  <React.Fragment>
+    <form
+      onSubmit={[Function]}
+    >
+      <SigninForm
+        handlers={
+          Object {
+            "handleBlur": [Function],
+            "handleChange": [Function],
+            "handleFocus": [Function],
+            "handleSubmit": [Function],
+          }
+        }
+        state={
+          Object {
+            "asyncValidating": false,
+            "error": Object {
+              "email": null,
+              "password": null,
+            },
+            "formValid": false,
+            "pristine": true,
+            "touched": Object {
+              "email": false,
+              "password": false,
+            },
+            "type": "signin",
+            "values": Object {
+              "email": "",
+              "password": "",
+            },
+          }
+        }
+        type="signin"
+      />
+      <button
+        className="btn btn-pri btn-block"
+        disabled={true}
+      >
+        SIGN IN
+      </button>
+    </form>
+    <p>
+      something
+    </p>
+  </React.Fragment>
+</div>
+`;
+
+exports[`Form should show an error alert and disable the form submit button when there's a submit error 1`] = `
 <div>
   <React.Fragment>
     <form

@@ -13,14 +13,14 @@ describe('OrderDetails', () => {
     Date.now = now;
   });
 
-  it('renders correctly: Caterer OrderDetails', () => {
+  it('should render the OrderDetails correctly when the type prop is caterer', () => {
     const shallowWrapper = shallow(<OrderDetails type="caterer" user={caterer} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
     expect(shallowWrapper.find('CatererOrderDetails')).toBeTruthy();
   });
 
-  it('renders correctly: Customer OrderDetails', () => {
+  it('should render the OrderDetails correctly when the type prop is customer', () => {
     const shallowWrapper = shallow(<OrderDetails type="customer" user={customer} />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();

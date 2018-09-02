@@ -40,7 +40,7 @@ describe('Form Components: RenderInput', () => {
     value: 'jane@smith.me'
   };
 
-  it('renders correctly', () => {
+  it('should render RenderInput component correctly', () => {
     const mountedWrapper = mount(<RenderInput {...cleanProps} />);
     expect(toJson(mountedWrapper)).toMatchSnapshot();
     expect(mountedWrapper.find('div.invalid-feedback').exists()).toBeFalsy();
@@ -48,7 +48,7 @@ describe('Form Components: RenderInput', () => {
     mountedWrapper.unmount();
   });
 
-  it('renders checkbox correctly', () => {
+  it('should render checkbox correctly', () => {
     const mountedWrapper = mount(<RenderInput {...cleanProps} type="checkbox" />);
 
     expect(toJson(mountedWrapper)).toMatchSnapshot();
@@ -56,7 +56,7 @@ describe('Form Components: RenderInput', () => {
     mountedWrapper.unmount();
   });
 
-  it('shows error when found', () => {
+  it('should show error when invalid data is inputted', () => {
     const mountedWrapper = mount(<RenderInput {...dirtyProps} />);
 
     expect(toJson(mountedWrapper)).toMatchSnapshot();
@@ -65,7 +65,7 @@ describe('Form Components: RenderInput', () => {
     mountedWrapper.unmount();
   });
 
-  it('changes field state to open', () => {
+  it('should change field state to open when label is clicked on', () => {
     const mountedWrapper = mount(<RenderInput {...cleanProps} />);
 
     mountedWrapper.find('label').simulate('click');

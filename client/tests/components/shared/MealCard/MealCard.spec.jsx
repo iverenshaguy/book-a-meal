@@ -8,14 +8,14 @@ describe('MealCard', () => {
     jest.clearAllMocks();
   });
 
-  it('renders correctly when type is caterer', () => {
+  it('should render correctly when type is caterer', () => {
     const wrapper = shallow(<MealCard type="caterer" meal={mealsObj.meals[0]} toggleModal={jest.fn()} />);
 
     expect(toJson(wrapper)).toMatchSnapshot();
     expect(wrapper.find('#edit-meal')).toBeTruthy();
   });
 
-  it('renders correctly when type is customer', () => {
+  it('should render correctly when type is customer', () => {
     const currentDay = moment().format('YYYY-MM-DD');
     const dateNowSpy = jest.spyOn(Date, 'now').mockImplementation(() => new Date(currentDay).getTime() + (60 * 60 * 13 * 1000));
     const wrapper = shallow(<MealCard type="customer" meal={mealsObj.meals[0]} toggleModal={jest.fn()} />);
@@ -26,7 +26,7 @@ describe('MealCard', () => {
     dateNowSpy.mockRestore();
   });
 
-  it('calls toggleModal on edit meal click', () => {
+  it('should call toggleModal on edit meal click', () => {
     const toggleMock = jest.fn();
     const wrapper = mount(<MealCard type="caterer" meal={mealsObj.meals[0]} toggleModal={toggleMock} />);
 
@@ -34,7 +34,7 @@ describe('MealCard', () => {
     expect(toggleMock).toHaveBeenCalled();
   });
 
-  it('calls toggleModal on delete meal click', () => {
+  it('should call toggleModal on delete meal click', () => {
     const toggleMock = jest.fn();
     const wrapper = mount(<MealCard type="caterer" meal={mealsObj.meals[0]} toggleModal={toggleMock} />);
 
@@ -42,7 +42,7 @@ describe('MealCard', () => {
     expect(toggleMock).toHaveBeenCalled();
   });
 
-  it('does not show order meal button when shop is closed', () => {
+  it('should not show order meal button when shop is closed', () => {
     const currentDay = moment().format('YYYY-MM-DD');
     const dateNowSpy = jest.spyOn(Date, 'now').mockImplementation(() => new Date(currentDay).getTime() + (60 * 60 * 18 * 1000));
     const orderMealMock = jest.fn();
@@ -54,7 +54,7 @@ describe('MealCard', () => {
     dateNowSpy.mockRestore();
   });
 
-  it('shows order meal button and calls orderMeal prop on order meal button click when shop is open', () => {
+  it('should show order meal button and should call orderMeal prop on order meal button click when shop is open', () => {
     const currentDay = moment().format('YYYY-MM-DD');
     const dateNowSpy = jest.spyOn(Date, 'now').mockImplementation(() => new Date(currentDay).getTime() + (60 * 60 * 13 * 1000));
     const orderMealMock = jest.fn();
@@ -67,7 +67,7 @@ describe('MealCard', () => {
     dateNowSpy.mockRestore();
   });
 
-  it('shows disabled button with "Added to Basket" when meal is in order basket', () => {
+  it('should show disabled button with "Added to Basket" when meal is in order basket', () => {
     const currentDay = moment().format('YYYY-MM-DD');
     const dateNowSpy = jest.spyOn(Date, 'now').mockImplementation(() => new Date(currentDay).getTime() + (60 * 60 * 13 * 1000));
     const orderMealMock = jest.fn();
@@ -80,7 +80,7 @@ describe('MealCard', () => {
     dateNowSpy.mockRestore();
   });
 
-  it('shows active button with "Add to Basket" when meal is not in order basket', () => {
+  it('should show active button with "Add to Basket" when meal is not in order basket', () => {
     const currentDay = moment().format('YYYY-MM-DD');
     const dateNowSpy = jest.spyOn(Date, 'now').mockImplementation(() => new Date(currentDay).getTime() + (60 * 60 * 13 * 1000));
     const orderMealMock = jest.fn();

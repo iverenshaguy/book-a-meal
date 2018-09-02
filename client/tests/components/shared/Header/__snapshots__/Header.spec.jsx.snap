@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header renders caterer header correctly 1`] = `
+exports[`Header should render Caterer Header component correctly when type prop is caterer 1`] = `
 <div
   className="header"
 >
@@ -16,7 +16,7 @@ exports[`Header renders caterer header correctly 1`] = `
 </div>
 `;
 
-exports[`Header renders correctly 1`] = `
+exports[`Header should render Header component correctly 1`] = `
 <div
   className="header homepage"
 >
@@ -59,7 +59,7 @@ exports[`Header renders correctly 1`] = `
 </div>
 `;
 
-exports[`Header renders unauthenticated header correctly 1`] = `
+exports[`Header should render unauthenticated Header component correctly when type prop is unauth 1`] = `
 <div
   className="header unauth"
 >

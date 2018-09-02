@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HOC: Authenticator renders correctly 1`] = `
+exports[`HOC: Authenticator should render correctly 1`] = `
 <MemoryRouter>
   <Connect(Authenticator)
     location={

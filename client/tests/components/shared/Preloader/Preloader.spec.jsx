@@ -2,13 +2,13 @@ import React from 'react';
 import Preloader, { MiniPreloader } from '../../../../src/components/shared/Preloader';
 
 describe('Preloader', () => {
-  it('renders correctly', () => {
+  it('should render Preloader component correctly', () => {
     const shallowWrapper = shallow(<Preloader />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
   });
 
-  it('renders correctly: MiniPreloader', () => {
+  it('should render MiniPreloader component correctly', () => {
     const shallowWrapper = shallow(<MiniPreloader />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SideNav renders correctly 1`] = `
+exports[`SideNav should render SideNav component correctly 1`] = `
 <div
   className="sidenav null"
   id="sidenav"
@@ -92,7 +92,7 @@ exports[`SideNav renders correctly 1`] = `
 </div>
 `;
 
-exports[`SideNav renders correctly when meals tab is active 1`] = `
+exports[`SideNav should render correctly when meals tab is active 1`] = `
 <div
   className="sidenav null"
   id="sidenav"
@@ -184,7 +184,7 @@ exports[`SideNav renders correctly when meals tab is active 1`] = `
 </div>
 `;
 
-exports[`SideNav renders correctly when menu tab is active 1`] = `
+exports[`SideNav should render correctly when menu tab is active 1`] = `
 <div
   className="sidenav null"
   id="sidenav"
@@ -276,7 +276,7 @@ exports[`SideNav renders correctly when menu tab is active 1`] = `
 </div>
 `;
 
-exports[`SideNav renders correctly when orders tab is active 1`] = `
+exports[`SideNav should render correctly when orders tab is active 1`] = `
 <div
   className="sidenav null"
   id="sidenav"

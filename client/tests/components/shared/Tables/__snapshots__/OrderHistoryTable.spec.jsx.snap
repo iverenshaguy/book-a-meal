@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OrderHistoryTable renders correctly 1`] = `
+exports[`OrderHistoryTable should render OrderHistoryTable component correctly 1`] = `
 <div
   className="table-wrapper"
 >

@@ -31,7 +31,7 @@ describe('CustomerMenu', () => {
     Date.now = now;
   });
 
-  it('renders correctly when not fetching', () => {
+  it('should render Customer Menu component correctly', () => {
     const shallowWrapper = shallow(<CustomerMenuComponent
       user={customer}
       fetchMenu={jest.fn()}
@@ -41,17 +41,7 @@ describe('CustomerMenu', () => {
     expect(shallowWrapper.find('MealCard')).toBeTruthy();
   });
 
-  it('renders Preloader when fetching', () => {
-    const shallowWrapper = shallow(<CustomerMenuComponent
-      user={customer}
-      fetchMenu={jest.fn()}
-    />);
-
-    expect(toJson(shallowWrapper)).toMatchSnapshot();
-    expect(shallowWrapper.find('Preloader')).toBeTruthy();
-  });
-
-  it('calls fetchMenu when loadMoreMenu is called', () => {
+  it('should start fetching more menu items when Menu Component triggers loadMoreMenu function', () => {
     const fetchMenuMock = jest.fn();
 
     const comp = (
@@ -69,7 +59,7 @@ describe('CustomerMenu', () => {
     expect(fetchMenuMock).toHaveBeenCalledTimes(2);
   });
 
-  it('renders connected component', () => {
+  it('should render Menu Component when it is connected to the redux store correctly', () => {
     const comp = (
       <Provider store={store}>
         <CustomerMenuContainer
@@ -84,7 +74,7 @@ describe('CustomerMenu', () => {
     wrapper.unmount();
   });
 
-  it('renders message when shop is closed', () => {
+  it('should render a message when shop is closed', () => {
     const dateNowSpy = jest.spyOn(Date, 'now').mockImplementation(() => new Date(currentDay).getTime() + (60 * 60 * 18 * 1000));
     const comp = (
       <Provider store={store}>
@@ -123,7 +113,7 @@ describe('CustomerMenu', () => {
       Date.now = now;
     });
 
-    it('adds an order when add to basket button is clicked', () => {
+    it('should add an order to the basket when "Add to Basket" button is clicked', () => {
       const comp = (
         <Provider store={store}>
           <CustomerMenuComponent
@@ -146,7 +136,7 @@ describe('CustomerMenu', () => {
       wrapper.unmount();
     });
 
-    it('changes order quantity on input change', () => {
+    it('should change order quantity on basket input change', () => {
       const comp = (
         <Provider store={store}>
           <CustomerMenuComponent
@@ -167,7 +157,7 @@ describe('CustomerMenu', () => {
       wrapper.unmount();
     });
 
-    it('sets quantity input back to one if set to 0 or negative value', () => {
+    it('should set quantity input back to one if basket input is set to 0 or negative value', () => {
       const comp = (
         <Provider store={store}>
           <CustomerMenuComponent
@@ -189,7 +179,7 @@ describe('CustomerMenu', () => {
       wrapper.unmount();
     });
 
-    it('sets empty array as state order when local storage date is not today', () => {
+    it('should set an empty array as state order when the order date in local storage is not today', () => {
       const comp = (
         <Provider store={store}>
           <CustomerMenuComponent
@@ -218,7 +208,7 @@ describe('CustomerMenu', () => {
       wrapper.unmount();
     });
 
-    it('removes orderItem when delete icon is clicked', () => {
+    it('should remove orderItem from Basket when delete icon is clicked', () => {
       const comp = (
         <Provider store={store}>
           <CustomerMenuComponent

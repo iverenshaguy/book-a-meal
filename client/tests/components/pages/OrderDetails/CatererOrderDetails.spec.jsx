@@ -24,7 +24,7 @@ describe('CatererOrderDetails', () => {
     Date.now = now;
   });
 
-  it('renders correctly when not fetching', () => {
+  it('should render correctly when not fetching', () => {
     const wrapper = shallow(<CatererOrderDetailsComponent
       fetchOrder={jest.fn()}
       deliverOrder={jest.fn()}
@@ -37,20 +37,7 @@ describe('CatererOrderDetails', () => {
     expect(wrapper.find('OrderPill')).toBeTruthy();
   });
 
-  it('renders Preloader when fetching', () => {
-    const wrapper = shallow(<CatererOrderDetailsComponent
-      fetchOrder={jest.fn()}
-      deliverOrder={jest.fn()}
-      order={caterersOrdersObj.orders[0]}
-      delivering={false}
-      match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }}
-    />);
-
-    expect(toJson(wrapper)).toMatchSnapshot();
-    expect(wrapper.find('Preloader')).toBeTruthy();
-  });
-
-  it('renders MiniPreloader when delivering', () => {
+  it('should render MiniPreloader when delivering an order', () => {
     const wrapper = shallow(<CatererOrderDetailsComponent
       fetchOrder={jest.fn()}
       deliverOrder={jest.fn()}
@@ -63,7 +50,7 @@ describe('CatererOrderDetails', () => {
     expect(wrapper.find('MiniPreloader')).toBeTruthy();
   });
 
-  it('renders message when not fetching and that order doesn\'t exist', () => {
+  it('should render message when an order doesn\'t exist', () => {
     const comp = (
       <Provider store={store}>
         <CatererOrderDetailsContainer
@@ -78,7 +65,7 @@ describe('CatererOrderDetails', () => {
     expect(wrapper.find('p.text-center').text()).toEqual('This Order Does Not Exist');
   });
 
-  it('renders delivered order', () => {
+  it('should render a delivered order correctly', () => {
     const newStore = mockStore({
       ...initialState,
       singleOrder: { ...initialState.singleOrder, item: caterersOrdersObj.orders[0] },
@@ -97,7 +84,7 @@ describe('CatererOrderDetails', () => {
     expect(wrapper.find('.success').text()).toEqual('Delivered');
   });
 
-  it('renders canceled order', () => {
+  it('should render a canceled order correctly', () => {
     const newStore = mockStore({
       ...initialState,
       singleOrder: { ...initialState.singleOrder, item: caterersOrdersObj.orders[3] },
@@ -116,7 +103,7 @@ describe('CatererOrderDetails', () => {
     expect(wrapper.find('.danger').text()).toEqual('Canceled');
   });
 
-  it('renders pending order and delivers pending order', () => {
+  it('should render a pending order correctly and show a button to deliver the order', () => {
     const newStore = mockStore({
       ...initialState,
       singleOrder: { ...initialState.singleOrder, item: caterersOrdersObj.orders[2] },
@@ -137,7 +124,7 @@ describe('CatererOrderDetails', () => {
     expect(wrapper.find('button.warning').text()).toEqual('Deliver');
   });
 
-  it('renders connected component', () => {
+  it('should render the connected OrderDetails component correctly', () => {
     const newStore = mockStore({
       ...initialState,
       singleOrder: { ...initialState.singleOrder, item: caterersOrdersObj.orders[0] },

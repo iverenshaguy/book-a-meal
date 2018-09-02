@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OrderSummary renders correctly 1`] = `
+exports[`OrderSummary should render OrderSummary component correctly 1`] = `
 <div
   className="order-summary"
 >

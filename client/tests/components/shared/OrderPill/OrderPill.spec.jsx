@@ -4,7 +4,7 @@ import { caterersOrdersObj, customersOrdersObj, caterer, customer } from '../../
 
 
 describe('OrderPill', () => {
-  it('renders Caterer Order correctly', () => {
+  it('should render Caterer OrderPil correctly', () => {
     const wrapper = shallow(<OrderPill
       order={caterersOrdersObj.orders[0]}
       user={caterer}
@@ -13,7 +13,7 @@ describe('OrderPill', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('renders Customer Order correctly', () => {
+  it('should render Customer OrderPill correctly', () => {
     const wrapper = shallow(<OrderPill
       order={customersOrdersObj.orders[0]}
       user={customer}
@@ -22,7 +22,7 @@ describe('OrderPill', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('renders Customer Order correctly and adds ... for more than one meal', () => {
+  it('should render Customer OrderOill correctly and add ... for more than one meal', () => {
     const wrapper = shallow(<OrderPill
       order={customersOrdersObj.orders[1]}
       user={customer}
@@ -32,7 +32,7 @@ describe('OrderPill', () => {
     expect(wrapper.find('p').text()).toEqual('1x Vegetable Sharwama and Guava Smoothie...');
   });
 
-  it('renders Customer Order correctly when status started', () => {
+  it('should render Customer OrderPill correctly when status started', () => {
     const wrapper = shallow(<OrderPill
       order={customersOrdersObj.orders[3]}
       user={customer}

@@ -7,7 +7,7 @@ describe('CatererSignupForm', () => {
     jest.clearAllMocks();
   });
 
-  it('renders correctly', () => {
+  it('should render the Caterer Signup Form correctly', () => {
     const { handlers, state } = formComponentSetup('catererSignup');
     const wrapper = shallow(<CatererSignupForm type="catererSignup" state={state} handlers={handlers} />);
 

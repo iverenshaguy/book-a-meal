@@ -26,7 +26,7 @@ class Dropdown extends Component {
 
   /**
    * @memberof Dropdown
-   * @returns {noting} nothing
+   * @returns {void}
    */
   toggleDropdownContent = () => {
     this.setState({

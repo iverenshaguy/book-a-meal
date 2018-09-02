@@ -21,7 +21,7 @@ const res = {
 const next = sinon.spy();
 
 describe('TrimValues', () => {
-  it('returns trimmed object', () => {
+  it('should return trimmed object', () => {
     TrimValues.trim(req, res, next);
 
     expect(req.body).to.deep.equal({

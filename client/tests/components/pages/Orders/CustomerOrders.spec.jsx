@@ -20,7 +20,7 @@ describe('Customer Orders', () => {
   });
 
   describe('Order Confirmation', () => {
-    it('renders correctly', () => {
+    it('should render the OrderConfirmation component correctly', () => {
       const shallowWrapper = shallow(<OrderConfirmationComponent
         user={customer}
         addOrder={jest.fn()}
@@ -30,7 +30,7 @@ describe('Customer Orders', () => {
       expect(shallowWrapper.find('OrderSummary').length).toBeTruthy();
     });
 
-    it('redirects when there are no orders', () => {
+    it('should redirect to the Menu page when there is no order to confirm', () => {
       localStorage.setItem('bookamealorder', null);
 
       const shallowWrapper = shallow(<OrderConfirmationComponent
@@ -40,9 +40,10 @@ describe('Customer Orders', () => {
       />);
 
       expect(shallowWrapper.find('Redirect')).toBeTruthy();
+      expect(shallowWrapper.find('Redirect').props().to).toEqual('/');
     });
 
-    it('renders connected component', () => {
+    it('should render the connected OrderConfirmation component correctly', () => {
       const comp = (
         <Provider store={store}>
           <OrderConfirmationContainer
@@ -56,7 +57,7 @@ describe('Customer Orders', () => {
       wrapper.unmount();
     });
 
-    it('calls handle submit on checkout when creating a new order', () => {
+    it('should call the handleSubmit method when checking of the order basket', () => {
       const addOrderMock = jest.fn();
       const editOrderMock = jest.fn();
 
@@ -80,7 +81,7 @@ describe('Customer Orders', () => {
       expect(editOrderMock).not.toHaveBeenCalled();
     });
 
-    it('calls handle submit on checkout when updating an order', () => {
+    it('should call the handleSubmit method when updating an existing order', () => {
       localStorage.setItem('bookamealorder', JSON.stringify({
         ...localStorageOrder,
         order: {
@@ -114,7 +115,7 @@ describe('Customer Orders', () => {
   });
 
   describe('Order Review', () => {
-    it('renders correctly', () => {
+    it('should render the OrderReview component correctly', () => {
       const shallowWrapper = shallow(<OrderReviewComponent
         user={customer}
       />);
@@ -122,7 +123,7 @@ describe('Customer Orders', () => {
       expect(toJson(shallowWrapper)).toMatchSnapshot();
     });
 
-    it('redirects when there are no orders', () => {
+    it('should redirect when there is no order to review', () => {
       localStorage.setItem('bookamealorder', null);
 
       const shallowWrapper = shallow(<OrderReviewComponent
@@ -132,7 +133,7 @@ describe('Customer Orders', () => {
       expect(shallowWrapper.find('Redirect')).toBeTruthy();
     });
 
-    it('handles input change on number and address change', () => {
+    it('should handle input change when number and address fields change', () => {
       const comp = (
         <Provider store={store}>
           <OrderReviewComponent
@@ -158,7 +159,7 @@ describe('Customer Orders', () => {
       expect(handleInputChange).toHaveBeenCalled();
     });
 
-    it('validates form and submits valid form', () => {
+    it('should validate the review form and submit a valid form', () => {
       const comp = (
         <Provider store={store}>
           <OrderReviewComponent
@@ -184,7 +185,7 @@ describe('Customer Orders', () => {
       expect(toggleOrderSummaryMock).toHaveBeenCalled();
     });
 
-    it('validates form and doesnt submits invalid form', () => {
+    it('should validate the review form and not submit an invalid form', () => {
       const comp = (
         <Provider store={store}>
           <OrderReviewComponent

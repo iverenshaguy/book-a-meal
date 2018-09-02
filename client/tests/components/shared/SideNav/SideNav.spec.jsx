@@ -3,31 +3,31 @@ import SideNav from '../../../../src/components/shared/SideNav';
 import { caterer } from '../../../setup/mockData';
 
 describe('SideNav', () => {
-  it('renders correctly', () => {
+  it('should render SideNav component correctly', () => {
     const shallowWrapper = shallow(<SideNav user={caterer} open={false} logout={jest.fn()} active="dashboard" />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
   });
 
-  it('renders correctly when meals tab is active', () => {
+  it('should render correctly when meals tab is active', () => {
     const shallowWrapper = shallow(<SideNav user={caterer} open={false} logout={jest.fn()} active="meals" />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
   });
 
-  it('renders correctly when menu tab is active', () => {
+  it('should render correctly when menu tab is active', () => {
     const shallowWrapper = shallow(<SideNav user={caterer} open={false} logout={jest.fn()} active="menu" />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
   });
 
-  it('renders correctly when orders tab is active', () => {
+  it('should render correctly when orders tab is active', () => {
     const shallowWrapper = shallow(<SideNav user={caterer} open={false} logout={jest.fn()} active="orders" />);
 
     expect(toJson(shallowWrapper)).toMatchSnapshot();
   });
 
-  it('toggles sidenav and handles link click when dashboard link is clicked', () => {
+  it('should toggle sidenav and handle link click when dashboard link is clicked', () => {
     const toggleSideNavMock = jest.fn();
     const pushMock = jest.fn();
 
@@ -38,7 +38,7 @@ describe('SideNav', () => {
     expect(pushMock).toHaveBeenCalledWith('/');
   });
 
-  it('toggles sidenav and handles link click when meals link is clicked', () => {
+  it('should toggle sidenav and handle link click when meals link is clicked', () => {
     const toggleSideNavMock = jest.fn();
     const pushMock = jest.fn();
 
@@ -49,7 +49,7 @@ describe('SideNav', () => {
     expect(pushMock).toHaveBeenCalledWith('/meals');
   });
 
-  it('toggles sidenav and handles link click when menu link is clicked', () => {
+  it('should toggle sidenav and handle link click when menu link is clicked', () => {
     const toggleSideNavMock = jest.fn();
     const pushMock = jest.fn();
 
@@ -60,7 +60,7 @@ describe('SideNav', () => {
     expect(pushMock).toHaveBeenCalledWith('/menu');
   });
 
-  it('toggles sidenav and handles link click when orders link is clicked', () => {
+  it('should toggle sidenav and handle link click when orders link is clicked', () => {
     const toggleSideNavMock = jest.fn();
     const pushMock = jest.fn();
 
@@ -71,7 +71,7 @@ describe('SideNav', () => {
     expect(pushMock).toHaveBeenCalledWith('/orders');
   });
 
-  it('closes SideNav when open and close icon is clicked', () => {
+  it('should close open SideNav when close icon is clicked', () => {
     const toggleSideNavMock = jest.fn();
     const wrapper = mount(<SideNav user={caterer} logout={jest.fn()} open active="orders" toggleSideNav={toggleSideNavMock} />, rrcMock.get());
 

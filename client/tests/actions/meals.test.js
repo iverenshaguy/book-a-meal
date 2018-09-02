@@ -32,81 +32,99 @@ const store = mockStore({
 });
 
 describe('Meals Actions', () => {
-  test('fetchMealsSuccess', () => {
-    const action = fetchMealsSuccess('RECEIVE_MEALS_SUCCESS', mealsObj);
+  describe('fetchMealsSuccess', () => {
+    it('should return an object with type RECEIVE_MEALS_SUCCESS', () => {
+      const action = fetchMealsSuccess('RECEIVE_MEALS_SUCCESS', mealsObj);
 
-    expect(action).toEqual({
-      type: 'RECEIVE_MEALS_SUCCESS',
-      payload: mealsObj
+      expect(action).toEqual({
+        type: 'RECEIVE_MEALS_SUCCESS',
+        payload: mealsObj
+      });
     });
   });
 
-  test('fetchMealsFailure', () => {
-    const action = fetchMealsFailure('error');
+  describe('fetchMealsFailure', () => {
+    it('should return an object with type RECEIVE_MEALS_FAILURE', () => {
+      const action = fetchMealsFailure('error');
 
-    expect(action).toEqual({
-      type: 'RECEIVE_MEALS_FAILURE',
-      payload: 'error'
+      expect(action).toEqual({
+        type: 'RECEIVE_MEALS_FAILURE',
+        payload: 'error'
+      });
     });
   });
 
-  test('setMealWorking', () => {
-    const action = setMealWorking();
+  describe('setMealWorking', () => {
+    it('should return an object with type CLEAR_MENU_ERROR', () => {
+      const action = setMealWorking();
 
-    expect(action).toEqual({
-      type: 'SET_MEAL_WORKING'
+      expect(action).toEqual({
+        type: 'SET_MEAL_WORKING'
+      });
     });
   });
 
-  test('unsetMealWorking', () => {
-    const action = unsetMealWorking();
+  describe('unsetMealWorking', () => {
+    it('should return an object with type CLEAR_MENU_ERROR', () => {
+      const action = unsetMealWorking();
 
-    expect(action).toEqual({
-      type: 'UNSET_MEAL_WORKING'
+      expect(action).toEqual({
+        type: 'UNSET_MEAL_WORKING'
+      });
     });
   });
 
-  test('addMealSuccess', () => {
-    const action = addMealSuccess(newMeal);
+  describe('addMealSuccess', () => {
+    it('should return an object with type CLEAR_MENU_ERROR', () => {
+      const action = addMealSuccess(newMeal);
 
-    expect(action).toEqual({
-      type: 'ADD_MEAL_SUCCESS',
-      payload: newMeal
+      expect(action).toEqual({
+        type: 'ADD_MEAL_SUCCESS',
+        payload: newMeal
+      });
     });
   });
 
-  test('addMealFailure', () => {
-    const action = addMealFailure('error');
+  describe('addMealFailure', () => {
+    it('should return an object with type ADD_MEAL_FAILURE', () => {
+      const action = addMealFailure('error');
 
-    expect(action).toEqual({
-      type: 'ADD_MEAL_FAILURE',
-      payload: 'error'
+      expect(action).toEqual({
+        type: 'ADD_MEAL_FAILURE',
+        payload: 'error'
+      });
     });
   });
 
-  test('editMealSuccess', () => {
-    const action = editMealSuccess({ ...newMeal, description: 'Meal' });
+  describe('editMealSuccess', () => {
+    it('should return an object with type EDIT_MEAL_SUCCESS', () => {
+      const action = editMealSuccess({ ...newMeal, description: 'Meal' });
 
-    expect(action).toEqual({
-      type: 'EDIT_MEAL_SUCCESS',
-      payload: { ...newMeal, description: 'Meal' }
+      expect(action).toEqual({
+        type: 'EDIT_MEAL_SUCCESS',
+        payload: { ...newMeal, description: 'Meal' }
+      });
     });
   });
 
-  test('editMealFailure', () => {
-    const action = editMealFailure('error');
+  describe('editMealFailure', () => {
+    it('should return an object with type EDIT_MEAL_FAILURE', () => {
+      const action = editMealFailure('error');
 
-    expect(action).toEqual({
-      type: 'EDIT_MEAL_FAILURE',
-      payload: 'error'
+      expect(action).toEqual({
+        type: 'EDIT_MEAL_FAILURE',
+        payload: 'error'
+      });
     });
   });
 
-  test('clearMealError', () => {
-    const action = clearMealError();
+  describe('clearMealError', () => {
+    it('should return an object with type CLEAR_MEAL_ERROR', () => {
+      const action = clearMealError();
 
-    expect(action).toEqual({
-      type: 'CLEAR_MEAL_ERROR'
+      expect(action).toEqual({
+        type: 'CLEAR_MEAL_ERROR'
+      });
     });
   });
 
@@ -120,7 +138,7 @@ describe('Meals Actions', () => {
         store.clearActions();
       });
 
-      it('dispatches SET_FETCHING, RECEIVE_MEALS_SUCCESS and UNSET_FETCHING on successful fetching of caterer meals', () => {
+      it('should dispatch SET_FETCHING, RECEIVE_MEALS_SUCCESS and UNSET_FETCHING on successful fetching of caterer meals', () => {
         const expectedActions = ['SET_FETCHING', 'RECEIVE_MEALS_SUCCESS', 'UNSET_FETCHING'];
 
         mockReq.onGet(`${url}/meals`).reply(200, mealsObj);
@@ -134,7 +152,7 @@ describe('Meals Actions', () => {
         });
       });
 
-      it('dispatches SET_FETCHING, RECEIVE_MEALS_SUCCESS and UNSET_FETCHING on successful fetching of caterer meals when search param is passed', () => {
+      it('should dispatch SET_FETCHING, RECEIVE_MEALS_SUCCESS and UNSET_FETCHING on successful fetching of caterer meals when search param is passed', () => {
         const expectedActions = ['SET_FETCHING', 'RECEIVE_MEALS_SUCCESS', 'UNSET_FETCHING'];
 
         mockReq.onGet(`${url}/meals?search=Rice`).reply(200, mealsObj);
@@ -148,7 +166,7 @@ describe('Meals Actions', () => {
         });
       });
 
-      it('dispatches RECEIVE_MORE_MEALS_SUCCESS and UNSET_FETCHING on successful fetching of caterer meals when metadata is provided', () => {
+      it('should dispatch RECEIVE_MORE_MEALS_SUCCESS and UNSET_FETCHING on successful fetching of caterer meals when metadata is provided', () => {
         const expectedActions = ['RECEIVE_MORE_MEALS_SUCCESS', 'UNSET_FETCHING'];
 
         mockReq.onGet(`${url}/meals?limit=5`).reply(200, mealsObj);
@@ -162,7 +180,7 @@ describe('Meals Actions', () => {
         });
       });
 
-      it('dispatches SET_FETCHING, RECEIVE_MEALS_FAILURE and UNSET_FETCHING on unsuccessful fetching', () => {
+      it('should dispatch SET_FETCHING, RECEIVE_MEALS_FAILURE and UNSET_FETCHING on unsuccessful fetching', () => {
         const expectedActions = ['SET_FETCHING', 'RECEIVE_MEALS_FAILURE', 'UNSET_FETCHING'];
 
         mockReq.onGet(`${url}/meals`).reply(401, { error: 'Error' });
@@ -177,7 +195,7 @@ describe('Meals Actions', () => {
         });
       });
 
-      it('dispatches SET_MEAL_WORKING, ADD_MEAL_SUCCESS, UNSET_MEAL_WORKING and TOGGLE_MODAL on successful meal addition', () => {
+      it('should dispatch SET_MEAL_WORKING, ADD_MEAL_SUCCESS, UNSET_MEAL_WORKING and TOGGLE_MODAL on successful meal addition', () => {
         const expectedActions = ['SET_MEAL_WORKING', 'ADD_MEAL_SUCCESS', 'UNSET_MEAL_WORKING', 'TOGGLE_MODAL'];
 
         mockReq.onPost(`${url}/meals`).reply(200, mealsObj.meals);
@@ -191,7 +209,7 @@ describe('Meals Actions', () => {
         });
       });
 
-      it('dispatches SET_MEAL_WORKING, ADD_MEAL_SUCCESS and UNSET_MEAL_WORKING on unsuccessful meal addition', () => {
+      it('should dispatch SET_MEAL_WORKING, ADD_MEAL_SUCCESS and UNSET_MEAL_WORKING on unsuccessful meal addition', () => {
         const expectedActions = ['SET_MEAL_WORKING', 'ADD_MEAL_FAILURE', 'UNSET_MEAL_WORKING'];
 
         mockReq.onPost(`${url}/meals`).reply(401, { error: 'Error' });
@@ -206,7 +224,7 @@ describe('Meals Actions', () => {
         });
       });
 
-      it('dispatches SET_MEAL_WORKING, EDIT_MEAL_SUCCESS, UNSET_MEAL_WORKING and TOGGLE_MODAL on successful meal edit when toggleEditModal is true', () => {
+      it('should dispatch SET_MEAL_WORKING, EDIT_MEAL_SUCCESS, UNSET_MEAL_WORKING and TOGGLE_MODAL on successful meal edit when toggleEditModal is true', () => {
         const expectedActions = ['SET_MEAL_WORKING', 'EDIT_MEAL_SUCCESS', 'UNSET_MEAL_WORKING', 'TOGGLE_MODAL'];
 
         mockReq.onPut(`${url}/meals/${newMeal.id}`).reply(200, { ...newMeal, price: '2300.00' });
@@ -220,7 +238,7 @@ describe('Meals Actions', () => {
         });
       });
 
-      it('dispatches SET_MEAL_WORKING, EDIT_MEAL_SUCCESS, UNSET_MEAL_WORKING and TOGGLE_MODAL on successful meal edit when toggleEditModal is false', () => {
+      it('should dispatch SET_MEAL_WORKING, EDIT_MEAL_SUCCESS, UNSET_MEAL_WORKING and TOGGLE_MODAL on successful meal edit when toggleEditModal is false', () => {
         const expectedActions = ['SET_MEAL_WORKING', 'EDIT_MEAL_SUCCESS', 'UNSET_MEAL_WORKING', 'TOGGLE_MODAL'];
 
         mockReq.onPut(`${url}/meals/${newMeal.id}`).reply(200, { ...newMeal, price: '2300.00' });
@@ -234,7 +252,7 @@ describe('Meals Actions', () => {
         });
       });
 
-      it('dispatches SET_MEAL_WORKING, EDIT_MEAL_FAILURE and UNSET_MEAL_WORKING on unsuccessful meal edit', () => {
+      it('should dispatch SET_MEAL_WORKING, EDIT_MEAL_FAILURE and UNSET_MEAL_WORKING on unsuccessful meal edit', () => {
         const expectedActions = ['SET_MEAL_WORKING', 'EDIT_MEAL_FAILURE', 'UNSET_MEAL_WORKING'];
 
         mockReq.onPut(`${url}/meals/${newMeal.id}`).reply(401, { error: 'Error' });
@@ -249,7 +267,7 @@ describe('Meals Actions', () => {
         });
       });
 
-      it('dispatches SET_MEAL_WORKING, DELETE_MEAL_SUCCESS, UNSET_MEAL_WORKING and TOGGLE_MODAL on successful meal delete', () => {
+      it('should dispatch SET_MEAL_WORKING, DELETE_MEAL_SUCCESS, UNSET_MEAL_WORKING and TOGGLE_MODAL on successful meal delete', () => {
         const expectedActions = ['SET_MEAL_WORKING', 'DELETE_MEAL_SUCCESS', 'UNSET_MEAL_WORKING', 'TOGGLE_MODAL'];
 
         mockReq.onDelete(`${url}/meals/${newMeal.id}`).reply(200);
@@ -265,7 +283,7 @@ describe('Meals Actions', () => {
         });
       });
 
-      it('dispatches SET_MEAL_WORKING, DELETE_MEAL_FAILURE and UNSET_MEAL_WORKING on unsuccessful meal delete', () => {
+      it('should dispatch SET_MEAL_WORKING, DELETE_MEAL_FAILURE and UNSET_MEAL_WORKING on unsuccessful meal delete', () => {
         const expectedActions = ['SET_MEAL_WORKING', 'DELETE_MEAL_FAILURE', 'UNSET_MEAL_WORKING'];
 
         mockReq.onDelete(`${url}/meals/${newMeal.id}`).reply(401, { error: 'Error' });

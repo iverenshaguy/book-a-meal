@@ -63,7 +63,7 @@ describe('HOC: checkRole', () => {
       };
     };
 
-    it('renders passed in MockComponent when user role is caterer', () => {
+    it('should render passed in MockComponent when user role is caterer', () => {
       const { catererWrapper, MockComponent } = setup();
 
       expect(catererWrapper.find(Redirect).length).toBeFalsy();
@@ -116,7 +116,7 @@ describe('HOC: checkRole', () => {
       };
     };
 
-    it('renders passed in MockComponent when user role is customer', () => {
+    it('should render passed in MockComponent when user role is customer', () => {
       const { customerWrapper, MockComponent } = setup();
 
       expect(customerWrapper.find(Redirect).length).toBeFalsy();

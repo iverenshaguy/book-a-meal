@@ -6,21 +6,21 @@ describe('SearchForm', () => {
     jest.clearAllMocks();
   });
 
-  it('renders correctly when type is customer', () => {
+  it('should render the SearchForm component correctly when type prop is customer', () => {
     const wrapper = shallow(<SearchForm type="customer" fetchItems={jest.fn()} />);
 
     expect(toJson(wrapper)).toMatchSnapshot();
     expect(wrapper.find('.search-btn').length).toEqual(1);
   });
 
-  it('renders correctly when type is caterer', () => {
+  it('should render the SearchForm component correctly when type prop is caterer', () => {
     const wrapper = shallow(<SearchForm type="caterer" fetchItems={jest.fn()} />);
 
     expect(toJson(wrapper)).toMatchSnapshot();
     expect(wrapper.find('.search-btn').length).toEqual(0);
   });
 
-  it('changes search state when search form in changed', () => {
+  it('should change the search state when search form in changed', () => {
     const wrapper = mount(<SearchForm type="caterer" fetchItems={jest.fn()} />);
     const event = { target: { value: 'Rice' } };
 
@@ -29,7 +29,7 @@ describe('SearchForm', () => {
     expect(wrapper.state().searchTerm).toEqual('Rice');
   });
 
-  it('calls setTimeout after search form change', () => {
+  it('should call setTimeout after search form change', () => {
     jest.useFakeTimers();
 
     const wrapper = mount(<SearchForm type="caterer" fetchItems={jest.fn()} />);
@@ -44,7 +44,7 @@ describe('SearchForm', () => {
   });
 
 
-  it('calls clearTimeout if typingTimeout is more than zero', () => {
+  it('should call clearTimeout if typingTimeout is more than zero', () => {
     jest.useFakeTimers();
 
     const wrapper = mount(<SearchForm type="caterer" fetchItems={jest.fn()} />);
@@ -57,7 +57,7 @@ describe('SearchForm', () => {
     expect(clearTimeout).toHaveBeenCalledWith(123);
   });
 
-  it('calls fetchItems 300 milliseconds after search form change', () => {
+  it('should call fetchItems 300 milliseconds after search form change', () => {
     jest.useFakeTimers();
 
     const fetchItemsMock = jest.fn();

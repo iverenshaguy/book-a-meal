@@ -23,14 +23,14 @@ const next = sinon.stub();
 
 describe('Authorization Handler', () => {
   describe('Admin Auth', () => {
-    it('sends error 401 for unauthenticated user', () => {
+    it('should send error 401 for unauthenticated user', () => {
       const unAuthReq = { headers: { authorization: '' } };
       Authorization.authorize(unAuthReq, res, next);
 
       assert(status.calledWith(401));
     });
 
-    it('sends error 403 for forbidden user ie user that\'s not admin', () => {
+    it('should send error 403 for forbidden user ie user that\'s not admin', () => {
       const forbReq = { role: 'user', headers: { authorization: emiolaToken } };
       const authorization = new Authorization('caterer');
       authorization.authorizeRole(forbReq, res, next);
@@ -38,7 +38,7 @@ describe('Authorization Handler', () => {
       assert(status.calledWith(403));
     });
 
-    it('calls next for authenticated caterer', () => {
+    it('should call next for authenticated caterer', () => {
       const authReq = { role: 'caterer', headers: { authorization: foodCircleToken } };
       const authorization = new Authorization('caterer');
       authorization.authorizeRole(authReq, res, next);
@@ -48,28 +48,28 @@ describe('Authorization Handler', () => {
   });
 
   describe('User Auth', () => {
-    it('sends error 401 for wrong token secret', () => {
+    it('should send error 401 for wrong token secret', () => {
       const unAuthReq = { headers: { authorization: wrongSecretToken } };
       Authorization.authorize(unAuthReq, res, next);
 
       assert(status.calledWith(401));
     });
 
-    it('sends error 403 for invalid token', () => {
+    it('should send error 403 for invalid token', () => {
       const unAuthReq = { headers: { authorization: invalidToken } };
       Authorization.authorize(unAuthReq, res, next);
 
       assert(status.calledWith(403));
     });
 
-    it('sends error 401 for expired token', () => {
+    it('should send error 401 for expired token', () => {
       const unAuthReq = { headers: { authorization: expiredToken } };
       Authorization.authorize(unAuthReq, res, next);
 
       assert(status.calledWith(401));
     });
 
-    it('calls next for authenticated user', () => {
+    it('should call next for authenticated user', () => {
       const authReq = { role: 'user', headers: { authorization: emiolaToken } };
       const authorization = new Authorization('user');
       authorization.authorizeRole(authReq, res, next);

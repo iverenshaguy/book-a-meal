@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SigninForm renders correctly 1`] = `
+exports[`SigninForm should render SigninForm correctly 1`] = `
 <React.Fragment>
   <RenderInput
     handleBlur={[MockFunction]}

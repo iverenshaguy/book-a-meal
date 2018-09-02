@@ -36,7 +36,7 @@ class Meals extends Component {
    * @returns {JSX} Meals Component
    */
   componentDidMount() {
-    if (!this.props.metadata.pages) this.props.fetchMeals();
+    this.props.fetchMeals();
   }
 
   /**

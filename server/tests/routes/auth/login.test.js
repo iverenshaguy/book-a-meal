@@ -6,7 +6,7 @@ import { login as loginDetails } from '../../utils/mockData';
 const { existingUser, nonExistingUser, invalidUser } = loginDetails;
 
 describe('Signin Routes', () => {
-  it('signs in a user into the app and returns user + token', (done) => {
+  it('should sign in a user into the app and returns user + token', (done) => {
     request.agent(app)
       .post('/api/v1/auth/signin')
       .send(existingUser)
@@ -22,7 +22,7 @@ describe('Signin Routes', () => {
       });
   });
 
-  it('signs in a caterer into the app and returns user + token', (done) => {
+  it('should sign in a caterer into the app and returns user + token', (done) => {
     request.agent(app)
       .post('/api/v1/auth/signin')
       .send({ email: 'belly@fill.com', password: 'bellyfill' })
@@ -38,7 +38,7 @@ describe('Signin Routes', () => {
       });
   });
 
-  it('doesn\'t signin a user that does not exist', (done) => {
+  it('should not sign in a user that does not exist', (done) => {
     request.agent(app)
       .post('/api/v1/auth/signin')
       .send(nonExistingUser)
@@ -52,7 +52,7 @@ describe('Signin Routes', () => {
       });
   });
 
-  it('doesn\'t signin an user existing user with a wrong password', (done) => {
+  it('should not sign in an user existing user with a wrong password', (done) => {
     request.agent(app)
       .post('/api/v1/auth/signin')
       .send({ ...existingUser, password: 'kowo' })
@@ -66,7 +66,7 @@ describe('Signin Routes', () => {
       });
   });
 
-  it('returns validation errors for wrong input', (done) => {
+  it('should return validation errors for wrong input', (done) => {
     request.agent(app)
       .post('/api/v1/auth/signin')
       .send(invalidUser)

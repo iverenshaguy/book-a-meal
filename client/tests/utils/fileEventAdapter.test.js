@@ -12,7 +12,7 @@ describe('Utils: fileEventAdapter', () => {
     jest.clearAllMocks();
   });
 
-  test('works as expected', () => {
+  it('should adapt file data to preview source', () => {
     const preview = { src: '' };
 
     fileEventAdapter(preview)(event);

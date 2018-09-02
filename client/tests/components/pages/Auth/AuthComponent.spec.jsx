@@ -53,18 +53,18 @@ describe('Auth', () => {
     jest.clearAllMocks();
   });
 
-  it('renders signin form correctly', () => {
+  it('should render Signin Form component correctly', () => {
     const wrapper = shallow(<AuthComponent {...props} location={signinLocation} type="signin" />);
 
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('renders customer\'s signup form correctly', () => {
+  it('should render customer\'s signup form component correctly', () => {
     const wrapper = shallow(<AuthComponent {...props} location={customerSignupLocation} type="signup" />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('renders connected signin component correctly', () => {
+  it('should render signin component that is connected to the redux store correctly', () => {
     const comp = (<Provider store={unAuthStore}><AuthContainer {...props} location={signinLocation} type="signin" /></Provider>);
     const mountedWrapper = mount(comp, rrcMock.get());
 
@@ -72,36 +72,38 @@ describe('Auth', () => {
     mountedWrapper.unmount();
   });
 
-  it('sets state on mount: signin', () => {
+  it('should set the form component state to signin when the type prop equals signin', () => {
     const comp = (<AuthComponent {...props} location={customerSignupLocation} type="signin" />);
     const wrapper = shallow(comp);
 
     expect(wrapper.state().type).toEqual('signin');
   });
 
-  it('sets state on mount: customerSignup', () => {
+  it('should set the form component state to customerSignup when the type prop equals customerSignup', () => {
     const comp = (<AuthComponent {...props} location={customerSignupLocation} type="signup" />);
     const wrapper = shallow(comp);
 
     expect(wrapper.state().type).toEqual('customerSignup');
   });
 
-  it('sets state on mount: catererSignup', () => {
+  it('should set the form component state to catererSignup when the type prop equals catererSignup', () => {
     const comp = (<AuthComponent {...props} location={catererSignupLocation} type="signup" />);
     const wrapper = shallow(comp);
 
     expect(wrapper.state().type).toEqual('catererSignup');
   });
 
-  it('renders caterer\'s signup form correctly', () => {
+  it('should render caterer\'s signup form correctly when role query is caterer', () => {
     const wrapper = shallow(<AuthComponent {...props} location={catererSignupLocation} type="signup" />);
+
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('sets state on mount: catererSignup', () => {
+  it('should redirect use to the homepage when the user is already authenticated', () => {
     const comp = (<AuthContainer store={store} {...props} location={catererSignupLocation} type="catererSignup" />);
     const wrapper = mount(comp, rrcMock.get());
 
     expect(wrapper.find('Redirect')).toBeTruthy();
+    expect(wrapper.find('Redirect').props().to).toEqual('/');
   });
 });

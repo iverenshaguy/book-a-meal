@@ -13,7 +13,7 @@ const {
 
 describe('Signup Routes', () => {
   describe('User Signup', () => {
-    it('registers a new user and returns user data + token for valid data', (done) => {
+    it('should register a new user and returns user data + token for valid data', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
         .send(rightUserDetails)
@@ -29,7 +29,7 @@ describe('Signup Routes', () => {
         });
     });
 
-    it('returns validation errors for wrong input', (done) => {
+    it('should return validation errors for wrong input', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
         .send(wrongUserDetails)
@@ -49,7 +49,7 @@ describe('Signup Routes', () => {
         });
     });
 
-    it('returns validation errors for invalid username data', (done) => {
+    it('should return validation errors for invalid username data', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
         .send({ role: 'customer', firstname: '6848jkkl()', lastname: '6848jkkl()' })
@@ -64,7 +64,7 @@ describe('Signup Routes', () => {
         });
     });
 
-    it('returns validation errors for extra length firstname data', (done) => {
+    it('should return validation errors for extra length firstname data', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
         .send({ role: 'customer', firstname: longName, lastname: longName })
@@ -79,7 +79,7 @@ describe('Signup Routes', () => {
         });
     });
 
-    it('returns validation errors for wrong role', (done) => {
+    it('should return validation errors for wrong role', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
         .send(wrongRoleUserDetails)
@@ -94,7 +94,7 @@ describe('Signup Routes', () => {
         });
     });
 
-    it('returns validation errors for no role', (done) => {
+    it('should return validation errors for no role', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
         .send({ role: '' })
@@ -109,7 +109,7 @@ describe('Signup Routes', () => {
         });
     });
 
-    it('returns error for already taken email address', (done) => {
+    it('should return error for already taken email address', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
         .send(Object.assign({}, rightUserDetails, { email: 'iveren@shaguy.com' }))
@@ -125,7 +125,7 @@ describe('Signup Routes', () => {
   });
 
   describe('Caterer Signup', () => {
-    it('registers a new user and returns user data + token for valid data', (done) => {
+    it('should register a new user and returns user data + token for valid data', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
         .send(rightCatererDetails)
@@ -145,7 +145,7 @@ describe('Signup Routes', () => {
         });
     });
 
-    it('returns validation errors for wrong input', (done) => {
+    it('should return validation errors for wrong input', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
         .send(wrongCatererDetails)
@@ -166,7 +166,7 @@ describe('Signup Routes', () => {
         });
     });
 
-    it('returns validation errors for wrong input: long length', (done) => {
+    it('should return validation errors for wrong input: long length', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
         .send(wrongLengthCatererDetails)
@@ -184,12 +184,11 @@ describe('Signup Routes', () => {
         });
     });
 
-    it('returns validation errors for wrong input: invalid format', (done) => {
+    it('should return validation errors for wrong input: invalid format', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
         .send(invalidCatererDetails)
         .end((err, res) => {
-          // userToken = res.body.token;
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body.errors.businessName.msg)
@@ -204,7 +203,7 @@ describe('Signup Routes', () => {
         });
     });
 
-    it('returns error for already taken email address', (done) => {
+    it('should return error for already taken email address', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
         .send({ ...rightCatererDetails, email: 'food@circle.com', businessName: 'A Business' })
@@ -218,7 +217,7 @@ describe('Signup Routes', () => {
         });
     });
 
-    it('returns error for already taken business name', (done) => {
+    it('should return error for already taken business name', (done) => {
       request.agent(app)
         .post('/api/v1/auth/signup')
         .send({ ...rightCatererDetails, email: 'new@circle.com' })

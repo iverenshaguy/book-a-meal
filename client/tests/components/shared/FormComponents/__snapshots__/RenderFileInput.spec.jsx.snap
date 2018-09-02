@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Form Components: RenderFileInput renders correctly 1`] = `
+exports[`Form Components: RenderFileInput should render correctly 1`] = `
 <div
   className="form-input form-img-input"
 >
@@ -30,7 +30,7 @@ exports[`Form Components: RenderFileInput renders correctly 1`] = `
 </div>
 `;
 
-exports[`Form Components: RenderFileInput shows error when found 1`] = `
+exports[`Form Components: RenderFileInput should show error when there is an upload error 1`] = `
 <div
   className="form-input form-img-input"
 >
@@ -65,7 +65,7 @@ exports[`Form Components: RenderFileInput shows error when found 1`] = `
 </div>
 `;
 
-exports[`Form Components: RenderFileInput shows preloader when uploading 1`] = `
+exports[`Form Components: RenderFileInput should show preloader when uploading 1`] = `
 <div
   className="form-input form-img-input"
 >

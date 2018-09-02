@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
+exports[`Orders Caterer Orders should render Caterer Orders component correctly 1`] = `
 <React.Fragment>
   <Connect(View)
     showTime={true}
@@ -212,7 +212,38 @@ exports[`Orders Caterer Orders renders Preloader when fetching 1`] = `
 </React.Fragment>
 `;
 
-exports[`Orders Caterer Orders renders connected component 1`] = `
+exports[`Orders Caterer Orders should render a message when there are no orders to show 1`] = `
+<React.Fragment>
+  <Connect(View)
+    showTime={true}
+    type="orders"
+  >
+    <div
+      className="main-wrapper dashboard orders"
+    >
+      <div
+        className="order-history"
+      >
+        <div
+          className="page-heading"
+        >
+          <h2>
+            Order History
+          </h2>
+          <hr />
+        </div>
+        <p
+          className="text-center info"
+        >
+          You Have No Orders
+        </p>
+      </div>
+    </div>
+  </Connect(View)>
+</React.Fragment>
+`;
+
+exports[`Orders Caterer Orders should render the connected Caterer Orders component correctly 1`] = `
 <Provider
   store={
     Object {
@@ -344,380 +375,7 @@ exports[`Orders Caterer Orders renders connected component 1`] = `
 </Provider>
 `;
 
-exports[`Orders Caterer Orders renders correctly when not fetching 1`] = `
-<React.Fragment>
-  <Connect(View)
-    showTime={true}
-    type="orders"
-  >
-    <div
-      className="main-wrapper dashboard orders"
-    >
-      <div
-        className="order-history"
-      >
-        <div
-          className="page-heading"
-        >
-          <h2>
-            Order History
-          </h2>
-          <hr />
-        </div>
-        <div
-          className="pills"
-        >
-          <InfiniteLoader
-            height={null}
-            items={
-              Array [
-                <OrderPill
-                  order={
-                    Object {
-                      "createdAt": "2018-04-06T00:47:03.687Z",
-                      "customer": Object {
-                        "email": "emiola@olasanmi.com",
-                        "firstname": "Emiola",
-                        "lastname": "Olasanmi",
-                      },
-                      "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "080xxxxxxxx",
-                      "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
-                      "meals": Array [
-                        Object {
-                          "delivered": true,
-                          "description": "Sharwama contains no animal products, perfect for dieters",
-                          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                          "price": "1200.00",
-                          "quantity": 1,
-                          "title": "Vegetable Sharwama and Guava Smoothie",
-                          "vegetarian": true,
-                        },
-                      ],
-                      "status": "delivered",
-                      "updatedAt": "2018-04-06T00:47:03.687Z",
-                    }
-                  }
-                  user={
-                    Object {
-                      "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-                      "businessName": "Food Circle",
-                      "email": "food@circle.com",
-                      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                      "phoneNo": "08166557788",
-                      "role": "caterer",
-                    }
-                  }
-                />,
-                <OrderPill
-                  order={
-                    Object {
-                      "createdAt": "2018-05-01T00:47:03.687Z",
-                      "customer": Object {
-                        "email": "olisa@emodi.com",
-                        "firstname": "Olisa",
-                        "lastname": "Emodi",
-                      },
-                      "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "080xxxxxxxx",
-                      "id": "ce228787-f939-40a0-bfd3-6607ca8d2e53",
-                      "meals": Array [
-                        Object {
-                          "delivered": true,
-                          "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
-                          "id": "baa0412a-d167-4d2b-b1d8-404cb8f02631",
-                          "imageUrl": "https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg",
-                          "price": "2000.00",
-                          "quantity": 2,
-                          "title": "Semo/Wheat and Egusi Soup",
-                          "vegetarian": false,
-                        },
-                        Object {
-                          "delivered": true,
-                          "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
-                          "id": "a3c35e8f-da7a-4113-aa01-a9c0fc088539",
-                          "imageUrl": "http://www.kalakutahgrills.com/wp-content/uploads/2017/02/my-pics-group-3-007.jpg",
-                          "price": "2000.00",
-                          "quantity": 2,
-                          "title": "Eba and Ogbono Soup",
-                          "vegetarian": false,
-                        },
-                      ],
-                      "status": "delivered",
-                      "updatedAt": "2018-05-01T00:47:03.687Z",
-                    }
-                  }
-                  user={
-                    Object {
-                      "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-                      "businessName": "Food Circle",
-                      "email": "food@circle.com",
-                      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                      "phoneNo": "08166557788",
-                      "role": "caterer",
-                    }
-                  }
-                />,
-                <OrderPill
-                  order={
-                    Object {
-                      "createdAt": "2018-05-29T00:47:03.687Z",
-                      "customer": Object {
-                        "email": "emiola@olasanmi.com",
-                        "firstname": "Emiola",
-                        "lastname": "Olasanmi",
-                      },
-                      "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "080xxxxxxxx",
-                      "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
-                      "meals": Array [
-                        Object {
-                          "delivered": false,
-                          "description": "Sharwama contains no animal products, perfect for dieters",
-                          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                          "price": "1200.00",
-                          "quantity": 1,
-                          "title": "Vegetable Sharwama and Guava Smoothie",
-                          "vegetarian": true,
-                        },
-                      ],
-                      "status": "pending",
-                      "updatedAt": "2018-05-29T00:47:03.687Z",
-                    }
-                  }
-                  user={
-                    Object {
-                      "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-                      "businessName": "Food Circle",
-                      "email": "food@circle.com",
-                      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                      "phoneNo": "08166557788",
-                      "role": "caterer",
-                    }
-                  }
-                />,
-                <OrderPill
-                  order={
-                    Object {
-                      "createdAt": "2018-05-27T00:47:03.687Z",
-                      "customer": Object {
-                        "email": "emiola@olasanmi.com",
-                        "firstname": "Emiola",
-                        "lastname": "Olasanmi",
-                      },
-                      "deliveryAddress": "4, Church Street, Yaba",
-                      "deliveryPhoneNo": "080xxxxxxxx",
-                      "id": "fb097bde-5959-45ff-8e21-51184fa60c35",
-                      "meals": Array [
-                        Object {
-                          "delivered": false,
-                          "description": "Sharwama contains no animal products, perfect for dieters",
-                          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                          "price": "1200.00",
-                          "quantity": 1,
-                          "title": "Vegetable Sharwama and Guava Smoothie",
-                          "vegetarian": true,
-                        },
-                      ],
-                      "status": "canceled",
-                      "updatedAt": "2018-05-27T00:47:03.687Z",
-                    }
-                  }
-                  user={
-                    Object {
-                      "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-                      "businessName": "Food Circle",
-                      "email": "food@circle.com",
-                      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                      "phoneNo": "08166557788",
-                      "role": "caterer",
-                    }
-                  }
-                />,
-              ]
-            }
-            loadMore={[Function]}
-            metadata={
-              Object {
-                "next": "next",
-                "pages": 2,
-                "prev": "prev",
-                "total": 5,
-              }
-            }
-          />
-        </div>
-      </div>
-    </div>
-  </Connect(View)>
-</React.Fragment>
-`;
-
-exports[`Orders Caterer Orders renders message when not fetching and there are no orders 1`] = `
-<React.Fragment>
-  <Connect(View)
-    showTime={true}
-    type="orders"
-  >
-    <div
-      className="main-wrapper dashboard orders"
-    >
-      <div
-        className="order-history"
-      >
-        <div
-          className="page-heading"
-        >
-          <h2>
-            Order History
-          </h2>
-          <hr />
-        </div>
-        <p
-          className="text-center info"
-        >
-          You Have No Orders
-        </p>
-      </div>
-    </div>
-  </Connect(View)>
-</React.Fragment>
-`;
-
-exports[`Orders Customer Orders renders connected component 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Connect(Orders)
-    user={
-      Object {
-        "email": "emiola@olasanmi.com",
-        "firstname": "Emiola",
-        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-        "lastname": "Olasanmi",
-        "role": "customer",
-      }
-    }
-  >
-    <Orders
-      deliverOrder={[Function]}
-      fetchOrders={[Function]}
-      metadata={Object {}}
-      orders={Array []}
-      user={
-        Object {
-          "email": "emiola@olasanmi.com",
-          "firstname": "Emiola",
-          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-          "lastname": "Olasanmi",
-          "role": "customer",
-        }
-      }
-    >
-      <Connect(View)
-        showTime={true}
-        type="orders"
-      >
-        <View
-          isFetching={false}
-          logout={[Function]}
-          showTime={true}
-          type="orders"
-          updateCurrentDate={null}
-          uploading={false}
-          user={
-            Object {
-              "firstname": "Dave",
-              "lastname": "Smith",
-            }
-          }
-        >
-          <div
-            className="admin"
-          >
-            <Header
-              active="orders"
-              dateType="orders"
-              logout={[Function]}
-              showTime={true}
-              type={null}
-              updateCurrentDate={null}
-              user={
-                Object {
-                  "firstname": "Dave",
-                  "lastname": "Smith",
-                }
-              }
-            >
-              <div
-                className="header"
-              >
-                <div
-                  className="navbar"
-                />
-              </div>
-            </Header>
-            <Connect(Modal)
-              isFetching={false}
-              logout={[Function]}
-              showTime={true}
-              type="orders"
-              updateCurrentDate={null}
-              uploading={false}
-              user={
-                Object {
-                  "firstname": "Dave",
-                  "lastname": "Smith",
-                }
-              }
-            >
-              <Modal
-                isFetching={false}
-                logout={[Function]}
-                open={false}
-                showTime={true}
-                toggleModal={[Function]}
-                type={null}
-                updateCurrentDate={null}
-                uploading={false}
-                user={
-                  Object {
-                    "firstname": "Dave",
-                    "lastname": "Smith",
-                  }
-                }
-              />
-            </Connect(Modal)>
-            <Footer>
-              <div
-                className="footer"
-              >
-                <p>
-                  © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
-                </p>
-              </div>
-            </Footer>
-          </div>
-        </View>
-      </Connect(View)>
-    </Orders>
-  </Connect(Orders)>
-</Provider>
-`;
-
-exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
+exports[`Orders Customer Orders should render Customer Orders component correctly 1`] = `
 <React.Fragment>
   <Connect(View)
     showTime={true}
@@ -935,7 +593,7 @@ exports[`Orders Customer Orders renders correctly when not fetching 1`] = `
 </React.Fragment>
 `;
 
-exports[`Orders Customer Orders renders message when not fetching and there are no orders 1`] = `
+exports[`Orders Customer Orders should render a message when there are no orders to show 1`] = `
 <React.Fragment>
   <Connect(View)
     showTime={true}
@@ -964,4 +622,134 @@ exports[`Orders Customer Orders renders message when not fetching and there are 
     </div>
   </Connect(View)>
 </React.Fragment>
+`;
+
+exports[`Orders Customer Orders should render the connected Customer Orders component correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Orders)
+    user={
+      Object {
+        "email": "emiola@olasanmi.com",
+        "firstname": "Emiola",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "lastname": "Olasanmi",
+        "role": "customer",
+      }
+    }
+  >
+    <Orders
+      deliverOrder={[Function]}
+      fetchOrders={[Function]}
+      metadata={Object {}}
+      orders={Array []}
+      user={
+        Object {
+          "email": "emiola@olasanmi.com",
+          "firstname": "Emiola",
+          "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+          "lastname": "Olasanmi",
+          "role": "customer",
+        }
+      }
+    >
+      <Connect(View)
+        showTime={true}
+        type="orders"
+      >
+        <View
+          isFetching={false}
+          logout={[Function]}
+          showTime={true}
+          type="orders"
+          updateCurrentDate={null}
+          uploading={false}
+          user={
+            Object {
+              "firstname": "Dave",
+              "lastname": "Smith",
+            }
+          }
+        >
+          <div
+            className="admin"
+          >
+            <Header
+              active="orders"
+              dateType="orders"
+              logout={[Function]}
+              showTime={true}
+              type={null}
+              updateCurrentDate={null}
+              user={
+                Object {
+                  "firstname": "Dave",
+                  "lastname": "Smith",
+                }
+              }
+            >
+              <div
+                className="header"
+              >
+                <div
+                  className="navbar"
+                />
+              </div>
+            </Header>
+            <Connect(Modal)
+              isFetching={false}
+              logout={[Function]}
+              showTime={true}
+              type="orders"
+              updateCurrentDate={null}
+              uploading={false}
+              user={
+                Object {
+                  "firstname": "Dave",
+                  "lastname": "Smith",
+                }
+              }
+            >
+              <Modal
+                isFetching={false}
+                logout={[Function]}
+                open={false}
+                showTime={true}
+                toggleModal={[Function]}
+                type={null}
+                updateCurrentDate={null}
+                uploading={false}
+                user={
+                  Object {
+                    "firstname": "Dave",
+                    "lastname": "Smith",
+                  }
+                }
+              />
+            </Connect(Modal)>
+            <Footer>
+              <div
+                className="footer"
+              >
+                <p>
+                  © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+                </p>
+              </div>
+            </Footer>
+          </div>
+        </View>
+      </Connect(View)>
+    </Orders>
+  </Connect(Orders)>
+</Provider>
 `;

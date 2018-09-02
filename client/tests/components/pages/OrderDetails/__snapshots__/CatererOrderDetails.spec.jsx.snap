@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CatererOrderDetails renders MiniPreloader when delivering 1`] = `
+exports[`CatererOrderDetails should render MiniPreloader when delivering an order 1`] = `
 <Connect(View)
   showTime={true}
   type="orders"
@@ -41,7 +41,7 @@ exports[`CatererOrderDetails renders MiniPreloader when delivering 1`] = `
 </Connect(View)>
 `;
 
-exports[`CatererOrderDetails renders Preloader when fetching 1`] = `
+exports[`CatererOrderDetails should render correctly when not fetching 1`] = `
 <Connect(View)
   showTime={true}
   type="orders"
@@ -142,7 +142,428 @@ exports[`CatererOrderDetails renders Preloader when fetching 1`] = `
 </Connect(View)>
 `;
 
-exports[`CatererOrderDetails renders connected component 1`] = `
+exports[`CatererOrderDetails should render message when an order doesn't exist 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(CatererOrderDetails)
+    match={
+      Object {
+        "params": Object {
+          "id": "fb097bde-5959-45ff",
+        },
+      }
+    }
+    order={null}
+  >
+    <CatererOrderDetails
+      deliverOrder={[Function]}
+      delivering={false}
+      fetchOrder={[Function]}
+      match={
+        Object {
+          "params": Object {
+            "id": "fb097bde-5959-45ff",
+          },
+        }
+      }
+      order={null}
+    >
+      <Connect(View)
+        showTime={true}
+        type="orders"
+      >
+        <View
+          isFetching={false}
+          logout={[Function]}
+          showTime={true}
+          type="orders"
+          updateCurrentDate={null}
+          uploading={false}
+          user={
+            Object {
+              "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+              "businessName": "Food Circle",
+              "email": "food@circle.com",
+              "firstname": "Dave",
+              "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+              "lastname": "Smith",
+              "phoneNo": "08166557788",
+              "role": "caterer",
+            }
+          }
+        >
+          <div
+            className="admin"
+          >
+            <Header
+              active="orders"
+              dateType="orders"
+              logout={[Function]}
+              showTime={true}
+              type="caterer"
+              updateCurrentDate={null}
+              user={
+                Object {
+                  "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+                  "businessName": "Food Circle",
+                  "email": "food@circle.com",
+                  "firstname": "Dave",
+                  "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                  "lastname": "Smith",
+                  "phoneNo": "08166557788",
+                  "role": "caterer",
+                }
+              }
+            >
+              <div
+                className="header"
+              >
+                <div
+                  className="navbar"
+                >
+                  <Connect(CatererHeader)
+                    dateType="orders"
+                    showTime={true}
+                    updateCurrentDate={null}
+                  >
+                    <CatererHeader
+                      currentDay="1970-01-01"
+                      dateType="orders"
+                      showTime={true}
+                      toggleSideNav={[Function]}
+                      updateCurrentDate={null}
+                    >
+                      <div
+                        className="menu-control d-none-md"
+                      >
+                        <Link
+                          className="d-none-md"
+                          clickHandler={[Function]}
+                          dataTip={null}
+                          id={null}
+                        >
+                          <button
+                            className="link-btn d-none-md"
+                            data-tip={null}
+                            id={null}
+                            onClick={[Function]}
+                          >
+                            <img
+                              alt="toggler"
+                              src="/img/toggler.png"
+                            />
+                          </button>
+                        </Link>
+                      </div>
+                      <div
+                        className="page-title d-none-md"
+                      >
+                        <h3>
+                          <Link
+                            replace={false}
+                            to="/"
+                          >
+                            <a
+                              href="/"
+                              onClick={[Function]}
+                            >
+                              BOOK-A-MEAL
+                            </a>
+                          </Link>
+                        </h3>
+                      </div>
+                      <div
+                        className="page-title d-flex-md"
+                      >
+                        <div
+                          className="date"
+                        >
+                          <h2>
+                            Thursday, 1st January 1970
+                            <span>
+                                 
+                              00:00
+                            </span>
+                          </h2>
+                        </div>
+                      </div>
+                    </CatererHeader>
+                  </Connect(CatererHeader)>
+                </div>
+              </div>
+            </Header>
+            <div
+              className="content"
+            >
+              <Connect(SideNav)
+                active="orders"
+                logout={[Function]}
+                user={
+                  Object {
+                    "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+                    "businessName": "Food Circle",
+                    "email": "food@circle.com",
+                    "firstname": "Dave",
+                    "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                    "lastname": "Smith",
+                    "phoneNo": "08166557788",
+                    "role": "caterer",
+                  }
+                }
+              >
+                <SideNav
+                  active="orders"
+                  logout={[Function]}
+                  open={false}
+                  push={[Function]}
+                  toggleSideNav={[Function]}
+                  user={
+                    Object {
+                      "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+                      "businessName": "Food Circle",
+                      "email": "food@circle.com",
+                      "firstname": "Dave",
+                      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                      "lastname": "Smith",
+                      "phoneNo": "08166557788",
+                      "role": "caterer",
+                    }
+                  }
+                >
+                  <div
+                    className="sidenav null"
+                    id="sidenav"
+                  >
+                    <div
+                      className="sidenav-content"
+                    >
+                      <div
+                        className="sidenav-header"
+                      >
+                        <CloseIcon
+                          btnID={null}
+                          clickHandler={[Function]}
+                          divClass="d-none-md"
+                        >
+                          <div
+                            className="close d-none-md"
+                          >
+                            <Link
+                              aria-hidden="true"
+                              className={null}
+                              clickHandler={[Function]}
+                              dataTip={null}
+                              id={null}
+                            >
+                              <button
+                                className="link-btn null"
+                                data-tip={null}
+                                id={null}
+                                onClick={[Function]}
+                              >
+                                ×
+                              </button>
+                            </Link>
+                          </div>
+                        </CloseIcon>
+                        <div
+                          className="sidenav-title"
+                        >
+                          <h3
+                            className="d-flex-md"
+                          >
+                            <Link
+                              href="/"
+                              replace={false}
+                              to="/"
+                            >
+                              <a
+                                href="/"
+                                onClick={[Function]}
+                              >
+                                BOOK-A-MEAL
+                              </a>
+                            </Link>
+                          </h3>
+                          <div
+                            className="username-circle"
+                          >
+                            <p>
+                              F
+                            </p>
+                          </div>
+                          <p>
+                            Food Circle
+                          </p>
+                          <span>
+                            <Link
+                              className={null}
+                              clickHandler={[Function]}
+                              dataTip={null}
+                              id={null}
+                            >
+                              <button
+                                className="link-btn null"
+                                data-tip={null}
+                                id={null}
+                                onClick={[Function]}
+                              >
+                                Logout
+                              </button>
+                            </Link>
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        className="sidenav-body"
+                      >
+                        <Link
+                          className="menu-item false"
+                          clickHandler={[Function]}
+                          dataTip={null}
+                          id={null}
+                        >
+                          <button
+                            className="link-btn menu-item false"
+                            data-tip={null}
+                            id={null}
+                            onClick={[Function]}
+                          >
+                            Dashboard
+                          </button>
+                        </Link>
+                        <Link
+                          className="menu-item false"
+                          clickHandler={[Function]}
+                          dataTip={null}
+                          id={null}
+                        >
+                          <button
+                            className="link-btn menu-item false"
+                            data-tip={null}
+                            id={null}
+                            onClick={[Function]}
+                          >
+                            Meals
+                          </button>
+                        </Link>
+                        <Link
+                          className="menu-item false"
+                          clickHandler={[Function]}
+                          dataTip={null}
+                          id={null}
+                        >
+                          <button
+                            className="link-btn menu-item false"
+                            data-tip={null}
+                            id={null}
+                            onClick={[Function]}
+                          >
+                            Menu
+                          </button>
+                        </Link>
+                        <Link
+                          className="menu-item active"
+                          clickHandler={[Function]}
+                          dataTip={null}
+                          id={null}
+                        >
+                          <button
+                            className="link-btn menu-item active"
+                            data-tip={null}
+                            id={null}
+                            onClick={[Function]}
+                          >
+                            Orders
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </SideNav>
+              </Connect(SideNav)>
+              <div
+                className="content-wrapper"
+                id="has-modal"
+              >
+                <p
+                  className="text-center info"
+                >
+                  This Order Does Not Exist
+                </p>
+              </div>
+            </div>
+            <Connect(Modal)
+              isFetching={false}
+              logout={[Function]}
+              showTime={true}
+              type="orders"
+              updateCurrentDate={null}
+              uploading={false}
+              user={
+                Object {
+                  "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+                  "businessName": "Food Circle",
+                  "email": "food@circle.com",
+                  "firstname": "Dave",
+                  "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                  "lastname": "Smith",
+                  "phoneNo": "08166557788",
+                  "role": "caterer",
+                }
+              }
+            >
+              <Modal
+                isFetching={false}
+                logout={[Function]}
+                open={false}
+                showTime={true}
+                toggleModal={[Function]}
+                type={null}
+                updateCurrentDate={null}
+                uploading={false}
+                user={
+                  Object {
+                    "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+                    "businessName": "Food Circle",
+                    "email": "food@circle.com",
+                    "firstname": "Dave",
+                    "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                    "lastname": "Smith",
+                    "phoneNo": "08166557788",
+                    "role": "caterer",
+                  }
+                }
+              />
+            </Connect(Modal)>
+            <Footer>
+              <div
+                className="footer"
+              >
+                <p>
+                  © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+                </p>
+              </div>
+            </Footer>
+          </div>
+        </View>
+      </Connect(View)>
+    </CatererOrderDetails>
+  </Connect(CatererOrderDetails)>
+</Provider>
+`;
+
+exports[`CatererOrderDetails should render the connected OrderDetails component correctly 1`] = `
 <Provider
   store={
     Object {
@@ -658,528 +1079,6 @@ exports[`CatererOrderDetails renders connected component 1`] = `
                     </OrderAmount>
                   </div>
                 </div>
-              </div>
-            </div>
-            <Connect(Modal)
-              isFetching={false}
-              logout={[Function]}
-              showTime={true}
-              type="orders"
-              updateCurrentDate={null}
-              uploading={false}
-              user={
-                Object {
-                  "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-                  "businessName": "Food Circle",
-                  "email": "food@circle.com",
-                  "firstname": "Dave",
-                  "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                  "lastname": "Smith",
-                  "phoneNo": "08166557788",
-                  "role": "caterer",
-                }
-              }
-            >
-              <Modal
-                isFetching={false}
-                logout={[Function]}
-                open={false}
-                showTime={true}
-                toggleModal={[Function]}
-                type={null}
-                updateCurrentDate={null}
-                uploading={false}
-                user={
-                  Object {
-                    "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-                    "businessName": "Food Circle",
-                    "email": "food@circle.com",
-                    "firstname": "Dave",
-                    "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                    "lastname": "Smith",
-                    "phoneNo": "08166557788",
-                    "role": "caterer",
-                  }
-                }
-              />
-            </Connect(Modal)>
-            <Footer>
-              <div
-                className="footer"
-              >
-                <p>
-                  © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
-                </p>
-              </div>
-            </Footer>
-          </div>
-        </View>
-      </Connect(View)>
-    </CatererOrderDetails>
-  </Connect(CatererOrderDetails)>
-</Provider>
-`;
-
-exports[`CatererOrderDetails renders correctly when not fetching 1`] = `
-<Connect(View)
-  showTime={true}
-  type="orders"
->
-  <React.Fragment>
-    <div
-      className="main-wrapper caterer"
-    >
-      <Link
-        className="orders-back-link"
-        replace={false}
-        to="/orders"
-      >
-        ← Back To Orders
-      </Link>
-      <div
-        className="order-confirmation order-details"
-      >
-        <h3
-          className="text-center"
-          style={
-            Object {
-              "paddingTop": "1em",
-            }
-          }
-        >
-          Order #
-          fb097bde-5959-45ff-8e21-51184fa60c25
-        </h3>
-        <React.Fragment>
-          <div
-            className="order-misc"
-          >
-            <p
-              className="order-date text-center"
-            >
-              Friday, 6th April 2018 12:47 am
-            </p>
-            <p>
-              Status: 
-              <span
-                className="success"
-              >
-                Delivered
-              </span>
-            </p>
-            <p>
-              Customer: 
-              Emiola Olasanmi
-            </p>
-            <p>
-              Address Provided: 
-              4, Church Street, Yaba
-            </p>
-            <p>
-              Number Provided: 
-              080xxxxxxxx
-            </p>
-          </div>
-          <OrderSummary
-            meals={
-              Array [
-                Object {
-                  "delivered": true,
-                  "description": "Sharwama contains no animal products, perfect for dieters",
-                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                  "price": "1200.00",
-                  "quantity": 1,
-                  "title": "Vegetable Sharwama and Guava Smoothie",
-                  "vegetarian": true,
-                },
-              ]
-            }
-            status="delivered"
-          />
-          <OrderAmount
-            meals={
-              Array [
-                Object {
-                  "delivered": true,
-                  "description": "Sharwama contains no animal products, perfect for dieters",
-                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                  "price": "1200.00",
-                  "quantity": 1,
-                  "title": "Vegetable Sharwama and Guava Smoothie",
-                  "vegetarian": true,
-                },
-              ]
-            }
-            type="admin"
-          />
-        </React.Fragment>
-      </div>
-    </div>
-  </React.Fragment>
-</Connect(View)>
-`;
-
-exports[`CatererOrderDetails renders message when not fetching and that order doesn't exist 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Connect(CatererOrderDetails)
-    match={
-      Object {
-        "params": Object {
-          "id": "fb097bde-5959-45ff",
-        },
-      }
-    }
-    order={null}
-  >
-    <CatererOrderDetails
-      deliverOrder={[Function]}
-      delivering={false}
-      fetchOrder={[Function]}
-      match={
-        Object {
-          "params": Object {
-            "id": "fb097bde-5959-45ff",
-          },
-        }
-      }
-      order={null}
-    >
-      <Connect(View)
-        showTime={true}
-        type="orders"
-      >
-        <View
-          isFetching={false}
-          logout={[Function]}
-          showTime={true}
-          type="orders"
-          updateCurrentDate={null}
-          uploading={false}
-          user={
-            Object {
-              "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-              "businessName": "Food Circle",
-              "email": "food@circle.com",
-              "firstname": "Dave",
-              "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-              "lastname": "Smith",
-              "phoneNo": "08166557788",
-              "role": "caterer",
-            }
-          }
-        >
-          <div
-            className="admin"
-          >
-            <Header
-              active="orders"
-              dateType="orders"
-              logout={[Function]}
-              showTime={true}
-              type="caterer"
-              updateCurrentDate={null}
-              user={
-                Object {
-                  "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-                  "businessName": "Food Circle",
-                  "email": "food@circle.com",
-                  "firstname": "Dave",
-                  "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                  "lastname": "Smith",
-                  "phoneNo": "08166557788",
-                  "role": "caterer",
-                }
-              }
-            >
-              <div
-                className="header"
-              >
-                <div
-                  className="navbar"
-                >
-                  <Connect(CatererHeader)
-                    dateType="orders"
-                    showTime={true}
-                    updateCurrentDate={null}
-                  >
-                    <CatererHeader
-                      currentDay="1970-01-01"
-                      dateType="orders"
-                      showTime={true}
-                      toggleSideNav={[Function]}
-                      updateCurrentDate={null}
-                    >
-                      <div
-                        className="menu-control d-none-md"
-                      >
-                        <Link
-                          className="d-none-md"
-                          clickHandler={[Function]}
-                          dataTip={null}
-                          id={null}
-                        >
-                          <button
-                            className="link-btn d-none-md"
-                            data-tip={null}
-                            id={null}
-                            onClick={[Function]}
-                          >
-                            <img
-                              alt="toggler"
-                              src="/img/toggler.png"
-                            />
-                          </button>
-                        </Link>
-                      </div>
-                      <div
-                        className="page-title d-none-md"
-                      >
-                        <h3>
-                          <Link
-                            replace={false}
-                            to="/"
-                          >
-                            <a
-                              href="/"
-                              onClick={[Function]}
-                            >
-                              BOOK-A-MEAL
-                            </a>
-                          </Link>
-                        </h3>
-                      </div>
-                      <div
-                        className="page-title d-flex-md"
-                      >
-                        <div
-                          className="date"
-                        >
-                          <h2>
-                            Thursday, 1st January 1970
-                            <span>
-                                 
-                              00:00
-                            </span>
-                          </h2>
-                        </div>
-                      </div>
-                    </CatererHeader>
-                  </Connect(CatererHeader)>
-                </div>
-              </div>
-            </Header>
-            <div
-              className="content"
-            >
-              <Connect(SideNav)
-                active="orders"
-                logout={[Function]}
-                user={
-                  Object {
-                    "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-                    "businessName": "Food Circle",
-                    "email": "food@circle.com",
-                    "firstname": "Dave",
-                    "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                    "lastname": "Smith",
-                    "phoneNo": "08166557788",
-                    "role": "caterer",
-                  }
-                }
-              >
-                <SideNav
-                  active="orders"
-                  logout={[Function]}
-                  open={false}
-                  push={[Function]}
-                  toggleSideNav={[Function]}
-                  user={
-                    Object {
-                      "address": "$, Herbert Macaulay Way, Yaba, Lagos",
-                      "businessName": "Food Circle",
-                      "email": "food@circle.com",
-                      "firstname": "Dave",
-                      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
-                      "lastname": "Smith",
-                      "phoneNo": "08166557788",
-                      "role": "caterer",
-                    }
-                  }
-                >
-                  <div
-                    className="sidenav null"
-                    id="sidenav"
-                  >
-                    <div
-                      className="sidenav-content"
-                    >
-                      <div
-                        className="sidenav-header"
-                      >
-                        <CloseIcon
-                          btnID={null}
-                          clickHandler={[Function]}
-                          divClass="d-none-md"
-                        >
-                          <div
-                            className="close d-none-md"
-                          >
-                            <Link
-                              aria-hidden="true"
-                              className={null}
-                              clickHandler={[Function]}
-                              dataTip={null}
-                              id={null}
-                            >
-                              <button
-                                className="link-btn null"
-                                data-tip={null}
-                                id={null}
-                                onClick={[Function]}
-                              >
-                                ×
-                              </button>
-                            </Link>
-                          </div>
-                        </CloseIcon>
-                        <div
-                          className="sidenav-title"
-                        >
-                          <h3
-                            className="d-flex-md"
-                          >
-                            <Link
-                              href="/"
-                              replace={false}
-                              to="/"
-                            >
-                              <a
-                                href="/"
-                                onClick={[Function]}
-                              >
-                                BOOK-A-MEAL
-                              </a>
-                            </Link>
-                          </h3>
-                          <div
-                            className="username-circle"
-                          >
-                            <p>
-                              F
-                            </p>
-                          </div>
-                          <p>
-                            Food Circle
-                          </p>
-                          <span>
-                            <Link
-                              className={null}
-                              clickHandler={[Function]}
-                              dataTip={null}
-                              id={null}
-                            >
-                              <button
-                                className="link-btn null"
-                                data-tip={null}
-                                id={null}
-                                onClick={[Function]}
-                              >
-                                Logout
-                              </button>
-                            </Link>
-                          </span>
-                        </div>
-                      </div>
-                      <div
-                        className="sidenav-body"
-                      >
-                        <Link
-                          className="menu-item false"
-                          clickHandler={[Function]}
-                          dataTip={null}
-                          id={null}
-                        >
-                          <button
-                            className="link-btn menu-item false"
-                            data-tip={null}
-                            id={null}
-                            onClick={[Function]}
-                          >
-                            Dashboard
-                          </button>
-                        </Link>
-                        <Link
-                          className="menu-item false"
-                          clickHandler={[Function]}
-                          dataTip={null}
-                          id={null}
-                        >
-                          <button
-                            className="link-btn menu-item false"
-                            data-tip={null}
-                            id={null}
-                            onClick={[Function]}
-                          >
-                            Meals
-                          </button>
-                        </Link>
-                        <Link
-                          className="menu-item false"
-                          clickHandler={[Function]}
-                          dataTip={null}
-                          id={null}
-                        >
-                          <button
-                            className="link-btn menu-item false"
-                            data-tip={null}
-                            id={null}
-                            onClick={[Function]}
-                          >
-                            Menu
-                          </button>
-                        </Link>
-                        <Link
-                          className="menu-item active"
-                          clickHandler={[Function]}
-                          dataTip={null}
-                          id={null}
-                        >
-                          <button
-                            className="link-btn menu-item active"
-                            data-tip={null}
-                            id={null}
-                            onClick={[Function]}
-                          >
-                            Orders
-                          </button>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </SideNav>
-              </Connect(SideNav)>
-              <div
-                className="content-wrapper"
-                id="has-modal"
-              >
-                <p
-                  className="text-center info"
-                >
-                  This Order Does Not Exist
-                </p>
               </div>
             </div>
             <Connect(Modal)
