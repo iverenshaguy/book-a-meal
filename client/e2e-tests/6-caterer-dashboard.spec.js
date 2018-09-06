@@ -3,16 +3,17 @@ const moment = require('moment');
 module.exports = {
   beforeEach(client) {
     client
-      .url('http://localhost:8000')
       .windowMaximize()
+      .url('http://localhost:8000')
       .waitForElementVisible('body')
       .click('button')
       .pause(1000)
       .waitForElementVisible('input[name=email]')
       .setValue('input[name=email]', 'food@circle.com')
       .setValue('input[name=password]', 'foodcircle')
+      .waitForElementVisible('button')
       .click('button')
-      .pause(3000)
+      .pause(1500)
       .assert.title('Book A Meal')
       .assert.containsText('div.sidenav-title h3 a[href="/"]', 'BOOK-A-MEAL')
       .assert.containsText('div.username-circle p', 'F');
@@ -34,6 +35,7 @@ module.exports = {
           client.assert.equal(res.value, 'Orders');
         });
       })
+      .pause(1000)
       .end();
   },
 
@@ -48,6 +50,7 @@ module.exports = {
       .assert.visible('.card.total-cash')
       .assert.containsText('.card.total-cash .count', '4000')
       .assert.containsText('.card.total-cash div:not(.count)', 'Today\'s Revenue')
+      .pause(1000)
       .end();
   },
 
@@ -75,6 +78,7 @@ module.exports = {
           client.assert.equal(res.value, 'Deliver');
         });
       })
+      .pause(1000)
       .end();
   },
 
@@ -85,6 +89,7 @@ module.exports = {
       .click('button.warning')
       .pause(3000)
       .assert.containsText('.success', 'Delivered')
+      .pause(1000)
       .end();
   },
 };
