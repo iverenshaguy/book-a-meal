@@ -6,8 +6,8 @@ const futureYear = parseInt(currentYear, 10) + 1;
 module.exports = {
   beforeEach(client) {
     client
-      .url('http://localhost:8000')
       .windowMaximize()
+      .url('http://localhost:8000')
       .waitForElementVisible('body', 5000)
       .click('button')
       .pause(1000)
@@ -15,7 +15,7 @@ module.exports = {
       .setValue('input[name=email]', 'food@circle.com')
       .setValue('input[name=password]', 'foodcircle')
       .click('button')
-      .pause(3000)
+      .pause(1500)
       .url('http://localhost:8000/menu')
       .waitForElementVisible('.card-group.meals-wrapper');
   },
@@ -28,6 +28,7 @@ module.exports = {
         client.assert.equal(elements.value.length, 3);
         client.assert.containsText('.menu-card-title p', 'Jollof Spaghetti, Plantain and Turkey');
       })
+      .pause(1000)
       .end();
   },
 
@@ -37,6 +38,7 @@ module.exports = {
         client.assert.equal(elements.value.length, 4);
         client.assert.containsText('.menu-card-title p', 'Jollof Rice, Beef and Plantain');
       })
+      .pause(1000)
       .end();
   },
 
@@ -54,6 +56,7 @@ module.exports = {
           client.assert.equal(res.value, 'Chicken Sharwama and Banana Smoothie');
         });
       })
+      .pause(1000)
       .end();
   },
 
@@ -64,6 +67,7 @@ module.exports = {
       .setValue('input[name=search]', 'asdfghjk')
       .pause(1000)
       .assert.containsText('p.info', 'No Meals Found')
+      .pause(1000)
       .end();
   },
 
@@ -89,6 +93,7 @@ module.exports = {
           client.assert.equal(res.value, 'Ewa Agoyin, Plantain and Local Fish');
         });
       })
+      .pause(1000)
       .end();
   },
 
@@ -112,6 +117,7 @@ module.exports = {
           client.assert.equal(res.value, 'Ewa Agoyin, Plantain and Local Fish');
         });
       })
+      .pause(1000)
       .end();
   },
 
@@ -151,6 +157,7 @@ module.exports = {
           client.assert.equal(res.value, 'Yam and Platain Pottage');
         });
       })
+      .pause(1000)
       .end();
   },
 
@@ -164,6 +171,7 @@ module.exports = {
       .click('#modal-close-icon')
       .pause(1000)
       .assert.containsText('.page-title h2', `${moment().format('dddd, Do MMMM YYYY')}`)
+      .pause(1000)
       .end();
   },
 };

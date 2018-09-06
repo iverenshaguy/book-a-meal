@@ -1,8 +1,8 @@
 module.exports = {
   beforeEach(client) {
     client
-      .url('http://localhost:8000')
       .windowMaximize()
+      .url('http://localhost:8000')
       .waitForElementVisible('body', 5000)
       .click('button')
       .pause(1000)
@@ -10,7 +10,7 @@ module.exports = {
       .setValue('input[name=email]', 'olisa@emodi.com')
       .setValue('input[name=password]', 'olisaemodi')
       .click('button')
-      .pause(3000);
+      .pause(1500);
   },
 
   'Customer should be able to see available meal options on the menu for the day': (client) => {
@@ -27,6 +27,7 @@ module.exports = {
           client.assert.equal(res.value, 'Semo and Egusi Soup');
         });
       })
+      .pause(1000)
       .end();
   },
 
@@ -35,6 +36,7 @@ module.exports = {
       .click('button.meal-card-btn')
       .pause(3000)
       .assert.containsText('div.order-amount h2', '1500')
+      .pause(1000)
       .end();
   },
 
@@ -46,6 +48,7 @@ module.exports = {
         client.assert.equal(elements.value.length, 1);
         client.assert.containsText('.menu-card-title p', 'Vegetable Sharwama and Guava Smoothie');
       })
+      .pause(1000)
       .end();
   },
 
@@ -54,6 +57,7 @@ module.exports = {
       .setValue('input[name=search]', 'asdfghjk')
       .pause(1000)
       .assert.containsText('p.info', 'No Meals Found')
+      .pause(1000)
       .end();
   },
 
@@ -66,6 +70,7 @@ module.exports = {
       .getValue('input[type=number]', (result) => {
         client.assert.equal(result.value, '10');
       })
+      .pause(1000)
       .end();
   },
 
@@ -78,6 +83,7 @@ module.exports = {
       .assert.containsText('h2', 'Delivery Details')
       .assert.visible('input[name=deliveryPhoneNo]')
       .assert.visible('input[name=deliveryAddress]')
+      .pause(1000)
       .end();
   }
 };

@@ -1,8 +1,8 @@
 module.exports = {
   beforeEach(client) {
     client
-      .url('http://localhost:8000')
       .windowMaximize()
+      .url('http://localhost:8000')
       .waitForElementVisible('body', 5000)
       .click('button')
       .pause(1000)
@@ -29,7 +29,7 @@ module.exports = {
       .click('button')
       .pause(5000)
       .assert.containsText('div.navlinks h3', 'Welcome, Ola')
-      .pause(1500)
+      .pause(1000)
       .end();
   },
 
@@ -52,7 +52,7 @@ module.exports = {
       .click('button')
       .pause(5000)
       .assert.containsText('p.danger', 'Email already in use')
-      .pause(1500)
+      .pause(1000)
       .end();
   },
 
@@ -77,7 +77,7 @@ module.exports = {
       .setValue('input[name=passwordConfirm]', 'olashaguy')
       .click('input[name=firstname]')
       .assert.containsText('input[name=passwordConfirm] + div.invalid-feedback', 'Passwords do not match')
-      .pause(1500)
+      .pause(1000)
       .end();
   },
 
@@ -102,7 +102,7 @@ module.exports = {
       .click('button')
       .pause(5000)
       .assert.containsText('div.username-circle p', 'L')
-      .pause(1500)
+      .pause(1000)
       .end();
   },
 
@@ -127,7 +127,7 @@ module.exports = {
       .click('button')
       .pause(5000)
       .assert.containsText('p.danger', 'Email already in use')
-      .pause(1500)
+      .pause(1000)
       .end();
   },
 
@@ -152,7 +152,7 @@ module.exports = {
       .click('button')
       .pause(5000)
       .assert.containsText('p.danger', 'Business name already in use')
-      .pause(1500)
+      .pause(1000)
       .end();
   },
 
@@ -180,7 +180,7 @@ module.exports = {
       .setValue('input[name=address]', '3')
       .click('input[name=phoneNo]')
       .assert.containsText('input[name=address] + div.invalid-feedback', 'Must be 5 characters or more!')
-      .pause(1500)
+      .pause(1000)
       .end();
   },
 };
