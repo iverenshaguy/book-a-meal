@@ -59,7 +59,7 @@ class Meals extends Component {
    * @param {string} type
    * @returns {JSX} Meals Component
   */
-  toggleModal = (id, type) => {
+  toggleMealModal = (id, type) => {
     this.setState({
       currentMealId: id
     });
@@ -77,7 +77,7 @@ class Meals extends Component {
         type="caterer"
         key={meal.id}
         meal={meal}
-        toggleModal={type => this.toggleModal(meal.id, type)}
+        toggleModal={type => this.toggleMealModal(meal.id, type)}
       />));
 
 

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CatererMenu should render Menu Component when it is connected to the redux store 1`] = `
+exports[`Meals should render Meal Component when it is connected to the redux store correctly 1`] = `
 <Provider
   store={
     Object {
@@ -13,7 +13,8 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
     }
   }
 >
-  <Connect(CatererMenu)
+  <Connect(Meals)
+    dispatch={[MockFunction]}
     meals={
       Array [
         Object {
@@ -35,9 +36,9 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
       ]
     }
   >
-    <CatererMenu
-      currentDay="1970-01-01"
-      fetchMenu={[Function]}
+    <Meals
+      dispatch={[MockFunction]}
+      fetchMeals={[Function]}
       meals={
         Array [
           Object {
@@ -58,21 +59,32 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
           },
         ]
       }
-      metadata={Object {}}
-      setCurrentDay={[Function]}
+      metadata={
+        Object {
+          "next": "next",
+          "pages": 2,
+          "prev": "prev",
+          "total": 5,
+        }
+      }
+      submitError={null}
+      submitting={false}
       toggleModal={[Function]}
     >
       <Connect(View)
-        showTime={false}
-        type="menu"
-        updateCurrentDate={[Function]}
+        showTime={true}
+        submitError={null}
+        submitting={false}
+        type="meals"
       >
         <View
           isFetching={false}
           logout={[Function]}
-          showTime={false}
-          type="menu"
-          updateCurrentDate={[Function]}
+          showTime={true}
+          submitError={null}
+          submitting={false}
+          type="meals"
+          updateCurrentDate={null}
           uploading={false}
           user={
             Object {
@@ -91,12 +103,12 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
             className="admin"
           >
             <Header
-              active="menu"
-              dateType="menu"
+              active="meals"
+              dateType="meals"
               logout={[Function]}
-              showTime={false}
+              showTime={true}
               type="caterer"
-              updateCurrentDate={[Function]}
+              updateCurrentDate={null}
               user={
                 Object {
                   "address": "$, Herbert Macaulay Way, Yaba, Lagos",
@@ -117,16 +129,16 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                   className="navbar"
                 >
                   <Connect(CatererHeader)
-                    dateType="menu"
-                    showTime={false}
-                    updateCurrentDate={[Function]}
+                    dateType="meals"
+                    showTime={true}
+                    updateCurrentDate={null}
                   >
                     <CatererHeader
                       currentDay="1970-01-01"
-                      dateType="menu"
-                      showTime={false}
+                      dateType="meals"
+                      showTime={true}
                       toggleSideNav={[Function]}
-                      updateCurrentDate={[Function]}
+                      updateCurrentDate={null}
                     >
                       <div
                         className="menu-control d-none-md"
@@ -175,30 +187,11 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                         >
                           <h2>
                             Thursday, 1st January 1970
-                            <span
-                              style={
-                                Object {
-                                  "cursor": "pointer",
-                                }
-                              }
-                            >
-                               ▾
+                            <span>
+                                 
+                              00:00
                             </span>
                           </h2>
-                          <DatePicker
-                            handleSelectDate={[Function]}
-                            screenSize="md"
-                          >
-                            <div
-                              className="datepicker-div d-flex-md"
-                            >
-                              <input
-                                id="datepicker"
-                                onChange={[Function]}
-                                type="date"
-                              />
-                            </div>
-                          </DatePicker>
                         </div>
                       </div>
                     </CatererHeader>
@@ -210,7 +203,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
               className="content"
             >
               <Connect(SideNav)
-                active="menu"
+                active="meals"
                 logout={[Function]}
                 user={
                   Object {
@@ -226,7 +219,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                 }
               >
                 <SideNav
-                  active="menu"
+                  active="meals"
                   logout={[Function]}
                   open={false}
                   push={[Function]}
@@ -347,13 +340,13 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                           </button>
                         </Link>
                         <Link
-                          className="menu-item false"
+                          className="menu-item active"
                           clickHandler={[Function]}
                           dataTip={null}
                           id={null}
                         >
                           <button
-                            className="link-btn menu-item false"
+                            className="link-btn menu-item active"
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
@@ -362,13 +355,13 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                           </button>
                         </Link>
                         <Link
-                          className="menu-item active"
+                          className="menu-item false"
                           clickHandler={[Function]}
                           dataTip={null}
                           id={null}
                         >
                           <button
-                            className="link-btn menu-item active"
+                            className="link-btn menu-item false"
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
@@ -401,57 +394,18 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                 id="has-modal"
               >
                 <div
-                  className="content-wrapper meals menu-meals"
+                  className="content-wrapper meals caterer-meals"
                 >
-                  <div
-                    className="date d-none-md"
-                  >
-                    <h2>
-                      Thursday, 1st January 1970
-                       
-                      <span
-                        style={
-                          Object {
-                            "cursor": "pointer",
-                          }
-                        }
-                      >
-                         ▾
-                      </span>
-                    </h2>
-                    <DatePicker
-                      handleSelectDate={[Function]}
-                      screenSize={null}
-                    >
-                      <div
-                        className="datepicker-div"
-                      >
-                        <input
-                          id="datepicker"
-                          onChange={[Function]}
-                          type="date"
-                        />
-                      </div>
-                    </DatePicker>
-                  </div>
                   <div
                     className="top"
                   >
                     <button
                       className="btn btn-pri"
-                      id="menu-modal-btn"
+                      id="add-meal-btn"
                       onClick={[Function]}
                     >
-                      Set Menu
+                      Add a New Meal
                     </button>
-                  </div>
-                  <div
-                    className="page-heading"
-                  >
-                    <h2>
-                      Meal Items on This Day's Menu
-                    </h2>
-                    <hr />
                   </div>
                   <CardGroup
                     items={
@@ -469,8 +423,8 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                             }
                           }
                           orderMeal={null}
-                          toggleModal={null}
-                          type="menu"
+                          toggleModal={[Function]}
+                          type="caterer"
                         />,
                         <MealCard
                           inBasket={false}
@@ -485,13 +439,20 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                             }
                           }
                           orderMeal={null}
-                          toggleModal={null}
-                          type="menu"
+                          toggleModal={[Function]}
+                          type="caterer"
                         />,
                       ]
                     }
                     loadMore={[Function]}
-                    metadata={Object {}}
+                    metadata={
+                      Object {
+                        "next": "next",
+                        "pages": 2,
+                        "prev": "prev",
+                        "total": 5,
+                      }
+                    }
                   >
                     <div
                       className="card-group meals-wrapper"
@@ -514,8 +475,8 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                                 }
                               }
                               orderMeal={null}
-                              toggleModal={null}
-                              type="menu"
+                              toggleModal={[Function]}
+                              type="caterer"
                             />,
                             <MealCard
                               inBasket={false}
@@ -530,18 +491,25 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                                 }
                               }
                               orderMeal={null}
-                              toggleModal={null}
-                              type="menu"
+                              toggleModal={[Function]}
+                              type="caterer"
                             />,
                           ]
                         }
                         loadMore={[Function]}
-                        metadata={Object {}}
+                        metadata={
+                          Object {
+                            "next": "next",
+                            "pages": 2,
+                            "prev": "prev",
+                            "total": 5,
+                          }
+                        }
                       >
                         <InfiniteScroll
                           dataLength={2}
                           disableBrowserPullToRefresh={true}
-                          hasMore={false}
+                          hasMore={true}
                           height={null}
                           loader={
                             <div
@@ -593,8 +561,8 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                                     }
                                   }
                                   orderMeal={null}
-                                  toggleModal={null}
-                                  type="menu"
+                                  toggleModal={[Function]}
+                                  type="caterer"
                                 >
                                   <div
                                     className="meal-card"
@@ -607,6 +575,91 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                                         alt="meal"
                                         src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
                                       />
+                                      <Dropdown
+                                        content={
+                                          <UNDEFINED>
+                                            <Link
+                                              className={null}
+                                              clickHandler={[Function]}
+                                              dataTip={null}
+                                              id="edit-meal"
+                                            >
+                                              Edit
+                                            </Link>
+                                            <Link
+                                              className={null}
+                                              clickHandler={[Function]}
+                                              dataTip={null}
+                                              id="delete-meal"
+                                            >
+                                              Delete
+                                            </Link>
+                                          </UNDEFINED>
+                                        }
+                                        toggler={
+                                          <UNDEFINED>
+                                            …
+                                          </UNDEFINED>
+                                        }
+                                        type="card"
+                                      >
+                                        <div
+                                          className="dropdown card-dropdown"
+                                          onMouseEnter={[Function]}
+                                          onMouseLeave={[Function]}
+                                        >
+                                          <Link
+                                            className="link"
+                                            clickHandler={null}
+                                            dataTip={null}
+                                            id="dropdown-toggler"
+                                          >
+                                            <button
+                                              className="link-btn link"
+                                              data-tip={null}
+                                              id="dropdown-toggler"
+                                              onClick={null}
+                                            >
+                                              …
+                                            </button>
+                                          </Link>
+                                          <div
+                                            className="dropdown-content meal"
+                                            id="dropdown-content"
+                                          >
+                                            <Link
+                                              className={null}
+                                              clickHandler={[Function]}
+                                              dataTip={null}
+                                              id="edit-meal"
+                                            >
+                                              <button
+                                                className="link-btn null"
+                                                data-tip={null}
+                                                id="edit-meal"
+                                                onClick={[Function]}
+                                              >
+                                                Edit
+                                              </button>
+                                            </Link>
+                                            <Link
+                                              className={null}
+                                              clickHandler={[Function]}
+                                              dataTip={null}
+                                              id="delete-meal"
+                                            >
+                                              <button
+                                                className="link-btn null"
+                                                data-tip={null}
+                                                id="delete-meal"
+                                                onClick={[Function]}
+                                              >
+                                                Delete
+                                              </button>
+                                            </Link>
+                                          </div>
+                                        </div>
+                                      </Dropdown>
                                       <div
                                         className="menu-card-title"
                                       >
@@ -661,8 +714,8 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                                     }
                                   }
                                   orderMeal={null}
-                                  toggleModal={null}
-                                  type="menu"
+                                  toggleModal={[Function]}
+                                  type="caterer"
                                 >
                                   <div
                                     className="meal-card"
@@ -680,6 +733,91 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                                         alt="meal"
                                         src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
                                       />
+                                      <Dropdown
+                                        content={
+                                          <UNDEFINED>
+                                            <Link
+                                              className={null}
+                                              clickHandler={[Function]}
+                                              dataTip={null}
+                                              id="edit-meal"
+                                            >
+                                              Edit
+                                            </Link>
+                                            <Link
+                                              className={null}
+                                              clickHandler={[Function]}
+                                              dataTip={null}
+                                              id="delete-meal"
+                                            >
+                                              Delete
+                                            </Link>
+                                          </UNDEFINED>
+                                        }
+                                        toggler={
+                                          <UNDEFINED>
+                                            …
+                                          </UNDEFINED>
+                                        }
+                                        type="card"
+                                      >
+                                        <div
+                                          className="dropdown card-dropdown"
+                                          onMouseEnter={[Function]}
+                                          onMouseLeave={[Function]}
+                                        >
+                                          <Link
+                                            className="link"
+                                            clickHandler={null}
+                                            dataTip={null}
+                                            id="dropdown-toggler"
+                                          >
+                                            <button
+                                              className="link-btn link"
+                                              data-tip={null}
+                                              id="dropdown-toggler"
+                                              onClick={null}
+                                            >
+                                              …
+                                            </button>
+                                          </Link>
+                                          <div
+                                            className="dropdown-content meal"
+                                            id="dropdown-content"
+                                          >
+                                            <Link
+                                              className={null}
+                                              clickHandler={[Function]}
+                                              dataTip={null}
+                                              id="edit-meal"
+                                            >
+                                              <button
+                                                className="link-btn null"
+                                                data-tip={null}
+                                                id="edit-meal"
+                                                onClick={[Function]}
+                                              >
+                                                Edit
+                                              </button>
+                                            </Link>
+                                            <Link
+                                              className={null}
+                                              clickHandler={[Function]}
+                                              dataTip={null}
+                                              id="delete-meal"
+                                            >
+                                              <button
+                                                className="link-btn null"
+                                                data-tip={null}
+                                                id="delete-meal"
+                                                onClick={[Function]}
+                                              >
+                                                Delete
+                                              </button>
+                                            </Link>
+                                          </div>
+                                        </div>
+                                      </Dropdown>
                                       <div
                                         className="menu-card-title"
                                       >
@@ -721,6 +859,37 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                                   </div>
                                 </MealCard>
                               </div>
+                              <div
+                                className="text-center"
+                              >
+                                <MiniPreloader>
+                                  <Loader
+                                    active={true}
+                                    type="ball-beat"
+                                  >
+                                    <div
+                                      className="loader loader-undefined loader-active"
+                                    >
+                                      <div
+                                        className="loader-inner ball-beat"
+                                      >
+                                        <div
+                                          key="0"
+                                          style={Object {}}
+                                        />
+                                        <div
+                                          key="1"
+                                          style={Object {}}
+                                        />
+                                        <div
+                                          key="2"
+                                          style={Object {}}
+                                        />
+                                      </div>
+                                    </div>
+                                  </Loader>
+                                </MiniPreloader>
+                              </div>
                             </div>
                           </div>
                         </InfiniteScroll>
@@ -733,9 +902,11 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
             <Connect(Modal)
               isFetching={false}
               logout={[Function]}
-              showTime={false}
-              type="menu"
-              updateCurrentDate={[Function]}
+              showTime={true}
+              submitError={null}
+              submitting={false}
+              type="meals"
+              updateCurrentDate={null}
               uploading={false}
               user={
                 Object {
@@ -754,10 +925,12 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                 isFetching={false}
                 logout={[Function]}
                 open={false}
-                showTime={false}
+                showTime={true}
+                submitError={null}
+                submitting={false}
                 toggleModal={[Function]}
                 type={null}
-                updateCurrentDate={[Function]}
+                updateCurrentDate={null}
                 uploading={false}
                 user={
                   Object {
@@ -785,61 +958,33 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
           </div>
         </View>
       </Connect(View)>
-    </CatererMenu>
-  </Connect(CatererMenu)>
+    </Meals>
+  </Connect(Meals)>
 </Provider>
 `;
 
-exports[`CatererMenu should render Menu component correctly and show Meal Cards 1`] = `
+exports[`Meals should render Meal component correctly when there are available meals 1`] = `
 <React.Fragment>
   <Connect(View)
-    showTime={false}
-    type="menu"
-    updateCurrentDate={[Function]}
+    showTime={true}
+    submitError={null}
+    submitting={false}
+    type="meals"
   >
     <React.Fragment>
       <div
-        className="content-wrapper meals menu-meals"
+        className="content-wrapper meals caterer-meals"
       >
-        <div
-          className="date d-none-md"
-        >
-          <h2>
-            Thursday, 1st January 1970
-             
-            <span
-              style={
-                Object {
-                  "cursor": "pointer",
-                }
-              }
-            >
-               ▾
-            </span>
-          </h2>
-          <DatePicker
-            handleSelectDate={[Function]}
-            screenSize={null}
-          />
-        </div>
         <div
           className="top"
         >
           <button
             className="btn btn-pri"
-            id="menu-modal-btn"
+            id="add-meal-btn"
             onClick={[Function]}
           >
-            Set Menu
+            Add a New Meal
           </button>
-        </div>
-        <div
-          className="page-heading"
-        >
-          <h2>
-            Meal Items on This Day's Menu
-          </h2>
-          <hr />
         </div>
         <CardGroup
           items={
@@ -857,8 +1002,8 @@ exports[`CatererMenu should render Menu component correctly and show Meal Cards 
                   }
                 }
                 orderMeal={null}
-                toggleModal={null}
-                type="menu"
+                toggleModal={[Function]}
+                type="caterer"
               />,
               <MealCard
                 inBasket={false}
@@ -873,8 +1018,8 @@ exports[`CatererMenu should render Menu component correctly and show Meal Cards 
                   }
                 }
                 orderMeal={null}
-                toggleModal={null}
-                type="menu"
+                toggleModal={[Function]}
+                type="caterer"
               />,
             ]
           }
@@ -894,61 +1039,33 @@ exports[`CatererMenu should render Menu component correctly and show Meal Cards 
 </React.Fragment>
 `;
 
-exports[`CatererMenu should render message when there are no meals on the menu 1`] = `
+exports[`Meals should show "You Do Not Have Any Meals Yet" message when caterer does not have any meals available 1`] = `
 <React.Fragment>
   <Connect(View)
-    showTime={false}
-    type="menu"
-    updateCurrentDate={[Function]}
+    showTime={true}
+    submitError={null}
+    submitting={false}
+    type="meals"
   >
     <React.Fragment>
       <div
-        className="content-wrapper meals menu-meals"
+        className="content-wrapper meals caterer-meals"
       >
-        <div
-          className="date d-none-md"
-        >
-          <h2>
-            Thursday, 1st January 1970
-             
-            <span
-              style={
-                Object {
-                  "cursor": "pointer",
-                }
-              }
-            >
-               ▾
-            </span>
-          </h2>
-          <DatePicker
-            handleSelectDate={[Function]}
-            screenSize={null}
-          />
-        </div>
         <div
           className="top"
         >
           <button
             className="btn btn-pri"
-            id="menu-modal-btn"
+            id="add-meal-btn"
             onClick={[Function]}
           >
-            Set Menu
+            Add a New Meal
           </button>
-        </div>
-        <div
-          className="page-heading"
-        >
-          <h2>
-            Meal Items on This Day's Menu
-          </h2>
-          <hr />
         </div>
         <p
           className="text-center info"
         >
-          There are no Meal Items on this Menu
+          You Do Not Have Any Meals Yet
         </p>
       </div>
     </React.Fragment>

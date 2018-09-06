@@ -32,7 +32,12 @@
         "browserName": "chrome",
         "marionette": true,
         "javascriptEnabled": true,
-        "acceptSslCerts": true
+        "acceptSslCerts": true,
+        "chromeOptions": {
+          "args": [
+              "window-size=1480,800"
+          ]
+        }
       }
     },
 

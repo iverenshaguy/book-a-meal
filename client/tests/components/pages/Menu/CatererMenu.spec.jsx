@@ -25,7 +25,7 @@ describe('CatererMenu', () => {
     Date.now = now;
   });
 
-  it('should render Menu component correctly when not fetching', () => {
+  it('should render Menu component correctly and show Meal Cards', () => {
     const toggleMock = jest.fn();
 
     const shallowWrapper = shallow(<CatererMenuComponent
@@ -115,21 +115,7 @@ describe('CatererMenu', () => {
     expect(shallowWrapper.find('p').text()).toEqual('There are no Meal Items on this Menu');
   });
 
-  it('should render Menu Component when it is connected to the redux store correctly', () => {
-    const comp = (
-      <Provider store={store}>
-        <CatererMenuContainer
-          {...mealsObj}
-        />
-      </Provider>);
-
-    const wrapper = mount(comp, rrcMock.get());
-
-    expect(toJson(wrapper)).toMatchSnapshot();
-    wrapper.unmount();
-  });
-
-  it('should not show Set Menu" button when the time is changed to a time that is before the current time', () => {
+  it('should not show "Set Menu" button when the time is changed to a time that is before the current time', () => {
     const toggleMock = jest.fn();
     const wrapper = shallow(<CatererMenuComponent
       fetchMenu={jest.fn()}
@@ -146,5 +132,19 @@ describe('CatererMenu', () => {
     });
 
     expect(wrapper.find('#menu-modal-btn').length).toBeFalsy();
+  });
+
+  it('should render Menu Component when it is connected to the redux store', () => {
+    const comp = (
+      <Provider store={store}>
+        <CatererMenuContainer
+          {...mealsObj}
+        />
+      </Provider>);
+
+    const wrapper = mount(comp, rrcMock.get());
+
+    expect(toJson(wrapper)).toMatchSnapshot();
+    wrapper.unmount();
   });
 });

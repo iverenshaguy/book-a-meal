@@ -25,9 +25,13 @@ exports[`CustomerView should render CustomerView component correctly 1`] = `
     className="content-wrapper"
     id="has-modal"
   >
-    <p>
-      Hi
-    </p>
+    <React.Fragment>
+      <p
+        key=".0"
+      >
+        Hi
+      </p>
+    </React.Fragment>
   </div>
   <Connect(Modal)
     isFetching={false}
@@ -78,9 +82,16 @@ exports[`CustomerView should render Preloader when fetching page data 1`] = `
     className="content-wrapper"
     id="has-modal"
   >
-    <Preloader
-      type={null}
-    />
+    <React.Fragment>
+      <p
+        key=".0"
+      >
+        Hi
+      </p>
+      <Preloader
+        type={null}
+      />
+    </React.Fragment>
   </div>
   <Connect(Modal)
     isFetching={true}

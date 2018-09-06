@@ -43,9 +43,11 @@ exports[`CatererView should render CatererView component correctly 1`] = `
       className="content-wrapper dashboard"
       id="has-modal"
     >
-      <p>
-        Hi
-      </p>
+      <React.Fragment>
+        <p>
+          Hi
+        </p>
+      </React.Fragment>
     </div>
   </div>
   <Connect(Modal)
@@ -116,9 +118,11 @@ exports[`CatererView should render Preloader when fetching page data 1`] = `
       className="content-wrapper dashboard"
       id="has-modal"
     >
-      <Preloader
-        type={null}
-      />
+      <React.Fragment>
+        <Preloader
+          type={null}
+        />
+      </React.Fragment>
     </div>
   </div>
   <Connect(Modal)

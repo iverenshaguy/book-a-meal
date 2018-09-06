@@ -11,7 +11,7 @@ exports[`CustomerMenu should render Customer Menu component correctly 1`] = `
       className="user-menu"
     >
       <div
-        className="main-menu"
+        className="main-menu search"
       >
         <div
           className="page-heading"
@@ -25,6 +25,18 @@ exports[`CustomerMenu should render Customer Menu component correctly 1`] = `
           fetchItems={[Function]}
           type="customer"
         />
+      </div>
+    </div>
+  </div>
+  <div
+    className="meals user-meals"
+  >
+    <div
+      className="user-menu"
+    >
+      <div
+        className="main-menu"
+      >
         <Connect(MenuItems)
           addOrderItem={[Function]}
           loadMoreMenu={[Function]}
@@ -422,12 +434,13 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
             >
               <div
                 className="meals user-meals"
+                key=".0"
               >
                 <div
                   className="user-menu"
                 >
                   <div
-                    className="main-menu"
+                    className="main-menu search"
                   >
                     <div
                       className="page-heading"
@@ -473,6 +486,19 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                         </div>
                       </div>
                     </SearchForm>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="meals user-meals"
+                key=".1"
+              >
+                <div
+                  className="user-menu"
+                >
+                  <div
+                    className="main-menu"
+                  >
                     <Connect(MenuItems)
                       addOrderItem={[Function]}
                       loadMoreMenu={[Function]}
@@ -690,8 +716,8 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                                         type="customer"
                                       >
                                         <div
-                                          className="meal-card order-meal-card"
-                                          id="meal-card"
+                                          className="meal-card customer-meal-card"
+                                          id="81211c24-51c0-46ec-b1e0-18db55880958"
                                         >
                                           <div
                                             className="meal-card-header"
@@ -769,8 +795,8 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                                         type="customer"
                                       >
                                         <div
-                                          className="meal-card order-meal-card"
-                                          id="meal-card"
+                                          className="meal-card customer-meal-card"
+                                          id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
                                         >
                                           <div
                                             className="meal-card-header"
@@ -1461,12 +1487,13 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
           >
             <div
               className="meals user-meals"
+              key=".0"
             >
               <div
                 className="user-menu"
               >
                 <div
-                  className="main-menu"
+                  className="main-menu search"
                 >
                   <div
                     className="page-heading"
@@ -1512,6 +1539,19 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                       </div>
                     </div>
                   </SearchForm>
+                </div>
+              </div>
+            </div>
+            <div
+              className="meals user-meals"
+              key=".1"
+            >
+              <div
+                className="user-menu"
+              >
+                <div
+                  className="main-menu"
+                >
                   <Notification
                     message="Ordering is only available between 8:30am and 4:00pm. Please check back later."
                   >
@@ -1742,8 +1782,8 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                                       type="customer"
                                     >
                                       <div
-                                        className="meal-card order-meal-card"
-                                        id="meal-card"
+                                        className="meal-card customer-meal-card"
+                                        id="81211c24-51c0-46ec-b1e0-18db55880958"
                                       >
                                         <div
                                           className="meal-card-header"
@@ -1810,8 +1850,8 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                                       type="customer"
                                     >
                                       <div
-                                        className="meal-card order-meal-card"
-                                        id="meal-card"
+                                        className="meal-card customer-meal-card"
+                                        id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
                                       >
                                         <div
                                           className="meal-card-header"
