@@ -24,6 +24,21 @@ describe('Meal Routes: Delete a meal option', () => {
       });
   });
 
+  it('should not get a meal that was originally deleted', (done) => {
+    request(app)
+      .get('/api/v1/meals')
+      .set('Accept', 'application/json')
+      .set('authorization', foodCircleToken)
+      .end((err, res) => {
+        const mealExists = !!(res.body.meals.find(meal => meal.id === '91b6e41c-0972-4ac5-86da-4ac1f5226e83'));
+
+        expect(mealExists).to.equal(false);
+
+        if (err) return done(err);
+        done();
+      });
+  });
+
   invalidID({
     type: 'mealId',
     method: 'delete',

@@ -10,7 +10,7 @@
   flex-direction: column;
   border-radius: 5px;
   position: relative;
-  &.order-meal-card {
+  &.customer-meal-card {
     min-height: 380px;
   }
 }
@@ -203,7 +203,7 @@
     .tooltip {
       max-width: 200px;
     }
-    &.order-meal-card .meal-card-body {
+    &.customer-meal-card .meal-card-body {
       height: 150px;
     }
     .meal-card-body {
@@ -279,7 +279,7 @@
   }
 }
 
-.meal-card.order-meal-card .meal-card-body {
+.meal-card.customer-meal-card .meal-card-body {
   flex-direction: column;
   flex: 1;
   div:first-child {

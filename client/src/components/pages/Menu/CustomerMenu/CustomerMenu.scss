@@ -8,6 +8,12 @@
   flex: 3;
 }
 
+.user-menu .main-menu.search {
+  max-width: 75%;
+  margin-bottom: -50px;
+  margin-top: 30px;
+}
+
 .user-menu .side-cart-toggle {
   position: fixed;
   bottom: 0;
@@ -120,6 +126,13 @@
     width: 100%;
     padding: 0;
   }
+
+  .user-menu .main-menu.search {
+    max-width: 100%;
+    margin-bottom: initial;
+    margin-top: 30px;
+  }
+
   .user-menu .side-cart {
     width: 100%;
     z-index: 20;

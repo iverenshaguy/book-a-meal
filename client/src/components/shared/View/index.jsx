@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Modal from '../../../containers/shared/Modal';
@@ -21,7 +21,10 @@ class View extends Component {
     isFetching: PropTypes.bool,
     logout: PropTypes.func.isRequired,
     type: PropTypes.string.isRequired,
-    children: PropTypes.element.isRequired,
+    children: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.array,
+    ]).isRequired,
     showTime: PropTypes.bool,
     updateCurrentDate: PropTypes.func
   };
@@ -33,23 +36,59 @@ class View extends Component {
   };
 
   customerOrderTypes = ['orderReview', 'orderConfirm', 'customerOrderDetails'];
+
   /**
    * @memberof View
    * @returns {JSX} ViewContent Component
    */
   renderContent = () => {
-    const { type, isFetching, children } = this.props;
+    const { type, user } = this.props;
+
     const contentClass = classNames({
       'content-wrapper': !this.customerOrderTypes.includes(type),
       dashboard: type === 'dashboard',
       'main-wrapper': this.customerOrderTypes.includes(type)
     });
 
+    const isCustomerMenu = user.role === 'customer' && type === 'menu';
+
     return (
       <div className={contentClass} id="has-modal">
+        {!isCustomerMenu && this.renderNormalContent()}
+        {isCustomerMenu && this.renderCustomerMenuContent()}
+      </div>
+    );
+  }
+
+
+  /**
+   * @memberof View
+   * @returns {JSX} ViewContent Component
+   */
+  renderNormalContent = () => {
+    const { isFetching, children } = this.props;
+
+    return (
+      <Fragment>
         {isFetching && <Preloader />}
         {!isFetching && children}
-      </div>
+      </Fragment>
+    );
+  }
+
+  /**
+   * @memberof View
+   * @returns {JSX} ViewContent Component
+   */
+  renderCustomerMenuContent = () => {
+    const { isFetching, children } = this.props;
+
+    return (
+      <Fragment>
+        {React.Children.toArray(children)[0]}
+        {isFetching && <Preloader />}
+        {!isFetching && React.Children.toArray(children)[1]}
+      </Fragment>
     );
   }
 

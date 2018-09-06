@@ -374,8 +374,8 @@ exports[`MenuItems should render connected Menu component 1`] = `
                       type="customer"
                     >
                       <div
-                        className="meal-card order-meal-card"
-                        id="meal-card"
+                        className="meal-card customer-meal-card"
+                        id="81211c24-51c0-46ec-b1e0-18db55880958"
                       >
                         <div
                           className="meal-card-header"
@@ -453,8 +453,8 @@ exports[`MenuItems should render connected Menu component 1`] = `
                       type="customer"
                     >
                       <div
-                        className="meal-card order-meal-card"
-                        id="meal-card"
+                        className="meal-card customer-meal-card"
+                        id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
                       >
                         <div
                           className="meal-card-header"
