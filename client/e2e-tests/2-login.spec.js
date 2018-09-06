@@ -1,8 +1,8 @@
 module.exports = {
   beforeEach(client) {
     client
-      .windowMaximize()
       .url('http://localhost:8000')
+      .windowMaximize()
       .waitForElementVisible('body', 5000)
       .click('button')
       .pause(1000)
@@ -21,7 +21,6 @@ module.exports = {
       .click('button')
       .pause(3000)
       .assert.containsText('div.navlinks h3', 'Welcome, Olisa')
-      .pause(1000)
       .end();
   },
 
@@ -36,7 +35,7 @@ module.exports = {
       .click('button')
       .pause(3000)
       .assert.containsText('p.danger', 'Invalid Credentials')
-      .pause(1000)
+      .pause(1500)
       .end();
   },
 
@@ -52,7 +51,7 @@ module.exports = {
       .setValue('input[name=password]', '')
       .click('input[name=email]')
       .assert.containsText('input[name=password] + div.invalid-feedback', 'Required!')
-      .pause(1000)
+      .pause(1500)
       .end();
   },
 };
