@@ -5,8 +5,8 @@ const badImgPath = require('path').resolve(`${__dirname}/testFiles/badFile.pdf`)
 module.exports = {
   beforeEach(client) {
     client
-      .windowMaximize()
       .url('http://localhost:8000')
+      .windowMaximize()
       .waitForElementVisible('body', 5000)
       .click('button')
       .pause(1000)
@@ -14,7 +14,7 @@ module.exports = {
       .setValue('input[name=email]', 'food@circle.com')
       .setValue('input[name=password]', 'foodcircle')
       .click('button')
-      .pause(1500)
+      .pause(3000)
       .assert.title('Book A Meal')
       .assert.containsText('div.sidenav-title h3 a[href="/"]', 'BOOK-A-MEAL')
       .assert.containsText('div.username-circle p', 'F')
@@ -51,7 +51,6 @@ module.exports = {
           client.assert.equal(res.value, 'Jollof Spaghetti, Plantain and Turkey');
         });
       })
-      .pause(1000)
       .end();
   },
 
@@ -73,7 +72,6 @@ module.exports = {
           client.assert.equal(res.value, 'Spaghetti');
         });
       })
-      .pause(1000)
       .end();
   },
 
@@ -100,7 +98,6 @@ module.exports = {
           client.assert.equal(res.value, 'Vegetarian');
         });
       })
-      .pause(1000)
       .end();
   },
 
@@ -130,7 +127,6 @@ module.exports = {
           client.assert.equal(res.value, 'Asparagus Soup');
         });
       })
-      .pause(1000)
       .end();
   },
 
@@ -156,7 +152,6 @@ module.exports = {
       .click('button.btn-block')
       .pause(1000)
       .assert.containsText('p.danger.text-center', 'Meal already exists')
-      .pause(1000)
       .end();
   },
 
@@ -215,7 +210,6 @@ module.exports = {
       .elements('css selector', '.meal-card .veg-ribbon', (elements) => {
         client.assert.equal(elements.value.length, 1);
       })
-      .pause(1000)
       .end();
   },
 
@@ -236,7 +230,6 @@ module.exports = {
       .click('button.btn-block')
       .pause(1000)
       .assert.containsText('p.danger.text-center', 'Meal already exists')
-      .pause(1000)
       .end();
   },
 
@@ -260,7 +253,6 @@ module.exports = {
           client.assert.equal(res.value, 'Spaghetti');
         });
       })
-      .pause(1000)
       .end();
   },
 };

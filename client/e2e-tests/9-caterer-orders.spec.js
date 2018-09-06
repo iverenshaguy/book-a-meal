@@ -1,8 +1,8 @@
 module.exports = {
   beforeEach(client) {
     client
-      .windowMaximize()
       .url('http://localhost:8000')
+      .windowMaximize()
       .waitForElementVisible('body', 5000)
       .click('button')
       .pause(1000)
@@ -10,7 +10,7 @@ module.exports = {
       .setValue('input[name=email]', 'food@circle.com')
       .setValue('input[name=password]', 'foodcircle')
       .click('button')
-      .pause(1500);
+      .pause(3000);
   },
 
   'Caterer should be able to view order history': (client) => {
@@ -20,7 +20,6 @@ module.exports = {
       .elements('css selector', 'div.scroller .order-history-pill span', (elements) => {
         client.assert.equal(elements.value.length, 6);
       })
-      .pause(1000)
       .end();
   },
 
@@ -30,7 +29,6 @@ module.exports = {
       .waitForElementVisible('div.order-details h3')
       .assert.containsText('div.order-details h3', 'Order #ce228787-f939-40a0-bfd3-6607ca8d2e53')
       .assert.containsText('.success', 'Delivered')
-      .pause(1000)
       .end();
   },
 };

@@ -1,7 +1,6 @@
 module.exports = {
   'Unauthenticated user should be able to see the welcome page': (client) => {
     client
-      .windowMaximize()
       .url('http://localhost:8000')
       .waitForElementVisible('body')
       .waitForElementVisible('h1')
@@ -12,7 +11,6 @@ module.exports = {
       .assert.containsText('a[href="/signin"]', 'Log In')
       .assert.containsText('a[href="/signup"]', 'Sign Up')
       .assert.containsText('div.footer p', '© 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.')
-      .pause(1000)
       .end();
   },
 };
