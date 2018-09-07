@@ -149,7 +149,7 @@ class OrderController {
 
     await Promise.all(promises);
 
-    OrderEventEmitter.emit('deliver', order);
+    await OrderEventEmitter.emit('deliver', order);
 
     OrderController.mapQuantityToMeal(order);
 
