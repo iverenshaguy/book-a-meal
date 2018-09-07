@@ -39,18 +39,20 @@ class OrderEventHandler {
    * @param {object} order
    * @returns {void}
    */
-  static markOrderAsDelivered(order) {
+  static async markOrderAsDelivered(order) {
     order.reload();
 
-    order.getMeals().then((meals) => {
+    await order.getMeals().then(async (meals) => {
       let delivered = true;
 
-      meals.forEach((meal) => { if (!meal.OrderItem.delivered) delivered = false; });
+      meals.forEach((meal) => {
+        if (!meal.OrderItem.delivered) delivered = false;
+      });
 
-      if (!delivered) order.update({ status: 'pending' }).then(() => order);
+      if (!delivered) await order.update({ status: 'pending' }).then(() => order);
 
       if (delivered) {
-        order.update({ status: 'delivered' }).then(() => order);
+        await order.update({ status: 'delivered' }).then(() => order);
 
         NotificationEventHandler.orderSuccess(order, meals);
       }
