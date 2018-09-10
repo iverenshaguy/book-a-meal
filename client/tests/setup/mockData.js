@@ -27,6 +27,7 @@ export const initialState = {
     id: null,
     meals: [],
     working: false,
+    isFetching: false,
     error: null,
     currentDay: '1970-01-01',
     metadata: {}

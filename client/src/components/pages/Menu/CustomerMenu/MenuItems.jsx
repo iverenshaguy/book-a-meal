@@ -25,9 +25,9 @@ const MenuItems = (props) => {
 
   return (
     <Fragment>
-      {isFetching && <Preloader />}
+      {isFetching && <Preloader type="menu" />}
       {!isFetching && meals.length === 0 && <p className="text-center info">No Meals Found</p>}
-      {meals.length !== 0 &&
+      {!isFetching && meals.length !== 0 &&
         <CardGroup
           items={menu}
           metadata={props.metadata}

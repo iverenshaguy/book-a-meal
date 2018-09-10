@@ -162,23 +162,12 @@ class CustomerMenu extends Component {
       <View type="menu">
         <div className="meals user-meals">
           <div className="user-menu">
-            <div className="main-menu search">
+            <div className="main-menu">
               <div className="page-heading">
                 <h2>{'Today\'s Menu'}</h2>
                 <hr />
               </div>
               <SearchForm type="customer" fetchItems={this.fetchMenu} />
-            </div>
-          </div>
-        </div>
-        <div className="meals user-meals">
-          <div className="user-menu">
-            <div className="main-menu">
-              {/* <div className="page-heading">
-                <h2>{'Today\'s Menu'}</h2>
-                <hr />
-              </div> */}
-              {/* <SearchForm type="customer" fetchItems={this.fetchMenu} /> */}
               {!isShopOpen && <Notification message="Ordering is only available between 8:30am and 4:00pm. Please check back later." />}
               <MenuItems
                 loadMoreMenu={this.fetchMenu}
