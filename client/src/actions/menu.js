@@ -2,12 +2,12 @@ import moment from 'moment';
 import { toastr } from 'react-redux-toastr';
 import instance from '../config/axios';
 import errorHandler from '../helpers/errorHandler';
-import { setFetching, unsetFetching } from '../actions/isFetching';
 import { toggleModal } from '../actions/ui';
 import {
   RECEIVE_MENU_SUCCESS, RECEIVE_MENU_FAILURE, SET_CURRENT_DAY, SET_MENU_WORKING,
   UNSET_MENU_WORKING, CLEAR_MENU_ERROR, ADD_MENU_SUCCESS, ADD_MENU_FAILURE,
   EDIT_MENU_SUCCESS, EDIT_MENU_FAILURE, RECEIVE_MORE_MENU_SUCCESS,
+  SET_MENU_FETCHING, UNSET_MENU_FETCHING
 } from '../constants/actionTypes';
 
 /**
@@ -24,6 +24,22 @@ export const setMenuWorking = () => ({
  */
 export const unsetMenuWorking = () => ({
   type: UNSET_MENU_WORKING
+});
+
+/**
+ * @function setMenuWorking
+ * @returns {object} action
+ */
+export const setMenuFetching = () => ({
+  type: SET_MENU_FETCHING
+});
+
+/**
+ * @function unsetMenuWorking
+ * @returns {object} action
+ */
+export const unsetMenuFetching = () => ({
+  type: UNSET_MENU_FETCHING
 });
 
 /**
@@ -121,20 +137,20 @@ export const fetchMenu = (date, metadata, searchTerm) => async (dispatch) => {
   const url = (metadata && metadata.next) || searchUrl;
 
   try {
-    if (!metadata) dispatch(setFetching());
+    if (!metadata) dispatch(setMenuFetching());
 
     const response = await instance.get(url);
 
-    const type = metadata ? RECEIVE_MORE_MENU_SUCCESS : RECEIVE_MENU_SUCCESS;
+    const actionType = metadata ? RECEIVE_MORE_MENU_SUCCESS : RECEIVE_MENU_SUCCESS;
 
-    dispatch(fetchMenuSuccess(type, response.data));
+    dispatch(fetchMenuSuccess(actionType, response.data));
 
-    dispatch(unsetFetching());
+    dispatch(unsetMenuFetching());
   } catch (error) {
     const errorResponse = errorHandler(error);
 
     dispatch(fetchMenuFailure(errorResponse.response));
-    dispatch(unsetFetching());
+    dispatch(unsetMenuFetching());
   }
 };
 

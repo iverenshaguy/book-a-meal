@@ -7,6 +7,7 @@ const state = {
   meals: [],
   error: null,
   working: false,
+  isFetching: false,
   currentDay: moment().format('YYYY-MM-DD'),
   metadata: {}
 };
@@ -32,6 +33,22 @@ describe('Menu Reducers', () => {
     });
 
     expect(newState).toEqual({ ...state, working: false });
+  });
+
+  it('should handle SET_MENU_FETCHING action', () => {
+    const newState = reducer(state, {
+      type: 'SET_MENU_FETCHING'
+    });
+
+    expect(newState).toEqual({ ...state, isFetching: true });
+  });
+
+  it('should handle UNSET_MENU_FETCHING action', () => {
+    const newState = reducer({ ...state, isFetching: true }, {
+      type: 'UNSET_MENU_FETCHING'
+    });
+
+    expect(newState).toEqual({ ...state, isFetching: false });
   });
 
   it('should handle CLEAR_MENU_ERROR action', () => {

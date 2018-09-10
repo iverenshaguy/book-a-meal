@@ -15,6 +15,8 @@ import {
   editMenuFailure,
   setMenuWorking,
   unsetMenuWorking,
+  setMenuFetching,
+  unsetMenuFetching,
   fetchMenuSuccess,
   fetchMenuFailure,
 } from '../../src/actions/menu';
@@ -86,6 +88,26 @@ describe('Menu Actions', () => {
     });
   });
 
+  describe('setMenuFetching', () => {
+    it('should return an object with type SET_MENU_FETCHING', () => {
+      const action = setMenuFetching();
+
+      expect(action).toEqual({
+        type: 'SET_MENU_FETCHING'
+      });
+    });
+  });
+
+  describe('unsetMenuFetching', () => {
+    it('should return an object with type UNSET_MENU_FETCHING', () => {
+      const action = unsetMenuFetching();
+
+      expect(action).toEqual({
+        type: 'UNSET_MENU_FETCHING'
+      });
+    });
+  });
+
   describe('addMenuSuccess', () => {
     it('should return an object with type ADD_MENU_SUCCESS', () => {
       const action = addMenuSuccess(newMenu);
@@ -147,7 +169,7 @@ describe('Menu Actions', () => {
 
     describe('Menu', () => {
       it('should dispatch SET_FETCHING, RECEIVE_MENU_SUCCESS and UNSET_FETCHING on successful fetching of caterer menu', () => {
-        const expectedActions = ['SET_FETCHING', 'RECEIVE_MENU_SUCCESS', 'UNSET_FETCHING'];
+        const expectedActions = ['SET_MENU_FETCHING', 'RECEIVE_MENU_SUCCESS', 'UNSET_MENU_FETCHING'];
 
         mockReq.onGet(`${url}/menu?date=2018-06-07`).reply(200, mealsObj);
 
@@ -161,7 +183,7 @@ describe('Menu Actions', () => {
       });
 
       it('should dispatch SET_FETCHING, RECEIVE_MENU_SUCCESS and UNSET_FETCHING on successful fetching of customer menu with search', () => {
-        const expectedActions = ['SET_FETCHING', 'RECEIVE_MENU_SUCCESS', 'UNSET_FETCHING'];
+        const expectedActions = ['SET_MENU_FETCHING', 'RECEIVE_MENU_SUCCESS', 'UNSET_MENU_FETCHING'];
 
         mockReq.onGet(`${url}/menu?date=2018-06-07&search=Rice`).reply(200, customersMenuObj);
 
@@ -175,7 +197,7 @@ describe('Menu Actions', () => {
       });
 
       it('should dispatch RECEIVE_MORE_MENU_SUCCESS and UNSET_FETCHING on successful fetching of customer menu with metadata', () => {
-        const expectedActions = ['RECEIVE_MORE_MENU_SUCCESS', 'UNSET_FETCHING'];
+        const expectedActions = ['RECEIVE_MORE_MENU_SUCCESS', 'UNSET_MENU_FETCHING'];
 
         mockReq.onGet(`${url}/menu?date=2018-06-07&limit=5`).reply(200, customersMenuObj);
 
@@ -189,7 +211,7 @@ describe('Menu Actions', () => {
       });
 
       it('should dispatch SET_FETCHING, RECEIVE_MENU_FAILURE and UNSET_FETCHING on unsuccessful fetching', () => {
-        const expectedActions = ['SET_FETCHING', 'RECEIVE_MENU_FAILURE', 'UNSET_FETCHING'];
+        const expectedActions = ['SET_MENU_FETCHING', 'RECEIVE_MENU_FAILURE', 'UNSET_MENU_FETCHING'];
 
         mockReq.onGet(`${url}/menu?date=2018-06-07`).reply(401, { error: 'Error' });
 

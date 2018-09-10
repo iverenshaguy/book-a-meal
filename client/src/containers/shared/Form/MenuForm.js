@@ -4,7 +4,7 @@ import { fetchMeals } from '../../../actions/meals';
 import { fetchMenu, setCurrentDay, addMenu, editMenu, clearMenuError } from '../../../actions/menu';
 
 const mapStateToProps = state => ({
-  isFetching: state.isFetching,
+  isFetching: state.isFetching || state.menu.isFetching,
   meals: state.meals.items,
   menu: {
     id: state.menu.id,

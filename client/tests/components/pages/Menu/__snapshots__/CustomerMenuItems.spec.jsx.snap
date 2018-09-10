@@ -55,54 +55,7 @@ exports[`MenuItems should render MenuItems component correctly 1`] = `
 exports[`MenuItems should render Preloader when fetching menu items 1`] = `
 <React.Fragment>
   <Preloader
-    type={null}
-  />
-  <CardGroup
-    items={
-      Array [
-        <MealCard
-          inBasket={true}
-          meal={
-            Object {
-              "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
-              "id": "81211c24-51c0-46ec-b1e0-18db55880958",
-              "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
-              "price": "1500.00",
-              "title": "Jollof Rice, Beef and Plantain",
-              "vegetarian": false,
-            }
-          }
-          orderMeal={[Function]}
-          toggleModal={null}
-          type="customer"
-        />,
-        <MealCard
-          inBasket={true}
-          meal={
-            Object {
-              "description": "Sharwama contains no animal products, perfect for dieters",
-              "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-              "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-              "price": "1200.00",
-              "title": "Vegetable Sharwama and Guava Smoothie",
-              "vegetarian": true,
-            }
-          }
-          orderMeal={[Function]}
-          toggleModal={null}
-          type="customer"
-        />,
-      ]
-    }
-    loadMore={[Function]}
-    metadata={
-      Object {
-        "next": "next",
-        "pages": 2,
-        "prev": "prev",
-        "total": 5,
-      }
-    }
+    type="menu"
   />
 </React.Fragment>
 `;

@@ -14,7 +14,8 @@ const Preloader = ({ type }) => {
   const className = classNames({
     'main-preloader': true,
     'user-preloader': type === 'user',
-    'admin-preloader': type === 'admin'
+    'admin-preloader': type === 'admin',
+    'menu-preloader': type === 'menu'
   });
 
   return (

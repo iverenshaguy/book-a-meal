@@ -11,7 +11,7 @@ exports[`CustomerMenu should render Customer Menu component correctly 1`] = `
       className="user-menu"
     >
       <div
-        className="main-menu search"
+        className="main-menu"
       >
         <div
           className="page-heading"
@@ -25,18 +25,6 @@ exports[`CustomerMenu should render Customer Menu component correctly 1`] = `
           fetchItems={[Function]}
           type="customer"
         />
-      </div>
-    </div>
-  </div>
-  <div
-    className="meals user-meals"
-  >
-    <div
-      className="user-menu"
-    >
-      <div
-        className="main-menu"
-      >
         <Connect(MenuItems)
           addOrderItem={[Function]}
           loadMoreMenu={[Function]}
@@ -434,13 +422,12 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
             >
               <div
                 className="meals user-meals"
-                key=".0"
               >
                 <div
                   className="user-menu"
                 >
                   <div
-                    className="main-menu search"
+                    className="main-menu"
                   >
                     <div
                       className="page-heading"
@@ -486,19 +473,6 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                         </div>
                       </div>
                     </SearchForm>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="meals user-meals"
-                key=".1"
-              >
-                <div
-                  className="user-menu"
-                >
-                  <div
-                    className="main-menu"
-                  >
                     <Connect(MenuItems)
                       addOrderItem={[Function]}
                       loadMoreMenu={[Function]}
@@ -1487,13 +1461,12 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
           >
             <div
               className="meals user-meals"
-              key=".0"
             >
               <div
                 className="user-menu"
               >
                 <div
-                  className="main-menu search"
+                  className="main-menu"
                 >
                   <div
                     className="page-heading"
@@ -1539,19 +1512,6 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                       </div>
                     </div>
                   </SearchForm>
-                </div>
-              </div>
-            </div>
-            <div
-              className="meals user-meals"
-              key=".1"
-            >
-              <div
-                className="user-menu"
-              >
-                <div
-                  className="main-menu"
-                >
                   <Notification
                     message="Ordering is only available between 8:30am and 4:00pm. Please check back later."
                   >
