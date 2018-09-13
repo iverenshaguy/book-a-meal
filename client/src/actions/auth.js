@@ -1,3 +1,4 @@
+import { toastr } from 'react-redux-toastr';
 import instance from '../config/axios';
 import errorHandler from '../helpers/errorHandler';
 import authAPI from '../utils/api/authAPI';
@@ -11,6 +12,12 @@ import {
   SIGNIN_ERROR,
   SIGNUP_SUCCESS,
   SIGNUP_ERROR,
+  SET_AUTH_WORKING,
+  UNSET_AUTH_WORKING,
+  PASSWORD_SET_SUCCESS,
+  PASSWORD_SET_ERROR,
+  MAIL_SEND_SUCCESS,
+  MAIL_SEND_ERROR
 } from '../constants/actionTypes';
 
 /**
@@ -19,6 +26,22 @@ import {
  */
 export const authenticating = () => ({
   type: AUTHENTICATING
+});
+
+/**
+ * @function setAuthWorking
+ * @returns {object} action
+ */
+export const setAuthWorking = () => ({
+  type: SET_AUTH_WORKING
+});
+
+/**
+ * @function unsetAuthWorking
+ * @returns {object} action
+ */
+export const unsetAuthWorking = () => ({
+  type: UNSET_AUTH_WORKING
 });
 
 /**
@@ -78,6 +101,46 @@ export const authenticationSuccess = user => ({
  */
 export const authenticationFailure = error => ({
   type: AUTHENTICATION_ERROR,
+  payload: error
+});
+
+/**
+ * @function mailSendSuccess
+ * @param {object} user
+ * @returns {object} action
+ */
+export const mailSendSuccess = user => ({
+  type: MAIL_SEND_SUCCESS,
+  payload: user
+});
+
+/**
+ * @function mailSendFailure
+ * @param {string} error
+ * @returns {object} action
+ */
+export const mailSendFailure = error => ({
+  type: MAIL_SEND_ERROR,
+  payload: error
+});
+
+/**
+ * @function passwordSetSuccess
+ * @param {object} user
+ * @returns {object} action
+ */
+export const passwordSetSuccess = user => ({
+  type: PASSWORD_SET_SUCCESS,
+  payload: user
+});
+
+/**
+ * @function passwordSetFailure
+ * @param {string} error
+ * @returns {object} action
+ */
+export const passwordSetFailure = error => ({
+  type: PASSWORD_SET_ERROR,
   payload: error
 });
 
@@ -146,6 +209,56 @@ export const authenticateUser = () => async (dispatch) => {
     localStorage.removeItem('jwtToken');
 
     dispatch(authenticationFailure(errorResponse.response));
+  }
+};
+
+/**
+ * Sends a mail to user email with token to reset password
+ * @function forgotPassword
+ * @param {object} user (containing email as a string)
+ * @param {func} dispatch
+ * @returns {void}
+ */
+export const forgotPassword = user => async (dispatch) => {
+  try {
+    dispatch(setAuthWorking());
+
+    const response = await instance.post('/auth/forgot_password', user);
+
+    dispatch(mailSendSuccess(response.data));
+    toastr.success('Mail Sent Successfully');
+    dispatch(unsetAuthWorking());
+  } catch (error) {
+    const errorResponse = errorHandler(error);
+
+    dispatch(mailSendFailure(errorResponse.response));
+    dispatch(unsetAuthWorking());
+  }
+};
+
+/**
+ * Resets a user's password
+ * @function resetPassword
+ * @param {string} token
+ * @param {string} email
+ * @param {object} user (containing password as a string)
+ * @param {func} dispatch
+ * @returns {void}
+ */
+export const resetPassword = (token, email) => user => async (dispatch) => {
+  try {
+    dispatch(setAuthWorking());
+
+    const response = await instance.post(`/auth/reset_password?token=${token}&email=${email}`, user);
+
+    dispatch(passwordSetSuccess(response.data));
+    toastr.success('Password Reset Successfully');
+    dispatch(unsetAuthWorking());
+  } catch (error) {
+    const errorResponse = errorHandler(error);
+
+    dispatch(passwordSetFailure(errorResponse.response));
+    dispatch(unsetAuthWorking());
   }
 };
 

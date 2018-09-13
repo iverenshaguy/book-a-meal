@@ -39,7 +39,6 @@ exports[`Form should render the Add Meal Form correctly when the type prop is ad
         meal={null}
         state={
           Object {
-            "asyncValidating": false,
             "error": Object {
               "description": null,
               "imageUrl": null,
@@ -57,6 +56,7 @@ exports[`Form should render the Add Meal Form correctly when the type prop is ad
               "vegetarian": false,
             },
             "type": "addMeal",
+            "typingTimeout": 0,
             "values": Object {
               "description": "",
               "imageUrl": "http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg",
@@ -111,7 +111,6 @@ exports[`Form should render the Caterer Signup Form correctly when the type prop
         }
         state={
           Object {
-            "asyncValidating": false,
             "error": Object {
               "address": null,
               "businessName": null,
@@ -133,6 +132,7 @@ exports[`Form should render the Caterer Signup Form correctly when the type prop
               "role": false,
             },
             "type": "catererSignup",
+            "typingTimeout": 0,
             "values": Object {
               "address": "",
               "businessName": "",
@@ -188,7 +188,6 @@ exports[`Form should render the Customer Signup Form correctly when the type pro
         }
         state={
           Object {
-            "asyncValidating": false,
             "error": Object {
               "email": null,
               "firstname": null,
@@ -208,6 +207,7 @@ exports[`Form should render the Customer Signup Form correctly when the type pro
               "role": false,
             },
             "type": "customerSignup",
+            "typingTimeout": 0,
             "values": Object {
               "email": "",
               "firstname": "",
@@ -272,7 +272,6 @@ exports[`Form should render the Edit Meal Form correctly when the type prop is e
         }
         state={
           Object {
-            "asyncValidating": false,
             "error": Object {
               "description": null,
               "imageUrl": null,
@@ -290,6 +289,7 @@ exports[`Form should render the Edit Meal Form correctly when the type prop is e
               "vegetarian": false,
             },
             "type": "editMeal",
+            "typingTimeout": 0,
             "values": Object {
               "description": "",
               "id": "81211c24-51c0-46ec-b1e0-18db55880954",
@@ -335,7 +335,6 @@ exports[`Form should render the Form component correctly 1`] = `
         }
         state={
           Object {
-            "asyncValidating": false,
             "error": Object {
               "email": null,
               "password": null,
@@ -347,6 +346,7 @@ exports[`Form should render the Form component correctly 1`] = `
               "password": false,
             },
             "type": "signin",
+            "typingTimeout": 0,
             "values": Object {
               "email": "",
               "password": "",
@@ -391,7 +391,6 @@ exports[`Form should show an error alert and disable the form submit button when
         }
         state={
           Object {
-            "asyncValidating": false,
             "error": Object {
               "email": null,
               "password": null,
@@ -403,6 +402,7 @@ exports[`Form should show an error alert and disable the form submit button when
               "password": false,
             },
             "type": "signin",
+            "typingTimeout": 0,
             "values": Object {
               "email": "",
               "password": "",

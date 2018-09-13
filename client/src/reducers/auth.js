@@ -10,13 +10,22 @@ import {
   EDIT_ORDER_SUCCESS,
   CLEAR_AUTH_ERROR,
   AUTHENTICATION_ERROR,
+  SET_AUTH_WORKING,
+  UNSET_AUTH_WORKING,
+  PASSWORD_SET_SUCCESS,
+  PASSWORD_SET_ERROR,
+  MAIL_SEND_SUCCESS,
+  MAIL_SEND_ERROR
 } from '../constants/actionTypes';
 
 const initialState = {
   isAuthenticated: !!localStorage.getItem('jwtToken'),
   error: null,
   user: {},
-  loading: false
+  loading: false,
+  working: false,
+  mailSendSuccess: false,
+  passwordSetSuccess: false
 };
 
 /**
@@ -29,6 +38,22 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case AUTHENTICATING:
       return { ...state, loading: true };
+    case SET_AUTH_WORKING:
+      return { ...state, working: true };
+    case UNSET_AUTH_WORKING:
+      return { ...state, working: false };
+    case PASSWORD_SET_SUCCESS:
+      return { ...state, mailSendSuccess: false, passwordSetSuccess: true, };
+    case PASSWORD_SET_ERROR:
+      return {
+        ...state, mailSendSuccess: false, passwordSetSuccess: false, error: action.payload
+      };
+    case MAIL_SEND_SUCCESS:
+      return { ...state, mailSendSuccess: true, passwordSetSuccess: false, };
+    case MAIL_SEND_ERROR:
+      return {
+        ...state, mailSendSuccess: false, passwordSetSuccess: false, error: action.payload
+      };
     case AUTHENTICATED:
     case SIGNIN_SUCCESS:
     case SIGNUP_SUCCESS:

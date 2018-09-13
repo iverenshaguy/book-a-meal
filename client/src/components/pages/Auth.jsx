@@ -76,6 +76,10 @@ class Auth extends Component {
       btnText,
       extra: (
         <Fragment>
+          {this.state.type === 'signin' &&
+          <p className="form-extra-info forgot-password">
+            <Link to="/forgot-password">Forgot Password?</Link>
+          </p>}
           <p className="form-extra-info text-center">{para1}</p>
           <p className="text-center">Or</p>
           <p className="form-extra-info text-center">{para2}</p>

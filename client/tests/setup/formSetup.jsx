@@ -11,6 +11,7 @@ const dispatchMock = jest.fn();
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 const store = mockStore(initialState);
+const token = 'sdfghjklfghjbknlmdfghjklnmghjkl';
 
 const formComponentSetup = type => ({
   type,
@@ -45,6 +46,7 @@ const mainFormSetup = (type, meta) => {
         <FormComponent
           {...props}
           meal={type === 'editMeal' ? newMeal : null}
+          token={type === 'resetPassword' ? token : null}
           dispatch={dispatchMock}
         />
       </Provider>
@@ -55,6 +57,7 @@ const mainFormSetup = (type, meta) => {
   const shallowRoot = shallow(<FormComponent
     {...props}
     meal={type === 'editMeal' ? newMeal : null}
+    token={type === 'resetPassword' ? token : null}
     dispatch={dispatchMock}
   />);
 

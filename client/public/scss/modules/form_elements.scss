@@ -234,6 +234,12 @@ input[type=number]::-webkit-outer-spin-button {
         }
       }
 }
+
 svg {
-    color: grey;
+  color: grey;
+}
+
+.forgot-password {
+  margin-top: 0;
+  text-align: right;
 }

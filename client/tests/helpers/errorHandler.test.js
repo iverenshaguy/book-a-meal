@@ -10,6 +10,14 @@ describe('Utils: errorHandler', () => {
       expect(error).toEqual(errorResponse);
     });
 
+    it('should create new error object on 400 error response with error message', () => {
+      const response = { response: { status: 400, data: { error: 'This is an error' } } };
+      const error = errorHandler(response);
+      const errorResponse = { status: 400, response: 'This is an error' };
+
+      expect(error).toEqual(errorResponse);
+    });
+
     it('should create new error object on 401 error response', () => {
       const response = { response: { status: 401, data: { error: 'This is an error' } } };
       const error = errorHandler(response);

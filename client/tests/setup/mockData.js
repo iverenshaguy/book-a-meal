@@ -6,7 +6,10 @@ export const initialState = {
     isAuthenticated: true,
     error: null,
     user: { firstname: 'Dave', lastname: 'Smith' },
-    loading: false
+    loading: false,
+    working: false,
+    passwordSetSuccess: false,
+    mailSendSuccess: false
   },
   router: {
     location: {

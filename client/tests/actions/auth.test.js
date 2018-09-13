@@ -2,6 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import axios from 'axios';
 import moxios from 'moxios';
+import MockAdapter from 'axios-mock-adapter';
 import instance from '../../src/config/axios';
 import { newCustomer } from '../setup/mockData';
 import {
@@ -16,12 +17,21 @@ import {
   resetUser,
   auth,
   authenticateUser,
-  logout
+  logout,
+  forgotPassword,
+  resetPassword,
+  setAuthWorking,
+  unsetAuthWorking,
+  passwordSetSuccess,
+  passwordSetFailure,
+  mailSendSuccess,
+  mailSendFailure
 } from '../../src/actions/auth';
 
 const url = '/api/v1';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
+const mockReq = new MockAdapter(instance);
 const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTE1NDQ0NzkwLCJleHAiOjE1MTU1MzExOTB9.6d1VznIz8slZFioUzvC4KNGDlz_YsUNy95g2LPaEnJE';
 
 // configure Mock store
@@ -55,6 +65,54 @@ describe('Auth Actions', () => {
       const authAction = authenticationFailure('error');
 
       expect(authAction).toEqual({ type: 'AUTHENTICATION_ERROR', payload: 'error' });
+    });
+  });
+
+  describe('setAuthWorking', () => {
+    it('should return an object with type SET_AUTH_WORKING', () => {
+      const authAction = setAuthWorking();
+
+      expect(authAction).toEqual({ type: 'SET_AUTH_WORKING' });
+    });
+  });
+
+  describe('unsetAuthWorking', () => {
+    it('should return an object with type UNSET_AUTH_WORKING', () => {
+      const authAction = unsetAuthWorking();
+
+      expect(authAction).toEqual({ type: 'UNSET_AUTH_WORKING' });
+    });
+  });
+
+  describe('passwordSetSuccess', () => {
+    it('should return an object with type PASSWORD_SET_SUCCESS', () => {
+      const authAction = passwordSetSuccess({ message: 'Successful' });
+
+      expect(authAction).toEqual({ type: 'PASSWORD_SET_SUCCESS', payload: { message: 'Successful' } });
+    });
+  });
+
+  describe('passwordSetFailure', () => {
+    it('should return an object with type PASSWORD_SET_ERROR', () => {
+      const authAction = passwordSetFailure('error');
+
+      expect(authAction).toEqual({ type: 'PASSWORD_SET_ERROR', payload: 'error' });
+    });
+  });
+
+  describe('mailSendSuccess', () => {
+    it('should return an object with type MAIL_SEND_SUCCESS', () => {
+      const authAction = mailSendSuccess({ message: 'Successful' });
+
+      expect(authAction).toEqual({ type: 'MAIL_SEND_SUCCESS', payload: { message: 'Successful' } });
+    });
+  });
+
+  describe('mailSendFailure', () => {
+    it('should return an object with type MAIL_SEND_ERROR', () => {
+      const authAction = mailSendFailure('error');
+
+      expect(authAction).toEqual({ type: 'MAIL_SEND_ERROR', payload: 'error' });
     });
   });
 
@@ -262,6 +320,66 @@ describe('Auth Actions', () => {
 
           expect(actionTypes).toEqual(expectedActions);
           expect(localStorage.getItem('jwtToken')).toEqual(undefined);
+        });
+      });
+    });
+
+    describe('Password Reset', () => {
+      it('should dispatch SET_AUTH_WORKING, MAIL_SEND_SUCCESS, and UNSET_AUTH_WORKING on forgot password success', () => {
+        const expectedActions = ['SET_AUTH_WORKING', 'MAIL_SEND_SUCCESS', 'UNSET_AUTH_WORKING'];
+
+
+        mockReq.onPost(`${url}/auth/forgot_password`).reply(200, { message: 'A reset token has been sent to your email address' });
+
+        return store.dispatch(forgotPassword({ email: 'olisa@emodi.com' })).then(() => {
+          const dispatchedActions = store.getActions();
+
+          const actionTypes = dispatchedActions.map(action => action.type);
+
+          expect(actionTypes).toEqual(expectedActions);
+        });
+      });
+
+      it('should dispatch SET_AUTH_WORKING, MAIL_SEND_ERROR, and UNSET_AUTH_WORKING on forgot password failure', () => {
+        const expectedActions = ['SET_AUTH_WORKING', 'MAIL_SEND_ERROR', 'UNSET_AUTH_WORKING'];
+
+        mockReq.onPost(`${url}/auth/forgot_password`).reply(500, { error: 'Error' });
+
+        return store.dispatch(forgotPassword({ email: 'olisa@emodi.com' })).catch(() => {
+          const dispatchedActions = store.getActions();
+
+          const actionTypes = dispatchedActions.map(action => action.type);
+
+          expect(actionTypes).toEqual(expectedActions);
+        });
+      });
+
+      it('should dispatch SET_AUTH_WORKING, PASSWORD_SET_SUCCESS, and UNSET_AUTH_WORKING on reset password success', () => {
+        const expectedActions = ['SET_AUTH_WORKING', 'PASSWORD_SET_SUCCESS', 'UNSET_AUTH_WORKING'];
+
+        mockReq.onPost(`${url}/auth/reset_password?token=${token}&email=${newCustomer.email}`).reply(200, { message: 'A reset token has been sent to your email address' });
+
+        return store.dispatch(resetPassword(token, newCustomer.email)({ password: 'olisaemodi' })).then(() => {
+          const dispatchedActions = store.getActions();
+
+          const actionTypes = dispatchedActions.map(action => action.type);
+
+          expect(actionTypes).toEqual(expectedActions);
+        });
+      });
+
+      it('should dispatch SET_AUTH_WORKING, PASSWORD_SET_ERROR, and UNSET_AUTH_WORKING on reset password failure', () => {
+        const expectedActions = ['SET_AUTH_WORKING', 'PASSWORD_SET_ERROR', 'UNSET_AUTH_WORKING'];
+
+
+        mockReq.onPost(`${url}/auth/reset_password?token=${token}&email=${newCustomer.email}`).reply(500, { error: 'Error' });
+
+        return store.dispatch(resetPassword(token, newCustomer.email)({ password: 'olisaemodi' })).catch(() => {
+          const dispatchedActions = store.getActions();
+
+          const actionTypes = dispatchedActions.map(action => action.type);
+
+          expect(actionTypes).toEqual(expectedActions);
         });
       });
     });

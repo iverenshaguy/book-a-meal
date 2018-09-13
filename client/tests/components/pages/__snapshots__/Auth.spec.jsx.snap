@@ -27,7 +27,6 @@ exports[`Auth should render Signin Form component correctly 1`] = `
         />
       </div>
       <Connect(Form)
-        changeUrl={[MockFunction]}
         isAuthenticated={false}
         location={
           Object {
@@ -43,6 +42,16 @@ exports[`Auth should render Signin Form component correctly 1`] = `
           Object {
             "btnText": "SIGN IN",
             "extra": <UNDEFINED>
+              <p
+                className="form-extra-info forgot-password"
+              >
+                <Link
+                  replace={false}
+                  to="/forgot-password"
+                >
+                  Forgot Password?
+                </Link>
+              </p>
               <p
                 className="form-extra-info text-center"
               >
@@ -112,7 +121,6 @@ exports[`Auth should render caterer's signup form correctly when role query is c
         />
       </div>
       <Connect(Form)
-        changeUrl={[MockFunction]}
         isAuthenticated={false}
         location={
           Object {
@@ -197,7 +205,6 @@ exports[`Auth should render customer's signup form component correctly 1`] = `
         />
       </div>
       <Connect(Form)
-        changeUrl={[MockFunction]}
         isAuthenticated={false}
         location={
           Object {
@@ -269,7 +276,6 @@ exports[`Auth should render signin component that is connected to the redux stor
   }
 >
   <Connect(Auth)
-    changeUrl={[MockFunction]}
     isAuthenticated={false}
     location={
       Object {
@@ -286,7 +292,6 @@ exports[`Auth should render signin component that is connected to the redux stor
     type="signin"
   >
     <Auth
-      changeUrl={[MockFunction]}
       dispatch={[Function]}
       isAuthenticated={false}
       location={
@@ -354,7 +359,6 @@ exports[`Auth should render signin component that is connected to the redux stor
             />
           </div>
           <Connect(Form)
-            changeUrl={[MockFunction]}
             dispatch={[Function]}
             isAuthenticated={false}
             location={
@@ -371,6 +375,16 @@ exports[`Auth should render signin component that is connected to the redux stor
               Object {
                 "btnText": "SIGN IN",
                 "extra": <UNDEFINED>
+                  <p
+                    className="form-extra-info forgot-password"
+                  >
+                    <Link
+                      replace={false}
+                      to="/forgot-password"
+                    >
+                      Forgot Password?
+                    </Link>
+                  </p>
                   <p
                     className="form-extra-info text-center"
                   >
@@ -408,8 +422,8 @@ exports[`Auth should render signin component that is connected to the redux stor
             type="signin"
           >
             <Form
-              changeUrl={[MockFunction]}
               dispatch={[Function]}
+              email={null}
               isAuthenticated={false}
               location={
                 Object {
@@ -426,6 +440,16 @@ exports[`Auth should render signin component that is connected to the redux stor
                 Object {
                   "btnText": "SIGN IN",
                   "extra": <UNDEFINED>
+                    <p
+                      className="form-extra-info forgot-password"
+                    >
+                      <Link
+                        replace={false}
+                        to="/forgot-password"
+                      >
+                        Forgot Password?
+                      </Link>
+                    </p>
                     <p
                       className="form-extra-info text-center"
                     >
@@ -460,6 +484,7 @@ exports[`Auth should render signin component that is connected to the redux stor
               }
               submitError={null}
               submitting={false}
+              token={null}
               type="signin"
               uploading={null}
             >
@@ -478,7 +503,6 @@ exports[`Auth should render signin component that is connected to the redux stor
                     }
                     state={
                       Object {
-                        "asyncValidating": false,
                         "error": Object {
                           "email": null,
                           "password": null,
@@ -490,6 +514,7 @@ exports[`Auth should render signin component that is connected to the redux stor
                           "password": false,
                         },
                         "type": "signin",
+                        "typingTimeout": 0,
                         "values": Object {
                           "email": "",
                           "password": "",
@@ -506,7 +531,7 @@ exports[`Auth should render signin component that is connected to the redux stor
                       label="Email Address"
                       meta={
                         Object {
-                          "asyncValidating": false,
+                          "asyncValidating": undefined,
                           "error": null,
                           "touched": false,
                         }
@@ -597,6 +622,21 @@ exports[`Auth should render signin component that is connected to the redux stor
                     SIGN IN
                   </button>
                 </form>
+                <p
+                  className="form-extra-info forgot-password"
+                >
+                  <Link
+                    replace={false}
+                    to="/forgot-password"
+                  >
+                    <a
+                      href="/forgot-password"
+                      onClick={[Function]}
+                    >
+                      Forgot Password?
+                    </a>
+                  </Link>
+                </p>
                 <p
                   className="form-extra-info text-center"
                 >

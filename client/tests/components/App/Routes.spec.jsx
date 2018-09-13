@@ -70,7 +70,7 @@ describe('Routes', () => {
       </ConnectedRouter>
     );
     const wrapper = mount(comp);
-    history.push('/signup/customer');
+    history.push('/signup?role=customer');
 
     expect(wrapper.find('Auth')).toBeTruthy();
   });
@@ -84,8 +84,36 @@ describe('Routes', () => {
       </ConnectedRouter>
     );
     const wrapper = mount(comp);
-    history.push('/signup/caterer');
+    history.push('/signup?role=caterer');
 
     expect(wrapper.find('Auth')).toBeTruthy();
+  });
+
+  it('should render forgot password page', () => {
+    const comp = (
+      <ConnectedRouter store={store} history={history}>
+        <Provider store={store}>
+          <Routes dispatch={jest.fn()} />
+        </Provider>
+      </ConnectedRouter>
+    );
+    const wrapper = mount(comp);
+    history.push('/forgot-password');
+
+    expect(wrapper.find('Password')).toBeTruthy();
+  });
+
+  it('should render reset password page', () => {
+    const comp = (
+      <ConnectedRouter store={store} history={history}>
+        <Provider store={store}>
+          <Routes dispatch={jest.fn()} />
+        </Provider>
+      </ConnectedRouter>
+    );
+    const wrapper = mount(comp);
+    history.push('/reset-password');
+
+    expect(wrapper.find('Password')).toBeTruthy();
   });
 });

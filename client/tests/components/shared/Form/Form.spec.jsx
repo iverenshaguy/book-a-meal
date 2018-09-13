@@ -1,20 +1,7 @@
 import React from 'react';
 import FormComponent from '../../../../src/components/shared/Form';
 import { clearAuthError } from '../../../../src/actions/auth';
-import { mainFormSetup as setup, formComponentSetup } from '../../../../tests/setup/formSetup';
-
-const signinState = {
-  type: 'signin',
-  values: {
-    email: '',
-    password: ''
-  },
-  touched: { email: false, password: false },
-  error: { email: null, password: null },
-  pristine: true,
-  formValid: false,
-  asyncValidating: false
-};
+import { mainFormSetup as setup } from '../../../../tests/setup/formSetup';
 
 const meta = {
   btnText: 'SIGN IN',
@@ -54,6 +41,22 @@ describe('Form', () => {
     const { shallowRoot } = setup('editMeal', meta);
 
     expect(toJson(shallowRoot)).toMatchSnapshot();
+  });
+
+  it('should call settimeout 500ms after field is changed', () => {
+    jest.useFakeTimers();
+
+    const { mountRoot } = setup('signin', meta);
+    const wrapper = mountRoot.find(FormComponent);
+
+    const event = { target: { name: 'email', value: 'iverenshaguy@gmail.com' } };
+
+    wrapper.find('input[name="email"]').simulate('change', event);
+
+    jest.advanceTimersByTime(1000);
+
+    expect(setTimeout).toHaveBeenCalledTimes(1);
+    expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 500);
   });
 
   it('should disable the form submit button when the form has not been touched', () => {
@@ -117,57 +120,40 @@ describe('Form', () => {
       const { mountRoot, dispatchMock } = setup('signin', meta);
       const wrapper = mountRoot.find(FormComponent);
 
-      const changeState = {
-        ...signinState,
-        values: { ...signinState.values, email: 'iverenshaguy@gmail.com' },
-        touched: { ...signinState.touched, email: true },
-        error: { email: null, password: null },
-        pristine: false
-      };
-
       const event = { target: { name: 'email', value: 'iverenshaguy@gmail.com' } };
 
       wrapper.find('input[name="email"]').simulate('focus');
       expect(dispatchMock).toHaveBeenCalledWith(clearAuthError());
 
       wrapper.find('input[name="email"]').simulate('change', event);
-      expect(wrapper.instance().state).toEqual(changeState);
+      expect(wrapper.instance().state.values.email).toEqual('iverenshaguy@gmail.com');
+      expect(wrapper.instance().state.touched.email).toEqual(true);
+      expect(wrapper.instance().state.error.email).toEqual(null);
+      expect(wrapper.instance().state.pristine).toEqual(false);
 
       wrapper.find('input[name="email"]').simulate('blur');
-      expect(wrapper.instance().state).toEqual(changeState);
+      expect(wrapper.instance().state.values.email).toEqual('iverenshaguy@gmail.com');
+      expect(wrapper.instance().state.touched.email).toEqual(true);
+      expect(wrapper.instance().state.error.email).toEqual(null);
+      expect(wrapper.instance().state.pristine).toEqual(false);
     });
 
     it('should handle input change on checkbox change for vegetarian field', () => {
-      const { state } = formComponentSetup('addMeal');
       const { mountRoot } = setup('addMeal', meta);
       const wrapper = mountRoot.find(FormComponent);
-
-      const changeState = {
-        ...state,
-        type: 'addMeal',
-        values: { ...state.values, vegetarian: 'true', imageUrl: 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg' },
-        touched: { ...state.touched, vegetarian: true },
-        pristine: false
-      };
 
       const event = { target: { name: 'vegetarian', type: 'checkbox', checked: 'true' } };
 
       wrapper.find('input[name="vegetarian"]').simulate('change', event);
-      expect(wrapper.instance().state).toEqual(changeState);
+      expect(wrapper.instance().state.values.vegetarian).toEqual('true');
+      expect(wrapper.instance().state.touched.vegetarian).toEqual(true);
+      expect(wrapper.instance().state.error.vegetarian).toEqual(null);
+      expect(wrapper.instance().state.pristine).toEqual(false);
     });
 
     it('should submit a valid form', () => {
       const { mountRoot, dispatchMock } = setup('signin', meta);
       const wrapper = mountRoot.find(FormComponent);
-
-      const newState = {
-        ...signinState,
-        values: { email: 'iverenshaguy@gmail.com', password: 'iverenshaguy' },
-        touched: { email: true, password: true },
-        error: { email: null, password: null },
-        pristine: false,
-        formValid: true
-      };
 
       const emailEvent = { target: { name: 'email', value: 'iverenshaguy@gmail.com' } };
       const passwordEvent = { target: { name: 'password', value: 'iverenshaguy' } };
@@ -177,7 +163,14 @@ describe('Form', () => {
       wrapper.find('input[name="password"]').simulate('focus');
       wrapper.find('input[name="password"]').simulate('change', passwordEvent);
 
-      expect(wrapper.instance().state).toEqual(newState);
+      expect(wrapper.instance().state.values.email).toEqual('iverenshaguy@gmail.com');
+      expect(wrapper.instance().state.touched.email).toEqual(true);
+      expect(wrapper.instance().state.error.email).toEqual(null);
+      expect(wrapper.instance().state.values.password).toEqual('iverenshaguy');
+      expect(wrapper.instance().state.touched.password).toEqual(true);
+      expect(wrapper.instance().state.error.password).toEqual(null);
+      expect(wrapper.instance().state.pristine).toEqual(false);
+      expect(wrapper.instance().state.formValid).toEqual(true);
 
       wrapper.find('form').simulate('submit', { preventDefault() { } });
       expect(dispatchMock).toHaveBeenCalled();
@@ -191,6 +184,23 @@ describe('Form', () => {
 
       wrapper.find('input[name="title"]').simulate('focus');
       wrapper.find('input[name="title"]').simulate('change', titleEvent);
+
+      wrapper.find('form').simulate('submit', { preventDefault() { } });
+      expect(dispatchMock).toHaveBeenCalled();
+    });
+
+    it('should submit a valid resetPassword form', () => {
+      const { mountRoot, dispatchMock } = setup('resetPassword', meta);
+      const wrapper = mountRoot.find(FormComponent);
+
+      const passwordEvent = { target: { name: 'password', value: 'olisaemodi' } };
+      const passwordConfirmEvent = { target: { name: 'passwordConfirm', value: 'olisaemodi' } };
+
+      wrapper.find('input[name="password"]').simulate('focus');
+      wrapper.find('input[name="password"]').simulate('change', passwordEvent);
+
+      wrapper.find('input[name="passwordConfirm"]').simulate('focus');
+      wrapper.find('input[name="passwordConfirm"]').simulate('change', passwordConfirmEvent);
 
       wrapper.find('form').simulate('submit', { preventDefault() { } });
       expect(dispatchMock).toHaveBeenCalled();
@@ -233,52 +243,25 @@ describe('Form', () => {
 
   describe('test for wrong input', () => {
     it('should sync validate field and form on input change and blur', () => {
-      const { state } = formComponentSetup('customerSignup');
       const { mountRoot } = setup('customerSignup', meta);
       const wrapper = mountRoot.find(FormComponent);
-
-
-      const changeState = {
-        ...state,
-        values: { ...state.values, email: 'emiolaolasanmi', role: 'customer' },
-        touched: { ...state.touched, email: true },
-        error: { ...state.error, email: 'Invalid email address!', password: null },
-        pristine: false,
-        type: 'customerSignup',
-      };
-
-      const blurState = {
-        ...changeState,
-        asyncValidating: false
-      };
 
       const event = { target: { name: 'email', value: 'emiolaolasanmi' } };
 
       wrapper.find('input[name="email"]').simulate('focus');
       wrapper.find('input[name="email"]').simulate('blur');
-      expect(wrapper.instance().state).toEqual(({
-        ...changeState,
-        error: {
-          ...changeState.error, email: 'Required!', password: null
-        },
-        pristine: true,
-        values: { ...state.values, role: 'customer' }
-      }));
+      expect(wrapper.instance().state.error.email).toEqual('Required!');
 
       wrapper.find('input[name="email"]').simulate('change', event);
-      expect(wrapper.instance().state).toEqual({ ...changeState, error: { ...changeState.error, email: 'Required!' } });
-
       wrapper.find('input[name="email"]').simulate('blur', event);
-      expect(wrapper.instance().state).toEqual(blurState);
+
+      expect(wrapper.instance().state.values.email).toEqual('emiolaolasanmi');
+      expect(wrapper.instance().state.touched.email).toEqual(true);
+      expect(wrapper.instance().state.error.email).toEqual('Invalid email address!');
 
       wrapper.find('input[name="password"]').simulate('focus');
       wrapper.find('input[name="password"]').simulate('blur');
-      expect(wrapper.instance().state).toEqual(({
-        ...changeState,
-        error: { ...changeState.error, password: 'Required!' },
-        touched: { ...changeState.touched, email: true, password: true },
-        values: { ...changeState.values, email: 'emiolaolasanmi', password: '' }
-      }));
+      expect(wrapper.instance().state.error.password).toEqual('Required!');
     });
   });
 });

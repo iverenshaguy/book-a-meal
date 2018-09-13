@@ -55,6 +55,13 @@ const validation = {
   reviewOrder: {
     deliveryAddress: [isRequired, minLength5, maxLength255, isAddress],
     deliveryPhoneNo: [isRequired, isPhoneNumber],
+  },
+  resetPassword: {
+    password: [isRequired, minLength8],
+    passwordConfirm: [isRequired, isValidPasswordConfirm],
+  },
+  forgotPassword: {
+    email: [isRequired, isValidEmail],
   }
 };
 

@@ -7,7 +7,7 @@
 const errorResponse = (err) => {
   switch (err.response.status) {
     case 400:
-      return err.response.data.errors;
+      return err.response.data.errors || err.response.data.error;
     case 401:
     case 403:
     case 404:

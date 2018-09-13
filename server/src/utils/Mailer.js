@@ -138,7 +138,7 @@ class Mailer {
    * @returns {void}
    */
   static forgotPasswordMail(token, emailAddress) {
-    const message = passwordReset(url, token);
+    const message = passwordReset(url, token, emailAddress);
 
     return Mailer.sendMail({
       to: emailAddress,
