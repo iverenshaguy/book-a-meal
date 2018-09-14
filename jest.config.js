@@ -11,9 +11,7 @@ module.exports = {
     '<rootDir>/server/',
     '<rootDir>/client/src/index.jsx',
     '<rootDir>/client/src/store/configureStore.js',
-    '<rootDir>/client/config/',
-    '<rootDir>/client/e2e-tests/',
-    '<rootDir>/client/tests/'
+    '<rootDir>/client/e2e-tests/'
   ],
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy',

@@ -5,7 +5,10 @@ const state = {
   isAuthenticated: false,
   error: null,
   user: {},
-  loading: false
+  loading: false,
+  mailSendSuccess: false,
+  passwordSetSuccess: false,
+  working: false,
 };
 
 describe('Auth Reducers', () => {
@@ -23,6 +26,56 @@ describe('Auth Reducers', () => {
     expect(newState).toEqual({ ...state, loading: true });
   });
 
+  it('should handle SET_AUTH_WORKING action', () => {
+    const newState = reducer(state, {
+      type: 'SET_AUTH_WORKING'
+    });
+
+    expect(newState).toEqual({ ...state, working: true });
+  });
+
+  it('should handle UNSET_AUTH_WORKING action', () => {
+    const newState = reducer({ ...state, working: true }, {
+      type: 'UNSET_AUTH_WORKING'
+    });
+
+    expect(newState).toEqual({ ...state, working: false });
+  });
+
+  it('should handle PASSWORD_SET_SUCCESS action', () => {
+    const newState = reducer(state, {
+      type: 'PASSWORD_SET_SUCCESS'
+    });
+
+    expect(newState).toEqual({ ...state, passwordSetSuccess: true });
+  });
+
+  it('should handle PASSWORD_SET_ERROR action', () => {
+    const newState = reducer({ ...state, passwordSetSuccess: true }, {
+      type: 'PASSWORD_SET_ERROR',
+      payload: 'Error',
+    });
+
+    expect(newState).toEqual({ ...state, passwordSetSuccess: false, error: 'Error' });
+  });
+
+  it('should handle MAIL_SEND_SUCCESS action', () => {
+    const newState = reducer(state, {
+      type: 'MAIL_SEND_SUCCESS'
+    });
+
+    expect(newState).toEqual({ ...state, mailSendSuccess: true });
+  });
+
+  it('should handle MAIL_SEND_ERROR action', () => {
+    const newState = reducer({ ...state, mailSendSuccess: true }, {
+      type: 'MAIL_SEND_ERROR',
+      payload: 'Error',
+    });
+
+    expect(newState).toEqual({ ...state, mailSendSuccess: false, error: 'Error' });
+  });
+
   it('should handle SIGNIN_SUCCESS action', () => {
     const newState = reducer(state, {
       type: 'SIGNIN_SUCCESS',
@@ -30,6 +83,7 @@ describe('Auth Reducers', () => {
     });
 
     expect(newState).toEqual({
+      ...state,
       isAuthenticated: true,
       user: { name: 'Emily' },
       error: null,
@@ -44,6 +98,7 @@ describe('Auth Reducers', () => {
     });
 
     expect(newState).toEqual({
+      ...state,
       isAuthenticated: false,
       user: {},
       error: 'Error',
@@ -57,6 +112,7 @@ describe('Auth Reducers', () => {
     });
 
     expect(newState).toEqual({
+      ...state,
       isAuthenticated: false,
       user: {},
       error: null,
@@ -71,6 +127,7 @@ describe('Auth Reducers', () => {
     });
 
     expect(newState).toEqual({
+      ...state,
       isAuthenticated: true,
       user: { name: 'Emily' },
       error: null,
@@ -84,6 +141,7 @@ describe('Auth Reducers', () => {
     });
 
     expect(newState).toEqual({
+      ...state,
       isAuthenticated: false,
       user: {},
       error: null,
@@ -98,6 +156,7 @@ describe('Auth Reducers', () => {
     });
 
     expect(newState).toEqual({
+      ...state,
       isAuthenticated: true,
       user: { name: 'Emily' },
       error: null,
@@ -112,6 +171,7 @@ describe('Auth Reducers', () => {
     });
 
     expect(newState).toEqual({
+      ...state,
       isAuthenticated: false,
       user: {},
       error: 'Error',
@@ -126,6 +186,7 @@ describe('Auth Reducers', () => {
     });
 
     expect(newState).toEqual({
+      ...state,
       isAuthenticated: false,
       user: {},
       error: 'Error',

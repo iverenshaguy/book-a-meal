@@ -18,8 +18,7 @@ const unAuthStore = mockStore({
 const props = {
   submitting: false,
   isAuthenticated: false,
-  submitError: null,
-  changeUrl: jest.fn(),
+  submitError: null
 };
 
 const signinLocation = {

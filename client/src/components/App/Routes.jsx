@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import NotFound from './../pages/NotFound';
 import Auth from '../../containers/pages/Auth';
+import Password from '../../containers/pages/Password';
 import Welcome from '../../containers/pages/Welcome';
 import Meals from '../../containers/pages/Meals';
 import Menu from './../pages/Menu';
@@ -28,6 +29,8 @@ const Routes = () => (
     <Route exact path="/orders/:id" component={Authenticator(OrderDetails)} />
     <Route exact path="/signin" render={props => <Auth {...props} type="signin" />} />
     <Route exact path="/signup" render={props => <Auth {...props} type="signup" />} />
+    <Route exact path="/forgot-password" render={props => <Password {...props} type="forgotPassword" />} />
+    <Route exact path="/reset-password" render={props => <Password {...props} type="resetPassword" />} />
     <Route path="/*" component={NotFound} />
   </Switch>
 );

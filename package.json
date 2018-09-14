@@ -29,7 +29,7 @@
     "test": "npm-run-all test:server test:client",
     "test:server": "NODE_ENV=test SECRET=mytestsecret nyc mocha ./server/tests/test.js --recursive --timeout 50000 --exit",
     "test:server:watch": "npm run test:server --watch",
-    "test:client": "SECRET=mytestsecret jest --env=jsdom --coverage",
+    "test:client": "SECRET=mytestsecret jest --env=jsdom --coverage --verbose",
     "test:client:watch": "SECRET=mytestsecret jest --env=jsdom --watch --verbose",
     "merge:lcov": "cat ./coverage/lcov.*.info > ./coverage/lcov.info",
     "e2e:setup": "selenium-standalone install --config=./selenium.config.js",

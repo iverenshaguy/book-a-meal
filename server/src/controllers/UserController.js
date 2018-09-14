@@ -106,7 +106,7 @@ class UserController {
   static async forgotPassword(req, res) {
     const { email } = req.body;
     const user = await models.User.findOne({ where: { email } });
-    if (!user) return res.status(404).json({ error: 'User doesn\'t exist on the platform' });
+    if (!user) return res.status(404).json({ error: 'This user is not registered on the platform, please signup instead' });
 
     const token = randomString({ length: 40 });
 
@@ -129,11 +129,12 @@ class UserController {
    * @returns {(function|object)} Function next() or JSON object
    */
   static async resetPassword(req, res) {
-    const { email, password } = req.body;
+    const { password } = req.body;
+    const { email, token } = req.query;
 
     const user = await models.User.findOne({
       where: {
-        passwordResetToken: req.query.token,
+        passwordResetToken: token,
         passwordTokenExpiry: {
           [Op.gt]: Date.now()
         }

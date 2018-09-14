@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import SigninForm from './SigninForm';
 import CustomerSignupForm from './CustomerSignupForm';
 import CatererSignupForm from './CatererSignupForm';
+import ForgotPasswordForm from './ForgotPasswordForm';
+import ResetPasswordForm from './ResetPasswordForm';
 import MealForm from './MealForm';
 import MiniPreloader from '../Preloader/MiniPreloader';
 import { formHelpers, formErrorCount, arrayToObject } from '../../../helpers';
@@ -19,6 +21,8 @@ class Form extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     uploading: PropTypes.bool,
+    token: PropTypes.string,
+    email: PropTypes.string,
     submitting: PropTypes.bool.isRequired,
     submitError: PropTypes.string,
     type: PropTypes.string.isRequired,
@@ -32,6 +36,8 @@ class Form extends Component {
   static defaultProps = {
     submitError: null,
     uploading: null,
+    token: null,
+    email: null,
     meal: null
   }
 
@@ -63,8 +69,7 @@ class Form extends Component {
         touched: arrayToObject(fields, false),
         error: arrayToObject(fields, null),
         pristine: true,
-        formValid: false,
-        asyncValidating: false
+        formValid: false
       };
     }
 
@@ -78,7 +83,7 @@ class Form extends Component {
     error: [],
     pristine: true,
     formValid: false,
-    asyncValidating: false
+    typingTimeout: 0
   }
 
   /**
@@ -111,10 +116,17 @@ class Form extends Component {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
+    if (this.state.typingTimeout) {
+      clearTimeout(this.state.typingTimeout);
+    }
+
     this.setState(prevState => ({
       values: { ...prevState.values, [name]: value },
       touched: { ...prevState.touched, [name]: true },
       pristine: false,
+      typingTimeout: setTimeout(() => {
+        this.validateField(name);
+      }, 500)
     }), this.validateForm);
   }
 
@@ -190,13 +202,16 @@ class Form extends Component {
    */
   submitter = () => {
     const { values } = this.state;
-    const { type } = this.props;
+    const {
+      type, meal, token, email
+    } = this.props;
     const { formSubmitMapper } = formHelpers;
-    const { meal } = this.props;
 
     switch (type) {
       case 'editMeal':
         return formSubmitMapper[type](meal.id, values);
+      case 'resetPassword':
+        return formSubmitMapper[type](token, email)(values);
       default:
         return formSubmitMapper[type](values);
     }
@@ -235,6 +250,10 @@ class Form extends Component {
         return <CustomerSignupForm type={type} state={formState} handlers={handlers} />;
       case 'catererSignup':
         return <CatererSignupForm type={type} state={formState} handlers={handlers} />;
+      case 'forgotPassword':
+        return <ForgotPasswordForm type={type} state={formState} handlers={handlers} />;
+      case 'resetPassword':
+        return <ResetPasswordForm type={type} state={formState} handlers={handlers} />;
       case 'addMeal':
         return <MealForm type={type} state={formState} uploading={uploading} handlers={handlers} />;
       case 'editMeal':
@@ -258,7 +277,7 @@ class Form extends Component {
   render() {
     const { formValid } = this.state;
     const {
-      submitting, submitError, uploading, meta: { btnText, extra }
+      submitting, submitError, uploading, meta: { btnText, extra },
     } = this.props;
     const requiredTextArray = ['catererSignup', 'customerSignup', 'addMeal', 'editMeal'];
 

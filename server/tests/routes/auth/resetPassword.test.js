@@ -24,7 +24,7 @@ describe('Password Routes', () => {
         .send({ email: 'non@existing.com' })
         .end((err, res) => {
           expect(res.statusCode).to.equal(404);
-          expect(res.body.error).to.equal('User doesn\'t exist on the platform');
+          expect(res.body.error).to.equal('This user is not registered on the platform, please signup instead');
 
           if (err) return done(err);
           done();
