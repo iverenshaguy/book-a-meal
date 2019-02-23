@@ -145,7 +145,7 @@
     "postcss-loader": "^2.1.5",
     "react-test-renderer": "^16.3.2",
     "selenium-standalone": "^6.14.1",
-    "sinon": "^4.5.0",
+    "sinon": "^7.2.4",
     "supertest": "^3.0.0",
     "url-loader": "^1.0.1",
     "webpack-cli": "^2.1.3",
