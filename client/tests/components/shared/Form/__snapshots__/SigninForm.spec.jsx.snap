@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SigninForm should render SigninForm correctly 1`] = `
+<React.Fragment>
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="email"
+    label="Email Address"
+    meta={
+      Object {
+        "asyncValidating": false,
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="email"
+    placeholder=""
+    required={true}
+    type="email"
+    value=""
+  />
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="password"
+    label="Password"
+    meta={
+      Object {
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="password"
+    placeholder=""
+    required={true}
+    type="password"
+    value=""
+  />
+</React.Fragment>
+`;

@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Customer Orders Order Review should render the OrderReview component correctly 1`] = `
+<Connect(View)
+  type="orderReview"
+>
+  <div
+    className="order-confirmation"
+  >
+    <div>
+      <h2>
+        Delivery Details
+      </h2>
+      <hr />
+      <div
+        className="delivery-details"
+      >
+        <p
+          className="text-center"
+          style={
+            Object {
+              "marginBottom": "30px",
+            }
+          }
+        >
+          Please fill in or confirm your details below.
+        </p>
+        <React.Fragment>
+          <RenderInput
+            handleBlur={[Function]}
+            handleChange={[Function]}
+            handleFocus={[Function]}
+            id="deliveryPhoneNo"
+            label="Phone Number (in the format 080xxxxxxxx)"
+            meta={
+              Object {
+                "error": null,
+                "touched": true,
+              }
+            }
+            name="deliveryPhoneNo"
+            placeholder=""
+            required={true}
+            type="tel"
+            value=""
+          />
+          <RenderInput
+            handleBlur={[Function]}
+            handleChange={[Function]}
+            handleFocus={[Function]}
+            id="deliveryAddress"
+            label="Delivery Address"
+            meta={
+              Object {
+                "error": null,
+                "touched": true,
+              }
+            }
+            name="deliveryAddress"
+            placeholder=""
+            required={true}
+            type="textarea"
+            value=""
+          />
+        </React.Fragment>
+      </div>
+      <div
+        className="control-btns"
+      >
+        <Link
+          replace={false}
+          to="/"
+        >
+          <button
+            className="btn btn-sec"
+            type="button"
+          >
+            Keep Shopping
+          </button>
+        </Link>
+        <button
+          className="btn btn-sec"
+          onClick={[Function]}
+          type="submit"
+        >
+          Continue
+        </button>
+      </div>
+    </div>
+  </div>
+</Connect(View)>
+`;

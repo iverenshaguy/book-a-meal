@@ -1,0 +1,9 @@
+import './notEmpty.test';
+import './checkMealsId.test';
+import './checkOrderMeals.test';
+import './checkOrderQuantity.test';
+import './isArrayOfUUID.test';
+import './isCaterersMeal.test';
+import './isValidOrderItems.test';
+import './isMealAvailable.test';
+import './validateDate.test';

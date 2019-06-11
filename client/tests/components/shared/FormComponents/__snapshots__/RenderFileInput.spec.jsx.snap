@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form Components: RenderFileInput should render correctly 1`] = `
+<div
+  className="form-input form-img-input"
+>
+  <label
+    htmlFor="1"
+  >
+    Image
+  </label>
+  <div
+    id="form-image-preview"
+  >
+    <img
+      alt="meal"
+      id="meal-form-image"
+      src="image.jpg"
+    />
+  </div>
+  <input
+    accept="image/*"
+    id="1"
+    name="image"
+    onChange={[Function]}
+    onClick={[Function]}
+    type="file"
+  />
+  <br />
+</div>
+`;
+
+exports[`Form Components: RenderFileInput should show error when there is an upload error 1`] = `
+<div
+  className="form-input form-img-input"
+>
+  <label
+    htmlFor="1"
+  >
+    Image
+  </label>
+  <div
+    id="form-image-preview"
+  >
+    <img
+      alt="meal"
+      id="meal-form-image"
+      src="image.jpg"
+    />
+  </div>
+  <input
+    accept="image/*"
+    id="1"
+    name="image"
+    onChange={[Function]}
+    onClick={[Function]}
+    type="file"
+  />
+  <br />
+  <small
+    className="file-feedback danger"
+  >
+    This is an error
+  </small>
+</div>
+`;
+
+exports[`Form Components: RenderFileInput should show preloader when uploading 1`] = `
+<div
+  className="form-input form-img-input"
+>
+  <label
+    htmlFor="1"
+  >
+    Image
+  </label>
+  <div
+    id="form-image-preview"
+  >
+    <div
+      className="img-overlay"
+      id="img-overlay"
+    >
+      <MiniPreloader />
+    </div>
+    <img
+      alt="meal"
+      id="meal-form-image"
+      src="image.jpg"
+    />
+  </div>
+  <input
+    accept="image/*"
+    id="1"
+    name="image"
+    onChange={[Function]}
+    onClick={[Function]}
+    type="file"
+  />
+  <br />
+</div>
+`;

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderAmount should render OrderAmount component correctly 1`] = `
+<div
+  className="order-amount admin-order-total"
+>
+  <div>
+    <p>
+      Total
+    </p>
+    <h2>
+      ₦
+      1200
+    </h2>
+  </div>
+</div>
+`;

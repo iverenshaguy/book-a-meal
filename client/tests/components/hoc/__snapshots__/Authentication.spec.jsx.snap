@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HOC: Authenticator should render correctly 1`] = `
+<MemoryRouter>
+  <Connect(Authenticator)
+    location={
+      Object {
+        "pathname": "/login",
+        "state": Object {
+          "from": Object {
+            "pathname": "/",
+          },
+        },
+      }
+    }
+  />
+</MemoryRouter>
+`;

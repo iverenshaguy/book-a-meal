@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomerView should render CustomerView component correctly 1`] = `
+<div
+  className="admin user"
+>
+  <Header
+    active="menu"
+    dateType="menu"
+    logout={[MockFunction]}
+    showTime={true}
+    type="customer"
+    updateCurrentDate={null}
+    user={
+      Object {
+        "email": "emiola@olasanmi.com",
+        "firstname": "Emiola",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "lastname": "Olasanmi",
+        "role": "customer",
+      }
+    }
+  />
+  <div
+    className="content-wrapper"
+    id="has-modal"
+  >
+    <p>
+      Hi
+    </p>
+  </div>
+  <Connect(Modal)
+    isFetching={false}
+    logout={[MockFunction]}
+    showTime={true}
+    type="menu"
+    updateCurrentDate={null}
+    user={
+      Object {
+        "email": "emiola@olasanmi.com",
+        "firstname": "Emiola",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "lastname": "Olasanmi",
+        "role": "customer",
+      }
+    }
+  >
+    <p>
+      Hi
+    </p>
+  </Connect(Modal)>
+  <Footer />
+</div>
+`;
+
+exports[`CustomerView should render Preloader when fetching page data 1`] = `
+<div
+  className="admin user"
+>
+  <Header
+    active="menu"
+    dateType="menu"
+    logout={[MockFunction]}
+    showTime={true}
+    type="customer"
+    updateCurrentDate={null}
+    user={
+      Object {
+        "email": "emiola@olasanmi.com",
+        "firstname": "Emiola",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "lastname": "Olasanmi",
+        "role": "customer",
+      }
+    }
+  />
+  <div
+    className="content-wrapper"
+    id="has-modal"
+  >
+    <Preloader
+      type={null}
+    />
+  </div>
+  <Connect(Modal)
+    isFetching={true}
+    logout={[MockFunction]}
+    showTime={true}
+    type="menu"
+    updateCurrentDate={null}
+    user={
+      Object {
+        "email": "emiola@olasanmi.com",
+        "firstname": "Emiola",
+        "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+        "lastname": "Olasanmi",
+        "role": "customer",
+      }
+    }
+  >
+    <p>
+      Hi
+    </p>
+  </Connect(Modal)>
+  <Footer />
+</div>
+`;

@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Welcome should render the CustomerMenu component correctly when authenticated and the user role is customer 1`] = `
+<Menu
+  user={
+    Object {
+      "email": "emiola@olasanmi.com",
+      "firstname": "Emiola",
+      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+      "lastname": "Olasanmi",
+      "role": "customer",
+    }
+  }
+/>
+`;
+
+exports[`Welcome should render the Dashboard component correctly when authenticated and the user role is caterer 1`] = `
+<Connect(Dashboard)
+  user={
+    Object {
+      "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+      "businessName": "Food Circle",
+      "email": "food@circle.com",
+      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+      "phoneNo": "08166557788",
+      "role": "caterer",
+    }
+  }
+/>
+`;
+
+exports[`Welcome should render the Preloader component when authenticating 1`] = `
+<Preloader
+  type="user"
+/>
+`;
+
+exports[`Welcome should render the Welcome component correctly when unauthenticated 1`] = `
+<React.Fragment>
+  <Header
+    dateType={null}
+    logout={null}
+    showTime={true}
+    type="home"
+    updateCurrentDate={null}
+    user={null}
+  />
+  <div
+    className="main-wrapper home"
+  >
+    <div
+      className="landing"
+    >
+      <h1>
+        Delicious Meals At Your Fingertips
+      </h1>
+      <Link
+        replace={false}
+        to="/signin"
+      >
+        <button
+          className="btn btn-pri"
+        >
+          I'M HUNGRY
+        </button>
+      </Link>
+    </div>
+  </div>
+  <Footer />
+</React.Fragment>
+`;

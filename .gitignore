@@ -1,0 +1,15 @@
+.DS_Store
+.vscode
+node_modules
+.gitattributes
+server/dist
+client/dist
+.nyc_output
+coverage
+.env
+client/bin/.selenium
+server/coverage
+client/coverage
+.vs
+.DS_Store
+client/reports

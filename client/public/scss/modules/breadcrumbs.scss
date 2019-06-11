@@ -1,0 +1,25 @@
+@import '../_variables.scss';
+
+.breadcrumbs {
+  position: absolute;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+  left: 50px;
+  top: 0;
+
+  li {
+    display: inline;
+
+    &:after {
+      content: ' / ',
+    }
+
+    &:last-child {
+      &:after {
+        content: none,
+      }
+    }
+  }
+}

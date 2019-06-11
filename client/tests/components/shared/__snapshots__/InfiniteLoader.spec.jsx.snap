@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfiniteLoader should render InfiniteLoader component correctly 1`] = `
+<InfiniteLoader
+  height={10}
+  items={
+    Array [
+      <p>
+        Heya!
+      </p>,
+      <p>
+        Heya!
+      </p>,
+      <p>
+        Heya!
+      </p>,
+      <p>
+        Heya!
+      </p>,
+      <p>
+        Heya!
+      </p>,
+      <p>
+        Heya!
+      </p>,
+      <p>
+        Heya!
+      </p>,
+      <p>
+        Heya!
+      </p>,
+      <p>
+        Heya!
+      </p>,
+      <p>
+        Heya!
+      </p>,
+    ]
+  }
+  loadMore={[MockFunction]}
+  metadata={
+    Object {
+      "pages": 1,
+      "totalItems": 20,
+    }
+  }
+>
+  <InfiniteScroll
+    dataLength={10}
+    disableBrowserPullToRefresh={true}
+    hasMore={false}
+    height={10}
+    loader={
+      <div
+        className="text-center"
+      >
+        <MiniPreloader />
+      </div>
+    }
+    next={[MockFunction]}
+    pullDownToRefreshContent={
+      <h3>
+        Pull down to refresh
+      </h3>
+    }
+    pullDownToRefreshThreshold={100}
+    releaseToRefreshContent={
+      <h3>
+        Release to refresh
+      </h3>
+    }
+  >
+    <div
+      style={Object {}}
+    >
+      <div
+        className="infinite-scroll-component"
+        style={
+          Object {
+            "WebkitOverflowScrolling": "touch",
+            "height": 10,
+            "overflow": "auto",
+          }
+        }
+      >
+        <div
+          className="scroller"
+        >
+          <p
+            key="0"
+          >
+            Heya!
+          </p>
+          <p
+            key="1"
+          >
+            Heya!
+          </p>
+          <p
+            key="2"
+          >
+            Heya!
+          </p>
+          <p
+            key="3"
+          >
+            Heya!
+          </p>
+          <p
+            key="4"
+          >
+            Heya!
+          </p>
+          <p
+            key="5"
+          >
+            Heya!
+          </p>
+          <p
+            key="6"
+          >
+            Heya!
+          </p>
+          <p
+            key="7"
+          >
+            Heya!
+          </p>
+          <p
+            key="8"
+          >
+            Heya!
+          </p>
+          <p
+            key="9"
+          >
+            Heya!
+          </p>
+        </div>
+      </div>
+    </div>
+  </InfiniteScroll>
+</InfiniteLoader>
+`;

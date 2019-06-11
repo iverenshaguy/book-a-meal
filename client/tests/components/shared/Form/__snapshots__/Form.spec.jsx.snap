@@ -1,0 +1,426 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form should disable the form submit button when submitting the form 1`] = `
+<div>
+  <div
+    className="modal-preloader text-center"
+  >
+    <MiniPreloader />
+  </div>
+</div>
+`;
+
+exports[`Form should render the Add Meal Form correctly when the type prop is addMeal 1`] = `
+<div>
+  <React.Fragment>
+    <p
+      className="text-muted mx-auto text-center"
+    >
+      Fields marked
+      <span
+        className="danger"
+      >
+         *
+      </span>
+       are required
+    </p>
+    <form
+      onSubmit={[Function]}
+    >
+      <MealForm
+        handlers={
+          Object {
+            "handleBlur": [Function],
+            "handleChange": [Function],
+            "handleFocus": [Function],
+            "handleSubmit": [Function],
+          }
+        }
+        meal={null}
+        state={
+          Object {
+            "error": Object {
+              "description": null,
+              "imageUrl": null,
+              "price": null,
+              "title": null,
+              "vegetarian": null,
+            },
+            "formValid": false,
+            "pristine": true,
+            "touched": Object {
+              "description": false,
+              "imageUrl": false,
+              "price": false,
+              "title": false,
+              "vegetarian": false,
+            },
+            "type": "addMeal",
+            "typingTimeout": 0,
+            "values": Object {
+              "description": "",
+              "imageUrl": "http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg",
+              "price": "",
+              "title": "",
+              "vegetarian": false,
+            },
+          }
+        }
+        type="addMeal"
+        uploading={null}
+      />
+      <button
+        className="btn btn-pri btn-block"
+        disabled={true}
+      >
+        SIGN IN
+      </button>
+    </form>
+    <p>
+      something
+    </p>
+  </React.Fragment>
+</div>
+`;
+
+exports[`Form should render the Caterer Signup Form correctly when the type prop is customerSignup 1`] = `
+<div>
+  <React.Fragment>
+    <p
+      className="text-muted mx-auto text-center"
+    >
+      Fields marked
+      <span
+        className="danger"
+      >
+         *
+      </span>
+       are required
+    </p>
+    <form
+      onSubmit={[Function]}
+    >
+      <CatererSignupForm
+        handlers={
+          Object {
+            "handleBlur": [Function],
+            "handleChange": [Function],
+            "handleFocus": [Function],
+            "handleSubmit": [Function],
+          }
+        }
+        state={
+          Object {
+            "error": Object {
+              "address": null,
+              "businessName": null,
+              "email": null,
+              "password": null,
+              "passwordConfirm": null,
+              "phoneNo": null,
+              "role": null,
+            },
+            "formValid": false,
+            "pristine": true,
+            "touched": Object {
+              "address": false,
+              "businessName": false,
+              "email": false,
+              "password": false,
+              "passwordConfirm": false,
+              "phoneNo": false,
+              "role": false,
+            },
+            "type": "catererSignup",
+            "typingTimeout": 0,
+            "values": Object {
+              "address": "",
+              "businessName": "",
+              "email": "",
+              "password": "",
+              "passwordConfirm": "",
+              "phoneNo": "",
+              "role": "caterer",
+            },
+          }
+        }
+        type="catererSignup"
+      />
+      <button
+        className="btn btn-pri btn-block"
+        disabled={true}
+      >
+        SIGN IN
+      </button>
+    </form>
+    <p>
+      something
+    </p>
+  </React.Fragment>
+</div>
+`;
+
+exports[`Form should render the Customer Signup Form correctly when the type prop is customerSignup 1`] = `
+<div>
+  <React.Fragment>
+    <p
+      className="text-muted mx-auto text-center"
+    >
+      Fields marked
+      <span
+        className="danger"
+      >
+         *
+      </span>
+       are required
+    </p>
+    <form
+      onSubmit={[Function]}
+    >
+      <CustomerSignupForm
+        handlers={
+          Object {
+            "handleBlur": [Function],
+            "handleChange": [Function],
+            "handleFocus": [Function],
+            "handleSubmit": [Function],
+          }
+        }
+        state={
+          Object {
+            "error": Object {
+              "email": null,
+              "firstname": null,
+              "lastname": null,
+              "password": null,
+              "passwordConfirm": null,
+              "role": null,
+            },
+            "formValid": false,
+            "pristine": true,
+            "touched": Object {
+              "email": false,
+              "firstname": false,
+              "lastname": false,
+              "password": false,
+              "passwordConfirm": false,
+              "role": false,
+            },
+            "type": "customerSignup",
+            "typingTimeout": 0,
+            "values": Object {
+              "email": "",
+              "firstname": "",
+              "lastname": "",
+              "password": "",
+              "passwordConfirm": "",
+              "role": "customer",
+            },
+          }
+        }
+        type="customerSignup"
+      />
+      <button
+        className="btn btn-pri btn-block"
+        disabled={true}
+      >
+        SIGN IN
+      </button>
+    </form>
+    <p>
+      something
+    </p>
+  </React.Fragment>
+</div>
+`;
+
+exports[`Form should render the Edit Meal Form correctly when the type prop is editMeal 1`] = `
+<div>
+  <React.Fragment>
+    <p
+      className="text-muted mx-auto text-center"
+    >
+      Fields marked
+      <span
+        className="danger"
+      >
+         *
+      </span>
+       are required
+    </p>
+    <form
+      onSubmit={[Function]}
+    >
+      <MealForm
+        handlers={
+          Object {
+            "handleBlur": [Function],
+            "handleChange": [Function],
+            "handleFocus": [Function],
+            "handleSubmit": [Function],
+          }
+        }
+        meal={
+          Object {
+            "description": "",
+            "id": "81211c24-51c0-46ec-b1e0-18db55880954",
+            "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+            "price": "2500.00",
+            "title": "Jollof Rice and Chicken",
+            "vegetarian": false,
+          }
+        }
+        state={
+          Object {
+            "error": Object {
+              "description": null,
+              "imageUrl": null,
+              "price": null,
+              "title": null,
+              "vegetarian": null,
+            },
+            "formValid": true,
+            "pristine": true,
+            "touched": Object {
+              "description": false,
+              "imageUrl": false,
+              "price": false,
+              "title": false,
+              "vegetarian": false,
+            },
+            "type": "editMeal",
+            "typingTimeout": 0,
+            "values": Object {
+              "description": "",
+              "id": "81211c24-51c0-46ec-b1e0-18db55880954",
+              "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+              "price": "2500.00",
+              "title": "Jollof Rice and Chicken",
+              "vegetarian": false,
+            },
+          }
+        }
+        type="editMeal"
+        updating={false}
+        uploading={null}
+      />
+      <button
+        className="btn btn-pri btn-block"
+        disabled={false}
+      >
+        SIGN IN
+      </button>
+    </form>
+    <p>
+      something
+    </p>
+  </React.Fragment>
+</div>
+`;
+
+exports[`Form should render the Form component correctly 1`] = `
+<div>
+  <React.Fragment>
+    <form
+      onSubmit={[Function]}
+    >
+      <SigninForm
+        handlers={
+          Object {
+            "handleBlur": [Function],
+            "handleChange": [Function],
+            "handleFocus": [Function],
+            "handleSubmit": [Function],
+          }
+        }
+        state={
+          Object {
+            "error": Object {
+              "email": null,
+              "password": null,
+            },
+            "formValid": false,
+            "pristine": true,
+            "touched": Object {
+              "email": false,
+              "password": false,
+            },
+            "type": "signin",
+            "typingTimeout": 0,
+            "values": Object {
+              "email": "",
+              "password": "",
+            },
+          }
+        }
+        type="signin"
+      />
+      <button
+        className="btn btn-pri btn-block"
+        disabled={true}
+      >
+        SIGN IN
+      </button>
+    </form>
+    <p>
+      something
+    </p>
+  </React.Fragment>
+</div>
+`;
+
+exports[`Form should show an error alert and disable the form submit button when there's a submit error 1`] = `
+<div>
+  <React.Fragment>
+    <form
+      onSubmit={[Function]}
+    >
+      <p
+        className="danger text-center mb-0"
+      >
+        Username/Password do not match
+      </p>
+      <SigninForm
+        handlers={
+          Object {
+            "handleBlur": [Function],
+            "handleChange": [Function],
+            "handleFocus": [Function],
+            "handleSubmit": [Function],
+          }
+        }
+        state={
+          Object {
+            "error": Object {
+              "email": null,
+              "password": null,
+            },
+            "formValid": false,
+            "pristine": true,
+            "touched": Object {
+              "email": false,
+              "password": false,
+            },
+            "type": "signin",
+            "typingTimeout": 0,
+            "values": Object {
+              "email": "",
+              "password": "",
+            },
+          }
+        }
+        type="signin"
+      />
+      <button
+        className="btn btn-pri btn-block"
+        disabled={true}
+      >
+        SIGN IN
+      </button>
+    </form>
+    <p>
+      something
+    </p>
+  </React.Fragment>
+</div>
+`;

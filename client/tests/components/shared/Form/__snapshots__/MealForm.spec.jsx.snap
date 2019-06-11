@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MealForm should render the Meal Form correctly when type prop is addMeal 1`] = `
+<React.Fragment>
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="title"
+    label="Meal Name"
+    meta={
+      Object {
+        "asyncValidating": false,
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="title"
+    placeholder=""
+    required={true}
+    type="text"
+    value=""
+  />
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="price"
+    label="Price"
+    meta={
+      Object {
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="price"
+    placeholder=""
+    required={true}
+    type="number"
+    value=""
+  />
+  <Connect(RenderFileInput)
+    formerImgUrl="http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg"
+    id="imageUrl"
+    label="Meal Image"
+    name="imageUrl"
+    successCallBack={[Function]}
+  />
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="description"
+    label="Description (not more than 50 characters)"
+    maxLength={100}
+    meta={
+      Object {
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="description"
+    placeholder=""
+    required={false}
+    rows={2}
+    type="textarea"
+    value=""
+  />
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="vegetarian"
+    label="Suitable for Vegetarians"
+    meta={
+      Object {
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="vegetarian"
+    placeholder=""
+    required={false}
+    type="checkbox"
+    value=""
+  />
+</React.Fragment>
+`;
+
+exports[`MealForm should render the Meal Form correctly when type prop is editMeal 1`] = `
+<React.Fragment>
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="title"
+    label="Meal Name"
+    meta={
+      Object {
+        "asyncValidating": false,
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="title"
+    placeholder=""
+    required={true}
+    type="text"
+    value="Jollof Rice and Chicken"
+  />
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="price"
+    label="Price"
+    meta={
+      Object {
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="price"
+    placeholder=""
+    required={true}
+    type="number"
+    value="2500.00"
+  />
+  <Connect(RenderFileInput)
+    formerImgUrl="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+    id="imageUrl"
+    label="Meal Image"
+    name="imageUrl"
+    successCallBack={[Function]}
+  />
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="description"
+    label="Description (not more than 50 characters)"
+    maxLength={100}
+    meta={
+      Object {
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="description"
+    placeholder=""
+    required={false}
+    rows={2}
+    type="textarea"
+    value=""
+  />
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="vegetarian"
+    label="Suitable for Vegetarians"
+    meta={
+      Object {
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="vegetarian"
+    placeholder=""
+    required={false}
+    type="checkbox"
+    value={false}
+  />
+</React.Fragment>
+`;

@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteMealModal should render MiniPreloader when deleting 1`] = `
+<React.Fragment>
+  <div
+    className="text-center"
+  >
+    <MiniPreloader />
+  </div>
+</React.Fragment>
+`;
+
+exports[`DeleteMealModal should render connected component correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(DeleteMealModal)
+    deleteMeal={[MockFunction]}
+    deleting={false}
+    editMeal={[MockFunction]}
+    meal={
+      Object {
+        "description": "Sharwama contains no animal products, perfect for dieters",
+        "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+        "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+        "price": "1200.00",
+        "title": "Vegetable Sharwama and Guava Smoothie",
+        "vegetarian": true,
+      }
+    }
+    toggleModal={[MockFunction]}
+  >
+    <DeleteMealModal
+      deleteMeal={[Function]}
+      deleting={false}
+      editMeal={[MockFunction]}
+      meal={
+        Object {
+          "description": "Sharwama contains no animal products, perfect for dieters",
+          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+          "price": "1200.00",
+          "title": "Vegetable Sharwama and Guava Smoothie",
+          "vegetarian": true,
+        }
+      }
+      toggleModal={[MockFunction]}
+    >
+      <div
+        className="delete-meal"
+      >
+        <p>
+          Are You Sure?
+        </p>
+        <div
+          className="confirm-delete-btns control-btns"
+        >
+          <button
+            className="btn btn-sec"
+            id="confirm-delete-no"
+            onClick={[Function]}
+          >
+            No
+          </button>
+          <button
+            className="btn btn-sec-danger"
+            id="confirm-delete-yes"
+            onClick={[Function]}
+          >
+            Yes
+          </button>
+        </div>
+      </div>
+    </DeleteMealModal>
+  </Connect(DeleteMealModal)>
+</Provider>
+`;
+
+exports[`DeleteMealModal should render correctly 1`] = `
+<React.Fragment>
+  <div
+    className="delete-meal"
+  >
+    <p>
+      Are You Sure?
+    </p>
+    <div
+      className="confirm-delete-btns control-btns"
+    >
+      <button
+        className="btn btn-sec"
+        id="confirm-delete-no"
+        onClick={[Function]}
+      >
+        No
+      </button>
+      <button
+        className="btn btn-sec-danger"
+        id="confirm-delete-yes"
+        onClick={[Function]}
+      >
+        Yes
+      </button>
+    </div>
+  </div>
+</React.Fragment>
+`;

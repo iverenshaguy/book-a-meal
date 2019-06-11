@@ -1,0 +1,240 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderPill should render Caterer OrderPil correctly 1`] = `
+<div
+  className="order-history-pill admin-order-history-pill"
+>
+  <Link
+    replace={false}
+    to="/orders/fb097bde-5959-45ff-8e21-51184fa60c25"
+  >
+    <div
+      className="order-history-header"
+    >
+      <h3>
+        #fb097bde-5959-45ff-8e21-51184fa60c25
+      </h3>
+      <h3>
+          
+        06/04/18 12:47
+      </h3>
+    </div>
+    <hr />
+    <div>
+      <p>
+        Emiola Olasanmi
+          -  
+        4, Church Street, Yaba
+          -  
+        080xxxxxxxx
+      </p>
+    </div>
+    <div
+      className="order-history-footer"
+    >
+      <h4
+        style={
+          Object {
+            "textTransform": "capitalize",
+          }
+        }
+      >
+        Status:
+        <span
+          className="success"
+          style={
+            Object {
+              "textTransform": "capitalize",
+            }
+          }
+        >
+           
+          delivered
+        </span>
+      </h4>
+      <h2>
+        ₦
+        1200
+      </h2>
+    </div>
+  </Link>
+</div>
+`;
+
+exports[`OrderPill should render Customer OrderOill correctly and add ... for more than one meal 1`] = `
+<div
+  className="order-history-pill admin-order-history-pill"
+>
+  <Link
+    replace={false}
+    to="/orders/fb097bde-5959-45ff-8e21-51184fa60c25"
+  >
+    <div
+      className="order-history-header"
+    >
+      <h3>
+        #fb097bde-5959-45ff-8e21-51184fa60c25
+      </h3>
+      <h3>
+          
+        06/04/18 12:47
+      </h3>
+    </div>
+    <hr />
+    <div>
+      <p
+        key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+      >
+        1x Vegetable Sharwama and Guava Smoothie
+        ...
+      </p>
+    </div>
+    <div
+      className="order-history-footer"
+    >
+      <h4
+        style={
+          Object {
+            "textTransform": "capitalize",
+          }
+        }
+      >
+        Status:
+        <span
+          className="success"
+          style={
+            Object {
+              "textTransform": "capitalize",
+            }
+          }
+        >
+           
+          delivered
+        </span>
+      </h4>
+      <h2>
+        ₦
+        2400
+      </h2>
+    </div>
+  </Link>
+</div>
+`;
+
+exports[`OrderPill should render Customer OrderPill correctly 1`] = `
+<div
+  className="order-history-pill admin-order-history-pill"
+>
+  <Link
+    replace={false}
+    to="/orders/fb097bde-5959-45ff-8e21-51184fa70c25"
+  >
+    <div
+      className="order-history-header"
+    >
+      <h3>
+        #fb097bde-5959-45ff-8e21-51184fa70c25
+      </h3>
+      <h3>
+          
+        06/04/18 12:47
+      </h3>
+    </div>
+    <hr />
+    <div>
+      <p
+        key="46ced7aa-eed5-4462-b2c0-153f31589bdd"
+      >
+        2x Adalu (Beans and Corn) and Local Fish 
+      </p>
+    </div>
+    <div
+      className="order-history-footer"
+    >
+      <h4
+        style={
+          Object {
+            "textTransform": "capitalize",
+          }
+        }
+      >
+        Status:
+        <span
+          className="danger"
+          style={
+            Object {
+              "textTransform": "capitalize",
+            }
+          }
+        >
+           
+          canceled
+        </span>
+      </h4>
+      <h2>
+        ₦
+        4000
+      </h2>
+    </div>
+  </Link>
+</div>
+`;
+
+exports[`OrderPill should render Customer OrderPill correctly when status started 1`] = `
+<div
+  className="order-history-pill admin-order-history-pill"
+>
+  <Link
+    replace={false}
+    to="/orders/fb097bde-5959-45ff-8e21-51184fa90c25"
+  >
+    <div
+      className="order-history-header"
+    >
+      <h3>
+        #fb097bde-5959-45ff-8e21-51184fa90c25
+      </h3>
+      <h3>
+          
+        06/04/18 12:47
+      </h3>
+    </div>
+    <hr />
+    <div>
+      <p
+        key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+      >
+        1x Vegetable Sharwama and Guava Smoothie
+      </p>
+    </div>
+    <div
+      className="order-history-footer"
+    >
+      <h4
+        style={
+          Object {
+            "textTransform": "capitalize",
+          }
+        }
+      >
+        Status:
+        <span
+          className="warning"
+          style={
+            Object {
+              "textTransform": "capitalize",
+            }
+          }
+        >
+           
+          Pending
+        </span>
+      </h4>
+      <h2>
+        ₦
+        1200
+      </h2>
+    </div>
+  </Link>
+</div>
+`;

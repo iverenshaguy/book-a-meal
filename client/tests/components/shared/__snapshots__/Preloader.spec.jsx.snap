@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Preloader should render MiniPreloader component correctly 1`] = `
+<Loader
+  active={true}
+  type="ball-beat"
+/>
+`;
+
+exports[`Preloader should render Preloader component correctly 1`] = `
+<div
+  className="main-preloader"
+>
+  <Loader
+    active={true}
+    type="ball-scale-multiple"
+  />
+</div>
+`;

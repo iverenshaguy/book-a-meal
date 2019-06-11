@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CatererHeader should render CatererHeader component correctly 1`] = `
+<React.Fragment>
+  <div
+    className="menu-control d-none-md"
+  >
+    <Link
+      className="d-none-md"
+      clickHandler={[MockFunction]}
+      dataTip={null}
+      id={null}
+    >
+      <img
+        alt="toggler"
+        src="/img/toggler.png"
+      />
+    </Link>
+  </div>
+  <div
+    className="page-title d-none-md"
+  >
+    <h3>
+      <Link
+        replace={false}
+        to="/"
+      >
+        BOOK-A-MEAL
+      </Link>
+    </h3>
+  </div>
+  <div
+    className="page-title d-flex-md"
+  >
+    <div
+      className="date"
+    >
+      <h2>
+        Thursday, 1st January 1970
+        <span>
+             
+          00:00
+        </span>
+      </h2>
+    </div>
+  </div>
+</React.Fragment>
+`;

@@ -1,0 +1,51 @@
+@import '../../../../public/scss/_variables';
+.loader {
+    &-hidden {
+        display: none;
+    }
+    &-active {
+        display: block;
+    }
+    .ball-beat>div {
+        background-color: $primary-color;
+    }
+    .ball-scale-multiple>div {
+        background-color: $primary-color;
+    }
+}
+
+.modal-preloader,
+.main-preloader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-preloader {
+    height: 25vh;
+}
+
+.main-preloader {
+    height: 100vh;
+}
+
+.admin-preloader {
+    background-color: #EBEFF2;
+    .ball-scale-multiple>div {
+        background-color: $primary-color;
+    }
+}
+
+.user-preloader {
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("http://res.cloudinary.com/iverenshaguy/image/upload/q_49/v1532540270/bookameal/chicken-fajitas.jpg") no-repeat center center;
+    background-color: white;
+    background-size: cover;
+    background-attachment: fixed;
+    .ball-scale-multiple>div {
+        background-color: $primary-color;
+    }
+}
+
+.menu-preloader {
+    height: 50vh;
+}

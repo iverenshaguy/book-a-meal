@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CatererSignupForm should render the Caterer Signup Form correctly 1`] = `
+<React.Fragment>
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="businessName"
+    label="Business Name"
+    meta={
+      Object {
+        "asyncValidating": false,
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="businessName"
+    placeholder=""
+    required={true}
+    type="text"
+    value=""
+  />
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="email"
+    label="Email Address"
+    meta={
+      Object {
+        "asyncValidating": false,
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="email"
+    placeholder=""
+    required={true}
+    type="email"
+    value=""
+  />
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="password"
+    label="Password"
+    meta={
+      Object {
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="password"
+    placeholder=""
+    required={true}
+    type="password"
+    value=""
+  />
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="passwordConfirm"
+    label="Password Confirm"
+    meta={
+      Object {
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="passwordConfirm"
+    placeholder=""
+    required={true}
+    type="password"
+    value=""
+  />
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="phoneNo"
+    label="Business Phone Number (in the format 080xxxxxxxx)"
+    meta={
+      Object {
+        "asyncValidating": false,
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="phoneNo"
+    placeholder=""
+    required={true}
+    type="tel"
+    value=""
+  />
+  <RenderInput
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    id="address"
+    label="Business Address"
+    meta={
+      Object {
+        "asyncValidating": false,
+        "error": null,
+        "touched": false,
+      }
+    }
+    name="address"
+    placeholder=""
+    required={true}
+    row={2}
+    type="text-area"
+    value=""
+  />
+</React.Fragment>
+`;

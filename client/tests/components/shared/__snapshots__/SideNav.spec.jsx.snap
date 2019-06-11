@@ -1,0 +1,369 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideNav should render SideNav component correctly 1`] = `
+<div
+  className="sidenav null"
+  id="sidenav"
+>
+  <div
+    className="sidenav-content"
+  >
+    <div
+      className="sidenav-header"
+    >
+      <CloseIcon
+        btnID={null}
+        clickHandler={[Function]}
+        divClass="d-none-md"
+      />
+      <div
+        className="sidenav-title"
+      >
+        <h3
+          className="d-flex-md"
+        >
+          <Link
+            href="/"
+            replace={false}
+            to="/"
+          >
+            BOOK-A-MEAL
+          </Link>
+        </h3>
+        <div
+          className="username-circle"
+        >
+          <p>
+            F
+          </p>
+        </div>
+        <p>
+          Food Circle
+        </p>
+        <span>
+          <Link
+            className={null}
+            clickHandler={[MockFunction]}
+            dataTip={null}
+            id={null}
+          >
+            Logout
+          </Link>
+        </span>
+      </div>
+    </div>
+    <div
+      className="sidenav-body"
+    >
+      <Link
+        className="menu-item active"
+        clickHandler={[Function]}
+        dataTip={null}
+        id={null}
+      >
+        Dashboard
+      </Link>
+      <Link
+        className="menu-item false"
+        clickHandler={[Function]}
+        dataTip={null}
+        id={null}
+      >
+        Meals
+      </Link>
+      <Link
+        className="menu-item false"
+        clickHandler={[Function]}
+        dataTip={null}
+        id={null}
+      >
+        Menu
+      </Link>
+      <Link
+        className="menu-item false"
+        clickHandler={[Function]}
+        dataTip={null}
+        id={null}
+      >
+        Orders
+      </Link>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SideNav should render correctly when meals tab is active 1`] = `
+<div
+  className="sidenav null"
+  id="sidenav"
+>
+  <div
+    className="sidenav-content"
+  >
+    <div
+      className="sidenav-header"
+    >
+      <CloseIcon
+        btnID={null}
+        clickHandler={[Function]}
+        divClass="d-none-md"
+      />
+      <div
+        className="sidenav-title"
+      >
+        <h3
+          className="d-flex-md"
+        >
+          <Link
+            href="/"
+            replace={false}
+            to="/"
+          >
+            BOOK-A-MEAL
+          </Link>
+        </h3>
+        <div
+          className="username-circle"
+        >
+          <p>
+            F
+          </p>
+        </div>
+        <p>
+          Food Circle
+        </p>
+        <span>
+          <Link
+            className={null}
+            clickHandler={[MockFunction]}
+            dataTip={null}
+            id={null}
+          >
+            Logout
+          </Link>
+        </span>
+      </div>
+    </div>
+    <div
+      className="sidenav-body"
+    >
+      <Link
+        className="menu-item false"
+        clickHandler={[Function]}
+        dataTip={null}
+        id={null}
+      >
+        Dashboard
+      </Link>
+      <Link
+        className="menu-item active"
+        clickHandler={[Function]}
+        dataTip={null}
+        id={null}
+      >
+        Meals
+      </Link>
+      <Link
+        className="menu-item false"
+        clickHandler={[Function]}
+        dataTip={null}
+        id={null}
+      >
+        Menu
+      </Link>
+      <Link
+        className="menu-item false"
+        clickHandler={[Function]}
+        dataTip={null}
+        id={null}
+      >
+        Orders
+      </Link>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SideNav should render correctly when menu tab is active 1`] = `
+<div
+  className="sidenav null"
+  id="sidenav"
+>
+  <div
+    className="sidenav-content"
+  >
+    <div
+      className="sidenav-header"
+    >
+      <CloseIcon
+        btnID={null}
+        clickHandler={[Function]}
+        divClass="d-none-md"
+      />
+      <div
+        className="sidenav-title"
+      >
+        <h3
+          className="d-flex-md"
+        >
+          <Link
+            href="/"
+            replace={false}
+            to="/"
+          >
+            BOOK-A-MEAL
+          </Link>
+        </h3>
+        <div
+          className="username-circle"
+        >
+          <p>
+            F
+          </p>
+        </div>
+        <p>
+          Food Circle
+        </p>
+        <span>
+          <Link
+            className={null}
+            clickHandler={[MockFunction]}
+            dataTip={null}
+            id={null}
+          >
+            Logout
+          </Link>
+        </span>
+      </div>
+    </div>
+    <div
+      className="sidenav-body"
+    >
+      <Link
+        className="menu-item false"
+        clickHandler={[Function]}
+        dataTip={null}
+        id={null}
+      >
+        Dashboard
+      </Link>
+      <Link
+        className="menu-item false"
+        clickHandler={[Function]}
+        dataTip={null}
+        id={null}
+      >
+        Meals
+      </Link>
+      <Link
+        className="menu-item active"
+        clickHandler={[Function]}
+        dataTip={null}
+        id={null}
+      >
+        Menu
+      </Link>
+      <Link
+        className="menu-item false"
+        clickHandler={[Function]}
+        dataTip={null}
+        id={null}
+      >
+        Orders
+      </Link>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SideNav should render correctly when orders tab is active 1`] = `
+<div
+  className="sidenav null"
+  id="sidenav"
+>
+  <div
+    className="sidenav-content"
+  >
+    <div
+      className="sidenav-header"
+    >
+      <CloseIcon
+        btnID={null}
+        clickHandler={[Function]}
+        divClass="d-none-md"
+      />
+      <div
+        className="sidenav-title"
+      >
+        <h3
+          className="d-flex-md"
+        >
+          <Link
+            href="/"
+            replace={false}
+            to="/"
+          >
+            BOOK-A-MEAL
+          </Link>
+        </h3>
+        <div
+          className="username-circle"
+        >
+          <p>
+            F
+          </p>
+        </div>
+        <p>
+          Food Circle
+        </p>
+        <span>
+          <Link
+            className={null}
+            clickHandler={[MockFunction]}
+            dataTip={null}
+            id={null}
+          >
+            Logout
+          </Link>
+        </span>
+      </div>
+    </div>
+    <div
+      className="sidenav-body"
+    >
+      <Link
+        className="menu-item false"
+        clickHandler={[Function]}
+        dataTip={null}
+        id={null}
+      >
+        Dashboard
+      </Link>
+      <Link
+        className="menu-item false"
+        clickHandler={[Function]}
+        dataTip={null}
+        id={null}
+      >
+        Meals
+      </Link>
+      <Link
+        className="menu-item false"
+        clickHandler={[Function]}
+        dataTip={null}
+        id={null}
+      >
+        Menu
+      </Link>
+      <Link
+        className="menu-item active"
+        clickHandler={[Function]}
+        dataTip={null}
+        id={null}
+      >
+        Orders
+      </Link>
+    </div>
+  </div>
+</div>
+`;

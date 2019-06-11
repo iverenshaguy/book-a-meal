@@ -1,0 +1,19 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "node": "current"
+      }
+    }],
+    "react"
+  ],
+  "plugins": ["transform-object-rest-spread", "transform-class-properties", "react-hot-loader/babel",  "add-module-exports"],
+  "env": {
+    "test": {
+      "plugins": ["istanbul"]
+    },
+    "jsdom": {
+      "plugins": []
+    }
+  }
+}

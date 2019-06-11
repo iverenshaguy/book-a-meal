@@ -1,0 +1,63 @@
+{
+  "name": "book-a-meal",
+  "scripts": {
+    "postdeploy": "npm run migrate && npm run seed"
+  },
+  "env": {
+    "BASE_URL": {
+      "required": true
+    },
+    "CLOSING_HOUR": {
+      "required": true
+    },
+    "CLOSING_MINUTE": {
+      "required": true
+    },
+    "EMAIL": {
+      "required": true
+    },
+    "EMAIL_PASSWORD": {
+      "required": true
+    },
+    "EXPIRY": {
+      "required": true
+    },
+    "OPENING_HOUR": {
+      "required": true
+    },
+    "OPENING_MINUTE": {
+      "required": true
+    },
+    "REACT_APP_FIREBASE_API_KEY": {
+      "required": true
+    },
+    "REACT_APP_FIREBASE_AUTH_DOMAIN": {
+      "required": true
+    },
+    "REACT_APP_FIREBASE_DB_URL": {
+      "required": true
+    },
+    "REACT_APP_FIREBASE_STORAGE_BUCKET": {
+      "required": true
+    },
+    "SECRET": {
+      "required": true
+    },
+    "TZ": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
