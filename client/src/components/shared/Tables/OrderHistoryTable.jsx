@@ -28,18 +28,30 @@ const OrderHistoryTable = ({ orders, deliverOrder }) => (
         {orders.map((item, index) => (
           <tr key={item.id}>
             <td>{index + 1}</td>
-            <td>{item.meals.map(meal => <p key={meal.id}>-{meal.title}</p>)}</td>
+            <td>
+              {item.meals.map(meal => (
+                <p key={meal.id}>
+-
+                  {meal.title}
+                </p>
+              ))}
+            </td>
             <td>{`${item.customer.firstname} ${item.customer.lastname}`}</td>
-            <td>&#8358;{calculateCashEarnedFromOrder(item.meals)}</td>
+            <td>
+&#8358;
+              {calculateCashEarnedFromOrder(item.meals)}
+            </td>
             <td>{moment(item.updatedAt).format('dddd[,] Do MMMM YYYY hh.mm ss')}</td>
             <td>
               <span>
                 {item.status === 'canceled' && <p className="danger">Canceled</p>}
                 {item.meals[0].delivered && <p className="success">Delivered</p>}
-                {!item.meals[0].delivered && item.status !== 'canceled' &&
+                {!item.meals[0].delivered && item.status !== 'canceled'
+                  && (
                   <Fragment>
                     <LinkBtn className="warning" clickHandler={() => deliverOrder(item.id)}>Deliver</LinkBtn>
-                  </Fragment>}
+                  </Fragment>
+                  )}
               </span>
             </td>
           </tr>

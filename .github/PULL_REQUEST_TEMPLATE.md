@@ -6,6 +6,8 @@
 
 #### What are the relevant pivotal tracker stories?
 
+[#story-id](https://pivotaltracker.com/story/show/story-id)
+
 #### Any background context you want to add?
 
 #### Screenshots

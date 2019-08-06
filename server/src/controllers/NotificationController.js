@@ -36,16 +36,16 @@ class NotificationController {
     const paginate = new Pagination(req.query.page, req.query.limit);
     const { limit, offset } = paginate.getQueryMetadata();
 
-    const where = role === 'caterer' ?
-      { userId } :
-      { menuId: { [Op.not]: null } };
+    const where = role === 'caterer'
+      ? { userId }
+      : { menuId: { [Op.not]: null } };
 
     const notifData = await models.Notification.findAndCountAll({
       where, order: [['createdAt', 'DESC']], limit, offset
     });
 
-    const notifications = notifData.rows.map(order =>
-      NotificationController.getNotifObject(order, role));
+    const notifications = notifData.rows
+      .map(order => NotificationController.getNotifObject(order, role));
 
     return res.status(200).json({
       notifications, metadata: paginate.getPageMetadata(notifData.count, '/notifications')

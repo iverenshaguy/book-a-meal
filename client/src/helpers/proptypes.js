@@ -1,10 +1,8 @@
 import PropTypes from 'prop-types';
-import { arrayToObject } from '../helpers';
-import formHelpers from './formHelpers';
+import { arrayToObject } from '.';
+import { formFields } from './formHelpers';
 
-const { formFields } = formHelpers;
-
-const userPropType = PropTypes.shape({
+export const userPropType = PropTypes.shape({
   id: PropTypes.string,
   firstname: PropTypes.string,
   lastname: PropTypes.string,
@@ -15,11 +13,11 @@ const userPropType = PropTypes.shape({
   role: PropTypes.string,
 });
 
-const userPropTypes = {
+export const userPropTypes = {
   user: userPropType.isRequired
 };
 
-const orderMealPropTypes = PropTypes.shape({
+export const orderMealPropTypes = PropTypes.shape({
   id: PropTypes.string,
   title: PropTypes.string,
   imageUrl: PropTypes.string,
@@ -30,7 +28,7 @@ const orderMealPropTypes = PropTypes.shape({
   delivered: PropTypes.bool,
 });
 
-const customerOrderMealPropTypes = PropTypes.shape({
+export const customerOrderMealPropTypes = PropTypes.shape({
   id: PropTypes.string,
   title: PropTypes.string,
   imageUrl: PropTypes.string,
@@ -47,14 +45,14 @@ const customerOrderMealPropTypes = PropTypes.shape({
   delivered: PropTypes.bool,
 });
 
-const orderItemPropTypes = PropTypes.shape({
+export const orderItemPropTypes = PropTypes.shape({
   id: PropTypes.string,
   title: PropTypes.string,
   price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   quantity: PropTypes.number,
 });
 
-const catererOrderObjPropTypes = PropTypes.shape({
+export const catererOrderObjPropTypes = PropTypes.shape({
   id: PropTypes.string,
   deliveryAddress: PropTypes.string,
   deliveryPhoneNo: PropTypes.string,
@@ -69,7 +67,7 @@ const catererOrderObjPropTypes = PropTypes.shape({
   meals: PropTypes.arrayOf(orderMealPropTypes)
 });
 
-const customerOrderObjPropTypes = PropTypes.shape({
+export const customerOrderObjPropTypes = PropTypes.shape({
   id: PropTypes.string,
   deliveryAddress: PropTypes.string,
   deliveryPhoneNo: PropTypes.string,
@@ -79,18 +77,18 @@ const customerOrderObjPropTypes = PropTypes.shape({
   meals: PropTypes.arrayOf(customerOrderMealPropTypes)
 });
 
-const catererOrdersObjPropTypes = {
+export const catererOrdersObjPropTypes = {
   orders: PropTypes.arrayOf(catererOrderObjPropTypes).isRequired,
   pendingOrders: PropTypes.number.isRequired,
   totalCashEarned: PropTypes.number.isRequired
 };
 
-const customerOrdersObjPropTypes = {
+export const customerOrdersObjPropTypes = {
   orders: PropTypes.arrayOf(customerOrderObjPropTypes).isRequired,
   pendingOrders: PropTypes.number.isRequired
 };
 
-const authPropTypes = {
+export const authPropTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
   location: PropTypes.shape({
     hash: PropTypes.string,
@@ -108,7 +106,7 @@ const authPropTypes = {
   }).isRequired
 };
 
-const urlMatchPropTypes = {
+export const urlMatchPropTypes = {
   match: PropTypes.shape({
     url: PropTypes.string,
     path: PropTypes.string,
@@ -117,7 +115,7 @@ const urlMatchPropTypes = {
   }).isRequired,
 };
 
-const mealObjPropTypes = PropTypes.shape({
+export const mealObjPropTypes = PropTypes.shape({
   id: PropTypes.string,
   title: PropTypes.string,
   imageUrl: PropTypes.string,
@@ -126,7 +124,7 @@ const mealObjPropTypes = PropTypes.shape({
   price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 });
 
-const formPropTypes = type => ({
+export const formPropTypes = type => ({
   type: PropTypes.string.isRequired,
   state: PropTypes.shape({
     values: PropTypes.shape(arrayToObject(
@@ -147,7 +145,7 @@ const formPropTypes = type => ({
   }).isRequired
 });
 
-const renderFormFieldPropTypes = {
+export const renderFormFieldPropTypes = {
   id: PropTypes.string.isRequired,
   rows: PropTypes.number,
   name: PropTypes.string.isRequired,
@@ -167,14 +165,14 @@ const renderFormFieldPropTypes = {
   handleFocus: PropTypes.func.isRequired,
 };
 
-const metadataProps = PropTypes.shape({
+export const metadataProps = PropTypes.shape({
   page: PropTypes.number,
   totalItems: PropTypes.number,
   prev: PropTypes.string,
   next: PropTypes.string,
 });
 
-const metadataPropTypes = {
+export const metadataPropTypes = {
   metadata: metadataProps.isRequired
 };
 

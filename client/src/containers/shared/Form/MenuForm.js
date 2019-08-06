@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 import MenuForm from '../../../components/shared/Form/MenuForm';
 import { fetchMeals } from '../../../actions/meals';
-import { fetchMenu, setCurrentDay, addMenu, editMenu, clearMenuError } from '../../../actions/menu';
+import {
+  fetchMenu, setCurrentDay, addMenu, editMenu, clearMenuError
+} from '../../../actions/menu';
 
 const mapStateToProps = state => ({
   isFetching: state.isFetching || state.menu.isFetching,

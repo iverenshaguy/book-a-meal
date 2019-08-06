@@ -188,8 +188,8 @@ class Form extends Component {
       this.setState({
         formValid: false
       });
-    } else if (!formErrorArrayLength &&
-      validateRequiredFields(requiredFields, this.state.values)) {
+    } else if (!formErrorArrayLength
+      && validateRequiredFields(requiredFields, this.state.values)) {
       this.setState({
         formValid: true
       });
@@ -257,14 +257,16 @@ class Form extends Component {
       case 'addMeal':
         return <MealForm type={type} state={formState} uploading={uploading} handlers={handlers} />;
       case 'editMeal':
-        return (<MealForm
-          updating={submitting}
-          uploading={uploading}
-          meal={meal}
-          type={type}
-          state={formState}
-          handlers={handlers}
-        />);
+        return (
+          <MealForm
+            updating={submitting}
+            uploading={uploading}
+            meal={meal}
+            type={type}
+            state={formState}
+            handlers={handlers}
+          />
+        );
       default:
         return <SigninForm type={type} state={formState} handlers={handlers} />;
     }
@@ -284,23 +286,30 @@ class Form extends Component {
     return (
       <div>
         {submitting && <div className="modal-preloader text-center"><MiniPreloader /></div>}
-        {!submitting &&
+        {!submitting
+          && (
           <Fragment>
-            {requiredTextArray.includes(this.props.type) &&
+            {requiredTextArray.includes(this.props.type)
+              && (
               <p className="text-muted mx-auto text-center">
                 Fields marked
-                <span className="danger"> *</span> are required
-              </p>}
+                <span className="danger"> *</span>
+                {' '}
+are required
+              </p>
+              )}
             <form onSubmit={this.handleSubmit}>
               {submitError && <p className="danger text-center mb-0">{submitError}</p>}
               {this.renderForm()}
-              <button className="btn btn-pri btn-block" disabled={!formValid || !!submitting || !!uploading}>
+              <button type="submit" className="btn btn-pri btn-block" disabled={!formValid || !!submitting || !!uploading}>
                 {btnText}
               </button>
             </form>
             {extra && extra}
-          </Fragment>}
-      </div>);
+          </Fragment>
+          )}
+      </div>
+    );
   }
 }
 

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Auth should render Signin Form component correctly 1`] = `
-<React.Fragment>
+<Fragment>
   <Header
     dateType={null}
     logout={null}
@@ -41,7 +41,7 @@ exports[`Auth should render Signin Form component correctly 1`] = `
         meta={
           Object {
             "btnText": "SIGN IN",
-            "extra": <UNDEFINED>
+            "extra": <React.Fragment>
               <p
                 className="form-extra-info forgot-password"
               >
@@ -55,7 +55,7 @@ exports[`Auth should render Signin Form component correctly 1`] = `
               <p
                 className="form-extra-info text-center"
               >
-                <UNDEFINED>
+                <React.Fragment>
                   Don't have an account?
                    
                   <Link
@@ -64,7 +64,7 @@ exports[`Auth should render Signin Form component correctly 1`] = `
                   >
                     Signup Here
                   </Link>
-                </UNDEFINED>
+                </React.Fragment>
               </p>
               <p
                 className="text-center"
@@ -81,7 +81,7 @@ exports[`Auth should render Signin Form component correctly 1`] = `
                   Signup as a Caterer
                 </Link>
               </p>
-            </UNDEFINED>,
+            </React.Fragment>,
           }
         }
         submitError={null}
@@ -91,11 +91,11 @@ exports[`Auth should render Signin Form component correctly 1`] = `
     </div>
   </div>
   <Footer />
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`Auth should render caterer's signup form correctly when role query is caterer 1`] = `
-<React.Fragment>
+<Fragment>
   <Header
     dateType={null}
     logout={null}
@@ -136,19 +136,20 @@ exports[`Auth should render caterer's signup form correctly when role query is c
         meta={
           Object {
             "btnText": "SIGN UP",
-            "extra": <UNDEFINED>
+            "extra": <React.Fragment>
               <p
                 className="form-extra-info text-center"
               >
-                <UNDEFINED>
-                  Already have an account? 
+                <React.Fragment>
+                  Already have an account?
+                   
                   <Link
                     replace={false}
                     to="/signin"
                   >
                     Sign In Here
                   </Link>
-                </UNDEFINED>
+                </React.Fragment>
               </p>
               <p
                 className="text-center"
@@ -165,7 +166,7 @@ exports[`Auth should render caterer's signup form correctly when role query is c
                   Signup as a Customer
                 </Link>
               </p>
-            </UNDEFINED>,
+            </React.Fragment>,
           }
         }
         submitError={null}
@@ -175,11 +176,11 @@ exports[`Auth should render caterer's signup form correctly when role query is c
     </div>
   </div>
   <Footer />
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`Auth should render customer's signup form component correctly 1`] = `
-<React.Fragment>
+<Fragment>
   <Header
     dateType={null}
     logout={null}
@@ -220,19 +221,20 @@ exports[`Auth should render customer's signup form component correctly 1`] = `
         meta={
           Object {
             "btnText": "SIGN UP",
-            "extra": <UNDEFINED>
+            "extra": <React.Fragment>
               <p
                 className="form-extra-info text-center"
               >
-                <UNDEFINED>
-                  Already have an account? 
+                <React.Fragment>
+                  Already have an account?
+                   
                   <Link
                     replace={false}
                     to="/signin"
                   >
                     Sign In Here
                   </Link>
-                </UNDEFINED>
+                </React.Fragment>
               </p>
               <p
                 className="text-center"
@@ -249,7 +251,7 @@ exports[`Auth should render customer's signup form component correctly 1`] = `
                   Signup as a Caterer
                 </Link>
               </p>
-            </UNDEFINED>,
+            </React.Fragment>,
           }
         }
         submitError={null}
@@ -259,7 +261,7 @@ exports[`Auth should render customer's signup form component correctly 1`] = `
     </div>
   </div>
   <Footer />
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`Auth should render signin component that is connected to the redux store correctly 1`] = `
@@ -374,7 +376,7 @@ exports[`Auth should render signin component that is connected to the redux stor
             meta={
               Object {
                 "btnText": "SIGN IN",
-                "extra": <UNDEFINED>
+                "extra": <React.Fragment>
                   <p
                     className="form-extra-info forgot-password"
                   >
@@ -388,7 +390,7 @@ exports[`Auth should render signin component that is connected to the redux stor
                   <p
                     className="form-extra-info text-center"
                   >
-                    <UNDEFINED>
+                    <React.Fragment>
                       Don't have an account?
                        
                       <Link
@@ -397,7 +399,7 @@ exports[`Auth should render signin component that is connected to the redux stor
                       >
                         Signup Here
                       </Link>
-                    </UNDEFINED>
+                    </React.Fragment>
                   </p>
                   <p
                     className="text-center"
@@ -414,7 +416,7 @@ exports[`Auth should render signin component that is connected to the redux stor
                       Signup as a Caterer
                     </Link>
                   </p>
-                </UNDEFINED>,
+                </React.Fragment>,
               }
             }
             submitError={null}
@@ -439,7 +441,7 @@ exports[`Auth should render signin component that is connected to the redux stor
               meta={
                 Object {
                   "btnText": "SIGN IN",
-                  "extra": <UNDEFINED>
+                  "extra": <React.Fragment>
                     <p
                       className="form-extra-info forgot-password"
                     >
@@ -453,7 +455,7 @@ exports[`Auth should render signin component that is connected to the redux stor
                     <p
                       className="form-extra-info text-center"
                     >
-                      <UNDEFINED>
+                      <React.Fragment>
                         Don't have an account?
                          
                         <Link
@@ -462,7 +464,7 @@ exports[`Auth should render signin component that is connected to the redux stor
                         >
                           Signup Here
                         </Link>
-                      </UNDEFINED>
+                      </React.Fragment>
                     </p>
                     <p
                       className="text-center"
@@ -479,7 +481,7 @@ exports[`Auth should render signin component that is connected to the redux stor
                         Signup as a Caterer
                       </Link>
                     </p>
-                  </UNDEFINED>,
+                  </React.Fragment>,
                 }
               }
               submitError={null}
@@ -618,6 +620,7 @@ exports[`Auth should render signin component that is connected to the redux stor
                   <button
                     className="btn btn-pri btn-block"
                     disabled={true}
+                    type="submit"
                   >
                     SIGN IN
                   </button>

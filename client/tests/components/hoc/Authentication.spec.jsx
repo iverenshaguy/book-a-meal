@@ -48,7 +48,8 @@ const setup = () => {
       <MemoryRouter>
         <HOCComponent location={location} />
       </MemoryRouter>
-    </Provider>);
+    </Provider>
+  );
 
   const authWrapper = mount(authComponent);
 
@@ -57,7 +58,8 @@ const setup = () => {
       <MemoryRouter>
         <HOCComponent location={location} />
       </MemoryRouter>
-    </Provider>);
+    </Provider>
+  );
 
   const loadingWrapper = mount(loadingComponent);
 
@@ -66,7 +68,8 @@ const setup = () => {
       <MemoryRouter>
         <HOCComponent location={location} />
       </MemoryRouter>
-    </Provider>);
+    </Provider>
+  );
 
   const unAuthWrapper = mount(unAuthComponent);
 

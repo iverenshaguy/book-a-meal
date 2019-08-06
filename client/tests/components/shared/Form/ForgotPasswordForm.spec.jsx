@@ -1,6 +1,6 @@
 import React from 'react';
 import ForgotPasswordForm from '../../../../src/components/shared/Form/ForgotPasswordForm';
-import { formComponentSetup } from '../../../../tests/setup/formSetup';
+import { formComponentSetup } from '../../../setup/formSetup';
 
 describe('ForgotPasswordForm', () => {
   afterAll(() => {

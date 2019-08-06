@@ -30,7 +30,8 @@ exports[`Cart should hide the checkout button whenthe shop is closed 1`] = `
           alt="cart"
           src="/img/cart.png"
         />
-          
+         
+         
         <sup>
           1
         </sup>
@@ -76,6 +77,7 @@ exports[`Cart should hide the checkout button whenthe shop is closed 1`] = `
                 data-tip={null}
                 id="side-cart-close-icon"
                 onClick={[Function]}
+                type="button"
               >
                 ×
               </button>
@@ -120,12 +122,14 @@ exports[`Cart should hide the checkout button whenthe shop is closed 1`] = `
               data-tip="Remove Item?"
               id={null}
               onClick={[Function]}
+              type="button"
             >
               ×
             </button>
           </Link>
           <ReactTooltip
             className="tooltip"
+            clickable={false}
             effect="solid"
             id="cart-tooltip"
             insecure={true}
@@ -162,7 +166,7 @@ exports[`Cart should hide the checkout button whenthe shop is closed 1`] = `
 `;
 
 exports[`Cart should render a message when there is no order 1`] = `
-<React.Fragment>
+<Fragment>
   <div
     className="side-cart-toggle d-none-xl"
   >
@@ -178,7 +182,8 @@ exports[`Cart should render a message when there is no order 1`] = `
           alt="cart"
           src="/img/cart.png"
         />
-          
+         
+         
         <sup>
           0
         </sup>
@@ -200,6 +205,7 @@ exports[`Cart should render a message when there is no order 1`] = `
         <button
           className="btn btn-pri btn-block checkout-btn"
           disabled="disabled"
+          type="button"
         >
           Checkout
         </button>
@@ -241,17 +247,18 @@ exports[`Cart should render a message when there is no order 1`] = `
         <button
           className="btn btn-pri btn-block checkout-btn"
           disabled="disabled"
+          type="button"
         >
           Checkout
         </button>
       </Link>
     </div>
   </div>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`Cart should render the Cart component correctly 1`] = `
-<React.Fragment>
+<Fragment>
   <div
     className="side-cart-toggle d-none-xl"
   >
@@ -267,7 +274,8 @@ exports[`Cart should render the Cart component correctly 1`] = `
           alt="cart"
           src="/img/cart.png"
         />
-          
+         
+         
         <sup>
           1
         </sup>
@@ -289,6 +297,7 @@ exports[`Cart should render the Cart component correctly 1`] = `
         <button
           className="btn btn-pri btn-block checkout-btn"
           disabled={null}
+          type="button"
         >
           Checkout
         </button>
@@ -350,6 +359,7 @@ exports[`Cart should render the Cart component correctly 1`] = `
           </Link>
           <ReactTooltip
             className="tooltip"
+            clickable={false}
             effect="solid"
             id="cart-tooltip"
             insecure={true}
@@ -381,11 +391,12 @@ exports[`Cart should render the Cart component correctly 1`] = `
         <button
           className="btn btn-pri btn-block checkout-btn"
           disabled={null}
+          type="button"
         >
           Checkout
         </button>
       </Link>
     </div>
   </div>
-</React.Fragment>
+</Fragment>
 `;

@@ -40,17 +40,16 @@ const mainFormSetup = (type, meta) => {
     meta
   };
 
-  const comp =
-    (
-      <Provider store={store}>
-        <FormComponent
-          {...props}
-          meal={type === 'editMeal' ? newMeal : null}
-          token={type === 'resetPassword' ? token : null}
-          dispatch={dispatchMock}
-        />
-      </Provider>
-    );
+  const comp = (
+    <Provider store={store}>
+      <FormComponent
+        {...props}
+        meal={type === 'editMeal' ? newMeal : null}
+        token={type === 'resetPassword' ? token : null}
+        dispatch={dispatchMock}
+      />
+    </Provider>
+  );
 
   const mountRoot = mount(comp);
 

@@ -17,8 +17,7 @@ export const isRequired = value => (value ? undefined : 'Required!');
  * @param {string} value value to check
  * @returns {undefined|string} returns undefined or error string
  */
-export const maxLength = max => value =>
-  (value && value.length > max ? `Must be ${max} characters or less!` : undefined);
+export const maxLength = max => value => (value && value.length > max ? `Must be ${max} characters or less!` : undefined);
 
 export const maxLength25 = maxLength(25);
 export const maxLength40 = maxLength(40);
@@ -35,8 +34,7 @@ export const maxLength255 = maxLength(255);
  * @param {string} value value to check
  * @returns {undefined|string} returns undefined or error string
  */
-export const minLength = min => value =>
-  (value && value.length < min ? `Must be ${min} characters or more!` : undefined);
+export const minLength = min => value => (value && value.length < min ? `Must be ${min} characters or more!` : undefined);
 
 export const minLength1 = minLength(1);
 export const minLength2 = minLength(2);
@@ -58,8 +56,7 @@ export const isNumber = value => (value && Number.isNaN(Number(value)) ? 'Must b
  * @param {number} value value to check
  * @returns {undefined|string} returns undefined or error string
  */
-export const minValue = min => value =>
-  (value && value < min ? `Must be at least ${min}!` : undefined);
+export const minValue = min => value => (value && value < min ? `Must be at least ${min}!` : undefined);
 
 export const minValue18 = minValue(18);
 
@@ -69,8 +66,7 @@ export const minValue18 = minValue(18);
  * @param {number} value value to check
  * @returns {undefined|string} returns undefined or error string
  */
-export const isGreaterThanZero = value =>
-  (value && value <= 0 ? 'Must be greater than 0!' : undefined);
+export const isGreaterThanZero = value => (value && value <= 0 ? 'Must be greater than 0!' : undefined);
 
 /**
  * Checks whether value is a valid email address
@@ -78,10 +74,9 @@ export const isGreaterThanZero = value =>
  * @param {string} value email to check
  * @returns {undefined|string} returns undefined or error string
  */
-export const isValidEmail = value =>
-  (value && !isEmail(value)
-    ? 'Invalid email address!'
-    : undefined);
+export const isValidEmail = value => (value && !isEmail(value)
+  ? 'Invalid email address!'
+  : undefined);
 
 /**
  * Checks whether value is a valid decimal or number
@@ -89,10 +84,9 @@ export const isValidEmail = value =>
  * @param {number|decimal} value value to check
  * @returns {undefined|string} returns undefined or error string
  */
-export const isValidDecimal = value =>
-  (value && !isDecimal(`${value}`)
-    ? 'Price must be a number or decimal!'
-    : undefined);
+export const isValidDecimal = value => (value && !isDecimal(`${value}`)
+  ? 'Price must be a number or decimal!'
+  : undefined);
 
 /**
  * Checks whether value is a valid boolean
@@ -100,10 +94,9 @@ export const isValidDecimal = value =>
  * @param {bool} value value to check
  * @returns {undefined|string} returns undefined or error string
  */
-export const isValidBoolean = value =>
-  (value && !isBoolean(`${value}`)
-    ? 'Accepts only true or false!'
-    : undefined);
+export const isValidBoolean = value => (value && !isBoolean(`${value}`)
+  ? 'Accepts only true or false!'
+  : undefined);
 
 /**
  * Checks whether value is a valid name
@@ -111,10 +104,9 @@ export const isValidBoolean = value =>
  * @param {string} value value to check
  * @returns {undefined|string} returns undefined or error string
  */
-export const isName = value =>
-  (value && !(/^[a-z'-]+$/i.test(value))
-    ? "Only letters and the characters '- allowed!"
-    : undefined);
+export const isName = value => (value && !(/^[a-z'-]+$/i.test(value))
+  ? "Only letters and the characters '- allowed!"
+  : undefined);
 
 /**
  * Checks whether value is a valid business name
@@ -122,10 +114,9 @@ export const isName = value =>
  * @param {string} value value to check
  * @returns {undefined|string} returns undefined or error string
  */
-export const isBusinessName = value =>
-  (value && !(/^[a-z0-9 (),.'-]+$/i.test(value))
-    ? "Only letters, numbers, spaces and the characters (,.'-) allowed!"
-    : undefined);
+export const isBusinessName = value => (value && !(/^[a-z0-9 (),.'-]+$/i.test(value))
+  ? "Only letters, numbers, spaces and the characters (,.'-) allowed!"
+  : undefined);
 
 /**
  * Checks whether value is a valid meal name
@@ -133,10 +124,9 @@ export const isBusinessName = value =>
  * @param {string} value value to check
  * @returns {undefined|string} returns undefined or error string
  */
-export const isMealName = value =>
-  (value && !(/^[a-z (),.'-]+$/i.test(value))
-    ? "Only letters, spaces and the characters (,.'-) allowed!"
-    : undefined);
+export const isMealName = value => (value && !(/^[a-z (),.'-]+$/i.test(value))
+  ? "Only letters, spaces and the characters (,.'-) allowed!"
+  : undefined);
 
 /**
  * Checks whether value is a valid address
@@ -152,10 +142,9 @@ export const isAddress = value => isBusinessName(value);
  * @param {string|number} value value to check
  * @returns {undefined|string} returns undefined or error string
  */
-export const isPhoneNumber = value =>
-  (value && !(/^\+?(0)[7-9]([0-9]{9})$/.test(value))
-    ? 'Phone number is invalid, must be in the format 080xxxxxxxx'
-    : undefined);
+export const isPhoneNumber = value => (value && !(/^\+?(0)[7-9]([0-9]{9})$/.test(value))
+  ? 'Phone number is invalid, must be in the format 080xxxxxxxx'
+  : undefined);
 
 /**
  * Checks whether value is a valid password confirmation

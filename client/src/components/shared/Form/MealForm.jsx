@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { RenderInput, RenderFileInput } from '../../shared/FormComponents';
+import { RenderInput, RenderFileInput } from '../FormComponents';
 import { formPropTypes, mealObjPropTypes } from '../../../helpers/proptypes';
 
 /**

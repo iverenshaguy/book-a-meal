@@ -275,7 +275,7 @@ describe('Auth Actions', () => {
 
 
         expect(actionTypes).toEqual(expectedActions);
-        expect(localStorage.getItem('jwtToken')).toEqual(undefined);
+        expect(localStorage.getItem('jwtToken')).toEqual(null);
       });
     });
 

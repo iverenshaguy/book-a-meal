@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -38,11 +39,11 @@ class SearchForm extends Component {
       clearTimeout(this.state.typingTimeout);
     }
 
-    this.setState({
+    this.setState(({ searchTerm }) => ({
       typingTimeout: setTimeout(() => {
-        this.props.fetchItems(null, this.state.searchTerm);
+        this.props.fetchItems(null, searchTerm);
       }, 300)
-    });
+    }));
   }
 
   /**
@@ -54,13 +55,15 @@ class SearchForm extends Component {
       <label htmlFor="search" className="hide">Search For Meals</label>
       <input
         type="text"
+        id="search"
         name="search"
         className="open menu-search-input"
         value={this.state.searchTerm}
         placeholder="Search For Meals"
         onChange={this.handleChange}
       />
-    </div>)
+    </div>
+  )
 
   /**
    * @memberof SearchForm
@@ -83,7 +86,8 @@ class SearchForm extends Component {
           />
         </div>
       </div>
-    </Fragment>)
+    </Fragment>
+  )
 
   /**
    * @memberof MenuForm

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import jwt from 'jsonwebtoken';
 import errors from '../../lib/errors.json';
 import models from '../models';

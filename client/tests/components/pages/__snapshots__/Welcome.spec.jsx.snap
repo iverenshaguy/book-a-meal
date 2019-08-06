@@ -36,7 +36,7 @@ exports[`Welcome should render the Preloader component when authenticating 1`] =
 `;
 
 exports[`Welcome should render the Welcome component correctly when unauthenticated 1`] = `
-<React.Fragment>
+<Fragment>
   <Header
     dateType={null}
     logout={null}
@@ -60,6 +60,7 @@ exports[`Welcome should render the Welcome component correctly when unauthentica
       >
         <button
           className="btn btn-pri"
+          type="button"
         >
           I'M HUNGRY
         </button>
@@ -67,5 +68,5 @@ exports[`Welcome should render the Welcome component correctly when unauthentica
     </div>
   </div>
   <Footer />
-</React.Fragment>
+</Fragment>
 `;

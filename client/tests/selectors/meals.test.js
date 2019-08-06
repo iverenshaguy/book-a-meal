@@ -8,4 +8,3 @@ describe('Meals Selectors', () => {
     expect(lastItem.id).toEqual('36d525d1-efc9-4b75-9999-3e3d8dc64ce3');
   });
 });
-

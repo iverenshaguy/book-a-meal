@@ -6,6 +6,7 @@ exports[`Link should render Link component correctly 1`] = `
   data-tip={null}
   id={null}
   onClick={[MockFunction]}
+  type="button"
 >
   Click
 </button>

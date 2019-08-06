@@ -17,4 +17,3 @@ describe('Root Reducer', () => {
     expect(store.isFetching).toEqual(false);
   });
 });
-

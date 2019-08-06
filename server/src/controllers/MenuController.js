@@ -98,9 +98,9 @@ class MenuController {
   static getMenuForDay(req, res) {
     const { role } = req;
 
-    return role === 'caterer' ?
-      MenuController.getMenuForCaterer(req, res) :
-      MenuController.getMenuForCustomer(req, res);
+    return role === 'caterer'
+      ? MenuController.getMenuForCaterer(req, res)
+      : MenuController.getMenuForCustomer(req, res);
   }
 
   /**

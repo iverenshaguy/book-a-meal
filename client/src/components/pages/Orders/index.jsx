@@ -2,7 +2,9 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import OrderPill from '../../shared/OrderPill';
 import View from '../../../containers/shared/View';
-import { userPropTypes, metadataPropTypes, catererOrderObjPropTypes, customerOrderObjPropTypes } from '../../../helpers/proptypes';
+import {
+  userPropTypes, metadataPropTypes, catererOrderObjPropTypes, customerOrderObjPropTypes
+} from '../../../helpers/proptypes';
 import InfiniteLoader from '../../shared/InfiniteLoader';
 import './Orders.scss';
 
@@ -43,8 +45,8 @@ class Orders extends Component {
    * @returns {JSX} Orders Component
    */
   renderOrders = () => {
-    const orders = this.props.orders.map(order =>
-      <OrderPill key={order.id} order={order} user={this.props.user} />);
+    const orders = this.props.orders
+      .map(order => <OrderPill key={order.id} order={order} user={this.props.user} />);
 
     return (
       <div className={`main-wrapper ${this.props.user.role === 'caterer' ? 'dashboard' : ''} orders`}>
@@ -54,14 +56,16 @@ class Orders extends Component {
             <hr />
           </div>
           {this.props.orders.length === 0 && <p className="text-center info">You Have No Orders</p>}
-          {this.props.orders.length !== 0 &&
+          {this.props.orders.length !== 0
+            && (
             <div className="pills">
               <InfiniteLoader
                 items={orders}
                 metadata={this.props.metadata}
                 loadMore={this.loadMoreOrders}
               />
-            </div>}
+            </div>
+            )}
         </div>
       </div>
     );

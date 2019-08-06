@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchForm should render the SearchForm component correctly when type prop is caterer 1`] = `
-<React.Fragment>
+<Fragment>
   <div
     className="form-input"
   >
@@ -13,6 +13,7 @@ exports[`SearchForm should render the SearchForm component correctly when type p
     </label>
     <input
       className="open menu-search-input"
+      id="search"
       name="search"
       onChange={[Function]}
       placeholder="Search For Meals"
@@ -20,43 +21,41 @@ exports[`SearchForm should render the SearchForm component correctly when type p
       value=""
     />
   </div>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`SearchForm should render the SearchForm component correctly when type prop is customer 1`] = `
-<React.Fragment>
-  <React.Fragment>
+<Fragment>
+  <div
+    className="search-wrapper"
+  >
     <div
-      className="search-wrapper"
+      className="search-form"
     >
       <div
-        className="search-form"
+        className="search-btn"
       >
-        <div
-          className="search-btn"
-        >
-          <img
-            alt=""
-            src="/img/search.svg"
-          />
-        </div>
-        <label
-          className="hide"
-          htmlFor="search"
-        >
-          Search For Meals
-        </label>
-        <input
-          id="search"
-          label="Search"
-          name="search"
-          onChange={[Function]}
-          placeholder="Search For Meals"
-          type="text"
-          value=""
+        <img
+          alt=""
+          src="/img/search.svg"
         />
       </div>
+      <label
+        className="hide"
+        htmlFor="search"
+      >
+        Search For Meals
+      </label>
+      <input
+        id="search"
+        label="Search"
+        name="search"
+        onChange={[Function]}
+        placeholder="Search For Meals"
+        type="text"
+        value=""
+      />
     </div>
-  </React.Fragment>
-</React.Fragment>
+  </div>
+</Fragment>
 `;

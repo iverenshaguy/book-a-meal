@@ -14,6 +14,7 @@ const Link = ({
 }) => (
   <button
     id={id}
+    type="button"
     className={`link-btn ${className}`}
     onClick={clickHandler}
     data-tip={dataTip}

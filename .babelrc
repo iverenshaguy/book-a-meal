@@ -1,13 +1,22 @@
 {
   "presets": [
-    ["env", {
+    ["@babel/preset-env", {
       "targets": {
         "node": "current"
       }
     }],
-    "react"
+    "@babel/preset-react"
   ],
-  "plugins": ["transform-object-rest-spread", "transform-class-properties", "react-hot-loader/babel",  "add-module-exports"],
+  "plugins": [
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-proposal-export-namespace-from",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-throw-expressions",
+    "@babel/plugin-transform-runtime",
+    "react-hot-loader/babel",
+    "add-module-exports"
+  ],
   "env": {
     "test": {
       "plugins": ["istanbul"]

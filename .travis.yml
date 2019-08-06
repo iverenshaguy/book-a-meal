@@ -1,7 +1,10 @@
 language: node_js
 
 node_js:
-  - '9.11.1'
+  - 10.14.2
+
+services:
+  - postgresql
 
 env:
   global:
@@ -14,23 +17,13 @@ env:
     - secure: "uUSk3Jsnav2hAVkbXb3xluP1WhaRHdkjAOtb85UJV6ao0mwj3rOYzyjYbVUC1BqIHjfgeo6Cx/DynmvQnUMb0buuan273W5y8ZrIFKvFuFlSpP8u+O0zT7MeAjMLoIOUtYexuHlIMJs+Ij52vXkgLJrU9FrViWPPZ2r3fIjC2EUiORnvjUaEKeyF1cNspDFLzivziYfP22jtfKLoAXQpI4zagFoXLUopLGBcWbxiyxqcw43u1k8Nki9o8WSpdR+I8HSbGSFrg02AxvVFTnpmh7CV66JiHYGvrM5CmWrWPBsVM24WQPy8Uswpiq84aFC2YYeI9eIndS1SJ0H8Iod0AXT6A01Cn5eqpyUHbFR1oor4hYvX0NmsXN1eemhLOt2gzjqCITN8be1oubCeKSmWSkTAnS36ERHGrcXq7HXXrQeI851o+X1M2FU9os9pSQEoL83VXKoqfRr96B/hGyjMTEABh4IHRcPTlRQJUWeEB+NBnPkFnOGQ+dHtsON6j12bOMN5WjLfr3M8Ex+lrO2D3K9/RHN5YA0B/vBH/i4UuicjuKNVho42OnVaaYQrkTyb6brEtPr+/eWekuaTLZb3g1JXlrFcC3DirzUvSd8qTU0Xn/wsOar0ACLvKJr2HZDmtf1Fh8QB+ene3BxBW52NjftZb/sS2Moj2kLD1ToyDCA="
     - secure: "uZxtdHkGECu296/sBnwGQ60+XEyFMnpe6LN8Zb85V4TOqoqsvbQvJ+dY4ZQtRU6H39KnUtAKsIrzMqvkgndunNE4eyfb+mdFP3Wqju3MvYRQ06CLTqU8khjYFbfN+BAECtVywAu5M+k2U0Bgim7uZ+R8oaN2Y1nUAK6hio6AIiYtvYqOIfMqmr6qM8mtXqKNLhD+0T+H38GMAdcOW2TkltlMnij0FcZ4mmdlWuANCHHLs6jgegtNfnUHiFYoduThCzSrLuxXvarfwhh56XxhZta/JqL5ArONMnDyzz4ZXY5YMFLm11SdWhJ/ypNeTdD2b+4sfvzX8PUUYcM0m6nl5ZTB2VcbBuLqVZo54vbgkF2OotSaQltrEEkJLyBm8/NgbgA1LOovyVekAQ2mRAWBbgAKysd+LSpPKIyeotgMWw5UsWYOzmcyH2N8WhqDb+vFJwqXASVxQbyzLgJ+n60Ya8312hEu3toxwlnGjTuwDqs2RfRDwOWglRwqRrTyJ5tk7C5KcKTpHFEj3MxByv0w/nvD9ilowAOETfinTpxE3q3SepQBs1xFV9cuWZ0eSnSNHy/Ym/7NEvkK3k6KdHE45n3vuI6kxfgH+vBmkhe3wXXHKGuTqP7DgTAl+pgX/MuNH+/DZpOxi8SZuGnJRzr1H+nSThgVN3V5GUs8BWFv9zU="
 
-script:
-  - npm run test:server
-  - mv ./coverage/lcov.info ./coverage/lcov.server.info
-  - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.server.info --output ./coverage/codeclimate.server.json
-  - npm run test:client
-  - mv ./coverage/lcov.info ./coverage/lcov.client.info
-  - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.client.info  --output ./coverage/codeclimate.client.json
-  - ./cc-test-reporter sum-coverage -p 2 ./coverage/codeclimate.server.json ./coverage/codeclimate.client.json
-  - ./cc-test-reporter upload-coverage
-
 cache:
   yarn: true
   directories:
     - 'node_modules'
 
 before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.5.1
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.13.0
   - export PATH="$HOME/.yarn/bin:$PATH"
 
 before_script:
@@ -39,7 +32,17 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
   - npm run build
-  
+
+script:
+  - npm run test:server:coverage
+  - mv ./coverage/lcov.info ./coverage/lcov.server.info
+  - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.server.info --output ./coverage/codeclimate.server.json
+  - npm run test:client:coverage
+  - mv ./coverage/lcov.info ./coverage/lcov.client.info
+  - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.client.info  --output ./coverage/codeclimate.client.json
+  - ./cc-test-reporter sum-coverage -p 2 ./coverage/codeclimate.server.json ./coverage/codeclimate.client.json
+  - ./cc-test-reporter upload-coverage
+
 after_success:
   - npm run coverage
-  
+

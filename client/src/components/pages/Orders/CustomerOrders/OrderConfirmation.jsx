@@ -61,9 +61,19 @@ class OrderConfirmation extends Component {
   renderCustomerDetails = () => (
     <div className="customer-details">
       <p>{moment().format('dddd, Do MMMM YYYY  h:mm a')}</p>
-      <p>Customer: {this.props.user.firstname}&nbsp;{this.props.user.lastname}</p>
-      <p>Phone Number: {this.state.order.deliveryPhoneNo}</p>
-      <p>Address: {this.state.order.deliveryAddress}</p>
+      <p>
+Customer:
+        {this.props.user.firstname}
+        {this.props.user.lastname}
+      </p>
+      <p>
+Phone Number:
+        {this.state.order.deliveryPhoneNo}
+      </p>
+      <p>
+Address:
+        {this.state.order.deliveryAddress}
+      </p>
     </div>
   );
 
@@ -88,9 +98,10 @@ class OrderConfirmation extends Component {
             <OrderAmount meals={this.state.order.meals} />
             {this.renderCustomerDetails()}
             <br />
-            <Link to="/"><button className="btn btn-sec btn-block">Keep Shopping</button></Link>
-            <br /><br />
-            <button className="btn btn-pri btn-block" id="checkout" onClick={this.handleSubmit}>Confirm Order</button>
+            <Link to="/"><button type="button" className="btn btn-sec btn-block">Keep Shopping</button></Link>
+            <br />
+            <br />
+            <button type="button" className="btn btn-pri btn-block" id="checkout" onClick={this.handleSubmit}>Confirm Order</button>
           </div>
         </div>
       </View>

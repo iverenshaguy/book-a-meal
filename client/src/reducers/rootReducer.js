@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import { reducer as toastrReducer } from 'react-redux-toastr';
-import createHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history';
 import { UNAUTHENTICATED } from '../constants/actionTypes';
 import singleOrder from './singleOrder';
 import uploadImage from './uploadImage';
@@ -12,7 +12,7 @@ import menu from './menu';
 import auth from './auth';
 import ui from './ui';
 
-export const history = createHistory();
+export const history = createBrowserHistory();
 
 const appReducer = combineReducers({
   router: routerReducer,

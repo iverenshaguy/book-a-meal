@@ -45,7 +45,8 @@ describe('OrderDetails', () => {
           user={customer}
           match={{ params: { id: 'fb097b-5959-45ff-8e21-51184fa61c25' } }}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get());
 
@@ -66,7 +67,8 @@ describe('OrderDetails', () => {
           user={customer}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get()).find(CustomerOrderDetailsComponent);
 
@@ -86,7 +88,8 @@ describe('OrderDetails', () => {
           user={customer}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa70c25' } }}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get()).find(CustomerOrderDetailsComponent);
 
@@ -107,7 +110,8 @@ describe('OrderDetails', () => {
           order={customersOrdersObj.orders[2]}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa80c25' } }}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get()).find(CustomerOrderDetailsComponent);
     expect(wrapper.find('.warning').text()).toEqual(' pending');
@@ -126,7 +130,8 @@ describe('OrderDetails', () => {
           user={customer}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa90c25' } }}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get()).find(CustomerOrderDetailsComponent);
     expect(wrapper.find('.order-status').text()).toEqual(' pending');
@@ -147,7 +152,8 @@ describe('OrderDetails', () => {
           isFetching={false}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get());
 
@@ -169,7 +175,8 @@ describe('OrderDetails', () => {
           isFetching={false}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa90c25' } }}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get());
 
@@ -203,7 +210,8 @@ describe('OrderDetails', () => {
           order={customersOrdersObj.orders[3]}
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa90c25' } }}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get());
 

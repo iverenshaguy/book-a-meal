@@ -1,9 +1,8 @@
-# [Book A Meal](https://book-a-meal-sivy.herokuapp.com)
+# [Book A Meal](https://book-a-meal-prod.herokuapp.com)
 
 [![Build Status](https://travis-ci.org/iverenshaguy/book-a-meal.svg?branch=develop)](https://travis-ci.org/iverenshaguy/book-a-meal)
 [![Coverage Status](https://coveralls.io/repos/github/iverenshaguy/book-a-meal/badge.svg?branch=develop)](https://coveralls.io/github/iverenshaguy/book-a-meal?branch=develop)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ee9e3f3a2697b184de58/maintainability)](https://codeclimate.com/github/iverenshaguy/book-a-meal/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/ee9e3f3a2697b184de58/test_coverage)](https://codeclimate.com/github/iverenshaguy/book-a-meal/test_coverage)
 
 An application that allows customers to make food orders and helps the food vendor to know what the customers want to eat.
 
@@ -31,11 +30,11 @@ Template is hosted at [https://iverenshaguy.github.io/book-a-meal/UI/index.html]
 
 ### API Deployment
 
-API is deployed at [https://book-a-meal-sivy.herokuapp.com/api/v1](https://book-a-meal-sivy.herokuapp.com/api/v1)
+API is deployed at [https://book-a-meal-prod.herokuapp.com/api/v1](https://book-a-meal-prod.herokuapp.com/api/v1)
 
 ### Documentation
 
-Documentation is hosted at [https://book-a-meal-sivy.herokuapp.com/api/v1/docs](https://book-a-meal-sivy.herokuapp.com/api/v1/docs)
+Documentation is hosted at [https://book-a-meal-prod.herokuapp.com/api/v1/docs](https://book-a-meal-prod.herokuapp.com/api/v1/docs)
 
 ## Technologies
 
@@ -131,7 +130,7 @@ You can run `npm run start:dev` in development to use [Nodemon](https://nodemon.
 * After installing as shown above
 * Navigate to [localhost:8000](http://localhost:8000/) in
   [Postman](https://getpostman.com/) to access the application
-* Use the [API Documentation](https://book-a-meal-sivy.herokuapp.com/api/v1/docs) to access the endpoints available
+* Use the [API Documentation](https://book-a-meal-prod.herokuapp.com/api/v1/docs) to access the endpoints available
 
 #### Testing with Coverage Data
 
@@ -142,7 +141,7 @@ You can run `npm run start:dev` in development to use [Nodemon](https://nodemon.
 
 ## Using the Live App
 
-The live application is hosted at [https://book-a-meal-sivy.herokuapp.com](https://book-a-meal-sivy.herokuapp.com).
+The live application is hosted at [https://book-a-meal-prod.herokuapp.com](https://book-a-meal-prod.herokuapp.com).
 
 The Menu for each day varies and must be set by any of the registered caterers.
 
@@ -183,7 +182,7 @@ This will allow you to set a menu for the day if no menu is available.
 
 * Does the application have an API?
 
-  * Yes, the application has an API with a well documented reference that can be viewed [here](https://book-a-meal-sivy.herokuapp.com/api/v1/docs)
+  * Yes, the application has an API with a well documented reference that can be viewed [here](https://book-a-meal-prod.herokuapp.com/api/v1/docs)
 
 * Is the application licensed ?
 

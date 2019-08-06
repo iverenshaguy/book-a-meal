@@ -219,7 +219,8 @@ describe('MenuForm', () => {
           menuMetadata={{}}
           fetchMenu={fetchMenuMock}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp);
 

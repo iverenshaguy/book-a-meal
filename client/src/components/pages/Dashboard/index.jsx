@@ -25,41 +25,56 @@ class Dashboard extends Component {
    * @returns {JSX} Dashboard Component
    */
   componentDidMount() {
+    const { fetchOrders } = this.props;
     const todaysDate = moment().format('YYYY-MM-DD');
-    this.props.fetchOrders(todaysDate);
+
+    fetchOrders(todaysDate);
   }
 
   /**
    * @memberof Dashboard
    * @returns {JSX} Board Component
    */
-  renderDashBoard = () => (
-    <Fragment>
-      <div className="date d-none-md">
-        <h2>{moment().format('dddd[,] Do MMMM YYYY')}&nbsp; &nbsp; {moment().format('HH:mm')}</h2>
-      </div>
-      <div className="card-group summary">
-        <div className="card total-sum">
-          <div className="count">{this.props.orders.length}</div>
-          <div>{'Today\'s Orders'}</div>
+  renderDashBoard = () => {
+    const {
+      orders, pendingOrders, totalCashEarned, deliverOrder
+    } = this.props;
+
+    return (
+      <Fragment>
+        <div className="date d-none-md">
+          <h2>
+            {moment().format('dddd[,] Do MMMM YYYY')}
+&nbsp; &nbsp;
+            {moment().format('HH:mm')}
+          </h2>
         </div>
-        <div className="card pending">
-          <div className="count">{this.props.pendingOrders}</div>
-          <div>Pending Orders</div>
+        <div className="card-group summary">
+          <div className="card total-sum">
+            <div className="count">{orders.length}</div>
+            <div>{'Today\'s Orders'}</div>
+          </div>
+          <div className="card pending">
+            <div className="count">{pendingOrders}</div>
+            <div>Pending Orders</div>
+          </div>
+          <div className="card total-cash">
+            <div className="count">
+&#8358;
+              {totalCashEarned}
+            </div>
+            <div>{'Today\'s Revenue'}</div>
+          </div>
         </div>
-        <div className="card total-cash">
-          <div className="count">&#8358; {this.props.totalCashEarned}</div>
-          <div>{'Today\'s Revenue'}</div>
+        <div className="order-details">
+          <OrderHistoryTable
+            orders={orders}
+            deliverOrder={deliverOrder}
+          />
         </div>
-      </div>
-      <div className="order-details">
-        <OrderHistoryTable
-          orders={this.props.orders}
-          deliverOrder={this.props.deliverOrder}
-        />
-      </div>
-    </Fragment>
-  )
+      </Fragment>
+    );
+  }
 
 
   /**
@@ -68,7 +83,7 @@ class Dashboard extends Component {
    */
   render() {
     return (
-      <View type="dashboard" showTime >
+      <View type="dashboard" showTime>
         {this.renderDashBoard()}
       </View>
     );

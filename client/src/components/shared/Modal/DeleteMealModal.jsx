@@ -35,24 +35,30 @@ class DeleteMealModal extends Component {
     return (
       <Fragment>
         {this.props.deleting && <div className="text-center"><MiniPreloader /></div>}
-        {!this.props.deleting &&
+        {!this.props.deleting
+          && (
           <div className="delete-meal">
             <p>Are You Sure?</p>
             <div className="confirm-delete-btns control-btns">
               <button
+                type="button"
                 className="btn btn-sec"
                 id="confirm-delete-no"
                 onClick={this.toggleModal}
-              >No
+              >
+                No
               </button>
               <button
+                type="button"
                 className="btn btn-sec-danger"
                 id="confirm-delete-yes"
                 onClick={this.handleDeleteClick}
-              >Yes
+              >
+                Yes
               </button>
             </div>
-          </div>}
+          </div>
+          )}
       </Fragment>
     );
   }

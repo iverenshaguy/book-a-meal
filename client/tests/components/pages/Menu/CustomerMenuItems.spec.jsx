@@ -101,7 +101,8 @@ describe('MenuItems', () => {
           loadMoreMenu={jest.fn()}
           addOrderItem={jest.fn()}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get());
 

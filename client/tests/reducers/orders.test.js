@@ -1,5 +1,11 @@
 import reducer from '../../src/reducers/orders';
-import { deliverOrder as deliverOrderDetails, caterersOrdersObj, customerOrder, customersOrdersObj, metadata } from '../setup/mockData';
+import {
+  deliverOrder as deliverOrderDetails,
+  caterersOrdersObj,
+  customerOrder,
+  customersOrdersObj,
+  metadata
+} from '../setup/mockData';
 
 
 const state = {

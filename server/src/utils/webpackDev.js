@@ -1,7 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import webpackConfig from '../../../webpack.dev';
+import webpackConfig from '../../../webpack.dev.babel';
 
 const compiler = webpack(webpackConfig);
 

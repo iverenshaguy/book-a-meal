@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MenuForm should render the MenuForm correctly 1`] = `
-<React.Fragment>
+<Fragment>
   <div
     className="menu-date"
   >
@@ -25,74 +25,79 @@ exports[`MenuForm should render the MenuForm correctly 1`] = `
           "calls": Array [
             Array [],
           ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
         }
       }
       type="caterer"
     />
-    <React.Fragment>
-      <InfiniteLoader
-        height={100}
-        items={
-          Array [
-            <div
-              className="form-input-checkbox"
+    <InfiniteLoader
+      height={100}
+      items={
+        Array [
+          <div
+            className="form-input-checkbox"
+          >
+            <input
+              checked={true}
+              id="81211c24-51c0-46ec-b1e0-18db55880958"
+              name="81211c24-51c0-46ec-b1e0-18db55880958"
+              onChange={[Function]}
+              type="checkbox"
+            />
+              
+            <label
+              htmlFor="checkbox"
             >
-              <input
-                checked={true}
-                id="81211c24-51c0-46ec-b1e0-18db55880958"
-                name="81211c24-51c0-46ec-b1e0-18db55880958"
-                onChange={[Function]}
-                type="checkbox"
-              />
-                
-              <label
-                htmlFor="checkbox"
-              >
-                Jollof Rice, Beef and Plantain
-              </label>
-            </div>,
-            <div
-              className="form-input-checkbox"
+              Jollof Rice, Beef and Plantain
+            </label>
+          </div>,
+          <div
+            className="form-input-checkbox"
+          >
+            <input
+              checked={false}
+              id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+              name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+              onChange={[Function]}
+              type="checkbox"
+            />
+              
+            <label
+              htmlFor="checkbox"
             >
-              <input
-                checked={false}
-                id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-                name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-                onChange={[Function]}
-                type="checkbox"
-              />
-                
-              <label
-                htmlFor="checkbox"
-              >
-                Vegetable Sharwama and Guava Smoothie
-              </label>
-            </div>,
-          ]
+              Vegetable Sharwama and Guava Smoothie
+            </label>
+          </div>,
+        ]
+      }
+      loadMore={[Function]}
+      metadata={
+        Object {
+          "next": "next",
+          "pages": 2,
+          "prev": "prev",
+          "total": 5,
         }
-        loadMore={[Function]}
-        metadata={
-          Object {
-            "next": "next",
-            "pages": 2,
-            "prev": "prev",
-            "total": 5,
-          }
-        }
-      />
-    </React.Fragment>
+      }
+    />
   </div>
   <button
     className="btn btn-pri btn-block"
     onClick={[Function]}
+    type="button"
   >
     SAVE MEAL OPTIONS
   </button>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`MenuForm should render the MenuForm correctly when fetching 1`] = `
-<React.Fragment>
+<Fragment>
   <div
     className="menu-date"
   >
@@ -117,6 +122,16 @@ exports[`MenuForm should render the MenuForm correctly when fetching 1`] = `
             Array [],
             Array [],
           ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
         }
       }
       type="caterer"
@@ -127,11 +142,11 @@ exports[`MenuForm should render the MenuForm correctly when fetching 1`] = `
       <MiniPreloader />
     </div>
   </div>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`MenuForm should render the MenuForm correctly when submitting 1`] = `
-<React.Fragment>
+<Fragment>
   <div
     className="menu-date"
   >
@@ -157,6 +172,20 @@ exports[`MenuForm should render the MenuForm correctly when submitting 1`] = `
             Array [],
             Array [],
           ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
         }
       }
       type="caterer"
@@ -167,11 +196,11 @@ exports[`MenuForm should render the MenuForm correctly when submitting 1`] = `
       <MiniPreloader />
     </div>
   </div>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`MenuForm should render the MenuForm correctly when there are no meals 1`] = `
-<React.Fragment>
+<Fragment>
   <div
     className="menu-date"
   >
@@ -199,6 +228,32 @@ exports[`MenuForm should render the MenuForm correctly when there are no meals 1
             Array [],
             Array [],
             Array [],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
           ],
         }
       }
@@ -210,11 +265,11 @@ exports[`MenuForm should render the MenuForm correctly when there are no meals 1
       No Meals Found
     </p>
   </div>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`MenuForm should render the MenuForm correctly when there is a date error 1`] = `
-<React.Fragment>
+<Fragment>
   <p
     className="text-center danger"
   >
@@ -247,74 +302,95 @@ exports[`MenuForm should render the MenuForm correctly when there is a date erro
             Array [],
             Array [],
           ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
         }
       }
       type="caterer"
     />
-    <React.Fragment>
-      <InfiniteLoader
-        height={100}
-        items={
-          Array [
-            <div
-              className="form-input-checkbox"
+    <InfiniteLoader
+      height={100}
+      items={
+        Array [
+          <div
+            className="form-input-checkbox"
+          >
+            <input
+              checked={true}
+              id="81211c24-51c0-46ec-b1e0-18db55880958"
+              name="81211c24-51c0-46ec-b1e0-18db55880958"
+              onChange={[Function]}
+              type="checkbox"
+            />
+              
+            <label
+              htmlFor="checkbox"
             >
-              <input
-                checked={true}
-                id="81211c24-51c0-46ec-b1e0-18db55880958"
-                name="81211c24-51c0-46ec-b1e0-18db55880958"
-                onChange={[Function]}
-                type="checkbox"
-              />
-                
-              <label
-                htmlFor="checkbox"
-              >
-                Jollof Rice, Beef and Plantain
-              </label>
-            </div>,
-            <div
-              className="form-input-checkbox"
+              Jollof Rice, Beef and Plantain
+            </label>
+          </div>,
+          <div
+            className="form-input-checkbox"
+          >
+            <input
+              checked={false}
+              id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+              name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+              onChange={[Function]}
+              type="checkbox"
+            />
+              
+            <label
+              htmlFor="checkbox"
             >
-              <input
-                checked={false}
-                id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-                name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-                onChange={[Function]}
-                type="checkbox"
-              />
-                
-              <label
-                htmlFor="checkbox"
-              >
-                Vegetable Sharwama and Guava Smoothie
-              </label>
-            </div>,
-          ]
+              Vegetable Sharwama and Guava Smoothie
+            </label>
+          </div>,
+        ]
+      }
+      loadMore={[Function]}
+      metadata={
+        Object {
+          "next": "next",
+          "pages": 2,
+          "prev": "prev",
+          "total": 5,
         }
-        loadMore={[Function]}
-        metadata={
-          Object {
-            "next": "next",
-            "pages": 2,
-            "prev": "prev",
-            "total": 5,
-          }
-        }
-      />
-    </React.Fragment>
+      }
+    />
   </div>
   <button
     className="btn btn-pri btn-block"
     onClick={[Function]}
+    type="button"
   >
     SAVE MEAL OPTIONS
   </button>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`MenuForm should render the MenuForm correctly when there is a submit error 1`] = `
-<React.Fragment>
+<Fragment>
   <p
     className="text-center danger"
   >
@@ -346,70 +422,87 @@ exports[`MenuForm should render the MenuForm correctly when there is a submit er
             Array [],
             Array [],
           ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
         }
       }
       type="caterer"
     />
-    <React.Fragment>
-      <InfiniteLoader
-        height={100}
-        items={
-          Array [
-            <div
-              className="form-input-checkbox"
+    <InfiniteLoader
+      height={100}
+      items={
+        Array [
+          <div
+            className="form-input-checkbox"
+          >
+            <input
+              checked={true}
+              id="81211c24-51c0-46ec-b1e0-18db55880958"
+              name="81211c24-51c0-46ec-b1e0-18db55880958"
+              onChange={[Function]}
+              type="checkbox"
+            />
+              
+            <label
+              htmlFor="checkbox"
             >
-              <input
-                checked={true}
-                id="81211c24-51c0-46ec-b1e0-18db55880958"
-                name="81211c24-51c0-46ec-b1e0-18db55880958"
-                onChange={[Function]}
-                type="checkbox"
-              />
-                
-              <label
-                htmlFor="checkbox"
-              >
-                Jollof Rice, Beef and Plantain
-              </label>
-            </div>,
-            <div
-              className="form-input-checkbox"
+              Jollof Rice, Beef and Plantain
+            </label>
+          </div>,
+          <div
+            className="form-input-checkbox"
+          >
+            <input
+              checked={false}
+              id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+              name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+              onChange={[Function]}
+              type="checkbox"
+            />
+              
+            <label
+              htmlFor="checkbox"
             >
-              <input
-                checked={false}
-                id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-                name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
-                onChange={[Function]}
-                type="checkbox"
-              />
-                
-              <label
-                htmlFor="checkbox"
-              >
-                Vegetable Sharwama and Guava Smoothie
-              </label>
-            </div>,
-          ]
+              Vegetable Sharwama and Guava Smoothie
+            </label>
+          </div>,
+        ]
+      }
+      loadMore={[Function]}
+      metadata={
+        Object {
+          "next": "next",
+          "pages": 2,
+          "prev": "prev",
+          "total": 5,
         }
-        loadMore={[Function]}
-        metadata={
-          Object {
-            "next": "next",
-            "pages": 2,
-            "prev": "prev",
-            "total": 5,
-          }
-        }
-      />
-    </React.Fragment>
+      }
+    />
   </div>
   <button
     className="btn btn-pri btn-block"
     onClick={[Function]}
+    type="button"
   >
     SAVE MEAL OPTIONS
   </button>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`MenuForm should render the connected MenuForm component correctly 1`] = `
@@ -448,6 +541,76 @@ exports[`MenuForm should render the connected MenuForm component correctly 1`] =
           Array [],
           Array [],
         ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
       }
     }
     editMenu={[MockFunction]}
@@ -467,6 +630,60 @@ exports[`MenuForm should render the connected MenuForm component correctly 1`] =
           Array [],
           Array [],
           Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
         ],
       }
     }
@@ -492,6 +709,68 @@ exports[`MenuForm should render the connected MenuForm component correctly 1`] =
           Array [],
           Array [],
           Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
         ],
       }
     }
@@ -614,6 +893,7 @@ exports[`MenuForm should render the connected MenuForm component correctly 1`] =
             </label>
             <input
               className="open menu-search-input"
+              id="search"
               name="search"
               onChange={[Function]}
               placeholder="Search For Meals"
@@ -673,6 +953,92 @@ exports[`MenuForm should render the connected MenuForm component correctly 2`] =
           Array [],
           Array [],
         ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
       }
     }
     editMenu={[MockFunction]}
@@ -710,6 +1076,76 @@ exports[`MenuForm should render the connected MenuForm component correctly 2`] =
               "total": 5,
             },
           ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
         ],
       }
     }
@@ -826,6 +1262,7 @@ exports[`MenuForm should render the connected MenuForm component correctly 2`] =
             </label>
             <input
               className="open menu-search-input"
+              id="search"
               name="search"
               onChange={[Function]}
               placeholder="Search For Meals"

@@ -1,5 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { configure, shallow, mount, render } from 'enzyme';
+import {
+  configure, shallow, mount, render
+} from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import ReactRouterEnzymeContext from 'react-router-enzyme-context';

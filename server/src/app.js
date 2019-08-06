@@ -5,7 +5,7 @@ import cors from 'cors';
 import { config } from 'dotenv';
 import bodyParser from 'body-parser';
 import gzipStatic from 'connect-gzip-static';
-import 'babel-polyfill';
+import '@babel/polyfill';
 import apiRoutes from './routes';
 import ErrorHandler from './middlewares/ErrorHandler';
 import { OrderEventEmitter, NotificationEventEmitter } from './eventEmitters';

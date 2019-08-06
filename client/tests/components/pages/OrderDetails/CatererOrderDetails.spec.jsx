@@ -57,7 +57,8 @@ describe('CatererOrderDetails', () => {
           order={null}
           match={{ params: { id: 'fb097bde-5959-45ff' } }}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get());
 
@@ -77,7 +78,8 @@ describe('CatererOrderDetails', () => {
         <CatererOrderDetailsContainer
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get()).find(CatererOrderDetailsComponent);
 
@@ -96,7 +98,8 @@ describe('CatererOrderDetails', () => {
         <CatererOrderDetailsContainer
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c35' } }}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get()).find(CatererOrderDetailsComponent);
 
@@ -115,7 +118,8 @@ describe('CatererOrderDetails', () => {
         <CatererOrderDetailsContainer
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c26' } }}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get()).find(CatererOrderDetailsComponent);
 
@@ -136,7 +140,8 @@ describe('CatererOrderDetails', () => {
         <CatererOrderDetailsContainer
           match={{ params: { id: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get());
 

@@ -33,7 +33,7 @@ exports[`NotFound should render NotFound component correctly 1`] = `
       />
     </div>
     <p>
-      You Lost Your Way! 
+      You Lost Your Way!
       <Link
         replace={false}
         to="/"
