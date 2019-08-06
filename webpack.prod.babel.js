@@ -1,34 +1,38 @@
-const webpack = require('webpack');
-const dotenv = require('dotenv');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+/* eslint-disable import/no-extraneous-dependencies */
+import webpack from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import CompressionPlugin from 'compression-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
+import Visualizer from 'webpack-visualizer-plugin';
+import dotenv from 'dotenv';
+import merge from 'webpack-merge';
 
-const cleanerPlugin = new CleanWebpackPlugin('./client/dist', {});
-const optimizeCSSPlugin = new OptimizeCSSAssetsPlugin({});
+import common from './webpack.common.babel';
+
+const cleanerPlugin = new CleanWebpackPlugin();
+const optimizeCSSPlugin = new OptimizeCssAssetsPlugin({});
 
 const cssPlugin = new MiniCssExtractPlugin({
   filename: '[name].[hash].css',
   chunkFilename: '[id].[hash].css',
 });
 
-const uglifyPlugin = new UglifyJsPlugin({
+const terserPlugin = new TerserPlugin({
   cache: true,
   parallel: true,
   sourceMap: true // set to true if you want JS source maps
 });
 
 const compressionPlugin = new CompressionPlugin({
-  asset: '[path].gz[query]',
   algorithm: 'gzip',
   test: /\.js$|\.css$|\.html$/,
   threshold: 10240,
   minRatio: 0.8
 });
+
+const visualizerPlugin = new Visualizer({ filename: './statistics.html' });
 
 dotenv.config();
 
@@ -46,7 +50,7 @@ const envPlugin = new webpack.DefinePlugin({
   }
 });
 
-module.exports = merge(common, {
+export default merge(common, {
   mode: 'production',
   entry: ['./client/src/index.jsx'],
   module: {
@@ -62,12 +66,15 @@ module.exports = merge(common, {
       }
     ]
   },
+  optimization: {
+    minimizer: [terserPlugin],
+  },
   plugins: [
     cleanerPlugin,
     envPlugin,
     cssPlugin,
-    uglifyPlugin,
     optimizeCSSPlugin,
-    compressionPlugin
+    compressionPlugin,
+    visualizerPlugin
   ],
 });

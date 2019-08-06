@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Orders Caterer Orders should render Caterer Orders component correctly 1`] = `
-<React.Fragment>
+<Fragment>
   <Connect(View)
     showTime={true}
     type="orders"
@@ -209,11 +209,11 @@ exports[`Orders Caterer Orders should render Caterer Orders component correctly 
       </div>
     </div>
   </Connect(View)>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`Orders Caterer Orders should render a message when there are no orders to show 1`] = `
-<React.Fragment>
+<Fragment>
   <Connect(View)
     showTime={true}
     type="orders"
@@ -240,7 +240,7 @@ exports[`Orders Caterer Orders should render a message when there are no orders 
       </div>
     </div>
   </Connect(View)>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`Orders Caterer Orders should render the connected Caterer Orders component correctly 1`] = `
@@ -376,7 +376,7 @@ exports[`Orders Caterer Orders should render the connected Caterer Orders compon
 `;
 
 exports[`Orders Customer Orders should render Customer Orders component correctly 1`] = `
-<React.Fragment>
+<Fragment>
   <Connect(View)
     showTime={true}
     type="orders"
@@ -590,11 +590,11 @@ exports[`Orders Customer Orders should render Customer Orders component correctl
       </div>
     </div>
   </Connect(View)>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`Orders Customer Orders should render a message when there are no orders to show 1`] = `
-<React.Fragment>
+<Fragment>
   <Connect(View)
     showTime={true}
     type="orders"
@@ -621,7 +621,7 @@ exports[`Orders Customer Orders should render a message when there are no orders
       </div>
     </div>
   </Connect(View)>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`Orders Customer Orders should render the connected Customer Orders component correctly 1`] = `

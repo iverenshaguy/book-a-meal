@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { RenderInput } from '../../shared/FormComponents';
+import { RenderInput } from '../FormComponents';
 import { formPropTypes } from '../../../helpers/proptypes';
 
 /**
@@ -39,10 +39,10 @@ const CatererSignupForm = ({ state, handlers }) => (
       handleBlur={handlers.handleBlur}
       handleFocus={handlers.handleFocus}
       meta={{
-          touched: state.touched.email,
-          error: state.error.email,
-          asyncValidating: state.asyncValidating
-        }}
+        touched: state.touched.email,
+        error: state.error.email,
+        asyncValidating: state.asyncValidating
+      }}
     />
     <RenderInput
       type="password"
@@ -56,9 +56,9 @@ const CatererSignupForm = ({ state, handlers }) => (
       handleBlur={handlers.handleBlur}
       handleFocus={handlers.handleFocus}
       meta={{
-          touched: state.touched.password,
-          error: state.error.password
-        }}
+        touched: state.touched.password,
+        error: state.error.password
+      }}
     />
     <RenderInput
       type="password"
@@ -72,9 +72,9 @@ const CatererSignupForm = ({ state, handlers }) => (
       handleBlur={handlers.handleBlur}
       handleFocus={handlers.handleFocus}
       meta={{
-          touched: state.touched.passwordConfirm,
-          error: state.error.passwordConfirm
-        }}
+        touched: state.touched.passwordConfirm,
+        error: state.error.passwordConfirm
+      }}
     />
     <RenderInput
       type="tel"

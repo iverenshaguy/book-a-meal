@@ -170,7 +170,7 @@ module.exports = {
       })
       .elements('css selector', '.meal-card-body h3', (elements) => {
         client.elementIdText(elements.value[0].ELEMENT, (res) => {
-          client.assert.equal(res.value, '₦ 1700.00');
+          client.assert.equal(res.value, '₦1700.00');
         });
       })
       .elements('css selector', '.meal-card-body p', (elements) => {
@@ -204,7 +204,7 @@ module.exports = {
       })
       .elements('css selector', '.meal-card-body h3', (elements) => {
         client.elementIdText(elements.value[0].ELEMENT, (res) => {
-          client.assert.equal(res.value, '₦ 1700');
+          client.assert.equal(res.value, '₦1700');
         });
       })
       .elements('css selector', '.meal-card-body p', (elements) => {

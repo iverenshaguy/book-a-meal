@@ -1,7 +1,9 @@
-import { auth, clearAuthError, forgotPassword, resetPassword } from '../actions/auth';
+import {
+  auth, clearAuthError, forgotPassword, resetPassword
+} from '../actions/auth';
 import { clearMealError, addMeal, editMeal } from '../actions/meals';
 
-const clearFormError = {
+export const clearFormError = {
   signin: clearAuthError(),
   customerSignup: clearAuthError(),
   catererSignup: clearAuthError(),
@@ -11,7 +13,7 @@ const clearFormError = {
   forgotPassword: clearAuthError()
 };
 
-const formFields = {
+export const formFields = {
   signin: ['email', 'password'],
   customerSignup: ['firstname', 'lastname', 'email', 'password', 'passwordConfirm', 'role'],
   catererSignup: ['businessName', 'email', 'password', 'passwordConfirm', 'address', 'phoneNo', 'role'],
@@ -21,7 +23,7 @@ const formFields = {
   forgotPassword: ['email']
 };
 
-const requiredFormFields = {
+export const requiredFormFields = {
   signin: ['email', 'password'],
   customerSignup: ['firstname', 'lastname', 'email', 'password', 'passwordConfirm'],
   catererSignup: ['businessName', 'email', 'password', 'passwordConfirm', 'address', 'phoneNo'],
@@ -31,7 +33,7 @@ const requiredFormFields = {
   forgotPassword: ['email']
 };
 
-const formSubmitMapper = {
+export const formSubmitMapper = {
   signin: auth('signin'),
   customerSignup: auth('signup'),
   catererSignup: auth('signup'),

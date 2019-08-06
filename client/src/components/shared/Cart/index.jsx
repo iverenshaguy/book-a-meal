@@ -46,10 +46,11 @@ class Cart extends Component {
 
     return (
       <Link to="/order-review">
-        <button className="btn btn-pri btn-block checkout-btn" disabled={disabled}>
+        <button type="button" className="btn btn-pri btn-block checkout-btn" disabled={disabled}>
           Checkout
         </button>
-      </Link>);
+      </Link>
+    );
   }
 
   /**
@@ -77,7 +78,10 @@ class Cart extends Component {
         <div className="order-amount">
           <div>
             <p>Total:</p>
-            <h2>&#8358;{calculateCashEarnedFromOrder(order)}</h2>
+            <h2>
+&#8358;
+              {calculateCashEarnedFromOrder(order)}
+            </h2>
           </div>
         </div>
       </div>
@@ -96,15 +100,22 @@ class Cart extends Component {
       <div className="side-cart-toggle d-none-xl">
         <span aria-hidden="true" id="cart-toggler" onClick={this.toggleCart}>
           <div className="text-center">
-            <img src="/img/cart.png" alt="cart" /> &nbsp;
+            <img src="/img/cart.png" alt="cart" />
+            {' '}
+            &nbsp;
             <sup>{order.length}</sup>
           </div>
-          <p className="text-center">Total: &#8358;{calculateCashEarnedFromOrder(order)}</p>
+          <p className="text-center">
+            Total: &#8358;
+            {calculateCashEarnedFromOrder(order)}
+          </p>
         </span>
-        {isShopOpen &&
+        {isShopOpen
+          && (
           <span className="cart-btn">
             {this.renderCheckoutBtn()}
-          </span>}
+          </span>
+          )}
       </div>
     );
   }
@@ -127,10 +138,12 @@ class Cart extends Component {
               <CloseIcon divClass="d-none-xl" btnID="side-cart-close-icon" clickHandler={this.toggleCart} />
             </div>
             <hr />
-            {order.length === 0 &&
+            {order.length === 0
+              && (
               <div className="empty-cart">
                 <p>Your Basket is Empty</p>
-              </div>}
+              </div>
+              )}
             {order.length !== 0 && this.renderOrderSummary()}
             <br />
             {isShopOpen && this.renderCheckoutBtn()}

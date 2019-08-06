@@ -25,44 +25,42 @@ exports[`Customer Orders Order Review should render the OrderReview component co
         >
           Please fill in or confirm your details below.
         </p>
-        <React.Fragment>
-          <RenderInput
-            handleBlur={[Function]}
-            handleChange={[Function]}
-            handleFocus={[Function]}
-            id="deliveryPhoneNo"
-            label="Phone Number (in the format 080xxxxxxxx)"
-            meta={
-              Object {
-                "error": null,
-                "touched": true,
-              }
+        <RenderInput
+          handleBlur={[Function]}
+          handleChange={[Function]}
+          handleFocus={[Function]}
+          id="deliveryPhoneNo"
+          label="Phone Number (in the format 080xxxxxxxx)"
+          meta={
+            Object {
+              "error": null,
+              "touched": true,
             }
-            name="deliveryPhoneNo"
-            placeholder=""
-            required={true}
-            type="tel"
-            value=""
-          />
-          <RenderInput
-            handleBlur={[Function]}
-            handleChange={[Function]}
-            handleFocus={[Function]}
-            id="deliveryAddress"
-            label="Delivery Address"
-            meta={
-              Object {
-                "error": null,
-                "touched": true,
-              }
+          }
+          name="deliveryPhoneNo"
+          placeholder=""
+          required={true}
+          type="tel"
+          value=""
+        />
+        <RenderInput
+          handleBlur={[Function]}
+          handleChange={[Function]}
+          handleFocus={[Function]}
+          id="deliveryAddress"
+          label="Delivery Address"
+          meta={
+            Object {
+              "error": null,
+              "touched": true,
             }
-            name="deliveryAddress"
-            placeholder=""
-            required={true}
-            type="textarea"
-            value=""
-          />
-        </React.Fragment>
+          }
+          name="deliveryAddress"
+          placeholder=""
+          required={true}
+          type="textarea"
+          value=""
+        />
       </div>
       <div
         className="control-btns"

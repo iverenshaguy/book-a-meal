@@ -5,39 +5,37 @@ exports[`CatererOrderDetails should render MiniPreloader when delivering an orde
   showTime={true}
   type="orders"
 >
-  <React.Fragment>
-    <div
-      className="main-wrapper caterer"
+  <div
+    className="main-wrapper caterer"
+  >
+    <Link
+      className="orders-back-link"
+      replace={false}
+      to="/orders"
     >
-      <Link
-        className="orders-back-link"
-        replace={false}
-        to="/orders"
-      >
-        ← Back To Orders
-      </Link>
-      <div
-        className="order-confirmation order-details"
-      >
-        <h3
-          className="text-center"
-          style={
-            Object {
-              "paddingTop": "1em",
-            }
+      ← Back To Orders
+    </Link>
+    <div
+      className="order-confirmation order-details"
+    >
+      <h3
+        className="text-center"
+        style={
+          Object {
+            "paddingTop": "1em",
           }
-        >
-          Order #
-          fb097bde-5959-45ff-8e21-51184fa60c25
-        </h3>
-        <div
-          className="text-center"
-        >
-          <MiniPreloader />
-        </div>
+        }
+      >
+        Order #
+        fb097bde-5959-45ff-8e21-51184fa60c25
+      </h3>
+      <div
+        className="text-center"
+      >
+        <MiniPreloader />
       </div>
     </div>
-  </React.Fragment>
+  </div>
 </Connect(View)>
 `;
 
@@ -46,99 +44,95 @@ exports[`CatererOrderDetails should render correctly when not fetching 1`] = `
   showTime={true}
   type="orders"
 >
-  <React.Fragment>
-    <div
-      className="main-wrapper caterer"
+  <div
+    className="main-wrapper caterer"
+  >
+    <Link
+      className="orders-back-link"
+      replace={false}
+      to="/orders"
     >
-      <Link
-        className="orders-back-link"
-        replace={false}
-        to="/orders"
-      >
-        ← Back To Orders
-      </Link>
-      <div
-        className="order-confirmation order-details"
-      >
-        <h3
-          className="text-center"
-          style={
-            Object {
-              "paddingTop": "1em",
-            }
+      ← Back To Orders
+    </Link>
+    <div
+      className="order-confirmation order-details"
+    >
+      <h3
+        className="text-center"
+        style={
+          Object {
+            "paddingTop": "1em",
           }
+        }
+      >
+        Order #
+        fb097bde-5959-45ff-8e21-51184fa60c25
+      </h3>
+      <div
+        className="order-misc"
+      >
+        <p
+          className="order-date text-center"
         >
-          Order #
-          fb097bde-5959-45ff-8e21-51184fa60c25
-        </h3>
-        <React.Fragment>
-          <div
-            className="order-misc"
+          Friday, 6th April 2018 12:47 am
+        </p>
+        <p>
+          Status: 
+          <span
+            className="success"
           >
-            <p
-              className="order-date text-center"
-            >
-              Friday, 6th April 2018 12:47 am
-            </p>
-            <p>
-              Status: 
-              <span
-                className="success"
-              >
-                Delivered
-              </span>
-            </p>
-            <p>
-              Customer: 
-              Emiola Olasanmi
-            </p>
-            <p>
-              Address Provided: 
-              4, Church Street, Yaba
-            </p>
-            <p>
-              Number Provided: 
-              080xxxxxxxx
-            </p>
-          </div>
-          <OrderSummary
-            meals={
-              Array [
-                Object {
-                  "delivered": true,
-                  "description": "Sharwama contains no animal products, perfect for dieters",
-                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                  "price": "1200.00",
-                  "quantity": 1,
-                  "title": "Vegetable Sharwama and Guava Smoothie",
-                  "vegetarian": true,
-                },
-              ]
-            }
-            status="delivered"
-          />
-          <OrderAmount
-            meals={
-              Array [
-                Object {
-                  "delivered": true,
-                  "description": "Sharwama contains no animal products, perfect for dieters",
-                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                  "price": "1200.00",
-                  "quantity": 1,
-                  "title": "Vegetable Sharwama and Guava Smoothie",
-                  "vegetarian": true,
-                },
-              ]
-            }
-            type="admin"
-          />
-        </React.Fragment>
+            Delivered
+          </span>
+        </p>
+        <p>
+          Customer:
+          Emiola Olasanmi
+        </p>
+        <p>
+          Address Provided:
+          4, Church Street, Yaba
+        </p>
+        <p>
+          Number Provided:
+          080xxxxxxxx
+        </p>
       </div>
+      <OrderSummary
+        meals={
+          Array [
+            Object {
+              "delivered": true,
+              "description": "Sharwama contains no animal products, perfect for dieters",
+              "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+              "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "price": "1200.00",
+              "quantity": 1,
+              "title": "Vegetable Sharwama and Guava Smoothie",
+              "vegetarian": true,
+            },
+          ]
+        }
+        status="delivered"
+      />
+      <OrderAmount
+        meals={
+          Array [
+            Object {
+              "delivered": true,
+              "description": "Sharwama contains no animal products, perfect for dieters",
+              "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+              "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "price": "1200.00",
+              "quantity": 1,
+              "title": "Vegetable Sharwama and Guava Smoothie",
+              "vegetarian": true,
+            },
+          ]
+        }
+        type="admin"
+      />
     </div>
-  </React.Fragment>
+  </div>
 </Connect(View)>
 `;
 
@@ -257,6 +251,7 @@ exports[`CatererOrderDetails should render message when an order doesn't exist 1
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             <img
                               alt="toggler"
@@ -291,7 +286,6 @@ exports[`CatererOrderDetails should render message when an order doesn't exist 1
                           <h2>
                             Thursday, 1st January 1970
                             <span>
-                                 
                               00:00
                             </span>
                           </h2>
@@ -370,6 +364,7 @@ exports[`CatererOrderDetails should render message when an order doesn't exist 1
                                 data-tip={null}
                                 id={null}
                                 onClick={[Function]}
+                                type="button"
                               >
                                 ×
                               </button>
@@ -417,6 +412,7 @@ exports[`CatererOrderDetails should render message when an order doesn't exist 1
                                 data-tip={null}
                                 id={null}
                                 onClick={[Function]}
+                                type="button"
                               >
                                 Logout
                               </button>
@@ -438,6 +434,7 @@ exports[`CatererOrderDetails should render message when an order doesn't exist 1
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Dashboard
                           </button>
@@ -453,6 +450,7 @@ exports[`CatererOrderDetails should render message when an order doesn't exist 1
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Meals
                           </button>
@@ -468,6 +466,7 @@ exports[`CatererOrderDetails should render message when an order doesn't exist 1
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Menu
                           </button>
@@ -483,6 +482,7 @@ exports[`CatererOrderDetails should render message when an order doesn't exist 1
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Orders
                           </button>
@@ -703,6 +703,7 @@ exports[`CatererOrderDetails should render the connected OrderDetails component 
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             <img
                               alt="toggler"
@@ -737,7 +738,6 @@ exports[`CatererOrderDetails should render the connected OrderDetails component 
                           <h2>
                             Thursday, 1st January 1970
                             <span>
-                                 
                               00:00
                             </span>
                           </h2>
@@ -816,6 +816,7 @@ exports[`CatererOrderDetails should render the connected OrderDetails component 
                                 data-tip={null}
                                 id={null}
                                 onClick={[Function]}
+                                type="button"
                               >
                                 ×
                               </button>
@@ -863,6 +864,7 @@ exports[`CatererOrderDetails should render the connected OrderDetails component 
                                 data-tip={null}
                                 id={null}
                                 onClick={[Function]}
+                                type="button"
                               >
                                 Logout
                               </button>
@@ -884,6 +886,7 @@ exports[`CatererOrderDetails should render the connected OrderDetails component 
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Dashboard
                           </button>
@@ -899,6 +902,7 @@ exports[`CatererOrderDetails should render the connected OrderDetails component 
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Meals
                           </button>
@@ -914,6 +918,7 @@ exports[`CatererOrderDetails should render the connected OrderDetails component 
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Menu
                           </button>
@@ -929,6 +934,7 @@ exports[`CatererOrderDetails should render the connected OrderDetails component 
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Orders
                           </button>
@@ -989,15 +995,15 @@ exports[`CatererOrderDetails should render the connected OrderDetails component 
                         </span>
                       </p>
                       <p>
-                        Customer: 
+                        Customer:
                         Emiola Olasanmi
                       </p>
                       <p>
-                        Address Provided: 
+                        Address Provided:
                         4, Church Street, Yaba
                       </p>
                       <p>
-                        Number Provided: 
+                        Number Provided:
                         080xxxxxxxx
                       </p>
                     </div>

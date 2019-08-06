@@ -14,7 +14,10 @@ const OrderAmount = ({ type, meals }) => (
   <div className={`order-amount ${type === 'admin' && 'admin-order-total'}`}>
     <div>
       <p>Total</p>
-      <h2>₦{calculateCashEarnedFromOrder(meals)}</h2>
+      <h2>
+₦
+        {calculateCashEarnedFromOrder(meals)}
+      </h2>
     </div>
   </div>
 );

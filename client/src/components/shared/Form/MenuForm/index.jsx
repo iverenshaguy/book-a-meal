@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { mealObjPropTypes, metadataProps } from '../../../../helpers/proptypes';
 import MiniPreloader from '../../Preloader/MiniPreloader';
 import InfiniteLoader from '../../InfiniteLoader';
-import SearchForm from '../../Form/SearchForm';
+import SearchForm from '../SearchForm';
 import DatePicker from '../../DatePicker';
 import './MenuForm.scss';
 
@@ -18,6 +18,7 @@ class MenuForm extends Component {
   static propTypes = {
     meals: PropTypes.arrayOf(mealObjPropTypes).isRequired,
     menu: PropTypes.shape({
+      id: PropTypes.string,
       date: PropTypes.string,
       meals: PropTypes.arrayOf(mealObjPropTypes),
     }).isRequired,
@@ -40,8 +41,8 @@ class MenuForm extends Component {
    * check if submitError occurs and then map it to the error
    */
   static getDerivedStateFromProps(props) {
-    const error = (props.submitError && props.submitError.date) ?
-      props.submitError.date.value : props.submitError;
+    const error = (props.submitError && props.submitError.date)
+      ? props.submitError.date.value : props.submitError;
 
     return { error };
   }
@@ -181,7 +182,8 @@ class MenuForm extends Component {
       />
         &nbsp;&nbsp;
       <label htmlFor="checkbox">{meal.title}</label>
-    </div>)))
+    </div>
+  )))
 
   /**
    * @memberof MenuForm
@@ -192,12 +194,14 @@ class MenuForm extends Component {
 
     return (
       <Fragment>
-        {meals.length !== 0 && <InfiniteLoader
+        {meals.length !== 0 && (
+        <InfiniteLoader
           items={this.renderMeals()}
           metadata={mealsMetadata}
           height={50 * meals.length}
           loadMore={this.fetchMoreData}
-        />}
+        />
+        )}
       </Fragment>
     );
   }
@@ -219,7 +223,10 @@ class MenuForm extends Component {
           {!isFetching && !submitting && meals.length === 0 && <p className="text-center info">No Meals Found</p>}
           {!isFetching && !submitting && meals.length !== 0 && this.renderMenuForm()}
         </div>
-        {!isFetching && !submitting && meals.length !== 0 && <button className="btn btn-pri btn-block" onClick={this.submitMenu}>SAVE MEAL OPTIONS</button>}
+        {!isFetching
+          && !submitting
+          && meals.length !== 0
+          && <button type="button" className="btn btn-pri btn-block" onClick={this.submitMenu}>SAVE MEAL OPTIONS</button>}
       </Fragment>
     );
   }

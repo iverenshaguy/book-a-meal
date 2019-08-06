@@ -21,12 +21,14 @@ const Authenticator = (props) => {
     <Fragment>
       {authenticating && <Preloader />}
       {!authenticating && isAuthenticated && <MyComponent {...props} />}
-      {!authenticating && !isAuthenticated && <Redirect
+      {!authenticating && !isAuthenticated && (
+      <Redirect
         to={{
           pathname: '/signin',
           state: { from: location }
         }}
-      />}
+      />
+      )}
     </Fragment>
   );
 };

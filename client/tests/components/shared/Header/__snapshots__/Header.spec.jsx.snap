@@ -23,38 +23,36 @@ exports[`Header should render Header component correctly 1`] = `
   <div
     className="navbar unauth-navbar"
   >
-    <React.Fragment>
-      <div
-        className="page-title"
-      >
-        <h3>
-          <Link
-            replace={false}
-            to="/"
-          >
-            BOOK-A-MEAL
-          </Link>
-        </h3>
-      </div>
-      <div
-        className="navlinks"
-      >
+    <div
+      className="page-title"
+    >
+      <h3>
         <Link
-          className="link"
           replace={false}
-          to="/signin"
+          to="/"
         >
-          Log In
+          BOOK-A-MEAL
         </Link>
-        <Link
-          className="link"
-          replace={false}
-          to="/signup"
-        >
-          Sign Up
-        </Link>
-      </div>
-    </React.Fragment>
+      </h3>
+    </div>
+    <div
+      className="navlinks"
+    >
+      <Link
+        className="link"
+        replace={false}
+        to="/signin"
+      >
+        Log In
+      </Link>
+      <Link
+        className="link"
+        replace={false}
+        to="/signup"
+      >
+        Sign Up
+      </Link>
+    </div>
   </div>
 </div>
 `;
@@ -66,20 +64,18 @@ exports[`Header should render unauthenticated Header component correctly when ty
   <div
     className="navbar unauth-navbar"
   >
-    <React.Fragment>
-      <div
-        className="page-title"
-      >
-        <h3>
-          <Link
-            replace={false}
-            to="/"
-          >
-            BOOK-A-MEAL
-          </Link>
-        </h3>
-      </div>
-    </React.Fragment>
+    <div
+      className="page-title"
+    >
+      <h3>
+        <Link
+          replace={false}
+          to="/"
+        >
+          BOOK-A-MEAL
+        </Link>
+      </h3>
+    </div>
   </div>
 </div>
 `;

@@ -66,34 +66,50 @@ class CatererMenu extends Component {
     const now = moment().format('YYYY-MM-DD');
     const showMenuBtn = !moment(now).isAfter(moment(this.props.currentDay));
 
-    const menu = this.props.meals.map(meal =>
-      (<MealCard
+    const menu = this.props.meals.map(meal => (
+      <MealCard
         type="menu"
         key={meal.id}
         meal={meal}
-      />));
+      />
+    ));
 
     return (
       <Fragment>
         <div className="content-wrapper meals menu-meals">
           <div className="date d-none-md">
-            <h2>{moment(this.props.currentDay).format('dddd[,] Do MMMM YYYY')} <span style={{ cursor: 'pointer' }}>&nbsp;&#9662;</span></h2>
+            <h2>
+              {moment(this.props.currentDay).format('dddd[,] Do MMMM YYYY')}
+              {' '}
+              <span style={{ cursor: 'pointer' }}>&nbsp;&#9662;</span>
+            </h2>
             <DatePicker handleSelectDate={this.updateCurrentDate} />
           </div>
           <div className="top">
-            {showMenuBtn && <button className="btn btn-pri" id="menu-modal-btn" onClick={() => this.props.toggleModal('menu')}>Set Menu</button>}
+            {showMenuBtn && (
+            <button
+              type="button"
+              className="btn btn-pri"
+              id="menu-modal-btn"
+              onClick={() => this.props.toggleModal('menu')}
+            >
+              Set Menu
+            </button>
+            )}
           </div>
           <div className="page-heading">
             <h2>{'Meal Items on This Day\'s Menu'}</h2>
             <hr />
           </div>
           {this.props.meals.length === 0 && <p className="text-center info">There are no Meal Items on this Menu</p>}
-          {this.props.meals.length !== 0 &&
+          {this.props.meals.length !== 0
+            && (
             <CardGroup
               items={menu}
               metadata={this.props.metadata}
               loadMore={this.loadMoreMenu}
-            />}
+            />
+            )}
         </div>
       </Fragment>
     );

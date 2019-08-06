@@ -58,8 +58,8 @@ export default (state = initialState, action) => {
         ...state,
         items: getUpdatedItems(state.items, action.payload),
         pendingOrders: state.pendingOrders - 1,
-        totalCashEarned: state.totalCashEarned +
-          (calculateCashEarnedFromOrder(action.payload.meals))
+        totalCashEarned: state.totalCashEarned
+          + (calculateCashEarnedFromOrder(action.payload.meals))
       };
     case SET_DELIVERING:
       return { ...state, delivering: true };

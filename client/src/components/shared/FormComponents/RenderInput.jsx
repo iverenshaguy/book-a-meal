@@ -50,12 +50,14 @@ class RenderInput extends Component {
     return (
       <Fragment>
         <div className={formInputClass}>
-          {this.props.label && this.props.type !== 'checkbox' &&
+          {this.props.label && this.props.type !== 'checkbox'
             // eslint-disable-next-line
-            <label htmlFor={this.props.id} onClick={this.toggleOpenField}>
-              {this.props.label}
-              {this.props.required && <span className="danger">*</span>}
-            </label>}
+            && (
+              <label htmlFor={this.props.id} onClick={this.toggleOpenField}>
+                {this.props.label}
+                {this.props.required && <span className="danger">*</span>}
+              </label>
+            )}
           <input
             id={this.props.id}
             type={this.props.type}
@@ -71,12 +73,14 @@ class RenderInput extends Component {
             onFocus={e => this.props.handleFocus(e)}
             pattern={this.props.type === 'tel' ? '[0-9]{4}[0-9]{3}[0-9]{4}' : undefined}
           />
-          {this.props.type === 'checkbox' &&
+          {this.props.type === 'checkbox'
+            && (
             <label htmlFor={this.props.id}>
               {this.props.label}
-            </label>}
-          {this.props.meta.touched && this.props.meta.error &&
-          <div className={validFeedBack}>{this.props.meta.error}</div>}
+            </label>
+            )}
+          {this.props.meta.touched && this.props.meta.error
+          && <div className={validFeedBack}>{this.props.meta.error}</div>}
         </div>
       </Fragment>
     );

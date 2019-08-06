@@ -1,7 +1,7 @@
 import React from 'react';
 import FormComponent from '../../../../src/components/shared/Form';
 import { clearAuthError } from '../../../../src/actions/auth';
-import { mainFormSetup as setup } from '../../../../tests/setup/formSetup';
+import { mainFormSetup as setup } from '../../../setup/formSetup';
 
 const meta = {
   btnText: 'SIGN IN',
@@ -142,10 +142,10 @@ describe('Form', () => {
       const { mountRoot } = setup('addMeal', meta);
       const wrapper = mountRoot.find(FormComponent);
 
-      const event = { target: { name: 'vegetarian', type: 'checkbox', checked: 'true' } };
+      const event = { target: { name: 'vegetarian', type: 'checkbox', checked: true } };
 
       wrapper.find('input[name="vegetarian"]').simulate('change', event);
-      expect(wrapper.instance().state.values.vegetarian).toEqual('true');
+      expect(wrapper.instance().state.values.vegetarian).toEqual(true);
       expect(wrapper.instance().state.touched.vegetarian).toEqual(true);
       expect(wrapper.instance().state.error.vegetarian).toEqual(null);
       expect(wrapper.instance().state.pristine).toEqual(false);

@@ -4,7 +4,9 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import OrdersComponent from '../../../../src/components/pages/Orders';
 import OrdersContainer from '../../../../src/containers/pages/Orders';
-import { caterer, caterersOrdersObj, customer, customersOrdersObj, initialState, metadata } from '../../../setup/mockData';
+import {
+  caterer, caterersOrdersObj, customer, customersOrdersObj, initialState, metadata
+} from '../../../setup/mockData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -75,7 +77,8 @@ describe('Orders', () => {
           <OrdersContainer
             user={caterer}
           />
-        </Provider>);
+        </Provider>
+      );
 
       const wrapper = mount(comp, rrcMock.get());
 
@@ -130,7 +133,8 @@ describe('Orders', () => {
           <OrdersContainer
             user={customer}
           />
-        </Provider>);
+        </Provider>
+      );
 
       const wrapper = mount(comp, rrcMock.get());
 

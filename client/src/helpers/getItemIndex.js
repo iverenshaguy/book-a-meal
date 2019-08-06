@@ -5,7 +5,7 @@
  * @param {object} itemToFind
  * @returns {number} Number of errors
  */
-const getItemIndex = (items, itemToFind) =>
-  itemToFind && items.findIndex(item => item.id === itemToFind.id);
+const getItemIndex = (items, itemToFind) => itemToFind && items
+  .findIndex(item => item.id === itemToFind.id);
 
 export default getItemIndex;

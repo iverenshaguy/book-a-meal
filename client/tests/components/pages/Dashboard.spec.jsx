@@ -42,7 +42,8 @@ describe('Dashboard', () => {
           dispatch={dispatchMock}
           {...caterersOrdersObj}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get());
 

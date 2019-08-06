@@ -97,39 +97,37 @@ describe('Order Routes: Modify an Order', () => {
   });
 
   it('should not modify a pending order', (done) => {
-    db.Order.findOne({ where: { orderId: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }).then(foundOrder =>
-      foundOrder.update({ status: 'pending' }).then(() => {
-        request(app)
-          .put('/api/v1/orders/fb097bde-5959-45ff-8e21-51184fa60c25')
-          .set('Accept', 'application/json')
-          .set('authorization', emiolaToken)
-          .send(newOrderDetails)
-          .end((err, res) => {
-            expect(res.statusCode).to.equal(400);
-            expect(res.body.error).to.equal('Order is being processed and cannot be edited');
+    db.Order.findOne({ where: { orderId: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }).then(foundOrder => foundOrder.update({ status: 'pending' }).then(() => {
+      request(app)
+        .put('/api/v1/orders/fb097bde-5959-45ff-8e21-51184fa60c25')
+        .set('Accept', 'application/json')
+        .set('authorization', emiolaToken)
+        .send(newOrderDetails)
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(400);
+          expect(res.body.error).to.equal('Order is being processed and cannot be edited');
 
-            if (err) return done(err);
-            done();
-          });
-      }));
+          if (err) return done(err);
+          done();
+        });
+    }));
   });
 
   it('should not modify a canceled order', (done) => {
-    db.Order.findOne({ where: { orderId: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }).then(foundOrder =>
-      foundOrder.update({ status: 'canceled' }).then(() => {
-        request(app)
-          .put('/api/v1/orders/fb097bde-5959-45ff-8e21-51184fa60c25')
-          .set('Accept', 'application/json')
-          .set('authorization', emiolaToken)
-          .send(newOrderDetails)
-          .end((err, res) => {
-            expect(res.statusCode).to.equal(400);
-            expect(res.body.error).to.equal('Order has been canceled');
+    db.Order.findOne({ where: { orderId: 'fb097bde-5959-45ff-8e21-51184fa60c25' } }).then(foundOrder => foundOrder.update({ status: 'canceled' }).then(() => {
+      request(app)
+        .put('/api/v1/orders/fb097bde-5959-45ff-8e21-51184fa60c25')
+        .set('Accept', 'application/json')
+        .set('authorization', emiolaToken)
+        .send(newOrderDetails)
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(400);
+          expect(res.body.error).to.equal('Order has been canceled');
 
-            if (err) return done(err);
-            done();
-          });
-      }));
+          if (err) return done(err);
+          done();
+        });
+    }));
   });
 
   it('should return errors for invalid input', (done) => {

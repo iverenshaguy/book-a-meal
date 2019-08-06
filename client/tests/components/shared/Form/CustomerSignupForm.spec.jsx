@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomerSignupForm from '../../../../src/components/shared/Form/CustomerSignupForm';
-import { formComponentSetup } from '../../../../tests/setup/formSetup';
+import { formComponentSetup } from '../../../setup/formSetup';
 
 describe('CustomerSignupForm', () => {
   afterAll(() => {

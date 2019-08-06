@@ -2,7 +2,7 @@ import moment from 'moment';
 import { toastr } from 'react-redux-toastr';
 import instance from '../config/axios';
 import errorHandler from '../helpers/errorHandler';
-import { toggleModal } from '../actions/ui';
+import { toggleModal } from './ui';
 import {
   RECEIVE_MENU_SUCCESS, RECEIVE_MENU_FAILURE, SET_CURRENT_DAY, SET_MENU_WORKING,
   UNSET_MENU_WORKING, CLEAR_MENU_ERROR, ADD_MENU_SUCCESS, ADD_MENU_FAILURE,

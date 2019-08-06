@@ -22,7 +22,6 @@ class CustomerOrderDetails extends Component {
     order: catererOrderObjPropTypes,
     push: PropTypes.func.isRequired,
     fetchOrder: PropTypes.func.isRequired,
-    editOrder: PropTypes.func.isRequired,
     cancelOrder: PropTypes.func.isRequired,
   }
 
@@ -88,11 +87,21 @@ class CustomerOrderDetails extends Component {
 
     return (
       <div className="customer-details">
-        <p>Order Status:
-          <span className={statusClass} style={{ textTransform: 'capitalize' }}> {status}</span>
+        <p>
+Order Status:
+          <span className={statusClass} style={{ textTransform: 'capitalize' }}>
+            {' '}
+            {status}
+          </span>
         </p>
-        <p>Address Provided: {order.deliveryAddress}</p>
-        <p>Number Provided: {order.deliveryPhoneNo}</p>
+        <p>
+Address Provided:
+          {order.deliveryAddress}
+        </p>
+        <p>
+Number Provided:
+          {order.deliveryPhoneNo}
+        </p>
       </div>
     );
   }
@@ -106,10 +115,10 @@ class CustomerOrderDetails extends Component {
       <br />
       <div className="d-flex-row control-btns">
         <a onClick={this.editOrder} href="/">
-          <button className="btn btn-sec order-details-btn">Update Basket</button>
+          <button type="button" className="btn btn-sec order-details-btn">Update Basket</button>
         </a>
         <a onClick={this.cancelOrder} href="./user-menu.html">
-          <button className="btn btn-sec-danger order-details-btn">Cancel Order</button>
+          <button type="button" className="btn btn-sec-danger order-details-btn">Cancel Order</button>
         </a>
       </div>
     </Fragment>
@@ -142,7 +151,10 @@ class CustomerOrderDetails extends Component {
     return (
       <Fragment>
         <div className="order-confirmation order-details">
-          <h3 className="text-center">Order #{order.id}</h3>
+          <h3 className="text-center">
+Order #
+            {order.id}
+          </h3>
           <p className="order-date text-center">{moment().format('dddd[,] Do MMMM YYYY h:mm a')}</p>
           <hr />
           {this.renderDetails()}

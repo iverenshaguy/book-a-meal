@@ -1,6 +1,6 @@
 import React from 'react';
 import MealForm from '../../../../src/components/shared/Form/MealForm';
-import { formComponentSetup } from '../../../../tests/setup/formSetup';
+import { formComponentSetup } from '../../../setup/formSetup';
 import { mealsObj } from '../../../setup/mockData';
 
 describe('MealForm', () => {

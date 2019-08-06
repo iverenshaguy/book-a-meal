@@ -5,24 +5,20 @@
   "custom_assertions_path": "",
   "page_objects_path": "",
   "globals_path": "./nightwatch.globals.js",
-
-  "selenium": {
+  "webdriver": {
     "start_process": true,
-    "server_path": "./client/bin/.selenium/selenium-server/3.9.1-server.jar",
-    "log_path": "./client/reports",
-    "host": "127.0.0.1",
-    "marionette": false,
-    "port": 4444,
-    "cli_args": {
-      "webdriver.chrome.driver": "./client/bin/.selenium/chromedriver/2.41-x64-chromedriver"
-    }
+    "host": "localhost",
+    "port": 4444
   },
-
   "test_settings": {
     "default": {
-      "launch_url": "http://localhost",
-      "selenium_port": 4444,
-      "selenium_host": "localhost",
+      "webdriver": {
+        "server_path": "node_modules/.bin/chromedriver",
+        "cli_args": [
+          "--verbose"
+        ],
+        "port": 9515
+      },
       "silent": true,
       "screenshots": {
         "enabled": false,
@@ -38,12 +34,6 @@
               "window-size=1480,800"
           ]
         }
-      }
-    },
-
-    "chrome": {
-      "desiredCapabilities": {
-        "browserName": "chrome"
       }
     }
   }

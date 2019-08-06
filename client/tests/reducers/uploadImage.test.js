@@ -55,4 +55,3 @@ describe('UploadImage Reducers', () => {
     expect(newState).toEqual({ ...state, error: 'Error' });
   });
 });
-

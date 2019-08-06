@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import bcrypt from 'bcrypt';
 import randomString from 'random-string';
 import { Op } from 'sequelize';

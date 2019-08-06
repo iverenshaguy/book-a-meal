@@ -17,7 +17,7 @@ module.exports = {
     '\\.(css|scss)$': 'identity-obj-proxy',
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$': '<rootDir>/tests/__mocks__/fileMock.js'
   },
-  setupTestFrameworkScriptFile: '<rootDir>/client/tests/setupTests.js',
+  setupFilesAfterEnv: ['<rootDir>/client/tests/setupTests.js'],
   testMatch: [
     '<rootDir>/client/tests/**/*.(spec|test).{js,jsx}',
     '<rootDir>/client/src/**/?(*.)(spec|test).{js,jsx}'

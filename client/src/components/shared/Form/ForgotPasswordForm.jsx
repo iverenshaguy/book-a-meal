@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { RenderInput } from '../../shared/FormComponents';
+import { RenderInput } from '../FormComponents';
 import { formPropTypes } from '../../../helpers/proptypes';
 
 /**

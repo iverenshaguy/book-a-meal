@@ -83,11 +83,10 @@ class Mailer {
   static catererOrderMail(order, customer, catererId) {
     return models.User.findOne({ where: { userId: catererId }, attributes: ['userId', 'businessName', 'email'] })
       .then((caterer) => {
-        const mealList = order.meals[catererId].map(meal =>
-          `<tr><td>${meal.title}</td><td>${meal.OrderItem.quantity}</td><td>&#8358;${meal.price}</td></tr>`);
+        const mealList = order.meals[catererId].map(meal => `<tr><td>${meal.title}</td><td>${meal.OrderItem.quantity}</td><td>&#8358;${meal.price}</td></tr>`);
 
-        const totalPrice = order.meals[catererId].reduce((total, meal) =>
-          total + (meal.price * meal.OrderItem.quantity), 0);
+        const totalPrice = order.meals[catererId]
+          .reduce((total, meal) => total + (meal.price * meal.OrderItem.quantity), 0);
 
         const message = newOrder({
           caterer, customer, order, url, mealList, totalPrice
@@ -112,10 +111,9 @@ class Mailer {
   static customerOrderMail(order, meals) {
     return models.User.findOne({ where: { userId: order.userId } })
       .then((customer) => {
-        const mealList = meals.map(meal =>
-          `<tr><td>${meal.title}</td><td>${meal.OrderItem.quantity}</td><td>&#8358;${meal.price}</td></tr>`);
-        const totalPrice = meals.reduce((total, meal) =>
-          total + (meal.price * meal.OrderItem.quantity), 0);
+        const mealList = meals.map(meal => `<tr><td>${meal.title}</td><td>${meal.OrderItem.quantity}</td><td>&#8358;${meal.price}</td></tr>`);
+        const totalPrice = meals
+          .reduce((total, meal) => total + (meal.price * meal.OrderItem.quantity), 0);
 
         const message = orderDelivery({
           customer, mealList, totalPrice, order

@@ -61,14 +61,25 @@ class CatererOrderDetails extends Component {
         Status:&nbsp;
           {order.status === 'canceled' && <span className="danger">Canceled</span>}
           {order.meals[0].delivered && <span className="success">Delivered</span>}
-          {!order.meals[0].delivered && order.status !== 'canceled' &&
+          {!order.meals[0].delivered && order.status !== 'canceled'
+          && (
           <Fragment>
             <LinkBtn className="warning" clickHandler={this.deliverOrder}>Deliver</LinkBtn>
-          </Fragment>}
+          </Fragment>
+          )}
         </p>
-        <p>Customer: {`${order.customer.firstname} ${order.customer.lastname}`}</p>
-        <p>Address Provided: {order.deliveryAddress}</p>
-        <p>Number Provided: {order.deliveryPhoneNo}</p>
+        <p>
+Customer:
+          {`${order.customer.firstname} ${order.customer.lastname}`}
+        </p>
+        <p>
+Address Provided:
+          {order.deliveryAddress}
+        </p>
+        <p>
+Number Provided:
+          {order.deliveryPhoneNo}
+        </p>
       </div>
     );
   }
@@ -100,7 +111,10 @@ class CatererOrderDetails extends Component {
       <div className="main-wrapper caterer">
         <Link to="/orders" className="orders-back-link">&#8592; Back To Orders</Link>
         <div className="order-confirmation order-details">
-          <h3 className="text-center" style={{ paddingTop: '1em' }}>Order #{order.id}</h3>
+          <h3 className="text-center" style={{ paddingTop: '1em' }}>
+Order #
+            {order.id}
+          </h3>
           {!delivering && this.renderDetails()}
           {delivering && <div className="text-center"><MiniPreloader /></div>}
         </div>

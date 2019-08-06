@@ -20,4 +20,3 @@ describe('isFetching Reducers', () => {
     expect(newState).toEqual(false);
   });
 });
-

@@ -5,179 +5,177 @@ exports[`Dashboard should render Dashboard component correctly 1`] = `
   showTime={true}
   type="dashboard"
 >
-  <React.Fragment>
+  <div
+    className="date d-none-md"
+  >
+    <h2>
+      Thursday, 1st January 1970
+         
+      00:00
+    </h2>
+  </div>
+  <div
+    className="card-group summary"
+  >
     <div
-      className="date d-none-md"
-    >
-      <h2>
-        Thursday, 1st January 1970
-            
-        00:00
-      </h2>
-    </div>
-    <div
-      className="card-group summary"
+      className="card total-sum"
     >
       <div
-        className="card total-sum"
+        className="count"
       >
-        <div
-          className="count"
-        >
-          4
-        </div>
-        <div>
-          Today's Orders
-        </div>
+        4
       </div>
-      <div
-        className="card pending"
-      >
-        <div
-          className="count"
-        >
-          0
-        </div>
-        <div>
-          Pending Orders
-        </div>
-      </div>
-      <div
-        className="card total-cash"
-      >
-        <div
-          className="count"
-        >
-          ₦ 
-          9200
-        </div>
-        <div>
-          Today's Revenue
-        </div>
+      <div>
+        Today's Orders
       </div>
     </div>
     <div
-      className="order-details"
+      className="card pending"
     >
-      <OrderHistoryTable
-        deliverOrder={[MockFunction]}
-        orders={
-          Array [
-            Object {
-              "createdAt": "2018-04-06T00:47:03.687Z",
-              "customer": Object {
-                "email": "emiola@olasanmi.com",
-                "firstname": "Emiola",
-                "lastname": "Olasanmi",
-              },
-              "deliveryAddress": "4, Church Street, Yaba",
-              "deliveryPhoneNo": "080xxxxxxxx",
-              "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
-              "meals": Array [
-                Object {
-                  "delivered": true,
-                  "description": "Sharwama contains no animal products, perfect for dieters",
-                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                  "price": "1200.00",
-                  "quantity": 1,
-                  "title": "Vegetable Sharwama and Guava Smoothie",
-                  "vegetarian": true,
-                },
-              ],
-              "status": "delivered",
-              "updatedAt": "2018-04-06T00:47:03.687Z",
-            },
-            Object {
-              "createdAt": "2018-05-01T00:47:03.687Z",
-              "customer": Object {
-                "email": "olisa@emodi.com",
-                "firstname": "Olisa",
-                "lastname": "Emodi",
-              },
-              "deliveryAddress": "4, Church Street, Yaba",
-              "deliveryPhoneNo": "080xxxxxxxx",
-              "id": "ce228787-f939-40a0-bfd3-6607ca8d2e53",
-              "meals": Array [
-                Object {
-                  "delivered": true,
-                  "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
-                  "id": "baa0412a-d167-4d2b-b1d8-404cb8f02631",
-                  "imageUrl": "https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg",
-                  "price": "2000.00",
-                  "quantity": 2,
-                  "title": "Semo and Egusi Soup",
-                  "vegetarian": false,
-                },
-                Object {
-                  "delivered": true,
-                  "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
-                  "id": "a3c35e8f-da7a-4113-aa01-a9c0fc088539",
-                  "imageUrl": "http://www.kalakutahgrills.com/wp-content/uploads/2017/02/my-pics-group-3-007.jpg",
-                  "price": "2000.00",
-                  "quantity": 2,
-                  "title": "Eba and Ogbono Soup",
-                  "vegetarian": false,
-                },
-              ],
-              "status": "delivered",
-              "updatedAt": "2018-05-01T00:47:03.687Z",
-            },
-            Object {
-              "createdAt": "2018-05-29T00:47:03.687Z",
-              "customer": Object {
-                "email": "emiola@olasanmi.com",
-                "firstname": "Emiola",
-                "lastname": "Olasanmi",
-              },
-              "deliveryAddress": "4, Church Street, Yaba",
-              "deliveryPhoneNo": "080xxxxxxxx",
-              "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
-              "meals": Array [
-                Object {
-                  "delivered": false,
-                  "description": "Sharwama contains no animal products, perfect for dieters",
-                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                  "price": "1200.00",
-                  "quantity": 1,
-                  "title": "Vegetable Sharwama and Guava Smoothie",
-                  "vegetarian": true,
-                },
-              ],
-              "status": "pending",
-              "updatedAt": "2018-05-29T00:47:03.687Z",
-            },
-            Object {
-              "createdAt": "2018-05-27T00:47:03.687Z",
-              "customer": Object {
-                "email": "emiola@olasanmi.com",
-                "firstname": "Emiola",
-                "lastname": "Olasanmi",
-              },
-              "deliveryAddress": "4, Church Street, Yaba",
-              "deliveryPhoneNo": "080xxxxxxxx",
-              "id": "fb097bde-5959-45ff-8e21-51184fa60c35",
-              "meals": Array [
-                Object {
-                  "delivered": false,
-                  "description": "Sharwama contains no animal products, perfect for dieters",
-                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                  "price": "1200.00",
-                  "quantity": 1,
-                  "title": "Vegetable Sharwama and Guava Smoothie",
-                  "vegetarian": true,
-                },
-              ],
-              "status": "canceled",
-              "updatedAt": "2018-05-27T00:47:03.687Z",
-            },
-          ]
-        }
-      />
+      <div
+        className="count"
+      >
+        0
+      </div>
+      <div>
+        Pending Orders
+      </div>
     </div>
-  </React.Fragment>
+    <div
+      className="card total-cash"
+    >
+      <div
+        className="count"
+      >
+        ₦
+        9200
+      </div>
+      <div>
+        Today's Revenue
+      </div>
+    </div>
+  </div>
+  <div
+    className="order-details"
+  >
+    <OrderHistoryTable
+      deliverOrder={[MockFunction]}
+      orders={
+        Array [
+          Object {
+            "createdAt": "2018-04-06T00:47:03.687Z",
+            "customer": Object {
+              "email": "emiola@olasanmi.com",
+              "firstname": "Emiola",
+              "lastname": "Olasanmi",
+            },
+            "deliveryAddress": "4, Church Street, Yaba",
+            "deliveryPhoneNo": "080xxxxxxxx",
+            "id": "fb097bde-5959-45ff-8e21-51184fa60c25",
+            "meals": Array [
+              Object {
+                "delivered": true,
+                "description": "Sharwama contains no animal products, perfect for dieters",
+                "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                "price": "1200.00",
+                "quantity": 1,
+                "title": "Vegetable Sharwama and Guava Smoothie",
+                "vegetarian": true,
+              },
+            ],
+            "status": "delivered",
+            "updatedAt": "2018-04-06T00:47:03.687Z",
+          },
+          Object {
+            "createdAt": "2018-05-01T00:47:03.687Z",
+            "customer": Object {
+              "email": "olisa@emodi.com",
+              "firstname": "Olisa",
+              "lastname": "Emodi",
+            },
+            "deliveryAddress": "4, Church Street, Yaba",
+            "deliveryPhoneNo": "080xxxxxxxx",
+            "id": "ce228787-f939-40a0-bfd3-6607ca8d2e53",
+            "meals": Array [
+              Object {
+                "delivered": true,
+                "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
+                "id": "baa0412a-d167-4d2b-b1d8-404cb8f02631",
+                "imageUrl": "https://static.pulse.ng/img/incoming/origs7167742/5270485143-w980-h640/Pounded-yam-and-Egusi-soup.jpg",
+                "price": "2000.00",
+                "quantity": 2,
+                "title": "Semo and Egusi Soup",
+                "vegetarian": false,
+              },
+              Object {
+                "delivered": true,
+                "description": "Meal contains 2 pieces of beef and other assorted meat and fish products",
+                "id": "a3c35e8f-da7a-4113-aa01-a9c0fc088539",
+                "imageUrl": "http://www.kalakutahgrills.com/wp-content/uploads/2017/02/my-pics-group-3-007.jpg",
+                "price": "2000.00",
+                "quantity": 2,
+                "title": "Eba and Ogbono Soup",
+                "vegetarian": false,
+              },
+            ],
+            "status": "delivered",
+            "updatedAt": "2018-05-01T00:47:03.687Z",
+          },
+          Object {
+            "createdAt": "2018-05-29T00:47:03.687Z",
+            "customer": Object {
+              "email": "emiola@olasanmi.com",
+              "firstname": "Emiola",
+              "lastname": "Olasanmi",
+            },
+            "deliveryAddress": "4, Church Street, Yaba",
+            "deliveryPhoneNo": "080xxxxxxxx",
+            "id": "fb097bde-5959-45ff-8e21-51184fa60c26",
+            "meals": Array [
+              Object {
+                "delivered": false,
+                "description": "Sharwama contains no animal products, perfect for dieters",
+                "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                "price": "1200.00",
+                "quantity": 1,
+                "title": "Vegetable Sharwama and Guava Smoothie",
+                "vegetarian": true,
+              },
+            ],
+            "status": "pending",
+            "updatedAt": "2018-05-29T00:47:03.687Z",
+          },
+          Object {
+            "createdAt": "2018-05-27T00:47:03.687Z",
+            "customer": Object {
+              "email": "emiola@olasanmi.com",
+              "firstname": "Emiola",
+              "lastname": "Olasanmi",
+            },
+            "deliveryAddress": "4, Church Street, Yaba",
+            "deliveryPhoneNo": "080xxxxxxxx",
+            "id": "fb097bde-5959-45ff-8e21-51184fa60c35",
+            "meals": Array [
+              Object {
+                "delivered": false,
+                "description": "Sharwama contains no animal products, perfect for dieters",
+                "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                "price": "1200.00",
+                "quantity": 1,
+                "title": "Vegetable Sharwama and Guava Smoothie",
+                "vegetarian": true,
+              },
+            ],
+            "status": "canceled",
+            "updatedAt": "2018-05-27T00:47:03.687Z",
+          },
+        ]
+      }
+    />
+  </div>
 </Connect(View)>
 `;
 
@@ -400,6 +398,7 @@ exports[`Dashboard should render connected Dashboard component correctly 1`] = `
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             <img
                               alt="toggler"
@@ -434,7 +433,6 @@ exports[`Dashboard should render connected Dashboard component correctly 1`] = `
                           <h2>
                             Thursday, 1st January 1970
                             <span>
-                                 
                               00:00
                             </span>
                           </h2>
@@ -513,6 +511,7 @@ exports[`Dashboard should render connected Dashboard component correctly 1`] = `
                                 data-tip={null}
                                 id={null}
                                 onClick={[Function]}
+                                type="button"
                               >
                                 ×
                               </button>
@@ -560,6 +559,7 @@ exports[`Dashboard should render connected Dashboard component correctly 1`] = `
                                 data-tip={null}
                                 id={null}
                                 onClick={[Function]}
+                                type="button"
                               >
                                 Logout
                               </button>
@@ -581,6 +581,7 @@ exports[`Dashboard should render connected Dashboard component correctly 1`] = `
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Dashboard
                           </button>
@@ -596,6 +597,7 @@ exports[`Dashboard should render connected Dashboard component correctly 1`] = `
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Meals
                           </button>
@@ -611,6 +613,7 @@ exports[`Dashboard should render connected Dashboard component correctly 1`] = `
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Menu
                           </button>
@@ -626,6 +629,7 @@ exports[`Dashboard should render connected Dashboard component correctly 1`] = `
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Orders
                           </button>
@@ -644,7 +648,7 @@ exports[`Dashboard should render connected Dashboard component correctly 1`] = `
                 >
                   <h2>
                     Thursday, 1st January 1970
-                        
+                       
                     00:00
                   </h2>
                 </div>
@@ -681,7 +685,7 @@ exports[`Dashboard should render connected Dashboard component correctly 1`] = `
                     <div
                       className="count"
                     >
-                      ₦ 
+                      ₦
                       0
                     </div>
                     <div>

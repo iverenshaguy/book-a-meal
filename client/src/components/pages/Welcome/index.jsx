@@ -25,7 +25,7 @@ const Welcome = ({ user, isAuthenticated, authenticating }) => {
         <div className="landing">
           <h1>Delicious Meals At Your Fingertips</h1>
           <Link to="/signin">
-            <button className="btn btn-pri">{message}</button>
+            <button type="button" className="btn btn-pri">{message}</button>
           </Link>
         </div>
       </div>

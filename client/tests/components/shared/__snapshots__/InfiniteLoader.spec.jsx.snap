@@ -74,7 +74,7 @@ exports[`InfiniteLoader should render InfiniteLoader component correctly 1`] = `
       style={Object {}}
     >
       <div
-        className="infinite-scroll-component"
+        className="infinite-scroll-component "
         style={
           Object {
             "WebkitOverflowScrolling": "touch",

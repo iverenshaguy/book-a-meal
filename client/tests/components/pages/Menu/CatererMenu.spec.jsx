@@ -5,7 +5,9 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import CatererMenuComponent from '../../../../src/components/pages/Menu/CatererMenu';
 import CatererMenuContainer from '../../../../src/containers/pages/Menu/CatererMenu';
-import { caterer, mealsObj, initialState, metadata } from '../../../setup/mockData';
+import {
+  caterer, mealsObj, initialState, metadata
+} from '../../../setup/mockData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -140,7 +142,8 @@ describe('CatererMenu', () => {
         <CatererMenuContainer
           {...mealsObj}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get());
 
