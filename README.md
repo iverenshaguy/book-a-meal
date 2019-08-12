@@ -1,7 +1,7 @@
 # [Book A Meal](https://book-a-meal-sivy.herokuapp.com)
 
 [![Build Status](https://travis-ci.org/iverenshaguy/book-a-meal.svg?branch=develop)](https://travis-ci.org/iverenshaguy/book-a-meal)
-[![Coverage Status](https://coveralls.io/repos/github/iverenshaguy/book-a-meal/badge.svg?branch=develop)](https://coveralls.io/github/iverenshaguy/book-a-meal?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/iverenshaguy/book-a-meal/badge.svg?branch=develop)](https://coveralls.io/github/iverenshaguy/book-a-meal?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ee9e3f3a2697b184de58/maintainability)](https://codeclimate.com/github/iverenshaguy/book-a-meal/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/ee9e3f3a2697b184de58/test_coverage)](https://codeclimate.com/github/iverenshaguy/book-a-meal/test_coverage)
 
