@@ -1,10 +1,11 @@
 import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
-import Dropdown from './Dropdown';
-import LinkBtn from './Link';
-import { mealObjPropTypes } from '../../helpers/proptypes';
-import checkShopOpen from '../../helpers/checkShopOpen';
+import Dropdown from '../Dropdown';
+import LinkBtn from '../Link';
+import { mealObjPropTypes } from '../../../helpers/proptypes';
+import checkShopOpen from '../../../helpers/checkShopOpen';
+import './MealCard.scss';
 
 /**
  * @exports
@@ -41,7 +42,7 @@ class MealCard extends Component {
       <div className="meal-card-body">
         <div>
           <h3>
-&#8358;
+            &#8358;
             {meal.price}
           </h3>
           <p data-tip={meal.description} className="meal-description">{meal.description}</p>
@@ -79,7 +80,7 @@ class MealCard extends Component {
                   <LinkBtn id="edit-meal" clickHandler={() => toggleModal('editMeal')}>Edit</LinkBtn>
                   <LinkBtn id="delete-meal" clickHandler={() => toggleModal('deleteMeal')}>Delete</LinkBtn>
                 </Fragment>
-)}
+              )}
             />
             )}
           <div className="menu-card-title"><p>{meal.title}</p></div>

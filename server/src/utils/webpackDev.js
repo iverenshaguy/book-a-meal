@@ -3,9 +3,6 @@
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import webpackConfig from '../../../webpack.dev.babel';
-
-const compiler = webpack(webpackConfig);
 
 /**
  * Function to load Webpack Dev Middleware is environment is development
@@ -15,8 +12,15 @@ const compiler = webpack(webpackConfig);
  */
 function webpackDev(app, env) {
   if (env === 'development' || env === 'test') {
+    /* eslint-disable global-require */
+    const webpackConfig = require('../../../webpack.dev.babel');
+    const compiler = webpack(webpackConfig);
+
     app.use(webpackDevMiddleware(compiler, {
-      noInfo: true, publicPath: webpackConfig.output.publicPath, stats: { colors: true }
+      hot: true,
+      noInfo: true,
+      publicPath: webpackConfig.output.publicPath,
+      stats: { colors: true }
     }));
 
     app.use(webpackHotMiddleware(compiler));

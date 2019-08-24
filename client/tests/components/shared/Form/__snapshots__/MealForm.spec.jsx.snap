@@ -40,7 +40,7 @@ exports[`MealForm should render the Meal Form correctly when type prop is addMea
     value=""
   />
   <Connect(RenderFileInput)
-    formerImgUrl="http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg"
+    formerImgUrl="https://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg"
     id="imageUrl"
     label="Meal Image"
     name="imageUrl"

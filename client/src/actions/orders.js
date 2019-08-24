@@ -1,4 +1,4 @@
-import { push } from 'react-router-redux';
+import { push } from 'connected-react-router';
 import { toastr } from 'react-redux-toastr';
 import instance from '../config/axios';
 import errorHandler from '../helpers/errorHandler';

@@ -69,15 +69,18 @@ class CatererOrderDetails extends Component {
           )}
         </p>
         <p>
-Customer:
+          Customer:
+          &nbsp;
           {`${order.customer.firstname} ${order.customer.lastname}`}
         </p>
         <p>
-Address Provided:
+          Address Provided:
+          &nbsp;
           {order.deliveryAddress}
         </p>
         <p>
-Number Provided:
+          Number Provided:
+          &nbsp;
           {order.deliveryPhoneNo}
         </p>
       </div>

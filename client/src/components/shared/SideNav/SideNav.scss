@@ -65,6 +65,7 @@
       font-size: 1.3em;
       font-weight: bold;
       font-family: $heading-font-stack;
+      font-display: swap;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -110,6 +111,7 @@
     font-size: 1.1em;
     display: block;
     font-family: $font-stack;
+    font-display: swap;
     &:hover,
     &:focus {
       background-color: $lightgrey;

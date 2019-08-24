@@ -31,5 +31,10 @@ export default merge(common, {
       }
     ]
   },
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }
+  },
   plugins: [envPlugin, cssPlugin, hotReloader]
 });

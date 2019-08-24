@@ -59,7 +59,7 @@ exports[`Form should render the Add Meal Form correctly when the type prop is ad
           "typingTimeout": 0,
           "values": Object {
             "description": "",
-            "imageUrl": "http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg",
+            "imageUrl": "https://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg",
             "price": "",
             "title": "",
             "vegetarian": false,

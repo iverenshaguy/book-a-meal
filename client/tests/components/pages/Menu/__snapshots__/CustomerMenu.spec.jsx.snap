@@ -236,7 +236,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                       className="navlinks"
                     >
                       <h3>
-                        Welcome,
+                        Welcome, 
                         Emiola
                       </h3>
                       <Link
@@ -407,6 +407,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                             </div>
                           </div>
                         </Dropdown>
+                         
                         <p>
                           Emiola
                         </p>
@@ -451,7 +452,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                             className="search-btn"
                           >
                             <img
-                              alt=""
+                              alt="Search Icon"
                               src="/img/search.svg"
                             />
                           </div>
@@ -1293,7 +1294,7 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                     className="navlinks"
                   >
                     <h3>
-                      Welcome,
+                      Welcome, 
                       Emiola
                     </h3>
                     <Link
@@ -1464,6 +1465,7 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                           </div>
                         </div>
                       </Dropdown>
+                       
                       <p>
                         Emiola
                       </p>
@@ -1508,7 +1510,7 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                           className="search-btn"
                         >
                           <img
-                            alt=""
+                            alt="Search Icon"
                             src="/img/search.svg"
                           />
                         </div>

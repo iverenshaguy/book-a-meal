@@ -7,7 +7,7 @@
   box-sizing: border-box;
   color: $dark;
   background-color: $white;
-  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -17,6 +17,7 @@
   .card,
   .meals .meal-card {
     font-family: $heading-font-stack;
+    font-display: swap;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -29,6 +30,7 @@
 .card-group .menu .meal-card,
 .menu .card-group .meal-card {
   font-family: $heading-font-stack;
+  font-display: swap;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -41,6 +43,7 @@
     .card,
     .meals .meal-card {
       font-family: $heading-font-stack;
+      font-display: swap;
       max-width: 350px;
       display: flex;
       justify-content: center !important;
@@ -51,6 +54,7 @@
   .card-group .menu .meal-card,
   .menu .card-group .meal-card {
     font-family: $heading-font-stack;
+    font-display: swap;
     max-width: 350px;
     display: flex;
     justify-content: center !important;
@@ -121,6 +125,7 @@
 .menu .meal-card .meal-card-header .menu-card-title {
   position: absolute;
   font-family: $heading-font-stack;
+  font-display: swap;
   color: $white;
   font-size: 1.5em;
   top: 0;
@@ -176,7 +181,6 @@
 .meals .meal-card .meal-card-body,
 .menu .meal-card .meal-card-body {
   width: 100%;
-  display: none;
   flex-direction: column;
   justify-content: flex-start;
 }

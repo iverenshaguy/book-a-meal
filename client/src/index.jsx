@@ -27,7 +27,7 @@ const renderApp = (Root) => {
 
 renderApp(App);
 
-if (module.hot && process.env.NODE_ENV !== 'production') {
+if (module.hot) {
   module.hot.accept('./components/App', () => {
     renderApp(App);
   });

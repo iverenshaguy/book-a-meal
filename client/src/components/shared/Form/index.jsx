@@ -58,7 +58,7 @@ class Form extends Component {
 
 
       if (fields.includes('vegetarian')) values.vegetarian = false;
-      if (type === 'addMeal') values.imageUrl = 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg';
+      if (type === 'addMeal') values.imageUrl = 'https://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg';
       if (type === 'editMeal') values = meal;
       if (type === 'catererSignup') values.role = 'caterer';
       if (type === 'customerSignup') values.role = 'customer';

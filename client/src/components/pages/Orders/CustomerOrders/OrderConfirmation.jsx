@@ -60,18 +60,22 @@ class OrderConfirmation extends Component {
   */
   renderCustomerDetails = () => (
     <div className="customer-details">
-      <p>{moment().format('dddd, Do MMMM YYYY  h:mm a')}</p>
+      <p>{moment().format('dddd, Do MMMM YYYY  h:mma')}</p>
       <p>
-Customer:
+        Customer:
+        &nbsp;
         {this.props.user.firstname}
+        &nbsp;
         {this.props.user.lastname}
       </p>
       <p>
-Phone Number:
+        Phone Number:
+        &nbsp;
         {this.state.order.deliveryPhoneNo}
       </p>
       <p>
-Address:
+        Address:
+        &nbsp;
         {this.state.order.deliveryAddress}
       </p>
     </div>

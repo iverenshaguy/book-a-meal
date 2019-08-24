@@ -28,7 +28,14 @@ export default {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env'],
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    modules: false
+                  }
+                ]
+              ],
               plugins: [
                 '@babel/plugin-proposal-object-rest-spread',
                 '@babel/plugin-proposal-export-namespace-from',

@@ -176,6 +176,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                         >
                           <h2>
                             Thursday, 1st January 1970
+                             
                             <span
                               style={
                                 Object {

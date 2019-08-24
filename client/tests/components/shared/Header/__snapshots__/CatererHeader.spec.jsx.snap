@@ -37,6 +37,7 @@ exports[`CatererHeader should render CatererHeader component correctly 1`] = `
     >
       <h2>
         Thursday, 1st January 1970
+         
         <span>
           00:00
         </span>

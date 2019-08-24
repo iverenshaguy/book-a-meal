@@ -29,7 +29,7 @@ const CustomerHeader = ({ logout, user, active }) => {
       </div>
       <div className="navlinks">
         <h3>
-Welcome,
+          Welcome,&nbsp;
           {user.firstname}
         </h3>
         {links}
@@ -43,9 +43,10 @@ Welcome,
                 </div>
                 <span>&#9662;</span>
               </div>
-)}
+            )}
             content={links}
           />
+          &nbsp;
           <p>
             {user.firstname}
           </p>

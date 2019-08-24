@@ -285,7 +285,7 @@ exports[`OrderDetails should render a connected OrderDetails component correctly
                       className="navlinks"
                     >
                       <h3>
-                        Welcome,
+                        Welcome, 
                         Emiola
                       </h3>
                       <Link
@@ -456,6 +456,7 @@ exports[`OrderDetails should render a connected OrderDetails component correctly
                             </div>
                           </div>
                         </Dropdown>
+                         
                         <p>
                           Emiola
                         </p>
@@ -880,7 +881,7 @@ exports[`OrderDetails should render a message when an order with that orderId do
                       className="navlinks"
                     >
                       <h3>
-                        Welcome,
+                        Welcome, 
                         Emiola
                       </h3>
                       <Link
@@ -1051,6 +1052,7 @@ exports[`OrderDetails should render a message when an order with that orderId do
                             </div>
                           </div>
                         </Dropdown>
+                         
                         <p>
                           Emiola
                         </p>

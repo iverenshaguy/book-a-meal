@@ -32,6 +32,7 @@ const CatererHeader = ({
         <div className="date">
           <h2>
             {date}
+            &nbsp;
             {showTime && (
             <span>
               {moment().format('HH:mm')}

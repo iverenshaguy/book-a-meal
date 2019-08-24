@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,600i");
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
+@import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,600i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap");
 @import './_variables.scss';
 @import './modules/buttons.scss';
 @import './modules/cards.scss';
@@ -12,6 +12,7 @@ html {
   height: 100%;
   font-weight: 400;
   font-family: $heading-font-stack;
+  font-display: swap;
   font-size: 16px;
 }
 
@@ -21,7 +22,7 @@ body {
   min-height: 100%;
   flex-direction: column;
   color: $dark;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("http://res.cloudinary.com/iverenshaguy/image/upload/q_49/v1532540270/bookameal/chicken-fajitas.jpg") no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("https://res.cloudinary.com/iverenshaguy/image/upload/q_49/v1532540270/bookameal/chicken-fajitas.jpg") no-repeat center center;
   background-color: white;
   background-size: cover;
   background-attachment: fixed;
@@ -138,6 +139,7 @@ h4,
 h5,
 h6 {
   font-family: $heading-font-stack;
+  font-display: swap;
 }
 
 .page-heading {
@@ -291,7 +293,7 @@ hr {
 .user {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("http://res.cloudinary.com/iverenshaguy/image/upload/q_49/v1532540270/bookameal/chicken-fajitas.jpg") no-repeat center center;
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("https://res.cloudinary.com/iverenshaguy/image/upload/q_49/v1532540270/bookameal/chicken-fajitas.jpg") no-repeat center center;
   background-color: white;
   background-size: cover;
   background-attachment: fixed;
@@ -305,7 +307,7 @@ hr {
     margin-top: 70px;
   }
   .navbar {
-    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1);
+    box-shadow:0 5px 8px0 rgba(0, 0, 0, 0.1);
   }
   .header .navbar .page-title a,
   .navlinks,
@@ -342,6 +344,7 @@ hr {
   .auth,
   .order-confirmation {
     font-family: $heading-font-stack;
+    font-display: swap;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -356,6 +359,7 @@ hr {
     .auth,
     .order-confirmation {
       font-family: $heading-font-stack;
+      font-display: swap;
       width: 300px !important;
       display: flex;
       justify-content: center !important;
@@ -539,7 +543,7 @@ hr {
   }
 
   .rrt-middle-container {
-    margin-left: 0px !important;
+    margin-left:0 !important;
     height: 70px;
     width: 90% !important;
     display: flex;
@@ -570,6 +574,7 @@ hr {
   background-color: rgba(51,51,51, 0.7) !important;
   // background-color: rgba(0, 0, 0, 0.8) !important;
   font-family: $heading-font-stack !important;
+  font-display: swap;
   font-size: 16px;
   font-weight: 400;
   padding: 15px;
@@ -589,6 +594,7 @@ hr {
   margin-top: 90px;
   font-size: 1.3em;
   font-family: $heading-font-stack;
+  font-display: swap;
 }
 
 .main-wrapper.caterer {

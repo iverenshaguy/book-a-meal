@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
+import { push } from 'connected-react-router';
 import CustomerOrderDetails from '../../../components/pages/OrderDetails/CustomerOrderDetails';
 import { editOrder, cancelOrder } from '../../../actions/orders';
 import { fetchOrder } from '../../../actions/singleOrder';
