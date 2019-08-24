@@ -1,8 +1,5 @@
 {
   "name": "book-a-meal",
-  "scripts": {
-    "postdeploy": "npm run migrate && npm run seed"
-  },
   "env": {
     "BASE_URL": {
       "required": true
@@ -45,6 +42,9 @@
     },
     "TZ": {
       "required": true
+    },
+    "NODE_ENV": {
+      "value": "staging"
     }
   },
   "formation": {

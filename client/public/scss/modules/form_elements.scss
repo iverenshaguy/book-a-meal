@@ -83,6 +83,7 @@ label {
         font-size: 1em;
         border-radius: 3px;
         font-family: $font-stack;
+        font-display: swap;
         border: 1px solid darkgray;
         background-color: transparent;
         outline: none;
@@ -171,10 +172,10 @@ option {
     }
 }
 
-input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   opacity: 1 !important;
-  margin: 0; 
+  margin: 0;
 }
 
 .search-wrapper {
@@ -187,9 +188,9 @@ input[type=number]::-webkit-outer-spin-button {
         display: flex;
         width: 80%;
         justify-content: center;
-        box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.07);
+        box-shadow: 4px 4px 8px0 rgba(0, 0, 0, 0.07);
         border-radius: 5px;
-      
+
         input {
             width: 95%;
             border-top-right-radius: 5px;
@@ -202,9 +203,10 @@ input[type=number]::-webkit-outer-spin-button {
             box-sizing: border-box;
             font-size: 1.2rem;
             font-family: $heading-font-stack;
+            font-display: swap;
             background-color: white;
         }
-      
+
         ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
           color: #989ea2;
         }
@@ -217,7 +219,7 @@ input[type=number]::-webkit-outer-spin-button {
         :-moz-placeholder { /* Firefox 18- */
           color: #989ea2;
         }
-      
+
         .search-btn {
           background-color: white;
           border-top-left-radius: 5px;
@@ -226,10 +228,10 @@ input[type=number]::-webkit-outer-spin-button {
           justify-content: center;
           align-items: center;
           padding: 0 10px;
-      
+
           img {
-              width: 30px;
-              height: 30px;
+              width: 22px;
+              height: 22px;
           }
         }
       }

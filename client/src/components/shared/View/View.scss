@@ -21,7 +21,7 @@
   .navbar {
     color: $dark;
     background-color: inherit;
-    /* box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1); */
+    /* box-shadow:0 5px 8px0 rgba(0, 0, 0, 0.1); */
     .admin-nav {
       flex-grow: 0;
       .dropdown.notification .dropdown-content {
@@ -125,7 +125,7 @@
 }
 
 .user {
-  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("http://res.cloudinary.com/iverenshaguy/image/upload/q_49/v1532540270/bookameal/chicken-fajitas.jpg") no-repeat center center;
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("https://res.cloudinary.com/iverenshaguy/image/upload/q_49/v1532540270/bookameal/chicken-fajitas.jpg") no-repeat center center;
   background-color: white;
   background-size: cover;
   background-attachment: fixed;
@@ -140,7 +140,7 @@
     margin-top: 70px;
   }
   .navbar {
-    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1);
+    box-shadow:0 5px 8px0 rgba(0, 0, 0, 0.1);
   }
   .header .navbar .page-title a,
   .navlinks,

@@ -85,15 +85,15 @@ exports[`CatererOrderDetails should render correctly when not fetching 1`] = `
           </span>
         </p>
         <p>
-          Customer:
+          Customer:  
           Emiola Olasanmi
         </p>
         <p>
-          Address Provided:
+          Address Provided:  
           4, Church Street, Yaba
         </p>
         <p>
-          Number Provided:
+          Number Provided:  
           080xxxxxxxx
         </p>
       </div>
@@ -285,6 +285,7 @@ exports[`CatererOrderDetails should render message when an order doesn't exist 1
                         >
                           <h2>
                             Thursday, 1st January 1970
+                             
                             <span>
                               00:00
                             </span>
@@ -737,6 +738,7 @@ exports[`CatererOrderDetails should render the connected OrderDetails component 
                         >
                           <h2>
                             Thursday, 1st January 1970
+                             
                             <span>
                               00:00
                             </span>
@@ -995,15 +997,15 @@ exports[`CatererOrderDetails should render the connected OrderDetails component 
                         </span>
                       </p>
                       <p>
-                        Customer:
+                        Customer:  
                         Emiola Olasanmi
                       </p>
                       <p>
-                        Address Provided:
+                        Address Provided:  
                         4, Church Street, Yaba
                       </p>
                       <p>
-                        Number Provided:
+                        Number Provided:  
                         080xxxxxxxx
                       </p>
                     </div>

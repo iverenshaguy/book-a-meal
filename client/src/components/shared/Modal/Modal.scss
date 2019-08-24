@@ -5,7 +5,7 @@
   box-sizing: border-box;
   color: $dark;
   background-color: $white;
-  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 4px 4px 8px0 rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -13,6 +13,7 @@
 
 .card-group .modal-content {
   font-family: $heading-font-stack;
+  font-display: swap;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -23,6 +24,7 @@
 @media (min-width: 576px) {
   .card-group .modal-content {
     font-family: $heading-font-stack;
+    font-display: swap;
     width: 300px !important;
     display: flex;
     justify-content: center !important;

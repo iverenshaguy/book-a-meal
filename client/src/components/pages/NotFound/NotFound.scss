@@ -16,9 +16,10 @@
 
     p {
       font-family: $heading-font-stack;
+      font-display: swap;
       font-size: 1.2em;
       color: white;
-      
+
       a {
         // color: darken($primary-color, 15%);
         color: white;
@@ -71,34 +72,34 @@
       }
     }
   }
-  
+
   @media (min-width: 992px) {
     .content {
       p {
         font-size: 2em;
       }
-  
+
       .smiley {
         border: 5px solid white;
         height: 200px;
         width: 200px;
         box-sizing: border-box;
-  
+
         p, .eyes {
           font-size: 4em;
           height: 120px;
         }
-  
+
         .eyes {
           span:first-child {
             margin-right: 40px;
           }
-  
+
           span:last-child {
             margin-left: 40px;
           }
         }
-  
+
         .sad {
           margin-top: 50px;
           height: 80px;

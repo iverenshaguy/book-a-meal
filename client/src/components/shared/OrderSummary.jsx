@@ -14,11 +14,11 @@ const OrderSummary = ({ meals, status }) => (
       <div key={meal.id}>
         <p>
           {meal.quantity}
-x
+          x
         </p>
         <p style={{ wordWrap: 'break-word', paddingLeft: '5px', paddingRight: '5px' }}>{meal.title}</p>
         <p>
-&#8358;
+          &#8358;
           {meal.quantity * meal.price}
         </p>
         {Object.keys(meal).includes('caterer') && status !== 'canceled'

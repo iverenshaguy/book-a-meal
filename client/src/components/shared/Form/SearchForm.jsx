@@ -73,7 +73,7 @@ class SearchForm extends Component {
     <Fragment>
       <div className="search-wrapper">
         <div className="search-form">
-          <div className="search-btn"><img src="/img/search.svg" alt="" /></div>
+          <div className="search-btn"><img src="/img/search.svg" alt="Search Icon" /></div>
           <label htmlFor="search" className="hide">Search For Meals</label>
           <input
             type="text"

@@ -36,7 +36,7 @@ exports[`SearchForm should render the SearchForm component correctly when type p
         className="search-btn"
       >
         <img
-          alt=""
+          alt="Search Icon"
           src="/img/search.svg"
         />
       </div>

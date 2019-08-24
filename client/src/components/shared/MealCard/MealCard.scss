@@ -1,0 +1,271 @@
+@import '../../../../public/scss/_variables';
+
+.card-group {
+  .card,
+  .meals .meal-card {
+    font-family: $heading-font-stack;
+    font-display: swap;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+}
+
+.card-group .meal-card {
+  font-family: $heading-font-stack;
+  font-display: swap;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.top {
+  text-align: center;
+  padding: 40px;
+  .btn {
+    cursor: pointer;
+  }
+}
+.meal-card {
+  margin-bottom: 50px;
+  &.no-content .meal-card-header {
+    img,
+    .menu-card-title {
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+  .menu-card-title {
+    width: 100%;
+    height: 100%;
+  }
+  .meal-card-header {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    .veg-ribbon {
+      width: 110px;
+      height: 40px;
+      line-height: 40px;
+      box-sizing: border-box;
+      position: absolute;
+      top: 15px;
+      padding-left: 15px;
+      background: darken($primary-color, 15%);
+      color: white;
+      z-index: 9;
+      box-shadow: -1px 2px 3px rgba(0,0,0,.3);
+      border-radius: 0 2px 2px 0;
+
+      &:before, &:after {
+        content: "";
+        position: absolute;
+        border-radius: 5px 0 0 5px;
+      }
+
+      &:before {
+        width: 7px;
+        height: 100%;
+        top: 0.5x;
+        left: -7px;
+        padding: 0 0 7px;
+        background: inherit;
+      }
+      &:after {
+        width: 5px;
+        height: 5px;
+        bottom: -5px;
+        left: -5px;
+        background: lighten($primary-color, 30%);
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    .menu-card-title {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    .card-dropdown {
+      position: absolute;
+      font-family: $heading-font-stack;
+      font-display: swap;
+      color: $white;
+      font-size: 1.5em;
+      top: 0;
+      right: 0;
+    }
+    .menu-card-title {
+      position: absolute;
+      font-family: $heading-font-stack;
+      font-display: swap;
+      color: $white;
+      font-size: 1.5em;
+      top: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.55);
+      z-index: 8;
+      p {
+        padding: 0 10px;
+        text-align: center;
+      }
+    }
+    .card-dropdown {
+      z-index: 9;
+      font-size: 1em;
+      top: -7%;
+      right: 5%;
+      &>a,
+      &>.link-btn {
+        color: $white;
+        cursor: pointer;
+        margin-top: 0;
+        font-size: 2em;
+        &:active,
+        &:hover,
+        &:focus {
+          transition: color 0.5s;
+          color: $white;
+        }
+      }
+    }
+    .menu-card-title {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .meal-card-body {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+
+    div {
+      width: 100%;
+
+      .meal-description {
+          width: 85%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+      }
+    }
+
+    button:disabled {
+      border: 0 solid $primary-color;
+      background-color: transparent;
+      color: $primary-color;
+      transition: background-color 0.5s, color 0.5s, border-color 0.5s;
+
+      &:hover,
+      &.focus,
+      &.active {
+        border:0 solid $primary-color;
+        background-color: transparent;
+        color: $primary-color;
+      }
+    }
+  }
+  .tooltip {
+    max-width: 200px;
+  }
+  &.customer-meal-card .meal-card-body {
+    height: 150px;
+  }
+  .meal-card-body {
+    h3 {
+      margin-left: 15px;
+    }
+    p {
+      margin-left: 15px;
+      margin-top: 0;
+      padding: 2px;
+    }
+  }
+  .meal-card-action {
+    /* margin-bottom: 30px; */
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .btn {
+      padding: 7px 20px;
+      border-radius: 2px;
+    }
+  }
+  .action-btns {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    padding: 0 20px 20px;
+    .btn {
+      padding: 0;
+      border: none;
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: inherit;
+      }
+      &.btn-sec {
+        &:hover,
+        &:focus,
+        &:active {
+          color: #419645;
+        }
+      }
+      &.btn-sec-danger {
+        &:hover,
+        &:focus,
+        &:active {
+          color: #b10000;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .card-group {
+    .card,
+    .meals .meal-card {
+      font-family: $heading-font-stack;
+      font-display: swap;
+      display: flex;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+  }
+  .meals .card-group .meal-card {
+    font-family: $heading-font-stack;
+    font-display: swap;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}
+
+.meal-card.customer-meal-card .meal-card-body {
+  flex-direction: column;
+  flex: 1;
+  div:first-child {
+    height: 120px;
+    h3 {
+      margin: 0.5em 15px 0.3em;
+    }
+  }
+}

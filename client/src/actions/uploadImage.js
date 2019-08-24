@@ -63,7 +63,7 @@ export const uploadFailure = error => ({
 export const uploadImage = (
   image, formerImagePath, newImagePath, successCallBack
 ) => async (dispatch) => {
-  const defaultImage = 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg';
+  const defaultImage = 'https://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg';
 
   const storage = app.storage();
 

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
+import { connectRouter } from 'connected-react-router';
 import { reducer as toastrReducer } from 'react-redux-toastr';
 import { createBrowserHistory } from 'history';
 import { UNAUTHENTICATED } from '../constants/actionTypes';
@@ -15,7 +15,7 @@ import ui from './ui';
 export const history = createBrowserHistory();
 
 const appReducer = combineReducers({
-  router: routerReducer,
+  router: connectRouter(history),
   toastr: toastrReducer,
   singleOrder,
   uploadImage,

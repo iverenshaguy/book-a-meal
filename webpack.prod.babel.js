@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import webpack from 'webpack';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
@@ -8,21 +7,20 @@ import TerserPlugin from 'terser-webpack-plugin';
 import Visualizer from 'webpack-visualizer-plugin';
 import dotenv from 'dotenv';
 import merge from 'webpack-merge';
+import MomentLocalesPlugin from 'moment-locales-webpack-plugin';
+import CrittersWebpackPlugin from 'critters-webpack-plugin';
 
 import common from './webpack.common.babel';
 
 const cleanerPlugin = new CleanWebpackPlugin();
 const optimizeCSSPlugin = new OptimizeCssAssetsPlugin({});
-
-const cssPlugin = new MiniCssExtractPlugin({
-  filename: '[name].[hash].css',
-  chunkFilename: '[id].[hash].css',
-});
+const momentLocalesPlugin = new MomentLocalesPlugin();
+const crittersWebpackPlugin = new CrittersWebpackPlugin();
 
 const terserPlugin = new TerserPlugin({
   cache: true,
   parallel: true,
-  sourceMap: true // set to true if you want JS source maps
+  sourceMap: true
 });
 
 const compressionPlugin = new CompressionPlugin({
@@ -58,7 +56,12 @@ export default merge(common, {
       {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          /*
+            MiniCssExtractPlugin.loader,
+            This was changed to style-loader to better
+            optimize the app and avoid multiple requests
+          */
+          'style-loader',
           'css-loader',
           'postcss-loader',
           'sass-loader'
@@ -68,13 +71,18 @@ export default merge(common, {
   },
   optimization: {
     minimizer: [terserPlugin],
+    splitChunks: {
+      chunks: 'all'
+    }
   },
   plugins: [
     cleanerPlugin,
     envPlugin,
-    cssPlugin,
+    // cssPlugin,
     optimizeCSSPlugin,
     compressionPlugin,
-    visualizerPlugin
+    visualizerPlugin,
+    momentLocalesPlugin,
+    crittersWebpackPlugin
   ],
 });
