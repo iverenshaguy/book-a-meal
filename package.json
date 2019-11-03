@@ -86,7 +86,7 @@
     "redux-logger": "^3.0.6",
     "redux-mock-store": "^1.5.1",
     "redux-thunk": "^2.2.0",
-    "sequelize": "^5.12.1",
+    "sequelize": "^5.15.1",
     "uuid": "^3.2.1",
     "validator": "^9.4.1"
   },
