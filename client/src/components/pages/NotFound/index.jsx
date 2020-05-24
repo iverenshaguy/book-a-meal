@@ -21,7 +21,8 @@ const NotFound = () => (
         <div className="sad" />
       </div>
       <p>
-You Lost Your Way!
+        You Lost Your Way!
+        &nbsp;
         <Link to="/">Go Back Home</Link>
       </p>
     </div>

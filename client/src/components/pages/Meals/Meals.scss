@@ -191,7 +191,7 @@
       }
 
       button:disabled {
-        border:0 solid $primary-color;
+        border: 0 solid $primary-color;
         background-color: transparent;
         color: $primary-color;
         transition: background-color 0.5s, color 0.5s, border-color 0.5s;
@@ -199,7 +199,7 @@
         &:hover,
         &.focus,
         &.active {
-          border:0 solid $primary-color;
+          border: 0 solid $primary-color;
           background-color: transparent;
           color: $primary-color;
         }
