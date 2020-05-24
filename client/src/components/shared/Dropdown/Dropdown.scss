@@ -21,7 +21,7 @@
   text-align: center;
   border: 1px solid #ddd;
   background-color: white;
-  box-shadow: 4px 4px 8px0 rgba(0, 0, 0, 0.05);
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.05);
   right: 0%;
 }
 
@@ -53,7 +53,7 @@
       font-display: swap;
       border-bottom: 1px solid #ddd;
       &:last-child {
-        border-bottom:0 solid #ddd;
+        border-bottom: 0 solid #ddd;
       }
       &:hover,
       &:focus {

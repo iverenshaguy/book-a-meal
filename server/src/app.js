@@ -5,6 +5,7 @@ import cors from 'cors';
 import { config } from 'dotenv';
 import bodyParser from 'body-parser';
 import gzipStatic from 'connect-gzip-static';
+import helmet from 'helmet';
 import '@babel/polyfill';
 import apiRoutes from './routes';
 import ErrorHandler from './middlewares/ErrorHandler';
@@ -18,6 +19,8 @@ config();
 const app = express();
 
 app.use(cors());
+
+app.use(helmet());
 
 app.use(logger('dev'));
 
