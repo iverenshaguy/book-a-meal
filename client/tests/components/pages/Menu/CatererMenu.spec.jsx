@@ -6,7 +6,10 @@ import configureMockStore from 'redux-mock-store';
 import CatererMenuComponent from '../../../../src/components/pages/Menu/CatererMenu';
 import CatererMenuContainer from '../../../../src/containers/pages/Menu/CatererMenu';
 import {
-  caterer, mealsObj, initialState, metadata
+  caterer,
+  mealsObj,
+  initialState,
+  metadata
 } from '../../../setup/mockData';
 
 const middlewares = [thunk];

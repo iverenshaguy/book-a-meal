@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import OrderPill from '../../shared/OrderPill';
 import View from '../../../containers/shared/View';
 import {
-  userPropTypes, metadataPropTypes, catererOrderObjPropTypes, customerOrderObjPropTypes
+  userPropTypes,
+  metadataPropTypes,
+  catererOrderObjPropTypes,
+  customerOrderObjPropTypes
 } from '../../../helpers/proptypes';
 import InfiniteLoader from '../../shared/InfiniteLoader';
 import './Orders.scss';

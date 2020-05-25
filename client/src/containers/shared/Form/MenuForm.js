@@ -2,7 +2,11 @@ import { connect } from 'react-redux';
 import MenuForm from '../../../components/shared/Form/MenuForm';
 import { fetchMeals } from '../../../actions/meals';
 import {
-  fetchMenu, setCurrentDay, addMenu, editMenu, clearMenuError
+  fetchMenu,
+  setCurrentDay,
+  addMenu,
+  editMenu,
+  clearMenuError
 } from '../../../actions/menu';
 
 const mapStateToProps = state => ({

@@ -61,7 +61,10 @@ export const uploadFailure = error => ({
  * is not equal to default image. This saves memory for deleted images
  */
 export const uploadImage = (
-  image, formerImagePath, newImagePath, successCallBack
+  image,
+  formerImagePath,
+  newImagePath,
+  successCallBack
 ) => async (dispatch) => {
   const defaultImage = 'https://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg';
 

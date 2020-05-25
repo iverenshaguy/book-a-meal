@@ -1,7 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import {
-  configure, shallow, mount, render
+  configure,
+  shallow,
+  mount,
+  render
 } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';

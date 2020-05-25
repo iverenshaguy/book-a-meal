@@ -6,7 +6,10 @@ import OrderEventEmitter from '../eventEmitters/OrderEventEmitter';
 import Pagination from '../utils/Pagination';
 import Users from './UserController';
 import {
-  sqlOptions, customerPendingOrdersSql, catererCashEarnedSql, catererPendingOrdersSql
+  sqlOptions,
+  customerPendingOrdersSql,
+  catererCashEarnedSql,
+  catererPendingOrdersSql
 } from '../helpers/queries';
 
 /**

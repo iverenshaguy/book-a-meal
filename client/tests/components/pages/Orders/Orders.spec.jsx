@@ -5,7 +5,12 @@ import configureMockStore from 'redux-mock-store';
 import OrdersComponent from '../../../../src/components/pages/Orders';
 import OrdersContainer from '../../../../src/containers/pages/Orders';
 import {
-  caterer, caterersOrdersObj, customer, customersOrdersObj, initialState, metadata
+  caterer,
+  caterersOrdersObj,
+  customer,
+  customersOrdersObj,
+  initialState,
+  metadata
 } from '../../../setup/mockData';
 
 const middlewares = [thunk];

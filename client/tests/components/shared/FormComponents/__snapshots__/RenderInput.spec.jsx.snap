@@ -45,6 +45,7 @@ exports[`Form Components: RenderInput should render RenderInput component correc
       type="email"
       value=""
     />
+     
   </div>
 </RenderInput>
 `;
@@ -84,6 +85,7 @@ exports[`Form Components: RenderInput should render checkbox correctly 1`] = `
       type="checkbox"
       value=""
     />
+     
     <label
       htmlFor="email"
     >
@@ -138,6 +140,7 @@ exports[`Form Components: RenderInput should show error when invalid data is inp
       type="email"
       value="jane@smith.me"
     />
+     
     <div
       className="invalid-feedback"
     >

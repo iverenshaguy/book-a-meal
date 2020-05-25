@@ -1,7 +1,10 @@
 import React from 'react';
 import OrderPill from '../../../src/components/shared/OrderPill';
 import {
-  caterersOrdersObj, customersOrdersObj, caterer, customer
+  caterersOrdersObj,
+  customersOrdersObj,
+  caterer,
+  customer
 } from '../../setup/mockData';
 
 

@@ -6,7 +6,10 @@ import configureMockStore from 'redux-mock-store';
 import CustomerMenuComponent from '../../../../src/components/pages/Menu/CustomerMenu';
 import CustomerMenuContainer from '../../../../src/containers/pages/Menu/CustomerMenu';
 import {
-  customer, mealsObj, orderItems, initialState
+  customer,
+  mealsObj,
+  orderItems,
+  initialState
 } from '../../../setup/mockData';
 import updateLocalStorageOrder from '../../../../src/helpers/updateLocalStorageOrder';
 

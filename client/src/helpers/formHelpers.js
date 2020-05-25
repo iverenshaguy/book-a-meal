@@ -1,5 +1,8 @@
 import {
-  auth, clearAuthError, forgotPassword, resetPassword
+  auth,
+  clearAuthError,
+  forgotPassword,
+  resetPassword
 } from '../actions/auth';
 import { clearMealError, addMeal, editMeal } from '../actions/meals';
 
