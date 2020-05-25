@@ -1,8 +1,8 @@
-import { push } from 'react-router-redux';
+import { push } from 'connected-react-router';
 import { toastr } from 'react-redux-toastr';
 import instance from '../config/axios';
 import errorHandler from '../helpers/errorHandler';
-import { setFetching, unsetFetching } from '../actions/isFetching';
+import { setFetching, unsetFetching } from './isFetching';
 import reloadOrderPage from '../utils/reloadOrderPage';
 import {
   DELIVER_ORDER_SUCCESS, DELIVER_ORDER_FAILURE, SET_DELIVERING, UNSET_DELIVERING,

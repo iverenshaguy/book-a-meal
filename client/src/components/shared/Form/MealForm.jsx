@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { RenderInput, RenderFileInput } from '../../shared/FormComponents';
+import { RenderInput, RenderFileInput } from '../FormComponents';
 import { formPropTypes, mealObjPropTypes } from '../../../helpers/proptypes';
 
 /**
@@ -53,7 +53,7 @@ const MealForm = (props) => {
         name="imageUrl"
         label="Meal Image"
         updating={updating}
-        formerImgUrl={meal ? meal.imageUrl : 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg'}
+        formerImgUrl={meal ? meal.imageUrl : 'https://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg'}
         successCallBack={imageUrl => handlers.handleChange({ target: { name: 'imageUrl', value: imageUrl } })}
       />
       <RenderInput

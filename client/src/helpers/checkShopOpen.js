@@ -12,9 +12,9 @@ const checkShopOpen = () => {
   const oneAM = moment('1:00 AM', 'h:mma');
 
   if (
-    moment().isBefore(opening) ||
-    moment().isAfter(closing) ||
-    moment().isBetween(midnight, oneAM)
+    moment().isBefore(opening)
+    || moment().isAfter(closing)
+    || moment().isBetween(midnight, oneAM)
   ) {
     return false;
   }

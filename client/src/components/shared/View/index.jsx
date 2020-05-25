@@ -82,11 +82,13 @@ class View extends Component {
           active={type}
           updateCurrentDate={updateCurrentDate}
         />
-        {user.role === 'caterer' &&
+        {user.role === 'caterer'
+          && (
           <div className="content">
             <SideNav user={user} logout={logout} active={type} />
             {this.renderContent()}
-          </div>}
+          </div>
+          )}
         {user.role === 'customer' && this.renderContent()}
         <Modal {...this.props} />
         <Footer />

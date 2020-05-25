@@ -5,7 +5,12 @@ import errors from '../../lib/errors.json';
 import OrderEventEmitter from '../eventEmitters/OrderEventEmitter';
 import Pagination from '../utils/Pagination';
 import Users from './UserController';
-import { sqlOptions, customerPendingOrdersSql, catererCashEarnedSql, catererPendingOrdersSql } from '../helpers/queries';
+import {
+  sqlOptions,
+  customerPendingOrdersSql,
+  catererCashEarnedSql,
+  catererPendingOrdersSql
+} from '../helpers/queries';
 
 /**
  * @exports
@@ -170,9 +175,9 @@ class OrderController {
   static getOrders(req, res) {
     const { role } = req;
 
-    return role === 'caterer' ?
-      OrderController.getCaterersOrders(req, res) :
-      OrderController.getCustomersOrders(req, res);
+    return role === 'caterer'
+      ? OrderController.getCaterersOrders(req, res)
+      : OrderController.getCustomersOrders(req, res);
   }
 
   /**
@@ -311,9 +316,9 @@ class OrderController {
   static getSingleOrder(req, res) {
     const { role } = req;
 
-    return role === 'caterer' ?
-      OrderController.getSingleCatererOrder(req, res) :
-      OrderController.getSingleCustomerOrder(req, res);
+    return role === 'caterer'
+      ? OrderController.getSingleCatererOrder(req, res)
+      : OrderController.getSingleCustomerOrder(req, res);
   }
 
   /**
@@ -404,10 +409,9 @@ class OrderController {
    * @returns {object} JSON object
    */
   static addMealsToOrder(order, mealItems) {
-    return mealItems.map(item =>
-      order.addMeal(item.mealId, {
-        through: { quantity: item.quantity }
-      }).then(() => order));
+    return mealItems.map(item => order.addMeal(item.mealId, {
+      through: { quantity: item.quantity }
+    }).then(() => order));
   }
 
   /**

@@ -22,7 +22,7 @@
   height: 55px;
   display: flex;
   background-color: rgb(255, 255, 255);
-  box-shadow: 0px -5px 8px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -5px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .user-menu .side-cart-toggle #cart-toggler {
@@ -68,7 +68,7 @@
   font-size: 16px;
   padding: 10px 20px;
   border-radius: 0;
-  box-shadow: 0px -5px 8px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 -5px 8px 0 rgba(0, 0, 0, 0.05);
 }
 
 .user-menu .side-cart {
@@ -85,7 +85,7 @@
   position: fixed;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .user-menu .side-cart .cart-header {

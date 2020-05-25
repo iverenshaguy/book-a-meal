@@ -17,7 +17,8 @@ const CustomerHeader = ({ logout, user, active }) => {
       <Link to="/" className={`${active === 'menu' && 'active'}`}>Menu</Link>
       <Link to="/orders" className={`${(active === 'orders' || active === 'customerOrderDetails') && 'active'}`}>Orders</Link>
       <Link to="/" onClick={logout}>Logout</Link>
-    </Fragment>);
+    </Fragment>
+  );
 
   return (
     <Fragment>
@@ -27,22 +28,28 @@ const CustomerHeader = ({ logout, user, active }) => {
         </h3>
       </div>
       <div className="navlinks">
-        <h3>Welcome, {user.firstname}</h3>
+        <h3>
+          Welcome,&nbsp;
+          {user.firstname}
+        </h3>
         {links}
         <div className="user-info mobile-only">
           <Dropdown
             type="customer"
-            toggler={
+            toggler={(
               <div className="user-dropdown">
                 <div className="username-circle circle-click">
                   <p className="circle-click">{user.firstname[0]}</p>
                 </div>
                 <span>&#9662;</span>
               </div>
-          }
+            )}
             content={links}
           />
-          <p>&nbsp;&nbsp;{user.firstname}</p>
+          &nbsp;
+          <p>
+            {user.firstname}
+          </p>
         </div>
       </div>
     </Fragment>

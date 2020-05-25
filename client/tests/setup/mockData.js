@@ -1,5 +1,8 @@
 import jwt from 'jsonwebtoken';
 import moment from 'moment';
+import { config } from 'dotenv';
+
+config();
 
 export const initialState = {
   auth: {

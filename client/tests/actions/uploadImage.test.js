@@ -107,7 +107,7 @@ describe('UploadImage Actions', () => {
         expect(deleteMock).not.toHaveBeenCalled();
       }));
 
-      it('should not call delete method if former meal image is the default image', () => store.dispatch(uploadImage('image', 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg', 'images/imagePath.jpg', uploadSuccesCallback)).then(() => {
+      it('should not call delete method if former meal image is the default image', () => store.dispatch(uploadImage('image', 'https://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg', 'images/imagePath.jpg', uploadSuccesCallback)).then(() => {
         const deleteMock = jest.fn(() => 'third');
 
         mocksdk.storage().refFromURL = () => ({

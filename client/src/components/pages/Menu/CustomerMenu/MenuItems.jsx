@@ -14,25 +14,28 @@ import { mealObjPropTypes, metadataPropTypes } from '../../../../helpers/proptyp
 const MenuItems = (props) => {
   const { meals, addOrderItem, isFetching } = props;
 
-  const menu = meals.map(meal =>
-    (<MealCard
+  const menu = meals.map(meal => (
+    <MealCard
       type="customer"
       key={meal.id}
       meal={meal}
       orderMeal={() => addOrderItem(meal)}
       inBasket={!!props.order.meals.find(item => item.id === meal.id)}
-    />));
+    />
+  ));
 
   return (
     <Fragment>
       {isFetching && <Preloader type="menu" />}
       {!isFetching && meals.length === 0 && <p className="text-center info">No Meals Found</p>}
-      {!isFetching && meals.length !== 0 &&
+      {!isFetching && meals.length !== 0
+        && (
         <CardGroup
           items={menu}
           metadata={props.metadata}
           loadMore={() => props.loadMoreMenu(props.metadata)}
-        />}
+        />
+        )}
     </Fragment>
   );
 };

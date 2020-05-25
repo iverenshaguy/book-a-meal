@@ -16,9 +16,9 @@ class TrimValues {
     const keysArr = Object.keys(req.body);
 
     req.body = keysArr.reduce((obj, key) => {
-      obj[key] = typeof req.body[key] === 'string' ?
-        req.body[key].replace(/  +/g, ' ').trim() :
-        req.body[key];
+      obj[key] = typeof req.body[key] === 'string'
+        ? req.body[key].replace(/  +/g, ' ').trim()
+        : req.body[key];
 
       return obj;
     }, {});

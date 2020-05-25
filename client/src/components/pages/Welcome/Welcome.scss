@@ -8,6 +8,7 @@
     color: $white;
     text-align: center;
     font-family: $heading-font-stack;
+    font-display: swap;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,7 +42,7 @@
     }
   }
   .meals {
-    background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url("http://res.cloudinary.com/iverenshaguy/image/upload/q_49/v1532540270/bookameal/chicken-fajitas.jpg") no-repeat center center;
+    background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url("https://res.cloudinary.com/iverenshaguy/image/upload/q_49/v1532540270/bookameal/chicken-fajitas.jpg") no-repeat center center;
     background-color: white;
     background-size: cover;
     background-attachment: fixed;

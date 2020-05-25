@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MealForm should render the Meal Form correctly when type prop is addMeal 1`] = `
-<React.Fragment>
+<Fragment>
   <RenderInput
     handleBlur={[MockFunction]}
     handleChange={[MockFunction]}
@@ -40,7 +40,7 @@ exports[`MealForm should render the Meal Form correctly when type prop is addMea
     value=""
   />
   <Connect(RenderFileInput)
-    formerImgUrl="http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg"
+    formerImgUrl="https://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg"
     id="imageUrl"
     label="Meal Image"
     name="imageUrl"
@@ -84,11 +84,11 @@ exports[`MealForm should render the Meal Form correctly when type prop is addMea
     type="checkbox"
     value=""
   />
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`MealForm should render the Meal Form correctly when type prop is editMeal 1`] = `
-<React.Fragment>
+<Fragment>
   <RenderInput
     handleBlur={[MockFunction]}
     handleChange={[MockFunction]}
@@ -171,5 +171,5 @@ exports[`MealForm should render the Meal Form correctly when type prop is editMe
     type="checkbox"
     value={false}
   />
-</React.Fragment>
+</Fragment>
 `;

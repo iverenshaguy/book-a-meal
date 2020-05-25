@@ -31,7 +31,7 @@ describe('Customer Orders', () => {
     });
 
     it('should redirect to the Menu page when there is no order to confirm', () => {
-      localStorage.setItem('bookamealorder', null);
+      localStorage.removeItem('bookamealorder');
 
       const shallowWrapper = shallow(<OrderConfirmationComponent
         user={customer}
@@ -49,7 +49,8 @@ describe('Customer Orders', () => {
           <OrderConfirmationContainer
             user={customer}
           />
-        </Provider>);
+        </Provider>
+      );
 
       const wrapper = mount(comp, rrcMock.get());
 
@@ -68,7 +69,8 @@ describe('Customer Orders', () => {
             addOrder={addOrderMock}
             editOrder={editOrderMock}
           />
-        </Provider>);
+        </Provider>
+      );
 
       const wrapper = mount(comp, rrcMock.get()).find(OrderConfirmationComponent);
 
@@ -76,7 +78,7 @@ describe('Customer Orders', () => {
 
       const storedOrder = localStorage.getItem('bookamealorder');
 
-      expect(storedOrder).toBe(undefined);
+      expect(storedOrder).toBe(null);
       expect(addOrderMock).toHaveBeenCalled();
       expect(editOrderMock).not.toHaveBeenCalled();
     });
@@ -100,7 +102,8 @@ describe('Customer Orders', () => {
             addOrder={addOrderMock}
             editOrder={editOrderMock}
           />
-        </Provider>);
+        </Provider>
+      );
 
       const wrapper = mount(comp, rrcMock.get()).find(OrderConfirmationComponent);
 
@@ -108,7 +111,7 @@ describe('Customer Orders', () => {
 
       const storedOrder = localStorage.getItem('bookamealorder');
 
-      expect(storedOrder).toBe(undefined);
+      expect(storedOrder).toBe(null);
       expect(editOrderMock).toHaveBeenCalled();
       expect(addOrderMock).not.toHaveBeenCalled();
     });
@@ -124,7 +127,7 @@ describe('Customer Orders', () => {
     });
 
     it('should redirect when there is no order to review', () => {
-      localStorage.setItem('bookamealorder', null);
+      localStorage.removeItem('bookamealorder');
 
       const shallowWrapper = shallow(<OrderReviewComponent
         user={customer}
@@ -139,7 +142,8 @@ describe('Customer Orders', () => {
           <OrderReviewComponent
             user={customer}
           />
-        </Provider>);
+        </Provider>
+      );
 
       const wrapper = mount(comp, rrcMock.get()).find(OrderReviewComponent);
 
@@ -165,7 +169,8 @@ describe('Customer Orders', () => {
           <OrderReviewComponent
             user={customer}
           />
-        </Provider>);
+        </Provider>
+      );
 
       const wrapper = mount(comp, rrcMock.get()).find(OrderReviewComponent);
 
@@ -191,7 +196,8 @@ describe('Customer Orders', () => {
           <OrderReviewComponent
             user={customer}
           />
-        </Provider>);
+        </Provider>
+      );
 
       const wrapper = mount(comp, rrcMock.get()).find(OrderReviewComponent);
 

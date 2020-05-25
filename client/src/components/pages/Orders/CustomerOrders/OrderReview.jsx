@@ -73,8 +73,9 @@ class OrderReview extends Component {
    * @memberof OrderReview
    * @returns {func} this.setState
   */
-  toggleOrderSummary = () =>
-    this.setState(prevState => ({ showOrderSummary: !prevState.showOrderSummary }));
+  toggleOrderSummary = () => this.setState(prevState => (
+    { showOrderSummary: !prevState.showOrderSummary }
+  ));
 
   /**
    * @memberof OrderReview
@@ -85,13 +86,14 @@ class OrderReview extends Component {
     const { target } = event;
     const { name } = target;
     const { order, values } = this.state;
+    const { user } = this.props;
 
     return this.setState(prevState => ({
       values: {
         ...prevState.values,
         [name]: target.value
       }
-    }), () => updateLocalStorageOrder(this.props.user.id, {
+    }), () => updateLocalStorageOrder(user.id, {
       ...order, ...values, [name]: target.value
     }));
   }
@@ -102,7 +104,6 @@ class OrderReview extends Component {
    * @returns {func} this.setState
   */
   clearFormError = name => this.setState(prevState => ({
-    formError: '',
     errors: {
       ...prevState.errors,
       [name]: null
@@ -115,7 +116,8 @@ class OrderReview extends Component {
    * @returns {func} this.setState
   */
   validateField = (name) => {
-    const errors = syncValidate('reviewOrder')(name, this.state.values);
+    const { values } = this.state;
+    const errors = syncValidate('reviewOrder')(name, values);
     const errorValue = errors || null;
 
     return this.setState(prevState => ({
@@ -128,10 +130,11 @@ class OrderReview extends Component {
    * @returns {func} this.setState
   */
   validateForm = () => {
-    const allFilled = validateRequiredFields(['deliveryPhoneNo', 'deliveryAddress'], this.state.values);
-    const formErrorCount = formErrorCounter(this.state.errors);
+    const { values, errors } = this.state;
+    const allFilled = validateRequiredFields(['deliveryPhoneNo', 'deliveryAddress'], values);
+    const formErrorCount = formErrorCounter(errors);
 
-    Object.keys(this.state.values).forEach(field => this.validateField(field));
+    Object.keys(values).forEach(field => this.validateField(field));
 
     return !formErrorCount && allFilled;
   }
@@ -143,8 +146,9 @@ class OrderReview extends Component {
   */
   handleOrderDetailsSubmit = () => {
     const { order, values } = this.state;
+    const { user } = this.props;
 
-    updateLocalStorageOrder(this.props.user.id, {
+    updateLocalStorageOrder(user.id, {
       ...order, ...values
     });
 
@@ -157,36 +161,40 @@ class OrderReview extends Component {
    * @memberof OrderReview
    * @returns {JSX} Delivery Details Component
   */
-  renderInputFields = () => (
-    <Fragment>
-      <RenderInput
-        type="tel"
-        name="deliveryPhoneNo"
-        id="deliveryPhoneNo"
-        label="Phone Number (in the format 080xxxxxxxx)"
-        required
-        value={this.state.values.deliveryPhoneNo}
-        placeholder=""
-        handleChange={this.handleInputChange}
-        handleBlur={this.handleBlur}
-        handleFocus={this.handleFocus}
-        meta={{ touched: true, error: this.state.errors.deliveryPhoneNo }}
-      />
-      <RenderInput
-        type="textarea"
-        name="deliveryAddress"
-        id="deliveryAddress"
-        label="Delivery Address"
-        required
-        value={this.state.values.deliveryAddress}
-        placeholder=""
-        handleChange={this.handleInputChange}
-        handleBlur={this.handleBlur}
-        handleFocus={this.handleFocus}
-        meta={{ touched: true, error: this.state.errors.deliveryAddress }}
-      />
-    </Fragment>
-  );
+  renderInputFields = () => {
+    const { values, errors } = this.state;
+
+    return (
+      <Fragment>
+        <RenderInput
+          type="tel"
+          name="deliveryPhoneNo"
+          id="deliveryPhoneNo"
+          label="Phone Number (in the format 080xxxxxxxx)"
+          required
+          value={values.deliveryPhoneNo}
+          placeholder=""
+          handleChange={this.handleInputChange}
+          handleBlur={this.handleBlur}
+          handleFocus={this.handleFocus}
+          meta={{ touched: true, error: errors.deliveryPhoneNo }}
+        />
+        <RenderInput
+          type="textarea"
+          name="deliveryAddress"
+          id="deliveryAddress"
+          label="Delivery Address"
+          required
+          value={values.deliveryAddress}
+          placeholder=""
+          handleChange={this.handleInputChange}
+          handleBlur={this.handleBlur}
+          handleFocus={this.handleFocus}
+          meta={{ touched: true, error: errors.deliveryAddress }}
+        />
+      </Fragment>
+    );
+  }
 
   /**
    * @memberof OrderReview
@@ -214,8 +222,9 @@ class OrderReview extends Component {
    * @returns {JSX} OrderReview Component
   */
   render() {
-    if (this.state.order.meals.length === 0) return <Redirect to="/" />;
-    if (this.state.showOrderSummary) return <Redirect to="/order-confirmation" />;
+    const { order, showOrderSummary } = this.state;
+    if (order.meals.length === 0) return <Redirect to="/" />;
+    if (showOrderSummary) return <Redirect to="/order-confirmation" />;
 
     return (
       <View type="orderReview">

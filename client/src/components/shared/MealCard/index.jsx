@@ -1,10 +1,11 @@
 import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
-import Dropdown from './Dropdown';
-import LinkBtn from './Link';
-import { mealObjPropTypes } from '../../helpers/proptypes';
-import checkShopOpen from '../../helpers/checkShopOpen';
+import Dropdown from '../Dropdown';
+import LinkBtn from '../Link';
+import { mealObjPropTypes } from '../../../helpers/proptypes';
+import checkShopOpen from '../../../helpers/checkShopOpen';
+import './MealCard.scss';
 
 /**
  * @exports
@@ -40,13 +41,18 @@ class MealCard extends Component {
     return (
       <div className="meal-card-body">
         <div>
-          <h3>&#8358; {meal.price}</h3>
+          <h3>
+            &#8358;
+            {meal.price}
+          </h3>
           <p data-tip={meal.description} className="meal-description">{meal.description}</p>
         </div>
-        {type === 'customer' && isShopOpen &&
+        {type === 'customer' && isShopOpen
+          && (
           <div className="meal-card-action">
-            <button className="btn btn-sec meal-card-btn" onClick={orderMeal} disabled={btnDisabled}>{btnText}</button>
-          </div>}
+            <button type="button" className="btn btn-sec meal-card-btn" onClick={orderMeal} disabled={btnDisabled}>{btnText}</button>
+          </div>
+          )}
       </div>
     );
   }
@@ -64,17 +70,19 @@ class MealCard extends Component {
         <div className="meal-card-header">
           {meal.vegetarian === true && <span className="veg-ribbon">Vegetarian</span>}
           <img src={meal.imageUrl} alt="meal" />
-          {type === 'caterer' &&
+          {type === 'caterer'
+            && (
             <Dropdown
               type="card"
               toggler={<Fragment>&hellip;</Fragment>}
-              content={
+              content={(
                 <Fragment>
                   <LinkBtn id="edit-meal" clickHandler={() => toggleModal('editMeal')}>Edit</LinkBtn>
                   <LinkBtn id="delete-meal" clickHandler={() => toggleModal('deleteMeal')}>Delete</LinkBtn>
                 </Fragment>
-              }
-            />}
+              )}
+            />
+            )}
           <div className="menu-card-title"><p>{meal.title}</p></div>
         </div>
         {this.renderMealCardBody()}

@@ -2,7 +2,14 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MockAdapter from 'axios-mock-adapter';
 import instance from '../../src/config/axios';
-import { deliverOrder as deliverOrderData, caterersOrdersObj, caterersOrdersObjPerDay, customerOrder, orderRequest, metadata } from '../setup/mockData';
+import {
+  deliverOrder as deliverOrderData,
+  caterersOrdersObj,
+  caterersOrdersObjPerDay,
+  customerOrder,
+  orderRequest,
+  metadata
+} from '../setup/mockData';
 import {
   addOrder,
   editOrder,
@@ -293,7 +300,7 @@ describe('Orders Actions', () => {
       });
 
       it('should dispatch SET_ORDER_WORKING, CANCEL_ORDER_SUCCESS, TOGGLE_MODAL, @@router/CALL_HISTORY_METHOD, and UNSET_ORDER_WORKING on successful order cancelation', () => {
-        const expectedActions = ['SET_ORDER_WORKING', 'CANCEL_ORDER_SUCCESS', 'UNSET_ORDER_WORKING', '@@router/CALL_HISTORY_METHOD'];
+        const expectedActions = ['SET_ORDER_WORKING', 'CANCEL_ORDER_SUCCESS', 'UNSET_ORDER_WORKING', '@@router/CALL_HISTORY_METHOD', '@@router/CALL_HISTORY_METHOD'];
 
         mockReq.onPut(`${url}/orders/${customerOrder.id}`).reply(200, customerOrder);
 

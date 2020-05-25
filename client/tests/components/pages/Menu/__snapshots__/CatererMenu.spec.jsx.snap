@@ -142,6 +142,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             <img
                               alt="toggler"
@@ -175,6 +176,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                         >
                           <h2>
                             Thursday, 1st January 1970
+                             
                             <span
                               style={
                                 Object {
@@ -274,6 +276,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                                 data-tip={null}
                                 id={null}
                                 onClick={[Function]}
+                                type="button"
                               >
                                 ×
                               </button>
@@ -321,6 +324,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                                 data-tip={null}
                                 id={null}
                                 onClick={[Function]}
+                                type="button"
                               >
                                 Logout
                               </button>
@@ -342,6 +346,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Dashboard
                           </button>
@@ -357,6 +362,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Meals
                           </button>
@@ -372,6 +378,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Menu
                           </button>
@@ -387,6 +394,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Orders
                           </button>
@@ -441,6 +449,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                       className="btn btn-pri"
                       id="menu-modal-btn"
                       onClick={[Function]}
+                      type="button"
                     >
                       Set Menu
                     </button>
@@ -567,7 +576,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                             style={Object {}}
                           >
                             <div
-                              className="infinite-scroll-component"
+                              className="infinite-scroll-component "
                               style={
                                 Object {
                                   "WebkitOverflowScrolling": "touch",
@@ -620,7 +629,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                                     >
                                       <div>
                                         <h3>
-                                          ₦ 
+                                          ₦
                                           1500.00
                                         </h3>
                                         <p
@@ -633,6 +642,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                                     </div>
                                     <ReactTooltip
                                       className="tooltip"
+                                      clickable={false}
                                       effect="solid"
                                       insecure={true}
                                       place="top"
@@ -693,7 +703,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                                     >
                                       <div>
                                         <h3>
-                                          ₦ 
+                                          ₦
                                           1200.00
                                         </h3>
                                         <p
@@ -706,6 +716,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                                     </div>
                                     <ReactTooltip
                                       className="tooltip"
+                                      clickable={false}
                                       effect="solid"
                                       insecure={true}
                                       place="top"
@@ -791,167 +802,165 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
 `;
 
 exports[`CatererMenu should render Menu component correctly and show Meal Cards 1`] = `
-<React.Fragment>
+<Fragment>
   <Connect(View)
     showTime={false}
     type="menu"
     updateCurrentDate={[Function]}
   >
-    <React.Fragment>
+    <div
+      className="content-wrapper meals menu-meals"
+    >
       <div
-        className="content-wrapper meals menu-meals"
+        className="date d-none-md"
       >
-        <div
-          className="date d-none-md"
-        >
-          <h2>
-            Thursday, 1st January 1970
-             
-            <span
-              style={
-                Object {
-                  "cursor": "pointer",
-                }
+        <h2>
+          Thursday, 1st January 1970
+           
+          <span
+            style={
+              Object {
+                "cursor": "pointer",
               }
-            >
-               ▾
-            </span>
-          </h2>
-          <DatePicker
-            handleSelectDate={[Function]}
-            screenSize={null}
-          />
-        </div>
-        <div
-          className="top"
-        >
-          <button
-            className="btn btn-pri"
-            id="menu-modal-btn"
-            onClick={[Function]}
-          >
-            Set Menu
-          </button>
-        </div>
-        <div
-          className="page-heading"
-        >
-          <h2>
-            Meal Items on This Day's Menu
-          </h2>
-          <hr />
-        </div>
-        <CardGroup
-          items={
-            Array [
-              <MealCard
-                inBasket={false}
-                meal={
-                  Object {
-                    "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
-                    "id": "81211c24-51c0-46ec-b1e0-18db55880958",
-                    "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
-                    "price": "1500.00",
-                    "title": "Jollof Rice, Beef and Plantain",
-                    "vegetarian": false,
-                  }
-                }
-                orderMeal={null}
-                toggleModal={null}
-                type="menu"
-              />,
-              <MealCard
-                inBasket={false}
-                meal={
-                  Object {
-                    "description": "Sharwama contains no animal products, perfect for dieters",
-                    "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                    "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                    "price": "1200.00",
-                    "title": "Vegetable Sharwama and Guava Smoothie",
-                    "vegetarian": true,
-                  }
-                }
-                orderMeal={null}
-                toggleModal={null}
-                type="menu"
-              />,
-            ]
-          }
-          loadMore={[Function]}
-          metadata={
-            Object {
-              "next": "next",
-              "pages": 2,
-              "prev": "prev",
-              "total": 5,
             }
-          }
+          >
+             ▾
+          </span>
+        </h2>
+        <DatePicker
+          handleSelectDate={[Function]}
+          screenSize={null}
         />
       </div>
-    </React.Fragment>
+      <div
+        className="top"
+      >
+        <button
+          className="btn btn-pri"
+          id="menu-modal-btn"
+          onClick={[Function]}
+          type="button"
+        >
+          Set Menu
+        </button>
+      </div>
+      <div
+        className="page-heading"
+      >
+        <h2>
+          Meal Items on This Day's Menu
+        </h2>
+        <hr />
+      </div>
+      <CardGroup
+        items={
+          Array [
+            <MealCard
+              inBasket={false}
+              meal={
+                Object {
+                  "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                  "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                  "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                  "price": "1500.00",
+                  "title": "Jollof Rice, Beef and Plantain",
+                  "vegetarian": false,
+                }
+              }
+              orderMeal={null}
+              toggleModal={null}
+              type="menu"
+            />,
+            <MealCard
+              inBasket={false}
+              meal={
+                Object {
+                  "description": "Sharwama contains no animal products, perfect for dieters",
+                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                  "price": "1200.00",
+                  "title": "Vegetable Sharwama and Guava Smoothie",
+                  "vegetarian": true,
+                }
+              }
+              orderMeal={null}
+              toggleModal={null}
+              type="menu"
+            />,
+          ]
+        }
+        loadMore={[Function]}
+        metadata={
+          Object {
+            "next": "next",
+            "pages": 2,
+            "prev": "prev",
+            "total": 5,
+          }
+        }
+      />
+    </div>
   </Connect(View)>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`CatererMenu should render message when there are no meals on the menu 1`] = `
-<React.Fragment>
+<Fragment>
   <Connect(View)
     showTime={false}
     type="menu"
     updateCurrentDate={[Function]}
   >
-    <React.Fragment>
+    <div
+      className="content-wrapper meals menu-meals"
+    >
       <div
-        className="content-wrapper meals menu-meals"
+        className="date d-none-md"
       >
-        <div
-          className="date d-none-md"
-        >
-          <h2>
-            Thursday, 1st January 1970
-             
-            <span
-              style={
-                Object {
-                  "cursor": "pointer",
-                }
+        <h2>
+          Thursday, 1st January 1970
+           
+          <span
+            style={
+              Object {
+                "cursor": "pointer",
               }
-            >
-               ▾
-            </span>
-          </h2>
-          <DatePicker
-            handleSelectDate={[Function]}
-            screenSize={null}
-          />
-        </div>
-        <div
-          className="top"
-        >
-          <button
-            className="btn btn-pri"
-            id="menu-modal-btn"
-            onClick={[Function]}
+            }
           >
-            Set Menu
-          </button>
-        </div>
-        <div
-          className="page-heading"
-        >
-          <h2>
-            Meal Items on This Day's Menu
-          </h2>
-          <hr />
-        </div>
-        <p
-          className="text-center info"
-        >
-          There are no Meal Items on this Menu
-        </p>
+             ▾
+          </span>
+        </h2>
+        <DatePicker
+          handleSelectDate={[Function]}
+          screenSize={null}
+        />
       </div>
-    </React.Fragment>
+      <div
+        className="top"
+      >
+        <button
+          className="btn btn-pri"
+          id="menu-modal-btn"
+          onClick={[Function]}
+          type="button"
+        >
+          Set Menu
+        </button>
+      </div>
+      <div
+        className="page-heading"
+      >
+        <h2>
+          Meal Items on This Day's Menu
+        </h2>
+        <hr />
+      </div>
+      <p
+        className="text-center info"
+      >
+        There are no Meal Items on this Menu
+      </p>
+    </div>
   </Connect(View)>
-</React.Fragment>
+</Fragment>
 `;

@@ -4,7 +4,12 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import MealsComponent from '../../../src/components/pages/Meals';
 import MealsContainer from '../../../src/containers/pages/Meals';
-import { caterer, mealsObj, initialState, metadata } from '../../setup/mockData';
+import {
+  caterer,
+  mealsObj,
+  initialState,
+  metadata
+} from '../../setup/mockData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -125,7 +130,8 @@ describe('Meals', () => {
           dispatch={dispatchMock}
           {...mealsObj}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get());
 

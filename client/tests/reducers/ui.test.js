@@ -50,4 +50,3 @@ describe('UI Reducers', () => {
     expect(newState).toEqual({ ...state, sideNav: { open: true } });
   });
 });
-

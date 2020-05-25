@@ -236,7 +236,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                       className="navlinks"
                     >
                       <h3>
-                        Welcome, 
+                        Welcome, 
                         Emiola
                       </h3>
                       <Link
@@ -282,7 +282,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                       >
                         <Dropdown
                           content={
-                            <UNDEFINED>
+                            <React.Fragment>
                               <Link
                                 className="active"
                                 replace={false}
@@ -304,7 +304,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                               >
                                 Logout
                               </Link>
-                            </UNDEFINED>
+                            </React.Fragment>
                           }
                           toggler={
                             <div
@@ -342,6 +342,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                                 data-tip={null}
                                 id="dropdown-toggler"
                                 onClick={null}
+                                type="button"
                               >
                                 <div
                                   className="user-dropdown"
@@ -406,8 +407,8 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                             </div>
                           </div>
                         </Dropdown>
+                         
                         <p>
-                            
                           Emiola
                         </p>
                       </div>
@@ -451,7 +452,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                             className="search-btn"
                           >
                             <img
-                              alt=""
+                              alt="Search Icon"
                               src="/img/search.svg"
                             />
                           </div>
@@ -660,7 +661,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                                   style={Object {}}
                                 >
                                   <div
-                                    className="infinite-scroll-component"
+                                    className="infinite-scroll-component "
                                     style={
                                       Object {
                                         "WebkitOverflowScrolling": "touch",
@@ -713,7 +714,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                                           >
                                             <div>
                                               <h3>
-                                                ₦ 
+                                                ₦
                                                 1500.00
                                               </h3>
                                               <p
@@ -730,6 +731,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                                                 className="btn btn-sec meal-card-btn"
                                                 disabled={null}
                                                 onClick={[Function]}
+                                                type="button"
                                               >
                                                 Add To Basket
                                               </button>
@@ -737,6 +739,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                                           </div>
                                           <ReactTooltip
                                             className="tooltip"
+                                            clickable={false}
                                             effect="solid"
                                             insecure={true}
                                             place="top"
@@ -797,7 +800,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                                           >
                                             <div>
                                               <h3>
-                                                ₦ 
+                                                ₦
                                                 1200.00
                                               </h3>
                                               <p
@@ -814,6 +817,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                                                 className="btn btn-sec meal-card-btn"
                                                 disabled={null}
                                                 onClick={[Function]}
+                                                type="button"
                                               >
                                                 Add To Basket
                                               </button>
@@ -821,6 +825,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                                           </div>
                                           <ReactTooltip
                                             className="tooltip"
+                                            clickable={false}
                                             effect="solid"
                                             insecure={true}
                                             place="top"
@@ -880,7 +885,8 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                             alt="cart"
                             src="/img/cart.png"
                           />
-                            
+                           
+                           
                           <sup>
                             2
                           </sup>
@@ -906,6 +912,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                             <button
                               className="btn btn-pri btn-block checkout-btn"
                               disabled={null}
+                              type="button"
                             >
                               Checkout
                             </button>
@@ -946,6 +953,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                                   data-tip={null}
                                   id="side-cart-close-icon"
                                   onClick={[Function]}
+                                  type="button"
                                 >
                                   ×
                                 </button>
@@ -990,12 +998,14 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                                 data-tip="Remove Item?"
                                 id={null}
                                 onClick={[Function]}
+                                type="button"
                               >
                                 ×
                               </button>
                             </Link>
                             <ReactTooltip
                               className="tooltip"
+                              clickable={false}
                               effect="solid"
                               id="cart-tooltip"
                               insecure={true}
@@ -1044,12 +1054,14 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                                 data-tip="Remove Item?"
                                 id={null}
                                 onClick={[Function]}
+                                type="button"
                               >
                                 ×
                               </button>
                             </Link>
                             <ReactTooltip
                               className="tooltip"
+                              clickable={false}
                               effect="solid"
                               id="cart-tooltip"
                               insecure={true}
@@ -1091,6 +1103,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                             <button
                               className="btn btn-pri btn-block checkout-btn"
                               disabled={null}
+                              type="button"
                             >
                               Checkout
                             </button>
@@ -1178,6 +1191,12 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
             undefined,
             undefined,
           ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
         ],
       }
     }
@@ -1275,7 +1294,7 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                     className="navlinks"
                   >
                     <h3>
-                      Welcome, 
+                      Welcome, 
                       Emiola
                     </h3>
                     <Link
@@ -1321,7 +1340,7 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                     >
                       <Dropdown
                         content={
-                          <UNDEFINED>
+                          <React.Fragment>
                             <Link
                               className="active"
                               replace={false}
@@ -1343,7 +1362,7 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                             >
                               Logout
                             </Link>
-                          </UNDEFINED>
+                          </React.Fragment>
                         }
                         toggler={
                           <div
@@ -1381,6 +1400,7 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                               data-tip={null}
                               id="dropdown-toggler"
                               onClick={null}
+                              type="button"
                             >
                               <div
                                 className="user-dropdown"
@@ -1445,8 +1465,8 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                           </div>
                         </div>
                       </Dropdown>
+                       
                       <p>
-                          
                         Emiola
                       </p>
                     </div>
@@ -1490,7 +1510,7 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                           className="search-btn"
                         >
                           <img
-                            alt=""
+                            alt="Search Icon"
                             src="/img/search.svg"
                           />
                         </div>
@@ -1712,7 +1732,7 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                                 style={Object {}}
                               >
                                 <div
-                                  className="infinite-scroll-component"
+                                  className="infinite-scroll-component "
                                   style={
                                     Object {
                                       "WebkitOverflowScrolling": "touch",
@@ -1765,7 +1785,7 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                                         >
                                           <div>
                                             <h3>
-                                              ₦ 
+                                              ₦
                                               1500.00
                                             </h3>
                                             <p
@@ -1778,6 +1798,7 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                                         </div>
                                         <ReactTooltip
                                           className="tooltip"
+                                          clickable={false}
                                           effect="solid"
                                           insecure={true}
                                           place="top"
@@ -1838,7 +1859,7 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                                         >
                                           <div>
                                             <h3>
-                                              ₦ 
+                                              ₦
                                               1200.00
                                             </h3>
                                             <p
@@ -1851,6 +1872,7 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                                         </div>
                                         <ReactTooltip
                                           className="tooltip"
+                                          clickable={false}
                                           effect="solid"
                                           insecure={true}
                                           place="top"
@@ -1910,7 +1932,8 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                           alt="cart"
                           src="/img/cart.png"
                         />
-                          
+                         
+                         
                         <sup>
                           2
                         </sup>
@@ -1956,6 +1979,7 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                                 data-tip={null}
                                 id="side-cart-close-icon"
                                 onClick={[Function]}
+                                type="button"
                               >
                                 ×
                               </button>
@@ -2000,12 +2024,14 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                               data-tip="Remove Item?"
                               id={null}
                               onClick={[Function]}
+                              type="button"
                             >
                               ×
                             </button>
                           </Link>
                           <ReactTooltip
                             className="tooltip"
+                            clickable={false}
                             effect="solid"
                             id="cart-tooltip"
                             insecure={true}
@@ -2054,12 +2080,14 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                               data-tip="Remove Item?"
                               id={null}
                               onClick={[Function]}
+                              type="button"
                             >
                               ×
                             </button>
                           </Link>
                           <ReactTooltip
                             className="tooltip"
+                            clickable={false}
                             effect="solid"
                             id="cart-tooltip"
                             insecure={true}

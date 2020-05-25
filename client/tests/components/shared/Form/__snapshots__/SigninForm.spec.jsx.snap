@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SigninForm should render SigninForm correctly 1`] = `
-<React.Fragment>
+<Fragment>
   <RenderInput
     handleBlur={[MockFunction]}
     handleChange={[MockFunction]}
@@ -39,5 +39,5 @@ exports[`SigninForm should render SigninForm correctly 1`] = `
     type="password"
     value=""
   />
-</React.Fragment>
+</Fragment>
 `;

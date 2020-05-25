@@ -39,31 +39,28 @@ describe('Order Routes: Deliver an Order', () => {
       .send(newOrderDetails)
       .end((err, res) => {
         secondOrderId = res.body.id;
-        db.Order.findOne({ where: { orderId: res.body.id } }).then(order =>
-          order.addMeal('46ced7aa-eed5-4462-b2c0-153f31589bdd', { through: { quantity: 1 } }).then(() =>
-            order.update({ status: 'pending' }).then(() => {
-              if (err) return done(err);
-              done();
-            })));
+        db.Order.findOne({ where: { orderId: res.body.id } }).then(order => order.addMeal('46ced7aa-eed5-4462-b2c0-153f31589bdd', { through: { quantity: 1 } }).then(() => order.update({ status: 'pending' }).then(() => {
+          if (err) return done(err);
+          done();
+        })));
       });
   });
 
   it('should deliver order belonging to caterer', (done) => {
-    db.Order.findOne({ where: { orderId: firstOrderId } }).then(order =>
-      order.update({ status: 'pending' }).then(() => {
-        request(app)
-          .post(`/api/v1/orders/${firstOrderId}/deliver`)
-          .set('Accept', 'application/json')
-          .set('authorization', foodCircleToken)
-          .send({ delivered: true })
-          .end((err, res) => {
-            expect(res.statusCode).to.equal(200);
-            expect(res.body.meals[0].delivered).to.equal(true);
+    db.Order.findOne({ where: { orderId: firstOrderId } }).then(order => order.update({ status: 'pending' }).then(() => {
+      request(app)
+        .post(`/api/v1/orders/${firstOrderId}/deliver`)
+        .set('Accept', 'application/json')
+        .set('authorization', foodCircleToken)
+        .send({ delivered: true })
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(200);
+          expect(res.body.meals[0].delivered).to.equal(true);
 
-            if (err) return done(err);
-            done();
-          });
-      }));
+          if (err) return done(err);
+          done();
+        });
+    }));
   });
 
   it('should change caterer\'s order status to delivered when all his meals have been delivered', (done) => {
@@ -92,39 +89,37 @@ describe('Order Routes: Deliver an Order', () => {
   });
 
   it('should not modify an expired/delivered order', (done) => {
-    db.Order.findOne({ where: { orderId: firstOrderId } }).then(order =>
-      order.update({ status: 'delivered' }).then(() => {
-        request(app)
-          .post(`/api/v1/orders/${firstOrderId}/deliver`)
-          .set('Accept', 'application/json')
-          .set('authorization', foodCircleToken)
-          .send({ delivered: true })
-          .end((err, res) => {
-            expect(res.statusCode).to.equal(404);
-            expect(res.body.error).to.equal('Item Not Found');
+    db.Order.findOne({ where: { orderId: firstOrderId } }).then(order => order.update({ status: 'delivered' }).then(() => {
+      request(app)
+        .post(`/api/v1/orders/${firstOrderId}/deliver`)
+        .set('Accept', 'application/json')
+        .set('authorization', foodCircleToken)
+        .send({ delivered: true })
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(404);
+          expect(res.body.error).to.equal('Item Not Found');
 
-            if (err) return done(err);
-            done();
-          });
-      }));
+          if (err) return done(err);
+          done();
+        });
+    }));
   });
 
   it('should not modify a canceled order', (done) => {
-    db.Order.findOne({ where: { orderId: firstOrderId } }).then(order =>
-      order.update({ status: 'canceled' }).then(() => {
-        request(app)
-          .post(`/api/v1/orders/${firstOrderId}/deliver`)
-          .set('Accept', 'application/json')
-          .set('authorization', foodCircleToken)
-          .send({ delivered: true })
-          .end((err, res) => {
-            expect(res.statusCode).to.equal(404);
-            expect(res.body.error).to.equal('Item Not Found');
+    db.Order.findOne({ where: { orderId: firstOrderId } }).then(order => order.update({ status: 'canceled' }).then(() => {
+      request(app)
+        .post(`/api/v1/orders/${firstOrderId}/deliver`)
+        .set('Accept', 'application/json')
+        .set('authorization', foodCircleToken)
+        .send({ delivered: true })
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(404);
+          expect(res.body.error).to.equal('Item Not Found');
 
-            if (err) return done(err);
-            done();
-          });
-      }));
+          if (err) return done(err);
+          done();
+        });
+    }));
   });
 
   it('should return errors for invalid input', (done) => {

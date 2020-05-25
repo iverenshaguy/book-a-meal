@@ -30,14 +30,17 @@ class Header extends Component {
             <Link to="/">BOOK-A-MEAL</Link>
           </h3>
         </div>
-        {type === 'home' &&
+        {type === 'home'
+          && (
           <div className="navlinks">
             <Link to="/signin" className="link">Log In</Link>
             <Link to="/signup" className="link">Sign Up</Link>
-          </div>}
+          </div>
+          )}
       </Fragment>
     );
   }
+
   /**
    * @memberof Header
    * @returns {JSX} Header Component
@@ -63,16 +66,18 @@ class Header extends Component {
     return (
       <div className={headerClass}>
         <div className={navbarClass}>
-          {unauth &&
-            this.renderUnauthHeader()}
-          {type === 'caterer' &&
+          {unauth
+            && this.renderUnauthHeader()}
+          {type === 'caterer'
+            && (
             <CatererHeader
               dateType={dateType}
               showTime={showTime}
               updateCurrentDate={updateCurrentDate}
-            />}
-          {type === 'customer' &&
-            <CustomerHeader {...this.props} />}
+            />
+            )}
+          {type === 'customer'
+            && <CustomerHeader {...this.props} />}
         </div>
       </div>
     );

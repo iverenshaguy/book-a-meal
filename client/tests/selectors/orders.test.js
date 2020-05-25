@@ -8,4 +8,3 @@ describe('Orders Selectors', () => {
     expect(orderItem).toEqual(caterersOrdersObj.orders[0]);
   });
 });
-

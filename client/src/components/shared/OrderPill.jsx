@@ -24,22 +24,42 @@ const OrderPill = ({ order, user }) => {
       <Link to={`/orders/${order.id}`}>
         <div className="order-history-header">
           <h3>{`#${order.id}`}</h3>
-          <h3>&nbsp;&nbsp;{moment(order.createdAt).format('DD/MM/YY hh:mm')}</h3>
+          <h3>
+            {moment(order.createdAt).format('DD/MM/YY hh:mm')}
+          </h3>
         </div>
         <hr />
         <div>
-          {user.role === 'caterer' &&
-            <p>{`${order.customer.firstname} ${order.customer.lastname}`}&nbsp; - &nbsp;{`${order.deliveryAddress}`}&nbsp; - &nbsp;{`${order.deliveryPhoneNo}`}</p>}
-          {user.role === 'customer' &&
+          {user.role === 'caterer'
+            && (
+            <p>
+              {`${order.customer.firstname} ${order.customer.lastname}`}
+&nbsp; - &nbsp;
+              {`${order.deliveryAddress}`}
+&nbsp; - &nbsp;
+              {`${order.deliveryPhoneNo}`}
+            </p>
+            )}
+          {user.role === 'customer'
+            && (
             <p key={order.meals[0].id}>
-              {`${order.meals[0].quantity}x ${order.meals[0].title}`}{order.meals.length > 1 ? '...' : null}
-            </p>}
+              {`${order.meals[0].quantity}x ${order.meals[0].title}`}
+              {order.meals.length > 1 ? '...' : null}
+            </p>
+            )}
         </div>
         <div className="order-history-footer">
-          <h4 style={{ textTransform: 'capitalize' }}>Status:
-            <span style={{ textTransform: 'capitalize' }} className={statusClass}> {status}</span>
+          <h4 style={{ textTransform: 'capitalize' }}>
+Status:
+            <span style={{ textTransform: 'capitalize' }} className={statusClass}>
+              {' '}
+              {status}
+            </span>
           </h4>
-          <h2>&#8358;{calculateCashEarnedFromOrder(order.meals)}</h2>
+          <h2>
+&#8358;
+            {calculateCashEarnedFromOrder(order.meals)}
+          </h2>
         </div>
       </Link>
     </div>

@@ -154,6 +154,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             <img
                               alt="toggler"
@@ -187,8 +188,8 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                         >
                           <h2>
                             Thursday, 1st January 1970
+                             
                             <span>
-                                 
                               00:00
                             </span>
                           </h2>
@@ -267,6 +268,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                                 data-tip={null}
                                 id={null}
                                 onClick={[Function]}
+                                type="button"
                               >
                                 ×
                               </button>
@@ -314,6 +316,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                                 data-tip={null}
                                 id={null}
                                 onClick={[Function]}
+                                type="button"
                               >
                                 Logout
                               </button>
@@ -335,6 +338,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Dashboard
                           </button>
@@ -350,6 +354,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Meals
                           </button>
@@ -365,6 +370,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Menu
                           </button>
@@ -380,6 +386,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                             data-tip={null}
                             id={null}
                             onClick={[Function]}
+                            type="button"
                           >
                             Orders
                           </button>
@@ -403,6 +410,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                       className="btn btn-pri"
                       id="add-meal-btn"
                       onClick={[Function]}
+                      type="button"
                     >
                       Add a New Meal
                     </button>
@@ -535,7 +543,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                             style={Object {}}
                           >
                             <div
-                              className="infinite-scroll-component"
+                              className="infinite-scroll-component "
                               style={
                                 Object {
                                   "WebkitOverflowScrolling": "touch",
@@ -577,7 +585,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                                       />
                                       <Dropdown
                                         content={
-                                          <UNDEFINED>
+                                          <React.Fragment>
                                             <Link
                                               className={null}
                                               clickHandler={[Function]}
@@ -594,12 +602,12 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                                             >
                                               Delete
                                             </Link>
-                                          </UNDEFINED>
+                                          </React.Fragment>
                                         }
                                         toggler={
-                                          <UNDEFINED>
+                                          <React.Fragment>
                                             …
-                                          </UNDEFINED>
+                                          </React.Fragment>
                                         }
                                         type="card"
                                       >
@@ -619,6 +627,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                                               data-tip={null}
                                               id="dropdown-toggler"
                                               onClick={null}
+                                              type="button"
                                             >
                                               …
                                             </button>
@@ -638,6 +647,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                                                 data-tip={null}
                                                 id="edit-meal"
                                                 onClick={[Function]}
+                                                type="button"
                                               >
                                                 Edit
                                               </button>
@@ -653,6 +663,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                                                 data-tip={null}
                                                 id="delete-meal"
                                                 onClick={[Function]}
+                                                type="button"
                                               >
                                                 Delete
                                               </button>
@@ -673,7 +684,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                                     >
                                       <div>
                                         <h3>
-                                          ₦ 
+                                          ₦
                                           1500.00
                                         </h3>
                                         <p
@@ -686,6 +697,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                                     </div>
                                     <ReactTooltip
                                       className="tooltip"
+                                      clickable={false}
                                       effect="solid"
                                       insecure={true}
                                       place="top"
@@ -735,7 +747,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                                       />
                                       <Dropdown
                                         content={
-                                          <UNDEFINED>
+                                          <React.Fragment>
                                             <Link
                                               className={null}
                                               clickHandler={[Function]}
@@ -752,12 +764,12 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                                             >
                                               Delete
                                             </Link>
-                                          </UNDEFINED>
+                                          </React.Fragment>
                                         }
                                         toggler={
-                                          <UNDEFINED>
+                                          <React.Fragment>
                                             …
-                                          </UNDEFINED>
+                                          </React.Fragment>
                                         }
                                         type="card"
                                       >
@@ -777,6 +789,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                                               data-tip={null}
                                               id="dropdown-toggler"
                                               onClick={null}
+                                              type="button"
                                             >
                                               …
                                             </button>
@@ -796,6 +809,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                                                 data-tip={null}
                                                 id="edit-meal"
                                                 onClick={[Function]}
+                                                type="button"
                                               >
                                                 Edit
                                               </button>
@@ -811,6 +825,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                                                 data-tip={null}
                                                 id="delete-meal"
                                                 onClick={[Function]}
+                                                type="button"
                                               >
                                                 Delete
                                               </button>
@@ -831,7 +846,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                                     >
                                       <div>
                                         <h3>
-                                          ₦ 
+                                          ₦
                                           1200.00
                                         </h3>
                                         <p
@@ -844,6 +859,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                                     </div>
                                     <ReactTooltip
                                       className="tooltip"
+                                      clickable={false}
                                       effect="solid"
                                       insecure={true}
                                       place="top"
@@ -964,111 +980,109 @@ exports[`Meals should render Meal Component when it is connected to the redux st
 `;
 
 exports[`Meals should render Meal component correctly when there are available meals 1`] = `
-<React.Fragment>
+<Fragment>
   <Connect(View)
     showTime={true}
     submitError={null}
     submitting={false}
     type="meals"
   >
-    <React.Fragment>
+    <div
+      className="content-wrapper meals caterer-meals"
+    >
       <div
-        className="content-wrapper meals caterer-meals"
+        className="top"
       >
-        <div
-          className="top"
+        <button
+          className="btn btn-pri"
+          id="add-meal-btn"
+          onClick={[Function]}
+          type="button"
         >
-          <button
-            className="btn btn-pri"
-            id="add-meal-btn"
-            onClick={[Function]}
-          >
-            Add a New Meal
-          </button>
-        </div>
-        <CardGroup
-          items={
-            Array [
-              <MealCard
-                inBasket={false}
-                meal={
-                  Object {
-                    "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
-                    "id": "81211c24-51c0-46ec-b1e0-18db55880958",
-                    "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
-                    "price": "1500.00",
-                    "title": "Jollof Rice, Beef and Plantain",
-                    "vegetarian": false,
-                  }
-                }
-                orderMeal={null}
-                toggleModal={[Function]}
-                type="caterer"
-              />,
-              <MealCard
-                inBasket={false}
-                meal={
-                  Object {
-                    "description": "Sharwama contains no animal products, perfect for dieters",
-                    "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
-                    "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
-                    "price": "1200.00",
-                    "title": "Vegetable Sharwama and Guava Smoothie",
-                    "vegetarian": true,
-                  }
-                }
-                orderMeal={null}
-                toggleModal={[Function]}
-                type="caterer"
-              />,
-            ]
-          }
-          loadMore={[Function]}
-          metadata={
-            Object {
-              "next": "next",
-              "pages": 2,
-              "prev": "prev",
-              "total": 5,
-            }
-          }
-        />
+          Add a New Meal
+        </button>
       </div>
-    </React.Fragment>
+      <CardGroup
+        items={
+          Array [
+            <MealCard
+              inBasket={false}
+              meal={
+                Object {
+                  "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                  "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                  "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                  "price": "1500.00",
+                  "title": "Jollof Rice, Beef and Plantain",
+                  "vegetarian": false,
+                }
+              }
+              orderMeal={null}
+              toggleModal={[Function]}
+              type="caterer"
+            />,
+            <MealCard
+              inBasket={false}
+              meal={
+                Object {
+                  "description": "Sharwama contains no animal products, perfect for dieters",
+                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                  "price": "1200.00",
+                  "title": "Vegetable Sharwama and Guava Smoothie",
+                  "vegetarian": true,
+                }
+              }
+              orderMeal={null}
+              toggleModal={[Function]}
+              type="caterer"
+            />,
+          ]
+        }
+        loadMore={[Function]}
+        metadata={
+          Object {
+            "next": "next",
+            "pages": 2,
+            "prev": "prev",
+            "total": 5,
+          }
+        }
+      />
+    </div>
   </Connect(View)>
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`Meals should show "You Do Not Have Any Meals Yet" message when caterer does not have any meals available 1`] = `
-<React.Fragment>
+<Fragment>
   <Connect(View)
     showTime={true}
     submitError={null}
     submitting={false}
     type="meals"
   >
-    <React.Fragment>
+    <div
+      className="content-wrapper meals caterer-meals"
+    >
       <div
-        className="content-wrapper meals caterer-meals"
+        className="top"
       >
-        <div
-          className="top"
+        <button
+          className="btn btn-pri"
+          id="add-meal-btn"
+          onClick={[Function]}
+          type="button"
         >
-          <button
-            className="btn btn-pri"
-            id="add-meal-btn"
-            onClick={[Function]}
-          >
-            Add a New Meal
-          </button>
-        </div>
-        <p
-          className="text-center info"
-        >
-          You Do Not Have Any Meals Yet
-        </p>
+          Add a New Meal
+        </button>
       </div>
-    </React.Fragment>
+      <p
+        className="text-center info"
+      >
+        You Do Not Have Any Meals Yet
+      </p>
+    </div>
   </Connect(View)>
-</React.Fragment>
+</Fragment>
 `;

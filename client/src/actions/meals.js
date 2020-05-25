@@ -1,8 +1,8 @@
 import { toastr } from 'react-redux-toastr';
 import instance from '../config/axios';
 import errorHandler from '../helpers/errorHandler';
-import { setFetching, unsetFetching } from '../actions/isFetching';
-import { toggleModal } from '../actions/ui';
+import { setFetching, unsetFetching } from './isFetching';
+import { toggleModal } from './ui';
 import {
   RECEIVE_MEALS_SUCCESS, RECEIVE_MEALS_FAILURE, SET_MEAL_WORKING,
   UNSET_MEAL_WORKING, CLEAR_MEAL_ERROR, ADD_MEAL_SUCCESS, ADD_MEAL_FAILURE,

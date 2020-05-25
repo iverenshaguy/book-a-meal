@@ -31,7 +31,7 @@ export default {
     imageUrl: {
       type: Sequelize.TEXT,
       allowNull: false,
-      defaultValue: 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg'
+      defaultValue: 'https://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg'
     },
     description: {
       type: Sequelize.TEXT,

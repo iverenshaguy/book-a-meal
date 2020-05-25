@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { RenderInput } from '../../shared/FormComponents';
+import { RenderInput } from '../FormComponents';
 import { formPropTypes } from '../../../helpers/proptypes';
 
 /**
@@ -22,10 +22,10 @@ const SigninForm = ({ state, handlers }) => (
       handleBlur={handlers.handleBlur}
       handleFocus={handlers.handleFocus}
       meta={{
-          touched: state.touched.email,
-          error: state.error.email,
-          asyncValidating: state.asyncValidating
-        }}
+        touched: state.touched.email,
+        error: state.error.email,
+        asyncValidating: state.asyncValidating
+      }}
     />
 
     <RenderInput
@@ -40,9 +40,9 @@ const SigninForm = ({ state, handlers }) => (
       handleBlur={handlers.handleBlur}
       handleFocus={handlers.handleFocus}
       meta={{
-          touched: state.touched.password,
-          error: state.error.password
-        }}
+        touched: state.touched.password,
+        error: state.error.password
+      }}
     />
   </Fragment>
 );

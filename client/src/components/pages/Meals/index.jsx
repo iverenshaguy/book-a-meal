@@ -72,30 +72,38 @@ class Meals extends Component {
    * @returns {JSX} Board Component
    */
   renderMeals = () => {
-    const mealItems = this.props.meals.map(meal =>
-      (<MealCard
+    const mealItems = this.props.meals.map(meal => (
+      <MealCard
         type="caterer"
         key={meal.id}
         meal={meal}
         toggleModal={type => this.toggleMealModal(meal.id, type)}
-      />));
+      />
+    ));
 
 
     return (
       <Fragment>
         <div className="content-wrapper meals caterer-meals">
           <div className="top">
-            <button className="btn btn-pri" id="add-meal-btn" onClick={() => this.props.toggleModal('addMeal')}>
+            <button
+              type="button"
+              className="btn btn-pri"
+              id="add-meal-btn"
+              onClick={() => this.props.toggleModal('addMeal')}
+            >
             Add a New Meal
             </button>
           </div>
           {this.props.meals.length === 0 && <p className="text-center info">You Do Not Have Any Meals Yet</p>}
-          {this.props.meals.length !== 0 &&
+          {this.props.meals.length !== 0
+            && (
             <CardGroup
               items={mealItems}
               metadata={this.props.metadata}
               loadMore={this.loadMoreMeals}
-            />}
+            />
+            )}
         </div>
       </Fragment>
     );

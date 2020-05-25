@@ -60,35 +60,39 @@ export const uploadFailure = error => ({
  * deletes former image file from firebase if it exists and
  * is not equal to default image. This saves memory for deleted images
  */
-export const uploadImage = (image, formerImagePath, newImagePath, successCallBack) =>
-  async (dispatch) => {
-    const defaultImage = 'http://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg';
+export const uploadImage = (
+  image,
+  formerImagePath,
+  newImagePath,
+  successCallBack
+) => async (dispatch) => {
+  const defaultImage = 'https://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg';
 
-    const storage = app.storage();
+  const storage = app.storage();
 
-    const storageRef = storage.ref(newImagePath);
+  const storageRef = storage.ref(newImagePath);
 
-    try {
-      dispatch(setUploading());
+  try {
+    dispatch(setUploading());
 
-      const snapshot = await storageRef.put(image);
+    const snapshot = await storageRef.put(image);
 
-      if (formerImagePath && formerImagePath !== defaultImage) {
-        const formerStorageRef = storage.refFromURL(`${formerImagePath}`);
+    if (formerImagePath && formerImagePath !== defaultImage) {
+      const formerStorageRef = storage.refFromURL(`${formerImagePath}`);
 
-        formerStorageRef.delete();
-      }
-
-      return snapshot.ref.getDownloadURL().then((downloadUrl) => {
-        dispatch(uploadSuccess(downloadUrl));
-        dispatch(unsetUploading());
-
-        return successCallBack(downloadUrl);
-      });
-    } catch (error) {
-      const errorResponse = errorHandler(error);
-
-      dispatch(uploadFailure(errorResponse));
-      dispatch(unsetUploading());
+      formerStorageRef.delete();
     }
-  };
+
+    return snapshot.ref.getDownloadURL().then((downloadUrl) => {
+      dispatch(uploadSuccess(downloadUrl));
+      dispatch(unsetUploading());
+
+      return successCallBack(downloadUrl);
+    });
+  } catch (error) {
+    const errorResponse = errorHandler(error);
+
+    dispatch(uploadFailure(errorResponse));
+    dispatch(unsetUploading());
+  }
+};

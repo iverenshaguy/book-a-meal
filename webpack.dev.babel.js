@@ -1,8 +1,10 @@
-const webpack = require('webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const Dotenv = require('dotenv-webpack');
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+/* eslint-disable import/no-extraneous-dependencies */
+import webpack from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import Dotenv from 'dotenv-webpack';
+import merge from 'webpack-merge';
+
+import common from './webpack.common.babel';
 
 const cssPlugin = new MiniCssExtractPlugin({
   filename: '[name].css',
@@ -12,7 +14,7 @@ const cssPlugin = new MiniCssExtractPlugin({
 const hotReloader = new webpack.HotModuleReplacementPlugin();
 const envPlugin = new Dotenv();
 
-module.exports = merge(common, {
+export default merge(common, {
   mode: 'development',
   devtool: 'eval-source-map',
   entry: { app: ['react-hot-loader/patch', 'webpack-hot-middleware/client', './client/src/index.jsx'] },
@@ -28,6 +30,11 @@ module.exports = merge(common, {
         ]
       }
     ]
+  },
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }
   },
   plugins: [envPlugin, cssPlugin, hotReloader]
 });

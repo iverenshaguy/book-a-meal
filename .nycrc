@@ -6,7 +6,7 @@
   "statements": 80,
   "functions": 80,
   "branches":80,
-  "require": ["babel-register"],
+  "require": ["@babel/register"],
   "exclude": [
     "**/*.test.js",
     "**/*.spec.js",
@@ -17,6 +17,7 @@
     "server/coverage/**",
     "server/tests/**",
     "server/src/models/index.js",
+    "server/src/sequelize.js",
     "server/test{,-*}.js",
     "server/docs.**",
     "webpack.**.js"

@@ -128,16 +128,14 @@ exports[`OrderHistoryTable should render OrderHistoryTable component correctly 1
         </td>
         <td>
           <span>
-            <React.Fragment>
-              <Link
-                className="warning"
-                clickHandler={[Function]}
-                dataTip={null}
-                id={null}
-              >
-                Deliver
-              </Link>
-            </React.Fragment>
+            <Link
+              className="warning"
+              clickHandler={[Function]}
+              dataTip={null}
+              id={null}
+            >
+              Deliver
+            </Link>
           </span>
         </td>
       </tr>

@@ -29,9 +29,9 @@ class Dropdown extends Component {
    * @returns {void}
    */
   toggleDropdownContent = () => {
-    this.setState({
-      showContent: !this.state.showContent
-    });
+    this.setState(({ showContent }) => ({
+      showContent: !showContent
+    }));
   }
 
   /**

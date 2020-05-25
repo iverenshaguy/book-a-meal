@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: row;
     font-family: $heading-font-stack;
+    font-display: swap;
     justify-content: space-between;
     align-content: center;
     .menu-control,
@@ -39,6 +40,7 @@
       flex-grow: 2;
       a {
         font-family: $heading-font-stack;
+        font-display: swap;
         color: $white;
         display: block;
         font-size: 1.2em;
@@ -69,7 +71,7 @@
         height: 100%;
         .dropdown,
         .circle {
-          padding-right: 0px;
+          padding-right: 0;
         }
       }
     }
@@ -98,7 +100,7 @@
     > *:not(.mobile-only) {
       display: block;
     }
-  
+
     > .mobile-only {
       display: none !important;
     }

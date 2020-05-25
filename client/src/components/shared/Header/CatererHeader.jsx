@@ -32,7 +32,12 @@ const CatererHeader = ({
         <div className="date">
           <h2>
             {date}
-            {showTime && <span>&nbsp; &nbsp;{moment().format('HH:mm')}</span>}
+            &nbsp;
+            {showTime && (
+            <span>
+              {moment().format('HH:mm')}
+            </span>
+            )}
             {dateType === 'menu' && <span style={{ cursor: 'pointer' }}>&nbsp;&#9662;</span>}
           </h2>
           {dateType === 'menu' && <DatePicker screenSize="md" handleSelectDate={updateCurrentDate} />}

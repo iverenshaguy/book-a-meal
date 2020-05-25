@@ -5,7 +5,12 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import CustomerMenuComponent from '../../../../src/components/pages/Menu/CustomerMenu';
 import CustomerMenuContainer from '../../../../src/containers/pages/Menu/CustomerMenu';
-import { customer, mealsObj, orderItems, initialState } from '../../../setup/mockData';
+import {
+  customer,
+  mealsObj,
+  orderItems,
+  initialState
+} from '../../../setup/mockData';
 import updateLocalStorageOrder from '../../../../src/helpers/updateLocalStorageOrder';
 
 const middlewares = [thunk];
@@ -50,7 +55,8 @@ describe('CustomerMenu', () => {
           user={customer}
           fetchMenu={fetchMenuMock}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get());
 
@@ -66,7 +72,8 @@ describe('CustomerMenu', () => {
           user={customer}
           {...mealsObj}
         />
-      </Provider>);
+      </Provider>
+    );
 
     const wrapper = mount(comp, rrcMock.get());
 
@@ -82,7 +89,8 @@ describe('CustomerMenu', () => {
           user={customer}
           fetchMenu={jest.fn()}
         />
-      </Provider>);
+      </Provider>
+    );
     const wrapper = mount(comp, rrcMock.get());
 
     expect(toJson(wrapper)).toMatchSnapshot();
@@ -120,7 +128,8 @@ describe('CustomerMenu', () => {
             user={customer}
             fetchMenu={jest.fn()}
           />
-        </Provider>);
+        </Provider>
+      );
 
       const wrapper = mount(comp, rrcMock.get());
 
@@ -143,7 +152,8 @@ describe('CustomerMenu', () => {
             user={customer}
             fetchMenu={jest.fn()}
           />
-        </Provider>);
+        </Provider>
+      );
 
       const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenuComponent).dive();
       const changeOrderQuantitySpy = jest.spyOn(wrapper.instance(), 'changeOrderQuantity');
@@ -164,7 +174,8 @@ describe('CustomerMenu', () => {
             user={customer}
             fetchMenu={jest.fn()}
           />
-        </Provider>);
+        </Provider>
+      );
 
       const wrapper = shallow(comp, rrcMock.get()).find(CustomerMenuComponent).dive();
 
@@ -186,7 +197,8 @@ describe('CustomerMenu', () => {
             user={customer}
             fetchMenu={jest.fn()}
           />
-        </Provider>);
+        </Provider>
+      );
 
       localStorage.setItem('bookamealorder', JSON.stringify({
         userId: 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac',
@@ -215,7 +227,8 @@ describe('CustomerMenu', () => {
             user={customer}
             fetchMenu={jest.fn()}
           />
-        </Provider>);
+        </Provider>
+      );
 
       localStorage.setItem('bookamealorder', JSON.stringify({
         userId: 'a09a5570-a3b2-4e21-94c3-5cf483dbd1ac',

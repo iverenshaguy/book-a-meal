@@ -14,7 +14,7 @@ exports[`MealCard should render correctly when type is caterer 1`] = `
     />
     <Dropdown
       content={
-        <UNDEFINED>
+        <React.Fragment>
           <Link
             className={null}
             clickHandler={[Function]}
@@ -31,12 +31,12 @@ exports[`MealCard should render correctly when type is caterer 1`] = `
           >
             Delete
           </Link>
-        </UNDEFINED>
+        </React.Fragment>
       }
       toggler={
-        <UNDEFINED>
+        <React.Fragment>
           …
-        </UNDEFINED>
+        </React.Fragment>
       }
       type="card"
     />
@@ -53,7 +53,7 @@ exports[`MealCard should render correctly when type is caterer 1`] = `
   >
     <div>
       <h3>
-        ₦ 
+        ₦
         1500.00
       </h3>
       <p
@@ -66,6 +66,7 @@ exports[`MealCard should render correctly when type is caterer 1`] = `
   </div>
   <ReactTooltip
     className="tooltip"
+    clickable={false}
     effect="solid"
     insecure={true}
     place="top"
@@ -101,7 +102,7 @@ exports[`MealCard should render correctly when type is customer 1`] = `
   >
     <div>
       <h3>
-        ₦ 
+        ₦
         1500.00
       </h3>
       <p
@@ -118,6 +119,7 @@ exports[`MealCard should render correctly when type is customer 1`] = `
         className="btn btn-sec meal-card-btn"
         disabled={null}
         onClick={null}
+        type="button"
       >
         Add To Basket
       </button>
@@ -125,6 +127,7 @@ exports[`MealCard should render correctly when type is customer 1`] = `
   </div>
   <ReactTooltip
     className="tooltip"
+    clickable={false}
     effect="solid"
     insecure={true}
     place="top"

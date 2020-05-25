@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MenuItems should render MenuItems component correctly 1`] = `
-<React.Fragment>
+<Fragment>
   <CardGroup
     items={
       Array [
@@ -49,15 +49,15 @@ exports[`MenuItems should render MenuItems component correctly 1`] = `
       }
     }
   />
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`MenuItems should render Preloader when fetching menu items 1`] = `
-<React.Fragment>
+<Fragment>
   <Preloader
     type="menu"
   />
-</React.Fragment>
+</Fragment>
 `;
 
 exports[`MenuItems should render connected Menu component 1`] = `
@@ -297,7 +297,7 @@ exports[`MenuItems should render connected Menu component 1`] = `
                 style={Object {}}
               >
                 <div
-                  className="infinite-scroll-component"
+                  className="infinite-scroll-component "
                   style={
                     Object {
                       "WebkitOverflowScrolling": "touch",
@@ -350,7 +350,7 @@ exports[`MenuItems should render connected Menu component 1`] = `
                         >
                           <div>
                             <h3>
-                              ₦ 
+                              ₦
                               1500.00
                             </h3>
                             <p
@@ -367,6 +367,7 @@ exports[`MenuItems should render connected Menu component 1`] = `
                               className="btn btn-sec meal-card-btn"
                               disabled="disabled"
                               onClick={[Function]}
+                              type="button"
                             >
                               Added To Basket
                             </button>
@@ -374,6 +375,7 @@ exports[`MenuItems should render connected Menu component 1`] = `
                         </div>
                         <ReactTooltip
                           className="tooltip"
+                          clickable={false}
                           effect="solid"
                           insecure={true}
                           place="top"
@@ -434,7 +436,7 @@ exports[`MenuItems should render connected Menu component 1`] = `
                         >
                           <div>
                             <h3>
-                              ₦ 
+                              ₦
                               1200.00
                             </h3>
                             <p
@@ -451,6 +453,7 @@ exports[`MenuItems should render connected Menu component 1`] = `
                               className="btn btn-sec meal-card-btn"
                               disabled="disabled"
                               onClick={[Function]}
+                              type="button"
                             >
                               Added To Basket
                             </button>
@@ -458,6 +461,7 @@ exports[`MenuItems should render connected Menu component 1`] = `
                         </div>
                         <ReactTooltip
                           className="tooltip"
+                          clickable={false}
                           effect="solid"
                           insecure={true}
                           place="top"
@@ -485,11 +489,11 @@ exports[`MenuItems should render connected Menu component 1`] = `
 `;
 
 exports[`MenuItems should render message when there are no meals on the menu 1`] = `
-<React.Fragment>
+<Fragment>
   <p
     className="text-center info"
   >
     No Meals Found
   </p>
-</React.Fragment>
+</Fragment>
 `;

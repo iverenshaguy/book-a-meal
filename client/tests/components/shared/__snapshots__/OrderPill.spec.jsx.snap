@@ -15,7 +15,6 @@ exports[`OrderPill should render Caterer OrderPil correctly 1`] = `
         #fb097bde-5959-45ff-8e21-51184fa60c25
       </h3>
       <h3>
-          
         06/04/18 12:47
       </h3>
     </div>
@@ -76,7 +75,6 @@ exports[`OrderPill should render Customer OrderOill correctly and add ... for mo
         #fb097bde-5959-45ff-8e21-51184fa60c25
       </h3>
       <h3>
-          
         06/04/18 12:47
       </h3>
     </div>
@@ -136,7 +134,6 @@ exports[`OrderPill should render Customer OrderPill correctly 1`] = `
         #fb097bde-5959-45ff-8e21-51184fa70c25
       </h3>
       <h3>
-          
         06/04/18 12:47
       </h3>
     </div>
@@ -195,7 +192,6 @@ exports[`OrderPill should render Customer OrderPill correctly when status starte
         #fb097bde-5959-45ff-8e21-51184fa90c25
       </h3>
       <h3>
-          
         06/04/18 12:47
       </h3>
     </div>

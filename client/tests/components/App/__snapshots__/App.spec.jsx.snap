@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App should render the App component correctly 1`] = `
-<React.Fragment>
-  <ConnectedRouter
+<Fragment>
+  <Connect(ConnectedRouterWithContext)
     history={
       Object {
         "action": "POP",
@@ -25,7 +25,7 @@ exports[`App should render the App component correctly 1`] = `
     }
   >
     <Routes />
-  </ConnectedRouter>
+  </Connect(ConnectedRouterWithContext)>
   <Connect(ReduxToastr)
     newestOnTop={false}
     preventDuplicates={true}
@@ -33,5 +33,5 @@ exports[`App should render the App component correctly 1`] = `
     transitionIn="bounceIn"
     transitionOut="fadeOut"
   />
-</React.Fragment>
+</Fragment>
 `;

@@ -1,6 +1,6 @@
 import React from 'react';
 import ResetPasswordForm from '../../../../src/components/shared/Form/ResetPasswordForm';
-import { formComponentSetup } from '../../../../tests/setup/formSetup';
+import { formComponentSetup } from '../../../setup/formSetup';
 
 const token = 'fdghjklfghjklfghjklfdghjkl';
 

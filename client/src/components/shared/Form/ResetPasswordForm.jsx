@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { RenderInput } from '../../shared/FormComponents';
+import { RenderInput } from '../FormComponents';
 import { formPropTypes } from '../../../helpers/proptypes';
 
 /**
@@ -22,9 +22,9 @@ const ResetPasswordForm = ({ state, handlers }) => (
       handleBlur={handlers.handleBlur}
       handleFocus={handlers.handleFocus}
       meta={{
-          touched: state.touched.password,
-          error: state.error.password,
-        }}
+        touched: state.touched.password,
+        error: state.error.password,
+      }}
     />
 
     <RenderInput
@@ -39,9 +39,9 @@ const ResetPasswordForm = ({ state, handlers }) => (
       handleBlur={handlers.handleBlur}
       handleFocus={handlers.handleFocus}
       meta={{
-          touched: state.touched.passwordConfirm,
-          error: state.error.passwordConfirm
-        }}
+        touched: state.touched.passwordConfirm,
+        error: state.error.passwordConfirm
+      }}
     />
   </Fragment>
 );

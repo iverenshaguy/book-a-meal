@@ -71,8 +71,7 @@ class CustomerMenu extends Component {
         ...prevState.order,
         meals: [...prevState.order.meals, item]
       }
-    }), () =>
-      updateLocalStorageOrder(this.props.user.id, this.state.order));
+    }), () => updateLocalStorageOrder(this.props.user.id, this.state.order));
   }
 
   /**
@@ -95,8 +94,7 @@ class CustomerMenu extends Component {
           ...prevState.order.meals.slice(itemIndex + 1)
         ]
       }
-    }), () =>
-      updateLocalStorageOrder(this.props.user.id, this.state.order));
+    }), () => updateLocalStorageOrder(this.props.user.id, this.state.order));
   }
 
   /**
@@ -110,8 +108,7 @@ class CustomerMenu extends Component {
         ...prevState.order,
         meals: prevState.order.meals.filter(orderItem => orderItem.id !== itemId)
       }
-    }), () =>
-      updateLocalStorageOrder(this.props.user.id, this.state.order));
+    }), () => updateLocalStorageOrder(this.props.user.id, this.state.order));
   }
 
   /**

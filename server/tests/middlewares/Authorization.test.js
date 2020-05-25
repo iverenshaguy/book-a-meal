@@ -3,7 +3,6 @@ import { assert } from 'chai';
 import {
   tokens,
   expiredToken,
-  invalidToken,
   wrongSecretToken
 } from '../utils/setup';
 import Authorization from '../../src/middlewares/Authorization';
@@ -53,13 +52,6 @@ describe('Authorization Handler', () => {
       Authorization.authorize(unAuthReq, res, next);
 
       assert(status.calledWith(401));
-    });
-
-    it('should send error 403 for invalid token', () => {
-      const unAuthReq = { headers: { authorization: invalidToken } };
-      Authorization.authorize(unAuthReq, res, next);
-
-      assert(status.calledWith(403));
     });
 
     it('should send error 401 for expired token', () => {

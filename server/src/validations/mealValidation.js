@@ -98,4 +98,3 @@ export default {
       .withMessage('Page must be an integer greater than 0'),
   ]
 };
-

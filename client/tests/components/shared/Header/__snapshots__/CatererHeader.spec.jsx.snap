@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CatererHeader should render CatererHeader component correctly 1`] = `
-<React.Fragment>
+<Fragment>
   <div
     className="menu-control d-none-md"
   >
@@ -37,12 +37,12 @@ exports[`CatererHeader should render CatererHeader component correctly 1`] = `
     >
       <h2>
         Thursday, 1st January 1970
+         
         <span>
-             
           00:00
         </span>
       </h2>
     </div>
   </div>
-</React.Fragment>
+</Fragment>
 `;

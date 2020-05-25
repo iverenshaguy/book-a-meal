@@ -17,13 +17,12 @@ describe('Order Routes: Get All Orders', () => {
       .set('authorization', emiolaToken)
       .send({ ...newOrderDetails })
       .end((err, res) => {
-        db.Order.findOne({ where: { orderId: res.body.id } }).then(order =>
-          order.update({ status: 'pending' }).then(() => {
-            expect(res.statusCode).to.equal(201);
+        db.Order.findOne({ where: { orderId: res.body.id } }).then(order => order.update({ status: 'pending' }).then(() => {
+          expect(res.statusCode).to.equal(201);
 
-            if (err) return done(err);
-            done();
-          }));
+          if (err) return done(err);
+          done();
+        }));
       });
   });
 

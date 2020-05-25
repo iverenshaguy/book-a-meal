@@ -14,10 +14,17 @@ const NotFound = () => (
     <Header type="unauth" />
     <div className="content">
       <div className="smiley">
-        <div className="eyes"><span>.</span><span>.</span></div>
+        <div className="eyes">
+          <span>.</span>
+          <span>.</span>
+        </div>
         <div className="sad" />
       </div>
-      <p>You Lost Your Way! <Link to="/">Go Back Home</Link></p>
+      <p>
+        You Lost Your Way!
+        &nbsp;
+        <Link to="/">Go Back Home</Link>
+      </p>
     </div>
     <Footer />
   </div>

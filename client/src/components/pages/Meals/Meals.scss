@@ -1,11 +1,12 @@
 @import '../../../../public/scss/_variables';
+
 .meals .meal-card {
   min-width: 200px;
   min-height: 300px;
   box-sizing: border-box;
   color: $dark;
   background-color: $white;
-  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -25,6 +26,7 @@
   .card,
   .meals .meal-card {
     font-family: $heading-font-stack;
+    font-display: swap;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -36,6 +38,7 @@
 .meals {
   .card-group .meal-card {
     font-family: $heading-font-stack;
+    font-display: swap;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -119,6 +122,7 @@
       .card-dropdown {
         position: absolute;
         font-family: $heading-font-stack;
+        font-display: swap;
         color: $white;
         font-size: 1.5em;
         top: 0;
@@ -127,6 +131,7 @@
       .menu-card-title {
         position: absolute;
         font-family: $heading-font-stack;
+        font-display: swap;
         color: $white;
         font-size: 1.5em;
         top: 0;
@@ -186,7 +191,7 @@
       }
 
       button:disabled {
-        border: 0px solid $primary-color;
+        border: 0 solid $primary-color;
         background-color: transparent;
         color: $primary-color;
         transition: background-color 0.5s, color 0.5s, border-color 0.5s;
@@ -194,7 +199,7 @@
         &:hover,
         &.focus,
         &.active {
-          border: 0px solid $primary-color;
+          border: 0 solid $primary-color;
           background-color: transparent;
           color: $primary-color;
         }
@@ -266,6 +271,7 @@
     .card,
     .meals .meal-card {
       font-family: $heading-font-stack;
+      font-display: swap;
       display: flex;
       justify-content: center !important;
       align-items: center !important;
@@ -273,6 +279,7 @@
   }
   .meals .card-group .meal-card {
     font-family: $heading-font-stack;
+    font-display: swap;
     display: flex;
     justify-content: center !important;
     align-items: center !important;

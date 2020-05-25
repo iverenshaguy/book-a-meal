@@ -1,6 +1,11 @@
 import React from 'react';
 import OrderPill from '../../../src/components/shared/OrderPill';
-import { caterersOrdersObj, customersOrdersObj, caterer, customer } from '../../setup/mockData';
+import {
+  caterersOrdersObj,
+  customersOrdersObj,
+  caterer,
+  customer
+} from '../../setup/mockData';
 
 
 describe('OrderPill', () => {

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
@@ -26,7 +27,7 @@ const renderApp = (Root) => {
 
 renderApp(App);
 
-if (module.hot && process.env.NODE_ENV !== 'production') {
+if (module.hot) {
   module.hot.accept('./components/App', () => {
     renderApp(App);
   });
