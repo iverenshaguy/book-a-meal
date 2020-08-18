@@ -1,10 +1,10 @@
 node_modules
 UI
-server/dist
-server/coverage
+packages/server/dist
+packages/server/coverage
 coverage
-server/docs
-client/dist
-client/config
-client/coverage
-client/src/assets
+packages/server/docs
+packages/client/dist
+packages/client/config
+packages/client/coverage
+packages/client/src/assets

@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - 10.14.2
+  - 12.18.3
 
 services:
   - postgresql
@@ -34,13 +34,10 @@ before_script:
   - npm run build
 
 script:
-  - npm run test:server:coverage
-  - mv ./coverage/lcov.info ./coverage/lcov.server.info
-  - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.server.info --output ./coverage/codeclimate.server.json
-  - npm run test:client:coverage
-  - mv ./coverage/lcov.info ./coverage/lcov.client.info
-  - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.client.info  --output ./coverage/codeclimate.client.json
-  - ./cc-test-reporter sum-coverage -p 2 ./coverage/codeclimate.server.json ./coverage/codeclimate.client.json
+  - npm run test:coverage
+  - ./cc-test-reporter format-coverage -t lcov ./packages/server/coverage/lcov.info --output ./packages/server/coverage/codeclimate.json
+  - ./cc-test-reporter format-coverage -t lcov ./packages/client/coverage/lcov.info  --output ./packages/client/coverage/codeclimate.json
+  - ./cc-test-reporter sum-coverage -p 2 ./packages/server/coverage/codeclimate.json ./packages/client/coverage/codeclimate.json
   - ./cc-test-reporter upload-coverage
 
 after_success:
