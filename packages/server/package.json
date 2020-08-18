@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.2",
     "compression": "^1.7.3",
     "connect-gzip-static": "^2.1.1",
