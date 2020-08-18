@@ -1,12 +1,24 @@
 {
   "root": true,
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
   "env": {
     "node": true,
     "browser": true,
     "es6": true,
     "mocha": true,
     "jest": true
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {
+        "@server": "./packages/server",
+        "@client": "./packages/client"
+      }
+    }
   },
   "globals": {
     "shallow": true,
@@ -30,12 +42,7 @@
       "error",
       "multi-line"
     ],
-    "import/no-unresolved": [
-      2,
-      {
-        "commonjs": true
-      }
-    ],
+    "import/no-unresolved": "off",
     "no-shadow": [
       "error",
       {

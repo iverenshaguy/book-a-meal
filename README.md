@@ -69,6 +69,12 @@ Documentation is hosted at [https://book-a-meal-prod.herokuapp.com/api/v1/docs](
 * [Jest](https://jestjs.io/) - Javascript Testing Platform to test all JavaScript code including React applications (Frontend)
 * [Enzyme](http://airbnb.io/enzyme/) - Javscript testing utility for React
 
+## Versions
+
+This is version 2 and it is currently in active development.
+
+Version 1 can be found [here](https://github.com/iverenshaguy/book-a-meal/tree/version-1-react-redux-rest-express).
+
 ## Features Implemented
 
 ### Users (Caterers and Customers)

@@ -9,10 +9,10 @@ case $NODE_ENV in
     ;;
   "production")
     npm-run-all build:server build:client
-    npm run db:migrate
+    yarn workspace server db:migrate
     ;;
   "staging")
     npm-run-all build:server build:client
-    npm run db:setup
+    yarn workspace server db:setup
     ;;
 esac
