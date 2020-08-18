@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound should render NotFound component correctly 1`] = `
+<div
+  className="not-found"
+>
+  <Header
+    dateType={null}
+    logout={null}
+    showTime={true}
+    type="unauth"
+    updateCurrentDate={null}
+    user={null}
+  />
+  <div
+    className="content"
+  >
+    <div
+      className="smiley"
+    >
+      <div
+        className="eyes"
+      >
+        <span>
+          .
+        </span>
+        <span>
+          .
+        </span>
+      </div>
+      <div
+        className="sad"
+      />
+    </div>
+    <p>
+      You Lost Your Way!  
+      <Link
+        replace={false}
+        to="/"
+      >
+        Go Back Home
+      </Link>
+    </p>
+  </div>
+  <Footer />
+</div>
+`;

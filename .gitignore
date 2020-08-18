@@ -2,17 +2,17 @@
 .vscode
 node_modules
 .gitattributes
-server/dist
-client/dist
+packages/server/dist
+packages/client/dist
 .nyc_output
 coverage
 .env
-client/bin/.selenium
-server/coverage
-client/coverage
+packages/client/bin/.selenium
+packages/server/coverage
+packages/client/coverage
 .vs
 .DS_Store
-client/reports
+packages/client/reports
 
 # Logs
 logs

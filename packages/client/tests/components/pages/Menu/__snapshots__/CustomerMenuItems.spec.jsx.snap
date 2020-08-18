@@ -1,0 +1,499 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuItems should render MenuItems component correctly 1`] = `
+<Fragment>
+  <CardGroup
+    items={
+      Array [
+        <MealCard
+          inBasket={true}
+          meal={
+            Object {
+              "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+              "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+              "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+              "price": "1500.00",
+              "title": "Jollof Rice, Beef and Plantain",
+              "vegetarian": false,
+            }
+          }
+          orderMeal={[Function]}
+          toggleModal={null}
+          type="customer"
+        />,
+        <MealCard
+          inBasket={true}
+          meal={
+            Object {
+              "description": "Sharwama contains no animal products, perfect for dieters",
+              "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+              "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "price": "1200.00",
+              "title": "Vegetable Sharwama and Guava Smoothie",
+              "vegetarian": true,
+            }
+          }
+          orderMeal={[Function]}
+          toggleModal={null}
+          type="customer"
+        />,
+      ]
+    }
+    loadMore={[Function]}
+    metadata={
+      Object {
+        "next": "next",
+        "pages": 2,
+        "prev": "prev",
+        "total": 5,
+      }
+    }
+  />
+</Fragment>
+`;
+
+exports[`MenuItems should render Preloader when fetching menu items 1`] = `
+<Fragment>
+  <Preloader
+    type="menu"
+  />
+</Fragment>
+`;
+
+exports[`MenuItems should render connected Menu component 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(MenuItems)
+    addOrderItem={[MockFunction]}
+    isFetching={false}
+    loadMoreMenu={[MockFunction]}
+    meals={
+      Array [
+        Object {
+          "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+          "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+          "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+          "price": "1500.00",
+          "title": "Jollof Rice, Beef and Plantain",
+          "vegetarian": false,
+        },
+        Object {
+          "description": "Sharwama contains no animal products, perfect for dieters",
+          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+          "price": "1200.00",
+          "title": "Vegetable Sharwama and Guava Smoothie",
+          "vegetarian": true,
+        },
+      ]
+    }
+    metadata={
+      Object {
+        "next": "next",
+        "pages": 2,
+        "prev": "prev",
+        "total": 5,
+      }
+    }
+    order={
+      Object {
+        "deliveryAddress": "3, Ayodele",
+        "deliveryPhoneNo": "08123456789",
+        "id": null,
+        "meals": Array [
+          Object {
+            "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+            "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+            "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+            "price": "1500.00",
+            "title": "Jollof Rice, Beef and Plantain",
+            "vegetarian": false,
+          },
+          Object {
+            "description": "Sharwama contains no animal products, perfect for dieters",
+            "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+            "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+            "price": "1200.00",
+            "title": "Vegetable Sharwama and Guava Smoothie",
+            "vegetarian": true,
+          },
+        ],
+      }
+    }
+  >
+    <MenuItems
+      addOrderItem={[MockFunction]}
+      dispatch={[Function]}
+      isFetching={false}
+      loadMoreMenu={[MockFunction]}
+      meals={
+        Array [
+          Object {
+            "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+            "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+            "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+            "price": "1500.00",
+            "title": "Jollof Rice, Beef and Plantain",
+            "vegetarian": false,
+          },
+          Object {
+            "description": "Sharwama contains no animal products, perfect for dieters",
+            "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+            "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+            "price": "1200.00",
+            "title": "Vegetable Sharwama and Guava Smoothie",
+            "vegetarian": true,
+          },
+        ]
+      }
+      metadata={Object {}}
+      order={
+        Object {
+          "deliveryAddress": "3, Ayodele",
+          "deliveryPhoneNo": "08123456789",
+          "id": null,
+          "meals": Array [
+            Object {
+              "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+              "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+              "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+              "price": "1500.00",
+              "title": "Jollof Rice, Beef and Plantain",
+              "vegetarian": false,
+            },
+            Object {
+              "description": "Sharwama contains no animal products, perfect for dieters",
+              "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+              "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "price": "1200.00",
+              "title": "Vegetable Sharwama and Guava Smoothie",
+              "vegetarian": true,
+            },
+          ],
+        }
+      }
+    >
+      <CardGroup
+        items={
+          Array [
+            <MealCard
+              inBasket={true}
+              meal={
+                Object {
+                  "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                  "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                  "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                  "price": "1500.00",
+                  "title": "Jollof Rice, Beef and Plantain",
+                  "vegetarian": false,
+                }
+              }
+              orderMeal={[Function]}
+              toggleModal={null}
+              type="customer"
+            />,
+            <MealCard
+              inBasket={true}
+              meal={
+                Object {
+                  "description": "Sharwama contains no animal products, perfect for dieters",
+                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                  "price": "1200.00",
+                  "title": "Vegetable Sharwama and Guava Smoothie",
+                  "vegetarian": true,
+                }
+              }
+              orderMeal={[Function]}
+              toggleModal={null}
+              type="customer"
+            />,
+          ]
+        }
+        loadMore={[Function]}
+        metadata={Object {}}
+      >
+        <div
+          className="card-group meals-wrapper"
+          id="card-group"
+        >
+          <InfiniteLoader
+            height={null}
+            items={
+              Array [
+                <MealCard
+                  inBasket={true}
+                  meal={
+                    Object {
+                      "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                      "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                      "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                      "price": "1500.00",
+                      "title": "Jollof Rice, Beef and Plantain",
+                      "vegetarian": false,
+                    }
+                  }
+                  orderMeal={[Function]}
+                  toggleModal={null}
+                  type="customer"
+                />,
+                <MealCard
+                  inBasket={true}
+                  meal={
+                    Object {
+                      "description": "Sharwama contains no animal products, perfect for dieters",
+                      "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                      "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                      "price": "1200.00",
+                      "title": "Vegetable Sharwama and Guava Smoothie",
+                      "vegetarian": true,
+                    }
+                  }
+                  orderMeal={[Function]}
+                  toggleModal={null}
+                  type="customer"
+                />,
+              ]
+            }
+            loadMore={[Function]}
+            metadata={Object {}}
+          >
+            <InfiniteScroll
+              dataLength={2}
+              disableBrowserPullToRefresh={true}
+              hasMore={false}
+              height={null}
+              loader={
+                <div
+                  className="text-center"
+                >
+                  <MiniPreloader />
+                </div>
+              }
+              next={[Function]}
+              pullDownToRefreshContent={
+                <h3>
+                  Pull down to refresh
+                </h3>
+              }
+              pullDownToRefreshThreshold={100}
+              releaseToRefreshContent={
+                <h3>
+                  Release to refresh
+                </h3>
+              }
+            >
+              <div
+                style={Object {}}
+              >
+                <div
+                  className="infinite-scroll-component "
+                  style={
+                    Object {
+                      "WebkitOverflowScrolling": "touch",
+                      "height": "auto",
+                      "overflow": "auto",
+                    }
+                  }
+                >
+                  <div
+                    className="scroller"
+                  >
+                    <MealCard
+                      inBasket={true}
+                      key="81211c24-51c0-46ec-b1e0-18db55880958"
+                      meal={
+                        Object {
+                          "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                          "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                          "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                          "price": "1500.00",
+                          "title": "Jollof Rice, Beef and Plantain",
+                          "vegetarian": false,
+                        }
+                      }
+                      orderMeal={[Function]}
+                      toggleModal={null}
+                      type="customer"
+                    >
+                      <div
+                        className="meal-card customer-meal-card"
+                        id="81211c24-51c0-46ec-b1e0-18db55880958"
+                      >
+                        <div
+                          className="meal-card-header"
+                        >
+                          <img
+                            alt="meal"
+                            src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+                          />
+                          <div
+                            className="menu-card-title"
+                          >
+                            <p>
+                              Jollof Rice, Beef and Plantain
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          className="meal-card-body"
+                        >
+                          <div>
+                            <h3>
+                              ₦
+                              1500.00
+                            </h3>
+                            <p
+                              className="meal-description"
+                              data-tip="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
+                            >
+                              Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
+                            </p>
+                          </div>
+                          <div
+                            className="meal-card-action"
+                          >
+                            <button
+                              className="btn btn-sec meal-card-btn"
+                              disabled="disabled"
+                              onClick={[Function]}
+                              type="button"
+                            >
+                              Added To Basket
+                            </button>
+                          </div>
+                        </div>
+                        <ReactTooltip
+                          className="tooltip"
+                          clickable={false}
+                          effect="solid"
+                          insecure={true}
+                          place="top"
+                          resizeHide={true}
+                          type="dark"
+                          wrapper="div"
+                        >
+                          <div
+                            className="__react_component_tooltip place-top type-dark"
+                            data-id="tooltip"
+                          />
+                        </ReactTooltip>
+                      </div>
+                    </MealCard>
+                    <MealCard
+                      inBasket={true}
+                      key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                      meal={
+                        Object {
+                          "description": "Sharwama contains no animal products, perfect for dieters",
+                          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          "price": "1200.00",
+                          "title": "Vegetable Sharwama and Guava Smoothie",
+                          "vegetarian": true,
+                        }
+                      }
+                      orderMeal={[Function]}
+                      toggleModal={null}
+                      type="customer"
+                    >
+                      <div
+                        className="meal-card customer-meal-card"
+                        id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                      >
+                        <div
+                          className="meal-card-header"
+                        >
+                          <span
+                            className="veg-ribbon"
+                          >
+                            Vegetarian
+                          </span>
+                          <img
+                            alt="meal"
+                            src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
+                          />
+                          <div
+                            className="menu-card-title"
+                          >
+                            <p>
+                              Vegetable Sharwama and Guava Smoothie
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          className="meal-card-body"
+                        >
+                          <div>
+                            <h3>
+                              ₦
+                              1200.00
+                            </h3>
+                            <p
+                              className="meal-description"
+                              data-tip="Sharwama contains no animal products, perfect for dieters"
+                            >
+                              Sharwama contains no animal products, perfect for dieters
+                            </p>
+                          </div>
+                          <div
+                            className="meal-card-action"
+                          >
+                            <button
+                              className="btn btn-sec meal-card-btn"
+                              disabled="disabled"
+                              onClick={[Function]}
+                              type="button"
+                            >
+                              Added To Basket
+                            </button>
+                          </div>
+                        </div>
+                        <ReactTooltip
+                          className="tooltip"
+                          clickable={false}
+                          effect="solid"
+                          insecure={true}
+                          place="top"
+                          resizeHide={true}
+                          type="dark"
+                          wrapper="div"
+                        >
+                          <div
+                            className="__react_component_tooltip place-top type-dark"
+                            data-id="tooltip"
+                          />
+                        </ReactTooltip>
+                      </div>
+                    </MealCard>
+                  </div>
+                </div>
+              </div>
+            </InfiniteScroll>
+          </InfiniteLoader>
+        </div>
+      </CardGroup>
+    </MenuItems>
+  </Connect(MenuItems)>
+</Provider>
+`;
+
+exports[`MenuItems should render message when there are no meals on the menu 1`] = `
+<Fragment>
+  <p
+    className="text-center info"
+  >
+    No Meals Found
+  </p>
+</Fragment>
+`;
