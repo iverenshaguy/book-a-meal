@@ -45,7 +45,7 @@
     "@firebase/util": "0.x",
     "autoprefixer": "^8.5.0",
     "axios": "^0.18.0",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.2",
     "classnames": "^2.2.5",
     "compression": "^1.7.3",
