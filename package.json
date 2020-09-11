@@ -40,7 +40,8 @@
     "autoprefixer": "^8.5.0",
     "cross-env": "^5.1.4",
     "dotenv": "^5.0.1",
-    "npm-run-all": "^4.1.2"
+    "npm-run-all": "^4.1.2",
+    "sequelize-typescript": "^2.0.0-beta.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
