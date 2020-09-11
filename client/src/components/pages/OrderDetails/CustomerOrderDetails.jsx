@@ -88,18 +88,18 @@ class CustomerOrderDetails extends Component {
     return (
       <div className="customer-details">
         <p>
-Order Status:
+          Order Status:
           <span className={statusClass} style={{ textTransform: 'capitalize' }}>
             {' '}
             {status}
           </span>
         </p>
         <p>
-Address Provided:
+          Address Provided:
           {order.deliveryAddress}
         </p>
         <p>
-Number Provided:
+          Number Provided:
           {order.deliveryPhoneNo}
         </p>
       </div>
@@ -152,7 +152,7 @@ Number Provided:
       <Fragment>
         <div className="order-confirmation order-details">
           <h3 className="text-center">
-Order #
+            Order #
             {order.id}
           </h3>
           <p className="order-date text-center">{moment().format('dddd[,] Do MMMM YYYY h:mm a')}</p>

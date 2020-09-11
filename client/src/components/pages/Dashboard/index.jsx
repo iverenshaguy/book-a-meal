@@ -60,7 +60,7 @@ class Dashboard extends Component {
           </div>
           <div className="card total-cash">
             <div className="count">
-&#8358;
+              &#8358;
               {totalCashEarned}
             </div>
             <div>{'Today\'s Revenue'}</div>

@@ -58,10 +58,10 @@ class Password extends Component {
             <p className="form-extra-info text-center">{signinLink}</p>
             <p className="text-center">Or</p>
             <p className="form-extra-info text-center">
-Signup as a
+              Signup as a
               {catererSignupLink}
               {' '}
-or a
+              or a
               {customerSignupLink}
             </p>
           </Fragment>

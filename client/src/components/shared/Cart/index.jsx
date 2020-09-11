@@ -79,7 +79,7 @@ class Cart extends Component {
           <div>
             <p>Total:</p>
             <h2>
-&#8358;
+              &#8358;
               {calculateCashEarnedFromOrder(order)}
             </h2>
           </div>

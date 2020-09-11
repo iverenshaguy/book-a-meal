@@ -92,7 +92,7 @@ class Meals extends Component {
               id="add-meal-btn"
               onClick={() => this.props.toggleModal('addMeal')}
             >
-            Add a New Meal
+              Add a New Meal
             </button>
           </div>
           {this.props.meals.length === 0 && <p className="text-center info">You Do Not Have Any Meals Yet</p>}

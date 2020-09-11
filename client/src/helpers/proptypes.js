@@ -1,3 +1,4 @@
+/* eslint-disable */
 import PropTypes from 'prop-types';
 import { arrayToObject } from '.';
 import { formFields } from './formHelpers';

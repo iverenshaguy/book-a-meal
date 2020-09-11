@@ -16,6 +16,8 @@ import './View.scss';
  * @returns {JSX} View Component
  */
 class View extends Component {
+  customerOrderTypes = ['orderReview', 'orderConfirm', 'customerOrderDetails'];
+
   static propTypes = {
     ...userPropTypes,
     isFetching: PropTypes.bool,
@@ -34,8 +36,6 @@ class View extends Component {
     showTime: true,
     updateCurrentDate: null
   };
-
-  customerOrderTypes = ['orderReview', 'orderConfirm', 'customerOrderDetails'];
 
   /**
    * @memberof View

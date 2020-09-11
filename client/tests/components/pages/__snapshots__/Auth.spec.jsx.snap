@@ -569,6 +569,7 @@ exports[`Auth should render signin component that is connected to the redux stor
                           type="email"
                           value=""
                         />
+                         
                       </div>
                     </RenderInput>
                     <RenderInput
@@ -614,6 +615,7 @@ exports[`Auth should render signin component that is connected to the redux stor
                           type="password"
                           value=""
                         />
+                         
                       </div>
                     </RenderInput>
                   </SigninForm>

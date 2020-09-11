@@ -50,14 +50,14 @@ const OrderPill = ({ order, user }) => {
         </div>
         <div className="order-history-footer">
           <h4 style={{ textTransform: 'capitalize' }}>
-Status:
+            Status:
             <span style={{ textTransform: 'capitalize' }} className={statusClass}>
               {' '}
               {status}
             </span>
           </h4>
           <h2>
-&#8358;
+            &#8358;
             {calculateCashEarnedFromOrder(order.meals)}
           </h2>
         </div>

@@ -58,7 +58,7 @@ class CatererOrderDetails extends Component {
       <div className="order-misc">
         <p className="order-date text-center">{moment(order.createdAt).format('dddd[,] Do MMMM YYYY h:mm a')}</p>
         <p>
-        Status:&nbsp;
+          Status:&nbsp;
           {order.status === 'canceled' && <span className="danger">Canceled</span>}
           {order.meals[0].delivered && <span className="success">Delivered</span>}
           {!order.meals[0].delivered && order.status !== 'canceled'
@@ -115,7 +115,7 @@ class CatererOrderDetails extends Component {
         <Link to="/orders" className="orders-back-link">&#8592; Back To Orders</Link>
         <div className="order-confirmation order-details">
           <h3 className="text-center" style={{ paddingTop: '1em' }}>
-Order #
+            Order #
             {order.id}
           </h3>
           {!delivering && this.renderDetails()}

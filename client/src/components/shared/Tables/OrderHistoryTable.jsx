@@ -31,14 +31,14 @@ const OrderHistoryTable = ({ orders, deliverOrder }) => (
             <td>
               {item.meals.map(meal => (
                 <p key={meal.id}>
--
+                  -
                   {meal.title}
                 </p>
               ))}
             </td>
             <td>{`${item.customer.firstname} ${item.customer.lastname}`}</td>
             <td>
-&#8358;
+              &#8358;
               {calculateCashEarnedFromOrder(item.meals)}
             </td>
             <td>{moment(item.updatedAt).format('dddd[,] Do MMMM YYYY hh.mm ss')}</td>

@@ -295,7 +295,7 @@ class Form extends Component {
                 Fields marked
                 <span className="danger"> *</span>
                 {' '}
-are required
+                are required
               </p>
               )}
             <form onSubmit={this.handleSubmit}>

@@ -15,7 +15,7 @@ const OrderAmount = ({ type, meals }) => (
     <div>
       <p>Total</p>
       <h2>
-₦
+        ₦
         {calculateCashEarnedFromOrder(meals)}
       </h2>
     </div>

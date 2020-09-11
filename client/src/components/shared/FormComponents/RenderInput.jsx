@@ -51,8 +51,8 @@ class RenderInput extends Component {
       <Fragment>
         <div className={formInputClass}>
           {this.props.label && this.props.type !== 'checkbox'
-            // eslint-disable-next-line
             && (
+              // eslint-disable-next-line
               <label htmlFor={this.props.id} onClick={this.toggleOpenField}>
                 {this.props.label}
                 {this.props.required && <span className="danger">*</span>}
