@@ -36,8 +36,9 @@ before_script:
 script:
   - npm run test:coverage
   - ./cc-test-reporter format-coverage -t lcov ./packages/server/coverage/lcov.info --output ./packages/server/coverage/codeclimate.json
+  - ./cc-test-reporter format-coverage -t lcov ./packages/server/coverage/lcov-v2.info  --output ./packages/server/coverage/codeclimate-v2.json
   - ./cc-test-reporter format-coverage -t lcov ./packages/client/coverage/lcov.info  --output ./packages/client/coverage/codeclimate.json
-  - ./cc-test-reporter sum-coverage -p 2 ./packages/server/coverage/codeclimate.json ./packages/client/coverage/codeclimate.json
+  - ./cc-test-reporter sum-coverage -p 3 ./packages/*/coverage/codeclimate.json ./packages/server/coverage/codeclimate-v2.json
   - ./cc-test-reporter upload-coverage
 
 after_success:

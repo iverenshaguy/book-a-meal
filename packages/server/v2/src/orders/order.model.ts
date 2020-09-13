@@ -19,7 +19,7 @@ export class Order extends Model<Order | any> {
   @PrimaryKey
   @AllowNull(false)
   @Default(DataType.UUIDV4)
-  @Column
+  @Column(DataType.UUID)
   orderId: string;
 
   @Column(DataType.TEXT)
@@ -34,7 +34,7 @@ export class Order extends Model<Order | any> {
 
   @IsUUID(4)
   @ForeignKey(() => User)
-  @Column(DataType.UUIDV4)
+  @Column(DataType.UUID)
   userId: string;
 
   @BelongsTo(() => User, 'userId')

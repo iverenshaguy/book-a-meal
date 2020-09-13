@@ -1,13 +1,28 @@
 import { NestFactory } from '@nestjs/core';
 import { BadRequestException, ValidationPipe } from '@nestjs/common';
 import { config } from 'dotenv';
+import * as helmet from 'helmet';
+// import * as csurf from 'csurf';
+import * as rateLimit from 'express-rate-limit';
 
 import { AppModule } from './app/app.module';
 
 config();
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  // TODO: update cors options ot make app more secure
+  const app = await NestFactory.create(AppModule, { cors: true });
+
+  app.use(helmet());
+  // app.use(csurf());
+
+  app.use(
+    rateLimit({
+      windowMs: 15 * 60 * 1000, // 15 minutes
+      max: 100, // limit each IP to 100 requests per windowMs
+    }),
+  );
+
   app.useGlobalPipes(new ValidationPipe({
     transform: true,
     forbidNonWhitelisted: true,
@@ -26,6 +41,8 @@ async function bootstrap() {
       });
     }
   }));
-  await app.listen(process.env.PORT || 8000);
+  // await app.listen(process.env.PORT || 8000);
+
+  await app.listen(8002);
 }
 bootstrap();

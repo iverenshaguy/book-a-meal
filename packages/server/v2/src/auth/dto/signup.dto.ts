@@ -17,7 +17,7 @@ export class SignupDto extends EmailDto {
       message: 'Firstname can only contain letters and the characters (\'-)'
     }
   })
-  firstname: string;
+  firstname?: string;
 
   @Transform((value: string) => value.trim())
   @UnacceptableFieldForRole('caterer')
@@ -28,7 +28,7 @@ export class SignupDto extends EmailDto {
       message: 'Lastname can only contain letters and the characters (\'-)'
     }
   })
-  lastname: string;
+  lastname?: string;
 
   @Transform((value: string) => value.trim())
   @UnacceptableFieldForRole('customer')
@@ -37,10 +37,10 @@ export class SignupDto extends EmailDto {
     maxLength: 60,
     matches: {
       value: /^[a-z0-9 (),.'-]+$/i,
-      message: 'Business name can only contain letters, spaces, and the characters (,.\'-)'
+      message: 'Business name can only contain letters, numbers, spaces, and the characters (,.\'-)'
     }
   })
-  businessName: string;
+  businessName?: string;
 
   @Transform((value: string) => value.trim())
   @RequiredFieldForRole('caterer', {
@@ -49,10 +49,10 @@ export class SignupDto extends EmailDto {
     maxLength: 255,
     matches: {
       value: /^[a-z0-9 (),.'-]+$/i,
-      message: 'Business Address can only contain letters, spaces, and the characters (,.\'-)'
+      message: 'Business address can only contain letters, numbers, spaces, and the characters (,.\'-)'
     }
   })
-  address: string;
+  address?: string;
 
   @Transform((value: string) => value.trim())
   @RequiredFieldForRole('caterer', {
@@ -62,7 +62,7 @@ export class SignupDto extends EmailDto {
       message: 'Business phone number must be in the format 080xxxxxxxx'
     }
   })
-  phoneNo: string;
+  phoneNo?: string;
 
   @Transform((value: string) => value.trim())
   @IsDefined({

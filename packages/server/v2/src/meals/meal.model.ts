@@ -13,7 +13,7 @@ export class Meal extends Model<Meal | any> {
   @PrimaryKey
   @AllowNull(false)
   @Default(DataType.UUIDV4)
-  @Column
+  @Column(DataType.UUID)
   mealId: string;
 
   @AllowNull(false)
@@ -39,7 +39,7 @@ export class Meal extends Model<Meal | any> {
   @IsUUID(4)
   @ForeignKey(() => User)
   @Column({
-    type: DataType.UUIDV4,
+    type: DataType.UUID,
     onDelete: 'CASCADE'
   })
   userId: string;

@@ -28,7 +28,7 @@ class MealController {
           model: models.User, as: 'caterer'
         }]
       })
-      .spread((meal, created) => {
+      .then(([meal, created]) => {
         if (!created) return res.status(409).json({ error: 'Meal already exists' });
 
         return res.status(201).json(MealController.getMealObject(meal));

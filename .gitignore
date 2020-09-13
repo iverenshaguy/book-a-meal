@@ -23,5 +23,4 @@ chromdriver.log*
 lerna-debug.log*
 
 # TS
-tsconfig.build.tsbuildinfo
-tsconfig.tsbuildinfo
+*.tsbuildinfo

@@ -2,6 +2,7 @@ import { resolve } from 'path';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
+
 import { UsersModule } from '../users/users.module';
 import { MealsModule } from '../meals/meals.module';
 import { MenuModule } from '../menu/menu.module';
@@ -17,6 +18,8 @@ import { Menu } from '../menu/menu.model';
 import { Order } from '../orders/order.model';
 import { OrderItem } from '../orders/orderItem.model';
 import { Notification } from '../notifications/notification.model';
+
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -39,7 +42,7 @@ import { Notification } from '../notifications/notification.model';
     NotificationsModule,
     AuthModule
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}

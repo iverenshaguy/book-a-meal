@@ -1,6 +1,5 @@
 import { ConflictException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { sign } from 'crypto';
 import { Op } from 'sequelize';
 
 import { SignupDto } from '../auth/dto/signup.dto';
@@ -38,9 +37,9 @@ export class UsersService {
         address,
         role
       }
-    })
+    });
 
-    if (!created) throw new ConflictException('Email already in use');
+    if (!created) throw new ConflictException({ error: 'Email already in use' });
 
     const user = this.getUserObj({ ...newUser.get() });
 
@@ -49,7 +48,6 @@ export class UsersService {
 
   async createBusiness(signupDto: SignupDto): Promise<User> {
     const {
-      role,
       businessName,
     } = signupDto;
 
@@ -57,7 +55,7 @@ export class UsersService {
       where: { businessName: { [Op.iLike]: businessName } }
     });
 
-    if (existingBusiness) throw new ConflictException('Business name already in use');
+    if (existingBusiness) throw new ConflictException({ error: 'Business name already in use' });
 
     return this.createUser(signupDto);
   }
@@ -114,10 +112,9 @@ export class UsersService {
 
   async validateUserPassword(signinDto): Promise<User> {
     const user = await this.findOne(signinDto);
-    console.log(await user.validatePassword(signinDto.password), user)
     const isValidPassword = user && await user.validatePassword(signinDto.password)
 
-    if (!isValidPassword) throw new UnauthorizedException('Invalid credentials');
+    if (!isValidPassword) throw new UnauthorizedException({ error: 'Invalid credentials' });
 
     return this.getUserObj({ ...user.get() });
   }

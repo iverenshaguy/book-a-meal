@@ -12,7 +12,7 @@ export class Menu extends Model<Menu | any> {
   @PrimaryKey
   @AllowNull(false)
   @Default(DataType.UUIDV4)
-  @Column
+  @Column(DataType.UUID)
   menuId: string;
 
   @AllowNull(false)
@@ -27,7 +27,7 @@ export class Menu extends Model<Menu | any> {
   @IsUUID(4)
   @ForeignKey(() => User)
   @Column({
-    type: DataType.UUIDV4,
+    type: DataType.UUID,
     onDelete: 'CASCADE'
   })
   userId: string;

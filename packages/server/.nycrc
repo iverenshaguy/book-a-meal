@@ -22,7 +22,6 @@
     "config{,-*}.js",
     "docs.**"
   ],
-  "reporter": ["lcov", "json", "text"],
   "sourceMap": false,
   "instrument": false,
   "cache": true,

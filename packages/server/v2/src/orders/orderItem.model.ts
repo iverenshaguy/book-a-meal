@@ -1,7 +1,7 @@
 import { Column, DataType, Default, ForeignKey, IsUUID, Model, Table, Validate } from 'sequelize-typescript';
 
 import { Meal } from '../meals/meal.model';
-import { Order } from '../orders/order.model';
+import { Order } from './order.model';
 
 @Table
 export class OrderItem extends Model<OrderItem | any> {
@@ -21,7 +21,7 @@ export class OrderItem extends Model<OrderItem | any> {
   @IsUUID(4)
   @ForeignKey(() => Order)
   @Column({
-    type: DataType.UUIDV4,
+    type: DataType.UUID,
     onDelete: 'CASCADE',
   })
   orderId: string
@@ -29,7 +29,7 @@ export class OrderItem extends Model<OrderItem | any> {
   @IsUUID(4)
   @ForeignKey(() => Meal)
   @Column({
-    type: DataType.UUIDV4,
+    type: DataType.UUID,
     onDelete: 'CASCADE',
   })
   mealId: string

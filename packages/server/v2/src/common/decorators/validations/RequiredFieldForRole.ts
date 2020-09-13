@@ -10,12 +10,12 @@ export class RequiredFieldForRoleConstraint implements ValidatorConstraintInterf
       const role = (args.object as any).role;
       const valueLength = value ? value.length : 0;
 
-      if (role && role === signupType) {
-        if (!propertyName) {
+      if (role === signupType) {
+        if (value === null || value === undefined) {
           return false;
         }
 
-        if (!value) {
+        if (value === '') {
           return false;
         }
 
@@ -23,15 +23,15 @@ export class RequiredFieldForRoleConstraint implements ValidatorConstraintInterf
           return false;
         }
 
-        if (minLength && valueLength < minLength ) {
+        // if (minLength && valueLength < minLength) {
+        //   return false;
+        // }
+
+        if (maxLength && valueLength > maxLength) {
           return false;
         }
 
-        if (maxLength && valueLength > maxLength ) {
-          return false;
-        }
-
-        if (matches && !matches.value.test(value) ) {
+        if (matches && !matches.value.test(value)) {
           return false;
         }
       }
@@ -47,12 +47,12 @@ export class RequiredFieldForRoleConstraint implements ValidatorConstraintInterf
       const value = args.object[propertyName];
       const valueLength = value ? value.length : 0;
 
-      if (role && role === signupType) {
-        if (!propertyName) {
+      if (role === signupType) {
+        if (value === null || value === undefined) {
           return `${field} must be specified`;
         }
 
-        if (!value) {
+        if (value === '') {
           return `${field} cannot be left blank`;
         }
 
@@ -60,9 +60,9 @@ export class RequiredFieldForRoleConstraint implements ValidatorConstraintInterf
           return `${field} must be between ${minLength} and ${maxLength} characters`;
         }
 
-        if (minLength && valueLength < minLength ) {
-          return `${field} must not be less than ${minLength} characters`;
-        }
+        // if (minLength && valueLength < minLength ) {
+        //   return `${field} must not be less than ${minLength} characters`;
+        // }
 
         if (maxLength && valueLength > maxLength ) {
           return `${field} must not be more than ${maxLength} characters`;
@@ -72,8 +72,6 @@ export class RequiredFieldForRoleConstraint implements ValidatorConstraintInterf
           return matches.message;
         }
       }
-    
-      return '';
     }
 
 }

@@ -16,7 +16,7 @@ export class User extends Model<User | any> {
   @PrimaryKey
   @AllowNull(false)
   @Default(DataType.UUIDV4)
-  @Column
+  @Column(DataType.UUID)
   userId: string;
 
   @Default(null)
@@ -33,7 +33,6 @@ export class User extends Model<User | any> {
   email: string;
 
   @AllowNull(false)
-  @Unique
   @Column
   password: string;
 
