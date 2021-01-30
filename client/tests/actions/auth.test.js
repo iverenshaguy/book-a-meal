@@ -296,14 +296,14 @@ describe('Auth Actions', () => {
           response: { token, newCustomer }
         }, 5);
 
-        return store.dispatch(authenticateUser()).then(() => {
+        moxios.wait(() => store.dispatch(authenticateUser()).then(() => {
           const dispatchedActions = store.getActions();
 
           const actionTypes = dispatchedActions.map(action => action.type);
 
           expect(actionTypes).toEqual(expectedActions);
           expect(localStorage.getItem('jwtToken')).toEqual(token);
-        });
+        }));
       });
 
       it('should dispatch AUTHENTICATING and AUTHENTICATION_ERROR on unsuccessful authentication', () => {
@@ -313,14 +313,14 @@ describe('Auth Actions', () => {
           status: 500
         });
 
-        return store.dispatch(authenticateUser()).catch(() => {
+        moxios.wait(() => store.dispatch(authenticateUser()).catch(() => {
           const dispatchedActions = store.getActions();
 
           const actionTypes = dispatchedActions.map(action => action.type);
 
           expect(actionTypes).toEqual(expectedActions);
           expect(localStorage.getItem('jwtToken')).toEqual(undefined);
-        });
+        }));
       });
     });
 
