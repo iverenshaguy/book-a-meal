@@ -32,8 +32,8 @@ describe('Axios Instance', () => {
       }
     }, 5);
 
-    return store.dispatch(authenticateUser()).then(() => {
+    moxios.wait(() => store.dispatch(authenticateUser()).then(() => {
       expect(window.location.reload).toHaveBeenCalled();
-    });
+    }));
   });
 });

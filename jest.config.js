@@ -22,7 +22,7 @@ module.exports = {
     '<rootDir>/client/tests/**/*.(spec|test).{js,jsx}',
     '<rootDir>/client/src/**/?(*.)(spec|test).{js,jsx}'
   ],
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   testURL: 'http://localhost',
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/'
