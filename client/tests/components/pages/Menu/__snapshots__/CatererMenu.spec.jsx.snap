@@ -651,7 +651,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                                       wrapper="div"
                                     >
                                       <div
-                                        className="__react_component_tooltip place-top type-dark "
+                                        className="__react_component_tooltip place-top type-dark"
                                         data-id="tooltip"
                                       />
                                     </ReactTooltip>
@@ -725,7 +725,7 @@ exports[`CatererMenu should render Menu Component when it is connected to the re
                                       wrapper="div"
                                     >
                                       <div
-                                        className="__react_component_tooltip place-top type-dark "
+                                        className="__react_component_tooltip place-top type-dark"
                                         data-id="tooltip"
                                       />
                                     </ReactTooltip>

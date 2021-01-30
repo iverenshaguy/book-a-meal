@@ -26,7 +26,7 @@ process.env.CLOSING_MINUTE = 0;
 window.localStorage = localStorageMock;
 
 jest.mock('moment', () => {
-  const moment = require.requireActual('moment');
+  const moment = jest.requireActual('moment');
   return moment.utc;
 });
 

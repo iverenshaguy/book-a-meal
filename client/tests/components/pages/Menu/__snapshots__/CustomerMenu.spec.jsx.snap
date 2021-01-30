@@ -748,7 +748,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                                             wrapper="div"
                                           >
                                             <div
-                                              className="__react_component_tooltip place-top type-dark "
+                                              className="__react_component_tooltip place-top type-dark"
                                               data-id="tooltip"
                                             />
                                           </ReactTooltip>
@@ -834,7 +834,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                                             wrapper="div"
                                           >
                                             <div
-                                              className="__react_component_tooltip place-top type-dark "
+                                              className="__react_component_tooltip place-top type-dark"
                                               data-id="tooltip"
                                             />
                                           </ReactTooltip>
@@ -1015,7 +1015,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                               wrapper="div"
                             >
                               <div
-                                className="__react_component_tooltip place-top type-dark "
+                                className="__react_component_tooltip place-top type-dark"
                                 data-id="tooltip"
                                 id="cart-tooltip"
                               />
@@ -1071,7 +1071,7 @@ exports[`CustomerMenu should render Menu Component when it is connected to the r
                               wrapper="div"
                             >
                               <div
-                                className="__react_component_tooltip place-top type-dark "
+                                className="__react_component_tooltip place-top type-dark"
                                 data-id="tooltip"
                                 id="cart-tooltip"
                               />
@@ -1807,7 +1807,7 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                                           wrapper="div"
                                         >
                                           <div
-                                            className="__react_component_tooltip place-top type-dark "
+                                            className="__react_component_tooltip place-top type-dark"
                                             data-id="tooltip"
                                           />
                                         </ReactTooltip>
@@ -1881,7 +1881,7 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                                           wrapper="div"
                                         >
                                           <div
-                                            className="__react_component_tooltip place-top type-dark "
+                                            className="__react_component_tooltip place-top type-dark"
                                             data-id="tooltip"
                                           />
                                         </ReactTooltip>
@@ -2041,7 +2041,7 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                             wrapper="div"
                           >
                             <div
-                              className="__react_component_tooltip place-top type-dark "
+                              className="__react_component_tooltip place-top type-dark"
                               data-id="tooltip"
                               id="cart-tooltip"
                             />
@@ -2097,7 +2097,7 @@ exports[`CustomerMenu should render a message when shop is closed 1`] = `
                             wrapper="div"
                           >
                             <div
-                              className="__react_component_tooltip place-top type-dark "
+                              className="__react_component_tooltip place-top type-dark"
                               data-id="tooltip"
                               id="cart-tooltip"
                             />

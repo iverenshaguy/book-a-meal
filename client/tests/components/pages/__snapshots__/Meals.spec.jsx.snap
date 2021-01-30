@@ -706,7 +706,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                                       wrapper="div"
                                     >
                                       <div
-                                        className="__react_component_tooltip place-top type-dark "
+                                        className="__react_component_tooltip place-top type-dark"
                                         data-id="tooltip"
                                       />
                                     </ReactTooltip>
@@ -868,7 +868,7 @@ exports[`Meals should render Meal Component when it is connected to the redux st
                                       wrapper="div"
                                     >
                                       <div
-                                        className="__react_component_tooltip place-top type-dark "
+                                        className="__react_component_tooltip place-top type-dark"
                                         data-id="tooltip"
                                       />
                                     </ReactTooltip>
