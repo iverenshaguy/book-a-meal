@@ -4,16 +4,26 @@
     "BASE_URL": {
       "required": true
     },
+    "BASE_API_URL": {},
     "CLOSING_HOUR": {
       "required": true
     },
     "CLOSING_MINUTE": {
       "required": true
     },
-    "EMAIL": {
+    "EMAIL_HOST": {
+      "required": true
+    },
+    "EMAIL_PORT": {
+      "required": true
+    },
+    "EMAIL_USER": {
       "required": true
     },
     "EMAIL_PASSWORD": {
+      "required": true
+    },
+    "PERSONAL_EMAIL": {
       "required": true
     },
     "EXPIRY": {
@@ -52,9 +62,7 @@
       "quantity": 1
     }
   },
-  "addons": [
-    "heroku-postgresql"
-  ],
+  "addons": ["heroku-postgresql"],
   "buildpacks": [
     {
       "url": "heroku/nodejs"
