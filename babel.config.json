@@ -1,10 +1,13 @@
 {
   "presets": [
-    ["@babel/preset-env", {
-      "targets": {
-        "node": "current"
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        }
       }
-    }],
+    ],
     "@babel/preset-react"
   ],
   "plugins": [
@@ -16,13 +19,13 @@
     "@babel/plugin-transform-runtime",
     "react-hot-loader/babel",
     "add-module-exports",
-    ["module-resolver", {
-      "root": ["./"],
-      "alias": {
-        "@server": "./packages/server",
-        "@client": "./packages/client"
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {}
       }
-    }]
+    ]
   ],
   "env": {
     "test": {
