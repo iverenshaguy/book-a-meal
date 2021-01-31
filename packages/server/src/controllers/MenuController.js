@@ -35,7 +35,7 @@ class MenuController {
         model: models.User,
         as: 'caterer'
       }]
-    }).spread(async (menu, created) => {
+    }).then(async ([menu, created]) => {
       if (!created) return res.status(400).json({ error: 'Menu already exists for this day' });
 
       await menu.setMeals(menuMeals, { through: models.Menu });

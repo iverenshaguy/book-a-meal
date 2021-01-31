@@ -1,6 +1,6 @@
 /* eslint-disable */
 import PropTypes from 'prop-types';
-import { arrayToObject } from '.';
+import arrayToObject from './arrayToObject';
 import { formFields } from './formHelpers';
 
 export const userPropType = PropTypes.shape({

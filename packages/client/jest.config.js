@@ -21,7 +21,7 @@ module.exports = {
     '<rootDir>/tests/**/*.(spec|test).{js,jsx}',
     '<rootDir>/src/**/?(*.)(spec|test).{js,jsx}'
   ],
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   testURL: 'http://localhost',
   testPathIgnorePatterns: [
     '<rootDir>/../../node_modules/'
