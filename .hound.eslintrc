@@ -1,10 +1,6 @@
 {
   "root": true,
-  "extends": [
-    "airbnb",
-    "plugin:import/errors",
-    "plugin:import/warnings"
-  ],
+  "extends": ["airbnb", "plugin:import/errors", "plugin:import/warnings"],
   "env": {
     "node": true,
     "browser": true,
@@ -14,10 +10,7 @@
   },
   "settings": {
     "import/resolver": {
-      "babel-module": {
-        "@server": "./packages/server",
-        "@client": "./packages/client"
-      }
+      "babel-module": {}
     }
   },
   "globals": {
@@ -37,20 +30,13 @@
     "no-param-reassign": 0,
     "comma-dangle": 0,
     "import/named": 0,
-    "curly": [
-      "error",
-      "multi-line"
-    ],
+    "curly": ["error", "multi-line"],
     "import/no-unresolved": "off",
     "import/extensions": "off",
     "no-shadow": [
       "error",
       {
-        "allow": [
-          "req",
-          "res",
-          "err"
-        ]
+        "allow": ["req", "res", "err"]
       }
     ],
     "valid-jsdoc": [
@@ -75,21 +61,20 @@
     "jsx-a11y/label-has-for": [
       2,
       {
-        "components": [
-          "Label"
-        ],
+        "components": ["Label"],
         "required": {
-          "every": [
-            "id"
-          ]
+          "every": ["id"]
         },
         "allowChildren": false
       }
     ],
-    "jsx-a11y/anchor-is-valid": [ "error", {
-      "components": [ "Link" ],
-      "specialLink": [ "to" ]
-    }]
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["to"]
+      }
+    ]
   },
   "parser": "babel-eslint"
 }

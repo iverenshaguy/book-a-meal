@@ -1,18 +1,16 @@
 #!/usr/bin/env bash
 
 # import .env variables into bash environment
-export $(cat .env | xargs)
+export $(cat ../.env | xargs)
+
+rm -rf ./dist
+mkdir ./dist
 
 case $NODE_ENV in
   "development"|"test")
-    npm-run-all build:server build:client
+    node_modules/.bin/webpack --config ./webpack.dev.babel.js
     ;;
-  "production")
-    npm-run-all build:server build:client
-    yarn workspace server db:migrate
-    ;;
-  "staging")
-    npm-run-all build:server build:client
-    yarn workspace server db:setup
+  "production"|"staging")
+    node_modules/.bin/webpack --config ./webpack.prod.babel.js
     ;;
 esac
