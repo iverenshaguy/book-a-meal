@@ -17,11 +17,11 @@
     "tests/**",
     "src/models/index.js",
     "src/sequelize.js",
+    "src/v2/**",
     "test{,-*}.js",
     "config{,-*}.js",
     "docs.**"
   ],
-  "reporter": ["lcov", "json", "text"],
   "sourceMap": false,
   "instrument": false,
   "cache": true,

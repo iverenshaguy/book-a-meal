@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./v2/dist",
+    "rootDir": "./v2/src",
+    "baseUrl": "./",
+    "incremental": true,
+    "allowJs": true,
+  },
+  "include": [
+		"./v2/src",
+  ],
+  "exclude": [
+    ".eslintrc.js"
+  ]
+}

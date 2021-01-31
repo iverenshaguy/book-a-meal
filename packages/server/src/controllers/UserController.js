@@ -51,7 +51,7 @@ class UserController {
         address,
         role
       }
-    }).spread((newUser, created) => {
+    }).then(([newUser, created]) => {
       if (!created) return res.status(409).send({ error: 'Email already in use' });
 
       const user = UserController.getUserObj({ ...newUser.get() });

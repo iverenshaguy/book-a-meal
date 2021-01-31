@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 webpackDev(app, process.env.NODE_ENV);
 
-app.use('/api/v1/docs', express.static('server/docs'));
+app.use('/api/v1/docs', express.static('../docs'));
 
 app.use('/api', apiRoutes);
 
