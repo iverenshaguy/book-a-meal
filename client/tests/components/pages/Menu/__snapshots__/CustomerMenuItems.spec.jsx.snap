@@ -384,7 +384,7 @@ exports[`MenuItems should render connected Menu component 1`] = `
                           wrapper="div"
                         >
                           <div
-                            className="__react_component_tooltip place-top type-dark"
+                            className="__react_component_tooltip place-top type-dark "
                             data-id="tooltip"
                           />
                         </ReactTooltip>
@@ -470,7 +470,7 @@ exports[`MenuItems should render connected Menu component 1`] = `
                           wrapper="div"
                         >
                           <div
-                            className="__react_component_tooltip place-top type-dark"
+                            className="__react_component_tooltip place-top type-dark "
                             data-id="tooltip"
                           />
                         </ReactTooltip>

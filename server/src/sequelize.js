@@ -17,3 +17,11 @@ export const config = {
   dialect: 'postgres',
   logging: devMode ? log => log : false
 };
+
+module.exports = {
+  url: databaseUrls[environment],
+  config: {
+    dialect: 'postgres',
+    logging: devMode ? log => log : false
+  }
+};
