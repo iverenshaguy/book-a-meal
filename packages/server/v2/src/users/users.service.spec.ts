@@ -87,14 +87,14 @@ describe('Users Service', () => {
   });
 
   it('should validate a valid password', async () => {
-    const result = await usersService.validateUserPassword({ email: userDto, password: createUserDto.password });
+    const result = await usersService.validateUserPassword({ email: userDto.email, password: createUserDto.password });
 
     expect(result).toEqual({ ...userDto, id: result.id });
   });
 
   it('should not validate an ivalid password', async () => {
     try {
-      await usersService.validateUserPassword({ email: userDto, password: createUserDto.password });
+      await usersService.validateUserPassword({ email: userDto.email, password: createUserDto.password });
     } catch(error) {
       expect(error.message).toEqual('Unauthorized Exception');
       expect(error.response).toHaveProperty('error');

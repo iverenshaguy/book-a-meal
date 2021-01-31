@@ -1,18 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { BadRequestException, INestApplication, ValidationPipe } from '@nestjs/common';
+import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 
 import { AppModule } from '../../src/app/app.module';
-import { validationPipe } from '../utils/setup';
+import { mockSequelize, validationPipe } from '../utils/setup';
 import { login as loginData } from '../utils/mockData';
-import { signup as signupData } from '../utils/mockData';
+import { User } from '../../src/users/user.model';
 
-const { existingUser, nonExistingUser, invalidUser } = loginData;
-const { rightUserDetails, rightCatererDetails } = signupData;
+const { newUser, nonExistingUser, invalidUser, newCaterer } = loginData;
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
-  const url = '/api/v2/auth'
+  const url = '/api/v2/auth/signin';
 
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
@@ -24,17 +23,22 @@ describe('AppController (e2e)', () => {
     app.useGlobalPipes(validationPipe);
 
     await app.init();
+    await mockSequelize.sync({ force: true });
+
+    await User.create(newUser);
+    await User.create(newCaterer);
   });
 
   afterAll(async () => {
     await app.close();
+    await mockSequelize.sync({ force: true });
   });
 
   describe('Signin Routes', () => {
-    it('should sign in a user into the app and returns user + token', (done) => {
+    it('should sign in a user into the app and return user + token', (done) => {
       request(app.getHttpServer())
-        .post('/api/v2/auth/signin')
-        .send(existingUser)
+        .post(url)
+        .send({ email: newUser.email, password: newUser.password })
         .expect(200)
         .end((err, res) => {
           expect(res.body).toHaveProperty('token');
@@ -48,7 +52,7 @@ describe('AppController (e2e)', () => {
   
     it('should sign in a caterer into the app and returns user + token', (done) => {
       request(app.getHttpServer())
-        .post('/api/v2/auth/signin')
+        .post(url)
         .send({ email: 'belly@fill.com', password: 'bellyfill' })
         .expect(200)
         .end((err, res) => {
@@ -63,7 +67,7 @@ describe('AppController (e2e)', () => {
   
     it('should not sign in a user that does not exist', (done) => {
       request(app.getHttpServer())
-        .post('/api/v2/auth/signin')
+        .post(url)
         .send(nonExistingUser)
         .expect(401)
         .end((err, res) => {
@@ -76,8 +80,8 @@ describe('AppController (e2e)', () => {
   
     it('should not sign in an user existing user with a wrong password', (done) => {
       request(app.getHttpServer())
-        .post('/api/v2/auth/signin')
-        .send({ ...existingUser, password: 'kowo' })
+        .post(url)
+        .send({ email: newUser.email, password: 'kowo' })
         .expect(401)
         .end((err, res) => {
           expect(res.body.error).toEqual('Invalid credentials');
@@ -89,7 +93,7 @@ describe('AppController (e2e)', () => {
   
     it('should return validation errors for wrong input', (done) => {
       request(app.getHttpServer())
-        .post('/api/v2/auth/signin')
+        .post(url)
         .send(invalidUser)
         .expect(400)
         .end((err, res) => {

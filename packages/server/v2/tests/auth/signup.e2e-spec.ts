@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { BadRequestException, INestApplication, ValidationPipe } from '@nestjs/common';
+import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 
 import { AppModule } from '../../src/app/app.module';
@@ -14,7 +14,7 @@ const {
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
-  const url = '/api/v2/auth'
+  const url = '/api/v2/auth/signup';
 
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
@@ -26,17 +26,19 @@ describe('AppController (e2e)', () => {
     app.useGlobalPipes(validationPipe);
 
     await app.init();
+    await mockSequelize.sync({ force: true });
   });
 
   afterAll(async () => {
     await app.close();
+    await mockSequelize.sync({ force: true });
   });
 
   describe('Signup Routes', () => {
     describe('User Signup', () => {
       it('should register a new user and returns user data + token for valid data', (done) => {
         request(app.getHttpServer())
-          .post('/api/v2/auth/signup')
+          .post(url)
           .send(rightUserDetails)
           .expect(201)
           .end((err, res) => {
@@ -51,7 +53,7 @@ describe('AppController (e2e)', () => {
   
       it('should return validation errors for wrong input', (done) => {
         request(app.getHttpServer())
-          .post('/api/v2/auth/signup')
+          .post(url)
           .send(wrongUserDetails)
           .expect(400)
           .end((err, res) => {
@@ -69,7 +71,7 @@ describe('AppController (e2e)', () => {
   
       it('should return validation errors for invalid username data', (done) => {
         request(app.getHttpServer())
-          .post('/api/v2/auth/signup')
+          .post(url)
           .send({ role: 'customer', firstname: '6848jkkl()', lastname: '6848jkkl()' })
           .expect(400)
           .end((err, res) => {
@@ -83,7 +85,7 @@ describe('AppController (e2e)', () => {
   
       it('should return validation errors for extra length firstname data', (done) => {
         request(app.getHttpServer())
-          .post('/api/v2/auth/signup')
+          .post(url)
           .send({ role: 'customer', firstname: longName, lastname: longName })
           .expect(400)
           .end((err, res) => {
@@ -97,7 +99,7 @@ describe('AppController (e2e)', () => {
   
       it('should return validation errors for wrong role', (done) => {
         request(app.getHttpServer())
-          .post('/api/v2/auth/signup')
+          .post(url)
           .send(wrongRoleUserDetails)
           .expect(400)
           .end((err, res) => {
@@ -110,7 +112,7 @@ describe('AppController (e2e)', () => {
   
       it('should return validation errors for no role', (done) => {
         request(app.getHttpServer())
-          .post('/api/v2/auth/signup')
+          .post(url)
           .send({ role: '' })
           .expect(400)
           .end((err, res) => {
@@ -123,7 +125,7 @@ describe('AppController (e2e)', () => {
   
       it('should return error for already taken email address', (done) => {
         request(app.getHttpServer())
-          .post('/api/v2/auth/signup')
+          .post(url)
           .send(Object.assign({}, rightUserDetails, { email: 'favour@shaguy.com' }))
           .expect(409)
           .end((err, res) => {
@@ -138,7 +140,7 @@ describe('AppController (e2e)', () => {
     describe('Caterer Signup', () => {
       it('should register a new user and returns user data + token for valid data', (done) => {
         request(app.getHttpServer())
-          .post('/api/v2/auth/signup')
+          .post(url)
           .send(rightCatererDetails)
           .expect(201)
           .end((err, res) => {
@@ -157,7 +159,7 @@ describe('AppController (e2e)', () => {
   
       it('should return validation errors for wrong input', (done) => {
         request(app.getHttpServer())
-          .post('/api/v2/auth/signup')
+          .post(url)
           .send(wrongCatererDetails)
           .expect(400)
           .end((err, res) => {
@@ -176,7 +178,7 @@ describe('AppController (e2e)', () => {
   
       it('should return validation errors for wrong input: long length', (done) => {
         request(app.getHttpServer())
-          .post('/api/v2/auth/signup')
+          .post(url)
           .send(wrongLengthCatererDetails)
           .expect(400)
           .end((err, res) => {
@@ -192,7 +194,7 @@ describe('AppController (e2e)', () => {
 
       it('should return validation errors for wrong input: short address length', (done) => {
         request(app.getHttpServer())
-          .post('/api/v2/auth/signup')
+          .post(url)
           .send({ ...wrongLengthCatererDetails, address: 'shor' })
           .expect(400)
           .end((err, res) => {
@@ -205,7 +207,7 @@ describe('AppController (e2e)', () => {
   
       it('should return validation errors for wrong input: invalid format', (done) => {
         request(app.getHttpServer())
-          .post('/api/v2/auth/signup')
+          .post(url)
           .send(invalidCatererDetails)
           .expect(400)
           .end((err, res) => {
@@ -223,7 +225,7 @@ describe('AppController (e2e)', () => {
   
       it('should return error for already taken email address', (done) => {
         request(app.getHttpServer())
-          .post('/api/v2/auth/signup')
+          .post(url)
           .send({ ...rightCatererDetails, email: 'wecook@cook.com', businessName: 'A Business' })
           .expect(409)
           .end((err, res) => {
@@ -236,7 +238,7 @@ describe('AppController (e2e)', () => {
   
       it('should return error for already taken business name', (done) => {
         request(app.getHttpServer())
-          .post('/api/v2/auth/signup')
+          .post(url)
           .send({ ...rightCatererDetails, email: 'new@circle.com' })
           .expect(409)
           .end((err, res) => {

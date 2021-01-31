@@ -22,8 +22,8 @@ describe('Auth Service', () => {
             createUser: jest.fn().mockResolvedValue(userDto),
             createBusiness: jest.fn().mockResolvedValue(businessDto),
             getUserObj: jest.fn().mockResolvedValue(businessDto),
-            findOne: jest.fn().mockImplementation(({ email }) => {
-              if (email === userDto.email) return Promise.resolve(userDto);
+            findOne: jest.fn().mockImplementation(({ where : { email } }) => {
+              if (email === userDto.email) return Promise.resolve({ ...userDto, get() { return userDto }});
 
               return Promise.resolve(null);
             }),

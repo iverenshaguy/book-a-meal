@@ -26,7 +26,7 @@ import { AppController } from './app.controller';
     SequelizeModule.forRootAsync({
       useFactory: async (configService: ConfigService) => ({
         ...configService.get('DATABASE'),
-        models: [User,Meal,Menu, MenuMeal, Order, OrderItem, Notification]
+        models: [User, Meal, Menu, MenuMeal, Order, OrderItem, Notification]
       }),
       inject: [ConfigService]
     }),

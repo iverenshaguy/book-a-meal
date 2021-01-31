@@ -32,9 +32,21 @@ export const createUserDto = {
 };
 
 export const login = {
-  existingUser: {
+  newUser: {
+    role: 'customer',
+    firstname: 'Iveren',
+    lastname: 'Shaguy',
     email: 'iveren@shaguy.com',
     password: 'iverenshaguy',
+  },
+
+  newCaterer: {
+    role: 'caterer',
+    businessName: 'BellyFill',
+    email: 'belly@fill.com',
+    password: 'bellyfill',
+    phoneNo: '08123456789',
+    address: '4, Church Street, Yaba',
   },
 
   nonExistingUser: {

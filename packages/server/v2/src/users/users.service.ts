@@ -1,7 +1,8 @@
 import { ConflictException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Op } from 'sequelize';
+import { FindOptions, Op } from 'sequelize';
 
+import { SigninDto } from '../auth/dto/signin.dto';
 import { SignupDto } from '../auth/dto/signup.dto';
 import { User } from './user.model';
 
@@ -106,13 +107,13 @@ export class UsersService {
     return userObj;
   }
 
-  findOne({ email }): Promise<User | null> {
-    return this.userModel.findOne({ where: { email } });
+  findOne(options: FindOptions): Promise<User | null> {
+    return this.userModel.findOne(options);
   }
 
-  async validateUserPassword(signinDto): Promise<User> {
-    const user = await this.findOne(signinDto);
-    const isValidPassword = user && await user.validatePassword(signinDto.password)
+  async validateUserPassword({ email, password }: SigninDto): Promise<User> {
+    const user = await this.findOne({ where: { email } });
+    const isValidPassword = user && await user.validatePassword(password)
 
     if (!isValidPassword) throw new UnauthorizedException({ error: 'Invalid credentials' });
 
