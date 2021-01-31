@@ -24,3 +24,5 @@ lerna-debug.log*
 
 # TS
 *.tsbuildinfo
+
+.coveralls.yml
