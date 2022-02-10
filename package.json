@@ -141,7 +141,7 @@
     "mocha": "^6.2.0",
     "moment-locales-webpack-plugin": "^1.0.7",
     "nightwatch": "^1.1.13",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "nodemon": "^1.19.1",
     "nyc": "^14.1.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
