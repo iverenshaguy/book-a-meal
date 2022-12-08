@@ -54,7 +54,7 @@
     "cors": "^2.8.4",
     "cross-env": "^5.1.4",
     "dotenv": "^5.0.1",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "express-validator": "^5.1.2",
     "firebase": "^5.0.4",
     "firebase-mock": "^2.2.4",
