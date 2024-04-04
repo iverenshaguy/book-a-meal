@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // configure base url
 const instance = axios.create({
-  baseURL: '/api/v1',
+  baseURL: '/api',
 });
 
 // intercept requests and add authorization token

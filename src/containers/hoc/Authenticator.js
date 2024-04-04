@@ -8,12 +8,22 @@ import Authenticator from '../../components/hoc/Authenticator';
  * @return {JSX} ConnectedComponent
  */
 export default (MyComponent) => {
-  const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated,
-    authenticating: state.auth.loading,
-    user: state.auth.user,
-    MyComponent
-  });
+  console.log({
+    MyComponent: MyComponent.name
+  })
+  const mapStateToProps = state => {
+    console.log({
+      isAuthenticated: state.auth.isAuthenticated,
+      authenticating: state.auth.loading,
+      user: state.auth.user
+    })
 
+    return ({
+      isAuthenticated: state.auth.isAuthenticated,
+      authenticating: state.auth.loading,
+      user: state.auth.user,
+      MyComponent
+    });
+  }
   return connect(mapStateToProps)(Authenticator);
 };

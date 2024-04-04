@@ -7,7 +7,7 @@ import axios from 'axios';
  * @param {object} user - user details to authenticate
  * @returns {func} axios instance
  */
-const authAPI = type => user => axios(`/api/v1/auth/${type}`, {
+const authAPI = type => user => axios(`/api/auth/${type}`, {
   method: 'POST',
   data: user,
   headers: {

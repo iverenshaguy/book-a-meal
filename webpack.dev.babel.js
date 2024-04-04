@@ -19,12 +19,18 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'eval-source-map',
   devServer: {
-    contentBase: '/public',
+    contentBase: path.join(__dirname, 'public'),
     compress: true,
     port: 3000,
     open: true,
     allowedHosts: ['localhost'],
     historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8000/api/v1',
+        pathRewrite: { '^/api': '' }
+      }
+    }
   },
   entry: { app: ['react-hot-loader/patch', 'webpack-hot-middleware/client', path.resolve(__dirname, './src/index.jsx')] },
   module: {

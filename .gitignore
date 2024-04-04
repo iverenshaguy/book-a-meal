@@ -6,6 +6,7 @@
 .env
 .vs
 .selenium
+.idea
 
 # Folders
 node_modules

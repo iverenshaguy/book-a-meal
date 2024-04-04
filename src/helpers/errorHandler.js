@@ -11,6 +11,8 @@ import errorResponse from './errorResponse';
 const errorHandler = (err) => {
   let error = {};
 
+  console.log(err)
+
   if (err.response) {
     error.status = err.response.status;
     error.response = errorResponse(err);

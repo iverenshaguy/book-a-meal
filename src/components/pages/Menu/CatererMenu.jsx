@@ -74,6 +74,10 @@ class CatererMenu extends Component {
       />
     ));
 
+      console.log({
+          'meu': 'tried to retrieve'
+      })
+
     return (
       <Fragment>
         <div className="content-wrapper meals menu-meals">
