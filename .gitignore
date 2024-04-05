@@ -1,18 +1,18 @@
+# Files
 .DS_Store
 .vscode
-node_modules
 .gitattributes
-server/dist
-client/dist
 .nyc_output
-coverage
 .env
-client/bin/.selenium
-server/coverage
-client/coverage
 .vs
-.DS_Store
-client/reports
+.selenium
+.idea
+
+# Folders
+node_modules
+coverage
+dist
+reports
 
 # Logs
 logs
@@ -21,3 +21,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 chromdriver.log*
+lerna-debug.log*
+
+# TS
+*.tsbuildinfo
+
+.coveralls.yml

@@ -1,16 +1,17 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import webpack from 'webpack';
-import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import CompressionPlugin from 'compression-webpack-plugin';
-import TerserPlugin from 'terser-webpack-plugin';
-import Visualizer from 'webpack-visualizer-plugin';
-import dotenv from 'dotenv';
-import merge from 'webpack-merge';
-import MomentLocalesPlugin from 'moment-locales-webpack-plugin';
-import CrittersWebpackPlugin from 'critters-webpack-plugin';
+/* eslint-disable const/no-extraneous-dependencies */
+const webpack = require('webpack');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const Visualizer = require('webpack-visualizer-plugin');
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
+const CrittersWebpackPlugin = require('critters-webpack-plugin');
+const merge = require('webpack-merge');
+const dotenv = require('dotenv');
 
-import common from './webpack.common.babel';
+const common = require('./webpack.common.babel');
 
 const cleanerPlugin = new CleanWebpackPlugin();
 const optimizeCSSPlugin = new OptimizeCssAssetsPlugin({});
@@ -32,7 +33,7 @@ const compressionPlugin = new CompressionPlugin({
 
 const visualizerPlugin = new Visualizer({ filename: './statistics.html' });
 
-dotenv.config();
+dotenv.config({ path: '.env' });
 
 const envPlugin = new webpack.DefinePlugin({
   'process.env': {
@@ -48,9 +49,9 @@ const envPlugin = new webpack.DefinePlugin({
   }
 });
 
-export default merge(common, {
+module.exports = merge(common, {
   mode: 'production',
-  entry: ['./client/src/index.jsx'],
+  entry: ['./src/index.jsx'],
   module: {
     rules: [
       {

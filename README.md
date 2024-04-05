@@ -11,7 +11,6 @@ An application that allows customers to make food orders and helps the food vend
 * [Technologies](#technologies)
 * [Features Implemented](#features-implemented)
 * [Getting Started](#getting-started)
-  * [Installation](#installation)
   * [Development](#development)
   * [Testing](#testing)
 * [Limitations](#limitations)
@@ -30,18 +29,16 @@ Template is hosted at [https://iverenshaguy.github.io/book-a-meal/UI/index.html]
 
 ### API Deployment
 
-API is deployed at [https://book-a-meal-prod.herokuapp.com/api/v1](https://book-a-meal-prod.herokuapp.com/api/v1)
+API is not yet deployed
 
 ### Documentation
 
-Documentation is hosted at [https://book-a-meal-prod.herokuapp.com/api/v1/docs](https://book-a-meal-prod.herokuapp.com/api/v1/docs)
+Documentation is not yet hosted
 
 ## Technologies
 
 * [NodeJS](https://nodejs.org/) - Runtime Environment
 * [ExpressJs](https://expressjs.com/) - Web Application Framework
-* [PostgreSQL](https://www.postgresql.org/) - Object-Relational Database System
-* [Sequelize](http://docs.sequelizejs.com/) - Promise-based ORM for Node.js v4 and up
 * [React](https://reactjs.org/) - JavaScript Library for Building User Interfaces
 * [Redux](https://redux.js.org/) - Predictable State Container for JavaScript Apps
 
@@ -68,6 +65,12 @@ Documentation is hosted at [https://book-a-meal-prod.herokuapp.com/api/v1/docs](
 * [Istanbul(nyc)](https://istanbul.js.org/) - Code Coverage Generator
 * [Jest](https://jestjs.io/) - Javascript Testing Platform to test all JavaScript code including React applications (Frontend)
 * [Enzyme](http://airbnb.io/enzyme/) - Javscript testing utility for React
+
+## Versions
+
+This is version 2 and it is currently in active development.
+
+Version 1 can be found [here](https://github.com/iverenshaguy/book-a-meal/tree/version-1-react-redux-rest-express).
 
 ## Features Implemented
 
@@ -100,37 +103,16 @@ Documentation is hosted at [https://book-a-meal-prod.herokuapp.com/api/v1/docs](
 
 ## Getting Started
 
-### Installation
-
-* Install [NodeJS](https://nodejs.org/) and [PostgreSQL](https://www.postgresql.org/) on your computer
-* Install [Sequelize-CLI](https://www.npmjs.com/package/sequelize-cli) globally
-* Clone this repository using `git clone https://github.com/iverenshaguy/book-a-meal.git`
-* Use the `.env.example` file to setup your environmental variables and rename the file to `.env`
-* Run `npm install` to install all dependencies
-* Run `npm run migrate` to setup your database
-* You can optionally run `npm run seed` to use the seed data provided
-* Run `npm run build` to build the project
-* Run `npm start` to start the server
-* Navigate to [localhost:8000](http://localhost:8000/) in browser to access the application
-
 ### Development
 
-You can run `npm run start:dev` in development to use [Nodemon](https://nodemon.io/)
-
-[Nodemon](https://nodemon.io/) watches for file changes and restarts your server.
+* Install [NodeJS](https://nodejs.org/) on your computer
+* Clone this repository
+* Use the `.env.example` file to setup your environmental variables and rename the file to `.env`
+* Run `npm install` to install all dependencies
+* Run `npm run start:dev` in development to use [Nodemon](https://nodemon.io/)
+* You will need to clone and install the corresponding API at https://github.com/iverenshaguy/book-a-meal-api
 
 ### Testing
-
-#### Prerequisites
-
-* [Postman](https://getpostman.com/) - API Toolchain
-
-#### Testing with Postman
-
-* After installing as shown above
-* Navigate to [localhost:8000](http://localhost:8000/) in
-  [Postman](https://getpostman.com/) to access the application
-* Use the [API Documentation](https://book-a-meal-prod.herokuapp.com/api/v1/docs) to access the endpoints available
 
 #### Testing with Coverage Data
 
@@ -141,11 +123,11 @@ You can run `npm run start:dev` in development to use [Nodemon](https://nodemon.
 
 ## Using the Live App
 
-The live application is hosted at [https://book-a-meal-prod.herokuapp.com](https://book-a-meal-prod.herokuapp.com).
+The live application is not yet hosted
 
 The Menu for each day varies and must be set by any of the registered caterers.
 
-To test the app on any particular day, you can signin to the app as a caterer using the test details below:
+To test the app on any particular day, you can sign in to the app as a caterer using the test details below:
 
 Email: `test@test.com`
 
@@ -170,7 +152,7 @@ This will allow you to set a menu for the day if no menu is available.
 
 * What language is used to build this application?
 
-  * The application (both frontend and backend) is entirely built with Javascript
+  * The application is built with Javascript
 
 * Is this an open-source project?
 

@@ -1,10 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import webpack from 'webpack';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import Dotenv from 'dotenv-webpack';
-import merge from 'webpack-merge';
+const path = require('path');
+const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const Dotenv = require('dotenv-webpack');
+const merge = require('webpack-merge');
 
-import common from './webpack.common.babel';
+const common = require('./webpack.common.babel');
 
 const cssPlugin = new MiniCssExtractPlugin({
   filename: '[name].css',
@@ -12,12 +13,26 @@ const cssPlugin = new MiniCssExtractPlugin({
 });
 
 const hotReloader = new webpack.HotModuleReplacementPlugin();
-const envPlugin = new Dotenv();
+const envPlugin = new Dotenv({ path: path.resolve(__dirname, '.env') });
 
-export default merge(common, {
+module.exports = merge(common, {
   mode: 'development',
   devtool: 'eval-source-map',
-  entry: { app: ['react-hot-loader/patch', 'webpack-hot-middleware/client', './client/src/index.jsx'] },
+  devServer: {
+    contentBase: path.join(__dirname, 'public'),
+    compress: true,
+    port: 3000,
+    open: true,
+    allowedHosts: ['localhost'],
+    historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8000/api/v1',
+        pathRewrite: { '^/api': '' }
+      }
+    }
+  },
+  entry: { app: ['react-hot-loader/patch', 'webpack-hot-middleware/client', path.resolve(__dirname, './src/index.jsx')] },
   module: {
     rules: [
       {
@@ -33,7 +48,7 @@ export default merge(common, {
   },
   resolve: {
     alias: {
-      'react-dom': '@hot-loader/react-dom'
+      'react-dom': '@hot-loader/react-dom',
     }
   },
   plugins: [envPlugin, cssPlugin, hotReloader]

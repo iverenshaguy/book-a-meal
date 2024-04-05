@@ -1,34 +1,33 @@
 module.exports = {
   collectCoverageFrom: [
-    '<rootDir>/client/src/**/*.{js,jsx}',
-    '!<rootDir>/client/src/**/index.js',
-    '!<rootDir>/client/src/config/*.js',
-    '!<rootDir>/client/tests/**/*.(spec|test).{js,jsx}'
+    '<rootDir>/src/**/*.{js,jsx}',
+    '!<rootDir>/src/**/index.js',
+    '!<rootDir>/src/config/*.js',
+    '!<rootDir>/tests/**/*.(spec|test).{js,jsx}'
   ],
   coverageDirectory: '<rootDir>/coverage',
   coveragePathIgnorePatterns: [
-    '<rootDir>/node_modules/',
-    '<rootDir>/server/',
-    '<rootDir>/client/src/index.jsx',
-    '<rootDir>/client/src/store/configureStore.js',
-    '<rootDir>/client/e2e-tests/'
+    '<rootDir>/../server/',
+    '<rootDir>/src/index.jsx',
+    '<rootDir>/src/store/configureStore.js',
+    '<rootDir>/e2e-tests/'
   ],
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy',
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$': '<rootDir>/tests/__mocks__/fileMock.js'
   },
-  setupFilesAfterEnv: ['<rootDir>/client/tests/setupTests.js'],
+  setupFilesAfterEnv: ['<rootDir>/tests/setupTests.js'],
   testMatch: [
-    '<rootDir>/client/tests/**/*.(spec|test).{js,jsx}',
-    '<rootDir>/client/src/**/?(*.)(spec|test).{js,jsx}'
+    '<rootDir>/tests/**/*.(spec|test).{js,jsx}',
+    '<rootDir>/src/**/?(*.)(spec|test).{js,jsx}'
   ],
   testEnvironment: 'jsdom',
   testURL: 'http://localhost',
   testPathIgnorePatterns: [
-    '<rootDir>/node_modules/'
+    '<rootDir>/../../node_modules/'
   ],
   transform: {
-    '^.+\\.(js|jsx|mjs)$': '<rootDir>/node_modules/babel-jest',
+    '^.+\\.(js|jsx|mjs)$': ['babel-jest', { configFile: '<rootDir>/../../babel.config.json' }]
   },
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$'],
 };

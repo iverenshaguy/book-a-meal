@@ -1,11 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ScriptExtHtmlWebpackPlugin from 'script-ext-html-webpack-plugin';
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 const htmlPlugin = new HtmlWebpackPlugin({
   title: 'Book A Meal',
-  template: 'client/src/index.html',
+  template: path.resolve(__dirname, './src/index.html'),
   filename: 'index.html'
 });
 
@@ -13,9 +13,9 @@ const scriptExtHtmlPlugin = new ScriptExtHtmlWebpackPlugin({
   defaultAttribute: 'defer'
 });
 
-export default {
+module.exports = {
   output: {
-    path: path.resolve(__dirname, './client/dist'),
+    path: path.resolve(__dirname, './dist'),
     filename: '[name].bundle.js',
     publicPath: '/'
   },
@@ -28,11 +28,12 @@ export default {
           {
             loader: 'babel-loader',
             options: {
+              rootMode: 'upward',
               presets: [
                 [
                   '@babel/preset-env',
                   {
-                    modules: false
+                    modules: false,
                   }
                 ]
               ],
@@ -66,7 +67,7 @@ export default {
     ]
   },
   resolve: {
-    extensions: ['.js', '.json', '.jsx']
+    extensions: ['.js', '.json', '.jsx'],
   },
   plugins: [
     htmlPlugin,
