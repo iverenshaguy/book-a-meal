@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # import .env variables into bash environment
-export $(cat ../.env | xargs)
+export $(cat ./.env | xargs)
 
 rm -rf ./dist
 mkdir ./dist
