@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HOC: AuthenticateUser should render correctly 1`] = `
+<ContextProvider
+  value={
+    {
+      "store": {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      },
+      "subscription": {
+        "addNestedSub": [Function],
+        "getListeners": [Function],
+        "handleChangeWrapper": [Function],
+        "isSubscribed": [Function],
+        "notifyNestedSubs": [Function],
+        "trySubscribe": [Function],
+        "tryUnsubscribe": [Function],
+      },
+    }
+  }
+>
+  <MemoryRouter>
+    <Connect(AuthenticateUser)
+      location={
+        {
+          "pathname": "/login",
+          "state": {
+            "from": {
+              "pathname": "/",
+            },
+          },
+        }
+      }
+    >
+      <Component />
+    </Connect(AuthenticateUser)>
+  </MemoryRouter>
+</ContextProvider>
+`;

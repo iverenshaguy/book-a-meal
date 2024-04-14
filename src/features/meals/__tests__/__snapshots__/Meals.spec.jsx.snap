@@ -1,0 +1,1259 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Meals should render Meal Component when it is connected to the redux store correctly 1`] = `
+<Provider
+  store={
+    {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Meals)
+    dispatch={[MockFunction]}
+    meals={
+      [
+        {
+          "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+          "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+          "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+          "price": "1500.00",
+          "title": "Jollof Rice, Beef and Plantain",
+          "vegetarian": false,
+        },
+        {
+          "description": "Sharwama contains no animal products, perfect for dieters",
+          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+          "price": "1200.00",
+          "title": "Vegetable Sharwama and Guava Smoothie",
+          "vegetarian": true,
+        },
+      ]
+    }
+  >
+    <Meals
+      dispatch={[MockFunction]}
+      fetchMeals={[Function]}
+      meals={
+        [
+          {
+            "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+            "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+            "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+            "price": "1500.00",
+            "title": "Jollof Rice, Beef and Plantain",
+            "vegetarian": false,
+          },
+          {
+            "description": "Sharwama contains no animal products, perfect for dieters",
+            "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+            "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+            "price": "1200.00",
+            "title": "Vegetable Sharwama and Guava Smoothie",
+            "vegetarian": true,
+          },
+        ]
+      }
+      metadata={
+        {
+          "next": "next",
+          "pages": 2,
+          "prev": "prev",
+          "total": 5,
+        }
+      }
+      submitError={null}
+      submitting={false}
+      toggleModal={[Function]}
+    >
+      <Connect(View)
+        showTime={true}
+        submitError={null}
+        submitting={false}
+        type="meals"
+      >
+        <View
+          isFetching={false}
+          logout={[Function]}
+          showTime={true}
+          submitError={null}
+          submitting={false}
+          type="meals"
+          updateCurrentDate={null}
+          uploading={false}
+          user={
+            {
+              "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+              "businessName": "Food Circle",
+              "email": "food@circle.com",
+              "firstname": "Dave",
+              "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+              "lastname": "Smith",
+              "phoneNo": "08166557788",
+              "role": "caterer",
+            }
+          }
+        >
+          <div
+            className="admin"
+          >
+            <Header
+              active="meals"
+              dateType="meals"
+              logout={[Function]}
+              showTime={true}
+              type="caterer"
+              updateCurrentDate={null}
+              user={
+                {
+                  "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+                  "businessName": "Food Circle",
+                  "email": "food@circle.com",
+                  "firstname": "Dave",
+                  "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                  "lastname": "Smith",
+                  "phoneNo": "08166557788",
+                  "role": "caterer",
+                }
+              }
+            >
+              <div
+                className="header"
+              >
+                <div
+                  className="navbar"
+                >
+                  <Connect(CatererHeader)
+                    dateType="meals"
+                    showTime={true}
+                    updateCurrentDate={null}
+                  >
+                    <CatererHeader
+                      currentDay="1970-01-01"
+                      dateType="meals"
+                      showTime={true}
+                      toggleSideNav={[Function]}
+                      updateCurrentDate={null}
+                    >
+                      <div
+                        className="menu-control d-none-md"
+                      >
+                        <Link
+                          className="d-none-md"
+                          clickHandler={[Function]}
+                          data-tooltip-content={null}
+                          data-tooltip-id={null}
+                          id={null}
+                        >
+                          <button
+                            className="link-btn d-none-md"
+                            data-tooltip-content={null}
+                            data-tooltip-id={null}
+                            id={null}
+                            onClick={[Function]}
+                            type="button"
+                          >
+                            <img
+                              alt="toggler"
+                              src="/img/toggler.png"
+                            />
+                          </button>
+                        </Link>
+                      </div>
+                      <div
+                        className="page-title d-none-md"
+                      >
+                        <h3>
+                          <Link
+                            to="/"
+                          >
+                            <a
+                              href="/"
+                            >
+                              BOOK-A-MEAL
+                            </a>
+                          </Link>
+                        </h3>
+                      </div>
+                      <div
+                        className="page-title d-flex-md"
+                      >
+                        <div
+                          className="date"
+                        >
+                          <h2>
+                            Thursday, 1st January 1970
+                             
+                            <span>
+                              00:00
+                            </span>
+                          </h2>
+                        </div>
+                      </div>
+                    </CatererHeader>
+                  </Connect(CatererHeader)>
+                </div>
+              </div>
+            </Header>
+            <div
+              className="content"
+            >
+              <Connect(SideNav)
+                active="meals"
+                logout={[Function]}
+                user={
+                  {
+                    "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+                    "businessName": "Food Circle",
+                    "email": "food@circle.com",
+                    "firstname": "Dave",
+                    "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                    "lastname": "Smith",
+                    "phoneNo": "08166557788",
+                    "role": "caterer",
+                  }
+                }
+              >
+                <SideNav
+                  active="meals"
+                  logout={[Function]}
+                  open={false}
+                  push={[Function]}
+                  toggleSideNav={[Function]}
+                  user={
+                    {
+                      "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+                      "businessName": "Food Circle",
+                      "email": "food@circle.com",
+                      "firstname": "Dave",
+                      "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                      "lastname": "Smith",
+                      "phoneNo": "08166557788",
+                      "role": "caterer",
+                    }
+                  }
+                >
+                  <div
+                    className="sidenav null"
+                    id="sidenav"
+                  >
+                    <div
+                      className="sidenav-content"
+                    >
+                      <div
+                        className="sidenav-header"
+                      >
+                        <CloseIcon
+                          btnID={null}
+                          clickHandler={[Function]}
+                          divClass="d-none-md"
+                        >
+                          <div
+                            className="close d-none-md"
+                          >
+                            <Link
+                              aria-hidden="true"
+                              className={null}
+                              clickHandler={[Function]}
+                              data-tooltip-content={null}
+                              data-tooltip-id={null}
+                              id={null}
+                            >
+                              <button
+                                aria-hidden="true"
+                                className="link-btn null"
+                                data-tooltip-content={null}
+                                data-tooltip-id={null}
+                                id={null}
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                ×
+                              </button>
+                            </Link>
+                          </div>
+                        </CloseIcon>
+                        <div
+                          className="sidenav-title"
+                        >
+                          <h3
+                            className="d-flex-md"
+                          >
+                            <Link
+                              href="/"
+                              to="/"
+                            >
+                              <a
+                                href="/"
+                              >
+                                BOOK-A-MEAL
+                              </a>
+                            </Link>
+                          </h3>
+                          <div
+                            className="username-circle"
+                          >
+                            <p>
+                              F
+                            </p>
+                          </div>
+                          <p>
+                            Food Circle
+                          </p>
+                          <span>
+                            <Link
+                              className={null}
+                              clickHandler={[Function]}
+                              data-tooltip-content={null}
+                              data-tooltip-id={null}
+                              id={null}
+                            >
+                              <button
+                                className="link-btn null"
+                                data-tooltip-content={null}
+                                data-tooltip-id={null}
+                                id={null}
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                Logout
+                              </button>
+                            </Link>
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        className="sidenav-body"
+                      >
+                        <Link
+                          className="menu-item false"
+                          clickHandler={[Function]}
+                          data-tooltip-content={null}
+                          data-tooltip-id={null}
+                          id={null}
+                        >
+                          <button
+                            className="link-btn menu-item false"
+                            data-tooltip-content={null}
+                            data-tooltip-id={null}
+                            id={null}
+                            onClick={[Function]}
+                            type="button"
+                          >
+                            Dashboard
+                          </button>
+                        </Link>
+                        <Link
+                          className="menu-item active"
+                          clickHandler={[Function]}
+                          data-tooltip-content={null}
+                          data-tooltip-id={null}
+                          id={null}
+                        >
+                          <button
+                            className="link-btn menu-item active"
+                            data-tooltip-content={null}
+                            data-tooltip-id={null}
+                            id={null}
+                            onClick={[Function]}
+                            type="button"
+                          >
+                            Meals
+                          </button>
+                        </Link>
+                        <Link
+                          className="menu-item false"
+                          clickHandler={[Function]}
+                          data-tooltip-content={null}
+                          data-tooltip-id={null}
+                          id={null}
+                        >
+                          <button
+                            className="link-btn menu-item false"
+                            data-tooltip-content={null}
+                            data-tooltip-id={null}
+                            id={null}
+                            onClick={[Function]}
+                            type="button"
+                          >
+                            Menu
+                          </button>
+                        </Link>
+                        <Link
+                          className="menu-item false"
+                          clickHandler={[Function]}
+                          data-tooltip-content={null}
+                          data-tooltip-id={null}
+                          id={null}
+                        >
+                          <button
+                            className="link-btn menu-item false"
+                            data-tooltip-content={null}
+                            data-tooltip-id={null}
+                            id={null}
+                            onClick={[Function]}
+                            type="button"
+                          >
+                            Orders
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </SideNav>
+              </Connect(SideNav)>
+              <div
+                className="content-wrapper"
+                id="has-modal"
+              >
+                <div
+                  className="content-wrapper meals caterer-meals"
+                >
+                  <div
+                    className="top"
+                  >
+                    <button
+                      className="btn btn-pri"
+                      id="add-meal-btn"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Add a New Meal
+                    </button>
+                  </div>
+                  <CardGroup
+                    items={
+                      [
+                        <MealCard
+                          inBasket={false}
+                          meal={
+                            {
+                              "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                              "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                              "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                              "price": "1500.00",
+                              "title": "Jollof Rice, Beef and Plantain",
+                              "vegetarian": false,
+                            }
+                          }
+                          orderMeal={null}
+                          toggleModal={[Function]}
+                          type="caterer"
+                        />,
+                        <MealCard
+                          inBasket={false}
+                          meal={
+                            {
+                              "description": "Sharwama contains no animal products, perfect for dieters",
+                              "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                              "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                              "price": "1200.00",
+                              "title": "Vegetable Sharwama and Guava Smoothie",
+                              "vegetarian": true,
+                            }
+                          }
+                          orderMeal={null}
+                          toggleModal={[Function]}
+                          type="caterer"
+                        />,
+                      ]
+                    }
+                    loadMore={[Function]}
+                    metadata={
+                      {
+                        "next": "next",
+                        "pages": 2,
+                        "prev": "prev",
+                        "total": 5,
+                      }
+                    }
+                  >
+                    <div
+                      className="card-group meals-wrapper"
+                      id="card-group"
+                    >
+                      <InfiniteLoader
+                        height={null}
+                        items={
+                          [
+                            <MealCard
+                              inBasket={false}
+                              meal={
+                                {
+                                  "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                                  "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                                  "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                                  "price": "1500.00",
+                                  "title": "Jollof Rice, Beef and Plantain",
+                                  "vegetarian": false,
+                                }
+                              }
+                              orderMeal={null}
+                              toggleModal={[Function]}
+                              type="caterer"
+                            />,
+                            <MealCard
+                              inBasket={false}
+                              meal={
+                                {
+                                  "description": "Sharwama contains no animal products, perfect for dieters",
+                                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                                  "price": "1200.00",
+                                  "title": "Vegetable Sharwama and Guava Smoothie",
+                                  "vegetarian": true,
+                                }
+                              }
+                              orderMeal={null}
+                              toggleModal={[Function]}
+                              type="caterer"
+                            />,
+                          ]
+                        }
+                        loadMore={[Function]}
+                        metadata={
+                          {
+                            "next": "next",
+                            "pages": 2,
+                            "prev": "prev",
+                            "total": 5,
+                          }
+                        }
+                      >
+                        <InfiniteScroll
+                          dataLength={2}
+                          hasMore={true}
+                          height={null}
+                          loader={
+                            <div
+                              className="text-center"
+                            >
+                              <MiniPreloader />
+                            </div>
+                          }
+                          next={[Function]}
+                        >
+                          <div
+                            className="infinite-scroll-component__outerdiv"
+                            style={{}}
+                          >
+                            <div
+                              className="infinite-scroll-component "
+                              style={
+                                {
+                                  "WebkitOverflowScrolling": "touch",
+                                  "height": "auto",
+                                  "overflow": "auto",
+                                }
+                              }
+                            >
+                              <div
+                                className="scroller"
+                              >
+                                <MealCard
+                                  inBasket={false}
+                                  key="81211c24-51c0-46ec-b1e0-18db55880958"
+                                  meal={
+                                    {
+                                      "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                                      "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                                      "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                                      "price": "1500.00",
+                                      "title": "Jollof Rice, Beef and Plantain",
+                                      "vegetarian": false,
+                                    }
+                                  }
+                                  orderMeal={null}
+                                  toggleModal={[Function]}
+                                  type="caterer"
+                                >
+                                  <div
+                                    className="meal-card"
+                                    id="81211c24-51c0-46ec-b1e0-18db55880958"
+                                  >
+                                    <div
+                                      className="meal-card-header"
+                                    >
+                                      <img
+                                        alt="meal"
+                                        src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+                                      />
+                                      <Dropdown
+                                        content={
+                                          <React.Fragment>
+                                            <Link
+                                              className={null}
+                                              clickHandler={[Function]}
+                                              data-tooltip-content={null}
+                                              data-tooltip-id={null}
+                                              id="edit-meal"
+                                            >
+                                              Edit
+                                            </Link>
+                                            <Link
+                                              className={null}
+                                              clickHandler={[Function]}
+                                              data-tooltip-content={null}
+                                              data-tooltip-id={null}
+                                              id="delete-meal"
+                                            >
+                                              Delete
+                                            </Link>
+                                          </React.Fragment>
+                                        }
+                                        toggler={
+                                          <React.Fragment>
+                                            …
+                                          </React.Fragment>
+                                        }
+                                        type="card"
+                                      >
+                                        <div
+                                          className="dropdown card-dropdown"
+                                          onMouseEnter={[Function]}
+                                          onMouseLeave={[Function]}
+                                        >
+                                          <Link
+                                            className="link"
+                                            clickHandler={null}
+                                            data-tooltip-content={null}
+                                            data-tooltip-id={null}
+                                            id="dropdown-toggler"
+                                          >
+                                            <button
+                                              className="link-btn link"
+                                              data-tooltip-content={null}
+                                              data-tooltip-id={null}
+                                              id="dropdown-toggler"
+                                              onClick={null}
+                                              type="button"
+                                            >
+                                              …
+                                            </button>
+                                          </Link>
+                                          <div
+                                            className="dropdown-content meal"
+                                            id="dropdown-content"
+                                          >
+                                            <Link
+                                              className={null}
+                                              clickHandler={[Function]}
+                                              data-tooltip-content={null}
+                                              data-tooltip-id={null}
+                                              id="edit-meal"
+                                            >
+                                              <button
+                                                className="link-btn null"
+                                                data-tooltip-content={null}
+                                                data-tooltip-id={null}
+                                                id="edit-meal"
+                                                onClick={[Function]}
+                                                type="button"
+                                              >
+                                                Edit
+                                              </button>
+                                            </Link>
+                                            <Link
+                                              className={null}
+                                              clickHandler={[Function]}
+                                              data-tooltip-content={null}
+                                              data-tooltip-id={null}
+                                              id="delete-meal"
+                                            >
+                                              <button
+                                                className="link-btn null"
+                                                data-tooltip-content={null}
+                                                data-tooltip-id={null}
+                                                id="delete-meal"
+                                                onClick={[Function]}
+                                                type="button"
+                                              >
+                                                Delete
+                                              </button>
+                                            </Link>
+                                          </div>
+                                        </div>
+                                      </Dropdown>
+                                      <div
+                                        className="menu-card-title"
+                                      >
+                                        <p>
+                                          Jollof Rice, Beef and Plantain
+                                        </p>
+                                      </div>
+                                    </div>
+                                    <div
+                                      className="meal-card-body"
+                                    >
+                                      <div>
+                                        <h3>
+                                          ₦
+                                          1500.00
+                                        </h3>
+                                        <p
+                                          className="meal-description"
+                                          data-tooltip-content="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
+                                          data-tooltip-id="meal-card-tooltip"
+                                        >
+                                          Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
+                                        </p>
+                                      </div>
+                                    </div>
+                                    <ForwardRef
+                                      className="tooltip"
+                                      effect="solid"
+                                      id="meal-card-tooltip"
+                                      place="top"
+                                      type="dark"
+                                    >
+                                      <O
+                                        activeAnchor={null}
+                                        className="tooltip"
+                                        clickable={false}
+                                        closeOnEsc={false}
+                                        closeOnResize={false}
+                                        closeOnScroll={false}
+                                        content={null}
+                                        contentWrapperRef={
+                                          {
+                                            "current": null,
+                                          }
+                                        }
+                                        defaultIsOpen={false}
+                                        delayHide={0}
+                                        delayShow={0}
+                                        events={
+                                          [
+                                            "hover",
+                                          ]
+                                        }
+                                        float={false}
+                                        forwardRef={null}
+                                        hidden={false}
+                                        id="meal-card-tooltip"
+                                        imperativeModeOnly={false}
+                                        noArrow={false}
+                                        offset={10}
+                                        openOnClick={false}
+                                        place="top"
+                                        positionStrategy="absolute"
+                                        role="tooltip"
+                                        setActiveAnchor={[Function]}
+                                        variant="dark"
+                                        wrapper="div"
+                                      />
+                                    </ForwardRef>
+                                  </div>
+                                </MealCard>
+                                <MealCard
+                                  inBasket={false}
+                                  key="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                                  meal={
+                                    {
+                                      "description": "Sharwama contains no animal products, perfect for dieters",
+                                      "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                                      "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                                      "price": "1200.00",
+                                      "title": "Vegetable Sharwama and Guava Smoothie",
+                                      "vegetarian": true,
+                                    }
+                                  }
+                                  orderMeal={null}
+                                  toggleModal={[Function]}
+                                  type="caterer"
+                                >
+                                  <div
+                                    className="meal-card"
+                                    id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                                  >
+                                    <div
+                                      className="meal-card-header"
+                                    >
+                                      <span
+                                        className="veg-ribbon"
+                                      >
+                                        Vegetarian
+                                      </span>
+                                      <img
+                                        alt="meal"
+                                        src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
+                                      />
+                                      <Dropdown
+                                        content={
+                                          <React.Fragment>
+                                            <Link
+                                              className={null}
+                                              clickHandler={[Function]}
+                                              data-tooltip-content={null}
+                                              data-tooltip-id={null}
+                                              id="edit-meal"
+                                            >
+                                              Edit
+                                            </Link>
+                                            <Link
+                                              className={null}
+                                              clickHandler={[Function]}
+                                              data-tooltip-content={null}
+                                              data-tooltip-id={null}
+                                              id="delete-meal"
+                                            >
+                                              Delete
+                                            </Link>
+                                          </React.Fragment>
+                                        }
+                                        toggler={
+                                          <React.Fragment>
+                                            …
+                                          </React.Fragment>
+                                        }
+                                        type="card"
+                                      >
+                                        <div
+                                          className="dropdown card-dropdown"
+                                          onMouseEnter={[Function]}
+                                          onMouseLeave={[Function]}
+                                        >
+                                          <Link
+                                            className="link"
+                                            clickHandler={null}
+                                            data-tooltip-content={null}
+                                            data-tooltip-id={null}
+                                            id="dropdown-toggler"
+                                          >
+                                            <button
+                                              className="link-btn link"
+                                              data-tooltip-content={null}
+                                              data-tooltip-id={null}
+                                              id="dropdown-toggler"
+                                              onClick={null}
+                                              type="button"
+                                            >
+                                              …
+                                            </button>
+                                          </Link>
+                                          <div
+                                            className="dropdown-content meal"
+                                            id="dropdown-content"
+                                          >
+                                            <Link
+                                              className={null}
+                                              clickHandler={[Function]}
+                                              data-tooltip-content={null}
+                                              data-tooltip-id={null}
+                                              id="edit-meal"
+                                            >
+                                              <button
+                                                className="link-btn null"
+                                                data-tooltip-content={null}
+                                                data-tooltip-id={null}
+                                                id="edit-meal"
+                                                onClick={[Function]}
+                                                type="button"
+                                              >
+                                                Edit
+                                              </button>
+                                            </Link>
+                                            <Link
+                                              className={null}
+                                              clickHandler={[Function]}
+                                              data-tooltip-content={null}
+                                              data-tooltip-id={null}
+                                              id="delete-meal"
+                                            >
+                                              <button
+                                                className="link-btn null"
+                                                data-tooltip-content={null}
+                                                data-tooltip-id={null}
+                                                id="delete-meal"
+                                                onClick={[Function]}
+                                                type="button"
+                                              >
+                                                Delete
+                                              </button>
+                                            </Link>
+                                          </div>
+                                        </div>
+                                      </Dropdown>
+                                      <div
+                                        className="menu-card-title"
+                                      >
+                                        <p>
+                                          Vegetable Sharwama and Guava Smoothie
+                                        </p>
+                                      </div>
+                                    </div>
+                                    <div
+                                      className="meal-card-body"
+                                    >
+                                      <div>
+                                        <h3>
+                                          ₦
+                                          1200.00
+                                        </h3>
+                                        <p
+                                          className="meal-description"
+                                          data-tooltip-content="Sharwama contains no animal products, perfect for dieters"
+                                          data-tooltip-id="meal-card-tooltip"
+                                        >
+                                          Sharwama contains no animal products, perfect for dieters
+                                        </p>
+                                      </div>
+                                    </div>
+                                    <ForwardRef
+                                      className="tooltip"
+                                      effect="solid"
+                                      id="meal-card-tooltip"
+                                      place="top"
+                                      type="dark"
+                                    >
+                                      <O
+                                        activeAnchor={null}
+                                        className="tooltip"
+                                        clickable={false}
+                                        closeOnEsc={false}
+                                        closeOnResize={false}
+                                        closeOnScroll={false}
+                                        content={null}
+                                        contentWrapperRef={
+                                          {
+                                            "current": null,
+                                          }
+                                        }
+                                        defaultIsOpen={false}
+                                        delayHide={0}
+                                        delayShow={0}
+                                        events={
+                                          [
+                                            "hover",
+                                          ]
+                                        }
+                                        float={false}
+                                        forwardRef={null}
+                                        hidden={false}
+                                        id="meal-card-tooltip"
+                                        imperativeModeOnly={false}
+                                        noArrow={false}
+                                        offset={10}
+                                        openOnClick={false}
+                                        place="top"
+                                        positionStrategy="absolute"
+                                        role="tooltip"
+                                        setActiveAnchor={[Function]}
+                                        variant="dark"
+                                        wrapper="div"
+                                      />
+                                    </ForwardRef>
+                                  </div>
+                                </MealCard>
+                              </div>
+                              <div
+                                className="text-center"
+                              >
+                                <MiniPreloader>
+                                  <$6990f5257133e9b3$export$4bf83b24a11cff0b
+                                    ariaLabel="three-dots-loading"
+                                    color="#4fa94d"
+                                    height="80"
+                                    radius="9"
+                                    visible={true}
+                                    width="80"
+                                    wrapperClass="mini-loader"
+                                    wrapperStyle={{}}
+                                  >
+                                    <styled.div
+                                      $visible={true}
+                                      aria-busy={true}
+                                      aria-label="three-dots-loading"
+                                      className="mini-loader"
+                                      data-testid="three-dots-loading"
+                                      role="progressbar"
+                                      style={{}}
+                                    >
+                                      <div
+                                        aria-busy={true}
+                                        aria-label="three-dots-loading"
+                                        className="sc-beySPh gZmPOF mini-loader"
+                                        data-testid="three-dots-loading"
+                                        role="progressbar"
+                                        style={{}}
+                                      >
+                                        <svg
+                                          data-testid="three-dots-svg"
+                                          fill="#4fa94d"
+                                          height="80"
+                                          viewBox="0 0 120 30"
+                                          width="80"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <circle
+                                            cx="15"
+                                            cy="15"
+                                            r={15}
+                                          >
+                                            <animate
+                                              attributeName="r"
+                                              begin="0s"
+                                              calcMode="linear"
+                                              dur="0.8s"
+                                              from="15"
+                                              repeatCount="indefinite"
+                                              to="15"
+                                              values="15;9;15"
+                                            />
+                                            <animate
+                                              attributeName="fill-opacity"
+                                              begin="0s"
+                                              calcMode="linear"
+                                              dur="0.8s"
+                                              from="1"
+                                              repeatCount="indefinite"
+                                              to="1"
+                                              values="1;.5;1"
+                                            />
+                                          </circle>
+                                          <circle
+                                            attributeName="fill-opacity"
+                                            cx="60"
+                                            cy="15"
+                                            from="1"
+                                            r="9"
+                                            to="0.3"
+                                          >
+                                            <animate
+                                              attributeName="r"
+                                              begin="0s"
+                                              calcMode="linear"
+                                              dur="0.8s"
+                                              from="9"
+                                              repeatCount="indefinite"
+                                              to="9"
+                                              values="9;15;9"
+                                            />
+                                            <animate
+                                              attributeName="fill-opacity"
+                                              begin="0s"
+                                              calcMode="linear"
+                                              dur="0.8s"
+                                              from="0.5"
+                                              repeatCount="indefinite"
+                                              to="0.5"
+                                              values=".5;1;.5"
+                                            />
+                                          </circle>
+                                          <circle
+                                            cx="105"
+                                            cy="15"
+                                            r={15}
+                                          >
+                                            <animate
+                                              attributeName="r"
+                                              begin="0s"
+                                              calcMode="linear"
+                                              dur="0.8s"
+                                              from="15"
+                                              repeatCount="indefinite"
+                                              to="15"
+                                              values="15;9;15"
+                                            />
+                                            <animate
+                                              attributeName="fill-opacity"
+                                              begin="0s"
+                                              calcMode="linear"
+                                              dur="0.8s"
+                                              from="1"
+                                              repeatCount="indefinite"
+                                              to="1"
+                                              values="1;.5;1"
+                                            />
+                                          </circle>
+                                        </svg>
+                                      </div>
+                                    </styled.div>
+                                  </$6990f5257133e9b3$export$4bf83b24a11cff0b>
+                                </MiniPreloader>
+                              </div>
+                            </div>
+                          </div>
+                        </InfiniteScroll>
+                      </InfiniteLoader>
+                    </div>
+                  </CardGroup>
+                </div>
+              </div>
+            </div>
+            <Connect(Modal)
+              isFetching={false}
+              logout={[Function]}
+              showTime={true}
+              submitError={null}
+              submitting={false}
+              type="meals"
+              updateCurrentDate={null}
+              uploading={false}
+              user={
+                {
+                  "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+                  "businessName": "Food Circle",
+                  "email": "food@circle.com",
+                  "firstname": "Dave",
+                  "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                  "lastname": "Smith",
+                  "phoneNo": "08166557788",
+                  "role": "caterer",
+                }
+              }
+            >
+              <Modal
+                isFetching={false}
+                logout={[Function]}
+                open={false}
+                showTime={true}
+                submitError={null}
+                submitting={false}
+                toggleModal={[Function]}
+                type={null}
+                updateCurrentDate={null}
+                uploading={false}
+                user={
+                  {
+                    "address": "$, Herbert Macaulay Way, Yaba, Lagos",
+                    "businessName": "Food Circle",
+                    "email": "food@circle.com",
+                    "firstname": "Dave",
+                    "id": "a09a5570-a3b2-4e21-94c3-5cf483dbd1ac",
+                    "lastname": "Smith",
+                    "phoneNo": "08166557788",
+                    "role": "caterer",
+                  }
+                }
+              />
+            </Connect(Modal)>
+            <Footer>
+              <div
+                className="footer"
+              >
+                <p>
+                  © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+                </p>
+              </div>
+            </Footer>
+          </div>
+        </View>
+      </Connect(View)>
+    </Meals>
+  </Connect(Meals)>
+</Provider>
+`;
+
+exports[`Meals should render Meal component correctly when there are available caterer 1`] = `
+<Fragment>
+  <Connect(View)
+    showTime={true}
+    submitError={null}
+    submitting={false}
+    type="meals"
+  >
+    <div
+      className="content-wrapper meals caterer-meals"
+    >
+      <div
+        className="top"
+      >
+        <button
+          className="btn btn-pri"
+          id="add-meal-btn"
+          onClick={[Function]}
+          type="button"
+        >
+          Add a New Meal
+        </button>
+      </div>
+      <CardGroup
+        items={
+          [
+            <MealCard
+              inBasket={false}
+              meal={
+                {
+                  "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+                  "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+                  "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+                  "price": "1500.00",
+                  "title": "Jollof Rice, Beef and Plantain",
+                  "vegetarian": false,
+                }
+              }
+              orderMeal={null}
+              toggleModal={[Function]}
+              type="caterer"
+            />,
+            <MealCard
+              inBasket={false}
+              meal={
+                {
+                  "description": "Sharwama contains no animal products, perfect for dieters",
+                  "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+                  "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+                  "price": "1200.00",
+                  "title": "Vegetable Sharwama and Guava Smoothie",
+                  "vegetarian": true,
+                }
+              }
+              orderMeal={null}
+              toggleModal={[Function]}
+              type="caterer"
+            />,
+          ]
+        }
+        loadMore={[Function]}
+        metadata={
+          {
+            "next": "next",
+            "pages": 2,
+            "prev": "prev",
+            "total": 5,
+          }
+        }
+      />
+    </div>
+  </Connect(View)>
+</Fragment>
+`;
+
+exports[`Meals should show "You Do Not Have Any Meals Yet" message when caterer does not have any caterer available 1`] = `
+<Fragment>
+  <Connect(View)
+    showTime={true}
+    submitError={null}
+    submitting={false}
+    type="meals"
+  >
+    <div
+      className="content-wrapper meals caterer-meals"
+    >
+      <div
+        className="top"
+      >
+        <button
+          className="btn btn-pri"
+          id="add-meal-btn"
+          onClick={[Function]}
+          type="button"
+        >
+          Add a New Meal
+        </button>
+      </div>
+      <p
+        className="text-center info"
+      >
+        You Do Not Have Any Meals Yet
+      </p>
+    </div>
+  </Connect(View)>
+</Fragment>
+`;

@@ -21,7 +21,7 @@ module.exports = {
 
   'Caterer should be able to view a dashboard and see menu-links': (client) => {
     client
-      .elements('css selector', '.sidenav-body .menu-item', (elements) => {
+      .elements('css selector', '.sidenav-body .caterer-item', (elements) => {
         client.elementIdText(elements.value[0].ELEMENT, (res) => {
           client.assert.equal(res.value, 'Dashboard');
         });
@@ -40,23 +40,23 @@ module.exports = {
   },
 
   'Caterer should be able to view a dashboard and see the order summary cards for the current day': (client) => {
-    client
-      .assert.visible('.card.total-sum')
+    client.assert
+      .visible('.card.total-sum')
       .assert.containsText('.card.total-sum .count', '4')
-      .assert.containsText('.card.total-sum div:not(.count)', 'Today\'s Orders')
+      .assert.containsText('.card.total-sum div:not(.count)', "Today's Orders")
       .assert.visible('.card.pending')
       .assert.containsText('.card.pending .count', '3')
       .assert.containsText('.card.pending div:not(.count)', 'Pending Orders')
       .assert.visible('.card.total-cash')
       .assert.containsText('.card.total-cash .count', '4000')
-      .assert.containsText('.card.total-cash div:not(.count)', 'Today\'s Revenue')
+      .assert.containsText('.card.total-cash div:not(.count)', "Today's Revenue")
       .pause(1000)
       .end();
   },
 
   'Caterer should be able to view a dashboard and see the order summary table for the current day': (client) => {
-    client
-      .assert.visible('table')
+    client.assert
+      .visible('table')
       .assert.containsText('button.warning', 'Deliver')
       .elements('css selector', 'tbody tr td', (elements) => {
         client.elementIdText(elements.value[0].ELEMENT, (res) => {

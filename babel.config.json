@@ -11,19 +11,33 @@
     "@babel/preset-react"
   ],
   "plugins": [
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-proposal-export-namespace-from",
-    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-object-rest-spread",
+    "@babel/plugin-transform-export-namespace-from",
+    "@babel/plugin-transform-class-properties",
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-proposal-throw-expressions",
     "@babel/plugin-transform-runtime",
     "react-hot-loader/babel",
-    "add-module-exports",
     [
       "module-resolver",
       {
         "root": ["./"],
-        "alias": {}
+        "alias": {
+          "public": "./public",
+          "src": "./src",
+          "features": "./src/features",
+          "actions": "./src/actions",
+          "reducers": "./src/reducers",
+          "store": "./src/store",
+          "utils": "./src/utils",
+          "styles": "./src/styles",
+          "assets": "./src/assets",
+          "config": "./src/config",
+          "constants": "./src/constants",
+          "services": "./src/services",
+          "hooks": "./src/hooks",
+          "hoc": "./src/hoc"
+        }
       }
     ]
   ],
