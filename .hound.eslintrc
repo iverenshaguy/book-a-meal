@@ -20,7 +20,7 @@
     "render": true,
     "toJson": true,
     "rrcMock": true,
-    "mocksdk": true
+    "mockSdk": true
   },
   "rules": {
     "one-var": 0,

@@ -1,12 +1,12 @@
 # Files
 .DS_Store
-.vscode
+.vscode/
 .gitattributes
 .nyc_output
 .env
 .vs
 .selenium
-.idea
+.idea/
 
 # Folders
 node_modules

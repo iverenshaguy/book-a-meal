@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,600i&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap");
-@import './_variables.scss';
-@import './modules/buttons.scss';
-@import './modules/cards.scss';
-@import './modules/form_elements.scss';
-@import './modules/username_circle.scss';
-@import './modules/breadcrumbs.scss';
+@import 'public/scss/_variables.scss';
+@import 'public/scss/modules/buttons.scss';
+@import 'public/scss/modules/cards.scss';
+@import 'public/scss/modules/form_elements.scss';
+@import 'public/scss/modules/username_circle.scss';
+@import 'public/scss/modules/breadcrumbs.scss';
 
 html {
   margin: 0;

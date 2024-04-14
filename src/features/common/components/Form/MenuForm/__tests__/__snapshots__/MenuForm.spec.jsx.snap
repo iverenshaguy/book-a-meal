@@ -1,0 +1,1283 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuForm should render the MenuForm correctly 1`] = `
+<Fragment>
+  <div
+    className="menu-date"
+  >
+    <h3>
+      Saturday, 16th June 2018
+      <span>
+         ▾
+      </span>
+    </h3>
+    <DatePicker
+      handleSelectDate={[Function]}
+      screenSize={null}
+    />
+  </div>
+  <div
+    className="meal-options-list"
+  >
+    <SearchForm
+      fetchItems={
+        [MockFunction] {
+          "calls": [
+            [],
+          ],
+          "results": [
+            {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      type="caterer"
+    />
+    <InfiniteLoader
+      height={100}
+      items={
+        [
+          <div
+            className="form-input-checkbox"
+          >
+            <input
+              checked={true}
+              id="81211c24-51c0-46ec-b1e0-18db55880958"
+              name="81211c24-51c0-46ec-b1e0-18db55880958"
+              onChange={[Function]}
+              type="checkbox"
+            />
+              
+            <label
+              htmlFor="checkbox"
+            >
+              Jollof Rice, Beef and Plantain
+            </label>
+          </div>,
+          <div
+            className="form-input-checkbox"
+          >
+            <input
+              checked={false}
+              id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+              name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+              onChange={[Function]}
+              type="checkbox"
+            />
+              
+            <label
+              htmlFor="checkbox"
+            >
+              Vegetable Sharwama and Guava Smoothie
+            </label>
+          </div>,
+        ]
+      }
+      loadMore={[Function]}
+      metadata={
+        {
+          "next": "next",
+          "pages": 2,
+          "prev": "prev",
+          "total": 5,
+        }
+      }
+    />
+  </div>
+  <button
+    className="btn btn-pri btn-block"
+    onClick={[Function]}
+    type="button"
+  >
+    SAVE MEAL OPTIONS
+  </button>
+</Fragment>
+`;
+
+exports[`MenuForm should render the MenuForm correctly when fetching 1`] = `
+<Fragment>
+  <div
+    className="menu-date"
+  >
+    <h3>
+      Saturday, 16th June 2018
+      <span>
+         ▾
+      </span>
+    </h3>
+    <DatePicker
+      handleSelectDate={[Function]}
+      screenSize={null}
+    />
+  </div>
+  <div
+    className="meal-options-list"
+  >
+    <SearchForm
+      fetchItems={
+        [MockFunction] {
+          "calls": [
+            [],
+            [],
+          ],
+          "results": [
+            {
+              "type": "return",
+              "value": undefined,
+            },
+            {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      type="caterer"
+    />
+    <div
+      className="text-center"
+    >
+      <MiniPreloader />
+    </div>
+  </div>
+</Fragment>
+`;
+
+exports[`MenuForm should render the MenuForm correctly when submitting 1`] = `
+<Fragment>
+  <div
+    className="menu-date"
+  >
+    <h3>
+      Saturday, 16th June 2018
+      <span>
+         ▾
+      </span>
+    </h3>
+    <DatePicker
+      handleSelectDate={[Function]}
+      screenSize={null}
+    />
+  </div>
+  <div
+    className="meal-options-list"
+  >
+    <SearchForm
+      fetchItems={
+        [MockFunction] {
+          "calls": [
+            [],
+            [],
+            [],
+          ],
+          "results": [
+            {
+              "type": "return",
+              "value": undefined,
+            },
+            {
+              "type": "return",
+              "value": undefined,
+            },
+            {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      type="caterer"
+    />
+    <div
+      className="text-center"
+    >
+      <MiniPreloader />
+    </div>
+  </div>
+</Fragment>
+`;
+
+exports[`MenuForm should render the MenuForm correctly when there are no caterer 1`] = `
+<Fragment>
+  <div
+    className="menu-date"
+  >
+    <h3>
+      Saturday, 16th June 2018
+      <span>
+         ▾
+      </span>
+    </h3>
+    <DatePicker
+      handleSelectDate={[Function]}
+      screenSize={null}
+    />
+  </div>
+  <div
+    className="meal-options-list"
+  >
+    <SearchForm
+      fetchItems={
+        [MockFunction] {
+          "calls": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+          ],
+          "results": [
+            {
+              "type": "return",
+              "value": undefined,
+            },
+            {
+              "type": "return",
+              "value": undefined,
+            },
+            {
+              "type": "return",
+              "value": undefined,
+            },
+            {
+              "type": "return",
+              "value": undefined,
+            },
+            {
+              "type": "return",
+              "value": undefined,
+            },
+            {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      type="caterer"
+    />
+    <p
+      className="text-center info"
+    >
+      No Meals Found
+    </p>
+  </div>
+</Fragment>
+`;
+
+exports[`MenuForm should render the MenuForm correctly when there is a date error 1`] = `
+<Fragment>
+  <p
+    className="text-center danger"
+  >
+    Error
+  </p>
+  <div
+    className="menu-date"
+  >
+    <h3>
+      Saturday, 16th June 2018
+      <span>
+         ▾
+      </span>
+    </h3>
+    <DatePicker
+      handleSelectDate={[Function]}
+      screenSize={null}
+    />
+  </div>
+  <div
+    className="meal-options-list"
+  >
+    <SearchForm
+      fetchItems={
+        [MockFunction] {
+          "calls": [
+            [],
+            [],
+            [],
+            [],
+            [],
+          ],
+          "results": [
+            {
+              "type": "return",
+              "value": undefined,
+            },
+            {
+              "type": "return",
+              "value": undefined,
+            },
+            {
+              "type": "return",
+              "value": undefined,
+            },
+            {
+              "type": "return",
+              "value": undefined,
+            },
+            {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      type="caterer"
+    />
+    <InfiniteLoader
+      height={100}
+      items={
+        [
+          <div
+            className="form-input-checkbox"
+          >
+            <input
+              checked={true}
+              id="81211c24-51c0-46ec-b1e0-18db55880958"
+              name="81211c24-51c0-46ec-b1e0-18db55880958"
+              onChange={[Function]}
+              type="checkbox"
+            />
+              
+            <label
+              htmlFor="checkbox"
+            >
+              Jollof Rice, Beef and Plantain
+            </label>
+          </div>,
+          <div
+            className="form-input-checkbox"
+          >
+            <input
+              checked={false}
+              id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+              name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+              onChange={[Function]}
+              type="checkbox"
+            />
+              
+            <label
+              htmlFor="checkbox"
+            >
+              Vegetable Sharwama and Guava Smoothie
+            </label>
+          </div>,
+        ]
+      }
+      loadMore={[Function]}
+      metadata={
+        {
+          "next": "next",
+          "pages": 2,
+          "prev": "prev",
+          "total": 5,
+        }
+      }
+    />
+  </div>
+  <button
+    className="btn btn-pri btn-block"
+    onClick={[Function]}
+    type="button"
+  >
+    SAVE MEAL OPTIONS
+  </button>
+</Fragment>
+`;
+
+exports[`MenuForm should render the MenuForm correctly when there is a submit error 1`] = `
+<Fragment>
+  <p
+    className="text-center danger"
+  >
+    Error
+  </p>
+  <div
+    className="menu-date"
+  >
+    <h3>
+      Saturday, 16th June 2018
+      <span>
+         ▾
+      </span>
+    </h3>
+    <DatePicker
+      handleSelectDate={[Function]}
+      screenSize={null}
+    />
+  </div>
+  <div
+    className="meal-options-list"
+  >
+    <SearchForm
+      fetchItems={
+        [MockFunction] {
+          "calls": [
+            [],
+            [],
+            [],
+            [],
+          ],
+          "results": [
+            {
+              "type": "return",
+              "value": undefined,
+            },
+            {
+              "type": "return",
+              "value": undefined,
+            },
+            {
+              "type": "return",
+              "value": undefined,
+            },
+            {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      type="caterer"
+    />
+    <InfiniteLoader
+      height={100}
+      items={
+        [
+          <div
+            className="form-input-checkbox"
+          >
+            <input
+              checked={true}
+              id="81211c24-51c0-46ec-b1e0-18db55880958"
+              name="81211c24-51c0-46ec-b1e0-18db55880958"
+              onChange={[Function]}
+              type="checkbox"
+            />
+              
+            <label
+              htmlFor="checkbox"
+            >
+              Jollof Rice, Beef and Plantain
+            </label>
+          </div>,
+          <div
+            className="form-input-checkbox"
+          >
+            <input
+              checked={false}
+              id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+              name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+              onChange={[Function]}
+              type="checkbox"
+            />
+              
+            <label
+              htmlFor="checkbox"
+            >
+              Vegetable Sharwama and Guava Smoothie
+            </label>
+          </div>,
+        ]
+      }
+      loadMore={[Function]}
+      metadata={
+        {
+          "next": "next",
+          "pages": 2,
+          "prev": "prev",
+          "total": 5,
+        }
+      }
+    />
+  </div>
+  <button
+    className="btn btn-pri btn-block"
+    onClick={[Function]}
+    type="button"
+  >
+    SAVE MEAL OPTIONS
+  </button>
+</Fragment>
+`;
+
+exports[`MenuForm should render the connected MenuForm component correctly 1`] = `
+<Provider
+  store={
+    {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(MenuForm)
+    addMenu={[MockFunction]}
+    clearMenuError={
+      [MockFunction] {
+        "calls": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+        ],
+        "results": [
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    editMenu={[MockFunction]}
+    fetchMeals={
+      [MockFunction] {
+        "calls": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+        ],
+        "results": [
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    fetchMenu={
+      [MockFunction] {
+        "calls": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [
+            "2018-04-27",
+          ],
+          [],
+          [
+            "1970-01-01",
+          ],
+          [],
+          [],
+          [],
+        ],
+        "results": [
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    isFetching={false}
+    meals={
+      [
+        {
+          "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+          "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+          "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+          "price": "1500.00",
+          "title": "Jollof Rice, Beef and Plantain",
+          "vegetarian": false,
+        },
+        {
+          "description": "Sharwama contains no animal products, perfect for dieters",
+          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+          "price": "1200.00",
+          "title": "Vegetable Sharwama and Guava Smoothie",
+          "vegetarian": true,
+        },
+      ]
+    }
+    mealsMetadata={
+      {
+        "next": "next",
+        "pages": 2,
+        "prev": "prev",
+        "total": 5,
+      }
+    }
+    menu={
+      {
+        "date": "2018-06-16",
+        "id": "1234",
+        "meals": [
+          {
+            "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+            "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+            "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+            "price": "1500.00",
+            "title": "Jollof Rice, Beef and Plantain",
+            "vegetarian": false,
+          },
+        ],
+      }
+    }
+    menuMetadata={
+      {
+        "next": "next",
+        "pages": 2,
+        "prev": "prev",
+        "total": 5,
+      }
+    }
+    submitError={null}
+    submitting={false}
+  >
+    <MenuForm
+      addMenu={[Function]}
+      clearMenuError={[Function]}
+      editMenu={[Function]}
+      fetchMeals={[Function]}
+      fetchMenu={[Function]}
+      isFetching={false}
+      meals={[]}
+      mealsMetadata={{}}
+      menu={
+        {
+          "date": "1970-01-01",
+          "id": null,
+          "meals": [],
+        }
+      }
+      menuMetadata={{}}
+      setCurrentDay={[Function]}
+      submitError={null}
+      submitting={false}
+    >
+      <div
+        className="menu-date"
+      >
+        <h3>
+          Thursday, 1st January 1970
+          <span>
+             ▾
+          </span>
+        </h3>
+        <DatePicker
+          handleSelectDate={[Function]}
+          screenSize={null}
+        >
+          <div
+            className="datepicker-div"
+          >
+            <input
+              id="datepicker"
+              onChange={[Function]}
+              type="date"
+            />
+          </div>
+        </DatePicker>
+      </div>
+      <div
+        className="meal-options-list"
+      >
+        <SearchForm
+          fetchItems={[Function]}
+          type="caterer"
+        >
+          <div
+            className="form-input"
+          >
+            <label
+              className="hide"
+              htmlFor="search"
+            >
+              Search For Meals
+            </label>
+            <input
+              className="open menu-search-input"
+              id="search"
+              name="search"
+              onChange={[Function]}
+              placeholder="Search For Meals"
+              type="text"
+              value=""
+            />
+          </div>
+        </SearchForm>
+        <p
+          className="text-center info"
+        >
+          No Meals Found
+        </p>
+      </div>
+    </MenuForm>
+  </Connect(MenuForm)>
+</Provider>
+`;
+
+exports[`MenuForm should render the connected MenuForm component correctly 2`] = `
+<Provider
+  store={
+    {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(MenuForm)
+    addMenu={[MockFunction]}
+    clearMenuError={
+      [MockFunction] {
+        "calls": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+        ],
+        "results": [
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    editMenu={[MockFunction]}
+    fetchMeals={
+      [MockFunction] {
+        "calls": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [
+            {
+              "next": "next",
+              "pages": 2,
+              "prev": "prev",
+              "total": 5,
+            },
+          ],
+          [],
+          [
+            {
+              "next": "next",
+              "pages": 2,
+              "prev": "prev",
+              "total": 5,
+            },
+          ],
+        ],
+        "results": [
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+          {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    fetchMenu={[MockFunction]}
+    isFetching={false}
+    meals={
+      [
+        {
+          "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+          "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+          "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+          "price": "1500.00",
+          "title": "Jollof Rice, Beef and Plantain",
+          "vegetarian": false,
+        },
+        {
+          "description": "Sharwama contains no animal products, perfect for dieters",
+          "id": "36d525d1-efc9-4b75-9999-3e3d8dc64ce3",
+          "imageUrl": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350",
+          "price": "1200.00",
+          "title": "Vegetable Sharwama and Guava Smoothie",
+          "vegetarian": true,
+        },
+      ]
+    }
+    mealsMetadata={
+      {
+        "next": "next",
+        "pages": 2,
+        "prev": "prev",
+        "total": 5,
+      }
+    }
+    menu={
+      {
+        "date": "2018-06-16",
+        "id": "1234",
+        "meals": [
+          {
+            "description": "Jollof Rice, Beef and Plantain. 2 pieces of beef per plate",
+            "id": "81211c24-51c0-46ec-b1e0-18db55880958",
+            "imageUrl": "http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg",
+            "price": "1500.00",
+            "title": "Jollof Rice, Beef and Plantain",
+            "vegetarian": false,
+          },
+        ],
+      }
+    }
+    menuMetadata={{}}
+    submitError={null}
+    submitting={false}
+  >
+    <MenuForm
+      addMenu={[Function]}
+      clearMenuError={[Function]}
+      editMenu={[Function]}
+      fetchMeals={[Function]}
+      fetchMenu={[Function]}
+      isFetching={false}
+      meals={[]}
+      mealsMetadata={{}}
+      menu={
+        {
+          "date": "1970-01-01",
+          "id": null,
+          "meals": [],
+        }
+      }
+      menuMetadata={{}}
+      setCurrentDay={[Function]}
+      submitError={null}
+      submitting={false}
+    >
+      <div
+        className="menu-date"
+      >
+        <h3>
+          Thursday, 1st January 1970
+          <span>
+             ▾
+          </span>
+        </h3>
+        <DatePicker
+          handleSelectDate={[Function]}
+          screenSize={null}
+        >
+          <div
+            className="datepicker-div"
+          >
+            <input
+              id="datepicker"
+              onChange={[Function]}
+              type="date"
+            />
+          </div>
+        </DatePicker>
+      </div>
+      <div
+        className="meal-options-list"
+      >
+        <SearchForm
+          fetchItems={[Function]}
+          type="caterer"
+        >
+          <div
+            className="form-input"
+          >
+            <label
+              className="hide"
+              htmlFor="search"
+            >
+              Search For Meals
+            </label>
+            <input
+              className="open menu-search-input"
+              id="search"
+              name="search"
+              onChange={[Function]}
+              placeholder="Search For Meals"
+              type="text"
+              value=""
+            />
+          </div>
+        </SearchForm>
+        <p
+          className="text-center info"
+        >
+          No Meals Found
+        </p>
+      </div>
+    </MenuForm>
+  </Connect(MenuForm)>
+</Provider>
+`;

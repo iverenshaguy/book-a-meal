@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Preloader should render MiniPreloader component correctly 1`] = `
+<$6990f5257133e9b3$export$4bf83b24a11cff0b
+  ariaLabel="three-dots-loading"
+  color="#4fa94d"
+  height="80"
+  radius="9"
+  visible={true}
+  width="80"
+  wrapperClass="mini-loader"
+  wrapperStyle={{}}
+/>
+`;
+
+exports[`Preloader should render Preloader component correctly 1`] = `
+<div
+  className="main-preloader"
+>
+  <$0d0057da6b99739a$export$8e22e563e5362f75
+    ariaLabel="revolving-dot-loading"
+    height="80"
+    visible={true}
+    width="80"
+    wrapperClass="loader"
+    wrapperStyle={{}}
+  />
+</div>
+`;

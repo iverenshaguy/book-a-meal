@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link should render Link component correctly 1`] = `
+<button
+  className="link-btn null"
+  data-tooltip-content={null}
+  data-tooltip-id={null}
+  id={null}
+  onClick={[MockFunction]}
+  type="button"
+>
+  Click
+</button>
+`;
