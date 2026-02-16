@@ -17,7 +17,7 @@ module.exports = {
       .click('button')
       .pause(1500)
       .url('http://localhost:8000/menu')
-      .waitForElementVisible('.card-group.meals-wrapper');
+      .waitForElementVisible('.card-group.caterer-wrapper');
   },
 
   'Caterer should be able to see available meal options on the menu for a particular day': (client) => {
@@ -26,7 +26,7 @@ module.exports = {
       .pause(3000)
       .elements('css selector', 'div.meal-card', (elements) => {
         client.assert.equal(elements.value.length, 3);
-        client.assert.containsText('.menu-card-title p', 'Jollof Spaghetti, Plantain and Turkey');
+        client.assert.containsText('.caterer-card-title p', 'Jollof Spaghetti, Plantain and Turkey');
       })
       .pause(1000)
       .end();
@@ -36,7 +36,7 @@ module.exports = {
     client
       .elements('css selector', 'div.meal-card', (elements) => {
         client.assert.equal(elements.value.length, 4);
-        client.assert.containsText('.menu-card-title p', 'Jollof Rice, Beef and Plantain');
+        client.assert.containsText('.caterer-card-title p', 'Jollof Rice, Beef and Plantain');
       })
       .pause(1000)
       .end();
@@ -44,7 +44,7 @@ module.exports = {
 
   'Caterer should be able to search the available meal options for a meal when setting a menu': (client) => {
     client
-      .click('button#menu-modal-btn')
+      .click('button#caterer-modal-btn')
       .waitForElementVisible('.modal.show')
       .setValue('input[name=search]', 'sharwama')
       .pause(1000)
@@ -62,7 +62,7 @@ module.exports = {
 
   'Caterer should be able to see a message when no meal options were found when setting a menu': (client) => {
     client
-      .click('button#menu-modal-btn')
+      .click('button#caterer-modal-btn')
       .waitForElementVisible('.modal.show')
       .setValue('input[name=search]', 'asdfghjk')
       .pause(1000)
@@ -73,7 +73,7 @@ module.exports = {
 
   'Caterer should be able to set the menu for a future day': (client) => {
     client
-      .click('button#menu-modal-btn')
+      .click('button#caterer-modal-btn')
       .waitForElementVisible('.modal.show')
       .pause(1000)
       .setValue('.modal input[type=date]', `27-4-${futureYear}`)
@@ -84,7 +84,7 @@ module.exports = {
       .pause(500)
       .click('.modal button.btn-block')
       .pause(1000)
-      .elements('css selector', '.meal-card .menu-card-title p', (elements) => {
+      .elements('css selector', '.meal-card .caterer-card-title p', (elements) => {
         client.assert.equal(elements.value.length, 2);
         client.elementIdText(elements.value[0].ELEMENT, (res) => {
           client.assert.equal(res.value, 'Jollof Rice, Beef and Plantain');
@@ -99,7 +99,7 @@ module.exports = {
 
   'Caterer should be able to set the menu for the day': (client) => {
     client
-      .click('button#menu-modal-btn')
+      .click('button#caterer-modal-btn')
       .waitForElementVisible('.modal.show')
       .pause(1000)
       .click('.modal input[name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"]')
@@ -108,7 +108,7 @@ module.exports = {
       .pause(500)
       .click('.modal button.btn-block')
       .pause(1000)
-      .elements('css selector', '.meal-card .menu-card-title p', (elements) => {
+      .elements('css selector', '.meal-card .caterer-card-title p', (elements) => {
         client.assert.equal(elements.value.length, 2);
         client.elementIdText(elements.value[0].ELEMENT, (res) => {
           client.assert.equal(res.value, 'Jollof Rice, Beef and Plantain');
@@ -123,7 +123,7 @@ module.exports = {
 
   'Caterer should be able to modify the menu for the day': (client) => {
     client
-      .click('button#menu-modal-btn')
+      .click('button#caterer-modal-btn')
       .waitForElementVisible('.modal.show')
       .pause(1000)
       .click('.modal input[name="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"]')
@@ -136,7 +136,7 @@ module.exports = {
       .pause(500)
       .click('.modal button.btn-block')
       .pause(1000)
-      .elements('css selector', '.meal-card .menu-card-title p', (elements) => {
+      .elements('css selector', '.meal-card .caterer-card-title p', (elements) => {
         client.assert.equal(elements.value.length, 6);
         client.elementIdText(elements.value[0].ELEMENT, (res) => {
           client.assert.equal(res.value, 'Jollof Rice, Beef and Plantain');
@@ -163,7 +163,7 @@ module.exports = {
 
   'Caterer should not be able to set menu for a past date': (client) => {
     client
-      .click('button#menu-modal-btn')
+      .click('button#caterer-modal-btn')
       .waitForElementVisible('.modal.show')
       .pause(1000)
       .setValue('.modal input[type=date]', '27-4-2017')

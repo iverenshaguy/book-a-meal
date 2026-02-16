@@ -15,7 +15,7 @@ module.exports = {
 
   'Customer should be able to see available meal options on the menu for the day': (client) => {
     client
-      .elements('css selector', '.meal-card .menu-card-title p', (elements) => {
+      .elements('css selector', '.meal-card .caterer-card-title p', (elements) => {
         client.assert.equal(elements.value.length, 4);
         client.elementIdText(elements.value[0].ELEMENT, (res) => {
           client.assert.equal(res.value, 'Jollof Rice, Beef and Plantain');
@@ -46,7 +46,7 @@ module.exports = {
       .pause(1000)
       .elements('css selector', 'div.meal-card', (elements) => {
         client.assert.equal(elements.value.length, 1);
-        client.assert.containsText('.menu-card-title p', 'Vegetable Sharwama and Guava Smoothie');
+        client.assert.containsText('.caterer-card-title p', 'Vegetable Sharwama and Guava Smoothie');
       })
       .pause(1000)
       .end();
@@ -85,5 +85,5 @@ module.exports = {
       .assert.visible('input[name=deliveryAddress]')
       .pause(1000)
       .end();
-  }
+  },
 };
