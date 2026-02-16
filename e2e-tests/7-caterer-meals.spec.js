@@ -19,12 +19,12 @@ module.exports = {
       .assert.containsText('div.sidenav-title h3 a[href="/"]', 'BOOK-A-MEAL')
       .assert.containsText('div.username-circle p', 'F')
       .url('http://localhost:8000/meals')
-      .waitForElementVisible('.card-group.meals-wrapper');
+      .waitForElementVisible('.card-group.caterer-wrapper');
   },
 
   'Caterer should be able to see all his meal options on the platform': (client) => {
     client
-      .elements('css selector', '.meal-card .menu-card-title p', (elements) => {
+      .elements('css selector', '.meal-card .caterer-card-title p', (elements) => {
         client.assert.equal(elements.value.length, 8);
         client.elementIdText(elements.value[0].ELEMENT, (res) => {
           client.assert.equal(res.value, 'Jollof Rice, Beef and Plantain');
@@ -68,7 +68,7 @@ module.exports = {
       .click('button.btn-block')
       .pause(2000)
       .assert.elementNotPresent('.modal.show')
-      .elements('css selector', '.meal-card .menu-card-title p', (elements) => {
+      .elements('css selector', '.meal-card .caterer-card-title p', (elements) => {
         client.elementIdText(elements.value[0].ELEMENT, (res) => {
           client.assert.equal(res.value, 'Spaghetti');
         });
@@ -89,7 +89,7 @@ module.exports = {
       .click('button.btn-block')
       .pause(1000)
       .assert.elementNotPresent('.modal.show')
-      .elements('css selector', '.meal-card .menu-card-title p', (elements) => {
+      .elements('css selector', '.meal-card .caterer-card-title p', (elements) => {
         client.elementIdText(elements.value[0].ELEMENT, (res) => {
           client.assert.equal(res.value, 'Asparagus Soup');
         });
@@ -109,7 +109,10 @@ module.exports = {
       .click('.top button')
       .pause(1000)
       .waitForElementVisible('.modal.show')
-      .setValue('input[name=title]', 'fghjklytuiodfghjkldfghjklkasdfghjkl asdfghjkl rdtfyghjklertyui sdfghjkfghjkfdghjkgfhj fdghjkghjkghjkfghjk')
+      .setValue(
+        'input[name=title]',
+        'fghjklytuiodfghjkldfghjklkasdfghjkl asdfghjkl rdtfyghjklertyui sdfghjkfghjkfdghjkgfhj fdghjkghjkghjkfghjk'
+      )
       .click('input[name=price]')
       .assert.containsText('input[name=title] + div.invalid-feedback', 'Must be 50 characters or less!')
       .setValue('input[name=price]', '0')
@@ -121,11 +124,14 @@ module.exports = {
       .pause(1000)
       .setValue('input[name=description]', '2345;.,')
       .click('input[name=price]')
-      .assert.containsText('input[name=description] + div.invalid-feedback', 'Only letters, numbers, spaces and the characters (,.\'-) allowed!')
+      .assert.containsText(
+        'input[name=description] + div.invalid-feedback',
+        "Only letters, numbers, spaces and the characters (,.'-) allowed!"
+      )
       .click('button#modal-close-icon')
       .pause(1000)
       .assert.elementNotPresent('.modal.show')
-      .elements('css selector', '.meal-card .menu-card-title p', (elements) => {
+      .elements('css selector', '.meal-card .caterer-card-title p', (elements) => {
         client.elementIdText(elements.value[0].ELEMENT, (res) => {
           client.assert.equal(res.value, 'Asparagus Soup');
         });
@@ -163,7 +169,7 @@ module.exports = {
   'Caterer should be able to modify a meal option': (client) => {
     client
 
-      .elements('css selector', '.meal-card .menu-card-title p', (elements) => {
+      .elements('css selector', '.meal-card .caterer-card-title p', (elements) => {
         client.elementIdText(elements.value[0].ELEMENT, (res) => {
           client.assert.equal(res.value, 'Asparagus Soup');
         });
@@ -197,7 +203,7 @@ module.exports = {
       .click('button.btn-block')
       .pause(1000)
       .assert.elementNotPresent('.modal.show')
-      .elements('css selector', '.meal-card .menu-card-title p', (elements) => {
+      .elements('css selector', '.meal-card .caterer-card-title p', (elements) => {
         client.elementIdText(elements.value[0].ELEMENT, (res) => {
           client.assert.equal(res.value, 'Asparagus Soup with Fish');
         });
@@ -221,7 +227,7 @@ module.exports = {
 
   'Caterer should not be able to modify a meal option with meal title that already exists': (client) => {
     client
-      .elements('css selector', '.meal-card .menu-card-title p', (elements) => {
+      .elements('css selector', '.meal-card .caterer-card-title p', (elements) => {
         client.elementIdText(elements.value[0].ELEMENT, (res) => {
           client.assert.equal(res.value, 'Asparagus Soup with Fish');
         });
@@ -242,7 +248,7 @@ module.exports = {
 
   'Caterer should be able to delete an existing meal option': (client) => {
     client
-      .elements('css selector', '.meal-card .menu-card-title p', (elements) => {
+      .elements('css selector', '.meal-card .caterer-card-title p', (elements) => {
         client.assert.equal(elements.value.length, 10);
         client.elementIdText(elements.value[0].ELEMENT, (res) => {
           client.assert.equal(res.value, 'Asparagus Soup with Fish');
@@ -254,7 +260,7 @@ module.exports = {
       .waitForElementVisible('.modal.show', 10000)
       .click('button#confirm-delete-yes')
       .pause(1000)
-      .elements('css selector', '.meal-card .menu-card-title p', (elements) => {
+      .elements('css selector', '.meal-card .caterer-card-title p', (elements) => {
         client.assert.equal(elements.value.length, 9);
         client.elementIdText(elements.value[0].ELEMENT, (res) => {
           client.assert.equal(res.value, 'Spaghetti');

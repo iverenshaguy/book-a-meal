@@ -1,0 +1,26 @@
+{
+  "printWidth": 120,
+  "semi": true,
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "trailingComma": "es5",
+  "singleQuote": true,
+  "useTabs": false,
+  "tabWidth": 2,
+  "importOrder": [
+    "^@emotion/react",
+    "^react",
+    "<THIRD_PARTY_MODULES>",
+    "^js/(.*)$",
+    "^pages/(.*)$",
+    "^@coursera/(.*)$",
+    "^bundles/(.*)$",
+    "^images/(.*)$",
+    "^i18n!nls/(.*)$",
+    "^css!(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderParserPlugins": ["typescript", "jsx", "classProperties", "[\"decorators\", { \"decoratorsBeforeExport\": true }]"]
+}

@@ -1,0 +1,320 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomerOrderDetails should render CustomerOrderDetails correctly when not fetching 1`] = `
+<div>
+  <div
+    class="user"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar white-navbar"
+      >
+        <div
+          class="page-title"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="navlinks"
+        >
+          <h3>
+            Welcome, 
+            Emiola
+          </h3>
+          <a
+            href="/"
+          >
+            Menu
+          </a>
+          <a
+            href="/orders"
+          >
+            Orders
+          </a>
+          <a
+            href="/"
+          >
+            Logout
+          </a>
+          <div
+            class="user-info mobile-only"
+          >
+            <div
+              class="dropdown"
+            >
+              <button
+                class="link-btn link"
+                id="dropdown-toggler"
+                type="button"
+              >
+                <div
+                  class="user-dropdown"
+                >
+                  <div
+                    class="username-circle circle-click"
+                  >
+                    <p
+                      class="circle-click"
+                    >
+                      E
+                    </p>
+                  </div>
+                  <span>
+                    ▾
+                  </span>
+                </div>
+              </button>
+              <div
+                class="dropdown-content"
+                id="dropdown-content"
+              >
+                <a
+                  href="/"
+                >
+                  Menu
+                </a>
+                <a
+                  href="/orders"
+                >
+                  Orders
+                </a>
+                <a
+                  href="/"
+                >
+                  Logout
+                </a>
+              </div>
+            </div>
+             
+            <p>
+              Emiola
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="main-wrapper"
+      id="has-modal"
+    >
+      <a
+        href="/orders"
+      >
+        ← Back To Orders
+      </a>
+      <div
+        class="order-confirmation order-details"
+      >
+        <h3
+          class="text-center"
+        >
+          Order #
+          fb097bde-5959-45ff-8e21-51184fa70c25
+        </h3>
+        <p
+          class="order-date text-center"
+        >
+          Thursday, 1st January 1970 12:00 am
+        </p>
+        <hr />
+        <div
+          class="order-summary"
+        >
+          <div>
+            <p>
+              2
+              x
+            </p>
+            <p
+              style="word-wrap: break-word; padding-left: 5px; padding-right: 5px;"
+            >
+              Adalu (Beans and Corn) and Local Fish 
+            </p>
+            <p>
+              ₦
+              4000
+            </p>
+          </div>
+        </div>
+        <div
+          class="order-amount false"
+        >
+          <div>
+            <p>
+              Total
+            </p>
+            <h2>
+              ₦
+              4000
+            </h2>
+          </div>
+        </div>
+        <div
+          class="customer-details"
+        >
+          <p>
+            Order Status:
+            <span
+              class="order-status danger"
+              style="text-transform: capitalize;"
+            >
+               
+              canceled
+            </span>
+          </p>
+          <p>
+            Address Provided:
+            4, Church Street, Yaba
+          </p>
+          <p>
+            Number Provided:
+            080xxxxxxxx
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CustomerOrderDetails should render a message when an order with that orderId doesn't exist 1`] = `
+<div>
+  <div
+    class="user"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar white-navbar"
+      >
+        <div
+          class="page-title"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="navlinks"
+        >
+          <h3>
+            Welcome, 
+            Emiola
+          </h3>
+          <a
+            href="/"
+          >
+            Menu
+          </a>
+          <a
+            href="/orders"
+          >
+            Orders
+          </a>
+          <a
+            href="/"
+          >
+            Logout
+          </a>
+          <div
+            class="user-info mobile-only"
+          >
+            <div
+              class="dropdown"
+            >
+              <button
+                class="link-btn link"
+                id="dropdown-toggler"
+                type="button"
+              >
+                <div
+                  class="user-dropdown"
+                >
+                  <div
+                    class="username-circle circle-click"
+                  >
+                    <p
+                      class="circle-click"
+                    >
+                      E
+                    </p>
+                  </div>
+                  <span>
+                    ▾
+                  </span>
+                </div>
+              </button>
+              <div
+                class="dropdown-content"
+                id="dropdown-content"
+              >
+                <a
+                  href="/"
+                >
+                  Menu
+                </a>
+                <a
+                  href="/orders"
+                >
+                  Orders
+                </a>
+                <a
+                  href="/"
+                >
+                  Logout
+                </a>
+              </div>
+            </div>
+             
+            <p>
+              Emiola
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="main-wrapper"
+      id="has-modal"
+    >
+      <a
+        href="/orders"
+      >
+        ← Back To Orders
+      </a>
+      <p
+        class="text-center info"
+      >
+        This Order Does Not Exist
+      </p>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;

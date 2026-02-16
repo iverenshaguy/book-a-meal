@@ -1,8 +1,10 @@
 import axios from 'axios';
 
-// configure base url
+// Use BASE_API_URL from env when set (so requests go to the API server); otherwise /api for same-origin proxy
+const baseURL = process.env.REACT_APP_BASE_API_URL || process.env.BASE_API_URL || '/api';
+
 const instance = axios.create({
-  baseURL: '/api',
+  baseURL,
 });
 
 // intercept requests and add authorization token

@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render the app component correctly 1`] = `
+<div>
+  <div
+    class="header homepage"
+  >
+    <div
+      class="navbar unauth-navbar"
+    >
+      <div
+        class="page-title"
+      >
+        <h3>
+          <a
+            href="/"
+          >
+            BOOK-A-MEAL
+          </a>
+        </h3>
+      </div>
+      <div
+        class="navlinks"
+      >
+        <a
+          href="/signin"
+        >
+          Log In
+        </a>
+        <a
+          href="/signup"
+        >
+          Sign Up
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="main-wrapper home"
+  >
+    <div
+      class="landing"
+    >
+      <h1>
+        Delicious Meals At Your Fingertips
+      </h1>
+      <a
+        href="/signin"
+      >
+        <button
+          class="btn btn-pri"
+          type="button"
+        >
+          I'M HUNGRY
+        </button>
+      </a>
+    </div>
+  </div>
+  <div
+    class="footer"
+  >
+    <p>
+      © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+    </p>
+  </div>
+  <div
+    aria-live="assertive"
+    class="redux-toastr"
+  >
+    <div>
+      <div
+        class="top-left"
+      />
+      <div
+        class="top-right"
+      />
+      <div
+        class="top-center"
+      />
+      <div
+        class="bottom-left"
+      />
+      <div
+        class="bottom-right"
+      />
+      <div
+        class="bottom-center"
+      />
+    </div>
+  </div>
+</div>
+`;

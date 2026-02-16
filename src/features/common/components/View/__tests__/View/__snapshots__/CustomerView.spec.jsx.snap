@@ -1,0 +1,287 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomerView should render CustomerView component correctly 1`] = `
+<div>
+  <div
+    class="admin user"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar white-navbar"
+      >
+        <div
+          class="page-title"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="navlinks"
+        >
+          <h3>
+            Welcome, 
+            Emiola
+          </h3>
+          <a
+            href="/"
+          >
+            Menu
+          </a>
+          <a
+            href="/orders"
+          >
+            Orders
+          </a>
+          <a
+            href="/"
+          >
+            Logout
+          </a>
+          <div
+            class="user-info mobile-only"
+          >
+            <div
+              class="dropdown"
+            >
+              <button
+                class="link-btn link"
+                id="dropdown-toggler"
+                type="button"
+              >
+                <div
+                  class="user-dropdown"
+                >
+                  <div
+                    class="username-circle circle-click"
+                  >
+                    <p
+                      class="circle-click"
+                    >
+                      E
+                    </p>
+                  </div>
+                  <span>
+                    ▾
+                  </span>
+                </div>
+              </button>
+              <div
+                class="dropdown-content"
+                id="dropdown-content"
+              >
+                <a
+                  href="/"
+                >
+                  Menu
+                </a>
+                <a
+                  href="/orders"
+                >
+                  Orders
+                </a>
+                <a
+                  href="/"
+                >
+                  Logout
+                </a>
+              </div>
+            </div>
+             
+            <p>
+              Emiola
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content-wrapper"
+      id="has-modal"
+    >
+      <p>
+        Hi
+      </p>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CustomerView should render Preloader when fetching page data 1`] = `
+<div>
+  <div
+    class="admin user"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar white-navbar"
+      >
+        <div
+          class="page-title"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="navlinks"
+        >
+          <h3>
+            Welcome, 
+            Emiola
+          </h3>
+          <a
+            href="/"
+          >
+            Menu
+          </a>
+          <a
+            href="/orders"
+          >
+            Orders
+          </a>
+          <a
+            href="/"
+          >
+            Logout
+          </a>
+          <div
+            class="user-info mobile-only"
+          >
+            <div
+              class="dropdown"
+            >
+              <button
+                class="link-btn link"
+                id="dropdown-toggler"
+                type="button"
+              >
+                <div
+                  class="user-dropdown"
+                >
+                  <div
+                    class="username-circle circle-click"
+                  >
+                    <p
+                      class="circle-click"
+                    >
+                      E
+                    </p>
+                  </div>
+                  <span>
+                    ▾
+                  </span>
+                </div>
+              </button>
+              <div
+                class="dropdown-content"
+                id="dropdown-content"
+              >
+                <a
+                  href="/"
+                >
+                  Menu
+                </a>
+                <a
+                  href="/orders"
+                >
+                  Orders
+                </a>
+                <a
+                  href="/"
+                >
+                  Logout
+                </a>
+              </div>
+            </div>
+             
+            <p>
+              Emiola
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content-wrapper"
+      id="has-modal"
+    >
+      <div
+        class="main-preloader"
+      >
+        <div
+          aria-busy="true"
+          aria-label="revolving-dot-loading"
+          class="sc-beySPh gZmPOF loader"
+          data-testid="revolving-dot-loading"
+          role="progressbar"
+        >
+          <svg
+            data-testid="revolving-dot-svg"
+            height="calc(45 * 2.5)"
+            version="1.1"
+            width="calc(45 * 2.5)"
+            x="0px"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0px"
+          >
+            <circle
+              cx="calc(45 * 1.28)"
+              cy="calc(45 * 1.28)"
+              fill="none"
+              r="45"
+              stroke="#4fa94d"
+              stroke-width="5"
+              style="opacity: 0.5;"
+            />
+            <circle
+              cx="calc(45 * 1.28)"
+              cy="calc(45 / 3.5)"
+              fill="#4fa94d"
+              r="calc(45 / 5)"
+              stroke="#4fa94d"
+              stroke-width="3"
+              style="transform-origin: 50% 50%;"
+            >
+              <animatetransform
+                attributeName="transform"
+                dur="2s"
+                from="0"
+                repeatCount="indefinite"
+                to="360"
+                type="rotate"
+              />
+            </circle>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;

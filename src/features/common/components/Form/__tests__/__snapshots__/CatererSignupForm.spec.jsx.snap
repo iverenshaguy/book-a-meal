@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CatererSignupForm should render the Caterer Signup Form correctly 1`] = `
+<div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="businessName"
+    >
+      Business Name
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class=""
+      id="businessName"
+      name="businessName"
+      placeholder=""
+      type="text"
+      value=""
+    />
+     
+  </div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="email"
+    >
+      Email Address
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class=""
+      id="email"
+      name="email"
+      placeholder=""
+      type="email"
+      value=""
+    />
+     
+  </div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="password"
+    >
+      Password
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class=""
+      id="password"
+      name="password"
+      placeholder=""
+      type="password"
+      value=""
+    />
+     
+  </div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="passwordConfirm"
+    >
+      Password Confirm
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class=""
+      id="passwordConfirm"
+      name="passwordConfirm"
+      placeholder=""
+      type="password"
+      value=""
+    />
+     
+  </div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="phoneNo"
+    >
+      Business Phone Number (in the format 080xxxxxxxx)
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class=""
+      id="phoneNo"
+      name="phoneNo"
+      pattern="[0-9]{4}[0-9]{3}[0-9]{4}"
+      placeholder=""
+      type="tel"
+      value=""
+    />
+     
+  </div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="address"
+    >
+      Business Address
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class=""
+      id="address"
+      name="address"
+      placeholder=""
+      type="text-area"
+      value=""
+    />
+     
+  </div>
+</div>
+`;

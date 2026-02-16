@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Customer Orders Order Review should render the OrderReview component correctly 1`] = `
+<div>
+  <div
+    class="user"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar white-navbar"
+      >
+        <div
+          class="page-title"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="navlinks"
+        >
+          <h3>
+            Welcome, 
+            Emiola
+          </h3>
+          <a
+            href="/"
+          >
+            Menu
+          </a>
+          <a
+            href="/orders"
+          >
+            Orders
+          </a>
+          <a
+            href="/"
+          >
+            Logout
+          </a>
+          <div
+            class="user-info mobile-only"
+          >
+            <div
+              class="dropdown"
+            >
+              <button
+                class="link-btn link"
+                id="dropdown-toggler"
+                type="button"
+              >
+                <div
+                  class="user-dropdown"
+                >
+                  <div
+                    class="username-circle circle-click"
+                  >
+                    <p
+                      class="circle-click"
+                    >
+                      E
+                    </p>
+                  </div>
+                  <span>
+                    ▾
+                  </span>
+                </div>
+              </button>
+              <div
+                class="dropdown-content"
+                id="dropdown-content"
+              >
+                <a
+                  href="/"
+                >
+                  Menu
+                </a>
+                <a
+                  href="/orders"
+                >
+                  Orders
+                </a>
+                <a
+                  href="/"
+                >
+                  Logout
+                </a>
+              </div>
+            </div>
+             
+            <p>
+              Emiola
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="main-wrapper"
+      id="has-modal"
+    >
+      <div
+        class="order-confirmation"
+      >
+        <div>
+          <h2>
+            Delivery Details
+          </h2>
+          <hr />
+          <div
+            class="delivery-details"
+          >
+            <p
+              class="text-center"
+              style="margin-bottom: 30px;"
+            >
+              Please fill in or confirm your details below.
+            </p>
+            <div
+              class="form-input"
+            >
+              <label
+                for="deliveryPhoneNo"
+              >
+                Phone Number (in the format 080xxxxxxxx)
+                <span
+                  class="danger"
+                >
+                  *
+                </span>
+              </label>
+              <input
+                class="is-valid"
+                id="deliveryPhoneNo"
+                name="deliveryPhoneNo"
+                pattern="[0-9]{4}[0-9]{3}[0-9]{4}"
+                placeholder=""
+                type="tel"
+                value=""
+              />
+               
+            </div>
+            <div
+              class="form-input"
+            >
+              <label
+                for="deliveryAddress"
+              >
+                Delivery Address
+                <span
+                  class="danger"
+                >
+                  *
+                </span>
+              </label>
+              <input
+                class="is-valid"
+                id="deliveryAddress"
+                name="deliveryAddress"
+                placeholder=""
+                type="textarea"
+                value=""
+              />
+               
+            </div>
+          </div>
+          <div
+            class="control-btns"
+          >
+            <a
+              href="/"
+            >
+              <button
+                class="btn btn-sec"
+                type="button"
+              >
+                Keep Shopping
+              </button>
+            </a>
+            <button
+              class="btn btn-sec"
+              type="submit"
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomerSignupForm should render the Customer Signup Form correctly 1`] = `
+<div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="firstname"
+    >
+      First Name
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class=""
+      id="firstname"
+      name="firstname"
+      placeholder=""
+      type="text"
+      value=""
+    />
+     
+  </div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="lastname"
+    >
+      Last Name
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class=""
+      id="lastname"
+      name="lastname"
+      placeholder=""
+      type="text"
+      value=""
+    />
+     
+  </div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="email"
+    >
+      Email Address
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class=""
+      id="email"
+      name="email"
+      placeholder=""
+      type="email"
+      value=""
+    />
+     
+  </div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="password"
+    >
+      Password
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class=""
+      id="password"
+      name="password"
+      placeholder=""
+      type="password"
+      value=""
+    />
+     
+  </div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="passwordConfirm"
+    >
+      Password Confirm
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class=""
+      id="passwordConfirm"
+      name="passwordConfirm"
+      placeholder=""
+      type="password"
+      value=""
+    />
+     
+  </div>
+</div>
+`;

@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderPill should render Caterer OrderPil correctly 1`] = `
+<div>
+  <div
+    class="order-history-pill admin-order-history-pill"
+  >
+    <a
+      href="/orders/fb097bde-5959-45ff-8e21-51184fa60c25"
+    >
+      <div
+        class="order-history-header"
+      >
+        <h3>
+          #fb097bde-5959-45ff-8e21-51184fa60c25
+        </h3>
+        <h3>
+          06/04/18 12:47
+        </h3>
+      </div>
+      <hr />
+      <div>
+        <p>
+          Emiola Olasanmi
+            -  
+          4, Church Street, Yaba
+            -  
+          080xxxxxxxx
+        </p>
+      </div>
+      <div
+        class="order-history-footer"
+      >
+        <h4
+          style="text-transform: capitalize;"
+        >
+          Status:
+          <span
+            class="success"
+            style="text-transform: capitalize;"
+          >
+             
+            delivered
+          </span>
+        </h4>
+        <h2>
+          ₦
+          1200
+        </h2>
+      </div>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`OrderPill should render Customer OrderOill correctly and add ... for more than one meal 1`] = `
+<div>
+  <div
+    class="order-history-pill admin-order-history-pill"
+  >
+    <a
+      href="/orders/fb097bde-5959-45ff-8e21-51184fa60c25"
+    >
+      <div
+        class="order-history-header"
+      >
+        <h3>
+          #fb097bde-5959-45ff-8e21-51184fa60c25
+        </h3>
+        <h3>
+          06/04/18 12:47
+        </h3>
+      </div>
+      <hr />
+      <div>
+        <p>
+          1x Vegetable Sharwama and Guava Smoothie
+          ...
+        </p>
+      </div>
+      <div
+        class="order-history-footer"
+      >
+        <h4
+          style="text-transform: capitalize;"
+        >
+          Status:
+          <span
+            class="success"
+            style="text-transform: capitalize;"
+          >
+             
+            delivered
+          </span>
+        </h4>
+        <h2>
+          ₦
+          2400
+        </h2>
+      </div>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`OrderPill should render Customer OrderPill correctly 1`] = `
+<div>
+  <div
+    class="order-history-pill admin-order-history-pill"
+  >
+    <a
+      href="/orders/fb097bde-5959-45ff-8e21-51184fa70c25"
+    >
+      <div
+        class="order-history-header"
+      >
+        <h3>
+          #fb097bde-5959-45ff-8e21-51184fa70c25
+        </h3>
+        <h3>
+          06/04/18 12:47
+        </h3>
+      </div>
+      <hr />
+      <div>
+        <p>
+          2x Adalu (Beans and Corn) and Local Fish 
+        </p>
+      </div>
+      <div
+        class="order-history-footer"
+      >
+        <h4
+          style="text-transform: capitalize;"
+        >
+          Status:
+          <span
+            class="danger"
+            style="text-transform: capitalize;"
+          >
+             
+            canceled
+          </span>
+        </h4>
+        <h2>
+          ₦
+          4000
+        </h2>
+      </div>
+    </a>
+  </div>
+</div>
+`;

@@ -4,7 +4,7 @@ const { config } = require('dotenv');
 const gzipStatic = require('connect-gzip-static');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
-require('@babel/polyfill');
+require('core-js/stable');
 
 config({ path: resolve(__dirname, '../.env') });
 

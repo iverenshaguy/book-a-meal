@@ -1,0 +1,603 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard should render Dashboard component correctly 1`] = `
+<div>
+  <div
+    class="admin"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar"
+      >
+        <div
+          class="menu-control d-none-md"
+        >
+          <button
+            class="link-btn d-none-md"
+            type="button"
+          >
+            <img
+              alt="toggler"
+              src="/img/toggler.png"
+            />
+          </button>
+        </div>
+        <div
+          class="page-title d-none-md"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="page-title d-flex-md"
+        >
+          <div
+            class="date"
+          >
+            <h2>
+              Thursday, 1st January 1970
+               
+              <span>
+                00:00
+              </span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content"
+    >
+      <div
+        class="sidenav null"
+        id="sidenav"
+      >
+        <div
+          class="sidenav-content"
+        >
+          <div
+            class="sidenav-header"
+          >
+            <div
+              class="close d-none-md"
+            >
+              <button
+                aria-hidden="true"
+                class="link-btn null"
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <div
+              class="sidenav-title"
+            >
+              <h3
+                class="d-flex-md"
+              >
+                <a
+                  href="/"
+                >
+                  BOOK-A-MEAL
+                </a>
+              </h3>
+              <div
+                class="username-circle"
+              >
+                <p>
+                  F
+                </p>
+              </div>
+              <p>
+                Food Circle
+              </p>
+              <span>
+                <button
+                  class="link-btn null"
+                  type="button"
+                >
+                  Logout
+                </button>
+              </span>
+            </div>
+          </div>
+          <div
+            class="sidenav-body"
+          >
+            <button
+              class="link-btn menu-item active"
+              type="button"
+            >
+              Dashboard
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Meals
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Menu
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Orders
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="content-wrapper dashboard"
+        id="has-modal"
+      >
+        <div
+          class="date d-none-md"
+        >
+          <h2>
+            Thursday, 1st January 1970
+               
+            00:00
+          </h2>
+        </div>
+        <div
+          class="card-group summary"
+        >
+          <div
+            class="card total-sum"
+          >
+            <div
+              class="count"
+            >
+              4
+            </div>
+            <div>
+              Today's Orders
+            </div>
+          </div>
+          <div
+            class="card pending"
+          >
+            <div
+              class="count"
+            >
+              0
+            </div>
+            <div>
+              Pending Orders
+            </div>
+          </div>
+          <div
+            class="card total-cash"
+          >
+            <div
+              class="count"
+            >
+              ₦
+              9200
+            </div>
+            <div>
+              Today's Revenue
+            </div>
+          </div>
+        </div>
+        <div
+          class="order-details"
+        >
+          <div
+            class="table-wrapper"
+          >
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    ID
+                  </th>
+                  <th>
+                    Meal Item(s)
+                  </th>
+                  <th>
+                    Customer
+                  </th>
+                  <th>
+                    Amount
+                  </th>
+                  <th>
+                    Date
+                  </th>
+                  <th>
+                    Status
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    1
+                  </td>
+                  <td>
+                    <p>
+                      -
+                      Vegetable Sharwama and Guava Smoothie
+                    </p>
+                  </td>
+                  <td>
+                    Emiola Olasanmi
+                  </td>
+                  <td>
+                    ₦
+                    1200
+                  </td>
+                  <td>
+                    Friday, 6th April 2018 12.47 03
+                  </td>
+                  <td>
+                    <span>
+                      <p
+                        class="success"
+                      >
+                        Delivered
+                      </p>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    2
+                  </td>
+                  <td>
+                    <p>
+                      -
+                      Semo and Egusi Soup
+                    </p>
+                    <p>
+                      -
+                      Eba and Ogbono Soup
+                    </p>
+                  </td>
+                  <td>
+                    Olisa Emodi
+                  </td>
+                  <td>
+                    ₦
+                    8000
+                  </td>
+                  <td>
+                    Tuesday, 1st May 2018 12.47 03
+                  </td>
+                  <td>
+                    <span>
+                      <p
+                        class="success"
+                      >
+                        Delivered
+                      </p>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    3
+                  </td>
+                  <td>
+                    <p>
+                      -
+                      Vegetable Sharwama and Guava Smoothie
+                    </p>
+                  </td>
+                  <td>
+                    Emiola Olasanmi
+                  </td>
+                  <td>
+                    ₦
+                    1200
+                  </td>
+                  <td>
+                    Tuesday, 29th May 2018 12.47 03
+                  </td>
+                  <td>
+                    <span>
+                      <button
+                        class="link-btn warning"
+                        type="button"
+                      >
+                        Deliver
+                      </button>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    4
+                  </td>
+                  <td>
+                    <p>
+                      -
+                      Vegetable Sharwama and Guava Smoothie
+                    </p>
+                  </td>
+                  <td>
+                    Emiola Olasanmi
+                  </td>
+                  <td>
+                    ₦
+                    1200
+                  </td>
+                  <td>
+                    Sunday, 27th May 2018 12.47 03
+                  </td>
+                  <td>
+                    <span>
+                      <p
+                        class="danger"
+                      >
+                        Canceled
+                      </p>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dashboard should render connected Dashboard component correctly 1`] = `
+<div>
+  <div
+    class="admin"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar"
+      >
+        <div
+          class="menu-control d-none-md"
+        >
+          <button
+            class="link-btn d-none-md"
+            type="button"
+          >
+            <img
+              alt="toggler"
+              src="/img/toggler.png"
+            />
+          </button>
+        </div>
+        <div
+          class="page-title d-none-md"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="page-title d-flex-md"
+        >
+          <div
+            class="date"
+          >
+            <h2>
+              Thursday, 1st January 1970
+               
+              <span>
+                00:00
+              </span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content"
+    >
+      <div
+        class="sidenav null"
+        id="sidenav"
+      >
+        <div
+          class="sidenav-content"
+        >
+          <div
+            class="sidenav-header"
+          >
+            <div
+              class="close d-none-md"
+            >
+              <button
+                aria-hidden="true"
+                class="link-btn null"
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <div
+              class="sidenav-title"
+            >
+              <h3
+                class="d-flex-md"
+              >
+                <a
+                  href="/"
+                >
+                  BOOK-A-MEAL
+                </a>
+              </h3>
+              <div
+                class="username-circle"
+              >
+                <p>
+                  F
+                </p>
+              </div>
+              <p>
+                Food Circle
+              </p>
+              <span>
+                <button
+                  class="link-btn null"
+                  type="button"
+                >
+                  Logout
+                </button>
+              </span>
+            </div>
+          </div>
+          <div
+            class="sidenav-body"
+          >
+            <button
+              class="link-btn menu-item active"
+              type="button"
+            >
+              Dashboard
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Meals
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Menu
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Orders
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="content-wrapper dashboard"
+        id="has-modal"
+      >
+        <div
+          class="date d-none-md"
+        >
+          <h2>
+            Thursday, 1st January 1970
+               
+            00:00
+          </h2>
+        </div>
+        <div
+          class="card-group summary"
+        >
+          <div
+            class="card total-sum"
+          >
+            <div
+              class="count"
+            >
+              0
+            </div>
+            <div>
+              Today's Orders
+            </div>
+          </div>
+          <div
+            class="card pending"
+          >
+            <div
+              class="count"
+            >
+              0
+            </div>
+            <div>
+              Pending Orders
+            </div>
+          </div>
+          <div
+            class="card total-cash"
+          >
+            <div
+              class="count"
+            >
+              ₦
+              0
+            </div>
+            <div>
+              Today's Revenue
+            </div>
+          </div>
+        </div>
+        <div
+          class="order-details"
+        >
+          <div
+            class="table-wrapper"
+          >
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    ID
+                  </th>
+                  <th>
+                    Meal Item(s)
+                  </th>
+                  <th>
+                    Customer
+                  </th>
+                  <th>
+                    Amount
+                  </th>
+                  <th>
+                    Date
+                  </th>
+                  <th>
+                    Status
+                  </th>
+                </tr>
+              </thead>
+              <tbody />
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;

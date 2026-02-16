@@ -1,12 +1,16 @@
 # Files
 .DS_Store
-.vscode
+.vscode/
 .gitattributes
 .nyc_output
 .env
 .vs
 .selenium
-.idea
+.idea/
+
+# Local HTTPS certs (generate with: yarn generate-certs)
+certs/server.key
+certs/server.crt
 
 # Folders
 node_modules

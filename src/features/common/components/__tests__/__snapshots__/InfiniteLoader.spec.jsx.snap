@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfiniteLoader should render InfiniteLoader component correctly 1`] = `
+<div>
+  <div
+    class="infinite-scroll-component__outerdiv"
+  >
+    <div
+      class="infinite-scroll-component "
+      style="height: 10px; overflow: auto;"
+    >
+      <div
+        class="scroller"
+      >
+        <p>
+          Heya!
+        </p>
+        <p>
+          Heya!
+        </p>
+        <p>
+          Heya!
+        </p>
+        <p>
+          Heya!
+        </p>
+        <p>
+          Heya!
+        </p>
+        <p>
+          Heya!
+        </p>
+        <p>
+          Heya!
+        </p>
+        <p>
+          Heya!
+        </p>
+        <p>
+          Heya!
+        </p>
+        <p>
+          Heya!
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

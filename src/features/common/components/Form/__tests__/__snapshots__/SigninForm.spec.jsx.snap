@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SigninForm should render SigninForm correctly 1`] = `
+<div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="email"
+    >
+      Email Address
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class=""
+      id="email"
+      name="email"
+      placeholder=""
+      type="email"
+      value=""
+    />
+     
+  </div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="password"
+    >
+      Password
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class=""
+      id="password"
+      name="password"
+      placeholder=""
+      type="password"
+      value=""
+    />
+     
+  </div>
+</div>
+`;

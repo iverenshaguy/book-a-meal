@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuModal should render MenuModal component correctly 1`] = `
+<div>
+  <div
+    class="menu-date"
+  >
+    <h3>
+      Thursday, 1st January 1970
+      <span>
+         ▾
+      </span>
+    </h3>
+    <div
+      class="datepicker-div"
+    >
+      <input
+        id="datepicker"
+        type="date"
+      />
+    </div>
+  </div>
+  <div
+    class="meal-options-list"
+  >
+    <div
+      class="form-input"
+    >
+      <label
+        class="hide"
+        for="search"
+      >
+        Search For Meals
+      </label>
+      <input
+        class="open menu-search-input"
+        id="search"
+        name="search"
+        placeholder="Search For Meals"
+        type="text"
+        value=""
+      />
+    </div>
+    <p
+      class="text-center info"
+    >
+      No Meals Found
+    </p>
+  </div>
+</div>
+`;

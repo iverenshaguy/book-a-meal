@@ -45,7 +45,10 @@ module.exports = {
       .assert.visible('input[name=deliveryAddress]')
       .setValue('input[name=deliveryPhoneNo]', '054363')
       .click('input[name=deliveryAddress]')
-      .assert.containsText('input[name=deliveryPhoneNo] + div.invalid-feedback', 'Phone number is invalid, must be in the format 080xxxxxxxx')
+      .assert.containsText(
+        'input[name=deliveryPhoneNo] + div.invalid-feedback',
+        'Phone number is invalid, must be in the format 080xxxxxxxx'
+      )
       .setValue('input[name=deliveryAddress]', '3')
       .click('input[name=deliveryPhoneNo]')
       .assert.containsText('input[name=deliveryAddress] + div.invalid-feedback', 'Must be 5 characters or more!')
@@ -146,7 +149,7 @@ module.exports = {
       .assert.containsText('.order-status', 'Pending')
       .click('button.btn-sec-danger')
       .pause(1500)
-      .assert.containsText('.page-heading h2', 'Today\'s Menu')
+      .assert.containsText('.page-heading h2', "Today's Menu")
       .assert.containsText('.empty-cart p', 'Your Basket is Empty')
       .pause(1000)
       .end();
@@ -171,7 +174,7 @@ module.exports = {
       })
       .click('a[href="/"] button')
       .pause(1500)
-      .assert.containsText('.page-heading h2', 'Today\'s Menu')
+      .assert.containsText('.page-heading h2', "Today's Menu")
       .assert.visible('input[name=search]')
       .pause(1000)
       .end();
@@ -179,7 +182,7 @@ module.exports = {
 
   'Customer should be able to view order history': (client) => {
     client
-      .click('a[href="/orders"]')
+      .click('a[href="/caterer"]')
       .pause(1500)
       .waitForElementVisible('div.scroller')
       .elements('css selector', 'div.scroller .order-history-pill span', (elements) => {

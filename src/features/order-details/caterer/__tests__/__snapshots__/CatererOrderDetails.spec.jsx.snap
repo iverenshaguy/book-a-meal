@@ -1,0 +1,910 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CatererOrderDetails should render MiniPreloader when delivering an order 1`] = `
+<div>
+  <div
+    class="admin"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar"
+      >
+        <div
+          class="menu-control d-none-md"
+        >
+          <button
+            class="link-btn d-none-md"
+            type="button"
+          >
+            <img
+              alt="toggler"
+              src="/img/toggler.png"
+            />
+          </button>
+        </div>
+        <div
+          class="page-title d-none-md"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="page-title d-flex-md"
+        >
+          <div
+            class="date"
+          >
+            <h2>
+              Thursday, 1st January 1970
+               
+              <span>
+                00:00
+              </span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content"
+    >
+      <div
+        class="sidenav null"
+        id="sidenav"
+      >
+        <div
+          class="sidenav-content"
+        >
+          <div
+            class="sidenav-header"
+          >
+            <div
+              class="close d-none-md"
+            >
+              <button
+                aria-hidden="true"
+                class="link-btn null"
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <div
+              class="sidenav-title"
+            >
+              <h3
+                class="d-flex-md"
+              >
+                <a
+                  href="/"
+                >
+                  BOOK-A-MEAL
+                </a>
+              </h3>
+              <div
+                class="username-circle"
+              >
+                <p>
+                  F
+                </p>
+              </div>
+              <p>
+                Food Circle
+              </p>
+              <span>
+                <button
+                  class="link-btn null"
+                  type="button"
+                >
+                  Logout
+                </button>
+              </span>
+            </div>
+          </div>
+          <div
+            class="sidenav-body"
+          >
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Dashboard
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Meals
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Menu
+            </button>
+            <button
+              class="link-btn menu-item active"
+              type="button"
+            >
+              Orders
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="content-wrapper"
+        id="has-modal"
+      >
+        <div
+          class="main-wrapper caterer"
+        >
+          <a
+            href="/orders"
+          >
+            ← Back To Orders
+          </a>
+          <div
+            class="order-confirmation order-details"
+          >
+            <h3
+              class="text-center"
+              style="padding-top: 1em;"
+            >
+              Order #
+              fb097bde-5959-45ff-8e21-51184fa60c25
+            </h3>
+            <div
+              class="text-center"
+            >
+              <div
+                aria-busy="true"
+                aria-label="three-dots-loading"
+                class="sc-beySPh gZmPOF mini-loader"
+                data-testid="three-dots-loading"
+                role="progressbar"
+              >
+                <svg
+                  data-testid="three-dots-svg"
+                  fill="#4fa94d"
+                  height="80"
+                  viewBox="0 0 120 30"
+                  width="80"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="15"
+                    cy="15"
+                    r="15"
+                  >
+                    <animate
+                      attributeName="r"
+                      begin="0s"
+                      calcMode="linear"
+                      dur="0.8s"
+                      from="15"
+                      repeatCount="indefinite"
+                      to="15"
+                      values="15;9;15"
+                    />
+                    <animate
+                      attributeName="fill-opacity"
+                      begin="0s"
+                      calcMode="linear"
+                      dur="0.8s"
+                      from="1"
+                      repeatCount="indefinite"
+                      to="1"
+                      values="1;.5;1"
+                    />
+                  </circle>
+                  <circle
+                    attributeName="fill-opacity"
+                    cx="60"
+                    cy="15"
+                    from="1"
+                    r="9"
+                    to="0.3"
+                  >
+                    <animate
+                      attributeName="r"
+                      begin="0s"
+                      calcMode="linear"
+                      dur="0.8s"
+                      from="9"
+                      repeatCount="indefinite"
+                      to="9"
+                      values="9;15;9"
+                    />
+                    <animate
+                      attributeName="fill-opacity"
+                      begin="0s"
+                      calcMode="linear"
+                      dur="0.8s"
+                      from="0.5"
+                      repeatCount="indefinite"
+                      to="0.5"
+                      values=".5;1;.5"
+                    />
+                  </circle>
+                  <circle
+                    cx="105"
+                    cy="15"
+                    r="15"
+                  >
+                    <animate
+                      attributeName="r"
+                      begin="0s"
+                      calcMode="linear"
+                      dur="0.8s"
+                      from="15"
+                      repeatCount="indefinite"
+                      to="15"
+                      values="15;9;15"
+                    />
+                    <animate
+                      attributeName="fill-opacity"
+                      begin="0s"
+                      calcMode="linear"
+                      dur="0.8s"
+                      from="1"
+                      repeatCount="indefinite"
+                      to="1"
+                      values="1;.5;1"
+                    />
+                  </circle>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CatererOrderDetails should render correctly when not fetching 1`] = `
+<div>
+  <div
+    class="admin"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar"
+      >
+        <div
+          class="menu-control d-none-md"
+        >
+          <button
+            class="link-btn d-none-md"
+            type="button"
+          >
+            <img
+              alt="toggler"
+              src="/img/toggler.png"
+            />
+          </button>
+        </div>
+        <div
+          class="page-title d-none-md"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="page-title d-flex-md"
+        >
+          <div
+            class="date"
+          >
+            <h2>
+              Thursday, 1st January 1970
+               
+              <span>
+                00:00
+              </span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content"
+    >
+      <div
+        class="sidenav null"
+        id="sidenav"
+      >
+        <div
+          class="sidenav-content"
+        >
+          <div
+            class="sidenav-header"
+          >
+            <div
+              class="close d-none-md"
+            >
+              <button
+                aria-hidden="true"
+                class="link-btn null"
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <div
+              class="sidenav-title"
+            >
+              <h3
+                class="d-flex-md"
+              >
+                <a
+                  href="/"
+                >
+                  BOOK-A-MEAL
+                </a>
+              </h3>
+              <div
+                class="username-circle"
+              >
+                <p>
+                  F
+                </p>
+              </div>
+              <p>
+                Food Circle
+              </p>
+              <span>
+                <button
+                  class="link-btn null"
+                  type="button"
+                >
+                  Logout
+                </button>
+              </span>
+            </div>
+          </div>
+          <div
+            class="sidenav-body"
+          >
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Dashboard
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Meals
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Menu
+            </button>
+            <button
+              class="link-btn menu-item active"
+              type="button"
+            >
+              Orders
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="content-wrapper"
+        id="has-modal"
+      >
+        <div
+          class="main-wrapper caterer"
+        >
+          <a
+            href="/orders"
+          >
+            ← Back To Orders
+          </a>
+          <div
+            class="order-confirmation order-details"
+          >
+            <h3
+              class="text-center"
+              style="padding-top: 1em;"
+            >
+              Order #
+              fb097bde-5959-45ff-8e21-51184fa60c25
+            </h3>
+            <div
+              class="order-misc"
+            >
+              <p
+                class="order-date text-center"
+              >
+                Friday, 6th April 2018 12:47 am
+              </p>
+              <p>
+                Status: 
+                <span
+                  class="success"
+                >
+                  Delivered
+                </span>
+              </p>
+              <p>
+                Customer:  
+                Emiola Olasanmi
+              </p>
+              <p>
+                Address Provided:  
+                4, Church Street, Yaba
+              </p>
+              <p>
+                Number Provided:  
+                080xxxxxxxx
+              </p>
+            </div>
+            <div
+              class="order-summary"
+            >
+              <div>
+                <p>
+                  1
+                  x
+                </p>
+                <p
+                  style="word-wrap: break-word; padding-left: 5px; padding-right: 5px;"
+                >
+                  Vegetable Sharwama and Guava Smoothie
+                </p>
+                <p>
+                  ₦
+                  1200
+                </p>
+              </div>
+            </div>
+            <div
+              class="order-amount admin-order-total"
+            >
+              <div>
+                <p>
+                  Total
+                </p>
+                <h2>
+                  ₦
+                  1200
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CatererOrderDetails should render message when an order doesn't exist 1`] = `
+<div>
+  <div
+    class="admin"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar"
+      >
+        <div
+          class="menu-control d-none-md"
+        >
+          <button
+            class="link-btn d-none-md"
+            type="button"
+          >
+            <img
+              alt="toggler"
+              src="/img/toggler.png"
+            />
+          </button>
+        </div>
+        <div
+          class="page-title d-none-md"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="page-title d-flex-md"
+        >
+          <div
+            class="date"
+          >
+            <h2>
+              Thursday, 1st January 1970
+               
+              <span>
+                00:00
+              </span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content"
+    >
+      <div
+        class="sidenav null"
+        id="sidenav"
+      >
+        <div
+          class="sidenav-content"
+        >
+          <div
+            class="sidenav-header"
+          >
+            <div
+              class="close d-none-md"
+            >
+              <button
+                aria-hidden="true"
+                class="link-btn null"
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <div
+              class="sidenav-title"
+            >
+              <h3
+                class="d-flex-md"
+              >
+                <a
+                  href="/"
+                >
+                  BOOK-A-MEAL
+                </a>
+              </h3>
+              <div
+                class="username-circle"
+              >
+                <p>
+                  F
+                </p>
+              </div>
+              <p>
+                Food Circle
+              </p>
+              <span>
+                <button
+                  class="link-btn null"
+                  type="button"
+                >
+                  Logout
+                </button>
+              </span>
+            </div>
+          </div>
+          <div
+            class="sidenav-body"
+          >
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Dashboard
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Meals
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Menu
+            </button>
+            <button
+              class="link-btn menu-item active"
+              type="button"
+            >
+              Orders
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="content-wrapper"
+        id="has-modal"
+      >
+        <p
+          class="text-center info"
+        >
+          This Order Does Not Exist
+        </p>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CatererOrderDetails should render the connected OrderDetails component correctly 1`] = `
+<div>
+  <div
+    class="admin"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar"
+      >
+        <div
+          class="menu-control d-none-md"
+        >
+          <button
+            class="link-btn d-none-md"
+            type="button"
+          >
+            <img
+              alt="toggler"
+              src="/img/toggler.png"
+            />
+          </button>
+        </div>
+        <div
+          class="page-title d-none-md"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="page-title d-flex-md"
+        >
+          <div
+            class="date"
+          >
+            <h2>
+              Thursday, 1st January 1970
+               
+              <span>
+                00:00
+              </span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content"
+    >
+      <div
+        class="sidenav null"
+        id="sidenav"
+      >
+        <div
+          class="sidenav-content"
+        >
+          <div
+            class="sidenav-header"
+          >
+            <div
+              class="close d-none-md"
+            >
+              <button
+                aria-hidden="true"
+                class="link-btn null"
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <div
+              class="sidenav-title"
+            >
+              <h3
+                class="d-flex-md"
+              >
+                <a
+                  href="/"
+                >
+                  BOOK-A-MEAL
+                </a>
+              </h3>
+              <div
+                class="username-circle"
+              >
+                <p>
+                  F
+                </p>
+              </div>
+              <p>
+                Food Circle
+              </p>
+              <span>
+                <button
+                  class="link-btn null"
+                  type="button"
+                >
+                  Logout
+                </button>
+              </span>
+            </div>
+          </div>
+          <div
+            class="sidenav-body"
+          >
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Dashboard
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Meals
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Menu
+            </button>
+            <button
+              class="link-btn menu-item active"
+              type="button"
+            >
+              Orders
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="content-wrapper"
+        id="has-modal"
+      >
+        <div
+          class="main-wrapper caterer"
+        >
+          <a
+            href="/orders"
+          >
+            ← Back To Orders
+          </a>
+          <div
+            class="order-confirmation order-details"
+          >
+            <h3
+              class="text-center"
+              style="padding-top: 1em;"
+            >
+              Order #
+              fb097bde-5959-45ff-8e21-51184fa60c25
+            </h3>
+            <div
+              class="order-misc"
+            >
+              <p
+                class="order-date text-center"
+              >
+                Friday, 6th April 2018 12:47 am
+              </p>
+              <p>
+                Status: 
+                <span
+                  class="success"
+                >
+                  Delivered
+                </span>
+              </p>
+              <p>
+                Customer:  
+                Emiola Olasanmi
+              </p>
+              <p>
+                Address Provided:  
+                4, Church Street, Yaba
+              </p>
+              <p>
+                Number Provided:  
+                080xxxxxxxx
+              </p>
+            </div>
+            <div
+              class="order-summary"
+            >
+              <div>
+                <p>
+                  1
+                  x
+                </p>
+                <p
+                  style="word-wrap: break-word; padding-left: 5px; padding-right: 5px;"
+                >
+                  Vegetable Sharwama and Guava Smoothie
+                </p>
+                <p>
+                  ₦
+                  1200
+                </p>
+              </div>
+            </div>
+            <div
+              class="order-amount admin-order-total"
+            >
+              <div>
+                <p>
+                  Total
+                </p>
+                <h2>
+                  ₦
+                  1200
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;

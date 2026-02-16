@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound should render NotFound component correctly 1`] = `
+<div>
+  <div
+    class="not-found"
+  >
+    <div
+      class="header unauth"
+    >
+      <div
+        class="navbar unauth-navbar"
+      >
+        <div
+          class="page-title"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content"
+    >
+      <div
+        class="smiley"
+      >
+        <div
+          class="eyes"
+        >
+          <span>
+            .
+          </span>
+          <span>
+            .
+          </span>
+        </div>
+        <div
+          class="sad"
+        />
+      </div>
+      <p>
+        You Lost Your Way!  
+        <a
+          href="/"
+        >
+          Go Back Home
+        </a>
+      </p>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;

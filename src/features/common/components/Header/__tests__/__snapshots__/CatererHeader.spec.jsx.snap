@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CatererHeader should render CatererHeader component correctly 1`] = `
+<div>
+  <div
+    class="menu-control d-none-md"
+  >
+    <button
+      class="link-btn d-none-md"
+      type="button"
+    >
+      <img
+        alt="toggler"
+        src="/img/toggler.png"
+      />
+    </button>
+  </div>
+  <div
+    class="page-title d-none-md"
+  >
+    <h3>
+      <a
+        href="/"
+      >
+        BOOK-A-MEAL
+      </a>
+    </h3>
+  </div>
+  <div
+    class="page-title d-flex-md"
+  >
+    <div
+      class="date"
+    >
+      <h2>
+        Thursday, 1st January 1970
+         
+        <span>
+          00:00
+        </span>
+      </h2>
+    </div>
+  </div>
+</div>
+`;

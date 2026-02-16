@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderHistoryTable should render OrderHistoryTable component correctly 1`] = `
+<div>
+  <div
+    class="table-wrapper"
+  >
+    <table>
+      <thead>
+        <tr>
+          <th>
+            ID
+          </th>
+          <th>
+            Meal Item(s)
+          </th>
+          <th>
+            Customer
+          </th>
+          <th>
+            Amount
+          </th>
+          <th>
+            Date
+          </th>
+          <th>
+            Status
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            1
+          </td>
+          <td>
+            <p>
+              -
+              Vegetable Sharwama and Guava Smoothie
+            </p>
+          </td>
+          <td>
+            Emiola Olasanmi
+          </td>
+          <td>
+            ₦
+            1200
+          </td>
+          <td>
+            Friday, 6th April 2018 12.47 03
+          </td>
+          <td>
+            <span>
+              <p
+                class="success"
+              >
+                Delivered
+              </p>
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            2
+          </td>
+          <td>
+            <p>
+              -
+              Semo and Egusi Soup
+            </p>
+            <p>
+              -
+              Eba and Ogbono Soup
+            </p>
+          </td>
+          <td>
+            Olisa Emodi
+          </td>
+          <td>
+            ₦
+            8000
+          </td>
+          <td>
+            Tuesday, 1st May 2018 12.47 03
+          </td>
+          <td>
+            <span>
+              <p
+                class="success"
+              >
+                Delivered
+              </p>
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            3
+          </td>
+          <td>
+            <p>
+              -
+              Vegetable Sharwama and Guava Smoothie
+            </p>
+          </td>
+          <td>
+            Emiola Olasanmi
+          </td>
+          <td>
+            ₦
+            1200
+          </td>
+          <td>
+            Tuesday, 29th May 2018 12.47 03
+          </td>
+          <td>
+            <span>
+              <button
+                class="link-btn warning"
+                type="button"
+              >
+                Deliver
+              </button>
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            4
+          </td>
+          <td>
+            <p>
+              -
+              Vegetable Sharwama and Guava Smoothie
+            </p>
+          </td>
+          <td>
+            Emiola Olasanmi
+          </td>
+          <td>
+            ₦
+            1200
+          </td>
+          <td>
+            Sunday, 27th May 2018 12.47 03
+          </td>
+          <td>
+            <span>
+              <p
+                class="danger"
+              >
+                Canceled
+              </p>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

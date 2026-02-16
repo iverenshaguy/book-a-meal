@@ -8,9 +8,9 @@ mkdir ./dist
 
 case $NODE_ENV in
   "development"|"test")
-    node_modules/.bin/webpack --config ./webpack.dev.babel.js
+    node_modules/.bin/webpack --config ./webpack.dev.js
     ;;
   "production"|"staging")
-    node_modules/.bin/webpack --config ./webpack.prod.babel.js
+    node_modules/.bin/webpack --config ./webpack.prod.js
     ;;
 esac

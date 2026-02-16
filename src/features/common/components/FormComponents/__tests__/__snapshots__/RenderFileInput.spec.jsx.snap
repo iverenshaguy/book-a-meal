@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form Components: RenderFileInput should render correctly 1`] = `
+<div>
+  <div
+    class="form-input form-img-input"
+  >
+    <label
+      for="1"
+    >
+      Image
+    </label>
+    <div
+      id="form-image-preview"
+    >
+      <img
+        alt="meal"
+        id="meal-form-image"
+        src="image.jpg"
+      />
+    </div>
+    <input
+      accept="image/*"
+      id="1"
+      name="image"
+      type="file"
+    />
+    <br />
+  </div>
+</div>
+`;
+
+exports[`Form Components: RenderFileInput should show error when there is an upload error 1`] = `
+<div>
+  <div
+    class="form-input form-img-input"
+  >
+    <label
+      for="1"
+    >
+      Image
+    </label>
+    <div
+      id="form-image-preview"
+    >
+      <img
+        alt="meal"
+        id="meal-form-image"
+        src="image.jpg"
+      />
+    </div>
+    <input
+      accept="image/*"
+      id="1"
+      name="image"
+      type="file"
+    />
+    <br />
+    <small
+      class="file-feedback danger"
+    >
+      This is an error
+    </small>
+  </div>
+</div>
+`;
+
+exports[`Form Components: RenderFileInput should show preloader when uploading 1`] = `
+<div>
+  <div
+    class="form-input form-img-input"
+  >
+    <label
+      for="1"
+    >
+      Image
+    </label>
+    <div
+      id="form-image-preview"
+    >
+      <div
+        class="img-overlay"
+        id="img-overlay"
+      >
+        <div
+          aria-busy="true"
+          aria-label="three-dots-loading"
+          class="sc-beySPh gZmPOF mini-loader"
+          data-testid="three-dots-loading"
+          role="progressbar"
+        >
+          <svg
+            data-testid="three-dots-svg"
+            fill="#4fa94d"
+            height="80"
+            viewBox="0 0 120 30"
+            width="80"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="15"
+              cy="15"
+              r="15"
+            >
+              <animate
+                attributeName="r"
+                begin="0s"
+                calcMode="linear"
+                dur="0.8s"
+                from="15"
+                repeatCount="indefinite"
+                to="15"
+                values="15;9;15"
+              />
+              <animate
+                attributeName="fill-opacity"
+                begin="0s"
+                calcMode="linear"
+                dur="0.8s"
+                from="1"
+                repeatCount="indefinite"
+                to="1"
+                values="1;.5;1"
+              />
+            </circle>
+            <circle
+              attributeName="fill-opacity"
+              cx="60"
+              cy="15"
+              from="1"
+              r="9"
+              to="0.3"
+            >
+              <animate
+                attributeName="r"
+                begin="0s"
+                calcMode="linear"
+                dur="0.8s"
+                from="9"
+                repeatCount="indefinite"
+                to="9"
+                values="9;15;9"
+              />
+              <animate
+                attributeName="fill-opacity"
+                begin="0s"
+                calcMode="linear"
+                dur="0.8s"
+                from="0.5"
+                repeatCount="indefinite"
+                to="0.5"
+                values=".5;1;.5"
+              />
+            </circle>
+            <circle
+              cx="105"
+              cy="15"
+              r="15"
+            >
+              <animate
+                attributeName="r"
+                begin="0s"
+                calcMode="linear"
+                dur="0.8s"
+                from="15"
+                repeatCount="indefinite"
+                to="15"
+                values="15;9;15"
+              />
+              <animate
+                attributeName="fill-opacity"
+                begin="0s"
+                calcMode="linear"
+                dur="0.8s"
+                from="1"
+                repeatCount="indefinite"
+                to="1"
+                values="1;.5;1"
+              />
+            </circle>
+          </svg>
+        </div>
+      </div>
+      <img
+        alt="meal"
+        id="meal-form-image"
+        src="image.jpg"
+      />
+    </div>
+    <input
+      accept="image/*"
+      id="1"
+      name="image"
+      type="file"
+    />
+    <br />
+  </div>
+</div>
+`;

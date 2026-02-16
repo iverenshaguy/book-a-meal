@@ -1,0 +1,332 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cart should hide the checkout button when the shop is closed 1`] = `
+<div>
+  <div
+    class="side-cart-toggle d-none-xl"
+  >
+    <span
+      aria-hidden="true"
+      id="cart-toggler"
+    >
+      <div
+        class="text-center"
+      >
+        <img
+          alt="cart"
+          src="/img/cart.png"
+        />
+          
+        <sup>
+          1
+        </sup>
+      </div>
+      <p
+        class="text-center"
+      >
+        Total: ₦
+        1500
+      </p>
+    </span>
+  </div>
+  <div
+    class="side-cart null"
+    id="side-cart"
+  >
+    <div
+      class="cart"
+    >
+      <div
+        class="cart-header"
+      >
+        <h2>
+          Your Basket
+        </h2>
+        <div
+          class="close d-none-xl"
+        >
+          <button
+            aria-hidden="true"
+            class="link-btn null"
+            id="side-cart-close-icon"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+      <hr />
+      <div
+        class="order-summary"
+      >
+        <div>
+          <p>
+            <input
+              class="order-input"
+              min="1"
+              type="number"
+              value="1"
+            />
+          </p>
+          <p
+            data-for="cart-tooltip"
+            data-tip="Jollof Rice, Beef and Plantain"
+          >
+            Jollof Rice, Beef and Plantain
+          </p>
+          <p>
+            1500.00
+          </p>
+          <button
+            class="link-btn remove-order"
+            data-tooltip-content="Remove Item?"
+            data-tooltip-id="cart-tooltip"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+        <div
+          class="order-amount"
+        >
+          <div>
+            <p>
+              Total:
+            </p>
+            <h2>
+              ₦
+              1500
+            </h2>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cart should render a message when there is no order 1`] = `
+<div>
+  <div
+    class="side-cart-toggle d-none-xl"
+  >
+    <span
+      aria-hidden="true"
+      id="cart-toggler"
+    >
+      <div
+        class="text-center"
+      >
+        <img
+          alt="cart"
+          src="/img/cart.png"
+        />
+          
+        <sup>
+          0
+        </sup>
+      </div>
+      <p
+        class="text-center"
+      >
+        Total: ₦
+        0
+      </p>
+    </span>
+    <span
+      class="cart-btn"
+    >
+      <a
+        href="/order-review"
+      >
+        <button
+          class="btn btn-pri btn-block checkout-btn"
+          disabled=""
+          type="button"
+        >
+          Checkout
+        </button>
+      </a>
+    </span>
+  </div>
+  <div
+    class="side-cart null"
+    id="side-cart"
+  >
+    <div
+      class="cart"
+    >
+      <div
+        class="cart-header"
+      >
+        <h2>
+          Your Basket
+        </h2>
+        <div
+          class="close d-none-xl"
+        >
+          <button
+            aria-hidden="true"
+            class="link-btn null"
+            id="side-cart-close-icon"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+      <hr />
+      <div
+        class="empty-cart"
+      >
+        <p>
+          Your Basket is Empty
+        </p>
+      </div>
+      <br />
+      <a
+        href="/order-review"
+      >
+        <button
+          class="btn btn-pri btn-block checkout-btn"
+          disabled=""
+          type="button"
+        >
+          Checkout
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cart should render the Cart component correctly 1`] = `
+<div>
+  <div
+    class="side-cart-toggle d-none-xl"
+  >
+    <span
+      aria-hidden="true"
+      id="cart-toggler"
+    >
+      <div
+        class="text-center"
+      >
+        <img
+          alt="cart"
+          src="/img/cart.png"
+        />
+          
+        <sup>
+          1
+        </sup>
+      </div>
+      <p
+        class="text-center"
+      >
+        Total: ₦
+        1500
+      </p>
+    </span>
+    <span
+      class="cart-btn"
+    >
+      <a
+        href="/order-review"
+      >
+        <button
+          class="btn btn-pri btn-block checkout-btn"
+          type="button"
+        >
+          Checkout
+        </button>
+      </a>
+    </span>
+  </div>
+  <div
+    class="side-cart null"
+    id="side-cart"
+  >
+    <div
+      class="cart"
+    >
+      <div
+        class="cart-header"
+      >
+        <h2>
+          Your Basket
+        </h2>
+        <div
+          class="close d-none-xl"
+        >
+          <button
+            aria-hidden="true"
+            class="link-btn null"
+            id="side-cart-close-icon"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+      <hr />
+      <div
+        class="order-summary"
+      >
+        <div>
+          <p>
+            <input
+              class="order-input"
+              min="1"
+              type="number"
+              value="1"
+            />
+          </p>
+          <p
+            data-for="cart-tooltip"
+            data-tip="Jollof Rice, Beef and Plantain"
+          >
+            Jollof Rice, Beef and Plantain
+          </p>
+          <p>
+            1500.00
+          </p>
+          <button
+            class="link-btn remove-order"
+            data-tooltip-content="Remove Item?"
+            data-tooltip-id="cart-tooltip"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+        <div
+          class="order-amount"
+        >
+          <div>
+            <p>
+              Total:
+            </p>
+            <h2>
+              ₦
+              1500
+            </h2>
+          </div>
+        </div>
+      </div>
+      <br />
+      <a
+        href="/order-review"
+      >
+        <button
+          class="btn btn-pri btn-block checkout-btn"
+          type="button"
+        >
+          Checkout
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+`;
