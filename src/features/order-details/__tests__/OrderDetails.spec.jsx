@@ -2,7 +2,7 @@ import React from 'react';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import OrderDetails from 'src/features/order-details';
 import { caterer, customer, initialState, caterersOrdersObj, customersOrdersObj } from 'src/config/tests/fixtures';
 

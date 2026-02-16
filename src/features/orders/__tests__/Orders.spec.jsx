@@ -2,7 +2,7 @@ import React from 'react';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import WrappedOrders, { Orders } from 'src/features/orders';
 import {
   caterer,

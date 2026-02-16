@@ -24,7 +24,7 @@ describe('SearchForm', () => {
 
   it('should change the search state when search form is changed', async () => {
     const user = userEvent.setup();
-    const { container } = render(<SearchForm type="caterer" fetchItems={jest.fn()} />);
+    render(<SearchForm type="caterer" fetchItems={jest.fn()} />);
     const input = screen.getByRole('textbox', { name: /search for meals/i });
 
     await user.type(input, 'Rice');
