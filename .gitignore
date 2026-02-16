@@ -6,7 +6,10 @@
 .env
 .vs
 .selenium
-.idea/
+.idea
+.claude
+.cursor
+package-lock.json
 
 # Local HTTPS certs (generate with: yarn generate-certs)
 certs/server.key

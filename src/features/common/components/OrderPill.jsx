@@ -37,7 +37,7 @@ const OrderPill = ({ order, user }) => {
               {`${order.deliveryPhoneNo}`}
             </p>
           )}
-          {user.role === 'customer' && (
+          {user.role === 'customer' && order.meals?.length > 0 && (
             <p key={order.meals[0].id}>
               {`${order.meals[0].quantity}x ${order.meals[0].title}`}
               {order.meals.length > 1 ? '...' : null}

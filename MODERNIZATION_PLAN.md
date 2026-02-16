@@ -616,6 +616,72 @@ npm install --save-dev webpack-bundle-analyzer
 
 ---
 
+### Phase 8: Migrate Dev Server to Snowpack (Medium Risk)
+
+**Goal:** Replace Webpack dev server with Snowpack for faster, ESM-native development
+
+> **Note:** Snowpack development has been paused; the team shifted focus to Astro. If Snowpack is no longer maintained when you reach this phase, consider **Vite** instead (see "Modern Alternative Stack" below)—it offers similar ESM-based dev experience and is widely adopted for React.
+
+#### 8.1 Install Snowpack
+```bash
+yarn add -D snowpack @snowpack/plugin-babel @snowpack/plugin-webpack
+```
+
+#### 8.2 Create Snowpack Config
+Create `snowpack.config.js`:
+```javascript
+/** @type {import("snowpack").SnowpackUserConfig } */
+module.exports = {
+  mount: {
+    public: { url: '/', static: true },
+    src: { url: '/dist' },
+  },
+  plugins: [
+    '@snowpack/plugin-babel',
+    ['@snowpack/plugin-webpack', { /* production bundle config */ }],
+  ],
+  devOptions: {
+    port: 3000,
+    open: 'none',
+  },
+  buildOptions: {
+    out: 'build',
+  },
+  alias: {
+    // Match webpack resolve.alias
+    src: './src',
+    public: './public',
+  },
+};
+```
+
+#### 8.3 Update Scripts
+In `package.json`:
+```json
+{
+  "scripts": {
+    "start:dev": "snowpack dev",
+    "build": "snowpack build"
+  }
+}
+```
+
+#### 8.4 Migration Checklist
+- [ ] Ensure entry point uses ESM (`import`/`export`)
+- [ ] Convert CommonJS requires to ESM where needed
+- [ ] Map Webpack loaders (sass, css, assets) to Snowpack plugins
+- [ ] Update env variables (Snowpack uses `import.meta.env`)
+- [ ] Verify proxy/API forwarding if used
+- [ ] Keep Webpack config for production build initially (or use `@snowpack/plugin-webpack`)
+
+#### 8.5 Rollback
+- Keep `webpack.dev.js` and `scripts/build.sh` until Snowpack is fully validated
+- Use `start:dev:webpack` as a fallback script during migration
+
+**Deliverable:** Snowpack dev server running; optional: Snowpack production build replacing Webpack
+
+---
+
 ## Risk Mitigation
 
 ### Pre-Migration Checklist
@@ -699,6 +765,7 @@ Consider a complete rewrite with:
 | 5 | React Router 6 Migration | 1-2 weeks |
 | 6 | Code Modernization | 2-4 weeks |
 | 7 | Cleanup & Optimization | 3-5 days |
+| 8 | Migrate Dev Server to Snowpack | 3-5 days |
 | **Total** | | **2-3 months** |
 
 *Timeline varies based on codebase size, test coverage, and team size*
@@ -734,6 +801,9 @@ npm update query-string@^9 jwt-decode@^4
 
 # Phase 7: Cleanup
 npm uninstall react-hot-loader redux-logger moment-locales-webpack-plugin
+
+# Phase 8: Snowpack (optional)
+yarn add -D snowpack @snowpack/plugin-babel @snowpack/plugin-webpack
 npm audit fix
 npm dedupe
 ```

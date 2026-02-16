@@ -1,18 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import configureStore from 'redux-mock-store';
 import { arrayToObject, formHelpers } from 'src/features/common/utils/';
-import { Form } from 'src/features/common/components/Form';
-import { newMeal, initialState } from 'src/config/tests/fixtures';
+import { newMeal } from 'src/config/tests/fixtures';
 
 const { formFields } = formHelpers;
-const dispatchMock = jest.fn();
-const middlewares = [thunk];
-const mockStore = configureStore(middlewares);
-const store = mockStore(initialState);
-const token = 'sdfghjklfghjbknlmdfghjklnmghjkl';
 
 export const formComponentSetup = (type) => ({
   type,
@@ -33,42 +23,4 @@ export const formComponentSetup = (type) => ({
   },
 });
 
-export const mainFormSetup = (type, meta) => {
-  const props = {
-    submitting: false,
-    submitError: null,
-    type,
-    meta,
-  };
-
-  const comp = (
-    <Provider store={store}>
-      <Form
-        {...props}
-        meal={type === 'editMeal' ? newMeal : null}
-        token={type === 'resetPassword' ? token : null}
-        dispatch={dispatchMock}
-      />
-    </Provider>
-  );
-
-  const mountRoot = mount(comp);
-
-  const shallowRoot = shallow(
-    <Form
-      {...props}
-      meal={type === 'editMeal' ? newMeal : null}
-      token={type === 'resetPassword' ? token : null}
-      dispatch={dispatchMock}
-    />
-  );
-
-  return {
-    props,
-    dispatchMock,
-    mountRoot,
-    shallowRoot,
-  };
-};
-
-export default { formComponentSetup, mainFormSetup };
+export default { formComponentSetup };
