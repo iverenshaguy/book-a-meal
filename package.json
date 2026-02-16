@@ -117,7 +117,6 @@
     "postcss-preset-env": "^9.5.4",
     "prettier": "^3.2.5",
     "react-hot-loader": "^4.13.1",
-    "react-router-enzyme-context": "^1.2.0",
     "redux-mock-store": "^1.5.3",
     "sass": "^1.74.1",
     "sass-loader": "^13.3.3",
@@ -132,6 +131,9 @@
     "webpack-dev-server": "^4.15.2",
     "webpack-merge": "^5.10.0",
     "webpack-visualizer-plugin2": "^1.1.0"
+  },
+  "resolutions": {
+    "schema-utils": "3.3.0"
   },
   "sideEffects": [
     "**/*.css",
