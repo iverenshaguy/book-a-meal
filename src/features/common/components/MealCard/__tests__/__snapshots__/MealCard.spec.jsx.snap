@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MealCard should render correctly when type is caterer 1`] = `
+<div>
+  <div
+    class="meal-card"
+    id="81211c24-51c0-46ec-b1e0-18db55880958"
+  >
+    <div
+      class="meal-card-header"
+    >
+      <img
+        alt="meal"
+        src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+      />
+      <div
+        class="dropdown card-dropdown"
+      >
+        <button
+          class="link-btn link"
+          id="dropdown-toggler"
+          type="button"
+        >
+          …
+        </button>
+        <div
+          class="dropdown-content meal"
+          id="dropdown-content"
+        >
+          <button
+            class="link-btn null"
+            id="edit-meal"
+            type="button"
+          >
+            Edit
+          </button>
+          <button
+            class="link-btn null"
+            id="delete-meal"
+            type="button"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+      <div
+        class="menu-card-title"
+      >
+        <p>
+          Jollof Rice, Beef and Plantain
+        </p>
+      </div>
+    </div>
+    <div
+      class="meal-card-body"
+    >
+      <div>
+        <h3>
+          ₦
+          1500.00
+        </h3>
+        <p
+          class="meal-description"
+          data-tooltip-content="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
+          data-tooltip-id="meal-card-tooltip"
+        >
+          Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MealCard should render correctly when type is customer 1`] = `
+<div>
+  <div
+    class="meal-card customer-meal-card"
+    id="81211c24-51c0-46ec-b1e0-18db55880958"
+  >
+    <div
+      class="meal-card-header"
+    >
+      <img
+        alt="meal"
+        src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+      />
+      <div
+        class="menu-card-title"
+      >
+        <p>
+          Jollof Rice, Beef and Plantain
+        </p>
+      </div>
+    </div>
+    <div
+      class="meal-card-body"
+    >
+      <div>
+        <h3>
+          ₦
+          1500.00
+        </h3>
+        <p
+          class="meal-description"
+          data-tooltip-content="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
+          data-tooltip-id="meal-card-tooltip"
+        >
+          Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
+        </p>
+      </div>
+      <div
+        class="meal-card-action"
+      >
+        <button
+          class="btn btn-sec meal-card-btn"
+          type="button"
+        >
+          Add To Basket
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

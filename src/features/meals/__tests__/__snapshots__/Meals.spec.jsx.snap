@@ -1,0 +1,1034 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Meals should render Meal Component when connected to the redux store correctly 1`] = `
+<div>
+  <div
+    class="admin"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar"
+      >
+        <div
+          class="menu-control d-none-md"
+        >
+          <button
+            class="link-btn d-none-md"
+            type="button"
+          >
+            <img
+              alt="toggler"
+              src="/img/toggler.png"
+            />
+          </button>
+        </div>
+        <div
+          class="page-title d-none-md"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="page-title d-flex-md"
+        >
+          <div
+            class="date"
+          >
+            <h2>
+              Thursday, 1st January 1970
+               
+              <span>
+                00:00
+              </span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content"
+    >
+      <div
+        class="sidenav null"
+        id="sidenav"
+      >
+        <div
+          class="sidenav-content"
+        >
+          <div
+            class="sidenav-header"
+          >
+            <div
+              class="close d-none-md"
+            >
+              <button
+                aria-hidden="true"
+                class="link-btn null"
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <div
+              class="sidenav-title"
+            >
+              <h3
+                class="d-flex-md"
+              >
+                <a
+                  href="/"
+                >
+                  BOOK-A-MEAL
+                </a>
+              </h3>
+              <div
+                class="username-circle"
+              >
+                <p>
+                  F
+                </p>
+              </div>
+              <p>
+                Food Circle
+              </p>
+              <span>
+                <button
+                  class="link-btn null"
+                  type="button"
+                >
+                  Logout
+                </button>
+              </span>
+            </div>
+          </div>
+          <div
+            class="sidenav-body"
+          >
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Dashboard
+            </button>
+            <button
+              class="link-btn menu-item active"
+              type="button"
+            >
+              Meals
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Menu
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Orders
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="content-wrapper"
+        id="has-modal"
+      >
+        <div
+          class="content-wrapper meals caterer-meals"
+        >
+          <div
+            class="top"
+          >
+            <button
+              class="btn btn-pri"
+              id="add-meal-btn"
+              type="button"
+            >
+              Add a New Meal
+            </button>
+          </div>
+          <div
+            class="card-group meals-wrapper"
+            id="card-group"
+          >
+            <div
+              class="infinite-scroll-component__outerdiv"
+            >
+              <div
+                class="infinite-scroll-component "
+                style="height: auto; overflow: auto;"
+              >
+                <div
+                  class="scroller"
+                >
+                  <div
+                    class="meal-card"
+                    id="81211c24-51c0-46ec-b1e0-18db55880958"
+                  >
+                    <div
+                      class="meal-card-header"
+                    >
+                      <img
+                        alt="meal"
+                        src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+                      />
+                      <div
+                        class="dropdown card-dropdown"
+                      >
+                        <button
+                          class="link-btn link"
+                          id="dropdown-toggler"
+                          type="button"
+                        >
+                          …
+                        </button>
+                        <div
+                          class="dropdown-content meal"
+                          id="dropdown-content"
+                        >
+                          <button
+                            class="link-btn null"
+                            id="edit-meal"
+                            type="button"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            class="link-btn null"
+                            id="delete-meal"
+                            type="button"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </div>
+                      <div
+                        class="menu-card-title"
+                      >
+                        <p>
+                          Jollof Rice, Beef and Plantain
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="meal-card-body"
+                    >
+                      <div>
+                        <h3>
+                          ₦
+                          1500.00
+                        </h3>
+                        <p
+                          class="meal-description"
+                          data-tooltip-content="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
+                          data-tooltip-id="meal-card-tooltip"
+                        >
+                          Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="meal-card"
+                    id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                  >
+                    <div
+                      class="meal-card-header"
+                    >
+                      <span
+                        class="veg-ribbon"
+                      >
+                        Vegetarian
+                      </span>
+                      <img
+                        alt="meal"
+                        src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
+                      />
+                      <div
+                        class="dropdown card-dropdown"
+                      >
+                        <button
+                          class="link-btn link"
+                          id="dropdown-toggler"
+                          type="button"
+                        >
+                          …
+                        </button>
+                        <div
+                          class="dropdown-content meal"
+                          id="dropdown-content"
+                        >
+                          <button
+                            class="link-btn null"
+                            id="edit-meal"
+                            type="button"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            class="link-btn null"
+                            id="delete-meal"
+                            type="button"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </div>
+                      <div
+                        class="menu-card-title"
+                      >
+                        <p>
+                          Vegetable Sharwama and Guava Smoothie
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="meal-card-body"
+                    >
+                      <div>
+                        <h3>
+                          ₦
+                          1200.00
+                        </h3>
+                        <p
+                          class="meal-description"
+                          data-tooltip-content="Sharwama contains no animal products, perfect for dieters"
+                          data-tooltip-id="meal-card-tooltip"
+                        >
+                          Sharwama contains no animal products, perfect for dieters
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="text-center"
+                >
+                  <div
+                    aria-busy="true"
+                    aria-label="three-dots-loading"
+                    class="sc-beySPh gZmPOF mini-loader"
+                    data-testid="three-dots-loading"
+                    role="progressbar"
+                  >
+                    <svg
+                      data-testid="three-dots-svg"
+                      fill="#4fa94d"
+                      height="80"
+                      viewBox="0 0 120 30"
+                      width="80"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="15"
+                        cy="15"
+                        r="15"
+                      >
+                        <animate
+                          attributeName="r"
+                          begin="0s"
+                          calcMode="linear"
+                          dur="0.8s"
+                          from="15"
+                          repeatCount="indefinite"
+                          to="15"
+                          values="15;9;15"
+                        />
+                        <animate
+                          attributeName="fill-opacity"
+                          begin="0s"
+                          calcMode="linear"
+                          dur="0.8s"
+                          from="1"
+                          repeatCount="indefinite"
+                          to="1"
+                          values="1;.5;1"
+                        />
+                      </circle>
+                      <circle
+                        attributeName="fill-opacity"
+                        cx="60"
+                        cy="15"
+                        from="1"
+                        r="9"
+                        to="0.3"
+                      >
+                        <animate
+                          attributeName="r"
+                          begin="0s"
+                          calcMode="linear"
+                          dur="0.8s"
+                          from="9"
+                          repeatCount="indefinite"
+                          to="9"
+                          values="9;15;9"
+                        />
+                        <animate
+                          attributeName="fill-opacity"
+                          begin="0s"
+                          calcMode="linear"
+                          dur="0.8s"
+                          from="0.5"
+                          repeatCount="indefinite"
+                          to="0.5"
+                          values=".5;1;.5"
+                        />
+                      </circle>
+                      <circle
+                        cx="105"
+                        cy="15"
+                        r="15"
+                      >
+                        <animate
+                          attributeName="r"
+                          begin="0s"
+                          calcMode="linear"
+                          dur="0.8s"
+                          from="15"
+                          repeatCount="indefinite"
+                          to="15"
+                          values="15;9;15"
+                        />
+                        <animate
+                          attributeName="fill-opacity"
+                          begin="0s"
+                          calcMode="linear"
+                          dur="0.8s"
+                          from="1"
+                          repeatCount="indefinite"
+                          to="1"
+                          values="1;.5;1"
+                        />
+                      </circle>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Meals should render Meal component correctly when there are available meals 1`] = `
+<div>
+  <div
+    class="admin"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar"
+      >
+        <div
+          class="menu-control d-none-md"
+        >
+          <button
+            class="link-btn d-none-md"
+            type="button"
+          >
+            <img
+              alt="toggler"
+              src="/img/toggler.png"
+            />
+          </button>
+        </div>
+        <div
+          class="page-title d-none-md"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="page-title d-flex-md"
+        >
+          <div
+            class="date"
+          >
+            <h2>
+              Thursday, 1st January 1970
+               
+              <span>
+                00:00
+              </span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content"
+    >
+      <div
+        class="sidenav null"
+        id="sidenav"
+      >
+        <div
+          class="sidenav-content"
+        >
+          <div
+            class="sidenav-header"
+          >
+            <div
+              class="close d-none-md"
+            >
+              <button
+                aria-hidden="true"
+                class="link-btn null"
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <div
+              class="sidenav-title"
+            >
+              <h3
+                class="d-flex-md"
+              >
+                <a
+                  href="/"
+                >
+                  BOOK-A-MEAL
+                </a>
+              </h3>
+              <div
+                class="username-circle"
+              >
+                <p>
+                  F
+                </p>
+              </div>
+              <p>
+                Food Circle
+              </p>
+              <span>
+                <button
+                  class="link-btn null"
+                  type="button"
+                >
+                  Logout
+                </button>
+              </span>
+            </div>
+          </div>
+          <div
+            class="sidenav-body"
+          >
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Dashboard
+            </button>
+            <button
+              class="link-btn menu-item active"
+              type="button"
+            >
+              Meals
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Menu
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Orders
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="content-wrapper"
+        id="has-modal"
+      >
+        <div
+          class="content-wrapper meals caterer-meals"
+        >
+          <div
+            class="top"
+          >
+            <button
+              class="btn btn-pri"
+              id="add-meal-btn"
+              type="button"
+            >
+              Add a New Meal
+            </button>
+          </div>
+          <div
+            class="card-group meals-wrapper"
+            id="card-group"
+          >
+            <div
+              class="infinite-scroll-component__outerdiv"
+            >
+              <div
+                class="infinite-scroll-component "
+                style="height: auto; overflow: auto;"
+              >
+                <div
+                  class="scroller"
+                >
+                  <div
+                    class="meal-card"
+                    id="81211c24-51c0-46ec-b1e0-18db55880958"
+                  >
+                    <div
+                      class="meal-card-header"
+                    >
+                      <img
+                        alt="meal"
+                        src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+                      />
+                      <div
+                        class="dropdown card-dropdown"
+                      >
+                        <button
+                          class="link-btn link"
+                          id="dropdown-toggler"
+                          type="button"
+                        >
+                          …
+                        </button>
+                        <div
+                          class="dropdown-content meal"
+                          id="dropdown-content"
+                        >
+                          <button
+                            class="link-btn null"
+                            id="edit-meal"
+                            type="button"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            class="link-btn null"
+                            id="delete-meal"
+                            type="button"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </div>
+                      <div
+                        class="menu-card-title"
+                      >
+                        <p>
+                          Jollof Rice, Beef and Plantain
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="meal-card-body"
+                    >
+                      <div>
+                        <h3>
+                          ₦
+                          1500.00
+                        </h3>
+                        <p
+                          class="meal-description"
+                          data-tooltip-content="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
+                          data-tooltip-id="meal-card-tooltip"
+                        >
+                          Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="meal-card"
+                    id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                  >
+                    <div
+                      class="meal-card-header"
+                    >
+                      <span
+                        class="veg-ribbon"
+                      >
+                        Vegetarian
+                      </span>
+                      <img
+                        alt="meal"
+                        src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
+                      />
+                      <div
+                        class="dropdown card-dropdown"
+                      >
+                        <button
+                          class="link-btn link"
+                          id="dropdown-toggler"
+                          type="button"
+                        >
+                          …
+                        </button>
+                        <div
+                          class="dropdown-content meal"
+                          id="dropdown-content"
+                        >
+                          <button
+                            class="link-btn null"
+                            id="edit-meal"
+                            type="button"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            class="link-btn null"
+                            id="delete-meal"
+                            type="button"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </div>
+                      <div
+                        class="menu-card-title"
+                      >
+                        <p>
+                          Vegetable Sharwama and Guava Smoothie
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="meal-card-body"
+                    >
+                      <div>
+                        <h3>
+                          ₦
+                          1200.00
+                        </h3>
+                        <p
+                          class="meal-description"
+                          data-tooltip-content="Sharwama contains no animal products, perfect for dieters"
+                          data-tooltip-id="meal-card-tooltip"
+                        >
+                          Sharwama contains no animal products, perfect for dieters
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="text-center"
+                >
+                  <div
+                    aria-busy="true"
+                    aria-label="three-dots-loading"
+                    class="sc-beySPh gZmPOF mini-loader"
+                    data-testid="three-dots-loading"
+                    role="progressbar"
+                  >
+                    <svg
+                      data-testid="three-dots-svg"
+                      fill="#4fa94d"
+                      height="80"
+                      viewBox="0 0 120 30"
+                      width="80"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="15"
+                        cy="15"
+                        r="15"
+                      >
+                        <animate
+                          attributeName="r"
+                          begin="0s"
+                          calcMode="linear"
+                          dur="0.8s"
+                          from="15"
+                          repeatCount="indefinite"
+                          to="15"
+                          values="15;9;15"
+                        />
+                        <animate
+                          attributeName="fill-opacity"
+                          begin="0s"
+                          calcMode="linear"
+                          dur="0.8s"
+                          from="1"
+                          repeatCount="indefinite"
+                          to="1"
+                          values="1;.5;1"
+                        />
+                      </circle>
+                      <circle
+                        attributeName="fill-opacity"
+                        cx="60"
+                        cy="15"
+                        from="1"
+                        r="9"
+                        to="0.3"
+                      >
+                        <animate
+                          attributeName="r"
+                          begin="0s"
+                          calcMode="linear"
+                          dur="0.8s"
+                          from="9"
+                          repeatCount="indefinite"
+                          to="9"
+                          values="9;15;9"
+                        />
+                        <animate
+                          attributeName="fill-opacity"
+                          begin="0s"
+                          calcMode="linear"
+                          dur="0.8s"
+                          from="0.5"
+                          repeatCount="indefinite"
+                          to="0.5"
+                          values=".5;1;.5"
+                        />
+                      </circle>
+                      <circle
+                        cx="105"
+                        cy="15"
+                        r="15"
+                      >
+                        <animate
+                          attributeName="r"
+                          begin="0s"
+                          calcMode="linear"
+                          dur="0.8s"
+                          from="15"
+                          repeatCount="indefinite"
+                          to="15"
+                          values="15;9;15"
+                        />
+                        <animate
+                          attributeName="fill-opacity"
+                          begin="0s"
+                          calcMode="linear"
+                          dur="0.8s"
+                          from="1"
+                          repeatCount="indefinite"
+                          to="1"
+                          values="1;.5;1"
+                        />
+                      </circle>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Meals should show "You Do Not Have Any Meals Yet" message when caterer has no meals 1`] = `
+<div>
+  <div
+    class="admin"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar"
+      >
+        <div
+          class="menu-control d-none-md"
+        >
+          <button
+            class="link-btn d-none-md"
+            type="button"
+          >
+            <img
+              alt="toggler"
+              src="/img/toggler.png"
+            />
+          </button>
+        </div>
+        <div
+          class="page-title d-none-md"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="page-title d-flex-md"
+        >
+          <div
+            class="date"
+          >
+            <h2>
+              Thursday, 1st January 1970
+               
+              <span>
+                00:00
+              </span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content"
+    >
+      <div
+        class="sidenav null"
+        id="sidenav"
+      >
+        <div
+          class="sidenav-content"
+        >
+          <div
+            class="sidenav-header"
+          >
+            <div
+              class="close d-none-md"
+            >
+              <button
+                aria-hidden="true"
+                class="link-btn null"
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <div
+              class="sidenav-title"
+            >
+              <h3
+                class="d-flex-md"
+              >
+                <a
+                  href="/"
+                >
+                  BOOK-A-MEAL
+                </a>
+              </h3>
+              <div
+                class="username-circle"
+              >
+                <p>
+                  F
+                </p>
+              </div>
+              <p>
+                Food Circle
+              </p>
+              <span>
+                <button
+                  class="link-btn null"
+                  type="button"
+                >
+                  Logout
+                </button>
+              </span>
+            </div>
+          </div>
+          <div
+            class="sidenav-body"
+          >
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Dashboard
+            </button>
+            <button
+              class="link-btn menu-item active"
+              type="button"
+            >
+              Meals
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Menu
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Orders
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="content-wrapper"
+        id="has-modal"
+      >
+        <div
+          class="content-wrapper meals caterer-meals"
+        >
+          <div
+            class="top"
+          >
+            <button
+              class="btn btn-pri"
+              id="add-meal-btn"
+              type="button"
+            >
+              Add a New Meal
+            </button>
+          </div>
+          <p
+            class="text-center info"
+          >
+            You Do Not Have Any Meals Yet
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;

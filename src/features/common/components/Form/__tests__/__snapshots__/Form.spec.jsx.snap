@@ -1,0 +1,836 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form snapshots should disable the form submit button when submitting the form 1`] = `
+<div>
+  <div>
+    <div
+      class="modal-preloader text-center"
+    >
+      <div
+        aria-busy="true"
+        aria-label="three-dots-loading"
+        class="sc-beySPh gZmPOF mini-loader"
+        data-testid="three-dots-loading"
+        role="progressbar"
+      >
+        <svg
+          data-testid="three-dots-svg"
+          fill="#4fa94d"
+          height="80"
+          viewBox="0 0 120 30"
+          width="80"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="15"
+            cy="15"
+            r="15"
+          >
+            <animate
+              attributeName="r"
+              begin="0s"
+              calcMode="linear"
+              dur="0.8s"
+              from="15"
+              repeatCount="indefinite"
+              to="15"
+              values="15;9;15"
+            />
+            <animate
+              attributeName="fill-opacity"
+              begin="0s"
+              calcMode="linear"
+              dur="0.8s"
+              from="1"
+              repeatCount="indefinite"
+              to="1"
+              values="1;.5;1"
+            />
+          </circle>
+          <circle
+            attributeName="fill-opacity"
+            cx="60"
+            cy="15"
+            from="1"
+            r="9"
+            to="0.3"
+          >
+            <animate
+              attributeName="r"
+              begin="0s"
+              calcMode="linear"
+              dur="0.8s"
+              from="9"
+              repeatCount="indefinite"
+              to="9"
+              values="9;15;9"
+            />
+            <animate
+              attributeName="fill-opacity"
+              begin="0s"
+              calcMode="linear"
+              dur="0.8s"
+              from="0.5"
+              repeatCount="indefinite"
+              to="0.5"
+              values=".5;1;.5"
+            />
+          </circle>
+          <circle
+            cx="105"
+            cy="15"
+            r="15"
+          >
+            <animate
+              attributeName="r"
+              begin="0s"
+              calcMode="linear"
+              dur="0.8s"
+              from="15"
+              repeatCount="indefinite"
+              to="15"
+              values="15;9;15"
+            />
+            <animate
+              attributeName="fill-opacity"
+              begin="0s"
+              calcMode="linear"
+              dur="0.8s"
+              from="1"
+              repeatCount="indefinite"
+              to="1"
+              values="1;.5;1"
+            />
+          </circle>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Form snapshots should render the Add Meal Form correctly when the type prop is addMeal 1`] = `
+<div>
+  <div>
+    <p
+      class="text-muted mx-auto text-center"
+    >
+      Fields marked
+      <span
+        class="danger"
+      >
+         *
+      </span>
+       are required
+    </p>
+    <form>
+      <div
+        class="form-input"
+      >
+        <label
+          for="title"
+        >
+          Meal Name
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="title"
+          name="title"
+          placeholder=""
+          type="text"
+          value=""
+        />
+         
+      </div>
+      <div
+        class="form-input"
+      >
+        <label
+          for="price"
+        >
+          Price
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="price"
+          name="price"
+          placeholder=""
+          type="number"
+          value=""
+        />
+         
+      </div>
+      <div
+        class="form-input form-img-input"
+      >
+        <label
+          for="imageUrl"
+        >
+          Meal Image
+        </label>
+        <div
+          id="form-image-preview"
+        >
+          <img
+            alt="meal"
+            id="meal-form-image"
+            src="https://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg"
+          />
+        </div>
+        <input
+          accept="image/*"
+          id="imageUrl"
+          name="imageUrl"
+          type="file"
+        />
+        <br />
+      </div>
+      <div
+        class="form-input"
+      >
+        <label
+          for="description"
+        >
+          Description (not more than 50 characters)
+        </label>
+        <input
+          class=""
+          id="description"
+          maxlength="100"
+          name="description"
+          placeholder=""
+          rows="2"
+          type="textarea"
+          value=""
+        />
+         
+      </div>
+      <div
+        class="form-input-checkbox"
+      >
+        <input
+          class=""
+          id="vegetarian"
+          name="vegetarian"
+          placeholder=""
+          type="checkbox"
+          value="false"
+        />
+         
+        <label
+          for="vegetarian"
+        >
+          Suitable for Vegetarians
+        </label>
+      </div>
+      <button
+        class="btn btn-pri btn-block"
+        disabled=""
+        type="submit"
+      >
+        SIGN IN
+      </button>
+    </form>
+    <p>
+      something
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Form snapshots should render the Caterer Signup Form correctly when the type prop is catererSignup 1`] = `
+<div>
+  <div>
+    <p
+      class="text-muted mx-auto text-center"
+    >
+      Fields marked
+      <span
+        class="danger"
+      >
+         *
+      </span>
+       are required
+    </p>
+    <form>
+      <div
+        class="form-input"
+      >
+        <label
+          for="businessName"
+        >
+          Business Name
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="businessName"
+          name="businessName"
+          placeholder=""
+          type="text"
+          value=""
+        />
+         
+      </div>
+      <div
+        class="form-input"
+      >
+        <label
+          for="email"
+        >
+          Email Address
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="email"
+          name="email"
+          placeholder=""
+          type="email"
+          value=""
+        />
+         
+      </div>
+      <div
+        class="form-input"
+      >
+        <label
+          for="password"
+        >
+          Password
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="password"
+          name="password"
+          placeholder=""
+          type="password"
+          value=""
+        />
+         
+      </div>
+      <div
+        class="form-input"
+      >
+        <label
+          for="passwordConfirm"
+        >
+          Password Confirm
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="passwordConfirm"
+          name="passwordConfirm"
+          placeholder=""
+          type="password"
+          value=""
+        />
+         
+      </div>
+      <div
+        class="form-input"
+      >
+        <label
+          for="phoneNo"
+        >
+          Business Phone Number (in the format 080xxxxxxxx)
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="phoneNo"
+          name="phoneNo"
+          pattern="[0-9]{4}[0-9]{3}[0-9]{4}"
+          placeholder=""
+          type="tel"
+          value=""
+        />
+         
+      </div>
+      <div
+        class="form-input"
+      >
+        <label
+          for="address"
+        >
+          Business Address
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="address"
+          name="address"
+          placeholder=""
+          type="text-area"
+          value=""
+        />
+         
+      </div>
+      <button
+        class="btn btn-pri btn-block"
+        disabled=""
+        type="submit"
+      >
+        SIGN IN
+      </button>
+    </form>
+    <p>
+      something
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Form snapshots should render the Customer Signup Form correctly when the type prop is customerSignup 1`] = `
+<div>
+  <div>
+    <p
+      class="text-muted mx-auto text-center"
+    >
+      Fields marked
+      <span
+        class="danger"
+      >
+         *
+      </span>
+       are required
+    </p>
+    <form>
+      <div
+        class="form-input"
+      >
+        <label
+          for="firstname"
+        >
+          First Name
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="firstname"
+          name="firstname"
+          placeholder=""
+          type="text"
+          value=""
+        />
+         
+      </div>
+      <div
+        class="form-input"
+      >
+        <label
+          for="lastname"
+        >
+          Last Name
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="lastname"
+          name="lastname"
+          placeholder=""
+          type="text"
+          value=""
+        />
+         
+      </div>
+      <div
+        class="form-input"
+      >
+        <label
+          for="email"
+        >
+          Email Address
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="email"
+          name="email"
+          placeholder=""
+          type="email"
+          value=""
+        />
+         
+      </div>
+      <div
+        class="form-input"
+      >
+        <label
+          for="password"
+        >
+          Password
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="password"
+          name="password"
+          placeholder=""
+          type="password"
+          value=""
+        />
+         
+      </div>
+      <div
+        class="form-input"
+      >
+        <label
+          for="passwordConfirm"
+        >
+          Password Confirm
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="passwordConfirm"
+          name="passwordConfirm"
+          placeholder=""
+          type="password"
+          value=""
+        />
+         
+      </div>
+      <button
+        class="btn btn-pri btn-block"
+        disabled=""
+        type="submit"
+      >
+        SIGN IN
+      </button>
+    </form>
+    <p>
+      something
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Form snapshots should render the Edit Meal Form correctly when the type prop is editMeal 1`] = `
+<div>
+  <div>
+    <p
+      class="text-muted mx-auto text-center"
+    >
+      Fields marked
+      <span
+        class="danger"
+      >
+         *
+      </span>
+       are required
+    </p>
+    <form>
+      <div
+        class="form-input"
+      >
+        <label
+          for="title"
+        >
+          Meal Name
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="title"
+          name="title"
+          placeholder=""
+          type="text"
+          value="Jollof Rice and Chicken"
+        />
+         
+      </div>
+      <div
+        class="form-input"
+      >
+        <label
+          for="price"
+        >
+          Price
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="price"
+          name="price"
+          placeholder=""
+          type="number"
+          value="2500.00"
+        />
+         
+      </div>
+      <div
+        class="form-input form-img-input"
+      >
+        <label
+          for="imageUrl"
+        >
+          Meal Image
+        </label>
+        <div
+          id="form-image-preview"
+        >
+          <img
+            alt="meal"
+            id="meal-form-image"
+            src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+          />
+        </div>
+        <input
+          accept="image/*"
+          id="imageUrl"
+          name="imageUrl"
+          type="file"
+        />
+        <br />
+      </div>
+      <div
+        class="form-input"
+      >
+        <label
+          for="description"
+        >
+          Description (not more than 50 characters)
+        </label>
+        <input
+          class=""
+          id="description"
+          maxlength="100"
+          name="description"
+          placeholder=""
+          rows="2"
+          type="textarea"
+          value=""
+        />
+         
+      </div>
+      <div
+        class="form-input-checkbox"
+      >
+        <input
+          class=""
+          id="vegetarian"
+          name="vegetarian"
+          placeholder=""
+          type="checkbox"
+          value="false"
+        />
+         
+        <label
+          for="vegetarian"
+        >
+          Suitable for Vegetarians
+        </label>
+      </div>
+      <button
+        class="btn btn-pri btn-block"
+        type="submit"
+      >
+        SIGN IN
+      </button>
+    </form>
+    <p>
+      something
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Form snapshots should render the Form component correctly 1`] = `
+<div>
+  <div>
+    <form>
+      <div
+        class="form-input"
+      >
+        <label
+          for="email"
+        >
+          Email Address
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="email"
+          name="email"
+          placeholder=""
+          type="email"
+          value=""
+        />
+         
+      </div>
+      <div
+        class="form-input"
+      >
+        <label
+          for="password"
+        >
+          Password
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="password"
+          name="password"
+          placeholder=""
+          type="password"
+          value=""
+        />
+         
+      </div>
+      <button
+        class="btn btn-pri btn-block"
+        disabled=""
+        type="submit"
+      >
+        SIGN IN
+      </button>
+    </form>
+    <p>
+      something
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Form snapshots should show an error alert and disable the form submit button when there's a submit error 1`] = `
+<div>
+  <div>
+    <form>
+      <p
+        class="danger text-center mb-0"
+      >
+        Username/Password do not match
+      </p>
+      <div
+        class="form-input"
+      >
+        <label
+          for="email"
+        >
+          Email Address
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="email"
+          name="email"
+          placeholder=""
+          type="email"
+          value=""
+        />
+         
+      </div>
+      <div
+        class="form-input"
+      >
+        <label
+          for="password"
+        >
+          Password
+          <span
+            class="danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class=""
+          id="password"
+          name="password"
+          placeholder=""
+          type="password"
+          value=""
+        />
+         
+      </div>
+      <button
+        class="btn btn-pri btn-block"
+        disabled=""
+        type="submit"
+      >
+        SIGN IN
+      </button>
+    </form>
+    <p>
+      something
+    </p>
+  </div>
+</div>
+`;

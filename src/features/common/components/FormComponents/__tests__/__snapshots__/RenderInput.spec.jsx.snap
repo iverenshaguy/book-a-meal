@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form Components: RenderInput should render RenderInput component correctly 1`] = `
+<div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="email"
+    >
+      Email
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class=""
+      id="email"
+      name="email"
+      placeholder="jane"
+      type="email"
+      value=""
+    />
+     
+  </div>
+</div>
+`;
+
+exports[`Form Components: RenderInput should render checkbox correctly 1`] = `
+<div>
+  <div
+    class="form-input-checkbox"
+  >
+    <input
+      class=""
+      id="email"
+      name="email"
+      placeholder="jane"
+      type="checkbox"
+      value=""
+    />
+     
+    <label
+      for="email"
+    >
+      Email
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Form Components: RenderInput should show error when invalid data is inputted 1`] = `
+<div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="email"
+    >
+      Email
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class="is-invalid"
+      id="email"
+      name="email"
+      placeholder="jane"
+      type="email"
+      value="jane@smith.me"
+    />
+     
+    <div
+      class="invalid-feedback"
+    >
+      This is an error
+    </div>
+  </div>
+</div>
+`;

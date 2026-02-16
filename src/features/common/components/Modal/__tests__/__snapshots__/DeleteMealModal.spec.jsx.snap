@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteMealModal should render MiniPreloader when deleting 1`] = `
+<div>
+  <div
+    class="text-center"
+  >
+    <div
+      aria-busy="true"
+      aria-label="three-dots-loading"
+      class="sc-beySPh gZmPOF mini-loader"
+      data-testid="three-dots-loading"
+      role="progressbar"
+    >
+      <svg
+        data-testid="three-dots-svg"
+        fill="#4fa94d"
+        height="80"
+        viewBox="0 0 120 30"
+        width="80"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="15"
+          cy="15"
+          r="15"
+        >
+          <animate
+            attributeName="r"
+            begin="0s"
+            calcMode="linear"
+            dur="0.8s"
+            from="15"
+            repeatCount="indefinite"
+            to="15"
+            values="15;9;15"
+          />
+          <animate
+            attributeName="fill-opacity"
+            begin="0s"
+            calcMode="linear"
+            dur="0.8s"
+            from="1"
+            repeatCount="indefinite"
+            to="1"
+            values="1;.5;1"
+          />
+        </circle>
+        <circle
+          attributeName="fill-opacity"
+          cx="60"
+          cy="15"
+          from="1"
+          r="9"
+          to="0.3"
+        >
+          <animate
+            attributeName="r"
+            begin="0s"
+            calcMode="linear"
+            dur="0.8s"
+            from="9"
+            repeatCount="indefinite"
+            to="9"
+            values="9;15;9"
+          />
+          <animate
+            attributeName="fill-opacity"
+            begin="0s"
+            calcMode="linear"
+            dur="0.8s"
+            from="0.5"
+            repeatCount="indefinite"
+            to="0.5"
+            values=".5;1;.5"
+          />
+        </circle>
+        <circle
+          cx="105"
+          cy="15"
+          r="15"
+        >
+          <animate
+            attributeName="r"
+            begin="0s"
+            calcMode="linear"
+            dur="0.8s"
+            from="15"
+            repeatCount="indefinite"
+            to="15"
+            values="15;9;15"
+          />
+          <animate
+            attributeName="fill-opacity"
+            begin="0s"
+            calcMode="linear"
+            dur="0.8s"
+            from="1"
+            repeatCount="indefinite"
+            to="1"
+            values="1;.5;1"
+          />
+        </circle>
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DeleteMealModal should render connected component correctly 1`] = `
+<div>
+  <div
+    class="delete-meal"
+  >
+    <p>
+      Are You Sure?
+    </p>
+    <div
+      class="confirm-delete-btns control-btns"
+    >
+      <button
+        class="btn btn-sec"
+        id="confirm-delete-no"
+        type="button"
+      >
+        No
+      </button>
+      <button
+        class="btn btn-sec-danger"
+        id="confirm-delete-yes"
+        type="button"
+      >
+        Yes
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DeleteMealModal should render correctly 1`] = `
+<div>
+  <div
+    class="delete-meal"
+  >
+    <p>
+      Are You Sure?
+    </p>
+    <div
+      class="confirm-delete-btns control-btns"
+    >
+      <button
+        class="btn btn-sec"
+        id="confirm-delete-no"
+        type="button"
+      >
+        No
+      </button>
+      <button
+        class="btn btn-sec-danger"
+        id="confirm-delete-yes"
+        type="button"
+      >
+        Yes
+      </button>
+    </div>
+  </div>
+</div>
+`;

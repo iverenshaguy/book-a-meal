@@ -1,0 +1,869 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal should not render correctly when modal is closed i.e. open prop is false 1`] = `<div />`;
+
+exports[`Modal should render Modal component correctly when type prop is addMeal 1`] = `
+<div>
+  <div
+    class="modal show"
+    id="meal-modal"
+  >
+    <div
+      class="modal-content"
+    >
+      <div
+        class="modal-header"
+      >
+        <div
+          class="modal-title"
+        >
+          <h3
+            id="modal-title-h3"
+          >
+            Add a Meal
+          </h3>
+        </div>
+        <div
+          class="close null"
+        >
+          <button
+            aria-hidden="true"
+            class="link-btn null"
+            id="modal-close-icon"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+      <hr />
+      <div
+        class="modal-body"
+      >
+        <div>
+          <p
+            class="text-muted mx-auto text-center"
+          >
+            Fields marked
+            <span
+              class="danger"
+            >
+               *
+            </span>
+             are required
+          </p>
+          <form>
+            <div
+              class="form-input"
+            >
+              <label
+                for="title"
+              >
+                Meal Name
+                <span
+                  class="danger"
+                >
+                  *
+                </span>
+              </label>
+              <input
+                class=""
+                id="title"
+                name="title"
+                placeholder=""
+                type="text"
+                value=""
+              />
+               
+            </div>
+            <div
+              class="form-input"
+            >
+              <label
+                for="price"
+              >
+                Price
+                <span
+                  class="danger"
+                >
+                  *
+                </span>
+              </label>
+              <input
+                class=""
+                id="price"
+                name="price"
+                placeholder=""
+                type="number"
+                value=""
+              />
+               
+            </div>
+            <div
+              class="form-input form-img-input"
+            >
+              <label
+                for="imageUrl"
+              >
+                Meal Image
+              </label>
+              <div
+                id="form-image-preview"
+              >
+                <img
+                  alt="meal"
+                  id="meal-form-image"
+                  src="https://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg"
+                />
+              </div>
+              <input
+                accept="image/*"
+                id="imageUrl"
+                name="imageUrl"
+                type="file"
+              />
+              <br />
+            </div>
+            <div
+              class="form-input"
+            >
+              <label
+                for="description"
+              >
+                Description (not more than 50 characters)
+              </label>
+              <input
+                class=""
+                id="description"
+                maxlength="100"
+                name="description"
+                placeholder=""
+                rows="2"
+                type="textarea"
+                value=""
+              />
+               
+            </div>
+            <div
+              class="form-input-checkbox"
+            >
+              <input
+                class=""
+                id="vegetarian"
+                name="vegetarian"
+                placeholder=""
+                type="checkbox"
+                value="false"
+              />
+               
+              <label
+                for="vegetarian"
+              >
+                Suitable for Vegetarians
+              </label>
+            </div>
+            <button
+              class="btn btn-pri btn-block"
+              disabled=""
+              type="submit"
+            >
+              ADD MEAL
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal should render connected Modal component correctly 1`] = `
+<div>
+  <div
+    class="modal show"
+    id="meal-modal"
+  >
+    <div
+      class="modal-content"
+    >
+      <div
+        class="modal-header"
+      >
+        <div
+          class="modal-title"
+        >
+          <h3
+            id="modal-title-h3"
+          >
+            Add a Meal
+          </h3>
+        </div>
+        <div
+          class="close null"
+        >
+          <button
+            aria-hidden="true"
+            class="link-btn null"
+            id="modal-close-icon"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+      <hr />
+      <div
+        class="modal-body"
+      >
+        <div>
+          <p
+            class="text-muted mx-auto text-center"
+          >
+            Fields marked
+            <span
+              class="danger"
+            >
+               *
+            </span>
+             are required
+          </p>
+          <form>
+            <div
+              class="form-input"
+            >
+              <label
+                for="title"
+              >
+                Meal Name
+                <span
+                  class="danger"
+                >
+                  *
+                </span>
+              </label>
+              <input
+                class=""
+                id="title"
+                name="title"
+                placeholder=""
+                type="text"
+                value=""
+              />
+               
+            </div>
+            <div
+              class="form-input"
+            >
+              <label
+                for="price"
+              >
+                Price
+                <span
+                  class="danger"
+                >
+                  *
+                </span>
+              </label>
+              <input
+                class=""
+                id="price"
+                name="price"
+                placeholder=""
+                type="number"
+                value=""
+              />
+               
+            </div>
+            <div
+              class="form-input form-img-input"
+            >
+              <label
+                for="imageUrl"
+              >
+                Meal Image
+              </label>
+              <div
+                id="form-image-preview"
+              >
+                <img
+                  alt="meal"
+                  id="meal-form-image"
+                  src="https://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg"
+                />
+              </div>
+              <input
+                accept="image/*"
+                id="imageUrl"
+                name="imageUrl"
+                type="file"
+              />
+              <br />
+            </div>
+            <div
+              class="form-input"
+            >
+              <label
+                for="description"
+              >
+                Description (not more than 50 characters)
+              </label>
+              <input
+                class=""
+                id="description"
+                maxlength="100"
+                name="description"
+                placeholder=""
+                rows="2"
+                type="textarea"
+                value=""
+              />
+               
+            </div>
+            <div
+              class="form-input-checkbox"
+            >
+              <input
+                class=""
+                id="vegetarian"
+                name="vegetarian"
+                placeholder=""
+                type="checkbox"
+                value="false"
+              />
+               
+              <label
+                for="vegetarian"
+              >
+                Suitable for Vegetarians
+              </label>
+            </div>
+            <button
+              class="btn btn-pri btn-block"
+              disabled=""
+              type="submit"
+            >
+              ADD MEAL
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal should render correctly when type prop is caterer 1`] = `
+<div>
+  <div
+    class="modal show"
+    id="meal-modal"
+  >
+    <div
+      class="modal-content"
+    >
+      <div
+        class="modal-header"
+      >
+        <div
+          class="modal-title"
+        >
+          <h3
+            id="modal-title-h3"
+          >
+            Select Meal Options
+          </h3>
+        </div>
+        <div
+          class="close null"
+        >
+          <button
+            aria-hidden="true"
+            class="link-btn null"
+            id="modal-close-icon"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+      <hr />
+      <div
+        class="modal-body"
+      >
+        <div
+          class="menu-date"
+        >
+          <h3>
+            Thursday, 1st January 1970
+            <span>
+               ▾
+            </span>
+          </h3>
+          <div
+            class="datepicker-div"
+          >
+            <input
+              id="datepicker"
+              type="date"
+            />
+          </div>
+        </div>
+        <div
+          class="meal-options-list"
+        >
+          <div
+            class="form-input"
+          >
+            <label
+              class="hide"
+              for="search"
+            >
+              Search For Meals
+            </label>
+            <input
+              class="open menu-search-input"
+              id="search"
+              name="search"
+              placeholder="Search For Meals"
+              type="text"
+              value=""
+            />
+          </div>
+          <p
+            class="text-center info"
+          >
+            No Meals Found
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal should render correctly when type prop is deleteMeal 1`] = `
+<div>
+  <div
+    class="modal show"
+    id="meal-modal"
+  >
+    <div
+      class="modal-content"
+    >
+      <div
+        class="modal-header"
+      >
+        <div
+          class="modal-title"
+        >
+          <h3
+            id="modal-title-h3"
+          >
+            Delete Meal
+          </h3>
+        </div>
+        <div
+          class="close null"
+        >
+          <button
+            aria-hidden="true"
+            class="link-btn null"
+            id="modal-close-icon"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+      <hr />
+      <div
+        class="modal-body"
+      >
+        <div
+          class="delete-meal"
+        >
+          <p>
+            Are You Sure?
+          </p>
+          <div
+            class="confirm-delete-btns control-btns"
+          >
+            <button
+              class="btn btn-sec"
+              id="confirm-delete-no"
+              type="button"
+            >
+              No
+            </button>
+            <button
+              class="btn btn-sec-danger"
+              id="confirm-delete-yes"
+              type="button"
+            >
+              Yes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal should render correctly when type prop is deleteSuccessMsg 1`] = `
+<div>
+  <div
+    class="modal show"
+    id="meal-modal"
+  >
+    <div
+      class="modal-content"
+    >
+      <div
+        class="modal-header"
+      >
+        <div
+          class="modal-title"
+        >
+          <h3
+            id="modal-title-h3"
+          >
+            Delete Meal
+          </h3>
+        </div>
+        <div
+          class="close null"
+        >
+          <button
+            aria-hidden="true"
+            class="link-btn null"
+            id="modal-close-icon"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+      <hr />
+      <div
+        class="modal-body"
+      >
+        <p
+          class="text-center"
+        >
+          Meal Deleted Successfully
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal should render correctly when type prop is editMeal 1`] = `
+<div>
+  <div
+    class="modal show"
+    id="meal-modal"
+  >
+    <div
+      class="modal-content"
+    >
+      <div
+        class="modal-header"
+      >
+        <div
+          class="modal-title"
+        >
+          <h3
+            id="modal-title-h3"
+          >
+            Edit Meal
+          </h3>
+        </div>
+        <div
+          class="close null"
+        >
+          <button
+            aria-hidden="true"
+            class="link-btn null"
+            id="modal-close-icon"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+      <hr />
+      <div
+        class="modal-body"
+      >
+        <div>
+          <p
+            class="text-muted mx-auto text-center"
+          >
+            Fields marked
+            <span
+              class="danger"
+            >
+               *
+            </span>
+             are required
+          </p>
+          <form>
+            <div
+              class="form-input"
+            >
+              <label
+                for="title"
+              >
+                Meal Name
+                <span
+                  class="danger"
+                >
+                  *
+                </span>
+              </label>
+              <input
+                class=""
+                id="title"
+                name="title"
+                placeholder=""
+                type="text"
+                value="Jollof Rice, Beef and Plantain"
+              />
+               
+            </div>
+            <div
+              class="form-input"
+            >
+              <label
+                for="price"
+              >
+                Price
+                <span
+                  class="danger"
+                >
+                  *
+                </span>
+              </label>
+              <input
+                class=""
+                id="price"
+                name="price"
+                placeholder=""
+                type="number"
+                value="1500.00"
+              />
+               
+            </div>
+            <div
+              class="form-input form-img-input"
+            >
+              <label
+                for="imageUrl"
+              >
+                Meal Image
+              </label>
+              <div
+                id="form-image-preview"
+              >
+                <img
+                  alt="meal"
+                  id="meal-form-image"
+                  src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+                />
+              </div>
+              <input
+                accept="image/*"
+                id="imageUrl"
+                name="imageUrl"
+                type="file"
+              />
+              <br />
+            </div>
+            <div
+              class="form-input"
+            >
+              <label
+                for="description"
+              >
+                Description (not more than 50 characters)
+              </label>
+              <input
+                class=""
+                id="description"
+                maxlength="100"
+                name="description"
+                placeholder=""
+                rows="2"
+                type="textarea"
+                value="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
+              />
+               
+            </div>
+            <div
+              class="form-input-checkbox"
+            >
+              <input
+                class=""
+                id="vegetarian"
+                name="vegetarian"
+                placeholder=""
+                type="checkbox"
+                value="false"
+              />
+               
+              <label
+                for="vegetarian"
+              >
+                Suitable for Vegetarians
+              </label>
+            </div>
+            <button
+              class="btn btn-pri btn-block"
+              type="submit"
+            >
+              SAVE MEAL
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal should render correctly when type prop is orderCanceledMsg 1`] = `
+<div>
+  <div
+    class="modal show"
+    id="meal-modal"
+  >
+    <div
+      class="modal-content"
+    >
+      <div
+        class="modal-header"
+      >
+        <div
+          class="modal-title"
+        >
+          <h3
+            id="modal-title-h3"
+          />
+        </div>
+        <div
+          class="close null"
+        >
+          <button
+            aria-hidden="true"
+            class="link-btn null"
+            id="modal-close-icon"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+      <hr />
+      <div
+        class="modal-body"
+      >
+        <p
+          class="text-center"
+        >
+          Order Canceled Successfully
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal should render correctly when type prop is orderSuccessMsg 1`] = `
+<div>
+  <div
+    class="modal show"
+    id="meal-modal"
+  >
+    <div
+      class="modal-content"
+    >
+      <div
+        class="modal-header"
+      >
+        <div
+          class="modal-title"
+        >
+          <h3
+            id="modal-title-h3"
+          />
+        </div>
+        <div
+          class="close null"
+        >
+          <button
+            aria-hidden="true"
+            class="link-btn null"
+            id="modal-close-icon"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+      <hr />
+      <div
+        class="modal-body"
+      >
+        <p
+          class="text-center"
+        >
+          Thank you for your order. Your belly will be filled up shortly
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal should render null when type prop is unknown 1`] = `
+<div>
+  <div
+    class="modal show"
+    id="meal-modal"
+  >
+    <div
+      class="modal-content"
+    >
+      <div
+        class="modal-header"
+      >
+        <div
+          class="modal-title"
+        >
+          <h3
+            id="modal-title-h3"
+          />
+        </div>
+        <div
+          class="close null"
+        >
+          <button
+            aria-hidden="true"
+            class="link-btn null"
+            id="modal-close-icon"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+      <hr />
+      <div
+        class="modal-body"
+      />
+    </div>
+  </div>
+</div>
+`;

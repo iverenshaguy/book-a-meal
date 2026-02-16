@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MealForm should render the Meal Form correctly when type prop is addMeal 1`] = `
+<div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="title"
+    >
+      Meal Name
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class=""
+      id="title"
+      name="title"
+      placeholder=""
+      type="text"
+      value=""
+    />
+     
+  </div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="price"
+    >
+      Price
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class=""
+      id="price"
+      name="price"
+      placeholder=""
+      type="number"
+      value=""
+    />
+     
+  </div>
+  <div
+    class="form-input form-img-input"
+  >
+    <label
+      for="imageUrl"
+    >
+      Meal Image
+    </label>
+    <div
+      id="form-image-preview"
+    >
+      <img
+        alt="meal"
+        id="meal-form-image"
+        src="https://res.cloudinary.com/iverenshaguy/image/upload/v1532540264/bookameal/default-img.jpg"
+      />
+    </div>
+    <input
+      accept="image/*"
+      id="imageUrl"
+      name="imageUrl"
+      type="file"
+    />
+    <br />
+  </div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="description"
+    >
+      Description (not more than 50 characters)
+    </label>
+    <input
+      class=""
+      id="description"
+      maxlength="100"
+      name="description"
+      placeholder=""
+      rows="2"
+      type="textarea"
+      value=""
+    />
+     
+  </div>
+  <div
+    class="form-input-checkbox"
+  >
+    <input
+      class=""
+      id="vegetarian"
+      name="vegetarian"
+      placeholder=""
+      type="checkbox"
+      value=""
+    />
+     
+    <label
+      for="vegetarian"
+    >
+      Suitable for Vegetarians
+    </label>
+  </div>
+</div>
+`;
+
+exports[`MealForm should render the Meal Form correctly when type prop is editMeal 1`] = `
+<div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="title"
+    >
+      Meal Name
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class=""
+      id="title"
+      name="title"
+      placeholder=""
+      type="text"
+      value="Jollof Rice and Chicken"
+    />
+     
+  </div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="price"
+    >
+      Price
+      <span
+        class="danger"
+      >
+        *
+      </span>
+    </label>
+    <input
+      class=""
+      id="price"
+      name="price"
+      placeholder=""
+      type="number"
+      value="2500.00"
+    />
+     
+  </div>
+  <div
+    class="form-input form-img-input"
+  >
+    <label
+      for="imageUrl"
+    >
+      Meal Image
+    </label>
+    <div
+      id="form-image-preview"
+    >
+      <img
+        alt="meal"
+        id="meal-form-image"
+        src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+      />
+    </div>
+    <input
+      accept="image/*"
+      id="imageUrl"
+      name="imageUrl"
+      type="file"
+    />
+    <br />
+  </div>
+  <div
+    class="form-input"
+  >
+    <label
+      for="description"
+    >
+      Description (not more than 50 characters)
+    </label>
+    <input
+      class=""
+      id="description"
+      maxlength="100"
+      name="description"
+      placeholder=""
+      rows="2"
+      type="textarea"
+      value=""
+    />
+     
+  </div>
+  <div
+    class="form-input-checkbox"
+  >
+    <input
+      class=""
+      id="vegetarian"
+      name="vegetarian"
+      placeholder=""
+      type="checkbox"
+      value="false"
+    />
+     
+    <label
+      for="vegetarian"
+    >
+      Suitable for Vegetarians
+    </label>
+  </div>
+</div>
+`;

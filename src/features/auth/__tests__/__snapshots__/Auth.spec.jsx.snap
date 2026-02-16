@@ -1,0 +1,723 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth should render Signin Form component correctly 1`] = `
+<div>
+  <div
+    class="header unauth"
+  >
+    <div
+      class="navbar unauth-navbar"
+    >
+      <div
+        class="page-title"
+      >
+        <h3>
+          <a
+            href="/"
+          >
+            BOOK-A-MEAL
+          </a>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div
+    class="main-wrapper auth-wrapper"
+  >
+    <div
+      class="auth"
+    >
+      <div
+        class="title"
+      >
+        <h2>
+          Welcome Back
+        </h2>
+        <hr
+          class="w-75"
+        />
+      </div>
+      <div>
+        <form>
+          <div
+            class="form-input"
+          >
+            <label
+              for="email"
+            >
+              Email Address
+              <span
+                class="danger"
+              >
+                *
+              </span>
+            </label>
+            <input
+              class=""
+              id="email"
+              name="email"
+              placeholder=""
+              type="email"
+              value=""
+            />
+             
+          </div>
+          <div
+            class="form-input"
+          >
+            <label
+              for="password"
+            >
+              Password
+              <span
+                class="danger"
+              >
+                *
+              </span>
+            </label>
+            <input
+              class=""
+              id="password"
+              name="password"
+              placeholder=""
+              type="password"
+              value=""
+            />
+             
+          </div>
+          <button
+            class="btn btn-pri btn-block"
+            disabled=""
+            type="submit"
+          >
+            SIGN IN
+          </button>
+        </form>
+        <p
+          class="form-extra-info forgot-password"
+        >
+          <a
+            href="/forgot-password"
+          >
+            Forgot Password?
+          </a>
+        </p>
+        <p
+          class="form-extra-info text-center"
+        >
+          Don't have an account? 
+          <a
+            href="/signup?role=customer"
+          >
+            Signup Here
+          </a>
+        </p>
+        <p
+          class="text-center"
+        >
+          Or
+        </p>
+        <p
+          class="form-extra-info text-center"
+        >
+          <a
+            href="/signup?role=caterer"
+          >
+            Signup as a Caterer
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="footer"
+  >
+    <p>
+      © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Auth should render caterer's signup form correctly when role query is caterer 1`] = `
+<div>
+  <div
+    class="header unauth"
+  >
+    <div
+      class="navbar unauth-navbar"
+    >
+      <div
+        class="page-title"
+      >
+        <h3>
+          <a
+            href="/"
+          >
+            BOOK-A-MEAL
+          </a>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div
+    class="main-wrapper auth-wrapper"
+  >
+    <div
+      class="auth"
+    >
+      <div
+        class="title"
+      >
+        <h2>
+          Start Serving Customers
+        </h2>
+        <hr
+          class="w-75"
+        />
+      </div>
+      <div>
+        <p
+          class="text-muted mx-auto text-center"
+        >
+          Fields marked
+          <span
+            class="danger"
+          >
+             *
+          </span>
+           are required
+        </p>
+        <form>
+          <div
+            class="form-input"
+          >
+            <label
+              for="businessName"
+            >
+              Business Name
+              <span
+                class="danger"
+              >
+                *
+              </span>
+            </label>
+            <input
+              class=""
+              id="businessName"
+              name="businessName"
+              placeholder=""
+              type="text"
+              value=""
+            />
+             
+          </div>
+          <div
+            class="form-input"
+          >
+            <label
+              for="email"
+            >
+              Email Address
+              <span
+                class="danger"
+              >
+                *
+              </span>
+            </label>
+            <input
+              class=""
+              id="email"
+              name="email"
+              placeholder=""
+              type="email"
+              value=""
+            />
+             
+          </div>
+          <div
+            class="form-input"
+          >
+            <label
+              for="password"
+            >
+              Password
+              <span
+                class="danger"
+              >
+                *
+              </span>
+            </label>
+            <input
+              class=""
+              id="password"
+              name="password"
+              placeholder=""
+              type="password"
+              value=""
+            />
+             
+          </div>
+          <div
+            class="form-input"
+          >
+            <label
+              for="passwordConfirm"
+            >
+              Password Confirm
+              <span
+                class="danger"
+              >
+                *
+              </span>
+            </label>
+            <input
+              class=""
+              id="passwordConfirm"
+              name="passwordConfirm"
+              placeholder=""
+              type="password"
+              value=""
+            />
+             
+          </div>
+          <div
+            class="form-input"
+          >
+            <label
+              for="phoneNo"
+            >
+              Business Phone Number (in the format 080xxxxxxxx)
+              <span
+                class="danger"
+              >
+                *
+              </span>
+            </label>
+            <input
+              class=""
+              id="phoneNo"
+              name="phoneNo"
+              pattern="[0-9]{4}[0-9]{3}[0-9]{4}"
+              placeholder=""
+              type="tel"
+              value=""
+            />
+             
+          </div>
+          <div
+            class="form-input"
+          >
+            <label
+              for="address"
+            >
+              Business Address
+              <span
+                class="danger"
+              >
+                *
+              </span>
+            </label>
+            <input
+              class=""
+              id="address"
+              name="address"
+              placeholder=""
+              type="text-area"
+              value=""
+            />
+             
+          </div>
+          <button
+            class="btn btn-pri btn-block"
+            disabled=""
+            type="submit"
+          >
+            SIGN UP
+          </button>
+        </form>
+        <p
+          class="form-extra-info text-center"
+        >
+          Already have an account? 
+          <a
+            href="/signin"
+          >
+            Sign In Here
+          </a>
+        </p>
+        <p
+          class="text-center"
+        >
+          Or
+        </p>
+        <p
+          class="form-extra-info text-center"
+        >
+          <a
+            href="/signup?role=customer"
+          >
+            Signup as a Customer
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="footer"
+  >
+    <p>
+      © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Auth should render customer's signup form component correctly 1`] = `
+<div>
+  <div
+    class="header unauth"
+  >
+    <div
+      class="navbar unauth-navbar"
+    >
+      <div
+        class="page-title"
+      >
+        <h3>
+          <a
+            href="/"
+          >
+            BOOK-A-MEAL
+          </a>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div
+    class="main-wrapper auth-wrapper"
+  >
+    <div
+      class="auth"
+    >
+      <div
+        class="title"
+      >
+        <h2>
+          Start Filling Your Belly
+        </h2>
+        <hr
+          class="w-75"
+        />
+      </div>
+      <div>
+        <p
+          class="text-muted mx-auto text-center"
+        >
+          Fields marked
+          <span
+            class="danger"
+          >
+             *
+          </span>
+           are required
+        </p>
+        <form>
+          <div
+            class="form-input"
+          >
+            <label
+              for="firstname"
+            >
+              First Name
+              <span
+                class="danger"
+              >
+                *
+              </span>
+            </label>
+            <input
+              class=""
+              id="firstname"
+              name="firstname"
+              placeholder=""
+              type="text"
+              value=""
+            />
+             
+          </div>
+          <div
+            class="form-input"
+          >
+            <label
+              for="lastname"
+            >
+              Last Name
+              <span
+                class="danger"
+              >
+                *
+              </span>
+            </label>
+            <input
+              class=""
+              id="lastname"
+              name="lastname"
+              placeholder=""
+              type="text"
+              value=""
+            />
+             
+          </div>
+          <div
+            class="form-input"
+          >
+            <label
+              for="email"
+            >
+              Email Address
+              <span
+                class="danger"
+              >
+                *
+              </span>
+            </label>
+            <input
+              class=""
+              id="email"
+              name="email"
+              placeholder=""
+              type="email"
+              value=""
+            />
+             
+          </div>
+          <div
+            class="form-input"
+          >
+            <label
+              for="password"
+            >
+              Password
+              <span
+                class="danger"
+              >
+                *
+              </span>
+            </label>
+            <input
+              class=""
+              id="password"
+              name="password"
+              placeholder=""
+              type="password"
+              value=""
+            />
+             
+          </div>
+          <div
+            class="form-input"
+          >
+            <label
+              for="passwordConfirm"
+            >
+              Password Confirm
+              <span
+                class="danger"
+              >
+                *
+              </span>
+            </label>
+            <input
+              class=""
+              id="passwordConfirm"
+              name="passwordConfirm"
+              placeholder=""
+              type="password"
+              value=""
+            />
+             
+          </div>
+          <button
+            class="btn btn-pri btn-block"
+            disabled=""
+            type="submit"
+          >
+            SIGN UP
+          </button>
+        </form>
+        <p
+          class="form-extra-info text-center"
+        >
+          Already have an account? 
+          <a
+            href="/signin"
+          >
+            Sign In Here
+          </a>
+        </p>
+        <p
+          class="text-center"
+        >
+          Or
+        </p>
+        <p
+          class="form-extra-info text-center"
+        >
+          <a
+            href="/signup?role=caterer"
+          >
+            Signup as a Caterer
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="footer"
+  >
+    <p>
+      © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Auth should render signin component that is connected to the redux store correctly 1`] = `
+<div>
+  <div
+    class="header unauth"
+  >
+    <div
+      class="navbar unauth-navbar"
+    >
+      <div
+        class="page-title"
+      >
+        <h3>
+          <a
+            href="/"
+          >
+            BOOK-A-MEAL
+          </a>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div
+    class="main-wrapper auth-wrapper"
+  >
+    <div
+      class="auth"
+    >
+      <div
+        class="title"
+      >
+        <h2>
+          Welcome Back
+        </h2>
+        <hr
+          class="w-75"
+        />
+      </div>
+      <div>
+        <form>
+          <div
+            class="form-input"
+          >
+            <label
+              for="email"
+            >
+              Email Address
+              <span
+                class="danger"
+              >
+                *
+              </span>
+            </label>
+            <input
+              class=""
+              id="email"
+              name="email"
+              placeholder=""
+              type="email"
+              value=""
+            />
+             
+          </div>
+          <div
+            class="form-input"
+          >
+            <label
+              for="password"
+            >
+              Password
+              <span
+                class="danger"
+              >
+                *
+              </span>
+            </label>
+            <input
+              class=""
+              id="password"
+              name="password"
+              placeholder=""
+              type="password"
+              value=""
+            />
+             
+          </div>
+          <button
+            class="btn btn-pri btn-block"
+            disabled=""
+            type="submit"
+          >
+            SIGN IN
+          </button>
+        </form>
+        <p
+          class="form-extra-info forgot-password"
+        >
+          <a
+            href="/forgot-password"
+          >
+            Forgot Password?
+          </a>
+        </p>
+        <p
+          class="form-extra-info text-center"
+        >
+          Don't have an account? 
+          <a
+            href="/signup?role=customer"
+          >
+            Signup Here
+          </a>
+        </p>
+        <p
+          class="text-center"
+        >
+          Or
+        </p>
+        <p
+          class="form-extra-info text-center"
+        >
+          <a
+            href="/signup?role=caterer"
+          >
+            Signup as a Caterer
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="footer"
+  >
+    <p>
+      © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+    </p>
+  </div>
+</div>
+`;

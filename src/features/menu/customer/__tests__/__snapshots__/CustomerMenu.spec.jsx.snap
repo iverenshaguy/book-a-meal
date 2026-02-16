@@ -1,0 +1,1274 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomerMenu should render Customer Menu component correctly 1`] = `
+<div>
+  <div
+    class="admin user"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar white-navbar"
+      >
+        <div
+          class="page-title"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="navlinks"
+        >
+          <h3>
+            Welcome, 
+            Emiola
+          </h3>
+          <a
+            href="/"
+          >
+            Menu
+          </a>
+          <a
+            href="/orders"
+          >
+            Orders
+          </a>
+          <a
+            href="/"
+          >
+            Logout
+          </a>
+          <div
+            class="user-info mobile-only"
+          >
+            <div
+              class="dropdown"
+            >
+              <button
+                class="link-btn link"
+                id="dropdown-toggler"
+                type="button"
+              >
+                <div
+                  class="user-dropdown"
+                >
+                  <div
+                    class="username-circle circle-click"
+                  >
+                    <p
+                      class="circle-click"
+                    >
+                      E
+                    </p>
+                  </div>
+                  <span>
+                    ▾
+                  </span>
+                </div>
+              </button>
+              <div
+                class="dropdown-content"
+                id="dropdown-content"
+              >
+                <a
+                  href="/"
+                >
+                  Menu
+                </a>
+                <a
+                  href="/orders"
+                >
+                  Orders
+                </a>
+                <a
+                  href="/"
+                >
+                  Logout
+                </a>
+              </div>
+            </div>
+             
+            <p>
+              Emiola
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content-wrapper"
+      id="has-modal"
+    >
+      <div
+        class="meals user-meals"
+      >
+        <div
+          class="user-menu"
+        >
+          <div
+            class="main-menu"
+          >
+            <div
+              class="page-heading"
+            >
+              <h2>
+                Today's Menu
+              </h2>
+              <hr />
+            </div>
+            <div
+              class="search-wrapper"
+            >
+              <div
+                class="search-form"
+              >
+                <div
+                  class="search-btn"
+                >
+                  <img
+                    alt="Search Icon"
+                    src="/img/search.svg"
+                  />
+                </div>
+                <label
+                  class="hide"
+                  for="search"
+                >
+                  Search For Meals
+                </label>
+                <input
+                  id="search"
+                  label="Search"
+                  name="search"
+                  placeholder="Search For Meals"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="card-group meals-wrapper"
+              id="card-group"
+            >
+              <div
+                class="infinite-scroll-component__outerdiv"
+              >
+                <div
+                  class="infinite-scroll-component "
+                  style="height: auto; overflow: auto;"
+                >
+                  <div
+                    class="scroller"
+                  >
+                    <div
+                      class="meal-card customer-meal-card"
+                      id="81211c24-51c0-46ec-b1e0-18db55880958"
+                    >
+                      <div
+                        class="meal-card-header"
+                      >
+                        <img
+                          alt="meal"
+                          src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+                        />
+                        <div
+                          class="menu-card-title"
+                        >
+                          <p>
+                            Jollof Rice, Beef and Plantain
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="meal-card-body"
+                      >
+                        <div>
+                          <h3>
+                            ₦
+                            1500.00
+                          </h3>
+                          <p
+                            class="meal-description"
+                            data-tooltip-content="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
+                            data-tooltip-id="meal-card-tooltip"
+                          >
+                            Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
+                          </p>
+                        </div>
+                        <div
+                          class="meal-card-action"
+                        >
+                          <button
+                            class="btn btn-sec meal-card-btn"
+                            type="button"
+                          >
+                            Add To Basket
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="meal-card customer-meal-card"
+                      id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                    >
+                      <div
+                        class="meal-card-header"
+                      >
+                        <span
+                          class="veg-ribbon"
+                        >
+                          Vegetarian
+                        </span>
+                        <img
+                          alt="meal"
+                          src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
+                        />
+                        <div
+                          class="menu-card-title"
+                        >
+                          <p>
+                            Vegetable Sharwama and Guava Smoothie
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="meal-card-body"
+                      >
+                        <div>
+                          <h3>
+                            ₦
+                            1200.00
+                          </h3>
+                          <p
+                            class="meal-description"
+                            data-tooltip-content="Sharwama contains no animal products, perfect for dieters"
+                            data-tooltip-id="meal-card-tooltip"
+                          >
+                            Sharwama contains no animal products, perfect for dieters
+                          </p>
+                        </div>
+                        <div
+                          class="meal-card-action"
+                        >
+                          <button
+                            class="btn btn-sec meal-card-btn"
+                            type="button"
+                          >
+                            Add To Basket
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="side-cart-toggle d-none-xl"
+          >
+            <span
+              aria-hidden="true"
+              id="cart-toggler"
+            >
+              <div
+                class="text-center"
+              >
+                <img
+                  alt="cart"
+                  src="/img/cart.png"
+                />
+                  
+                <sup>
+                  2
+                </sup>
+              </div>
+              <p
+                class="text-center"
+              >
+                Total: ₦
+                9100
+              </p>
+            </span>
+            <span
+              class="cart-btn"
+            >
+              <a
+                href="/order-review"
+              >
+                <button
+                  class="btn btn-pri btn-block checkout-btn"
+                  type="button"
+                >
+                  Checkout
+                </button>
+              </a>
+            </span>
+          </div>
+          <div
+            class="side-cart null"
+            id="side-cart"
+          >
+            <div
+              class="cart"
+            >
+              <div
+                class="cart-header"
+              >
+                <h2>
+                  Your Basket
+                </h2>
+                <div
+                  class="close d-none-xl"
+                >
+                  <button
+                    aria-hidden="true"
+                    class="link-btn null"
+                    id="side-cart-close-icon"
+                    type="button"
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+              <hr />
+              <div
+                class="order-summary"
+              >
+                <div>
+                  <p>
+                    <input
+                      class="order-input"
+                      min="1"
+                      type="number"
+                      value="1"
+                    />
+                  </p>
+                  <p
+                    data-for="cart-tooltip"
+                    data-tip="Meat Soup"
+                  >
+                    Meat Soup
+                  </p>
+                  <p>
+                    2500
+                  </p>
+                  <button
+                    class="link-btn remove-order"
+                    data-tooltip-content="Remove Item?"
+                    data-tooltip-id="cart-tooltip"
+                    type="button"
+                  >
+                    ×
+                  </button>
+                </div>
+                <div>
+                  <p>
+                    <input
+                      class="order-input"
+                      min="1"
+                      type="number"
+                      value="3"
+                    />
+                  </p>
+                  <p
+                    data-for="cart-tooltip"
+                    data-tip="Fish Soup"
+                  >
+                    Fish Soup
+                  </p>
+                  <p>
+                    2200
+                  </p>
+                  <button
+                    class="link-btn remove-order"
+                    data-tooltip-content="Remove Item?"
+                    data-tooltip-id="cart-tooltip"
+                    type="button"
+                  >
+                    ×
+                  </button>
+                </div>
+                <div
+                  class="order-amount"
+                >
+                  <div>
+                    <p>
+                      Total:
+                    </p>
+                    <h2>
+                      ₦
+                      9100
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <a
+                href="/order-review"
+              >
+                <button
+                  class="btn btn-pri btn-block checkout-btn"
+                  type="button"
+                >
+                  Checkout
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CustomerMenu should render Menu Component when connected to the redux store correctly 1`] = `
+<div>
+  <div
+    class="admin user"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar white-navbar"
+      >
+        <div
+          class="page-title"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="navlinks"
+        >
+          <h3>
+            Welcome, 
+            Emiola
+          </h3>
+          <a
+            href="/"
+          >
+            Menu
+          </a>
+          <a
+            href="/orders"
+          >
+            Orders
+          </a>
+          <a
+            href="/"
+          >
+            Logout
+          </a>
+          <div
+            class="user-info mobile-only"
+          >
+            <div
+              class="dropdown"
+            >
+              <button
+                class="link-btn link"
+                id="dropdown-toggler"
+                type="button"
+              >
+                <div
+                  class="user-dropdown"
+                >
+                  <div
+                    class="username-circle circle-click"
+                  >
+                    <p
+                      class="circle-click"
+                    >
+                      E
+                    </p>
+                  </div>
+                  <span>
+                    ▾
+                  </span>
+                </div>
+              </button>
+              <div
+                class="dropdown-content"
+                id="dropdown-content"
+              >
+                <a
+                  href="/"
+                >
+                  Menu
+                </a>
+                <a
+                  href="/orders"
+                >
+                  Orders
+                </a>
+                <a
+                  href="/"
+                >
+                  Logout
+                </a>
+              </div>
+            </div>
+             
+            <p>
+              Emiola
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content-wrapper"
+      id="has-modal"
+    >
+      <div
+        class="meals user-meals"
+      >
+        <div
+          class="user-menu"
+        >
+          <div
+            class="main-menu"
+          >
+            <div
+              class="page-heading"
+            >
+              <h2>
+                Today's Menu
+              </h2>
+              <hr />
+            </div>
+            <div
+              class="search-wrapper"
+            >
+              <div
+                class="search-form"
+              >
+                <div
+                  class="search-btn"
+                >
+                  <img
+                    alt="Search Icon"
+                    src="/img/search.svg"
+                  />
+                </div>
+                <label
+                  class="hide"
+                  for="search"
+                >
+                  Search For Meals
+                </label>
+                <input
+                  id="search"
+                  label="Search"
+                  name="search"
+                  placeholder="Search For Meals"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="card-group meals-wrapper"
+              id="card-group"
+            >
+              <div
+                class="infinite-scroll-component__outerdiv"
+              >
+                <div
+                  class="infinite-scroll-component "
+                  style="height: auto; overflow: auto;"
+                >
+                  <div
+                    class="scroller"
+                  >
+                    <div
+                      class="meal-card customer-meal-card"
+                      id="81211c24-51c0-46ec-b1e0-18db55880958"
+                    >
+                      <div
+                        class="meal-card-header"
+                      >
+                        <img
+                          alt="meal"
+                          src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+                        />
+                        <div
+                          class="menu-card-title"
+                        >
+                          <p>
+                            Jollof Rice, Beef and Plantain
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="meal-card-body"
+                      >
+                        <div>
+                          <h3>
+                            ₦
+                            1500.00
+                          </h3>
+                          <p
+                            class="meal-description"
+                            data-tooltip-content="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
+                            data-tooltip-id="meal-card-tooltip"
+                          >
+                            Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
+                          </p>
+                        </div>
+                        <div
+                          class="meal-card-action"
+                        >
+                          <button
+                            class="btn btn-sec meal-card-btn"
+                            type="button"
+                          >
+                            Add To Basket
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="meal-card customer-meal-card"
+                      id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                    >
+                      <div
+                        class="meal-card-header"
+                      >
+                        <span
+                          class="veg-ribbon"
+                        >
+                          Vegetarian
+                        </span>
+                        <img
+                          alt="meal"
+                          src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
+                        />
+                        <div
+                          class="menu-card-title"
+                        >
+                          <p>
+                            Vegetable Sharwama and Guava Smoothie
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="meal-card-body"
+                      >
+                        <div>
+                          <h3>
+                            ₦
+                            1200.00
+                          </h3>
+                          <p
+                            class="meal-description"
+                            data-tooltip-content="Sharwama contains no animal products, perfect for dieters"
+                            data-tooltip-id="meal-card-tooltip"
+                          >
+                            Sharwama contains no animal products, perfect for dieters
+                          </p>
+                        </div>
+                        <div
+                          class="meal-card-action"
+                        >
+                          <button
+                            class="btn btn-sec meal-card-btn"
+                            type="button"
+                          >
+                            Add To Basket
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="side-cart-toggle d-none-xl"
+          >
+            <span
+              aria-hidden="true"
+              id="cart-toggler"
+            >
+              <div
+                class="text-center"
+              >
+                <img
+                  alt="cart"
+                  src="/img/cart.png"
+                />
+                  
+                <sup>
+                  2
+                </sup>
+              </div>
+              <p
+                class="text-center"
+              >
+                Total: ₦
+                9100
+              </p>
+            </span>
+            <span
+              class="cart-btn"
+            >
+              <a
+                href="/order-review"
+              >
+                <button
+                  class="btn btn-pri btn-block checkout-btn"
+                  type="button"
+                >
+                  Checkout
+                </button>
+              </a>
+            </span>
+          </div>
+          <div
+            class="side-cart null"
+            id="side-cart"
+          >
+            <div
+              class="cart"
+            >
+              <div
+                class="cart-header"
+              >
+                <h2>
+                  Your Basket
+                </h2>
+                <div
+                  class="close d-none-xl"
+                >
+                  <button
+                    aria-hidden="true"
+                    class="link-btn null"
+                    id="side-cart-close-icon"
+                    type="button"
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+              <hr />
+              <div
+                class="order-summary"
+              >
+                <div>
+                  <p>
+                    <input
+                      class="order-input"
+                      min="1"
+                      type="number"
+                      value="1"
+                    />
+                  </p>
+                  <p
+                    data-for="cart-tooltip"
+                    data-tip="Meat Soup"
+                  >
+                    Meat Soup
+                  </p>
+                  <p>
+                    2500
+                  </p>
+                  <button
+                    class="link-btn remove-order"
+                    data-tooltip-content="Remove Item?"
+                    data-tooltip-id="cart-tooltip"
+                    type="button"
+                  >
+                    ×
+                  </button>
+                </div>
+                <div>
+                  <p>
+                    <input
+                      class="order-input"
+                      min="1"
+                      type="number"
+                      value="3"
+                    />
+                  </p>
+                  <p
+                    data-for="cart-tooltip"
+                    data-tip="Fish Soup"
+                  >
+                    Fish Soup
+                  </p>
+                  <p>
+                    2200
+                  </p>
+                  <button
+                    class="link-btn remove-order"
+                    data-tooltip-content="Remove Item?"
+                    data-tooltip-id="cart-tooltip"
+                    type="button"
+                  >
+                    ×
+                  </button>
+                </div>
+                <div
+                  class="order-amount"
+                >
+                  <div>
+                    <p>
+                      Total:
+                    </p>
+                    <h2>
+                      ₦
+                      9100
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <a
+                href="/order-review"
+              >
+                <button
+                  class="btn btn-pri btn-block checkout-btn"
+                  type="button"
+                >
+                  Checkout
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CustomerMenu should render a message when shop is closed 1`] = `
+<div>
+  <div
+    class="admin user"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar white-navbar"
+      >
+        <div
+          class="page-title"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="navlinks"
+        >
+          <h3>
+            Welcome, 
+            Emiola
+          </h3>
+          <a
+            href="/"
+          >
+            Menu
+          </a>
+          <a
+            href="/orders"
+          >
+            Orders
+          </a>
+          <a
+            href="/"
+          >
+            Logout
+          </a>
+          <div
+            class="user-info mobile-only"
+          >
+            <div
+              class="dropdown"
+            >
+              <button
+                class="link-btn link"
+                id="dropdown-toggler"
+                type="button"
+              >
+                <div
+                  class="user-dropdown"
+                >
+                  <div
+                    class="username-circle circle-click"
+                  >
+                    <p
+                      class="circle-click"
+                    >
+                      E
+                    </p>
+                  </div>
+                  <span>
+                    ▾
+                  </span>
+                </div>
+              </button>
+              <div
+                class="dropdown-content"
+                id="dropdown-content"
+              >
+                <a
+                  href="/"
+                >
+                  Menu
+                </a>
+                <a
+                  href="/orders"
+                >
+                  Orders
+                </a>
+                <a
+                  href="/"
+                >
+                  Logout
+                </a>
+              </div>
+            </div>
+             
+            <p>
+              Emiola
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content-wrapper"
+      id="has-modal"
+    >
+      <div
+        class="meals user-meals"
+      >
+        <div
+          class="user-menu"
+        >
+          <div
+            class="main-menu"
+          >
+            <div
+              class="page-heading"
+            >
+              <h2>
+                Today's Menu
+              </h2>
+              <hr />
+            </div>
+            <div
+              class="search-wrapper"
+            >
+              <div
+                class="search-form"
+              >
+                <div
+                  class="search-btn"
+                >
+                  <img
+                    alt="Search Icon"
+                    src="/img/search.svg"
+                  />
+                </div>
+                <label
+                  class="hide"
+                  for="search"
+                >
+                  Search For Meals
+                </label>
+                <input
+                  id="search"
+                  label="Search"
+                  name="search"
+                  placeholder="Search For Meals"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="notification-pill"
+            >
+              <p
+                class="text-center notif"
+              >
+                Ordering is only available between 8:30am and 4:00pm. Please check back later.
+              </p>
+            </div>
+            <div
+              class="card-group meals-wrapper"
+              id="card-group"
+            >
+              <div
+                class="infinite-scroll-component__outerdiv"
+              >
+                <div
+                  class="infinite-scroll-component "
+                  style="height: auto; overflow: auto;"
+                >
+                  <div
+                    class="scroller"
+                  >
+                    <div
+                      class="meal-card customer-meal-card"
+                      id="81211c24-51c0-46ec-b1e0-18db55880958"
+                    >
+                      <div
+                        class="meal-card-header"
+                      >
+                        <img
+                          alt="meal"
+                          src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+                        />
+                        <div
+                          class="menu-card-title"
+                        >
+                          <p>
+                            Jollof Rice, Beef and Plantain
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="meal-card-body"
+                      >
+                        <div>
+                          <h3>
+                            ₦
+                            1500.00
+                          </h3>
+                          <p
+                            class="meal-description"
+                            data-tooltip-content="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
+                            data-tooltip-id="meal-card-tooltip"
+                          >
+                            Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="meal-card customer-meal-card"
+                      id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+                    >
+                      <div
+                        class="meal-card-header"
+                      >
+                        <span
+                          class="veg-ribbon"
+                        >
+                          Vegetarian
+                        </span>
+                        <img
+                          alt="meal"
+                          src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
+                        />
+                        <div
+                          class="menu-card-title"
+                        >
+                          <p>
+                            Vegetable Sharwama and Guava Smoothie
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="meal-card-body"
+                      >
+                        <div>
+                          <h3>
+                            ₦
+                            1200.00
+                          </h3>
+                          <p
+                            class="meal-description"
+                            data-tooltip-content="Sharwama contains no animal products, perfect for dieters"
+                            data-tooltip-id="meal-card-tooltip"
+                          >
+                            Sharwama contains no animal products, perfect for dieters
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="side-cart-toggle d-none-xl"
+          >
+            <span
+              aria-hidden="true"
+              id="cart-toggler"
+            >
+              <div
+                class="text-center"
+              >
+                <img
+                  alt="cart"
+                  src="/img/cart.png"
+                />
+                  
+                <sup>
+                  2
+                </sup>
+              </div>
+              <p
+                class="text-center"
+              >
+                Total: ₦
+                9100
+              </p>
+            </span>
+          </div>
+          <div
+            class="side-cart null"
+            id="side-cart"
+          >
+            <div
+              class="cart"
+            >
+              <div
+                class="cart-header"
+              >
+                <h2>
+                  Your Basket
+                </h2>
+                <div
+                  class="close d-none-xl"
+                >
+                  <button
+                    aria-hidden="true"
+                    class="link-btn null"
+                    id="side-cart-close-icon"
+                    type="button"
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+              <hr />
+              <div
+                class="order-summary"
+              >
+                <div>
+                  <p>
+                    <input
+                      class="order-input"
+                      min="1"
+                      type="number"
+                      value="1"
+                    />
+                  </p>
+                  <p
+                    data-for="cart-tooltip"
+                    data-tip="Meat Soup"
+                  >
+                    Meat Soup
+                  </p>
+                  <p>
+                    2500
+                  </p>
+                  <button
+                    class="link-btn remove-order"
+                    data-tooltip-content="Remove Item?"
+                    data-tooltip-id="cart-tooltip"
+                    type="button"
+                  >
+                    ×
+                  </button>
+                </div>
+                <div>
+                  <p>
+                    <input
+                      class="order-input"
+                      min="1"
+                      type="number"
+                      value="3"
+                    />
+                  </p>
+                  <p
+                    data-for="cart-tooltip"
+                    data-tip="Fish Soup"
+                  >
+                    Fish Soup
+                  </p>
+                  <p>
+                    2200
+                  </p>
+                  <button
+                    class="link-btn remove-order"
+                    data-tooltip-content="Remove Item?"
+                    data-tooltip-id="cart-tooltip"
+                    type="button"
+                  >
+                    ×
+                  </button>
+                </div>
+                <div
+                  class="order-amount"
+                >
+                  <div>
+                    <p>
+                      Total:
+                    </p>
+                    <h2>
+                      ₦
+                      9100
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              <br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;

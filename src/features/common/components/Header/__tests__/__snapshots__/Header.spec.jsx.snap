@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render Caterer Header component correctly when type prop is caterer 1`] = `
+<div>
+  <div
+    class="header"
+  >
+    <div
+      class="navbar"
+    >
+      <div
+        class="menu-control d-none-md"
+      >
+        <button
+          class="link-btn d-none-md"
+          type="button"
+        >
+          <img
+            alt="toggler"
+            src="/img/toggler.png"
+          />
+        </button>
+      </div>
+      <div
+        class="page-title d-none-md"
+      >
+        <h3>
+          <a
+            href="/"
+          >
+            BOOK-A-MEAL
+          </a>
+        </h3>
+      </div>
+      <div
+        class="page-title d-flex-md"
+      >
+        <div
+          class="date"
+        >
+          <h2>
+            Thursday, 1st January 1970
+             
+            <span>
+              00:00
+            </span>
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Header should render Header component correctly 1`] = `
+<div>
+  <div
+    class="header homepage"
+  >
+    <div
+      class="navbar unauth-navbar"
+    >
+      <div
+        class="page-title"
+      >
+        <h3>
+          <a
+            href="/"
+          >
+            BOOK-A-MEAL
+          </a>
+        </h3>
+      </div>
+      <div
+        class="navlinks"
+      >
+        <a
+          href="/signin"
+        >
+          Log In
+        </a>
+        <a
+          href="/signup"
+        >
+          Sign Up
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Header should render unauthenticated Header component correctly when type prop is unauth 1`] = `
+<div>
+  <div
+    class="header unauth"
+  >
+    <div
+      class="navbar unauth-navbar"
+    >
+      <div
+        class="page-title"
+      >
+        <h3>
+          <a
+            href="/"
+          >
+            BOOK-A-MEAL
+          </a>
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>
+`;

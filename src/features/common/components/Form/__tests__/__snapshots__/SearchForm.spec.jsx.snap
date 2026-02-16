@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchForm should render the SearchForm component correctly when type prop is caterer 1`] = `
+<div>
+  <div
+    class="form-input"
+  >
+    <label
+      class="hide"
+      for="search"
+    >
+      Search For Meals
+    </label>
+    <input
+      class="open menu-search-input"
+      id="search"
+      name="search"
+      placeholder="Search For Meals"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`SearchForm should render the SearchForm component correctly when type prop is customer 1`] = `
+<div>
+  <div
+    class="search-wrapper"
+  >
+    <div
+      class="search-form"
+    >
+      <div
+        class="search-btn"
+      >
+        <img
+          alt="Search Icon"
+          src="/img/search.svg"
+        />
+      </div>
+      <label
+        class="hide"
+        for="search"
+      >
+        Search For Meals
+      </label>
+      <input
+        id="search"
+        label="Search"
+        name="search"
+        placeholder="Search For Meals"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;

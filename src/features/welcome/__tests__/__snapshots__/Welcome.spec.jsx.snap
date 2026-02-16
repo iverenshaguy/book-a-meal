@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Welcome should render the CustomerMenu component correctly when authenticated and the user role is customer 1`] = `
+<div>
+  <div
+    class="admin"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar"
+      />
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Welcome should render the Dashboard component correctly when authenticated and the user role is caterer 1`] = `
+<div>
+  <div
+    class="admin"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar"
+      />
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Welcome should render the Preloader component when authenticating 1`] = `
+<div>
+  <div
+    class="main-preloader user-preloader"
+  >
+    <div
+      aria-busy="true"
+      aria-label="revolving-dot-loading"
+      class="sc-beySPh gZmPOF loader"
+      data-testid="revolving-dot-loading"
+      role="progressbar"
+    >
+      <svg
+        data-testid="revolving-dot-svg"
+        height="calc(45 * 2.5)"
+        version="1.1"
+        width="calc(45 * 2.5)"
+        x="0px"
+        xmlns="http://www.w3.org/2000/svg"
+        y="0px"
+      >
+        <circle
+          cx="calc(45 * 1.28)"
+          cy="calc(45 * 1.28)"
+          fill="none"
+          r="45"
+          stroke="#4fa94d"
+          stroke-width="5"
+          style="opacity: 0.5;"
+        />
+        <circle
+          cx="calc(45 * 1.28)"
+          cy="calc(45 / 3.5)"
+          fill="#4fa94d"
+          r="calc(45 / 5)"
+          stroke="#4fa94d"
+          stroke-width="3"
+          style="transform-origin: 50% 50%;"
+        >
+          <animatetransform
+            attributeName="transform"
+            dur="2s"
+            from="0"
+            repeatCount="indefinite"
+            to="360"
+            type="rotate"
+          />
+        </circle>
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Welcome should render the Welcome component correctly when unauthenticated 1`] = `
+<div>
+  <div
+    class="header homepage"
+  >
+    <div
+      class="navbar unauth-navbar"
+    >
+      <div
+        class="page-title"
+      >
+        <h3>
+          <a
+            href="/"
+          >
+            BOOK-A-MEAL
+          </a>
+        </h3>
+      </div>
+      <div
+        class="navlinks"
+      >
+        <a
+          href="/signin"
+        >
+          Log In
+        </a>
+        <a
+          href="/signup"
+        >
+          Sign Up
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="main-wrapper home"
+  >
+    <div
+      class="landing"
+    >
+      <h1>
+        Delicious Meals At Your Fingertips
+      </h1>
+      <a
+        href="/signin"
+      >
+        <button
+          class="btn btn-pri"
+          type="button"
+        >
+          I'M HUNGRY
+        </button>
+      </a>
+    </div>
+  </div>
+  <div
+    class="footer"
+  >
+    <p>
+      © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+    </p>
+  </div>
+</div>
+`;

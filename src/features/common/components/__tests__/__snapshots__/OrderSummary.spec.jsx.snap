@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderSummary should render OrderSummary component correctly 1`] = `
+<div>
+  <div
+    class="order-summary"
+  >
+    <div>
+      <p>
+        1
+        x
+      </p>
+      <p
+        style="word-wrap: break-word; padding-left: 5px; padding-right: 5px;"
+      >
+        Vegetable Sharwama and Guava Smoothie
+      </p>
+      <p>
+        ₦
+        1200
+      </p>
+    </div>
+  </div>
+</div>
+`;

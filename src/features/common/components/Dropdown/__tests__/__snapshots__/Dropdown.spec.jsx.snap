@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown should render the Dropdown component correctly when the type prop is admin-notification 1`] = `
+<div>
+  <div
+    class="dropdown notification"
+  >
+    <button
+      class="link-btn link"
+      id="dropdown-toggler"
+      type="button"
+    >
+      <p>
+        Click Me
+      </p>
+    </button>
+    <div
+      class="dropdown-content admin-dropdown-content"
+      id="dropdown-content"
+    >
+      <div>
+        Hey
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dropdown should render the Dropdown component correctly when the type prop is notification 1`] = `
+<div>
+  <div
+    class="dropdown notification"
+  >
+    <button
+      class="link-btn link"
+      id="dropdown-toggler"
+      type="button"
+    >
+      <p>
+        Click Me
+      </p>
+    </button>
+    <div
+      class="dropdown-content"
+      id="dropdown-content"
+    >
+      <div>
+        Hey
+      </div>
+    </div>
+  </div>
+</div>
+`;

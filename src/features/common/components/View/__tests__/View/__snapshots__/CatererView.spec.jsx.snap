@@ -1,0 +1,363 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CatererView should render CatererView component correctly 1`] = `
+<div>
+  <div
+    class="admin"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar"
+      >
+        <div
+          class="menu-control d-none-md"
+        >
+          <button
+            class="link-btn d-none-md"
+            type="button"
+          >
+            <img
+              alt="toggler"
+              src="/img/toggler.png"
+            />
+          </button>
+        </div>
+        <div
+          class="page-title d-none-md"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="page-title d-flex-md"
+        >
+          <div
+            class="date"
+          >
+            <h2>
+              Thursday, 1st January 1970
+               
+              <span>
+                00:00
+              </span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content"
+    >
+      <div
+        class="sidenav null"
+        id="sidenav"
+      >
+        <div
+          class="sidenav-content"
+        >
+          <div
+            class="sidenav-header"
+          >
+            <div
+              class="close d-none-md"
+            >
+              <button
+                aria-hidden="true"
+                class="link-btn null"
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <div
+              class="sidenav-title"
+            >
+              <h3
+                class="d-flex-md"
+              >
+                <a
+                  href="/"
+                >
+                  BOOK-A-MEAL
+                </a>
+              </h3>
+              <div
+                class="username-circle"
+              >
+                <p>
+                  F
+                </p>
+              </div>
+              <p>
+                Food Circle
+              </p>
+              <span>
+                <button
+                  class="link-btn null"
+                  type="button"
+                >
+                  Logout
+                </button>
+              </span>
+            </div>
+          </div>
+          <div
+            class="sidenav-body"
+          >
+            <button
+              class="link-btn menu-item active"
+              type="button"
+            >
+              Dashboard
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Meals
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Menu
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Orders
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="content-wrapper dashboard"
+        id="has-modal"
+      >
+        <p>
+          Hi
+        </p>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CatererView should render Preloader when fetching page data 1`] = `
+<div>
+  <div
+    class="admin"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="navbar"
+      >
+        <div
+          class="menu-control d-none-md"
+        >
+          <button
+            class="link-btn d-none-md"
+            type="button"
+          >
+            <img
+              alt="toggler"
+              src="/img/toggler.png"
+            />
+          </button>
+        </div>
+        <div
+          class="page-title d-none-md"
+        >
+          <h3>
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+        </div>
+        <div
+          class="page-title d-flex-md"
+        >
+          <div
+            class="date"
+          >
+            <h2>
+              Thursday, 1st January 1970
+               
+              <span>
+                00:00
+              </span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="content"
+    >
+      <div
+        class="sidenav null"
+        id="sidenav"
+      >
+        <div
+          class="sidenav-content"
+        >
+          <div
+            class="sidenav-header"
+          >
+            <div
+              class="close d-none-md"
+            >
+              <button
+                aria-hidden="true"
+                class="link-btn null"
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <div
+              class="sidenav-title"
+            >
+              <h3
+                class="d-flex-md"
+              >
+                <a
+                  href="/"
+                >
+                  BOOK-A-MEAL
+                </a>
+              </h3>
+              <div
+                class="username-circle"
+              >
+                <p>
+                  F
+                </p>
+              </div>
+              <p>
+                Food Circle
+              </p>
+              <span>
+                <button
+                  class="link-btn null"
+                  type="button"
+                >
+                  Logout
+                </button>
+              </span>
+            </div>
+          </div>
+          <div
+            class="sidenav-body"
+          >
+            <button
+              class="link-btn menu-item active"
+              type="button"
+            >
+              Dashboard
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Meals
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Menu
+            </button>
+            <button
+              class="link-btn menu-item false"
+              type="button"
+            >
+              Orders
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="content-wrapper dashboard"
+        id="has-modal"
+      >
+        <div
+          class="main-preloader"
+        >
+          <div
+            aria-busy="true"
+            aria-label="revolving-dot-loading"
+            class="sc-beySPh gZmPOF loader"
+            data-testid="revolving-dot-loading"
+            role="progressbar"
+          >
+            <svg
+              data-testid="revolving-dot-svg"
+              height="calc(45 * 2.5)"
+              version="1.1"
+              width="calc(45 * 2.5)"
+              x="0px"
+              xmlns="http://www.w3.org/2000/svg"
+              y="0px"
+            >
+              <circle
+                cx="calc(45 * 1.28)"
+                cy="calc(45 * 1.28)"
+                fill="none"
+                r="45"
+                stroke="#4fa94d"
+                stroke-width="5"
+                style="opacity: 0.5;"
+              />
+              <circle
+                cx="calc(45 * 1.28)"
+                cy="calc(45 / 3.5)"
+                fill="#4fa94d"
+                r="calc(45 / 5)"
+                stroke="#4fa94d"
+                stroke-width="3"
+                style="transform-origin: 50% 50%;"
+              >
+                <animatetransform
+                  attributeName="transform"
+                  dur="2s"
+                  from="0"
+                  repeatCount="indefinite"
+                  to="360"
+                  type="rotate"
+                />
+              </circle>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer"
+    >
+      <p>
+        © 2018. Iveren Shaguy. All images were gotten from the internet and are not mine.
+      </p>
+    </div>
+  </div>
+</div>
+`;

@@ -3,16 +3,16 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
-import store from './store/configureStore';
-import refreshPage from './utils/refreshPage';
-import App from './components/App';
+import store from 'store/configureStore';
+import refreshPage from 'src/features/common/utils/refreshPage';
+import App from 'src/features/app';
 
 refreshPage(store);
 
 /**
  * @function renderApp
- * @param {elem} Root - App Root
- * @returns {JSX} App Instance
+ * @param {JSXElement} Root - app Root
+ * @returns {React.ComponentClass} app Instance
  */
 const renderApp = (Root) => {
   render(
@@ -28,7 +28,7 @@ const renderApp = (Root) => {
 renderApp(App);
 
 if (module.hot) {
-  module.hot.accept('./components/App', () => {
+  module.hot.accept('./features/app', () => {
     renderApp(App);
   });
 }

@@ -1,0 +1,353 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideNav should render SideNav component correctly 1`] = `
+<div>
+  <div
+    class="sidenav null"
+    id="sidenav"
+  >
+    <div
+      class="sidenav-content"
+    >
+      <div
+        class="sidenav-header"
+      >
+        <div
+          class="close d-none-md"
+        >
+          <button
+            aria-hidden="true"
+            class="link-btn null"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+        <div
+          class="sidenav-title"
+        >
+          <h3
+            class="d-flex-md"
+          >
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+          <div
+            class="username-circle"
+          >
+            <p>
+              F
+            </p>
+          </div>
+          <p>
+            Food Circle
+          </p>
+          <span>
+            <button
+              class="link-btn null"
+              type="button"
+            >
+              Logout
+            </button>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sidenav-body"
+      >
+        <button
+          class="link-btn menu-item active"
+          type="button"
+        >
+          Dashboard
+        </button>
+        <button
+          class="link-btn menu-item false"
+          type="button"
+        >
+          Meals
+        </button>
+        <button
+          class="link-btn menu-item false"
+          type="button"
+        >
+          Menu
+        </button>
+        <button
+          class="link-btn menu-item false"
+          type="button"
+        >
+          Orders
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SideNav should render correctly when caterer tab is active (meals) 1`] = `
+<div>
+  <div
+    class="sidenav null"
+    id="sidenav"
+  >
+    <div
+      class="sidenav-content"
+    >
+      <div
+        class="sidenav-header"
+      >
+        <div
+          class="close d-none-md"
+        >
+          <button
+            aria-hidden="true"
+            class="link-btn null"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+        <div
+          class="sidenav-title"
+        >
+          <h3
+            class="d-flex-md"
+          >
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+          <div
+            class="username-circle"
+          >
+            <p>
+              F
+            </p>
+          </div>
+          <p>
+            Food Circle
+          </p>
+          <span>
+            <button
+              class="link-btn null"
+              type="button"
+            >
+              Logout
+            </button>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sidenav-body"
+      >
+        <button
+          class="link-btn menu-item false"
+          type="button"
+        >
+          Dashboard
+        </button>
+        <button
+          class="link-btn menu-item active"
+          type="button"
+        >
+          Meals
+        </button>
+        <button
+          class="link-btn menu-item false"
+          type="button"
+        >
+          Menu
+        </button>
+        <button
+          class="link-btn menu-item false"
+          type="button"
+        >
+          Orders
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SideNav should render correctly when caterer tab is active (menu) 1`] = `
+<div>
+  <div
+    class="sidenav null"
+    id="sidenav"
+  >
+    <div
+      class="sidenav-content"
+    >
+      <div
+        class="sidenav-header"
+      >
+        <div
+          class="close d-none-md"
+        >
+          <button
+            aria-hidden="true"
+            class="link-btn null"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+        <div
+          class="sidenav-title"
+        >
+          <h3
+            class="d-flex-md"
+          >
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+          <div
+            class="username-circle"
+          >
+            <p>
+              F
+            </p>
+          </div>
+          <p>
+            Food Circle
+          </p>
+          <span>
+            <button
+              class="link-btn null"
+              type="button"
+            >
+              Logout
+            </button>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sidenav-body"
+      >
+        <button
+          class="link-btn menu-item false"
+          type="button"
+        >
+          Dashboard
+        </button>
+        <button
+          class="link-btn menu-item false"
+          type="button"
+        >
+          Meals
+        </button>
+        <button
+          class="link-btn menu-item active"
+          type="button"
+        >
+          Menu
+        </button>
+        <button
+          class="link-btn menu-item false"
+          type="button"
+        >
+          Orders
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SideNav should render correctly when caterer tab is active (orders) 1`] = `
+<div>
+  <div
+    class="sidenav null"
+    id="sidenav"
+  >
+    <div
+      class="sidenav-content"
+    >
+      <div
+        class="sidenav-header"
+      >
+        <div
+          class="close d-none-md"
+        >
+          <button
+            aria-hidden="true"
+            class="link-btn null"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+        <div
+          class="sidenav-title"
+        >
+          <h3
+            class="d-flex-md"
+          >
+            <a
+              href="/"
+            >
+              BOOK-A-MEAL
+            </a>
+          </h3>
+          <div
+            class="username-circle"
+          >
+            <p>
+              F
+            </p>
+          </div>
+          <p>
+            Food Circle
+          </p>
+          <span>
+            <button
+              class="link-btn null"
+              type="button"
+            >
+              Logout
+            </button>
+          </span>
+        </div>
+      </div>
+      <div
+        class="sidenav-body"
+      >
+        <button
+          class="link-btn menu-item false"
+          type="button"
+        >
+          Dashboard
+        </button>
+        <button
+          class="link-btn menu-item false"
+          type="button"
+        >
+          Meals
+        </button>
+        <button
+          class="link-btn menu-item false"
+          type="button"
+        >
+          Menu
+        </button>
+        <button
+          class="link-btn menu-item active"
+          type="button"
+        >
+          Orders
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link should render Link component correctly 1`] = `
+<div>
+  <button
+    class="link-btn null"
+    type="button"
+  >
+    Click
+  </button>
+</div>
+`;

@@ -1,0 +1,415 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuItems should render CustomerMenuItems component correctly 1`] = `
+<div>
+  <div
+    class="card-group meals-wrapper"
+    id="card-group"
+  >
+    <div
+      class="infinite-scroll-component__outerdiv"
+    >
+      <div
+        class="infinite-scroll-component "
+        style="height: auto; overflow: auto;"
+      >
+        <div
+          class="scroller"
+        >
+          <div
+            class="meal-card customer-meal-card"
+            id="81211c24-51c0-46ec-b1e0-18db55880958"
+          >
+            <div
+              class="meal-card-header"
+            >
+              <img
+                alt="meal"
+                src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+              />
+              <div
+                class="menu-card-title"
+              >
+                <p>
+                  Jollof Rice, Beef and Plantain
+                </p>
+              </div>
+            </div>
+            <div
+              class="meal-card-body"
+            >
+              <div>
+                <h3>
+                  ₦
+                  1500.00
+                </h3>
+                <p
+                  class="meal-description"
+                  data-tooltip-content="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
+                  data-tooltip-id="meal-card-tooltip"
+                >
+                  Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
+                </p>
+              </div>
+              <div
+                class="meal-card-action"
+              >
+                <button
+                  class="btn btn-sec meal-card-btn"
+                  disabled=""
+                  type="button"
+                >
+                  Added To Basket
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="meal-card customer-meal-card"
+            id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+          >
+            <div
+              class="meal-card-header"
+            >
+              <span
+                class="veg-ribbon"
+              >
+                Vegetarian
+              </span>
+              <img
+                alt="meal"
+                src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
+              />
+              <div
+                class="menu-card-title"
+              >
+                <p>
+                  Vegetable Sharwama and Guava Smoothie
+                </p>
+              </div>
+            </div>
+            <div
+              class="meal-card-body"
+            >
+              <div>
+                <h3>
+                  ₦
+                  1200.00
+                </h3>
+                <p
+                  class="meal-description"
+                  data-tooltip-content="Sharwama contains no animal products, perfect for dieters"
+                  data-tooltip-id="meal-card-tooltip"
+                >
+                  Sharwama contains no animal products, perfect for dieters
+                </p>
+              </div>
+              <div
+                class="meal-card-action"
+              >
+                <button
+                  class="btn btn-sec meal-card-btn"
+                  disabled=""
+                  type="button"
+                >
+                  Added To Basket
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="text-center"
+        >
+          <div
+            aria-busy="true"
+            aria-label="three-dots-loading"
+            class="sc-beySPh gZmPOF mini-loader"
+            data-testid="three-dots-loading"
+            role="progressbar"
+          >
+            <svg
+              data-testid="three-dots-svg"
+              fill="#4fa94d"
+              height="80"
+              viewBox="0 0 120 30"
+              width="80"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="15"
+                cy="15"
+                r="15"
+              >
+                <animate
+                  attributeName="r"
+                  begin="0s"
+                  calcMode="linear"
+                  dur="0.8s"
+                  from="15"
+                  repeatCount="indefinite"
+                  to="15"
+                  values="15;9;15"
+                />
+                <animate
+                  attributeName="fill-opacity"
+                  begin="0s"
+                  calcMode="linear"
+                  dur="0.8s"
+                  from="1"
+                  repeatCount="indefinite"
+                  to="1"
+                  values="1;.5;1"
+                />
+              </circle>
+              <circle
+                attributeName="fill-opacity"
+                cx="60"
+                cy="15"
+                from="1"
+                r="9"
+                to="0.3"
+              >
+                <animate
+                  attributeName="r"
+                  begin="0s"
+                  calcMode="linear"
+                  dur="0.8s"
+                  from="9"
+                  repeatCount="indefinite"
+                  to="9"
+                  values="9;15;9"
+                />
+                <animate
+                  attributeName="fill-opacity"
+                  begin="0s"
+                  calcMode="linear"
+                  dur="0.8s"
+                  from="0.5"
+                  repeatCount="indefinite"
+                  to="0.5"
+                  values=".5;1;.5"
+                />
+              </circle>
+              <circle
+                cx="105"
+                cy="15"
+                r="15"
+              >
+                <animate
+                  attributeName="r"
+                  begin="0s"
+                  calcMode="linear"
+                  dur="0.8s"
+                  from="15"
+                  repeatCount="indefinite"
+                  to="15"
+                  values="15;9;15"
+                />
+                <animate
+                  attributeName="fill-opacity"
+                  begin="0s"
+                  calcMode="linear"
+                  dur="0.8s"
+                  from="1"
+                  repeatCount="indefinite"
+                  to="1"
+                  values="1;.5;1"
+                />
+              </circle>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuItems should render Preloader when fetching caterer items 1`] = `
+<div>
+  <div
+    class="main-preloader menu-preloader"
+  >
+    <div
+      aria-busy="true"
+      aria-label="revolving-dot-loading"
+      class="sc-beySPh gZmPOF loader"
+      data-testid="revolving-dot-loading"
+      role="progressbar"
+    >
+      <svg
+        data-testid="revolving-dot-svg"
+        height="calc(45 * 2.5)"
+        version="1.1"
+        width="calc(45 * 2.5)"
+        x="0px"
+        xmlns="http://www.w3.org/2000/svg"
+        y="0px"
+      >
+        <circle
+          cx="calc(45 * 1.28)"
+          cy="calc(45 * 1.28)"
+          fill="none"
+          r="45"
+          stroke="#4fa94d"
+          stroke-width="5"
+          style="opacity: 0.5;"
+        />
+        <circle
+          cx="calc(45 * 1.28)"
+          cy="calc(45 / 3.5)"
+          fill="#4fa94d"
+          r="calc(45 / 5)"
+          stroke="#4fa94d"
+          stroke-width="3"
+          style="transform-origin: 50% 50%;"
+        >
+          <animatetransform
+            attributeName="transform"
+            dur="2s"
+            from="0"
+            repeatCount="indefinite"
+            to="360"
+            type="rotate"
+          />
+        </circle>
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuItems should render connected Menu component 1`] = `
+<div>
+  <div
+    class="card-group meals-wrapper"
+    id="card-group"
+  >
+    <div
+      class="infinite-scroll-component__outerdiv"
+    >
+      <div
+        class="infinite-scroll-component "
+        style="height: auto; overflow: auto;"
+      >
+        <div
+          class="scroller"
+        >
+          <div
+            class="meal-card customer-meal-card"
+            id="81211c24-51c0-46ec-b1e0-18db55880958"
+          >
+            <div
+              class="meal-card-header"
+            >
+              <img
+                alt="meal"
+                src="http://www.preciouscore.com/wp-content/uploads/2017/11/How-to-cook-jollof-rice-in-the-oven-750x500.jpg"
+              />
+              <div
+                class="menu-card-title"
+              >
+                <p>
+                  Jollof Rice, Beef and Plantain
+                </p>
+              </div>
+            </div>
+            <div
+              class="meal-card-body"
+            >
+              <div>
+                <h3>
+                  ₦
+                  1500.00
+                </h3>
+                <p
+                  class="meal-description"
+                  data-tooltip-content="Jollof Rice, Beef and Plantain. 2 pieces of beef per plate"
+                  data-tooltip-id="meal-card-tooltip"
+                >
+                  Jollof Rice, Beef and Plantain. 2 pieces of beef per plate
+                </p>
+              </div>
+              <div
+                class="meal-card-action"
+              >
+                <button
+                  class="btn btn-sec meal-card-btn"
+                  disabled=""
+                  type="button"
+                >
+                  Added To Basket
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="meal-card customer-meal-card"
+            id="36d525d1-efc9-4b75-9999-3e3d8dc64ce3"
+          >
+            <div
+              class="meal-card-header"
+            >
+              <span
+                class="veg-ribbon"
+              >
+                Vegetarian
+              </span>
+              <img
+                alt="meal"
+                src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=350"
+              />
+              <div
+                class="menu-card-title"
+              >
+                <p>
+                  Vegetable Sharwama and Guava Smoothie
+                </p>
+              </div>
+            </div>
+            <div
+              class="meal-card-body"
+            >
+              <div>
+                <h3>
+                  ₦
+                  1200.00
+                </h3>
+                <p
+                  class="meal-description"
+                  data-tooltip-content="Sharwama contains no animal products, perfect for dieters"
+                  data-tooltip-id="meal-card-tooltip"
+                >
+                  Sharwama contains no animal products, perfect for dieters
+                </p>
+              </div>
+              <div
+                class="meal-card-action"
+              >
+                <button
+                  class="btn btn-sec meal-card-btn"
+                  disabled=""
+                  type="button"
+                >
+                  Added To Basket
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuItems should render message when there are no meals 1`] = `
+<div>
+  <p
+    class="text-center info"
+  >
+    No Meals Found
+  </p>
+</div>
+`;
