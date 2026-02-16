@@ -109,7 +109,7 @@ Version 1 can be found [here](https://github.com/iverenshaguy/book-a-meal/tree/v
 * Clone this repository
 * Use the `.env.example` file to setup your environmental variables and rename the file to `.env`
 * Run `npm install` to install all dependencies
-* Run `npm run start:dev` in development to use [Nodemon](https://nodemon.io/)
+* Run `npm run start:dev` in development to use [Webpack](https://webpack.js.org/)
 * You will need to clone and install the corresponding API at https://github.com/iverenshaguy/book-a-meal-api
 
 ### Testing
