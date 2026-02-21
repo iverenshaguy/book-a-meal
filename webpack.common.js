@@ -58,6 +58,10 @@ module.exports = {
     ],
   },
   resolve: {
+    alias: {
+      src: path.resolve(__dirname, 'src'),
+      public: path.resolve(__dirname, 'public'),
+    },
     modules: [
       path.resolve(__dirname, 'src'),
       path.resolve(__dirname, 'public'),
