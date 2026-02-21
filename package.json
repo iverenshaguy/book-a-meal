@@ -13,7 +13,7 @@
     "coverage": "run-s create:coverage:folder sed:lcov merge:lcov push:coverage:coveralls",
     "lint": "eslint '**/*.{js,jsx}' --fix",
     "start": "node ./scripts/server.js",
-    "start:dev": "webpack-dev-server --config webpack.dev.js",
+    "dev": "webpack-dev-server --config webpack.dev.js",
     "generate-certs": "bash scripts/generate-certs.sh",
     "test": "NODE_ENV=jsdom jest --env=jsdom",
     "test:watch": "npm run test --watch",

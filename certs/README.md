@@ -26,7 +26,7 @@ This creates `server.crt` and `server.key` in this directory. They are gitignore
 After generating certs, start the dev server:
 
 ```bash
-yarn start:dev
+yarn dev
 ```
 
 The app opens at **https://book-a-meal.local:3000**. If the cert files are missing, the dev server still runs over HTTP (and will open the default URL).

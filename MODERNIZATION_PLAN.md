@@ -95,9 +95,9 @@ npm update firebase@^11
 
 ---
 
-### Phase 2: Testing Infrastructure (Medium Risk)
+### Phase 2: Testing Infrastructure & Absolute Imports (Medium Risk)
 
-**Goal:** Migrate from Enzyme to React Testing Library
+**Goal:** Migrate from Enzyme to React Testing Library; implement absolute imports (`@app/`) for app and tests
 
 #### 2.1 Install React Testing Library
 ```bash
@@ -120,6 +120,54 @@ Create `src/setupTests.js`:
 import '@testing-library/jest-dom';
 ```
 
+#### 2.3 Absolute Imports Implementation
+
+Use path aliases so imports use `src/` instead of long relative paths (`../../../`).
+
+**Dependencies:**
+```bash
+npm install --save-dev babel-plugin-module-resolver eslint-import-resolver-babel-module
+```
+
+**Babel** (`babel.config.json`): Add `babel-plugin-module-resolver` with `@app` as the app-root alias (builds into `dist`):
+```json
+{
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./"],
+      "alias": {
+        "@app": "./src",
+        "store": "./src/store",
+        "config": "./src/config",
+        "features": "./src/features"
+      }
+    }]
+  ]
+}
+```
+
+**ESLint** (`.eslintrc`): Configure import resolver so ESLint understands the aliases:
+```json
+{
+  "settings": {
+    "import/resolver": { "babel-module": {} }
+  }
+}
+```
+
+**Jest:** Uses `babel-jest` with the same Babel config, so `@app/` imports resolve automatically. No extra `moduleNameMapper` needed for path aliases.
+
+**Example usage:**
+```javascript
+// Before (relative)
+import { errorHandler } from '../../../features/common/utils/errorHandler';
+
+// After (absolute, @app for dist builds)
+import errorHandler from '@app/features/common/utils/errorHandler';
+```
+
+**Deliverable:** All app and test imports use `@app/` (or other aliases); ESLint, Jest, and Webpack resolve them correctly.
+
 #### 2.4 Fix redux-mock-store deprecation
 
 `configureStore` from `redux-mock-store` is deprecated. The Redux team recommends testing with a real store where possible, since a mock store does not update state when actions are dispatched.
@@ -137,8 +185,8 @@ import { legacy_configureStore as configureStore } from 'redux-mock-store';
 ```javascript
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from 'src/store/rootReducer';
-import { initialState } from 'src/config/tests/fixtures';
+import rootReducer from '@app/store/rootReducer';
+import { initialState } from '@app/config/tests/fixtures';
 
 const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
 // Then render with <Provider store={store}>…
@@ -660,7 +708,7 @@ In `package.json`:
 ```json
 {
   "scripts": {
-    "start:dev": "snowpack dev",
+    "dev": "snowpack dev",
     "build": "snowpack build"
   }
 }
@@ -676,7 +724,7 @@ In `package.json`:
 
 #### 8.5 Rollback
 - Keep `webpack.dev.js` and `scripts/build.sh` until Snowpack is fully validated
-- Use `start:dev:webpack` as a fallback script during migration
+- Use `dev:webpack` as a fallback script during migration
 
 **Deliverable:** Snowpack dev server running; optional: Snowpack production build replacing Webpack
 
