@@ -8,7 +8,7 @@ import CloseIcon from 'src/features/common/components/CloseIcon';
 import { connect } from 'react-redux';
 import { toggleModal } from 'src/features/common/data/actions';
 
-import './Modal.scss';
+import 'src/features/common/components/Modal/Modal.scss';
 
 /**
  * @exports
@@ -131,6 +131,7 @@ export class Modal extends Component {
 const mapStateToProps = (state) => ({
   open: state.ui.modals.open,
   type: state.ui.modals.type,
+  submitting: state.meals?.working ?? false,
 });
 
 export default connect(mapStateToProps, { toggleModal })(Modal);

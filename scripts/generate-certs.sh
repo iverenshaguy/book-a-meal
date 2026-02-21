@@ -22,4 +22,4 @@ mkcert -cert-file "$CERTS_DIR/server.crt" -key-file "$CERTS_DIR/server.key" loca
 echo "Certificates written to $CERTS_DIR/"
 echo "  server.crt  (certificate)"
 echo "  server.key  (private key)"
-echo "Run 'yarn start:dev' and open https://book-a-meal.local:3000"
+echo "Run 'yarn dev' and open https://book-a-meal.local:3000"

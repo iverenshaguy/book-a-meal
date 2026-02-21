@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 import { toggleSideNav } from 'src/features/common/data/actions';
 
-import './SideNav.scss';
+import 'src/features/common/components/SideNav/SideNav.scss';
 
 /**
  * @exports

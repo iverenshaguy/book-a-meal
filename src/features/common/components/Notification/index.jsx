@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Notification.scss';
+import 'src/features/common/components/Notification/Notification.scss';
 
 /**
  * @exports

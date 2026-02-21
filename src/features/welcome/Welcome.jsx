@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Header from 'src/features/common/components/Header';
 import Footer from 'src/features/common/components/Footer';
-import Dashboard from 'src/features/dashboard';
-import Menu from 'src/features/menu';
+import Dashboard from 'src/features/dashboard/Dashboard';
+import Menu from 'src/features/menu/Menu';
 import Preloader from 'src/features/common/components/Preloader';
 import { userPropTypes } from 'src/features/common/utils/proptypes';
-import './Welcome.scss';
+import 'src/features/welcome/Welcome.scss';
 
 const message = "I'M HUNGRY";
 

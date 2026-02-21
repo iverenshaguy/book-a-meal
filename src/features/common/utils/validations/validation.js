@@ -18,7 +18,7 @@ import {
   isPhoneNumber,
   isBusinessName,
   isValidPasswordConfirm
-} from './validationTypes';
+} from 'src/features/common/utils/validations/validationTypes';
 
 const validation = {
   signin: {

@@ -1,4 +1,4 @@
-import errorResponse from './errorResponse';
+import errorResponse from 'src/features/common/utils/errorResponse';
 
 /**
  * Handle HTTP errors

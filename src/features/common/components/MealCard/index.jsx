@@ -5,7 +5,7 @@ import Dropdown from 'src/features/common/components/Dropdown';
 import LinkBtn from 'src/features/common/components/Link';
 import { mealObjPropTypes } from 'src/features/common/utils/proptypes';
 import checkShopOpen from 'src/features/common/utils/checkShopOpen';
-import './MealCard.scss';
+import 'src/features/common/components/MealCard/MealCard.scss';
 
 /**
  * @exports

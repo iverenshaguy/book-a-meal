@@ -21,29 +21,21 @@
     [
       "module-resolver",
       {
-        "root": ["./"],
+        "root": [
+          "./"
+        ],
         "alias": {
-          "public": "./public",
           "src": "./src",
-          "features": "./src/features",
-          "actions": "./src/actions",
-          "reducers": "./src/reducers",
-          "store": "./src/store",
-          "utils": "./src/utils",
-          "styles": "./src/styles",
-          "assets": "./src/assets",
-          "config": "./src/config",
-          "constants": "./src/constants",
-          "services": "./src/services",
-          "hooks": "./src/hooks",
-          "hoc": "./src/hoc"
+          "public": "./public"
         }
       }
     ]
   ],
   "env": {
     "test": {
-      "plugins": ["istanbul"]
+      "plugins": [
+        "istanbul"
+      ]
     },
     "jsdom": {
       "plugins": []

@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import { render, screen } from '@testing-library/react';
-import WrappedAuth, { Auth } from 'src/features/auth';
+import WrappedAuth, { Auth } from 'src/features/auth/Auth';
 import { initialState } from 'src/config/tests/fixtures';
 
 const middlewares = [thunk];

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from 'src/features/common/components/Header';
 import Footer from 'src/features/common/components/Footer';
-import './NotFound.scss';
+import 'src/features/not-found/NotFound.scss';
 
 /**
  * @exports

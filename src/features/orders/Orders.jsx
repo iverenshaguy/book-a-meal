@@ -13,7 +13,7 @@ import {
   customerOrderObjPropTypes,
 } from 'src/features/common/utils/proptypes';
 import InfiniteLoader from 'src/features/common/components/InfiniteLoader';
-import './Orders.scss';
+import 'src/features/orders/Orders.scss';
 
 /**
  * @exports

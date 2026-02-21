@@ -1,22 +1,22 @@
 import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Welcome from 'src/features/welcome';
+import Welcome from 'src/features/welcome/Welcome';
 import AuthenticateRole from 'src/features/auth/hoc/AuthenticateRole';
 import AuthenticateUser from 'src/features/auth/hoc/AuthenticateUser';
 import Preloader from 'src/features/common/components/Preloader';
 import 'public/scss/style.scss';
 
-const NotFound = lazy(() => import(/* webpackChunkName: "AsyncNotFound" */ 'src/features/not-found'));
-const Auth = lazy(() => import(/* webpackChunkName: "AsyncAuth" */ 'src/features/auth'));
+const NotFound = lazy(() => import(/* webpackChunkName: "AsyncNotFound" */ 'src/features/not-found/NotFound'));
+const Auth = lazy(() => import(/* webpackChunkName: "AsyncAuth" */ 'src/features/auth/Auth'));
 const Password = lazy(() => import(/* webpackChunkName: "AsyncPassword" */ 'src/features/auth/Password'));
-const Meals = lazy(() => import(/* webpackChunkName: "AsyncMeals" */ 'src/features/meals'));
-const Menu = lazy(() => import(/* webpackChunkName: "AsyncMenu" */ 'src/features/menu'));
-const Orders = lazy(() => import(/* webpackChunkName: "AsyncOrders" */ 'src/features/orders'));
+const Meals = lazy(() => import(/* webpackChunkName: "AsyncMeals" */ 'src/features/meals/Meals'));
+const Menu = lazy(() => import(/* webpackChunkName: "AsyncMenu" */ 'src/features/menu/Menu'));
+const Orders = lazy(() => import(/* webpackChunkName: "AsyncOrders" */ 'src/features/orders/Orders'));
 const OrderReview = lazy(
   () => import(/* webpackChunkName: "AsyncOrderReview" */ 'src/features/orders/customer/OrderReview')
 );
-const OrderDetails = lazy(() => import(/* webpackChunkName: "AsyncOrderDetails" */ 'src/features/order-details'));
+const OrderDetails = lazy(() => import(/* webpackChunkName: "AsyncOrderDetails" */ 'src/features/order-details/OrderDetails'));
 const OrderConfirmation = lazy(
   () => import(/* webpackChunkName: "AsyncOrderConfirmation" */ 'src/features/orders/customer/OrderConfirmation')
 );
@@ -26,7 +26,7 @@ const OrderConfirmation = lazy(
  * @returns {component} Routes
  */
 const Routes = () => (
-  <Suspense fallback={Preloader}>
+  <Suspense fallback={<Preloader />}>
     <Switch>
       <Route exact path="/">
         <Welcome />
