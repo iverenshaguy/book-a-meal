@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { Welcome } from 'src/features/welcome';
+import { Welcome } from 'src/features/welcome/Welcome';
 import { caterer, customer } from 'src/config/tests/fixtures';
 import initialState from 'src/features/common/__mocks__/store';
 

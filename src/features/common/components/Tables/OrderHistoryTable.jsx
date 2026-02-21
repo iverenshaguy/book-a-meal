@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import LinkBtn from 'src/features/common/components/Link';
 import { calculateCashEarnedFromOrder } from 'src/features/common/utils/';
 import { catererOrderObjPropTypes } from 'src/features/common/utils/proptypes';
-import './Table.scss';
+import 'src/features/common/components/Tables/Table.scss';
 
 /**
  * @exports

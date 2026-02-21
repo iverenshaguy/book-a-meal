@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import { render } from '@testing-library/react';
-import WrappedDashboard, { Dashboard } from 'src/features/dashboard';
+import WrappedDashboard, { Dashboard } from 'src/features/dashboard/Dashboard';
 import { caterer, caterersOrdersObj, initialState } from 'src/config/tests/fixtures';
 
 const middlewares = [thunk];

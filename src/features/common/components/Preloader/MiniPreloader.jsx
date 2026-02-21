@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 
-import './Preloader.scss';
+import 'src/features/common/components/Preloader/Preloader.scss';
 
 /**
  * @exports

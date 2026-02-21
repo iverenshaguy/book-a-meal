@@ -17,7 +17,7 @@ import {
   clearMenuError,
 } from 'src/features/menu/data/actions';
 
-import './MenuForm.scss';
+import 'src/features/common/components/Form/MenuForm/MenuForm.scss';
 
 /**
  * @exports

@@ -3,9 +3,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
-import store from 'store/configureStore';
+import store from 'src/store/configureStore';
 import refreshPage from 'src/features/common/utils/refreshPage';
-import App from 'src/features/app';
+import App from 'src/features/app/App';
 
 refreshPage(store);
 
@@ -28,7 +28,7 @@ const renderApp = (Root) => {
 renderApp(App);
 
 if (module.hot) {
-  module.hot.accept('./features/app', () => {
+  module.hot.accept('src/features/app/App', () => {
     renderApp(App);
   });
 }

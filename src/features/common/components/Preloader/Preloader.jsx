@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { RevolvingDot } from 'react-loader-spinner';
-import './Preloader.scss';
+import 'src/features/common/components/Preloader/Preloader.scss';
 
 /**
  * @exports

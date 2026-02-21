@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import { render } from '@testing-library/react';
-import WrappedOrders, { Orders } from 'src/features/orders';
+import WrappedOrders, { Orders } from 'src/features/orders/Orders';
 import {
   caterer,
   caterersOrdersObj,

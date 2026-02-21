@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import WrappedMeals, { Meals } from 'src/features/meals';
+import WrappedMeals, { Meals } from 'src/features/meals/Meals';
 import { caterer, mealsObj, initialState, metadata } from 'src/config/tests/fixtures';
 
 const middlewares = [thunk];

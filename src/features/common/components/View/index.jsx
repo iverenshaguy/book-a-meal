@@ -10,7 +10,7 @@ import Footer from 'src/features/common/components/Footer';
 import Preloader from 'src/features/common/components/Preloader';
 import { userPropTypes } from 'src/features/common/utils/proptypes';
 import { logout as logoutAction } from 'src/features/auth/data/actions';
-import './View.scss';
+import 'src/features/common/components/View/View.scss';
 
 /**
  * @exports

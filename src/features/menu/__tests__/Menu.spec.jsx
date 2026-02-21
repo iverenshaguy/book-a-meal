@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import { render } from '@testing-library/react';
-import Menu from 'src/features/menu/index';
+import Menu from 'src/features/menu/Menu';
 import { caterer, customer, initialState } from 'src/config/tests/fixtures';
 
 const mockStore = configureStore([thunk]);

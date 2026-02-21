@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import { render } from '@testing-library/react';
-import OrderDetails from 'src/features/order-details';
+import OrderDetails from 'src/features/order-details/OrderDetails';
 import { caterer, customer, initialState, caterersOrdersObj, customersOrdersObj } from 'src/config/tests/fixtures';
 
 const mockStore = configureStore([thunk]);

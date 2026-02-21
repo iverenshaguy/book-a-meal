@@ -6,8 +6,8 @@ import LinkBtn from 'src/features/common/components/Link';
 import { orderItemPropTypes } from 'src/features/common/utils/proptypes';
 import checkShopOpen from 'src/features/common/utils/checkShopOpen';
 import calculateCashEarnedFromOrder from 'src/features/common/utils/calculateCashEarnedFromOrder';
-import CloseIcon from '../CloseIcon';
-import './Cart.scss';
+import CloseIcon from 'src/features/common/components/CloseIcon';
+import 'src/features/common/components/Cart/Cart.scss';
 
 /**
  * @exports

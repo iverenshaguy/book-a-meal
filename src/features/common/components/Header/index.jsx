@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import CatererHeader from 'src/features/common/components/Header/CatererHeader';
 import CustomerHeader from 'src/features/common/components/Header/CustomerHeader';
 import { userPropType } from 'src/features/common/utils/proptypes';
-import './Header.scss';
+import 'src/features/common/components/Header/Header.scss';
 
 /**
  * @exports

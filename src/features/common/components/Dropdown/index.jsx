@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import LinkBtn from 'src/features/common/components/Link';
-import './Dropdown.scss';
+import 'src/features/common/components/Dropdown/Dropdown.scss';
 
 /**
  * @exports
